@@ -18,6 +18,8 @@ export interface ButtonProps extends HTMLButtonElement {
   iconSize?: number
   isLoading?: boolean
   isDisabled?: boolean
+  className?: string
+  justIcon?: boolean
 }
 
 const ICONS_SIZE = {
@@ -36,11 +38,14 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   iconSize: initialIconSize,
   isLoading,
   isDisabled,
+  className,
+  justIcon,
   children,
   ...props
 }) => {
   const disabled = isLoading || isDisabled
-  const iconSize = initialIconSize || ICONS_SIZE[size]
+  const defaultIconSize = initialIconSize || ICONS_SIZE[size]
+  const iconSize = justIcon ? defaultIconSize + 2 : defaultIconSize
 
   const iconLeft =
     typeof leftIcon === 'string' ? (
@@ -62,10 +67,12 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
       disabled={disabled}
       className={cx(
         { disabled },
+        className,
         styles.button({
           size,
           variant,
           disabled,
+          justIcon,
           color: color as any,
         })
       )}

@@ -105,6 +105,10 @@ export const button = css({
     disabled: {
       true: tw`opacity-60 cursor-default`,
     },
+
+    justIcon: {
+      true: tw`min-w-auto`,
+    },
   },
 
   compoundVariants: [
@@ -134,6 +138,11 @@ export const button = css({
       variant: 'link',
       css: createLinkVariant(key),
     })),
+
+    { size: 'xs', justIcon: true, css: tw`px-2` },
+    { size: 'sm', justIcon: true, css: tw`px-2` },
+    { size: 'md', justIcon: true, css: tw`px-3` },
+    { size: 'lg', justIcon: true, css: tw`px-4` },
   ],
 
   defaultVariants: {
