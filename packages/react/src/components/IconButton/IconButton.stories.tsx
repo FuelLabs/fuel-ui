@@ -1,4 +1,4 @@
-import { css } from '@fuel/theme'
+import { css } from '@fuel/css'
 
 import { IconButton, IconButtonProps } from './IconButton'
 
@@ -8,7 +8,12 @@ export default {
 }
 
 export const Usage = (args: IconButtonProps) => (
-  <div className={css('flex gap-2')()}>
+  <div className={styles()}>
     <IconButton {...args} aria-label="Button" icon="BiCalendar" />
   </div>
 )
+
+const styles = css({
+  display: 'flex',
+  gap: '$2',
+})

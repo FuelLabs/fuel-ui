@@ -1,8 +1,5 @@
-/// <reference types="@stitches/react" />
-
-import { ColorKeys, allColorKeys } from '@fuel/theme'
-import { css, colors } from '@fuel/theme'
-import tw from 'twin.macro'
+import { ColorKeys, allColorKeys } from '@fuel/css'
+import { css, colors } from '@fuel/css'
 import Color from 'color'
 
 function createSolidVariant(keyColor: ColorKeys) {
@@ -56,32 +53,58 @@ function createLinkVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
   const textColor = `$${color}600`
   return {
-    ...tw`p-0 h-auto min-w-auto bg-transparent border-transparent border-none shadow-none`,
-    ...tw`hover:(bg-transparent underline)`,
+    p: '0',
+    height: 'auto',
+    minW: 'auto',
+    background: 'transparent',
+    borderColor: 'transparent',
+    boxShadow: 'none',
     color: textColor,
+    '&:hover': {
+      background: 'transparent',
+      textDecoration: 'underline',
+    },
   }
 }
 
 export const button = css({
-  ...tw`
-    appearance-none inline-flex items-center justify-center
-    border border-transparent rounded-lg transition-all
-    focus:(z-0)
-  `,
+  appearance: 'none',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: '1px solid transparent',
+  borderRadius: '$lg',
+  transition: 'all',
 
   variants: {
     size: {
       xs: {
-        ...tw`gap[5px] px-2 text-xs h-7 min-w-6`,
+        gap: '5px',
+        px: '$2',
+        fontSize: '$xs',
+        height: '$7',
+        minW: '$6',
       },
       sm: {
-        ...tw`gap-2 px-3 text-sm h-8 min-w-9`,
+        gap: '$2',
+        px: '$3',
+        fontSize: '$sm',
+        height: '$8',
+        minW: '$9',
       },
       md: {
-        ...tw`gap-2 px-4 text-base h-10 min-w-14`,
+        gap: '$2',
+        px: '$4',
+        fontSize: '$base',
+        height: '$10',
+        minW: '$14',
       },
       lg: {
-        ...tw`gap-3 px-5 text-lg h-12 min-w-20`,
+        gap: '$3',
+        px: '$5',
+        fontSize: '$lg',
+        height: '$12',
+        minW: '$20',
       },
     },
 
@@ -96,18 +119,20 @@ export const button = css({
       solid: {},
       outlined: {},
       ghost: {},
-      link: {
-        ...tw`p-0 h-auto min-w-auto border-none shadow-none`,
-        '&:not(.disabled):hover': tw`underline`,
-      },
+      link: {},
     },
 
     disabled: {
-      true: tw`opacity-60 cursor-default`,
+      true: {
+        opacity: '0.6',
+        cursor: 'default',
+      },
     },
 
     justIcon: {
-      true: tw`min-w-auto`,
+      true: {
+        minW: 'auto',
+      },
     },
   },
 
@@ -139,10 +164,29 @@ export const button = css({
       css: createLinkVariant(key),
     })),
 
-    { size: 'xs', justIcon: true, css: tw`px-2` },
-    { size: 'sm', justIcon: true, css: tw`px-2` },
-    { size: 'md', justIcon: true, css: tw`px-3` },
-    { size: 'lg', justIcon: true, css: tw`px-4` },
+    /**
+     * Sizes when with just icon prop
+     */
+    {
+      size: 'xs',
+      justIcon: true,
+      css: { px: '$2' },
+    },
+    {
+      size: 'sm',
+      justIcon: true,
+      css: { px: '$2' },
+    },
+    {
+      size: 'md',
+      justIcon: true,
+      css: { px: '$3' },
+    },
+    {
+      size: 'lg',
+      justIcon: true,
+      css: { px: '$4' },
+    },
   ],
 
   defaultVariants: {

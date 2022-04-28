@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Colors, cx, css } from '@fuel/theme'
+import { Colors, cx, css } from '@fuel/css'
 import * as IconSet from 'react-icons/bi'
 
 export type Icons = keyof typeof IconSet

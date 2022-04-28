@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react'
-import { css, colors, keyframes, ColorKeys, Colors } from '@fuel/theme'
+import { css, colors, keyframes, ColorKeys, Colors } from '@fuel/css'
 
 export interface SpinnerProps {
   size?: number

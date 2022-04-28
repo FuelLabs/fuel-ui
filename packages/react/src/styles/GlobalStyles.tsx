@@ -1,18 +1,19 @@
 import '@fontsource/inter/variable.css'
 
-import tw, { theme, globalStyles } from 'twin.macro'
-import { globalCss } from '../../stitches.config'
+import { colors, globalCss } from '@fuel/css'
+import { opinionated } from './normalize'
 
 const customStyles = {
   body: {
-    WebkitTapHighlightColor: theme`colors.primary500`,
-    ...tw`antialiased`,
+    WebkitTapHighlightColor: colors.primary500,
+    '-webkit-font-smoothing': 'antialiased',
+    '-moz-osx-font-smoothing': 'grayscale',
   },
 }
 
 const styles = () => {
+  globalCss(opinionated)()
   globalCss(customStyles)()
-  globalCss(globalStyles as Record<any, any>)()
 }
 
 export const GlobalStyles = () => {

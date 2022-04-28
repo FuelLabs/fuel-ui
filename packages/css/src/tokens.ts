@@ -1,4 +1,4 @@
-export const spacing = {
+export const space = {
   px: '1px',
   0: '0px',
   '0.5': '0.125rem',
@@ -37,7 +37,7 @@ export const spacing = {
 }
 
 export const sizes = {
-  ...spacing,
+  ...space,
   auto: 'auto',
   none: 'none',
   0: '0rem',
@@ -60,13 +60,13 @@ export const sizes = {
   screenH: '100vh',
 }
 
-export const fontFamily = {
-  sans: ['InterVariable', 'sans-serif'],
-  display: ['RalewayVariable', 'sans-serif'],
-  heading: ['RalewayVariable', 'sans-serif'],
+export const fonts = {
+  sans: '"InterVariable", sans-serif',
+  display: '"RalewayVariable", sans-serif',
+  heading: '"RalewayVariable", sans-serif',
 }
 
-export const fontSize = {
+export const fontSizes = {
   xs: '0.75rem',
   sm: '0.875rem',
   base: '1rem',
@@ -82,7 +82,7 @@ export const fontSize = {
   '9xl': '8rem',
 }
 
-export const fontWeight = {
+export const fontWeights = {
   thin: '100',
   extralight: '200',
   light: '300',
@@ -94,7 +94,7 @@ export const fontWeight = {
   black: '900',
 }
 
-export const letterSpacing = {
+export const letterSpacings = {
   tighter: '-0.05em',
   tight: '-0.025em',
   normal: '0em',
@@ -103,7 +103,7 @@ export const letterSpacing = {
   widest: '0.1em',
 }
 
-export const lineHeight = {
+export const lineHeights = {
   none: '1',
   tight: '1.25',
   snug: '1.375',
@@ -120,7 +120,7 @@ export const lineHeight = {
   10: '2.5rem',
 }
 
-export const borderRadius = {
+export const radii = {
   none: '0px',
   sm: '0.125rem',
   DEFAULT: '0.25rem',
@@ -132,7 +132,7 @@ export const borderRadius = {
   full: '9999px',
 }
 
-export const boxShadow = {
+export const shadows = {
   sm: '0 1px 2px 0 rgb(0 0 0 / 0.1)',
   DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
   md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
@@ -143,7 +143,7 @@ export const boxShadow = {
   none: 'none',
 }
 
-export const zIndex = {
+export const zIndices = {
   auto: 'auto',
   0: '0',
   10: '10',

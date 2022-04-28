@@ -1,5 +1,4 @@
-import 'twin.macro'
-import { ColorKeys, cx } from '@fuel/theme'
+import { ColorKeys, cx } from '@fuel/css'
 import { cloneElement, ReactElement } from 'react'
 import { FC, PropsWithChildren } from 'react'
 import { Icon, Icons } from '../Icon'

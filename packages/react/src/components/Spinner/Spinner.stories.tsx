@@ -1,5 +1,4 @@
-import { css } from '@fuel/theme'
-import tw from 'twin.macro'
+import { css } from '@fuel/css'
 
 import { Spinner } from './Spinner'
 
@@ -9,9 +8,15 @@ export default {
 }
 
 export const Usage = () => (
-  <div className={css(tw`flex items-center gap-4`)()}>
+  <div className={style()}>
     <Spinner />
     <Spinner size={30} color="indigo" />
     <Spinner size={50} color="slate" />
   </div>
 )
+
+const style = css({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '$2',
+})

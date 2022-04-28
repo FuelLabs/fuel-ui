@@ -1,6 +1,5 @@
-import { allColorKeys } from '@fuel/theme'
-import { css } from '@fuel/theme'
-import tw from 'twin.macro'
+import { allColorKeys } from '@fuel/css'
+import { css } from '@fuel/css'
 
 import { Button, ButtonProps } from './Button'
 import { Icon } from '../Icon'
@@ -33,7 +32,7 @@ export default {
 }
 
 export const Sizes = (args: ButtonProps) => (
-  <div className={css(tw`flex space-x-2`)()}>
+  <div className={styles.wrapper()}>
     <Button {...args} size="xs">
       Button
     </Button>
@@ -50,7 +49,7 @@ export const Sizes = (args: ButtonProps) => (
 )
 
 export const Variants = (args: ButtonProps) => (
-  <div className={css(tw`flex items-center gap-2`)()}>
+  <div className={styles.wrapper()}>
     <Button {...args} variant="solid">
       Button
     </Button>
@@ -67,7 +66,7 @@ export const Variants = (args: ButtonProps) => (
 )
 
 export const Colors = (args: ButtonProps) => (
-  <div className={css(tw`grid gap-4 grid-cols-6`)()}>
+  <div className={styles.gridList()}>
     {allColorKeys.map((color) => (
       <Button key={color} {...args} color={color}>
         Button
@@ -77,7 +76,7 @@ export const Colors = (args: ButtonProps) => (
 )
 
 export const WithIcon = (args: ButtonProps) => (
-  <div className={css(tw`flex gap-4`)()}>
+  <div className={styles.wrapper()}>
     <Button {...args} leftIcon="BiCalendar">
       Button
     </Button>
@@ -88,7 +87,7 @@ export const WithIcon = (args: ButtonProps) => (
 )
 
 export const Loading = (args: ButtonProps) => (
-  <div className={css(tw`flex gap-4`)()}>
+  <div className={styles.wrapper()}>
     <Button {...args} isLoading>
       Button
     </Button>
@@ -96,9 +95,25 @@ export const Loading = (args: ButtonProps) => (
 )
 
 export const Disabled = (args: ButtonProps) => (
-  <div className={css(tw`flex gap-4`)()}>
+  <div className={styles.wrapper()}>
     <Button {...args} isDisabled>
       Button
     </Button>
   </div>
 )
+
+/**
+ * Styles
+ */
+const styles = {
+  wrapper: css({
+    display: 'flex',
+    alignItems: 'center',
+    gap: '$4',
+  }),
+  gridList: css({
+    display: 'grid',
+    gap: '$4',
+    gridTemplateColumns: 'repeat(6, 1fr)',
+  }),
+}

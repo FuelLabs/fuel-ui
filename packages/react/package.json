@@ -12,14 +12,13 @@
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.7",
-    "@fuel/theme": "workspace:*",
+    "@fuel/css": "workspace:*",
     "@stitches/react": "^1.2.8",
     "color": "^4.2.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.3.1",
-    "react-use": "^17.3.2",
-    "twin.macro": "^2.8.2"
+    "react-use": "^17.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -29,18 +28,9 @@
     "@storybook/addon-links": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
-    "@tailwindcss/forms": "^0.5.0",
-    "@tailwindcss/typography": "^0.5.2",
     "@types/color": "^3.0.3",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.0",
-    "babel-loader": "^8.2.5",
-    "babel-plugin-macros": "^3.1.0"
-  },
-  "babelMacros": {
-    "twin": {
-      "preset": "stitches",
-      "stitchesConfig": "./stitches.config.ts"
-    }
+    "babel-loader": "^8.2.5"
   }
 }

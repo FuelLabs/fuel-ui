@@ -1,6 +1,6 @@
-import { composeUtil } from 'stitches-utils'
+import { composeUtil } from '../helpers/composeUtil'
 
-export const bg = composeUtil('backgroundColor')
+export const bg = composeUtil(['backgroundColor'])
 
 export const linearGradient = (value: string) => ({
   backgroundImage: `linear-gradient(${value})`,

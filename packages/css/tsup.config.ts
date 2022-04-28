@@ -7,5 +7,4 @@ export default defineConfig((options) => ({
   sourcemap: true,
   clean: true,
   minify: !options.watch,
-  external: ['@tailwindcss/forms', '@tailwindcss/typography'],
 }))
