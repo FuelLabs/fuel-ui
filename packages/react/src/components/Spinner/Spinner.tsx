@@ -1,9 +1,9 @@
 import { FC, useMemo } from 'react'
-import { css, colors, keyframes, AllColorKeys } from '@fuel/theme'
+import { css, colors, keyframes, ColorKeys, Colors } from '@fuel/theme'
 
 export interface SpinnerProps {
   size?: number
-  color?: AllColorKeys
+  color?: Colors | ColorKeys | string
 }
 
 export const Spinner: FC<SpinnerProps> = ({ size = 24, color = 'primary' }) => {
@@ -15,7 +15,8 @@ export const Spinner: FC<SpinnerProps> = ({ size = 24, color = 'primary' }) => {
   )
 }
 
-function getStyles(size: number, color: AllColorKeys) {
+function getStyles(size: number, color: Colors | ColorKeys | string) {
+  const strokeColor = colors[color] || colors[`${color}500`] || color
   const animation = keyframes({
     '0%': {
       strokeDashoffset: 0.66 * size,
@@ -40,7 +41,7 @@ function getStyles(size: number, color: AllColorKeys) {
 
     circle: {
       fill: 'transparent',
-      stroke: colors[`${color}500`],
+      stroke: strokeColor,
       strokeWidth: size * 0.1,
       strokeLinecap: 'round',
       strokeDasharray: 3.14 * size,

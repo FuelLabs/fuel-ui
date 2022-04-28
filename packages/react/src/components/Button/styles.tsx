@@ -1,11 +1,11 @@
 /// <reference types="@stitches/react" />
 
-import { AllColorKeys, allColorKeys } from '@fuel/theme'
+import { ColorKeys, allColorKeys } from '@fuel/theme'
 import { css, colors } from '@fuel/theme'
 import tw from 'twin.macro'
 import Color from 'color'
 
-function createSolidVariant(keyColor: AllColorKeys) {
+function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
   const background = colors[`${color}500`]
   const borderColor = Color(background).darken(0.2).toString()
@@ -15,13 +15,13 @@ function createSolidVariant(keyColor: AllColorKeys) {
     borderColor: borderColor,
     background: `$${color}500`,
     color: `white`,
-    '&:hover': {
+    '&:not(.disabled):hover': {
       background: borderColor,
     },
   }
 }
 
-function createOutlinedVariant(keyColor: AllColorKeys) {
+function createOutlinedVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
   const textColor = `$${color}600`
   const borderColor = `$${color}500`
@@ -29,14 +29,14 @@ function createOutlinedVariant(keyColor: AllColorKeys) {
     borderColor,
     background: 'transparent',
     color: textColor,
-    '&:hover': {
+    '&:not(.disabled):hover': {
       color: 'white',
       background: borderColor,
     },
   }
 }
 
-function createGhostVariant(keyColor: AllColorKeys) {
+function createGhostVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
   const textColor = colors[`${color}600`]
   const background = colors[`${color}100`]
@@ -46,13 +46,13 @@ function createGhostVariant(keyColor: AllColorKeys) {
     color: textColor,
     boxShadow: 'none',
     borderColor: 'transparent',
-    '&:hover': {
+    '&:not(.disabled):hover': {
       background: hover,
     },
   }
 }
 
-function createLinkVariant(keyColor: AllColorKeys) {
+function createLinkVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
   const textColor = `$${color}600`
   return {
@@ -72,7 +72,7 @@ export const button = css({
   variants: {
     size: {
       xs: {
-        ...tw`gap-1 px-2 text-xs h-7 min-w-6`,
+        ...tw`gap[5px] px-2 text-xs h-7 min-w-6`,
       },
       sm: {
         ...tw`gap-2 px-3 text-sm h-8 min-w-9`,
@@ -96,10 +96,14 @@ export const button = css({
       solid: {},
       outlined: {},
       ghost: {},
-      link: tw`
-        p-0 h-auto min-w-auto border-none shadow-none
-        hover:(underline)
-      `,
+      link: {
+        ...tw`p-0 h-auto min-w-auto border-none shadow-none`,
+        '&:not(.disabled):hover': tw`underline`,
+      },
+    },
+
+    disabled: {
+      true: tw`opacity-60 cursor-default`,
     },
   },
 

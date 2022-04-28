@@ -86,3 +86,11 @@ export const WithIcon = (args: ButtonProps) => (
     </Button>
   </div>
 )
+
+export const Loading = (args: ButtonProps) => (
+  <div className={css(tw`flex gap-4`)()}>
+    <Button {...args} isLoading>
+      Button
+    </Button>
+  </div>
+)

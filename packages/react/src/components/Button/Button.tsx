@@ -1,20 +1,23 @@
 import 'twin.macro'
-import { AllColorKeys, cx } from '@fuel/theme'
+import { ColorKeys, cx } from '@fuel/theme'
 import { cloneElement, ReactElement } from 'react'
 import { FC, PropsWithChildren } from 'react'
 import { Icon, Icons } from '../Icon'
 
 import * as styles from './styles'
+import { Spinner } from '../Spinner'
 
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link'
 
 export interface ButtonProps extends HTMLButtonElement {
   size?: 'xs' | 'sm' | 'md' | 'lg'
-  color?: AllColorKeys
+  color?: ColorKeys
   variant?: ButtonVariants
   leftIcon?: Icons | ReactElement
   rightIcon?: Icons | ReactElement
   iconSize?: number
+  isLoading?: boolean
+  isDisabled?: boolean
 }
 
 const ICONS_SIZE = {
@@ -31,9 +34,12 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   leftIcon,
   rightIcon,
   iconSize: initialIconSize,
+  isLoading,
+  isDisabled,
   children,
   ...props
 }) => {
+  const disabled = isLoading || isDisabled
   const iconSize = initialIconSize || ICONS_SIZE[size]
 
   const iconLeft =
@@ -53,17 +59,21 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   return (
     <button
       {...props}
+      disabled={disabled}
       className={cx(
+        { disabled },
         styles.button({
           size,
           variant,
+          disabled,
           color: color as any,
         })
       )}
     >
-      {iconLeft && <span>{iconLeft}</span>}
+      {isLoading && <Spinner color="current" size={iconSize + 2} />}
+      {!isLoading && iconLeft && <span>{iconLeft}</span>}
       {children}
-      {iconRight && <span>{iconRight}</span>}
+      {!isLoading && iconRight && <span>{iconRight}</span>}
     </button>
   )
 }

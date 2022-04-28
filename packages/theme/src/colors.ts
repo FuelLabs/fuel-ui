@@ -261,7 +261,7 @@ export const colors = {
   rose900: '#881337',
 }
 
-export type AllColorKeys =
+export type ColorKeys =
   | 'primary'
   | 'slate'
   | 'gray'
@@ -290,6 +290,6 @@ export const allColorKeys = Array.from(
   new Set(
     Object.keys(colors)
       .filter((key) => !key.match(/inherit|current|transparent|black|white/))
-      .map((key) => key.match(/((\D+))/i)?.[0] as AllColorKeys)
+      .map((key) => key.match(/((\D+))/i)?.[0] as ColorKeys)
   )
 )
