@@ -1,5 +1,6 @@
 import { allColorKeys } from '@fuel/theme'
-import tw, { css } from 'twin.macro'
+import { css } from '@fuel/theme'
+import tw from 'twin.macro'
 
 import { Button, ButtonProps } from './Button'
 import { Icon } from '../Icon'

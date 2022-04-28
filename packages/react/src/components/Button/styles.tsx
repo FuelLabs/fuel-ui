@@ -1,12 +1,13 @@
 /// <reference types="@stitches/react" />
 
 import { AllColorKeys, allColorKeys } from '@fuel/theme'
-import tw, { css, theme } from 'twin.macro'
+import { css, colors } from '@fuel/theme'
+import tw from 'twin.macro'
 import Color from 'color'
 
 function createSolidVariant(keyColor: AllColorKeys) {
   const color = String(keyColor)
-  const background = theme()['colors'][`${color}500`]
+  const background = colors[`${color}500`]
   const borderColor = Color(background).darken(0.2).toString()
   return {
     boxShadow: `$sm`,
@@ -37,8 +38,8 @@ function createOutlinedVariant(keyColor: AllColorKeys) {
 
 function createGhostVariant(keyColor: AllColorKeys) {
   const color = String(keyColor)
-  const textColor = theme()['colors'][`${color}600`]
-  const background = theme()['colors'][`${color}100`]
+  const textColor = colors[`${color}600`]
+  const background = colors[`${color}100`]
   const hover = Color(background).darken(0.05).saturate(0.2).toString()
   return {
     background,

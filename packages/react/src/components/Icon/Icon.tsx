@@ -1,7 +1,6 @@
-import { Colors, cx } from '@fuel/theme'
 import { FC } from 'react'
+import { Colors, cx, css } from '@fuel/theme'
 import * as IconSet from 'react-icons/bi'
-import { css } from 'twin.macro'
 
 export type Icons = keyof typeof IconSet
 

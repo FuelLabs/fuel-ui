@@ -1,7 +1,5 @@
-import { createStitches } from '@fuel/theme'
 export type { CSS } from '@stitches/react/types/css-util'
-
-export const {
+export {
   styled,
   css,
   globalCss,
@@ -10,4 +8,4 @@ export const {
   theme,
   createTheme,
   config,
-} = createStitches()
+} from '@fuel/theme'
