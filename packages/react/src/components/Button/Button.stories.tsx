@@ -94,3 +94,11 @@ export const Loading = (args: ButtonProps) => (
     </Button>
   </div>
 )
+
+export const Disabled = (args: ButtonProps) => (
+  <div className={css(tw`flex gap-4`)()}>
+    <Button {...args} isDisabled>
+      Button
+    </Button>
+  </div>
+)
