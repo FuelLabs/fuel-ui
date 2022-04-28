@@ -1,14 +1,33 @@
-import { Button, ButtonProps } from './Button'
-import tw, { css } from 'twin.macro'
 import { allColorKeys } from '@fuel/theme'
+import tw, { css } from 'twin.macro'
+
+import { Button, ButtonProps } from './Button'
+import { Icon } from '../Icon'
 
 export default {
   title: 'UI/Button',
   component: Button,
   argTypes: {
-    size: { control: 'select' },
-    color: { control: 'select' },
-    variant: { control: 'select' },
+    size: {
+      defaultValue: 'md',
+      control: 'select',
+    },
+    color: {
+      defaultValue: 'primary',
+      control: 'select',
+    },
+    variant: {
+      defaultValue: 'solid',
+      control: 'select',
+    },
+    leftIcon: {
+      options: Icon._iconList,
+      control: 'select',
+    },
+    rightIcon: {
+      options: Icon._iconList,
+      control: 'select',
+    },
   },
 }
 
@@ -33,7 +52,7 @@ export const Sizes = (args: ButtonProps) => (
 )
 
 export const Variants = (args: ButtonProps) => (
-  <div className={css(tw`flex items-center space-x-2`)()}>
+  <div className={css(tw`flex items-center gap-2`)()}>
     <Button {...args} variant="solid">
       Button
     </Button>
@@ -56,5 +75,16 @@ export const Colors = (args: ButtonProps) => (
         Button
       </Button>
     ))}
+  </div>
+)
+
+export const WithIcon = (args: ButtonProps) => (
+  <div className={css(tw`flex gap-4`)()}>
+    <Button {...args} leftIcon="BiCalendar">
+      Button
+    </Button>
+    <Button {...args} rightIcon="BiCalendar">
+      Button
+    </Button>
   </div>
 )

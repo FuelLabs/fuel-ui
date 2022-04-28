@@ -1,8 +1,8 @@
 /// <reference types="@stitches/react" />
 
 import { AllColorKeys, allColorKeys } from '@fuel/theme'
-import Color from 'color'
 import tw, { css, theme } from 'twin.macro'
+import Color from 'color'
 
 function createSolidVariant(keyColor: AllColorKeys) {
   const color = String(keyColor)
@@ -70,11 +70,21 @@ export const button = css({
 
   variants: {
     size: {
-      xs: tw`px-2 text-xs h-6 min-w-6`,
-      sm: tw`px-3 text-sm h-7 min-w-9`,
-      md: tw`px-6 text-base h-10 min-w-14`,
-      lg: tw`px-6 text-lg h-12 min-w-20`,
-      xl: tw`px-10 text-xl h-16 min-w-24`,
+      xs: {
+        ...tw`gap-1 px-2 text-xs h-7 min-w-6`,
+      },
+      sm: {
+        ...tw`gap-2 px-3 text-sm h-8 min-w-9`,
+      },
+      md: {
+        ...tw`gap-2 px-4 text-base h-10 min-w-14`,
+      },
+      lg: {
+        ...tw`gap-3 px-5 text-lg h-12 min-w-20`,
+      },
+      xl: {
+        ...tw`gap-4 px-7 text-xl h-16 min-w-24`,
+      },
     },
 
     color: {
