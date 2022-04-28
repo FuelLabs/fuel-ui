@@ -45,9 +45,6 @@ export const Sizes = (args: ButtonProps) => (
     <Button {...args} size="lg">
       Button
     </Button>
-    <Button {...args} size="xl">
-      Button
-    </Button>
   </div>
 )
 

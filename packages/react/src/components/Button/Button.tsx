@@ -9,7 +9,7 @@ import * as styles from './styles'
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link'
 
 export interface ButtonProps extends HTMLButtonElement {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
   color?: AllColorKeys
   variant?: ButtonVariants
   leftIcon?: Icons | ReactElement
@@ -22,7 +22,6 @@ const ICONS_SIZE = {
   sm: 16,
   md: 18,
   lg: 20,
-  xl: 26,
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({

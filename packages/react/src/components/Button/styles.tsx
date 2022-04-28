@@ -82,9 +82,6 @@ export const button = css({
       lg: {
         ...tw`gap-3 px-5 text-lg h-12 min-w-20`,
       },
-      xl: {
-        ...tw`gap-4 px-7 text-xl h-16 min-w-24`,
-      },
     },
 
     color: {

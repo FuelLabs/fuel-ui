@@ -1,9 +1,9 @@
 import { Colors, cx } from '@fuel/theme'
 import { FC } from 'react'
-import * as Bi from 'react-icons/bi'
+import * as IconSet from 'react-icons/bi'
 import { css } from 'twin.macro'
 
-export type Icons = keyof typeof Bi
+export type Icons = keyof typeof IconSet
 
 export interface IconProps {
   icon: Icons
@@ -20,14 +20,14 @@ export type IconComponent = FC<IconProps> & {
 
 // @ts-ignore
 export const Icon: IconComponent = ({ icon, size = 16, className, color }) => {
-  const Component = Bi[icon]
+  const Component = IconSet[icon]
   const colorClass = css({ color: color })
   return (
     <Component size={size} className={cx(color && colorClass(), className)} />
   )
 }
 
-Icon._iconList = Object.keys(Bi) as Icons[]
-for (const [key, value] of Object.entries(Bi)) {
+Icon._iconList = Object.keys(IconSet) as Icons[]
+for (const [key, value] of Object.entries(IconSet)) {
   Icon[key as Icons] = value
 }
