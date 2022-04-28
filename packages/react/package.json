@@ -1,0 +1,44 @@
+{
+  "name": "@fuel/react",
+  "version": "0.0.1",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint '**/*.{js,ts,tsx}' --fix",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^4.5.7",
+    "@fuel/theme": "workspace:*",
+    "@stitches/react": "^1.2.8",
+    "color": "^4.2.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "twin.macro": "^2.8.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@storybook/addon-actions": "^6.4.22",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/react": "^6.4.22",
+    "@storybook/testing-library": "^0.0.11",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.2",
+    "@types/color": "^3.0.3",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-macros": "^3.1.0"
+  },
+  "babelMacros": {
+    "twin": {
+      "preset": "stitches",
+      "stitchesConfig": "./stitches.config.ts"
+    }
+  }
+}
