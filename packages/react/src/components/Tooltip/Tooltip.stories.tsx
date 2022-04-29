@@ -6,7 +6,9 @@ import { Tooltip, TooltipProps } from './Tooltip'
 export default {
   component: Tooltip,
   title: 'Overlay/Tooltip',
-  layout: 'fullscreen',
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export const Usage = (args: TooltipProps) => (

@@ -5,7 +5,9 @@ import { Dialog } from './Dialog'
 export default {
   component: Dialog,
   title: 'Overlay/Dialog',
-  layout: 'fullscreen',
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export const Usage = () => {

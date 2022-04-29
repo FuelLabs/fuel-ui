@@ -3,7 +3,9 @@ import { BoxCentered, BoxCenteredProps } from './BoxCentered'
 export default {
   component: BoxCentered,
   title: 'Layout/BoxCentered',
-  layout: 'fullscreen',
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export const Usage = (args: BoxCenteredProps) => (

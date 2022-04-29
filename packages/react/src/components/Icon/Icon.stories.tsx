@@ -12,6 +12,9 @@ export default {
       control: { type: 'number' },
     },
   },
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export const Usage = (args: IconProps) => (
@@ -37,10 +40,6 @@ export const AllIcons = () => {
       ))}
     </div>
   )
-}
-
-AllIcons.parameters = {
-  layout: 'fullscreen',
 }
 
 const styles = {

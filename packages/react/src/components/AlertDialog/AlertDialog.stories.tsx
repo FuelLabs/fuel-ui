@@ -5,7 +5,9 @@ import { AlertDialog } from './AlertDialog'
 export default {
   component: AlertDialog,
   title: 'Overlay/AlertDialog',
-  layout: 'fullscreen',
+  parameters: {
+    layout: 'fullscreen',
+  },
 }
 
 export const Usage = () => {
