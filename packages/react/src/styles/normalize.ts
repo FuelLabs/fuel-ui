@@ -132,6 +132,7 @@ export const opinionated: Record<string, any>[] = [
       fontFeatureSettings: '"ss02" on, "ss01" on',
       backgroundColor: '$bodyColor',
       color: '$textColor',
+      textSize: 'base',
     },
   },
   ...normalize,
