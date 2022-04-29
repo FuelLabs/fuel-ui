@@ -1,21 +1,20 @@
 import { css, allColors, Colors, cx, utils } from '@fuel/css'
-import { createElement } from 'react'
-import { FC, PropsWithChildren, ReactHTML } from 'react'
+import { createElement, FC, PropsWithChildren } from 'react'
 
-type ParagraphProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLParagraphElement>,
-  HTMLParagraphElement
+type BaseHeadingProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLHeadingElement>,
+  HTMLHeadingElement
 >
 
-export type TextProps = ParagraphProps &
+export type HeadingProps = BaseHeadingProps &
   PropsWithChildren<{
-    as?: keyof ReactHTML
+    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
     fontSize?: utils.TextSizes
     fontColor?: Colors
   }>
 
-export const Text: FC<TextProps> = ({
-  as = 'p',
+export const Heading: FC<HeadingProps> = ({
+  as = 'h2',
   fontSize,
   fontColor,
   children,
@@ -27,6 +26,9 @@ export const Text: FC<TextProps> = ({
 }
 
 const styles = css({
+  mt: '0.5rem',
+  mb: '1.25rem',
+
   variants: {
     // FIX: adjust type type
     fontSize: (utils.textSize.__keys as any[]).reduce(
