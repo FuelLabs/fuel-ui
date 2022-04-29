@@ -42,7 +42,7 @@ export const content = css({
   maxWidth: '450px',
   maxHeight: '85vh',
   br: '$sm',
-  backgroundColor: 'white',
+  backgroundColor: '$gray1',
   boxShadow: '$md',
   transform: 'translate(-50%, -50%)',
 
