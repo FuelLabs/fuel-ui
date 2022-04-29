@@ -61,9 +61,9 @@ export const sizes = {
 }
 
 export const fonts = {
-  sans: '"Work Sans", sans-serif',
-  display: '"Work Sans", sans-serif',
-  heading: '"Work Sans", sans-serif',
+  sans: '"InterVariable", sans-serif',
+  display: '"RalewayVariable", sans-serif',
+  heading: '"RalewayVariable", sans-serif',
 }
 
 export const fontSizes = {

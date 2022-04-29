@@ -11,9 +11,11 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@fontsource/work-sans": "^4.5.7",
+    "@fontsource/inter": "^4.5.7",
+    "@fontsource/raleway": "^4.5.5",
     "@fuel/css": "workspace:*",
     "@radix-ui/react-alert-dialog": "^0.1.7",
+    "@radix-ui/react-dialog": "^0.1.7",
     "@radix-ui/react-tooltip": "^0.1.7",
     "@stitches/react": "^1.2.8",
     "color": "^4.2.3",
