@@ -128,7 +128,6 @@ export const opinionated: Record<string, any>[] = [
     body: {
       margin: '0',
       letterSpacing: 0,
-      fontSize: 18,
       fontFamily: tokens.fonts.sans,
       fontFeatureSettings: '"ss02" on, "ss01" on',
       backgroundColor: '$bodyColor',

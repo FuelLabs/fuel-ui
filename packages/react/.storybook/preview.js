@@ -8,6 +8,11 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ['UI', 'Overlay'],
+    },
+  },
 }
 
 export const decorators = [

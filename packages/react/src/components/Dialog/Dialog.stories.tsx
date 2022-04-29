@@ -22,12 +22,12 @@ export const Usage = () => {
           </Dialog.Description>
           <Dialog.Footer>
             <Dialog.Close>
-              <Button size="sm" variant="ghost" color="tomato">
+              <Button variant="outlined" color="tomato">
                 Cancel
               </Button>
             </Dialog.Close>
             <Dialog.Close>
-              <Button size="sm">Save</Button>
+              <Button>Save</Button>
             </Dialog.Close>
           </Dialog.Footer>
         </Dialog.Content>

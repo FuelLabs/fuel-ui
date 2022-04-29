@@ -7,7 +7,6 @@ function createSolidVariant(keyColor: ColorKeys) {
   const textColor = isBright(color) ? `$${color}11` : `$${color}1`
   return {
     background,
-    boxShadow: `$sm`,
     fontWeight: '$semibold',
     borderColor: 'transparent',
     color: textColor,
@@ -42,7 +41,6 @@ function createGhostVariant(keyColor: ColorKeys) {
   return {
     background,
     color: textColor,
-    boxShadow: 'none',
     borderColor: 'transparent',
     '&:not(.disabled):hover': {
       background: hover,
@@ -59,7 +57,6 @@ function createLinkVariant(keyColor: ColorKeys) {
     minW: 'auto',
     background: 'transparent',
     borderColor: 'transparent',
-    boxShadow: 'none',
     color: textColor,
     '&:hover': {
       backgroundColor: 'transparent !important',

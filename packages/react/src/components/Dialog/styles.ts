@@ -41,7 +41,7 @@ export const content = css({
   width: '90vw',
   maxWidth: '450px',
   maxHeight: '85vh',
-  br: '$sm',
+  br: '$md',
   backgroundColor: '$gray1',
   boxShadow: '$md',
   transform: 'translate(-50%, -50%)',
