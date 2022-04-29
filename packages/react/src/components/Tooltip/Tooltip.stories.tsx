@@ -1,25 +1,18 @@
-import { css } from '@fuel/css'
 import { Button } from '../Button'
+import { BoxCentered } from '../BoxCentered'
 
 import { Tooltip, TooltipProps } from './Tooltip'
 
 export default {
   component: Tooltip,
-  title: 'UI/Tooltip',
+  title: 'Overlay/Tooltip',
+  layout: 'fullscreen',
 }
 
 export const Usage = (args: TooltipProps) => (
-  <div className={styles()}>
+  <BoxCentered minHS minWS>
     <Tooltip {...args} content={<>Hello world</>}>
       <Button>Hover me</Button>
     </Tooltip>
-  </div>
+  </BoxCentered>
 )
-
-const styles = css({
-  w: '100vw',
-  h: '100vh',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-})

@@ -39,6 +39,10 @@ export const AllIcons = () => {
   )
 }
 
+AllIcons.parameters = {
+  layout: 'fullscreen',
+}
+
 const styles = {
   /**
    * List styles
