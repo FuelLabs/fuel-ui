@@ -4,7 +4,6 @@ import { darkTheme, theme as lightTheme } from '@fuel/css'
 import { GlobalStyles } from '../src/styles/GlobalStyles'
 
 export const parameters = {
-  layout: 'padded',
   actions: {
     argTypesRegex: '^on[A-Z].*',
   },

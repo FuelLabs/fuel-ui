@@ -2,10 +2,11 @@ import { css, ColorKeys, colorKeys, isBright } from '@fuel/css'
 
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
-  const outlineColor = isBright(color) ? `$${color}5` : `$${color}6`
+  const outlineColor = `$${color}5`
   const background = isBright(color) ? `$${color}7` : `$${color}9`
   const hoverColor = isBright(color) ? `$${color}8` : `$${color}10`
   const textColor = isBright(color) ? `$${color}11` : `$${color}1`
+
   return {
     background,
     fontWeight: '$semibold',
@@ -17,7 +18,7 @@ function createSolidVariant(keyColor: ColorKeys) {
     },
 
     '&:not(.disabled):focus': {
-      outline: `2px solid ${outlineColor}`,
+      outline: `2.5px solid ${outlineColor}`,
     },
   }
 }
@@ -27,6 +28,7 @@ function createOutlinedVariant(keyColor: ColorKeys) {
   const textColor = isBright(color) ? `$${color}11` : `$${color}10`
   const borderColor = `$${color}8`
   const hoverTextColor = `$${color}1`
+
   return {
     borderColor,
     background: 'transparent',
@@ -44,6 +46,7 @@ function createGhostVariant(keyColor: ColorKeys) {
   const background = `$${color}3`
   const hover = `$${color}5`
   const textColor = `$${color}11`
+
   return {
     background,
     color: textColor,
@@ -57,6 +60,7 @@ function createGhostVariant(keyColor: ColorKeys) {
 function createLinkVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
   const textColor = `$${color}11`
+
   return {
     p: '0',
     height: 'auto',

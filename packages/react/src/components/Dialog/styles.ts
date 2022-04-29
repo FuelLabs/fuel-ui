@@ -88,3 +88,18 @@ export const footer = css({
     align: 'end',
   },
 })
+
+export const closeButton = css({
+  is: ['centered', 'noAppearance'],
+  cursor: 'pointer',
+  position: 'absolute',
+  border: '2px solid transparent',
+  top: '$2',
+  right: '$2',
+  px: '$0',
+
+  '&:focus': {
+    borderRadius: '$md',
+    borderColor: '$gray8',
+  },
+})

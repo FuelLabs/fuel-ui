@@ -83,9 +83,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       >
         {isLoading && <Spinner color="current" size={iconSize + 2} />}
-        {!isLoading && iconLeft && <span>{iconLeft}</span>}
+        {!isLoading && iconLeft && iconLeft}
         {isLoading ? 'Loading...' : children}
-        {!isLoading && iconRight && <span>{iconRight}</span>}
+        {!isLoading && iconRight && iconRight}
       </button>
     )
   }

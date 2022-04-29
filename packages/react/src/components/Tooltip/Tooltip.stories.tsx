@@ -1,6 +1,4 @@
 import { Button } from '../Button'
-import { BoxCentered } from '../BoxCentered'
-
 import { Tooltip, TooltipProps } from './Tooltip'
 
 export default {
@@ -12,9 +10,11 @@ export default {
 }
 
 export const Usage = (args: TooltipProps) => (
-  <BoxCentered minHS minWS>
-    <Tooltip {...args} content={<>Hello world</>}>
-      <Button>Hover me</Button>
-    </Tooltip>
-  </BoxCentered>
+  <Tooltip {...args} content={<>Hello world</>}>
+    <Button>Hover me</Button>
+  </Tooltip>
 )
+
+Usage.parameters = {
+  layout: 'centered',
+}
