@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["ES2015"],
-    "module": "ESNext",
-    "target": "ES6"
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "rootDir": "."
   },
   "include": ["src"]
 }

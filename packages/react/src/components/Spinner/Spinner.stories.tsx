@@ -11,7 +11,7 @@ export const Usage = () => (
   <div className={style()}>
     <Spinner />
     <Spinner size={30} color="indigo" />
-    <Spinner size={50} color="slate" />
+    <Spinner size={50} color="gray" />
   </div>
 )
 

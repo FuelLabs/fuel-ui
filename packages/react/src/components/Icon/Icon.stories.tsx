@@ -31,7 +31,7 @@ export const AllIcons = () => {
           onClick={() => copy(key)}
           title="Click to copy"
         >
-          <Icon key={key} icon={key} size={20} />
+          <Icon key={key} icon={key} size={24} />
           <span className={styles.iconLabel()}>{key}</span>
         </div>
       ))}
@@ -48,18 +48,20 @@ const styles = {
     gridTemplateColumns: 'repeat(8, 1fr)',
     flexWrap: 'wrap',
     maxW: '$full',
-    color: '$slate500',
+    color: '$gray12',
   }),
   /**
    * Icon Wrapper styles
    */
   iconWrapper: css({
     p: '$3',
+    mt: '-1px',
+    mr: '-1px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     gap: '$2',
-    border: '1px solid $slate100',
+    border: '1px solid $gray6',
 
     '&:hover': {
       cursor: 'pointer',
@@ -71,8 +73,7 @@ const styles = {
   iconLabel: css({
     maxW: '$full',
     fontSize: '$xs',
-    fontFamily: '$sans',
     fontWeight: '$semibold',
-    color: '$slate400',
+    color: '$gray10',
   }),
 }

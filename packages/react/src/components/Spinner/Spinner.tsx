@@ -6,7 +6,7 @@ export interface SpinnerProps {
   color?: Colors | ColorKeys | string
 }
 
-export const Spinner: FC<SpinnerProps> = ({ size = 24, color = 'primary' }) => {
+export const Spinner: FC<SpinnerProps> = ({ size = 24, color = 'accent' }) => {
   const styles = useMemo(() => getStyles(size, color), [size])
   return (
     <svg className={styles()} viewBox={`0 0 ${size} ${size}`}>
@@ -16,7 +16,7 @@ export const Spinner: FC<SpinnerProps> = ({ size = 24, color = 'primary' }) => {
 }
 
 function getStyles(size: number, color: Colors | ColorKeys | string) {
-  const strokeColor = colors[color] || colors[`${color}500`] || color
+  const strokeColor = colors[color] || colors[`${color}9`] || color
   const animation = keyframes({
     '0%': {
       strokeDashoffset: 0.66 * size,

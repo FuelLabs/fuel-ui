@@ -1,5 +1,5 @@
 import { ColorKeys, cx } from '@fuel/css'
-import { cloneElement, ReactElement } from 'react'
+import { ButtonHTMLAttributes, cloneElement, ReactElement } from 'react'
 import { FC, PropsWithChildren } from 'react'
 import { Icon, Icons } from '../Icon'
 
@@ -8,7 +8,7 @@ import { Spinner } from '../Spinner'
 
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link'
 
-export interface ButtonProps extends HTMLButtonElement {
+export interface ButtonProps extends ButtonHTMLAttributes<any> {
   size?: 'xs' | 'sm' | 'md' | 'lg'
   color?: ColorKeys
   variant?: ButtonVariants
@@ -30,7 +30,7 @@ const ICONS_SIZE = {
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = ({
   size = 'md',
-  color = 'primary',
+  color = 'accent',
   variant = 'solid',
   leftIcon,
   rightIcon,

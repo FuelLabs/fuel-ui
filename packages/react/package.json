@@ -13,6 +13,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.7",
     "@fuel/css": "workspace:*",
+    "@radix-ui/react-alert-dialog": "^0.1.7",
     "@stitches/react": "^1.2.8",
     "color": "^4.2.3",
     "react": "^18.1.0",

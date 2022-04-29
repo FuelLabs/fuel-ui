@@ -1,295 +1,178 @@
+import * as radixColors from '@radix-ui/colors'
+
 export type Colors = keyof typeof colors
 
-export const colors = {
+export const base = {
   inherit: 'inherit',
   current: 'currentColor',
   transparent: 'transparent',
-  black: '#000',
-  white: '#fff',
+  black: radixColors.blackA.blackA12,
+  white: radixColors.whiteA.whiteA12,
+}
 
-  primary50: '#f7fcfa',
-  primary100: '#eef9f5',
-  primary200: '#d5efe6',
-  primary300: '#bce6d7',
-  primary400: '#8ad3b9',
-  primary500: '#58C09B',
-  primary600: '#4fad8c',
-  primary700: '#429074',
-  primary800: '#35735d',
-  primary900: '#2b5e4c',
+export const colors = {
+  ...base,
+  ...radixColors.tomato,
+  ...radixColors.red,
+  ...radixColors.crimson,
+  ...radixColors.pink,
+  ...radixColors.plum,
+  ...radixColors.purple,
+  ...radixColors.violet,
+  ...radixColors.indigo,
+  ...radixColors.blue,
+  ...radixColors.cyan,
+  ...radixColors.teal,
+  ...radixColors.green,
+  ...radixColors.grass,
+  ...radixColors.orange,
+  ...radixColors.brown,
+  ...radixColors.sky,
+  ...radixColors.mint,
+  ...radixColors.lime,
+  ...radixColors.yellow,
+  ...radixColors.amber,
+  ...radixColors.gold,
+  ...radixColors.bronze,
 
-  slate50: '#f8fafc',
-  slate100: '#f1f5f9',
-  slate200: '#e2e8f0',
-  slate300: '#cbd5e1',
-  slate400: '#94a3b8',
-  slate500: '#64748b',
-  slate600: '#475569',
-  slate700: '#334155',
-  slate800: '#1e293b',
-  slate900: '#0f172a',
+  bodyColor: radixColors.mauve.mauve1,
+  textColor: radixColors.mauve.mauve11,
 
-  gray50: '#f9fafb',
-  gray100: '#f3f4f6',
-  gray200: '#e5e7eb',
-  gray300: '#d1d5db',
-  gray400: '#9ca3af',
-  gray500: '#6b7280',
-  gray600: '#4b5563',
-  gray700: '#374151',
-  gray800: '#1f2937',
-  gray900: '#111827',
+  gray1: radixColors.mauve.mauve1,
+  gray2: radixColors.mauve.mauve2,
+  gray3: radixColors.mauve.mauve3,
+  gray4: radixColors.mauve.mauve4,
+  gray5: radixColors.mauve.mauve5,
+  gray6: radixColors.mauve.mauve6,
+  gray7: radixColors.mauve.mauve7,
+  gray8: radixColors.mauve.mauve8,
+  gray9: radixColors.mauve.mauve9,
+  gray10: radixColors.mauve.mauve10,
+  gray11: radixColors.mauve.mauve11,
+  gray12: radixColors.mauve.mauve12,
 
-  zinc50: '#fafafa',
-  zinc100: '#f4f4f5',
-  zinc200: '#e4e4e7',
-  zinc300: '#d4d4d8',
-  zinc400: '#a1a1aa',
-  zinc500: '#71717a',
-  zinc600: '#52525b',
-  zinc700: '#3f3f46',
-  zinc800: '#27272a',
-  zinc900: '#18181b',
+  accent1: radixColors.green.green1,
+  accent2: radixColors.green.green2,
+  accent3: radixColors.green.green3,
+  accent4: radixColors.green.green4,
+  accent5: radixColors.green.green5,
+  accent6: radixColors.green.green6,
+  accent7: radixColors.green.green7,
+  accent8: radixColors.green.green8,
+  accent9: radixColors.green.green9,
+  accent10: radixColors.green.green10,
+  accent11: radixColors.green.green11,
+  accent12: radixColors.green.green12,
+}
 
-  neutral50: '#fafafa',
-  neutral100: '#f5f5f5',
-  neutral200: '#e5e5e5',
-  neutral300: '#d4d4d4',
-  neutral400: '#a3a3a3',
-  neutral500: '#737373',
-  neutral600: '#525252',
-  neutral700: '#404040',
-  neutral800: '#262626',
-  neutral900: '#171717',
+export const darkColors = {
+  ...base,
+  ...radixColors.tomatoDark,
+  ...radixColors.redDark,
+  ...radixColors.crimsonDark,
+  ...radixColors.pinkDark,
+  ...radixColors.plumDark,
+  ...radixColors.purpleDark,
+  ...radixColors.violetDark,
+  ...radixColors.indigoDark,
+  ...radixColors.blueDark,
+  ...radixColors.cyanDark,
+  ...radixColors.tealDark,
+  ...radixColors.greenDark,
+  ...radixColors.grassDark,
+  ...radixColors.orangeDark,
+  ...radixColors.brownDark,
+  ...radixColors.skyDark,
+  ...radixColors.mintDark,
+  ...radixColors.limeDark,
+  ...radixColors.yellowDark,
+  ...radixColors.amberDark,
+  ...radixColors.goldDark,
+  ...radixColors.bronzeDark,
 
-  stone50: '#fafaf9',
-  stone100: '#f5f5f4',
-  stone200: '#e7e5e4',
-  stone300: '#d6d3d1',
-  stone400: '#a8a29e',
-  stone500: '#78716c',
-  stone600: '#57534e',
-  stone700: '#44403c',
-  stone800: '#292524',
-  stone900: '#1c1917',
+  bodyColor: radixColors.mauveDark.mauve2,
+  textColor: radixColors.mauveDark.mauve11,
 
-  red50: '#fef2f2',
-  red100: '#fee2e2',
-  red200: '#fecaca',
-  red300: '#fca5a5',
-  red400: '#f87171',
-  red500: '#ef4444',
-  red600: '#dc2626',
-  red700: '#b91c1c',
-  red800: '#991b1b',
-  red900: '#7f1d1d',
+  gray1: radixColors.mauveDark.mauve1,
+  gray2: radixColors.mauveDark.mauve2,
+  gray3: radixColors.mauveDark.mauve3,
+  gray4: radixColors.mauveDark.mauve4,
+  gray5: radixColors.mauveDark.mauve5,
+  gray6: radixColors.mauveDark.mauve6,
+  gray7: radixColors.mauveDark.mauve7,
+  gray8: radixColors.mauveDark.mauve8,
+  gray9: radixColors.mauveDark.mauve9,
+  gray10: radixColors.mauveDark.mauve10,
+  gray11: radixColors.mauveDark.mauve11,
+  gray12: radixColors.mauveDark.mauve12,
 
-  orange50: '#fff7ed',
-  orange100: '#ffedd5',
-  orange200: '#fed7aa',
-  orange300: '#fdba74',
-  orange400: '#fb923c',
-  orange500: '#f97316',
-  orange600: '#ea580c',
-  orange700: '#c2410c',
-  orange800: '#9a3412',
-  orange900: '#7c2d12',
-
-  amber50: '#fffbeb',
-  amber100: '#fef3c7',
-  amber200: '#fde68a',
-  amber300: '#fcd34d',
-  amber400: '#fbbf24',
-  amber500: '#f59e0b',
-  amber600: '#d97706',
-  amber700: '#b45309',
-  amber800: '#92400e',
-  amber900: '#78350f',
-
-  yellow50: '#fefce8',
-  yellow100: '#fef9c3',
-  yellow200: '#fef08a',
-  yellow300: '#fde047',
-  yellow400: '#facc15',
-  yellow500: '#eab308',
-  yellow600: '#ca8a04',
-  yellow700: '#a16207',
-  yellow800: '#854d0e',
-  yellow900: '#713f12',
-
-  lime50: '#f7fee7',
-  lime100: '#ecfccb',
-  lime200: '#d9f99d',
-  lime300: '#bef264',
-  lime400: '#a3e635',
-  lime500: '#84cc16',
-  lime600: '#65a30d',
-  lime700: '#4d7c0f',
-  lime800: '#3f6212',
-  lime900: '#365314',
-
-  green50: '#f0fdf4',
-  green100: '#dcfce7',
-  green200: '#bbf7d0',
-  green300: '#86efac',
-  green400: '#4ade80',
-  green500: '#22c55e',
-  green600: '#16a34a',
-  green700: '#15803d',
-  green800: '#166534',
-  green900: '#14532d',
-
-  emerald50: '#ecfdf5',
-  emerald100: '#d1fae5',
-  emerald200: '#a7f3d0',
-  emerald300: '#6ee7b7',
-  emerald400: '#34d399',
-  emerald500: '#10b981',
-  emerald600: '#059669',
-  emerald700: '#047857',
-  emerald800: '#065f46',
-  emerald900: '#064e3b',
-
-  teal50: '#f0fdfa',
-  teal100: '#ccfbf1',
-  teal200: '#99f6e4',
-  teal300: '#5eead4',
-  teal400: '#2dd4bf',
-  teal500: '#14b8a6',
-  teal600: '#0d9488',
-  teal700: '#0f766e',
-  teal800: '#115e59',
-  teal900: '#134e4a',
-
-  cyan50: '#ecfeff',
-  cyan100: '#cffafe',
-  cyan200: '#a5f3fc',
-  cyan300: '#67e8f9',
-  cyan400: '#22d3ee',
-  cyan500: '#06b6d4',
-  cyan600: '#0891b2',
-  cyan700: '#0e7490',
-  cyan800: '#155e75',
-  cyan900: '#164e63',
-
-  sky50: '#f0f9ff',
-  sky100: '#e0f2fe',
-  sky200: '#bae6fd',
-  sky300: '#7dd3fc',
-  sky400: '#38bdf8',
-  sky500: '#0ea5e9',
-  sky600: '#0284c7',
-  sky700: '#0369a1',
-  sky800: '#075985',
-  sky900: '#0c4a6e',
-
-  blue50: '#eff6ff',
-  blue100: '#dbeafe',
-  blue200: '#bfdbfe',
-  blue300: '#93c5fd',
-  blue400: '#60a5fa',
-  blue500: '#3b82f6',
-  blue600: '#2563eb',
-  blue700: '#1d4ed8',
-  blue800: '#1e40af',
-  blue900: '#1e3a8a',
-
-  indigo50: '#eef2ff',
-  indigo100: '#e0e7ff',
-  indigo200: '#c7d2fe',
-  indigo300: '#a5b4fc',
-  indigo400: '#818cf8',
-  indigo500: '#6366f1',
-  indigo600: '#4f46e5',
-  indigo700: '#4338ca',
-  indigo800: '#3730a3',
-  indigo900: '#312e81',
-
-  violet50: '#f5f3ff',
-  violet100: '#ede9fe',
-  violet200: '#ddd6fe',
-  violet300: '#c4b5fd',
-  violet400: '#a78bfa',
-  violet500: '#8b5cf6',
-  violet600: '#7c3aed',
-  violet700: '#6d28d9',
-  violet800: '#5b21b6',
-  violet900: '#4c1d95',
-
-  purple50: '#faf5ff',
-  purple100: '#f3e8ff',
-  purple200: '#e9d5ff',
-  purple300: '#d8b4fe',
-  purple400: '#c084fc',
-  purple500: '#a855f7',
-  purple600: '#9333ea',
-  purple700: '#7e22ce',
-  purple800: '#6b21a8',
-  purple900: '#581c87',
-
-  fuchsia50: '#fdf4ff',
-  fuchsia100: '#fae8ff',
-  fuchsia200: '#f5d0fe',
-  fuchsia300: '#f0abfc',
-  fuchsia400: '#e879f9',
-  fuchsia500: '#d946ef',
-  fuchsia600: '#c026d3',
-  fuchsia700: '#a21caf',
-  fuchsia800: '#86198f',
-  fuchsia900: '#701a75',
-
-  pink50: '#fdf2f8',
-  pink100: '#fce7f3',
-  pink200: '#fbcfe8',
-  pink300: '#f9a8d4',
-  pink400: '#f472b6',
-  pink500: '#ec4899',
-  pink600: '#db2777',
-  pink700: '#be185d',
-  pink800: '#9d174d',
-  pink900: '#831843',
-
-  rose50: '#fff1f2',
-  rose100: '#ffe4e6',
-  rose200: '#fecdd3',
-  rose300: '#fda4af',
-  rose400: '#fb7185',
-  rose500: '#f43f5e',
-  rose600: '#e11d48',
-  rose700: '#be123c',
-  rose800: '#9f1239',
-  rose900: '#881337',
+  accent1: radixColors.greenDark.green1,
+  accent2: radixColors.greenDark.green2,
+  accent3: radixColors.greenDark.green3,
+  accent4: radixColors.greenDark.green4,
+  accent5: radixColors.greenDark.green5,
+  accent6: radixColors.greenDark.green6,
+  accent7: radixColors.greenDark.green7,
+  accent8: radixColors.greenDark.green8,
+  accent9: radixColors.greenDark.green9,
+  accent10: radixColors.greenDark.green10,
+  accent11: radixColors.greenDark.green11,
+  accent12: radixColors.greenDark.green12,
 }
 
 export type ColorKeys =
-  | 'primary'
-  | 'slate'
   | 'gray'
-  | 'zinc'
-  | 'neutral'
-  | 'stone'
+  | 'accent'
+  | 'tomato'
   | 'red'
-  | 'orange'
-  | 'amber'
-  | 'yellow'
-  | 'lime'
-  | 'green'
-  | 'emerald'
-  | 'teal'
-  | 'cyan'
-  | 'sky'
-  | 'blue'
-  | 'indigo'
-  | 'violet'
-  | 'purple'
-  | 'fuchsia'
+  | 'crimson'
   | 'pink'
-  | 'rose'
+  | 'plum'
+  | 'purple'
+  | 'violet'
+  | 'indigo'
+  | 'blue'
+  | 'cyan'
+  | 'teal'
+  | 'green'
+  | 'grass'
+  | 'orange'
+  | 'brown'
+  | 'sky'
+  | 'mint'
+  | 'lime'
+  | 'yellow'
+  | 'amber'
+  | 'gold'
+  | 'bronze'
 
-export const allColorKeys = Array.from(
-  new Set(
-    Object.keys(colors)
-      .filter((key) => !key.match(/inherit|current|transparent|black|white/))
-      .map((key) => key.match(/((\D+))/i)?.[0] as ColorKeys)
-  )
-)
+export const allColorKeys: ColorKeys[] = [
+  'gray',
+  'accent',
+  'tomato',
+  'red',
+  'crimson',
+  'pink',
+  'plum',
+  'purple',
+  'violet',
+  'indigo',
+  'blue',
+  'cyan',
+  'teal',
+  'green',
+  'grass',
+  'orange',
+  'brown',
+  'sky',
+  'mint',
+  'lime',
+  'yellow',
+  'amber',
+  'gold',
+  'bronze',
+]
+
+export function isBright(color: string) {
+  return Boolean(color.match(/gray|sky|mint|lime|yellow|amber/))
+}

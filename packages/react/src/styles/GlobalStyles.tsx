@@ -5,18 +5,18 @@ import { opinionated } from './normalize'
 
 const customStyles = {
   body: {
-    WebkitTapHighlightColor: colors.primary500,
+    WebkitTapHighlightColor: colors.accent9,
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
   },
 }
 
-const styles = () => {
-  globalCss(opinionated)()
-  globalCss(customStyles)()
+const styles = (theme: any) => {
+  globalCss(theme, ...opinionated)()
+  globalCss(theme, customStyles)()
 }
 
-export const GlobalStyles = () => {
-  styles()
+export const GlobalStyles = ({ theme }: any) => {
+  styles(theme)
   return null
 }

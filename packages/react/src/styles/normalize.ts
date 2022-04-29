@@ -90,6 +90,8 @@ export const opinionated: Record<string, any>[] = [
     body: {
       margin: '0',
       fontFamily: tokens.fonts.sans,
+      backgroundColor: '$bodyColor',
+      color: '$textColor',
     },
   },
   ...normalize,

@@ -1,33 +1,34 @@
-import { ColorKeys, allColorKeys } from '@fuel/css'
-import { css, colors } from '@fuel/css'
-import Color from 'color'
+import { css, ColorKeys, allColorKeys, isBright } from '@fuel/css'
 
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
-  const background = colors[`${color}500`]
-  const borderColor = Color(background).darken(0.2).toString()
+  const background = isBright(color) ? `$${color}7` : `$${color}8`
+  const hoverColor = isBright(color) ? `$${color}8` : `$${color}9`
+  const textColor = isBright(color) ? `$${color}11` : `$${color}1`
   return {
+    background,
     boxShadow: `$sm`,
     fontWeight: '$semibold',
-    borderColor: borderColor,
-    background: `$${color}500`,
-    color: `white`,
+    borderColor: 'transparent',
+    color: textColor,
+
     '&:not(.disabled):hover': {
-      background: borderColor,
+      background: hoverColor,
     },
   }
 }
 
 function createOutlinedVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
-  const textColor = `$${color}600`
-  const borderColor = `$${color}500`
+  const textColor = isBright(color) ? `$${color}11` : `$${color}10`
+  const borderColor = `$${color}8`
+  const hoverTextColor = `$${color}1`
   return {
     borderColor,
     background: 'transparent',
     color: textColor,
     '&:not(.disabled):hover': {
-      color: 'white',
+      color: hoverTextColor,
       background: borderColor,
     },
   }
@@ -35,9 +36,9 @@ function createOutlinedVariant(keyColor: ColorKeys) {
 
 function createGhostVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
-  const textColor = colors[`${color}600`]
-  const background = colors[`${color}100`]
-  const hover = Color(background).darken(0.05).saturate(0.2).toString()
+  const background = `$${color}3`
+  const hover = `$${color}5`
+  const textColor = `$${color}11`
   return {
     background,
     color: textColor,
@@ -51,7 +52,7 @@ function createGhostVariant(keyColor: ColorKeys) {
 
 function createLinkVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
-  const textColor = `$${color}600`
+  const textColor = `$${color}11`
   return {
     p: '0',
     height: 'auto',
@@ -61,7 +62,7 @@ function createLinkVariant(keyColor: ColorKeys) {
     boxShadow: 'none',
     color: textColor,
     '&:hover': {
-      background: 'transparent',
+      backgroundColor: 'transparent !important',
       textDecoration: 'underline',
     },
   }
@@ -69,6 +70,7 @@ function createLinkVariant(keyColor: ColorKeys) {
 
 export const button = css({
   appearance: 'none',
+  cursor: 'pointer',
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -191,7 +193,7 @@ export const button = css({
 
   defaultVariants: {
     size: 'md',
-    color: 'primary',
+    color: 'accent',
     variant: 'solid',
   },
 })

@@ -13,7 +13,7 @@ export default {
       control: 'select',
     },
     color: {
-      defaultValue: 'primary',
+      defaultValue: 'accent',
       control: 'select',
     },
     variant: {
@@ -31,22 +31,24 @@ export default {
   },
 }
 
-export const Sizes = (args: ButtonProps) => (
-  <div className={styles.wrapper()}>
-    <Button {...args} size="xs">
-      Button
-    </Button>
-    <Button {...args} size="sm">
-      Button
-    </Button>
-    <Button {...args} size="md">
-      Button
-    </Button>
-    <Button {...args} size="lg">
-      Button
-    </Button>
-  </div>
-)
+export const Sizes = (args: ButtonProps) => {
+  return (
+    <div className={styles.wrapper()}>
+      <Button {...args} size="xs">
+        Button
+      </Button>
+      <Button {...args} size="sm">
+        Button
+      </Button>
+      <Button {...args} size="md">
+        Button
+      </Button>
+      <Button {...args} size="lg">
+        Button
+      </Button>
+    </div>
+  )
+}
 
 export const Variants = (args: ButtonProps) => (
   <div className={styles.wrapper()}>
