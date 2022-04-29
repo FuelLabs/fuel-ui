@@ -65,10 +65,12 @@ importers:
       '@radix-ui/react-dialog': ^0.1.7
       '@radix-ui/react-tooltip': ^0.1.7
       '@stitches/react': ^1.2.8
+      '@storybook/addon-a11y': ^6.4.22
       '@storybook/addon-actions': ^6.4.22
       '@storybook/addon-essentials': ^6.4.22
       '@storybook/addon-interactions': ^6.4.22
       '@storybook/addon-links': ^6.4.22
+      '@storybook/addon-storysource': ^6.4.22
       '@storybook/react': ^6.4.22
       '@storybook/testing-library': ^0.0.11
       '@types/color': ^3.0.3
@@ -95,10 +97,12 @@ importers:
       react-use: 17.3.2_react-dom@18.1.0+react@18.1.0
     devDependencies:
       '@babel/core': 7.17.9
+      '@storybook/addon-a11y': 6.4.22_47ae209ab5c2ea051c9a2540426c6b2f
       '@storybook/addon-actions': 6.4.22_47ae209ab5c2ea051c9a2540426c6b2f
       '@storybook/addon-essentials': 6.4.22_c37fed2b2fd92cc35136aac35ae5c7b3
       '@storybook/addon-interactions': 6.4.22_d3b509e6c5f8f3416868dc2a78c43e66
       '@storybook/addon-links': 6.4.22_react-dom@18.1.0+react@18.1.0
+      '@storybook/addon-storysource': 6.4.22_47ae209ab5c2ea051c9a2540426c6b2f
       '@storybook/react': 6.4.22_651d86e86d35926e8bfde571deedc115
       '@storybook/testing-library': 0.0.11_react-dom@18.1.0+react@18.1.0
       '@types/color': 3.0.3
@@ -2251,6 +2255,39 @@ packages:
       react: 18.1.0
     dev: false
 
+  /@storybook/addon-a11y/6.4.22_47ae209ab5c2ea051c9a2540426c6b2f:
+    resolution: {integrity: sha512-y125LDx5VR6JmiHB6/0RHWudwhe9QcFXqoAqGqWIj4zRv0kb9AyDPDtWvtDOSImCDXIPRmd8P05xTOnYH0ET3w==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@storybook/addons': 6.4.22_react-dom@18.1.0+react@18.1.0
+      '@storybook/api': 6.4.22_react-dom@18.1.0+react@18.1.0
+      '@storybook/channels': 6.4.22
+      '@storybook/client-logger': 6.4.22
+      '@storybook/components': 6.4.22_47ae209ab5c2ea051c9a2540426c6b2f
+      '@storybook/core-events': 6.4.22
+      '@storybook/csf': 0.0.2--canary.87bc651.0
+      '@storybook/theming': 6.4.22_react-dom@18.1.0+react@18.1.0
+      axe-core: 4.4.1
+      core-js: 3.22.2
+      global: 4.4.0
+      lodash: 4.17.21
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-sizeme: 3.0.2
+      regenerator-runtime: 0.13.9
+      ts-dedent: 2.2.0
+      util-deprecate: 1.0.2
+    transitivePeerDependencies:
+      - '@types/react'
+    dev: true
+
   /@storybook/addon-actions/6.4.22_47ae209ab5c2ea051c9a2540426c6b2f:
     resolution: {integrity: sha512-t2w3iLXFul+R/1ekYxIEzUOZZmvEa7EzUAVAuCHP4i6x0jBnTTZ7sAIUVRaxVREPguH5IqI/2OklYhKanty2Yw==}
     peerDependencies:
@@ -2638,6 +2675,37 @@ packages:
       react-dom: 18.1.0_react@18.1.0
       regenerator-runtime: 0.13.9
       ts-dedent: 2.2.0
+    transitivePeerDependencies:
+      - '@types/react'
+    dev: true
+
+  /@storybook/addon-storysource/6.4.22_47ae209ab5c2ea051c9a2540426c6b2f:
+    resolution: {integrity: sha512-BFZ+/+CytET1CQzRe5qbg6Ca7pUKHa7C+pMQkq8M+tFG1f0Ov2Np5OvqXmZQcJeOpK1HDF0EaJv2ESg0CH8ytw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@storybook/addons': 6.4.22_react-dom@18.1.0+react@18.1.0
+      '@storybook/api': 6.4.22_react-dom@18.1.0+react@18.1.0
+      '@storybook/client-logger': 6.4.22
+      '@storybook/components': 6.4.22_47ae209ab5c2ea051c9a2540426c6b2f
+      '@storybook/router': 6.4.22_react-dom@18.1.0+react@18.1.0
+      '@storybook/source-loader': 6.4.22_react-dom@18.1.0+react@18.1.0
+      '@storybook/theming': 6.4.22_react-dom@18.1.0+react@18.1.0
+      core-js: 3.22.2
+      estraverse: 5.3.0
+      loader-utils: 2.0.2
+      prettier: 2.3.0
+      prop-types: 15.8.1
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-syntax-highlighter: 13.5.3_react@18.1.0
+      regenerator-runtime: 0.13.9
     transitivePeerDependencies:
       - '@types/react'
     dev: true
@@ -4464,6 +4532,11 @@ packages:
       picocolors: 0.2.1
       postcss: 7.0.39
       postcss-value-parser: 4.2.0
+    dev: true
+
+  /axe-core/4.4.1:
+    resolution: {integrity: sha512-gd1kmb21kwNuWr6BQz8fv6GNECPBnUasepcoLbekws23NVBLODdsClRZ+bQ8+9Uomf3Sm3+Vwn0oYG9NvwnJCw==}
+    engines: {node: '>=4'}
     dev: true
 
   /babel-loader/8.2.5_598a497cebab8e15ee8f9e5632178e63:
