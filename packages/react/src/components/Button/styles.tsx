@@ -2,8 +2,8 @@ import { css, ColorKeys, allColorKeys, isBright } from '@fuel/css'
 
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
-  const background = isBright(color) ? `$${color}7` : `$${color}8`
-  const hoverColor = isBright(color) ? `$${color}8` : `$${color}9`
+  const background = isBright(color) ? `$${color}7` : `$${color}9`
+  const hoverColor = isBright(color) ? `$${color}8` : `$${color}10`
   const textColor = isBright(color) ? `$${color}11` : `$${color}1`
   return {
     background,
