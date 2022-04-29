@@ -1,4 +1,4 @@
-import '@fontsource/inter/variable.css'
+import '@fontsource/work-sans'
 
 import { colors, globalCss } from '@fuel/css'
 import { opinionated } from './normalize'

@@ -45,7 +45,7 @@ const styles = {
    */
   list: css({
     display: 'grid',
-    gridTemplateColumns: 'repeat(8, 1fr)',
+    gridTemplateColumns: 'repeat(6, 1fr)',
     flexWrap: 'wrap',
     maxW: '$full',
     color: '$gray12',
@@ -71,9 +71,11 @@ const styles = {
    * Icon Label Styles
    */
   iconLabel: css({
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
     maxW: '$full',
     fontSize: '$xs',
-    fontWeight: '$semibold',
     color: '$gray10',
   }),
 }

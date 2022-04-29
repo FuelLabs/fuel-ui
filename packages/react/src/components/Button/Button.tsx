@@ -1,4 +1,4 @@
-import { FC, ButtonHTMLAttributes, cloneElement, ReactElement } from 'react'
+import { ButtonHTMLAttributes, cloneElement, ReactElement } from 'react'
 import { ColorKeys, cx } from '@fuel/css'
 import { Icon, Icons } from '../Icon'
 
@@ -84,7 +84,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {isLoading && <Spinner color="current" size={iconSize + 2} />}
         {!isLoading && iconLeft && <span>{iconLeft}</span>}
-        {children}
+        {isLoading ? 'Loading...' : children}
         {!isLoading && iconRight && <span>{iconRight}</span>}
       </button>
     )

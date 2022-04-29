@@ -11,7 +11,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.7",
+    "@fontsource/work-sans": "^4.5.7",
     "@fuel/css": "workspace:*",
     "@radix-ui/react-alert-dialog": "^0.1.7",
     "@radix-ui/react-tooltip": "^0.1.7",
