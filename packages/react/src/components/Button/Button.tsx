@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, cloneElement, ReactElement } from 'react'
+import { cloneElement, ReactElement } from 'react'
 import { ColorKeys, cx } from '@fuel/css'
 import { Icon, Icons } from '../Icon'
 
@@ -6,9 +6,10 @@ import * as styles from './styles'
 import { Spinner } from '../Spinner'
 import { forwardRef } from 'react'
 
+type BaseButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link'
 
-export interface ButtonProps extends ButtonHTMLAttributes<any> {
+export interface ButtonProps extends BaseButtonProps {
   size?: 'xs' | 'sm' | 'md' | 'lg'
   color?: ColorKeys
   variant?: ButtonVariants
@@ -19,7 +20,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<any> {
   isDisabled?: boolean
   className?: string
   justIcon?: boolean
-  children: string | ReactElement
 }
 
 const ICONS_SIZE = {

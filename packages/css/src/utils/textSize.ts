@@ -31,3 +31,5 @@ export const textSize = (value: TextSizes) => ({
   fontSize: TEXT_SIZE_MAP[value][0],
   lineHeight: TEXT_SIZE_MAP[value][1],
 })
+
+textSize.__keys = Object.keys(TEXT_SIZE_MAP) as TextSizes[]

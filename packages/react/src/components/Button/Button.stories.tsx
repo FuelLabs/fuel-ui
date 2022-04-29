@@ -1,4 +1,4 @@
-import { allColorKeys } from '@fuel/css'
+import { colorKeys } from '@fuel/css'
 import { css } from '@fuel/css'
 
 import { Button, ButtonProps } from './Button'
@@ -69,7 +69,7 @@ export const Variants = (args: ButtonProps) => (
 
 export const Colors = (args: ButtonProps) => (
   <div className={styles.gridList()}>
-    {allColorKeys.map((color) => (
+    {colorKeys.map((color) => (
       <Button key={color} {...args} color={color}>
         Button
       </Button>

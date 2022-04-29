@@ -146,7 +146,7 @@ export type ColorKeys =
   | 'gold'
   | 'bronze'
 
-export const allColorKeys: ColorKeys[] = [
+export const colorKeys: ColorKeys[] = [
   'gray',
   'accent',
   'tomato',
@@ -172,6 +172,8 @@ export const allColorKeys: ColorKeys[] = [
   'gold',
   'bronze',
 ]
+
+export const allColors = Object.keys(colors)
 
 export function isBright(color: string) {
   return Boolean(color.match(/gray|sky|mint|lime|yellow|amber/))

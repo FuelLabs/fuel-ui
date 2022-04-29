@@ -1,4 +1,4 @@
-import { css, ColorKeys, allColorKeys, isBright } from '@fuel/css'
+import { css, ColorKeys, colorKeys, isBright } from '@fuel/css'
 
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
@@ -108,7 +108,7 @@ export const button = css({
     },
 
     color: {
-      ...allColorKeys.reduce(
+      ...colorKeys.reduce(
         (obj, key: any) => ({ ...obj, [key]: createSolidVariant(key) }),
         {}
       ),
@@ -139,7 +139,7 @@ export const button = css({
     /**
      * Outlined
      */
-    ...allColorKeys.map((key) => ({
+    ...colorKeys.map((key) => ({
       color: key,
       variant: 'outlined',
       css: createOutlinedVariant(key),
@@ -148,7 +148,7 @@ export const button = css({
     /**
      * Ghost
      */
-    ...allColorKeys.map((key) => ({
+    ...colorKeys.map((key) => ({
       color: key,
       variant: 'ghost',
       css: createGhostVariant(key),
@@ -157,7 +157,7 @@ export const button = css({
     /**
      * Link
      */
-    ...allColorKeys.map((key) => ({
+    ...colorKeys.map((key) => ({
       color: key,
       variant: 'link',
       css: createLinkVariant(key),

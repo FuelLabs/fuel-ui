@@ -26,3 +26,5 @@ export const {
 export const darkTheme = createTheme({
   colors: darkColors,
 })
+
+export { utils }
