@@ -2,6 +2,7 @@ import { css, ColorKeys, colorKeys, isBright } from '@fuel/css'
 
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
+  const outlineColor = isBright(color) ? `$${color}5` : `$${color}6`
   const background = isBright(color) ? `$${color}7` : `$${color}9`
   const hoverColor = isBright(color) ? `$${color}8` : `$${color}10`
   const textColor = isBright(color) ? `$${color}11` : `$${color}1`
@@ -13,6 +14,10 @@ function createSolidVariant(keyColor: ColorKeys) {
 
     '&:not(.disabled):hover': {
       background: hoverColor,
+    },
+
+    '&:not(.disabled):focus': {
+      outline: `2px solid ${outlineColor}`,
     },
   }
 }
@@ -26,6 +31,7 @@ function createOutlinedVariant(keyColor: ColorKeys) {
     borderColor,
     background: 'transparent',
     color: textColor,
+
     '&:not(.disabled):hover': {
       color: hoverTextColor,
       background: borderColor,
