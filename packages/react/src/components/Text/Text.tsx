@@ -1,34 +1,22 @@
+import { createComponent, HTMLProps } from '@/utils'
 import { css, allColors, Colors, cx, utils } from '@fuel/css'
 import { createElement } from 'react'
-import { FC, PropsWithChildren, ReactHTML } from 'react'
 
-type ParagraphProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLParagraphElement>,
-  HTMLParagraphElement
->
-
-export type TextProps = ParagraphProps &
-  PropsWithChildren<{
-    as?: keyof ReactHTML
-    fontSize?: utils.TextSizes
-    fontColor?: Colors
-  }>
-
-export const Text: FC<TextProps> = ({
-  as = 'p',
-  fontSize,
-  fontColor,
-  children,
-  className,
-  ...props
-}) => {
-  const classes = cx(className, styles({ fontSize, fontColor }))
-  return createElement(as, { className: classes, ...props }, children)
+export type TextProps = HTMLProps['p'] & {
+  fontSize?: utils.TextSizes
+  fontColor?: Colors
 }
+
+export const Text = createComponent<TextProps, HTMLParagraphElement>(
+  ({ as = 'p', fontSize, fontColor, children, className, ...props }) => {
+    const classes = cx(className, styles({ fontSize, fontColor }))
+    return createElement(as, { className: classes, ...props }, children)
+  }
+)
 
 const styles = css({
   variants: {
-    // FIX: adjust type type
+    // TODO: adjust typings
     fontSize: (utils.textSize.__keys as any[]).reduce(
       (obj, key) => ({
         ...obj,
@@ -38,7 +26,7 @@ const styles = css({
       }),
       {}
     ),
-    // FIX: adjust type type
+    // TODO: adjust typings
     fontColor: (allColors as any[]).reduce(
       (obj, key) => ({
         ...obj,

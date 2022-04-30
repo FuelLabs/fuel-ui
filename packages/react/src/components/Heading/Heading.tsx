@@ -1,29 +1,20 @@
+import { createElement } from 'react'
 import { css, allColors, Colors, cx, utils } from '@fuel/css'
-import { createElement, FC, PropsWithChildren } from 'react'
 
-type BaseHeadingProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLHeadingElement>,
-  HTMLHeadingElement
->
+import { createComponent, HTMLProps } from '@/utils'
 
-export type HeadingProps = BaseHeadingProps &
-  PropsWithChildren<{
-    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-    fontSize?: utils.TextSizes
-    fontColor?: Colors
-  }>
-
-export const Heading: FC<HeadingProps> = ({
-  as = 'h2',
-  fontSize,
-  fontColor,
-  children,
-  className,
-  ...props
-}) => {
-  const classes = cx(className, styles({ fontSize, fontColor }))
-  return createElement(as, { className: classes, ...props }, children)
+export type HeadingProps = HTMLProps['h1'] & {
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  fontSize?: utils.TextSizes
+  fontColor?: Colors
 }
+
+export const Heading = createComponent<HeadingProps, HTMLHeadElement>(
+  ({ as = 'h2', fontSize, fontColor, children, className, ...props }) => {
+    const classes = cx(className, styles({ fontSize, fontColor }))
+    return createElement(as, { className: classes, ...props }, children)
+  }
+)
 
 const styles = css({
   mt: '0.5rem',

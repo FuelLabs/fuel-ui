@@ -1,14 +1,18 @@
-import { css } from '@fuel/css'
-import { FC, PropsWithChildren } from 'react'
+import { createComponent, HTMLProps } from '@/utils'
+import { css, cx } from '@fuel/css'
+import { createElement } from 'react'
 
 export type ContainerSizes = 'sm' | 'md' | 'lg' | 'xl'
-export type ContainerProps = PropsWithChildren<{
+export type ContainerProps = HTMLProps['div'] & {
   size?: ContainerSizes
-}>
-
-export const Container: FC<ContainerProps> = ({ children, size }) => {
-  return <div className={styles({ size })}>{children}</div>
 }
+
+export const Container = createComponent<ContainerProps, HTMLDivElement>(
+  ({ as = 'div', className, children, size, ...props }) => {
+    const classes = cx(className, styles({ size }))
+    return createElement(as, { ...props, className: classes }, children)
+  }
+)
 
 const styles = css({
   margin: '0 auto',

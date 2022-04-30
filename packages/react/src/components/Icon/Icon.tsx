@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { ElementType, FC } from 'react'
 import { Colors, cx, css } from '@fuel/css'
 import { IconType } from 'react-icons'
 import * as IconSet from 'react-icons/bi'
@@ -13,21 +13,16 @@ export interface IconProps {
 }
 
 export type IconComponent = FC<IconProps> & {
-  [K in Icons]: IconType
+  [K in Icons]: IconType | ElementType
 } & {
   _iconList: Icons[]
 }
 
 // @ts-ignore
 export const Icon: IconComponent = ({ icon, size = 16, className, color }) => {
-  const Component = IconSet[icon]
+  const Component = IconSet[icon] || icon
   const colorClass = css({ color: `$${color}` })
   return (
     <Component size={size} className={cx(color && colorClass(), className)} />
   )
-}
-
-Icon._iconList = Object.keys(IconSet) as Icons[]
-for (const [key, value] of Object.entries(IconSet)) {
-  Icon[key as Icons] = value
 }

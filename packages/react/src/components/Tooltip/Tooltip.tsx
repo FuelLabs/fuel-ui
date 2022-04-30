@@ -1,10 +1,11 @@
+import { FC, ReactElement } from 'react'
 import * as RTooltip from '@radix-ui/react-tooltip'
-import { FC, PropsWithChildren, ReactElement } from 'react'
 
+import { Props } from '@/utils'
 import * as styles from './styles'
 
 export type TooltipProps = RTooltip.TooltipProps &
-  PropsWithChildren<{
+  Props<{
     content: ReactElement
     side: RTooltip.PopperContentProps['side']
     align: RTooltip.PopperContentProps['align']

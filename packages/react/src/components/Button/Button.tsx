@@ -1,15 +1,14 @@
-import { cloneElement, ReactElement } from 'react'
+import { cloneElement, createElement, ReactElement } from 'react'
 import { ColorKeys, cx } from '@fuel/css'
+
+import { createComponent, HTMLProps } from '@/utils'
 import { Icon, Icons } from '../Icon'
-
-import * as styles from './styles'
 import { Spinner } from '../Spinner'
-import { forwardRef } from 'react'
+import * as styles from './styles'
 
-type BaseButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link'
 
-export interface ButtonProps extends BaseButtonProps {
+export type ButtonProps = HTMLProps['button'] & {
   size?: 'xs' | 'sm' | 'md' | 'lg'
   color?: ColorKeys
   variant?: ButtonVariants
@@ -29,24 +28,22 @@ const ICONS_SIZE = {
   lg: 20,
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      size = 'md',
-      color = 'accent',
-      variant = 'solid',
-      leftIcon,
-      rightIcon,
-      iconSize: initialIconSize,
-      isLoading,
-      isDisabled,
-      className,
-      justIcon,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+export const Button = createComponent<ButtonProps, HTMLButtonElement>(
+  ({
+    as = 'button',
+    size = 'md',
+    color = 'accent',
+    variant = 'solid',
+    leftIcon,
+    rightIcon,
+    iconSize: initialIconSize,
+    isLoading,
+    isDisabled,
+    className,
+    justIcon,
+    children,
+    ...props
+  }) => {
     const disabled = isLoading || isDisabled
     const defaultIconSize = initialIconSize || ICONS_SIZE[size]
     const iconSize = justIcon ? defaultIconSize + 2 : defaultIconSize
@@ -65,28 +62,49 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         rightIcon && cloneElement(rightIcon, { size: iconSize })
       )
 
-    return (
-      <button
-        ref={ref}
-        {...props}
-        disabled={disabled}
-        className={cx(
-          { disabled },
-          className,
-          styles.button({
-            size,
-            variant,
-            disabled,
-            justIcon,
-            color: color as any,
-          })
-        )}
-      >
+    const classes = cx(
+      className,
+      styles.button({
+        size,
+        variant,
+        disabled,
+        justIcon,
+        color: color as any,
+      })
+    )
+
+    /**
+     * Modify handlers to don't execute if disabled is true
+     */
+    const handleProps = Object.entries(props)
+      .filter(([key]) => key.startsWith('on'))
+      .reduce(
+        (obj, [key, val]) => ({ ...obj, [key]: disabled ? () => null : val }),
+        {}
+      )
+
+    const buttonProps = {
+      ...props,
+      ...handleProps,
+      disabled,
+      'aria-disabled': disabled,
+      className: classes,
+    }
+
+    return createElement(
+      as,
+      buttonProps,
+      <>
         {isLoading && <Spinner color="current" size={iconSize + 2} />}
         {!isLoading && iconLeft && iconLeft}
         {isLoading ? 'Loading...' : children}
         {!isLoading && iconRight && iconRight}
-      </button>
+      </>
     )
   }
 )
+
+Button.defaultProps = {
+  role: 'button',
+  type: 'button',
+}

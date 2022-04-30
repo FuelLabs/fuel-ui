@@ -1,7 +1,9 @@
-import { css } from '@fuel/css'
-import { FC, PropsWithChildren } from 'react'
+import { createElement } from 'react'
+import { css, cx } from '@fuel/css'
 
-export type BoxCenteredProps = PropsWithChildren<{
+import { HTMLProps, createComponent } from '@/utils'
+
+export type BoxCenteredProps = HTMLProps['div'] & {
   /**
    * max-width: '100vh
    */
@@ -10,19 +12,17 @@ export type BoxCenteredProps = PropsWithChildren<{
    * max-height: '100vh
    */
   minHS?: boolean
-}>
-
-export const BoxCentered: FC<BoxCenteredProps> = ({
-  children,
-  minWS,
-  minHS,
-}) => {
-  return <div className={styles({ minWS, minHS })}>{children}</div>
 }
+
+export const BoxCentered = createComponent<BoxCenteredProps, HTMLDivElement>(
+  ({ as = 'div', children, minWS, minHS, className, ...props }) => {
+    const classes = cx(className, styles({ minWS, minHS }))
+    return createElement(as, { ...props, className: classes }, children)
+  }
+)
 
 const styles = css({
   is: ['centered'],
-
   variants: {
     minWS: {
       true: {

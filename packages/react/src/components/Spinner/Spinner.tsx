@@ -1,16 +1,21 @@
 import { FC, useMemo } from 'react'
-import { css, colors, keyframes, ColorKeys, Colors } from '@fuel/css'
+import { css, colors, keyframes, ColorKeys, Colors, cx } from '@fuel/css'
+import { Props } from '@/utils'
 
-export interface SpinnerProps {
+export type SpinnerProps = Props<{
   size?: number
   color?: Colors | ColorKeys | string
-}
+}>
 
-export const Spinner: FC<SpinnerProps> = ({ size = 24, color = 'accent' }) => {
+export const Spinner: FC<SpinnerProps> = ({
+  size = 24,
+  color = 'accent',
+  className,
+}) => {
   const styles = useMemo(() => getStyles(size, color), [size])
   return (
-    <svg className={styles()} viewBox={`0 0 ${size} ${size}`}>
-      <circle cx={size / 2} cy={size / 2} r={size * 0.4}></circle>
+    <svg className={cx(className, styles())} viewBox={`0 0 ${size} ${size}`}>
+      <circle cx={size / 2} cy={size / 2} r={size * 0.4} />
     </svg>
   )
 }

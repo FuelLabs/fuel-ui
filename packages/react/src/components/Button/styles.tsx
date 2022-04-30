@@ -13,11 +13,11 @@ function createSolidVariant(keyColor: ColorKeys) {
     borderColor: 'transparent',
     color: textColor,
 
-    '&:not(.disabled):hover': {
+    '&:not([aria-disabled]):hover': {
       background: hoverColor,
     },
 
-    '&:not(.disabled):focus': {
+    '&:not([aria-disabled]):focus': {
       outline: `2.5px solid ${outlineColor}`,
     },
   }
@@ -34,7 +34,7 @@ function createOutlinedVariant(keyColor: ColorKeys) {
     background: 'transparent',
     color: textColor,
 
-    '&:not(.disabled):hover': {
+    '&:not([aria-disabled]):hover': {
       color: hoverTextColor,
       background: borderColor,
     },
@@ -51,7 +51,7 @@ function createGhostVariant(keyColor: ColorKeys) {
     background,
     color: textColor,
     borderColor: 'transparent',
-    '&:not(.disabled):hover': {
+    '&:not([aria-disabled]):hover': {
       background: hover,
     },
   }
@@ -68,7 +68,7 @@ function createLinkVariant(keyColor: ColorKeys) {
     background: 'transparent',
     borderColor: 'transparent',
     color: textColor,
-    '&:hover': {
+    '&:not([aria-disabled]):hover': {
       backgroundColor: 'transparent !important',
       textDecoration: 'underline',
     },
