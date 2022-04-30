@@ -1,20 +1,64 @@
-import { createComponent, HTMLProps } from '@/utils'
+import { cloneElement, createElement, ReactElement } from 'react'
 import { css, allColors, Colors, cx, utils } from '@fuel/css'
-import { createElement } from 'react'
+
+import { createComponent, HTMLProps } from '@/utils'
+import { Icon, Icons } from '../Icon'
+
+export function createIcon(
+  icon?: Icons | ReactElement,
+  iconSize?: number,
+  iconAriaLabel?: string
+) {
+  return typeof icon === 'string' ? (
+    <Icon icon={icon} size={iconSize} aria-label={iconAriaLabel} />
+  ) : (
+    icon && cloneElement(icon, { size: iconSize, 'aria-label': iconAriaLabel })
+  )
+}
 
 export type TextProps = HTMLProps['p'] & {
   fontSize?: utils.TextSizes
-  fontColor?: Colors
+  color?: Colors
+  leftIcon?: Icons | ReactElement
+  rightIcon?: Icons | ReactElement
+  iconSize?: number
+  iconAriaLabel?: string
 }
 
 export const Text = createComponent<TextProps, HTMLParagraphElement>(
-  ({ as = 'p', fontSize, fontColor, children, className, ...props }) => {
-    const classes = cx(className, styles({ fontSize, fontColor }))
-    return createElement(as, { ...props, className: classes }, children)
+  ({
+    as = 'p',
+    fontSize,
+    color,
+    children,
+    className,
+    leftIcon,
+    rightIcon,
+    iconSize,
+    iconAriaLabel,
+    ...props
+  }) => {
+    const classes = cx(className, styles({ fontSize, color }))
+    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel)
+    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel)
+
+    return createElement(
+      as,
+      { ...props, className: classes },
+      <>
+        {iconLeft}
+        <span>{children}</span>
+        {iconRight}
+      </>
+    )
   }
 )
 
 const styles = css({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '$3',
+
   variants: {
     // TODO: adjust typings
     fontSize: (utils.textSize.__keys as any[]).reduce(
@@ -27,7 +71,7 @@ const styles = css({
       {}
     ),
     // TODO: adjust typings
-    fontColor: (allColors as any[]).reduce(
+    color: (allColors as any[]).reduce(
       (obj, key) => ({
         ...obj,
         [key]: {
@@ -40,6 +84,6 @@ const styles = css({
 
   defaultVariants: {
     fontSize: 'md',
-    fontColor: 'fontColor',
+    color: 'textColor',
   },
 })

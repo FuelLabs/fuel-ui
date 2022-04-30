@@ -1,8 +1,9 @@
-import { cloneElement, createElement, ReactElement } from 'react'
+import { createElement, ReactElement } from 'react'
 import { ColorKeys, cx } from '@fuel/css'
 
 import { createComponent, HTMLProps } from '@/utils'
-import { Icon, Icons } from '../Icon'
+import { createIcon } from '../Text'
+import { Icons } from '../Icon'
 import { Spinner } from '../Spinner'
 import * as styles from './styles'
 
@@ -15,6 +16,7 @@ export type ButtonProps = HTMLProps['button'] & {
   leftIcon?: Icons | ReactElement
   rightIcon?: Icons | ReactElement
   iconSize?: number
+  iconAriaLabel?: string
   isLoading?: boolean
   isDisabled?: boolean
   justIcon?: boolean
@@ -39,6 +41,7 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
     leftIcon,
     rightIcon,
     iconSize,
+    iconAriaLabel,
     isLoading,
     isDisabled,
     className,
@@ -48,20 +51,8 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled
-
-    const iconLeft =
-      typeof leftIcon === 'string' ? (
-        <Icon icon={leftIcon} size={iconSize} />
-      ) : (
-        leftIcon && cloneElement(leftIcon, { size: iconSize })
-      )
-
-    const iconRight =
-      typeof rightIcon === 'string' ? (
-        <Icon icon={rightIcon} size={iconSize} />
-      ) : (
-        rightIcon && cloneElement(rightIcon, { size: iconSize })
-      )
+    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel)
+    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel)
 
     const classes = cx(
       className,
@@ -99,9 +90,9 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
       buttonProps,
       <>
         {isLoading && <Spinner color="current" size={SPINNER_SIZE[size]} />}
-        {!isLoading && iconLeft && iconLeft}
+        {!isLoading && iconLeft}
         {isLoading ? 'Loading...' : children}
-        {!isLoading && iconRight && iconRight}
+        {!isLoading && iconRight}
       </>
     )
   }

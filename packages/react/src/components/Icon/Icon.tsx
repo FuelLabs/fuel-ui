@@ -10,6 +10,7 @@ export type IconProps = {
   size?: number
   className?: string
   color?: Colors
+  ['aria-label']?: string
 }
 
 export type IconComponent = FC<IconProps> & {
@@ -19,12 +20,20 @@ export type IconComponent = FC<IconProps> & {
 }
 
 // @ts-ignore
-export const Icon: IconComponent = ({ icon, size, className, color }) => {
+export const Icon: IconComponent = ({
+  icon,
+  size,
+  className,
+  color,
+  ...props
+}) => {
   const Component = IconSet[icon] || icon
   const colorClass = css({ color: `$${color}` })
+  const ariaLabel = props['aria-label']
   return (
     <Component
       className={cx(color && colorClass(), className)}
+      {...(ariaLabel && { 'aria-label': ariaLabel })}
       {...(size && { size })}
     />
   )
