@@ -83,6 +83,7 @@ export const button = css({
   border: '1px solid transparent',
   borderRadius: '$lg',
   transition: 'all',
+  textDecoration: 'none',
 
   variants: {
     size: {

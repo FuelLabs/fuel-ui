@@ -18,17 +18,20 @@ export type ButtonProps = HTMLProps['button'] & {
   isLoading?: boolean
   isDisabled?: boolean
   justIcon?: boolean
+  isLink?: boolean
 }
 
 const ICONS_SIZE = {
-  xs: 14,
-  sm: 16,
-  md: 18,
+  xs: 12,
+  sm: 14,
+  md: 16,
   lg: 20,
 }
 
 export const Button = createComponent<ButtonProps, HTMLButtonElement>(
   ({
+    role = 'button',
+    type = 'button',
     as = 'button',
     size = 'md',
     color = 'accent',
@@ -40,6 +43,7 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
     isDisabled,
     className,
     justIcon,
+    isLink,
     children,
     ...props
   }) => {
@@ -85,6 +89,8 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
     const buttonProps = {
       ...props,
       ...handleProps,
+      ...(isLink ? { role: 'link' } : { role }),
+      ...(!isLink && { type }),
       disabled,
       'aria-disabled': disabled,
       className: classes,
@@ -102,8 +108,3 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
     )
   }
 )
-
-Button.defaultProps = {
-  role: 'button',
-  type: 'button',
-}
