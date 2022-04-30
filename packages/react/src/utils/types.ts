@@ -1,4 +1,3 @@
-import type * as Stiches from '@stitches/react'
 import {
   ComponentPropsWithRef,
   ElementType,
@@ -44,9 +43,8 @@ export type Props<P> = P & BaseProps<P>
 /**
  * TODO: add annotations
  */
-export type PropsWithAsAndCSS<P = any> = Props<P> & {
+export type PropsWithAs<P = any> = Props<P> & {
   as?: ElementType
-  css?: Stiches.CSSProperties
 }
 
 /**

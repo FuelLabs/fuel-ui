@@ -1,16 +1,14 @@
-import { css, cx } from '@fuel/css'
 import {
   forwardRef,
   ForwardRefExoticComponent,
   PropsWithoutRef,
   ReactElement,
   RefAttributes,
-  useMemo,
 } from 'react'
 
-import { PropsWithAsAndCSS } from './types'
+import { PropsWithAs } from './types'
 
-type Render<P> = (props: PropsWithAsAndCSS<P>) => ReactElement
+type Render<P> = (props: PropsWithAs<P>) => ReactElement
 
 /**
  * Creates a type-safe component with the `as` prop and `React.forwardRef`.
@@ -32,13 +30,11 @@ type Render<P> = (props: PropsWithAsAndCSS<P>) => ReactElement
 export function createComponent<P, T extends HTMLElement = any>(
   render: Render<P>
 ) {
-  type Props = PropsWithAsAndCSS<P>
+  type Props = PropsWithAs<P>
   type Component = ForwardRefExoticComponent<
     PropsWithoutRef<Props> & RefAttributes<Props>
   >
-  return forwardRef<T, Props>(({ className, css: styleObj, ...props }, ref) => {
-    const styles = useMemo(() => styleObj && css(styleObj as any), [styleObj])
-    const classes = cx(className, styles?.())
-    return render({ ref, className: classes, ...props } as any)
+  return forwardRef<T, Props>((props, ref) => {
+    return render({ ref, ...props } as any)
   }) as Component
 }
