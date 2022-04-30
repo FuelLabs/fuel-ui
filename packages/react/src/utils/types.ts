@@ -1,5 +1,12 @@
 import type * as Stiches from '@stitches/react'
-import { ComponentPropsWithRef, ElementType, ReactNode } from 'react'
+import {
+  ComponentPropsWithRef,
+  ElementType,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  ReactNode,
+  RefAttributes,
+} from 'react'
 
 /**
  * The `as` prop.
@@ -163,3 +170,10 @@ export type HTMLProps = {
   wbr: React.HTMLAttributes<HTMLElement>
   webview: React.WebViewHTMLAttributes<HTMLWebViewElement>
 }
+
+/**
+ * TODO: add annotations
+ */
+export type RefComponent<P> = ForwardRefExoticComponent<
+  PropsWithoutRef<P> & RefAttributes<P>
+>

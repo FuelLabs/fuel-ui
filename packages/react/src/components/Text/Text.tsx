@@ -10,7 +10,7 @@ export type TextProps = HTMLProps['p'] & {
 export const Text = createComponent<TextProps, HTMLParagraphElement>(
   ({ as = 'p', fontSize, fontColor, children, className, ...props }) => {
     const classes = cx(className, styles({ fontSize, fontColor }))
-    return createElement(as, { className: classes, ...props }, children)
+    return createElement(as, { ...props, className: classes }, children)
   }
 )
 

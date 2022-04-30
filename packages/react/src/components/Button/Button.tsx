@@ -17,7 +17,6 @@ export type ButtonProps = HTMLProps['button'] & {
   iconSize?: number
   isLoading?: boolean
   isDisabled?: boolean
-  className?: string
   justIcon?: boolean
 }
 

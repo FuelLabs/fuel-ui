@@ -5,7 +5,7 @@ import * as IconSet from 'react-icons/bi'
 
 export type Icons = keyof typeof IconSet
 
-export interface IconProps {
+export type IconProps = {
   icon: Icons
   size?: number
   className?: string

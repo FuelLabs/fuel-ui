@@ -12,7 +12,7 @@ export type HeadingProps = HTMLProps['h1'] & {
 export const Heading = createComponent<HeadingProps, HTMLHeadElement>(
   ({ as = 'h2', fontSize, fontColor, children, className, ...props }) => {
     const classes = cx(className, styles({ fontSize, fontColor }))
-    return createElement(as, { className: classes, ...props }, children)
+    return createElement(as, { ...props, className: classes }, children)
   }
 )
 

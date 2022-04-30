@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import * as RDialog from '@radix-ui/react-dialog'
 
+import { RefComponent } from '@/utils'
 import { DialogContent, DialogContentProps } from './DialogContent'
 import { DialogDescription, DialogDescriptionProps } from './DialogDescription'
 import { DialogHeading, DialogHeadingProps } from './DialogHeading'
@@ -17,7 +18,7 @@ type DialogComponent = FC<RDialog.DialogProps> & {
   Close: FC<DialogCloseProps>
   Heading: FC<DialogHeadingProps>
   Description: FC<DialogDescriptionProps>
-  Footer: FC<DialogFooterProps>
+  Footer: RefComponent<DialogFooterProps>
 }
 
 export const Dialog: DialogComponent = ({ children, ...props }) => {

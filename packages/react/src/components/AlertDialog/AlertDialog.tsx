@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import * as RAlertDialog from '@radix-ui/react-alert-dialog'
 
+import { RefComponent } from '@/utils'
+
 import {
   AlertDialogContent,
   AlertDialogContentProps,
@@ -33,7 +35,7 @@ type AlertDialogComponent = FC<RAlertDialog.AlertDialogProps> & {
   Trigger: FC<AlertDialogTriggerProps>
   Heading: FC<AlertDialogHeadingProps>
   Description: FC<AlertDialogDescriptionProps>
-  Footer: FC<AlertDialogFooterProps>
+  Footer: RefComponent<AlertDialogFooterProps>
   Cancel: FC<AlertDialogCancelProps>
   Action: FC<AlertDialogActionProps>
 }

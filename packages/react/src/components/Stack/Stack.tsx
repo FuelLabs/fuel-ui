@@ -23,6 +23,6 @@ export const Stack = createComponent<StackProps, HTMLDivElement>(
       [flexDirection, gap]
     )
     const classes = cx(className, styles())
-    return createElement(as, { className: classes, ...props }, children)
+    return createElement(as, { ...props, className: classes }, children)
   }
 )

@@ -7,7 +7,7 @@ type CustomButtonProps = Omit<
   ButtonProps,
   'leftIcon' | 'rightIcon' | 'justIcon'
 >
-export interface IconButtonProps extends CustomButtonProps {
+export type IconButtonProps = CustomButtonProps & {
   'aria-label': string
   icon: Icons | ReactElement
 }
