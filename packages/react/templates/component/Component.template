@@ -1,0 +1,19 @@
+import { createElement } from 'react'
+import { css, cx } from '@fuel/css'
+
+import { HTMLProps, createComponent } from '@/utils'
+
+export type __COMPONENT__Props = HTMLProps['div'] & {
+  //
+}
+
+export const __COMPONENT__ = createComponent<__COMPONENT__Props, HTMLDivElement>(
+  ({ as = 'div', children, className, ...props }) => {
+    const classes = cx(className, styles())
+    return createElement(as, { ...props, className: classes }, children)
+  }
+)
+
+const styles = css({
+  //
+})
