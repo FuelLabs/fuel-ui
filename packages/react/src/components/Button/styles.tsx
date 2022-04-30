@@ -3,40 +3,39 @@ import { css, ColorKeys, colorKeys, isBright } from '@fuel/css'
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
   const outlineColor = `$${color}5`
-  const background = isBright(color) ? `$${color}7` : `$${color}9`
-  const hoverColor = isBright(color) ? `$${color}8` : `$${color}10`
-  const textColor = isBright(color) ? `$${color}11` : `$${color}1`
+  const background = isBright(color) ? `$${color}6` : `$${color}9`
+  const hoverColor = isBright(color) ? `$${color}7` : `$${color}10`
+  const textColor = isBright(color) ? `$${color}12` : `$${color}1`
+  const borderColor = isBright(color) ? `$${color}8` : `$${color}11`
 
   return {
     background,
-    fontWeight: '$semibold',
-    borderColor: 'transparent',
+    borderColor,
     color: textColor,
 
-    '&:not([aria-disabled]):hover': {
+    '&:not([aria-disabled=true]):hover': {
       background: hoverColor,
     },
 
-    '&:not([aria-disabled]):focus': {
-      outline: `2.5px solid ${outlineColor}`,
+    '&:not([aria-disabled=true]):focus': {
+      outline: `3px solid ${outlineColor}`,
     },
   }
 }
 
 function createOutlinedVariant(keyColor: ColorKeys) {
   const color = String(keyColor)
-  const textColor = isBright(color) ? `$${color}11` : `$${color}10`
-  const borderColor = `$${color}8`
-  const hoverTextColor = `$${color}1`
+  const textColor = `$${color}11`
+  const borderColor = `$${color}7`
+  const hoverBg = `$${color}5`
 
   return {
     borderColor,
     background: 'transparent',
     color: textColor,
 
-    '&:not([aria-disabled]):hover': {
-      color: hoverTextColor,
-      background: borderColor,
+    '&:not([aria-disabled=true]):hover': {
+      background: hoverBg,
     },
   }
 }
@@ -51,7 +50,7 @@ function createGhostVariant(keyColor: ColorKeys) {
     background,
     color: textColor,
     borderColor: 'transparent',
-    '&:not([aria-disabled]):hover': {
+    '&:not([aria-disabled=true]):hover': {
       background: hover,
     },
   }
@@ -68,7 +67,7 @@ function createLinkVariant(keyColor: ColorKeys) {
     background: 'transparent',
     borderColor: 'transparent',
     color: textColor,
-    '&:not([aria-disabled]):hover': {
+    '&:not([aria-disabled=true]):hover': {
       backgroundColor: 'transparent !important',
       textDecoration: 'underline',
     },

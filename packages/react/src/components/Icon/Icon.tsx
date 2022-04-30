@@ -26,3 +26,5 @@ export const Icon: IconComponent = ({ icon, size = 16, className, color }) => {
     <Component size={size} className={cx(color && colorClass(), className)} />
   )
 }
+
+Icon._iconList = Object.keys(IconSet) as Icons[]

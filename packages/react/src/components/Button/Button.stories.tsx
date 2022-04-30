@@ -13,6 +13,7 @@ export default {
       control: 'select',
     },
     color: {
+      options: colorKeys,
       defaultValue: 'accent',
       control: 'select',
     },
