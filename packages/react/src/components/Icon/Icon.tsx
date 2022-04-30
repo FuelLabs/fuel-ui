@@ -19,11 +19,14 @@ export type IconComponent = FC<IconProps> & {
 }
 
 // @ts-ignore
-export const Icon: IconComponent = ({ icon, size = 16, className, color }) => {
+export const Icon: IconComponent = ({ icon, size, className, color }) => {
   const Component = IconSet[icon] || icon
   const colorClass = css({ color: `$${color}` })
   return (
-    <Component size={size} className={cx(color && colorClass(), className)} />
+    <Component
+      className={cx(color && colorClass(), className)}
+      {...(size && { size })}
+    />
   )
 }
 

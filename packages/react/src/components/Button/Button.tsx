@@ -21,7 +21,7 @@ export type ButtonProps = HTMLProps['button'] & {
   isLink?: boolean
 }
 
-const ICONS_SIZE = {
+const SPINNER_SIZE = {
   xs: 12,
   sm: 14,
   md: 16,
@@ -38,7 +38,7 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
     variant = 'solid',
     leftIcon,
     rightIcon,
-    iconSize: initialIconSize,
+    iconSize,
     isLoading,
     isDisabled,
     className,
@@ -48,8 +48,6 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled
-    const defaultIconSize = initialIconSize || ICONS_SIZE[size]
-    const iconSize = justIcon ? defaultIconSize + 2 : defaultIconSize
 
     const iconLeft =
       typeof leftIcon === 'string' ? (
@@ -100,7 +98,7 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
       as,
       buttonProps,
       <>
-        {isLoading && <Spinner color="current" size={iconSize + 2} />}
+        {isLoading && <Spinner color="current" size={SPINNER_SIZE[size]} />}
         {!isLoading && iconLeft && iconLeft}
         {isLoading ? 'Loading...' : children}
         {!isLoading && iconRight && iconRight}
