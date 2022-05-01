@@ -34,3 +34,5 @@ pnpm-debug.log*
 .turbo
 tsconfig.tsbuildinfo
 
+# storybook
+storybook-static
