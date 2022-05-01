@@ -8,9 +8,10 @@ import { Spinner } from '../Spinner'
 import * as styles from './styles'
 
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link'
+export type ButtonSizes = 'xs' | 'sm' | 'md' | 'lg'
 
-export type ButtonProps = HTMLProps['button'] & {
-  size?: 'xs' | 'sm' | 'md' | 'lg'
+export type ButtonBaseProps = {
+  size?: ButtonSizes
   color?: ColorKeys
   variant?: ButtonVariants
   leftIcon?: Icons | ReactElement
@@ -19,11 +20,15 @@ export type ButtonProps = HTMLProps['button'] & {
   iconAriaLabel?: string
   isLoading?: boolean
   isDisabled?: boolean
-  justIcon?: boolean
-  isLink?: boolean
 }
 
-const SPINNER_SIZE = {
+export type ButtonProps = HTMLProps['button'] &
+  ButtonBaseProps & {
+    justIcon?: boolean
+    isLink?: boolean
+  }
+
+export const SPINNER_SIZE = {
   xs: 12,
   sm: 14,
   md: 16,
@@ -32,9 +37,9 @@ const SPINNER_SIZE = {
 
 export const Button = createComponent<ButtonProps, HTMLButtonElement>(
   ({
+    as = 'button',
     role = 'button',
     type = 'button',
-    as = 'button',
     size = 'md',
     color = 'accent',
     variant = 'solid',

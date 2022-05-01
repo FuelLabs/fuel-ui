@@ -1,12 +1,5 @@
-import {
-  forwardRef,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  ReactElement,
-  RefAttributes,
-} from 'react'
-
-import { PropsWithAs } from './types'
+import { forwardRef, ReactElement } from 'react'
+import { PropsWithAs, RefComponent } from './types'
 
 type Render<P> = (props: PropsWithAs<P>) => ReactElement
 
@@ -27,14 +20,12 @@ type Render<P> = (props: PropsWithAs<P>) => ReactElement
  *
  * <Component as="button" customProp />
  */
+
 export function createComponent<P, T extends HTMLElement = any>(
   render: Render<P>
-) {
+): RefComponent<P> {
   type Props = PropsWithAs<P>
-  type Component = ForwardRefExoticComponent<
-    PropsWithoutRef<Props> & RefAttributes<Props>
-  >
-  return forwardRef<T, Props>((props, ref) => {
-    return render({ ref, ...props } as any)
-  }) as Component
+  return forwardRef<T, Props>((props, ref) =>
+    render({ ref, ...props } as any)
+  ) as RefComponent<P>
 }
