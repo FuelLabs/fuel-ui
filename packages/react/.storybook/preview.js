@@ -1,5 +1,7 @@
 import { themes } from '@storybook/theming'
 
+import theme from './theme'
+
 import { darkTheme, theme as lightTheme } from '@fuel/css'
 import { GlobalStyles } from '../src/styles/GlobalStyles'
 
@@ -20,8 +22,14 @@ export const parameters = {
   },
   darkMode: {
     stylePreview: true,
-    dark: themes.dark,
-    light: themes.light,
+    dark: {
+      ...themes.dark,
+      ...theme,
+    },
+    light: {
+      ...themes.light,
+      ...theme,
+    },
     darkClass: darkTheme.className,
     lightClass: lightTheme.className,
   },
