@@ -47,7 +47,7 @@ export const Text = createComponent<TextProps, HTMLParagraphElement>(
       { ...props, className: classes },
       <>
         {iconLeft}
-        <span>{children}</span>
+        {children}
         {iconRight}
       </>
     )
