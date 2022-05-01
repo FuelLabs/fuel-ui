@@ -2,7 +2,7 @@ import { Heading, HeadingProps } from './Heading'
 
 export default {
   component: Heading,
-  title: 'UI/Heading',
+  title: 'Typography/Heading',
   argTypes: {},
 }
 

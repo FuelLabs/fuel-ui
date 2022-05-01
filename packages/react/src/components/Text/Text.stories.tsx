@@ -3,7 +3,7 @@ import { Text, TextProps } from './Text'
 
 export default {
   component: Text,
-  title: 'UI/Text',
+  title: 'Typography/Text',
   argTypes: {
     color: {
       options: allColors,
