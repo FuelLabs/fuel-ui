@@ -6,8 +6,9 @@ export const base = {
   inherit: 'inherit',
   current: 'currentColor',
   transparent: 'transparent',
-  black: radixColors.blackA.blackA12,
-  white: radixColors.whiteA.whiteA12,
+
+  ...radixColors.blackA,
+  ...radixColors.whiteA,
 }
 
 export const colors = {
