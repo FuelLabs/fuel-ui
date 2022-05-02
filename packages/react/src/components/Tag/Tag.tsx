@@ -1,5 +1,5 @@
 import { Children, createElement, FC, ReactNode } from 'react'
-import { cx } from '@fuel/css'
+import { cx } from '@fuel-js/css'
 
 import { HTMLProps, createComponent, RefComponent } from '@/utils'
 import { createIcon } from '../Text'

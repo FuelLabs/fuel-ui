@@ -1,5 +1,5 @@
 import { createComponent, HTMLProps } from '@/utils'
-import { css, cx } from '@fuel/css'
+import { css, cx } from '@fuel-js/css'
 import { createElement } from 'react'
 
 export type ContainerSizes = 'sm' | 'md' | 'lg' | 'xl'

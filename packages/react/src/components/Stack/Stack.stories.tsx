@@ -1,4 +1,4 @@
-import { css } from '@fuel/css'
+import { css } from '@fuel-js/css'
 import { Stack, StackProps } from './Stack'
 
 export default {

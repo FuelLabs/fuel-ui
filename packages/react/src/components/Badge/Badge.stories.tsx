@@ -1,6 +1,6 @@
 import { Badge } from './Badge'
 import { Text } from '../Text'
-import { css } from '@fuel/css'
+import { css } from '@fuel-js/css'
 
 export default {
   component: Badge,

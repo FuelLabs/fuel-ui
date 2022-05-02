@@ -1,4 +1,4 @@
-import { css } from '@fuel/css'
+import { css } from '@fuel-js/css'
 import * as variants from './variants'
 
 export const badge = css({

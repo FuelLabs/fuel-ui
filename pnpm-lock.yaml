@@ -78,7 +78,7 @@ importers:
       '@babel/core': ^7.17.9
       '@fontsource/inter': ^4.5.7
       '@fontsource/raleway': ^4.5.5
-      '@fuel/css': workspace:*
+      '@fuel-js/css': workspace:*
       '@radix-ui/react-alert-dialog': ^0.1.7
       '@radix-ui/react-avatar': ^0.1.4
       '@radix-ui/react-dialog': ^0.1.7
@@ -110,7 +110,7 @@ importers:
     dependencies:
       '@fontsource/inter': 4.5.7
       '@fontsource/raleway': 4.5.5
-      '@fuel/css': link:../css
+      '@fuel-js/css': link:../css
       '@radix-ui/react-alert-dialog': 0.1.7_47ae209ab5c2ea051c9a2540426c6b2f
       '@radix-ui/react-avatar': 0.1.4_react@18.1.0
       '@radix-ui/react-dialog': 0.1.7_47ae209ab5c2ea051c9a2540426c6b2f

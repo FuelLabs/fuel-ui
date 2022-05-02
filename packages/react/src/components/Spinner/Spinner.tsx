@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react'
-import { css, colors, keyframes, ColorKeys, Colors, cx } from '@fuel/css'
+import { css, colors, keyframes, ColorKeys, Colors, cx } from '@fuel-js/css'
 import { Props } from '@/utils'
 
 export type SpinnerProps = Props<{

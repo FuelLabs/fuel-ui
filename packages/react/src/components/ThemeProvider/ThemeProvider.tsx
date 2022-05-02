@@ -1,4 +1,4 @@
-import { theme as lightTheme, darkTheme } from '@fuel/css'
+import { theme as lightTheme, darkTheme } from '@fuel-js/css'
 import { useLocalStorage } from 'react-use'
 import {
   createContext,
