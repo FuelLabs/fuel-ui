@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { cx } from '@fuel/css'
+import { cx } from '@fuel-js/css'
 import * as RAvatar from '@radix-ui/react-avatar'
 
 import * as styles from './styles'

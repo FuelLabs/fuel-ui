@@ -1,5 +1,5 @@
 import { createElement } from 'react'
-import { allColors, Colors, css, cx } from '@fuel/css'
+import { allColors, Colors, css, cx } from '@fuel-js/css'
 
 import { HTMLProps, createComponent } from '@/utils'
 import { Icon } from '../Icon'

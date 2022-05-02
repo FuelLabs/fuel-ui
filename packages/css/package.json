@@ -1,5 +1,5 @@
 {
-  "name": "@fuel/css",
+  "name": "@fuel-js/css",
   "version": "0.0.1",
   "license": "MIT",
   "main": "dist/index.js",

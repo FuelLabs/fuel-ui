@@ -1,5 +1,5 @@
 {
-  "name": "@fuel/react",
+  "name": "@fuel-js/react",
   "version": "0.0.1",
   "main": "./src/index.tsx",
   "types": "./src/index.tsx",
@@ -16,7 +16,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.7",
     "@fontsource/raleway": "^4.5.5",
-    "@fuel/css": "workspace:*",
+    "@fuel-js/css": "workspace:*",
     "@radix-ui/react-alert-dialog": "^0.1.7",
     "@radix-ui/react-avatar": "^0.1.4",
     "@radix-ui/react-dialog": "^0.1.7",
