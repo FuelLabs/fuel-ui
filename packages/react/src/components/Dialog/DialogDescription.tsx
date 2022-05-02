@@ -1,4 +1,4 @@
-import { cx } from '@fuel/css'
+import { cx } from '@fuel-js/css'
 import { PropsWithChildren, FC } from 'react'
 import * as RDialog from '@radix-ui/react-dialog'
 

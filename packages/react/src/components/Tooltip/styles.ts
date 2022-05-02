@@ -1,4 +1,4 @@
-import { keyframes, css } from '@fuel/css'
+import { keyframes, css } from '@fuel-js/css'
 
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(2px)' },

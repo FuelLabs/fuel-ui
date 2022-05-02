@@ -1,4 +1,4 @@
-import { ColorKeys, colorKeys, isBright } from '@fuel/css'
+import { ColorKeys, colorKeys, isBright } from '@fuel-js/css'
 
 function createSolidVariant(keyColor: ColorKeys, hasHover = true) {
   const color = String(keyColor)

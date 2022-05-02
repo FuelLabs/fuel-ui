@@ -1,5 +1,5 @@
 import { ElementType, FC } from 'react'
-import { Colors, cx, css } from '@fuel/css'
+import { Colors, cx, css } from '@fuel-js/css'
 import { IconType } from 'react-icons'
 import * as IconSet from 'react-icons/bi'
 

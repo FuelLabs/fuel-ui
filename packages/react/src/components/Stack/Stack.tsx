@@ -1,5 +1,5 @@
 import { createElement, ReactHTML, useMemo } from 'react'
-import { css, cx } from '@fuel/css'
+import { css, cx } from '@fuel-js/css'
 
 import { createComponent, HTMLProps } from '@/utils'
 
