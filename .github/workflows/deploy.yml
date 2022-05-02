@@ -30,5 +30,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
+          clean: true
           branch: gh-pages
           folder: packages/react/storybook-static
