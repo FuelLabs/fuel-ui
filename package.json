@@ -6,6 +6,7 @@
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
     "lint": "turbo run lint",
+    "test": "turbo run test",
     "format": "prettier --write ."
   },
   "devDependencies": {
@@ -30,30 +31,5 @@
     "tsup": "^5.12.6",
     "turbo": "^1.2.5",
     "typescript": "^4.6.4"
-  },
-  "turbo": {
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          "dist/**",
-          ".next/**"
-        ]
-      },
-      "lint": {
-        "cache": false
-      },
-      "format": {
-        "cache": false
-      },
-      "dev": {
-        "cache": false
-      },
-      "clean": {
-        "cache": false
-      }
-    }
   }
 }
