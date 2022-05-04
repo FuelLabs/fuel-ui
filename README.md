@@ -40,11 +40,11 @@ In case you don't, you can use [NVM](https://nvm.sh/) to install the latest vers
 <!-- 
 ## Contributing
 
-TODO: Add issue to add Contributing section
+TODO: https://github.com/FuelLabs/design-system/issues/11
 -->
 
 <!-- 
 ## License
 
-TODO: Add issue to add License
+TODO: https://github.com/FuelLabs/design-system/issues/12
 -->
