@@ -22,15 +22,13 @@ This project utilizes Storybook for component development. If you would like to 
 1. `cd` into `packages/react`
 2. Run `pnpm storybook`
 
-Whenever you add, remove, or alter a component's css annotation metadata, you'll need to restart Storybook to see those changes.
-
 ### Configuring Node and NVM
 
-We reccomend you use the latest stable version of node on your computer. 
+**Recommended:** use the [latest LTS version of Node](https://nodejs.org/en/download/).
 
-You can verify by running: `node -v`.
+You can verify by running: `node -v` if you have Node installed.
 
-In case you don't, you can use [NVM](https://nvm.sh/) to install the latest version:
+In case you want to manage Node Versions, you can use [NVM](https://nvm.sh/) to install the latest version:
 
 1. Follow the steps on the [NVM Website](https://nvm.sh/) to install NVM.
 2. Run `nvm install --lts` to install the latest version of Node.
