@@ -1,6 +1,8 @@
 import { Heading } from "../Heading";
 import { Text } from "../Text";
-import { Container, ContainerProps } from "./Container";
+
+import type { ContainerProps } from "./Container";
+import { Container } from "./Container";
 
 export default {
   component: Container,

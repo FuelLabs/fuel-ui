@@ -1,5 +1,6 @@
-import { colorKeys, css } from "@fuel/css";
+import { colorKeys } from "@fuel/css";
 
+import { Box } from "../Box";
 import { Icon } from "../Icon";
 
 import type { ButtonProps } from "./Button";
@@ -34,7 +35,7 @@ export default {
 };
 
 export const Sizes = (args: ButtonProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Button {...args} size="xs">
       Button
     </Button>
@@ -47,11 +48,11 @@ export const Sizes = (args: ButtonProps) => (
     <Button {...args} size="lg">
       Button
     </Button>
-  </div>
+  </Box>
 );
 
 export const Variants = (args: ButtonProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Button {...args} variant="solid">
       Button
     </Button>
@@ -64,58 +65,58 @@ export const Variants = (args: ButtonProps) => (
     <Button {...args} variant="link">
       Button
     </Button>
-  </div>
+  </Box>
 );
 
 export const Colors = (args: ButtonProps) => (
-  <div className={styles.gridList()}>
+  <Box css={styles.gridList}>
     {colorKeys.map((color) => (
       <Button key={color} {...args} color={color}>
         Button
       </Button>
     ))}
-  </div>
+  </Box>
 );
 
 export const WithIcon = (args: ButtonProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Button {...args} leftIcon="BiCalendar" iconAriaLabel="calendar">
       Button
     </Button>
     <Button {...args} rightIcon="BiCalendar" iconAriaLabel="calendar">
       Button
     </Button>
-  </div>
+  </Box>
 );
 
 export const Loading = (args: ButtonProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Button {...args} isLoading>
       Button
     </Button>
-  </div>
+  </Box>
 );
 
 export const Disabled = (args: ButtonProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Button {...args} isDisabled>
       Button
     </Button>
-  </div>
+  </Box>
 );
 
 /**
  * Styles
  */
 const styles = {
-  wrapper: css({
+  wrapper: {
     display: "flex",
     alignItems: "center",
     gap: "$4",
-  }),
-  gridList: css({
+  },
+  gridList: {
     display: "grid",
     gap: "$4",
     gridTemplateColumns: "repeat(6, 1fr)",
-  }),
+  },
 };

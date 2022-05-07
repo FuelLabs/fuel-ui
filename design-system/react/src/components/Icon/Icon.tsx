@@ -1,6 +1,8 @@
-import { ElementType, useMemo } from "react";
-import { Colors, styled } from "@fuel/css";
-import { IconType } from "react-icons";
+import type { Colors } from "@fuel/css";
+import { styled } from "@fuel/css";
+import type { ElementType } from "react";
+import { useMemo } from "react";
+import type { IconType } from "react-icons";
 import * as IconSet from "react-icons/bi";
 
 import { createComponent } from "@/utils";

@@ -1,8 +1,10 @@
-import { ReactElement } from "react";
 import * as RTooltip from "@radix-ui/react-tooltip";
+import type { ReactElement } from "react";
 
-import { createComponent, Props } from "@/utils";
 import * as styles from "./styles";
+
+import type { Props } from "@/utils";
+import { createComponent } from "@/utils";
 
 export type TooltipProps = RTooltip.TooltipProps &
   Props<{

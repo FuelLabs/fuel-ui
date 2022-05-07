@@ -1,5 +1,7 @@
 import { Button } from "../Button";
-import { Tooltip, TooltipProps } from "./Tooltip";
+
+import type { TooltipProps } from "./Tooltip";
+import { Tooltip } from "./Tooltip";
 
 export default {
   component: Tooltip,

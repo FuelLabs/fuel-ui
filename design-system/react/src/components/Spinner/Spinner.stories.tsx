@@ -1,4 +1,4 @@
-import { css } from "@fuel/css";
+import { Box } from "../Box";
 
 import { Spinner } from "./Spinner";
 
@@ -8,15 +8,9 @@ export default {
 };
 
 export const Usage = () => (
-  <div className={style()}>
+  <Box css={{ display: "flex", alignItems: "center", gap: "$2" }}>
     <Spinner />
     <Spinner size={30} color="indigo" />
     <Spinner size={50} color="gray" />
-  </div>
+  </Box>
 );
-
-const style = css({
-  display: "flex",
-  alignItems: "center",
-  gap: "$2",
-});
