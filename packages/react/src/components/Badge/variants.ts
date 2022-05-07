@@ -1,39 +1,39 @@
-import type { ColorKeys } from '@fuel/css'
-import { colorKeys, isBright } from '@fuel/css'
+import type { ColorKeys } from '@fuel/css';
+import { colorKeys, isBright } from '@fuel/css';
 
 function createSolidVariant(keyColor: ColorKeys) {
-  const color = String(keyColor)
-  const background = isBright(color) ? `$${color}6` : `$${color}9`
-  const textColor = isBright(color) ? `$${color}12` : `$${color}1`
+  const color = String(keyColor);
+  const background = isBright(color) ? `$${color}6` : `$${color}9`;
+  const textColor = isBright(color) ? `$${color}12` : `$${color}1`;
 
   return {
     background,
     color: textColor,
-  }
+  };
 }
 
 function createOutlinedVariant(keyColor: ColorKeys) {
-  const color = String(keyColor)
-  const textColor = `$${color}11`
-  const borderColor = `$${color}7`
+  const color = String(keyColor);
+  const textColor = `$${color}11`;
+  const borderColor = `$${color}7`;
 
   return {
     borderColor,
     background: 'transparent',
     color: textColor,
-  }
+  };
 }
 
 function createGhostVariant(keyColor: ColorKeys) {
-  const color = String(keyColor)
-  const background = `$${color}3`
-  const textColor = `$${color}11`
+  const color = String(keyColor);
+  const background = `$${color}3`;
+  const textColor = `$${color}11`;
 
   return {
     background,
     color: textColor,
     borderColor: 'transparent',
-  }
+  };
 }
 
 export const colors = {
@@ -52,4 +52,4 @@ export const colors = {
     variant: 'ghost',
     css: createGhostVariant(key),
   })),
-}
+};

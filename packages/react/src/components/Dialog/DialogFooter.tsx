@@ -1,19 +1,19 @@
-import { cx, styled } from '@fuel/css'
+import { cx, styled } from "@fuel/css";
 
-import * as styles from './styles'
+import * as styles from "./styles";
 
-import type { HTMLProps } from '@/utils'
-import { createComponent } from '@/utils'
+import type { HTMLProps } from "@/utils";
+import { createComponent } from "@/utils";
 
-export type DialogFooterProps = HTMLProps['footer'] & {
-  align?: 'start' | 'end'
-}
+export type DialogFooterProps = HTMLProps["footer"] & {
+  align?: "start" | "end";
+};
 
-const Root = styled('footer')
+const Root = styled("footer");
 
 export const DialogFooter = createComponent<DialogFooterProps>(
   ({ align, className, ...props }) => {
-    const classes = cx(className, styles.footer({ align }))
-    return <Root {...props} className={classes} />
+    const classes = cx(className, styles.footer({ align }));
+    return <Root {...props} className={classes} />;
   }
-)
+);

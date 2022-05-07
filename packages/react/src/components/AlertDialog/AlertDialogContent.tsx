@@ -1,9 +1,9 @@
-import * as RAlertDialog from '@radix-ui/react-alert-dialog'
+import * as RAlertDialog from "@radix-ui/react-alert-dialog";
 
-import * as styles from '../Dialog/styles'
-import { createComponent } from '@/utils'
+import * as styles from "../Dialog/styles";
+import { createComponent } from "@/utils";
 
-export type AlertDialogContentProps = RAlertDialog.AlertDialogContentProps
+export type AlertDialogContentProps = RAlertDialog.AlertDialogContentProps;
 export const AlertDialogContent = createComponent<AlertDialogContentProps>(
   ({ children, ...props }) => (
     <RAlertDialog.Portal>
@@ -13,4 +13,4 @@ export const AlertDialogContent = createComponent<AlertDialogContentProps>(
       </RAlertDialog.Content>
     </RAlertDialog.Portal>
   )
-)
+);

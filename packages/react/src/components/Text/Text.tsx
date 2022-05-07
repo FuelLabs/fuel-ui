@@ -1,31 +1,31 @@
-import { cloneElement, ReactElement } from 'react'
-import { css, allColors, Colors, cx, utils, styled } from '@fuel/css'
+import { cloneElement, ReactElement } from "react";
+import { css, allColors, Colors, cx, utils, styled } from "@fuel/css";
 
-import { createComponent, HTMLProps } from '@/utils'
-import { Icon, Icons } from '../Icon'
+import { createComponent, HTMLProps } from "@/utils";
+import { Icon, Icons } from "../Icon";
 
 export function createIcon(
   icon?: Icons | ReactElement,
   iconSize?: number,
   iconAriaLabel?: string
 ) {
-  return typeof icon === 'string' ? (
+  return typeof icon === "string" ? (
     <Icon icon={icon} size={iconSize} aria-label={iconAriaLabel} />
   ) : (
-    icon && cloneElement(icon, { size: iconSize, 'aria-label': iconAriaLabel })
-  )
+    icon && cloneElement(icon, { size: iconSize, "aria-label": iconAriaLabel })
+  );
 }
 
-export type TextProps = HTMLProps['p'] & {
-  fontSize?: utils.TextSizes
-  color?: Colors
-  leftIcon?: Icons | ReactElement
-  rightIcon?: Icons | ReactElement
-  iconSize?: number
-  iconAriaLabel?: string
-}
+export type TextProps = HTMLProps["p"] & {
+  fontSize?: utils.TextSizes;
+  color?: Colors;
+  leftIcon?: Icons | ReactElement;
+  rightIcon?: Icons | ReactElement;
+  iconSize?: number;
+  iconAriaLabel?: string;
+};
 
-const Root = styled('p')
+const Root = styled("p");
 
 export const Text = createComponent<TextProps>(
   ({
@@ -39,9 +39,9 @@ export const Text = createComponent<TextProps>(
     iconAriaLabel,
     ...props
   }) => {
-    const classes = cx(className, styles({ fontSize, color }))
-    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel)
-    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel)
+    const classes = cx(className, styles({ fontSize, color }));
+    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel);
+    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel);
 
     return (
       <Root {...props} className={classes}>
@@ -49,14 +49,14 @@ export const Text = createComponent<TextProps>(
         {children}
         {iconRight}
       </Root>
-    )
+    );
   }
-)
+);
 
 const styles = css({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '$3',
+  display: "flex",
+  alignItems: "center",
+  gap: "$3",
 
   variants: {
     // TODO: adjust typings
@@ -72,7 +72,7 @@ const styles = css({
   },
 
   defaultVariants: {
-    fontSize: 'md',
-    color: 'textColor',
+    fontSize: "md",
+    color: "textColor",
   },
-})
+});

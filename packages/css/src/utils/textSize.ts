@@ -9,7 +9,7 @@ export type TextSizes =
   | '4xl'
   | '5xl'
   | '6xl'
-  | '7xl'
+  | '7xl';
 
 const TEXT_SIZE_MAP = {
   xs: ['0.75rem', '1rem'] /** 12px | 16px */,
@@ -25,12 +25,12 @@ const TEXT_SIZE_MAP = {
   '7xl': ['4.5rem', '1'] /** 72px */,
   '8xl': ['6rem', '1'] /** 96px */,
   '9xl': ['8rem', '1'] /** 128px */,
-}
+};
 
 export const textSize = (value: TextSizes) => ({
   fontSize: TEXT_SIZE_MAP[value][0],
   lineHeight: TEXT_SIZE_MAP[value][1],
-})
+});
 
 // eslint-disable-next-line no-underscore-dangle
-textSize.__keys = Object.keys(TEXT_SIZE_MAP) as TextSizes[]
+textSize.__keys = Object.keys(TEXT_SIZE_MAP) as TextSizes[];

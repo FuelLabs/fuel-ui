@@ -1,11 +1,11 @@
-import { Heading } from '../Heading'
-import { Text } from '../Text'
-import { Container, ContainerProps } from './Container'
+import { Heading } from "../Heading";
+import { Text } from "../Text";
+import { Container, ContainerProps } from "./Container";
 
 export default {
   component: Container,
-  title: 'Layout/Container',
-}
+  title: "Layout/Container",
+};
 
 export const Usage = (args: ContainerProps) => (
   <Container {...args}>
@@ -20,4 +20,4 @@ export const Usage = (args: ContainerProps) => (
       placeat illum.
     </Text>
   </Container>
-)
+);

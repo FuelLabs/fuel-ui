@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { tokens } from '@fuel/css'
+import { tokens } from '@fuel/css';
 
 export const normalize: Record<string, any>[] = [
   {
@@ -49,10 +49,9 @@ export const normalize: Record<string, any>[] = [
     button: {
       textTransform: 'none',
     },
-    'button, input:is([type="button" i], [type="reset" i], [type="submit" i])':
-      {
-        WebkitAppearance: 'button',
-      },
+    'button, input:is([type="button" i], [type="reset" i], [type="submit" i])': {
+      WebkitAppearance: 'button',
+    },
     progress: {
       verticalAlign: 'baseline',
     },
@@ -122,7 +121,7 @@ export const normalize: Record<string, any>[] = [
       width: '-moz-fit-content',
     },
   },
-]
+];
 
 export const opinionated: Record<string, any>[] = [
   {
@@ -137,4 +136,4 @@ export const opinionated: Record<string, any>[] = [
     },
   },
   ...normalize,
-]
+];

@@ -1,11 +1,11 @@
-import * as RDialog from '@radix-ui/react-dialog'
+import * as RDialog from "@radix-ui/react-dialog";
 
-import { createComponent } from '@/utils'
-import { Icon } from '../Icon'
+import { createComponent } from "@/utils";
+import { Icon } from "../Icon";
 
-import * as styles from '../Dialog/styles'
+import * as styles from "../Dialog/styles";
 
-export type DialogContentProps = RDialog.DialogContentProps
+export type DialogContentProps = RDialog.DialogContentProps;
 export const DialogContent = createComponent<DialogContentProps>(
   ({ children, ...props }) => (
     <RDialog.Portal>
@@ -18,4 +18,4 @@ export const DialogContent = createComponent<DialogContentProps>(
       </RDialog.Content>
     </RDialog.Portal>
   )
-)
+);

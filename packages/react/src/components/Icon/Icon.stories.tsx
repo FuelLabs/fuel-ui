@@ -1,30 +1,30 @@
-import { Icon, IconProps } from './Icon'
-import { useCopyToClipboard } from 'react-use'
-import { css } from '@fuel/css'
+import { Icon, IconProps } from "./Icon";
+import { useCopyToClipboard } from "react-use";
+import { css } from "@fuel/css";
 
 export default {
   component: Icon,
-  title: 'UI/Icon',
+  title: "UI/Icon",
   argTypes: {
-    color: { control: 'select' },
+    color: { control: "select" },
     size: {
       defaultValue: 40,
-      control: { type: 'number' },
+      control: { type: "number" },
     },
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-}
+};
 
 export const Usage = (args: IconProps) => (
   <div>
     <Icon {...args} icon="BiAlarm" />
   </div>
-)
+);
 
 export const AllIcons = () => {
-  const [, copy] = useCopyToClipboard()
+  const [, copy] = useCopyToClipboard();
   return (
     <div className={styles.list()}>
       {Icon._iconList.map((key) => (
@@ -39,46 +39,46 @@ export const AllIcons = () => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
 const styles = {
   /**
    * List styles
    */
   list: css({
-    display: 'grid',
-    gridTemplateColumns: 'repeat(6, 1fr)',
-    flexWrap: 'wrap',
-    maxW: '$full',
-    color: '$gray12',
+    display: "grid",
+    gridTemplateColumns: "repeat(6, 1fr)",
+    flexWrap: "wrap",
+    maxW: "$full",
+    color: "$gray12",
   }),
   /**
    * Icon Wrapper styles
    */
   iconWrapper: css({
-    p: '$3',
-    mt: '-1px',
-    mr: '-1px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '$2',
-    border: '1px solid $gray6',
+    p: "$3",
+    mt: "-1px",
+    mr: "-1px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "$2",
+    border: "1px solid $gray6",
 
-    '&:hover': {
-      cursor: 'pointer',
+    "&:hover": {
+      cursor: "pointer",
     },
   }),
   /**
    * Icon Label Styles
    */
   iconLabel: css({
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    maxW: '$full',
-    fontSize: '$xs',
-    color: '$gray10',
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+    maxW: "$full",
+    fontSize: "$xs",
+    color: "$gray10",
   }),
-}
+};

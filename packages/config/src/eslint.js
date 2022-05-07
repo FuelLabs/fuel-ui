@@ -1,16 +1,13 @@
-const path = require('path')
+const path = require('path');
 
-const resolveDir = (dir) => path.resolve(__dirname, dir)
-const resolveRoot = (dir = '') => resolveDir(path.join('../../../', dir))
+const resolveDir = (dir) => path.resolve(__dirname, dir);
+const resolveRoot = (dir = '') => resolveDir(path.join('../../../', dir));
 
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: resolveRoot(),
-    project: [
-      resolveRoot('./tsconfig.eslint.json'),
-      resolveRoot('./packages/*/tsconfig.json'),
-    ],
+    project: [resolveRoot('./tsconfig.eslint.json'), resolveRoot('./packages/*/tsconfig.json')],
     ecmaVersion: 2020,
     sourceType: 'module',
     ecmaFeatures: {
@@ -60,11 +57,7 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: [
-          ['builtin', 'external', 'internal'],
-          ['parent'],
-          ['sibling', 'index'],
-        ],
+        groups: [['builtin', 'external', 'internal'], ['parent'], ['sibling', 'index']],
         'newlines-between': 'always',
         alphabetize: { order: 'asc' },
       },
@@ -86,4 +79,4 @@ module.exports = {
       },
     },
   ],
-}
+};

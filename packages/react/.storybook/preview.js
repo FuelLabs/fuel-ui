@@ -1,9 +1,9 @@
-import { themes } from '@storybook/theming'
+import { themes } from '@storybook/theming';
 
-import theme from './theme'
+import theme from './theme';
 
-import { darkTheme, theme as lightTheme } from '@fuel/css'
-import { GlobalStyles } from '../src/styles/GlobalStyles'
+import { darkTheme, theme as lightTheme } from '@fuel/css';
+import { GlobalStyles } from '../src/styles/GlobalStyles';
 
 export const parameters = {
   actions: {
@@ -33,7 +33,7 @@ export const parameters = {
     darkClass: darkTheme.className,
     lightClass: lightTheme.className,
   },
-}
+};
 
 export const decorators = [
   (Story) => (
@@ -42,4 +42,4 @@ export const decorators = [
       <Story />
     </>
   ),
-]
+];

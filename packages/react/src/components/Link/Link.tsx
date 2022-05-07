@@ -1,40 +1,40 @@
-import { allColors, Colors, css, cx, styled } from '@fuel/css'
+import { allColors, Colors, css, cx, styled } from "@fuel/css";
 
-import { HTMLProps, createComponent } from '@/utils'
-import { Icon } from '../Icon'
+import { HTMLProps, createComponent } from "@/utils";
+import { Icon } from "../Icon";
 
-export type LinkProps = HTMLProps['a'] & {
-  isExternal?: boolean
-  color?: Colors
-}
+export type LinkProps = HTMLProps["a"] & {
+  isExternal?: boolean;
+  color?: Colors;
+};
 
-const Root = styled('a')
+const Root = styled("a");
 
 export const Link = createComponent<LinkProps>(
   ({ isExternal, className, children, color, ...props }) => {
     const customProps = {
       ...props,
-      role: 'link',
+      role: "link",
       className: cx(className, styles.link({ color })),
-      ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
-    }
+      ...(isExternal && { target: "_blank", rel: "noopener noreferrer" }),
+    };
     return (
       <Root {...props} {...customProps}>
         {children} {isExternal && <Icon icon="BiLinkExternal" />}
       </Root>
-    )
+    );
   }
-)
+);
 
 const styles = {
   link: css({
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '$2',
-    textDecoration: 'none',
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "$2",
+    textDecoration: "none",
 
-    '&:hover': {
-      textDecoration: 'underline',
+    "&:hover": {
+      textDecoration: "underline",
     },
 
     variants: {
@@ -44,7 +44,7 @@ const styles = {
           ...obj,
           [key]: {
             color: `$${key}`,
-            '&:visited': {
+            "&:visited": {
               color: `$${key}`,
             },
           },
@@ -54,7 +54,7 @@ const styles = {
     },
 
     defaultVariants: {
-      color: 'accent9',
+      color: "accent9",
     },
   }),
-}
+};

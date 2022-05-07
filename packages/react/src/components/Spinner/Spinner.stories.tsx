@@ -1,11 +1,11 @@
-import { css } from '@fuel/css'
+import { css } from "@fuel/css";
 
-import { Spinner } from './Spinner'
+import { Spinner } from "./Spinner";
 
 export default {
   component: Spinner,
-  title: 'UI/Spinner',
-}
+  title: "UI/Spinner",
+};
 
 export const Usage = () => (
   <div className={style()}>
@@ -13,10 +13,10 @@ export const Usage = () => (
     <Spinner size={30} color="indigo" />
     <Spinner size={50} color="gray" />
   </div>
-)
+);
 
 const style = css({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '$2',
-})
+  display: "flex",
+  alignItems: "center",
+  gap: "$2",
+});

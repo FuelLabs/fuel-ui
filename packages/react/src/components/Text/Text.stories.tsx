@@ -1,17 +1,17 @@
-import { allColors } from '@fuel/css'
-import { Text, TextProps } from './Text'
+import { allColors } from "@fuel/css";
+import { Text, TextProps } from "./Text";
 
 export default {
   component: Text,
-  title: 'Typography/Text',
+  title: "Typography/Text",
   argTypes: {
     color: {
       options: allColors,
-      defaultValue: 'accent',
-      control: 'select',
+      defaultValue: "accent",
+      control: "select",
     },
   },
-}
+};
 
 export const Usage = (args: TextProps) => (
   <>
@@ -21,7 +21,7 @@ export const Usage = (args: TextProps) => (
       repellat quasi in deserunt laboriosam amet atque? Consectetur, blanditiis?
     </Text>
   </>
-)
+);
 
 export const WithIcon = (args: TextProps) => (
   <>
@@ -32,4 +32,4 @@ export const WithIcon = (args: TextProps) => (
       Just some text
     </Text>
   </>
-)
+);

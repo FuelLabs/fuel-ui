@@ -1,23 +1,23 @@
-import '@fontsource/inter/variable.css'
-import '@fontsource/raleway/variable.css'
+import "@fontsource/inter/variable.css";
+import "@fontsource/raleway/variable.css";
 
-import { colors, globalCss } from '@fuel/css'
-import { opinionated } from './normalize'
+import { colors, globalCss } from "@fuel/css";
+import { opinionated } from "./normalize";
 
 const customStyles = {
   body: {
     WebkitTapHighlightColor: colors.accent9,
-    '-webkit-font-smoothing': 'antialiased',
-    '-moz-osx-font-smoothing': 'grayscale',
+    "-webkit-font-smoothing": "antialiased",
+    "-moz-osx-font-smoothing": "grayscale",
   },
-}
+};
 
 const styles = (theme: any) => {
-  globalCss(theme, ...opinionated)()
-  globalCss(theme, customStyles)()
-}
+  globalCss(theme, ...opinionated)();
+  globalCss(theme, customStyles)();
+};
 
 export const GlobalStyles = ({ theme }: any) => {
-  styles(theme)
-  return null
-}
+  styles(theme);
+  return null;
+};

@@ -1,8 +1,8 @@
-import { styled } from '@fuel/css'
-import { forwardRef, ReactElement } from 'react'
-import { PropsWithAs } from './types'
+import { styled } from "@fuel/css";
+import { forwardRef, ReactElement } from "react";
+import { PropsWithAs } from "./types";
 
-type Render<P> = (props: PropsWithAs<P>) => ReactElement
+type Render<P> = (props: PropsWithAs<P>) => ReactElement;
 
 /**
  * Creates a type-safe component with the `as`, css prop and `React.forwardRef`
@@ -25,5 +25,5 @@ type Render<P> = (props: PropsWithAs<P>) => ReactElement
 export function createComponent<P>(render: Render<P>) {
   return styled(
     forwardRef<any, P>((props, ref) => render({ ref, ...props } as any))
-  )
+  );
 }
