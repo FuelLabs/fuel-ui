@@ -1,5 +1,5 @@
 {
-  "name": "@fuels/config",
+  "name": "@fuel/config",
   "version": "0.0.1",
   "main": "src/index.ts",
   "files": [

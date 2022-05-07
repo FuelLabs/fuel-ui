@@ -1,4 +1,4 @@
-import { createConfig } from '@fuels/config'
+import { createConfig } from '@fuel/config'
 
 export default createConfig({
   entry: ['src/index.tsx'],

@@ -1,4 +1,4 @@
-import { ColorKeys, cx, styled } from '@fuel-js/css'
+import { ColorKeys, cx, styled } from '@fuel/css'
 
 import { HTMLProps, createComponent } from '@/utils'
 import * as styles from './styles'

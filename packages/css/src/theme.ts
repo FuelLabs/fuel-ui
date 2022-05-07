@@ -1,9 +1,9 @@
 import { createStitches } from '@stitches/react'
 
-import { media } from './media'
 import { colors, darkColors } from './colors'
-import * as utils from './utils'
+import { media } from './media'
 import * as tokens from './tokens'
+import * as utils from './utils'
 
 export const {
   styled,
@@ -17,7 +17,7 @@ export const {
 } = createStitches({
   theme: {
     ...tokens,
-    colors: colors,
+    colors,
   },
   media,
   utils,

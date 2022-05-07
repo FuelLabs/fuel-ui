@@ -1,5 +1,5 @@
-import { colorKeys } from '@fuel-js/css'
-import { css } from '@fuel-js/css'
+import { colorKeys } from '@fuel/css'
+import { css } from '@fuel/css'
 
 import { Button, ButtonProps } from './Button'
 import { Icon } from '../Icon'

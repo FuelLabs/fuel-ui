@@ -1,6 +1,6 @@
 import { Icon, IconProps } from './Icon'
 import { useCopyToClipboard } from 'react-use'
-import { css } from '@fuel-js/css'
+import { css } from '@fuel/css'
 
 export default {
   component: Icon,

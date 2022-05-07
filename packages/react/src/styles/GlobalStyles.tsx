@@ -1,7 +1,7 @@
 import '@fontsource/inter/variable.css'
 import '@fontsource/raleway/variable.css'
 
-import { colors, globalCss } from '@fuel-js/css'
+import { colors, globalCss } from '@fuel/css'
 import { opinionated } from './normalize'
 
 const customStyles = {

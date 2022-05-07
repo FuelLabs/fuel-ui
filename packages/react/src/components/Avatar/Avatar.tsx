@@ -1,4 +1,4 @@
-import { cx, styled } from '@fuel-js/css'
+import { cx, styled } from '@fuel/css'
 import * as RAvatar from '@radix-ui/react-avatar'
 
 import * as styles from './styles'

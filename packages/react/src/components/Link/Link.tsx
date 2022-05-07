@@ -1,4 +1,4 @@
-import { allColors, Colors, css, cx, styled } from '@fuel-js/css'
+import { allColors, Colors, css, cx, styled } from '@fuel/css'
 
 import { HTMLProps, createComponent } from '@/utils'
 import { Icon } from '../Icon'

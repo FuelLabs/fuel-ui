@@ -1,5 +1,5 @@
 import { cloneElement, ReactElement } from 'react'
-import { css, allColors, Colors, cx, utils, styled } from '@fuel-js/css'
+import { css, allColors, Colors, cx, utils, styled } from '@fuel/css'
 
 import { createComponent, HTMLProps } from '@/utils'
 import { Icon, Icons } from '../Icon'

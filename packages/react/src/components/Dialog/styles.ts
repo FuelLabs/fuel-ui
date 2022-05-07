@@ -1,4 +1,4 @@
-import { css, keyframes } from '@fuel-js/css'
+import { css, keyframes } from '@fuel/css'
 
 const overlayShow = keyframes({
   '0%': {

@@ -1,7 +1,9 @@
-import { createComponent, HTMLProps } from '@/utils'
-import { cx, styled } from '@fuel-js/css'
+import { cx, styled } from '@fuel/css'
 
 import * as styles from './styles'
+
+import type { HTMLProps } from '@/utils'
+import { createComponent } from '@/utils'
 
 export type DialogFooterProps = HTMLProps['footer'] & {
   align?: 'start' | 'end'

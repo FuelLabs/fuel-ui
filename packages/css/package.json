@@ -1,28 +1,32 @@
 {
-  "name": "@fuel-js/css",
+  "name": "@fuel/css",
   "version": "0.0.1",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs.js",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs.js"
-    }
+  "main": "src/index.ts",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "typings": "dist/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "./dist/index.js",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "files": [
+      "dist"
+    ]
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "build": "tsup --dts",
-    "lint": "run-s lint:*",
-    "lint:eslint": "eslint '**/*.{js,ts,tsx}' --fix"
+    "build": "tsup --dts"
   },
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
     "@stitches/react": "^1.2.8",
     "classnames": "^2.3.1"
+  },
+  "devDependencies": {
+    "@fuel/config": "workspace:*"
   }
 }
