@@ -38,7 +38,8 @@ function createGhostVariant(keyColor: ColorKeys) {
 
 export const colors = {
   solid: colorKeys.reduce(
-    (obj, key: any) => ({ ...obj, [key]: createSolidVariant(key) }),
+    (obj, key: ColorKeys) => ({ ...obj, [key]: createSolidVariant(key) }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     {} as Record<ColorKeys, any>
   ),
   outlined: colorKeys.map((key) => ({
