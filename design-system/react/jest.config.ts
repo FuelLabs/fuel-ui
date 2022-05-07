@@ -10,7 +10,7 @@ const config: Config.InitialOptions = {
   displayName: pkg.name,
   testEnvironment: 'jsdom',
   moduleNameMapper: {
-    '@/(.*)$': '<rootDir>/packages/design-system/react/src/$1',
+    '@/(.*)$': '<rootDir>/design-system/react/src/$1',
   },
 };
 
