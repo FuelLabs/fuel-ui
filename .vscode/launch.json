@@ -6,7 +6,6 @@
       "request": "launch",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true,
       "program": "node_modules/.bin/jest",
       "cwd": "${workspaceFolder}",
       "args": ["--runInBand", "--watchAll=false"]
