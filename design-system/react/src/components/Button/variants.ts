@@ -118,7 +118,8 @@ export function getSolidVariants(hasHover?: boolean) {
       ...obj,
       [key]: createSolidVariant(key, hasHover),
     }),
-    {}
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    {} as Record<ColorKeys, any>
   );
 }
 

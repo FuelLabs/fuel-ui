@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ThemeUtilsCSS } from '@fuel/css';
 import type {
   ComponentPropsWithRef,
   ElementType,
@@ -42,6 +43,7 @@ export type Props<P> = P & BaseProps<P>;
  */
 export type PropsWithAs<P = any> = Props<P> & {
   as?: ElementType;
+  css?: ThemeUtilsCSS;
 };
 
 /**

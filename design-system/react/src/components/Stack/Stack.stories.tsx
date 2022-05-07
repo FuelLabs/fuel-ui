@@ -1,5 +1,7 @@
 import { css } from "@fuel/css";
-import { Stack, StackProps } from "./Stack";
+
+import type { StackProps } from "./Stack";
+import { Stack } from "./Stack";
 
 export default {
   component: Stack,
@@ -9,7 +11,7 @@ export default {
 
 export const Usage = (args: StackProps) => (
   <>
-    <Stack {...args} className={css({ maxW: "$sm" })()}>
+    <Stack {...args}>
       <div className={css({ background: "$gray7" })()}>&nbsp;</div>
       <div className={css({ background: "$gray7" })()}>&nbsp;</div>
       <div className={css({ background: "$gray7" })()}>&nbsp;</div>

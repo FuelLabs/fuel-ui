@@ -1,4 +1,5 @@
-import { ButtonLink, ButtonLinkProps } from "./ButtonLink";
+import type { ButtonLinkProps } from "./ButtonLink";
+import { ButtonLink } from "./ButtonLink";
 
 export default {
   component: ButtonLink,

@@ -9,9 +9,9 @@ import { AlertDialogFooter } from "./AlertDialogFooter";
 import { AlertDialogHeading } from "./AlertDialogHeading";
 import { AlertDialogTrigger } from "./AlertDialogTrigger";
 
-const AlertDialogRoot = styled(RAlertDialog.Root);
+const AlertDialogBase = styled(RAlertDialog.Root);
 
-type AlertDialogComponent = typeof AlertDialogRoot & {
+type AlertDialogComponent = typeof AlertDialogBase & {
   Content: typeof AlertDialogContent;
   Trigger: typeof AlertDialogTrigger;
   Heading: typeof AlertDialogHeading;
@@ -21,7 +21,7 @@ type AlertDialogComponent = typeof AlertDialogRoot & {
   Action: typeof AlertDialogAction;
 };
 
-export const AlertDialog = AlertDialogRoot as AlertDialogComponent;
+export const AlertDialog = AlertDialogBase as AlertDialogComponent;
 AlertDialog.Content = AlertDialogContent;
 AlertDialog.Trigger = AlertDialogTrigger;
 AlertDialog.Heading = AlertDialogHeading;

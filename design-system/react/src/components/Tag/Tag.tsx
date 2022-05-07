@@ -1,13 +1,17 @@
-import { Children, ReactNode } from "react";
 import { cx, styled } from "@fuel/css";
+import type { ReactNode } from "react";
+import { Children, createElement } from "react";
 
-import { HTMLProps, createComponent } from "@/utils";
-import { createIcon } from "../Text";
+import type { ButtonBaseProps } from "../Button";
+import { SPINNER_SIZE } from "../Button";
 import { Spinner } from "../Spinner";
+import { createIcon } from "../Text";
+
+import { TagCloseButton } from "./TagCloseButton";
 import * as styles from "./styles";
 
-import { ButtonBaseProps, SPINNER_SIZE } from "../Button";
-import { TagCloseButton } from "./TagCloseButton";
+import { createComponent } from "@/utils";
+import type { HTMLProps } from "@/utils";
 
 function getChildren(
   isLoading: boolean | undefined,
@@ -75,7 +79,7 @@ const TagBase = createComponent<TagProps>(
         size,
         variant,
         disabled,
-        color: color as any,
+        color,
       })
     );
 
@@ -87,10 +91,10 @@ const TagBase = createComponent<TagProps>(
       children
     );
 
-    return (
-      <Root {...props} className={classes}>
-        {customChildren}
-      </Root>
+    return createElement(
+      Root,
+      { ...props, className: classes },
+      customChildren
     );
   }
 );

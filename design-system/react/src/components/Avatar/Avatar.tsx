@@ -1,5 +1,6 @@
 import { cx, styled } from "@fuel/css";
 import * as RAvatar from "@radix-ui/react-avatar";
+import { createElement } from "react";
 
 import { AvatarFallback } from "./AvatarFallback";
 import { AvatarImage } from "./AvatarImage";
@@ -16,11 +17,7 @@ const Root = styled(RAvatar.Root);
 const AvatarBase = createComponent<AvatarProps>(
   ({ size, children, className, ...props }) => {
     const classes = cx(className, styles.avatar({ size }));
-    return (
-      <Root {...props} className={classes}>
-        {children}
-      </Root>
-    );
+    return createElement(Root, { ...props, className: classes }, children);
   }
 );
 

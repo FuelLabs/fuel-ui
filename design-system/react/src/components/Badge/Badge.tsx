@@ -1,5 +1,6 @@
 import type { ColorKeys } from "@fuel/css";
-import { cx, styled } from "@fuel/css";
+import { styled, cx } from "@fuel/css";
+import { createElement } from "react";
 
 import * as styles from "./styles";
 
@@ -15,8 +16,8 @@ export type BadgeProps = HTMLProps["span"] & {
 const Root = styled("span");
 
 export const Badge = createComponent<BadgeProps>(
-  ({ color, variant, className, ...props }) => {
+  ({ color, variant, className, children, ...props }) => {
     const classes = cx(className, styles.badge({ variant, color }));
-    return <Root {...props} className={classes} />;
+    return createElement(Root, { ...props, className: classes }, children);
   }
 );

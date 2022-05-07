@@ -1,5 +1,10 @@
-import { css, allColors, Colors, cx, utils, styled } from "@fuel/css";
-import { createComponent, HTMLProps } from "@/utils";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Colors } from "@fuel/css";
+import { css, allColors, cx, utils, styled } from "@fuel/css";
+import { createElement } from "react";
+
+import type { HTMLProps } from "@/utils";
+import { createComponent } from "@/utils";
 
 export type HeadingProps = HTMLProps["h1"] & {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -10,9 +15,9 @@ export type HeadingProps = HTMLProps["h1"] & {
 const Root = styled("h2");
 
 export const Heading = createComponent<HeadingProps>(
-  ({ fontSize, fontColor, className, ...props }) => {
+  ({ fontSize, fontColor, className, children, ...props }) => {
     const classes = cx(className, styles({ fontSize, fontColor }));
-    return <Root {...props} className={classes} />;
+    return createElement(Root, { ...props, className: classes }, children);
   }
 );
 
@@ -22,6 +27,7 @@ const styles = css({
 
   variants: {
     // FIX: adjust type type
+    // eslint-disable-next-line no-underscore-dangle
     fontSize: (utils.textSize.__keys as any[]).reduce(
       (obj, key) => ({ ...obj, [key]: { textSize: key } }),
       {}

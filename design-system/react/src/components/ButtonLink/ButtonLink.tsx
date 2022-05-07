@@ -1,6 +1,9 @@
-import { HTMLProps, createComponent } from "@/utils";
-import { Button, ButtonProps } from "../Button/Button";
+import type { ButtonProps } from "../Button";
+import { Button } from "../Button";
 import { Icon } from "../Icon";
+
+import { createComponent } from "@/utils";
+import type { HTMLProps } from "@/utils";
 
 export type ButtonLinkProps = ButtonProps &
   HTMLProps["a"] & {
@@ -16,6 +19,8 @@ export const ButtonLink = createComponent<ButtonLinkProps>(
         rightIcon: <Icon icon="BiLinkExternal" />,
       }),
     };
-    return <Button as={as} {...customProps} role={role} isLink />;
+    return (
+      <Button as={as} {...customProps} variant="link" role={role} isLink />
+    );
   }
 );

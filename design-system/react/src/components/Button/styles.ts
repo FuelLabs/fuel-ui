@@ -36,6 +36,13 @@ export const button = css({
         minW: 'auto',
       },
     },
+
+    isLink: {
+      true: {
+        textDecoration: 'none',
+        background: 'red',
+      },
+    },
   },
 
   compoundVariants: [
@@ -72,5 +79,6 @@ export const button = css({
     size: 'md',
     color: 'accent',
     variant: 'solid',
+    isLink: false,
   },
 });

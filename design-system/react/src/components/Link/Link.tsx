@@ -1,7 +1,11 @@
-import { allColors, Colors, css, cx, styled } from "@fuel/css";
+import type { Colors } from "@fuel/css";
+import { allColors, css, cx, styled } from "@fuel/css";
+import { createElement } from "react";
 
-import { HTMLProps, createComponent } from "@/utils";
 import { Icon } from "../Icon";
+
+import type { HTMLProps } from "@/utils";
+import { createComponent } from "@/utils";
 
 export type LinkProps = HTMLProps["a"] & {
   isExternal?: boolean;
@@ -18,10 +22,13 @@ export const Link = createComponent<LinkProps>(
       className: cx(className, styles.link({ color })),
       ...(isExternal && { target: "_blank", rel: "noopener noreferrer" }),
     };
-    return (
-      <Root {...props} {...customProps}>
+
+    return createElement(
+      Root,
+      customProps,
+      <>
         {children} {isExternal && <Icon icon="BiLinkExternal" />}
-      </Root>
+      </>
     );
   }
 );
@@ -39,6 +46,7 @@ const styles = {
 
     variants: {
       // TODO: adjust typings
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       color: (allColors as any[]).reduce(
         (obj, key) => ({
           ...obj,
