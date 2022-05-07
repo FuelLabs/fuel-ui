@@ -3,7 +3,7 @@ import { Box } from "./Box";
 
 export default {
   component: Box,
-  title: "Layout/Box",
+  title: "Base/Box",
   argTypes: {},
 };
 

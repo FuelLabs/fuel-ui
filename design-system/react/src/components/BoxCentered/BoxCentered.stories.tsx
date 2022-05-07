@@ -3,7 +3,7 @@ import { BoxCentered } from "./BoxCentered";
 
 export default {
   component: BoxCentered,
-  title: "Layout/BoxCentered",
+  title: "Base/BoxCentered",
   parameters: {
     layout: "fullscreen",
   },

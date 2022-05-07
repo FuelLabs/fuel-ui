@@ -3,7 +3,7 @@ import { Link } from "./Link";
 
 export default {
   component: Link,
-  title: "Typography/Link",
+  title: "Base/Link",
 };
 
 export const Usage = (args: LinkProps) => (

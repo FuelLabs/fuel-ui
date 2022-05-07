@@ -6,7 +6,7 @@ import { Container } from "./Container";
 
 export default {
   component: Container,
-  title: "Layout/Container",
+  title: "Base/Container",
 };
 
 export const Usage = (args: ContainerProps) => (
