@@ -1,8 +1,14 @@
-import { createJestConfig } from '@fuel/config';
+/* eslint-disable import/no-relative-packages */
+import type { Config } from '@jest/types';
 
-export default createJestConfig({
-  rootDir: __dirname,
+import baseConfig from '../../jest.config';
+
+const config: Config.InitialOptions = {
+  ...baseConfig,
+  testEnvironment: 'jsdom',
   moduleNameMapper: {
-    '@/(.*)$': '<rootDir>/src/$1',
+    '@/(.*)$': '<rootDir>/packages/react/src/$1',
   },
-});
+};
+
+export default config;

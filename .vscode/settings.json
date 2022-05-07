@@ -1,0 +1,5 @@
+{
+  "jest.nodeEnv": {
+    "NODE_ENV": "test"
+  }
+}
