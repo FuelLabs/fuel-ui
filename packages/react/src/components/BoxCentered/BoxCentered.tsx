@@ -1,5 +1,4 @@
-import { createElement } from 'react'
-import { css, cx } from '@fuel-js/css'
+import { css, cx, styled } from '@fuel-js/css'
 
 import { HTMLProps, createComponent } from '@/utils'
 
@@ -14,10 +13,12 @@ export type BoxCenteredProps = HTMLProps['div'] & {
   minHS?: boolean
 }
 
-export const BoxCentered = createComponent<BoxCenteredProps, HTMLDivElement>(
-  ({ as = 'div', children, minWS, minHS, className, ...props }) => {
+const Root = styled('div')
+
+export const BoxCentered = createComponent<BoxCenteredProps>(
+  ({ minWS, minHS, className, ...props }) => {
     const classes = cx(className, styles({ minWS, minHS }))
-    return createElement(as, { ...props, className: classes }, children)
+    return <Root {...props} className={classes} />
   }
 )
 

@@ -8,4 +8,4 @@ export const is = (list: Mixins[]) =>
       ...obj,
       ...mixins[key],
     }
-  }, {})
+  })

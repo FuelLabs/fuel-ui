@@ -1,16 +1,17 @@
+import { styled } from '@fuel-js/css'
 import { forwardRef, ReactElement } from 'react'
-import { PropsWithAs, RefComponent } from './types'
+import { PropsWithAs } from './types'
 
 type Render<P> = (props: PropsWithAs<P>) => ReactElement
 
 /**
- * Creates a type-safe component with the `as` prop and `React.forwardRef`.
+ * Creates a type-safe component with the `as`, css prop and `React.forwardRef`
+ * inherit from styled function of Stitches.
  *
  * @example
  * import { createComponent } from "@/utils/system";
  *
  * type Props = {
- *   as?: "div";
  *   customProp?: boolean;
  * };
  *
@@ -21,11 +22,8 @@ type Render<P> = (props: PropsWithAs<P>) => ReactElement
  * <Component as="button" customProp />
  */
 
-export function createComponent<P, T extends HTMLElement = any>(
-  render: Render<P>
-): RefComponent<P> {
-  type Props = PropsWithAs<P>
-  return forwardRef<T, Props>((props, ref) =>
-    render({ ref, ...props } as any)
-  ) as RefComponent<P>
+export function createComponent<P>(render: Render<P>) {
+  return styled(
+    forwardRef<any, P>((props, ref) => render({ ref, ...props } as any))
+  )
 }

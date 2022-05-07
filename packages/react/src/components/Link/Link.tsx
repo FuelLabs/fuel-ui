@@ -1,5 +1,4 @@
-import { createElement } from 'react'
-import { allColors, Colors, css, cx } from '@fuel-js/css'
+import { allColors, Colors, css, cx, styled } from '@fuel-js/css'
 
 import { HTMLProps, createComponent } from '@/utils'
 import { Icon } from '../Icon'
@@ -9,21 +8,20 @@ export type LinkProps = HTMLProps['a'] & {
   color?: Colors
 }
 
-export const Link = createComponent<LinkProps, HTMLDivElement>(
-  ({ as = 'a', children, isExternal, className, color, ...props }) => {
+const Root = styled('a')
+
+export const Link = createComponent<LinkProps>(
+  ({ isExternal, className, children, color, ...props }) => {
     const customProps = {
       ...props,
       role: 'link',
       className: cx(className, styles.link({ color })),
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
     }
-
-    return createElement(
-      as,
-      customProps,
-      <>
+    return (
+      <Root {...props} {...customProps}>
         {children} {isExternal && <Icon icon="BiLinkExternal" />}
-      </>
+      </Root>
     )
   }
 )

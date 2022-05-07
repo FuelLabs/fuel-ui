@@ -2,6 +2,12 @@
   "name": "@fuel-js/design-system",
   "version": "0.0.1",
   "private": true,
+  "description": "Fuel Design System",
+  "author": "Fuel Labs <contact@fuel.sh> (https://fuel.network/)",
+  "engines": {
+    "node": ">=14.19.0",
+    "pnpm": ">=7"
+  },
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
@@ -31,5 +37,14 @@
     "tsup": "^5.12.6",
     "turbo": "^1.2.5",
     "typescript": "^4.6.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuelLabs/design-sytem.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/FuelLabs/design-sytem/issues"
+  },
+  "homepage": "https://github.com/FuelLabs/design-sytem#readme"
 }

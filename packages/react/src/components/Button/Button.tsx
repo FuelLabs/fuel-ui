@@ -1,5 +1,5 @@
-import { createElement, ReactElement } from 'react'
-import { ColorKeys, cx } from '@fuel-js/css'
+import { ReactElement } from 'react'
+import { ColorKeys, cx, styled } from '@fuel-js/css'
 
 import { createComponent, HTMLProps } from '@/utils'
 import { createIcon } from '../Text'
@@ -35,9 +35,10 @@ export const SPINNER_SIZE = {
   lg: 20,
 }
 
-export const Button = createComponent<ButtonProps, HTMLButtonElement>(
+const Root = styled('button')
+
+export const Button = createComponent<ButtonProps>(
   ({
-    as = 'button',
     role = 'button',
     type = 'button',
     size = 'md',
@@ -90,15 +91,13 @@ export const Button = createComponent<ButtonProps, HTMLButtonElement>(
       className: classes,
     }
 
-    return createElement(
-      as,
-      buttonProps,
-      <>
+    return (
+      <Root {...buttonProps}>
         {isLoading && <Spinner color="current" size={SPINNER_SIZE[size]} />}
         {!isLoading && iconLeft}
         {isLoading ? 'Loading...' : children}
         {!isLoading && iconRight}
-      </>
+      </Root>
     )
   }
 )

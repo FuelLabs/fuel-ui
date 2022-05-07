@@ -22,9 +22,9 @@ export const Usage = () => {
           account and remove your data from our servers.
         </AlertDialog.Description>
         <AlertDialog.Footer>
-          <AlertDialog.Cancel>
-            <Button color="gray">Cancel</Button>
-          </AlertDialog.Cancel>
+          <Button as={AlertDialog.Cancel} color="gray">
+            Cancel
+          </Button>
           <AlertDialog.Action>
             <Button variant="outlined" color="tomato">
               Confirm
