@@ -114,7 +114,10 @@ export const size = {
 
 export function getSolidVariants(hasHover?: boolean) {
   return colorKeys.reduce(
-    (obj, key: any) => ({ ...obj, [key]: createSolidVariant(key, hasHover) }),
+    (obj, key: ColorKeys) => ({
+      ...obj,
+      [key]: createSolidVariant(key, hasHover),
+    }),
     {}
   )
 }
