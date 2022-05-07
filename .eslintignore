@@ -1,2 +1,5 @@
-.husky
-**/*.js
+**/node_modules/
+**/coverage/
+*.js
+dist
+CHANGELOG.md

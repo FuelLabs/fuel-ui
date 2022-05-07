@@ -1,22 +1,18 @@
 {
-  "name": "@fuel-js/react",
+  "name": "@fuels/react",
   "version": "0.0.1",
   "main": "./src/index.tsx",
   "types": "./src/index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "run-s lint:*",
-    "lint:eslint": "eslint '**/*.{js,ts,tsx}' --fix",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build": "build-storybook -s ./public",
-    "add:component": "node ./scripts/generateComponent",
-    "test": "jest",
-    "test:watch": "jest -w"
+    "add:component": "node ./scripts/generateComponent"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.7",
     "@fontsource/raleway": "^4.5.5",
-    "@fuel-js/css": "workspace:*",
+    "@fuels/css": "workspace:*",
     "@radix-ui/react-alert-dialog": "^0.1.7",
     "@radix-ui/react-avatar": "^0.1.4",
     "@radix-ui/react-dialog": "^0.1.7",
@@ -30,6 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
+    "@fuels/config": "workspace:*",
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
