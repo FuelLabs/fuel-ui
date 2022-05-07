@@ -1,17 +1,9 @@
-import { PropsWithChildren, FC } from 'react'
 import * as RAlertDialog from '@radix-ui/react-alert-dialog'
+import { styled } from '@fuel-js/css'
 
-export type AlertDialogActionProps =
-  PropsWithChildren<RAlertDialog.AlertDialogActionProps>
+export type AlertDialogActionProps = RAlertDialog.AlertDialogActionProps
+export const AlertDialogAction = styled(RAlertDialog.Action)
 
-export const AlertDialogAction: FC<AlertDialogActionProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <RAlertDialog.Action className={className} asChild {...props}>
-      {children}
-    </RAlertDialog.Action>
-  )
+AlertDialogAction.defaultProps = {
+  asChild: true,
 }

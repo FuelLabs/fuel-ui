@@ -1,49 +1,27 @@
-import { FC } from 'react'
 import * as RAlertDialog from '@radix-ui/react-alert-dialog'
+import { styled } from '@fuel-js/css'
 
-import { RefComponent } from '@/utils'
+import { AlertDialogContent } from './AlertDialogContent'
+import { AlertDialogDescription } from './AlertDialogDescription'
+import { AlertDialogHeading } from './AlertDialogHeading'
+import { AlertDialogTrigger } from './AlertDialogTrigger'
+import { AlertDialogFooter } from './AlertDialogFooter'
+import { AlertDialogCancel } from './AlertDialogCancel'
+import { AlertDialogAction } from './AlertDialogAction'
 
-import {
-  AlertDialogContent,
-  AlertDialogContentProps,
-} from './AlertDialogContent'
+const AlertDialogRoot = styled(RAlertDialog.Root)
 
-import {
-  AlertDialogDescription,
-  AlertDialogDescriptionProps,
-} from './AlertDialogDescription'
-
-import {
-  AlertDialogHeading,
-  AlertDialogHeadingProps,
-} from './AlertDialogHeading'
-
-import {
-  AlertDialogTrigger,
-  AlertDialogTriggerProps,
-} from './AlertDialogTrigger'
-
-import { AlertDialogFooter, AlertDialogFooterProps } from './AlertDialogFooter'
-import { AlertDialogCancel, AlertDialogCancelProps } from './AlertDialogCancel'
-import { AlertDialogAction, AlertDialogActionProps } from './AlertDialogAction'
-
-/**
- * Root AlertDialog Component
- */
-type AlertDialogComponent = FC<RAlertDialog.AlertDialogProps> & {
-  Content: FC<AlertDialogContentProps>
-  Trigger: FC<AlertDialogTriggerProps>
-  Heading: FC<AlertDialogHeadingProps>
-  Description: FC<AlertDialogDescriptionProps>
-  Footer: RefComponent<AlertDialogFooterProps>
-  Cancel: FC<AlertDialogCancelProps>
-  Action: FC<AlertDialogActionProps>
+type AlertDialogComponent = typeof AlertDialogRoot & {
+  Content: typeof AlertDialogContent
+  Trigger: typeof AlertDialogTrigger
+  Heading: typeof AlertDialogHeading
+  Description: typeof AlertDialogDescription
+  Footer: typeof AlertDialogFooter
+  Cancel: typeof AlertDialogCancel
+  Action: typeof AlertDialogAction
 }
 
-export const AlertDialog: AlertDialogComponent = ({ children, ...props }) => {
-  return <RAlertDialog.Root {...props}>{children}</RAlertDialog.Root>
-}
-
+export const AlertDialog = AlertDialogRoot as AlertDialogComponent
 AlertDialog.Content = AlertDialogContent
 AlertDialog.Trigger = AlertDialogTrigger
 AlertDialog.Heading = AlertDialogHeading

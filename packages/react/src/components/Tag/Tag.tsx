@@ -1,13 +1,13 @@
-import { Children, createElement, FC, ReactNode } from 'react'
-import { cx } from '@fuel-js/css'
+import { Children, ReactNode } from 'react'
+import { cx, styled } from '@fuel-js/css'
 
-import { HTMLProps, createComponent, RefComponent } from '@/utils'
+import { HTMLProps, createComponent } from '@/utils'
 import { createIcon } from '../Text'
 import { Spinner } from '../Spinner'
 import * as styles from './styles'
 
 import { ButtonBaseProps, SPINNER_SIZE } from '../Button'
-import { TagCloseButton, TagCloseButtonsProps } from './TagCloseButton'
+import { TagCloseButton } from './TagCloseButton'
 
 function getChildren(
   isLoading: boolean | undefined,
@@ -48,13 +48,10 @@ export type TagProps = HTMLProps['div'] &
     variant?: TagVariants
   }
 
-type TagComponent = RefComponent<TagProps> & {
-  CloseButton: FC<TagCloseButtonsProps>
-}
+const Root = styled('div')
 
-export const Tag = createComponent<TagProps, HTMLDivElement>(
+const TagBase = createComponent<TagProps>(
   ({
-    as = 'div',
     size = 'sm',
     color = 'accent',
     variant = 'solid',
@@ -90,8 +87,17 @@ export const Tag = createComponent<TagProps, HTMLDivElement>(
       children
     )
 
-    return createElement(as, { ...props, className: classes }, customChildren)
+    return (
+      <Root {...props} className={classes}>
+        {customChildren}
+      </Root>
+    )
   }
-) as TagComponent
+)
 
+type TagComponent = typeof TagBase & {
+  CloseButton: typeof TagCloseButton
+}
+
+export const Tag = TagBase as TagComponent
 Tag.CloseButton = TagCloseButton

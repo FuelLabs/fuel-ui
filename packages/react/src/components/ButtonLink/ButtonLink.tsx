@@ -7,8 +7,8 @@ export type ButtonLinkProps = ButtonProps &
     isExternal?: boolean
   }
 
-export const ButtonLink = createComponent<ButtonLinkProps, HTMLDivElement>(
-  ({ as = 'a', isExternal, ...props }) => {
+export const ButtonLink = createComponent<ButtonLinkProps>(
+  ({ as = 'a', role = 'link', isExternal, ...props }) => {
     const customProps = {
       ...props,
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
@@ -16,6 +16,6 @@ export const ButtonLink = createComponent<ButtonLinkProps, HTMLDivElement>(
         rightIcon: <Icon icon="BiLinkExternal" />,
       }),
     }
-    return <Button as={as} {...customProps} role="link" isLink />
+    return <Button as={as} {...customProps} role={role} isLink />
   }
 )

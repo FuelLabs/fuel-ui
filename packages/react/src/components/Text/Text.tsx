@@ -1,5 +1,5 @@
-import { cloneElement, createElement, ReactElement } from 'react'
-import { css, allColors, Colors, cx, utils } from '@fuel-js/css'
+import { cloneElement, ReactElement } from 'react'
+import { css, allColors, Colors, cx, utils, styled } from '@fuel-js/css'
 
 import { createComponent, HTMLProps } from '@/utils'
 import { Icon, Icons } from '../Icon'
@@ -25,9 +25,10 @@ export type TextProps = HTMLProps['p'] & {
   iconAriaLabel?: string
 }
 
-export const Text = createComponent<TextProps, HTMLParagraphElement>(
+const Root = styled('p')
+
+export const Text = createComponent<TextProps>(
   ({
-    as = 'p',
     fontSize,
     color,
     children,
@@ -42,14 +43,12 @@ export const Text = createComponent<TextProps, HTMLParagraphElement>(
     const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel)
     const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel)
 
-    return createElement(
-      as,
-      { ...props, className: classes },
-      <>
+    return (
+      <Root {...props} className={classes}>
         {iconLeft}
         {children}
         {iconRight}
-      </>
+      </Root>
     )
   }
 )
@@ -62,22 +61,12 @@ const styles = css({
   variants: {
     // TODO: adjust typings
     fontSize: (utils.textSize.__keys as any[]).reduce(
-      (obj, key) => ({
-        ...obj,
-        [key]: {
-          textSize: key,
-        },
-      }),
+      (obj, key) => ({ ...obj, [key]: { textSize: key } }),
       {}
     ),
     // TODO: adjust typings
     color: (allColors as any[]).reduce(
-      (obj, key) => ({
-        ...obj,
-        [key]: {
-          color: `$${key}`,
-        },
-      }),
+      (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
       {}
     ),
   },

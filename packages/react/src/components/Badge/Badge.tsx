@@ -1,5 +1,4 @@
-import { createElement } from 'react'
-import { ColorKeys, cx } from '@fuel-js/css'
+import { ColorKeys, cx, styled } from '@fuel-js/css'
 
 import { HTMLProps, createComponent } from '@/utils'
 import * as styles from './styles'
@@ -10,16 +9,11 @@ export type BadgeProps = HTMLProps['span'] & {
   variant?: BadgeVariants
 }
 
-export const Badge = createComponent<BadgeProps, HTMLDivElement>(
-  ({ as = 'span', color, variant, children, className, ...props }) => {
-    const classes = cx(
-      className,
-      styles.badge({
-        variant,
-        color: color as any,
-      })
-    )
+const Root = styled('span')
 
-    return createElement(as, { ...props, className: classes }, children)
+export const Badge = createComponent<BadgeProps>(
+  ({ color, variant, className, ...props }) => {
+    const classes = cx(className, styles.badge({ variant, color }))
+    return <Root {...props} className={classes} />
   }
 )

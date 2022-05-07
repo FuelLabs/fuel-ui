@@ -1,15 +1,9 @@
-import { PropsWithChildren, FC } from 'react'
 import * as RDialog from '@radix-ui/react-dialog'
+import { styled } from '@fuel-js/css'
 
-export type DialogCloseProps = PropsWithChildren<RDialog.DialogCloseProps>
-export const DialogClose: FC<DialogCloseProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <RDialog.Close className={className} asChild {...props}>
-      {children}
-    </RDialog.Close>
-  )
+export type DialogCloseProps = RDialog.DialogCloseProps
+export const DialogClose = styled(RDialog.Close)
+
+DialogClose.defaultProps = {
+  asChild: true,
 }

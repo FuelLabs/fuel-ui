@@ -1,17 +1,9 @@
-import { PropsWithChildren, FC } from 'react'
 import * as RAlertDialog from '@radix-ui/react-alert-dialog'
+import { styled } from '@fuel-js/css'
 
-export type AlertDialogCancelProps =
-  PropsWithChildren<RAlertDialog.AlertDialogCancelProps>
+export type AlertDialogCancelProps = RAlertDialog.AlertDialogCancelProps
+export const AlertDialogCancel = styled(RAlertDialog.Cancel)
 
-export const AlertDialogCancel: FC<AlertDialogCancelProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <RAlertDialog.Cancel className={className} asChild {...props}>
-      {children}
-    </RAlertDialog.Cancel>
-  )
+AlertDialogCancel.defaultProps = {
+  asChild: true,
 }

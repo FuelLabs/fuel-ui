@@ -1,20 +1,7 @@
-import { cx } from '@fuel-js/css'
-import { PropsWithChildren, FC } from 'react'
+import { styled } from '@fuel-js/css'
 import * as RAlertDialog from '@radix-ui/react-alert-dialog'
 
 import * as styles from '../Dialog/styles'
 
-export type AlertDialogHeadingProps =
-  PropsWithChildren<RAlertDialog.AlertDialogTitleProps>
-
-export const AlertDialogHeading: FC<AlertDialogHeadingProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <RAlertDialog.Title className={cx(className, styles.heading())} {...props}>
-      {children}
-    </RAlertDialog.Title>
-  )
-}
+export type AlertDialogHeadingProps = RAlertDialog.AlertDialogTitleProps
+export const AlertDialogHeading = styled(RAlertDialog.Title, styles.heading)
