@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type {
   ComponentPropsWithRef,
   ElementType,
@@ -9,13 +10,11 @@ import type {
 
 /**
  * The `as` prop.
- * @template P Props
  */
 export type As<P = any> = ElementType<P>
 
 /**
  * Props with the `as` prop.
- * @template T The `as` prop
  * @example
  * type ButtonOptions = Options<"button">;
  */
@@ -23,13 +22,11 @@ export type Options<T extends As = any> = { as?: T }
 
 /**
  * The `children` prop
- * @template T Element type.
  */
 export type Children = ReactNode
 
 /**
  * Props that automatically includes base props based on the `as` prop.
- * @template O Options
  * @example
  * type ButtonBaseProps = BaseProps<Options<"button">>;
  */

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { tokens } from '@fuel/css'
 
 export const normalize: Record<string, any>[] = [

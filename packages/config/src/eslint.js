@@ -17,7 +17,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'eslint-plugin-tsdoc'],
+  plugins: ['@typescript-eslint'],
   extends: [
     'airbnb-base',
     'airbnb-typescript/base',
@@ -33,12 +33,15 @@ module.exports = {
     react: {
       version: 'detect',
     },
-    jsdoc: {
-      mode: 'typescript',
-    },
   },
   rules: {
-    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/consistent-type-imports': 2,
+    '@typescript-eslint/lines-between-class-members': [
+      'error',
+      'always',
+      { exceptAfterSingleLine: true },
+    ],
+    '@typescript-eslint/no-inferrable-types': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
@@ -48,20 +51,12 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
-    'react/display-name': 'off',
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-    'no-await-in-loop': 0,
-    'prefer-destructuring': 0,
-    'no-bitwise': 0,
+    '@typescript-eslint/no-var-requires': 'off',
     'class-methods-use-this': 'off',
-    '@typescript-eslint/no-inferrable-types': 'off',
-    '@typescript-eslint/lines-between-class-members': [
-      'error',
-      'always',
-      { exceptAfterSingleLine: true },
-    ],
+    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+    'eslint-comments/no-unused-disable': 'error',
+    'import/extensions': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/order': [
       'error',
       {
@@ -74,11 +69,13 @@ module.exports = {
         alphabetize: { order: 'asc' },
       },
     ],
-    '@typescript-eslint/consistent-type-imports': 2,
-    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
-    'eslint-comments/no-unused-disable': 'error',
     'import/prefer-default-export': 'off',
-    'tsdoc/syntax': 'warn',
+    'no-await-in-loop': 0,
+    'no-bitwise': 0,
+    'prefer-destructuring': 0,
+    'react/display-name': 'off',
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
   // Disable no-unused-expressions to allow chai 'expect' expressions in testing
   overrides: [
