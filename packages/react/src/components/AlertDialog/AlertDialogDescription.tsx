@@ -1,4 +1,4 @@
-import { styled } from '@fuel-js/css'
+import { styled } from '@fuel/css'
 import * as RAlertDialog from '@radix-ui/react-alert-dialog'
 
 import * as styles from '../Dialog/styles'

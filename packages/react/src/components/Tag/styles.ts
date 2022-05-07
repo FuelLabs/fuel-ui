@@ -1,4 +1,5 @@
-import { css } from '@fuel-js/css'
+import { css } from '@fuel/css'
+
 import * as variants from './variants'
 
 export const tag = css({

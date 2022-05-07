@@ -1,5 +1,5 @@
 import { createComponent, HTMLProps } from '@/utils'
-import { css, cx, styled } from '@fuel-js/css'
+import { css, cx, styled } from '@fuel/css'
 
 export type ContainerSizes = 'sm' | 'md' | 'lg' | 'xl'
 export type ContainerProps = HTMLProps['div'] & {

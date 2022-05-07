@@ -1,4 +1,4 @@
-import { css, allColors, Colors, cx, utils, styled } from '@fuel-js/css'
+import { css, allColors, Colors, cx, utils, styled } from '@fuel/css'
 import { createComponent, HTMLProps } from '@/utils'
 
 export type HeadingProps = HTMLProps['h1'] & {

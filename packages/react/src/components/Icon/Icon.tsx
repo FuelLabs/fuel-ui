@@ -1,5 +1,5 @@
 import { ElementType, useMemo } from 'react'
-import { Colors, styled } from '@fuel-js/css'
+import { Colors, styled } from '@fuel/css'
 import { IconType } from 'react-icons'
 import * as IconSet from 'react-icons/bi'
 

@@ -1,5 +1,7 @@
-import { styled } from '@fuel-js/css'
-import { createComponent, HTMLProps } from '@/utils'
+import { styled } from '@fuel/css'
+
+import type { HTMLProps } from '@/utils'
+import { createComponent } from '@/utils'
 
 export type StackProps = HTMLProps['div'] & {
   gap?: string
@@ -9,7 +11,7 @@ export type StackProps = HTMLProps['div'] & {
 const Root = styled('div')
 
 export const Stack = createComponent<StackProps>(
-  ({ gap = '$2', direction: flexDirection = 'column', ...props }) => {
-    return <Root {...props} css={{ display: 'flex', gap, flexDirection }} />
-  }
+  ({ gap = '$2', direction: flexDirection = 'column', ...props }) => (
+    <Root {...props} css={{ display: 'flex', gap, flexDirection }} />
+  )
 )
