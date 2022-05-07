@@ -63,6 +63,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-await-in-loop': 0,
     'no-bitwise': 0,
+    'no-underscore-dangle': 'off',
     'prefer-destructuring': 0,
     'react/display-name': 'off',
     'react/prop-types': 'off',

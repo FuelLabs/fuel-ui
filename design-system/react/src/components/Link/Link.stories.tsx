@@ -1,4 +1,5 @@
-import { Link, LinkProps } from "./Link";
+import type { LinkProps } from "./Link";
+import { Link } from "./Link";
 
 export default {
   component: Link,

@@ -1,4 +1,4 @@
-import { css } from "@fuel/css";
+import { Box } from "../Box";
 
 import type { StackProps } from "./Stack";
 import { Stack } from "./Stack";
@@ -10,12 +10,10 @@ export default {
 };
 
 export const Usage = (args: StackProps) => (
-  <>
-    <Stack {...args}>
-      <div className={css({ background: "$gray7" })()}>&nbsp;</div>
-      <div className={css({ background: "$gray7" })()}>&nbsp;</div>
-      <div className={css({ background: "$gray7" })()}>&nbsp;</div>
-      <div className={css({ background: "$gray7" })()}>&nbsp;</div>
-    </Stack>
-  </>
+  <Stack {...args}>
+    <Box css={{ background: "$gray7" }}>&nbsp;</Box>
+    <Box css={{ background: "$gray7" }}>&nbsp;</Box>
+    <Box css={{ background: "$gray7" }}>&nbsp;</Box>
+    <Box css={{ background: "$gray7" }}>&nbsp;</Box>
+  </Stack>
 );

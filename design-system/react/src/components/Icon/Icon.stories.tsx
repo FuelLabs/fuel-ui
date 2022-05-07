@@ -1,6 +1,9 @@
-import { Icon, IconProps } from "./Icon";
 import { useCopyToClipboard } from "react-use";
-import { css } from "@fuel/css";
+
+import { Box } from "../Box";
+
+import type { IconProps } from "./Icon";
+import { Icon } from "./Icon";
 
 export default {
   component: Icon,
@@ -26,19 +29,21 @@ export const Usage = (args: IconProps) => (
 export const AllIcons = () => {
   const [, copy] = useCopyToClipboard();
   return (
-    <div className={styles.list()}>
+    <Box css={styles.list}>
       {Icon._iconList.map((key) => (
-        <div
+        <Box
           key={key}
-          className={styles.iconWrapper()}
+          css={styles.iconWrapper}
           onClick={() => copy(key)}
           title="Click to copy"
         >
           <Icon key={key} icon={key} size={24} />
-          <span className={styles.iconLabel()}>{key}</span>
-        </div>
+          <Box as="span" css={styles.iconLabel}>
+            {key}
+          </Box>
+        </Box>
       ))}
-    </div>
+    </Box>
   );
 };
 
@@ -46,17 +51,17 @@ const styles = {
   /**
    * List styles
    */
-  list: css({
+  list: {
     display: "grid",
     gridTemplateColumns: "repeat(6, 1fr)",
     flexWrap: "wrap",
     maxW: "$full",
     color: "$gray12",
-  }),
+  },
   /**
    * Icon Wrapper styles
    */
-  iconWrapper: css({
+  iconWrapper: {
     p: "$3",
     mt: "-1px",
     mr: "-1px",
@@ -69,16 +74,16 @@ const styles = {
     "&:hover": {
       cursor: "pointer",
     },
-  }),
+  },
   /**
    * Icon Label Styles
    */
-  iconLabel: css({
+  iconLabel: {
     overflow: "hidden",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
     maxW: "$full",
     fontSize: "$xs",
     color: "$gray10",
-  }),
+  },
 };

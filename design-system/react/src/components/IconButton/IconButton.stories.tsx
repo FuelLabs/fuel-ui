@@ -1,4 +1,4 @@
-import { css } from "@fuel/css";
+import { Box } from "../Box";
 
 import type { IconButtonProps } from "./IconButton";
 import { IconButton } from "./IconButton";
@@ -9,12 +9,7 @@ export default {
 };
 
 export const Usage = (args: IconButtonProps) => (
-  <div className={styles()}>
+  <Box css={{ display: "flex", gap: "$2" }}>
     <IconButton {...args} aria-label="Button" icon="BiCalendar" />
-  </div>
+  </Box>
 );
-
-const styles = css({
-  display: "flex",
-  gap: "$2",
-});

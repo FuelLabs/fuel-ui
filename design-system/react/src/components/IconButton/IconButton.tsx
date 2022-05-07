@@ -1,8 +1,10 @@
-import { createComponent } from "@/utils";
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 
-import { Button, ButtonProps } from "../Button";
-import { Icons } from "../Icon";
+import type { ButtonProps } from "../Button";
+import { Button } from "../Button";
+import type { Icons } from "../Icon";
+
+import { createComponent } from "@/utils";
 
 type CustomButtonProps = Omit<
   ButtonProps,

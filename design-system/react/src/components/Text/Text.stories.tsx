@@ -1,5 +1,7 @@
 import { allColors } from "@fuel/css";
-import { Text, TextProps } from "./Text";
+
+import type { TextProps } from "./Text";
+import { Text } from "./Text";
 
 export default {
   component: Text,
@@ -14,13 +16,11 @@ export default {
 };
 
 export const Usage = (args: TextProps) => (
-  <>
-    <Text {...args}>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur unde
-      esse, vel ab aperiam est quam iure iusto? Totam eligendi laudantium
-      repellat quasi in deserunt laboriosam amet atque? Consectetur, blanditiis?
-    </Text>
-  </>
+  <Text {...args}>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur unde esse,
+    vel ab aperiam est quam iure iusto? Totam eligendi laudantium repellat quasi
+    in deserunt laboriosam amet atque? Consectetur, blanditiis?
+  </Text>
 );
 
 export const WithIcon = (args: TextProps) => (

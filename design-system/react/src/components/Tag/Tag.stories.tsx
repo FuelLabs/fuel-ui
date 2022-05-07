@@ -1,7 +1,10 @@
-import { colorKeys, css } from "@fuel/css";
+import { colorKeys } from "@fuel/css";
 
-import { Tag, TagProps } from "./Tag";
+import { Box } from "../Box";
 import { Icon } from "../Icon";
+
+import type { TagProps } from "./Tag";
+import { Tag } from "./Tag";
 import { TagCloseButton } from "./TagCloseButton";
 
 export default {
@@ -32,24 +35,22 @@ export default {
   },
 };
 
-export const Sizes = (args: TagProps) => {
-  return (
-    <div className={styles.wrapper()}>
-      <Tag {...args} size="xs">
-        Label
-      </Tag>
-      <Tag {...args} size="sm">
-        Label
-      </Tag>
-      <Tag {...args} size="md">
-        Label
-      </Tag>
-    </div>
-  );
-};
+export const Sizes = (args: TagProps) => (
+  <Box css={styles.wrapper}>
+    <Tag {...args} size="xs">
+      Label
+    </Tag>
+    <Tag {...args} size="sm">
+      Label
+    </Tag>
+    <Tag {...args} size="md">
+      Label
+    </Tag>
+  </Box>
+);
 
 export const Variants = (args: TagProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Tag {...args} variant="solid">
       Label
     </Tag>
@@ -59,67 +60,67 @@ export const Variants = (args: TagProps) => (
     <Tag {...args} variant="ghost">
       Label
     </Tag>
-  </div>
+  </Box>
 );
 
 export const Colors = (args: TagProps) => (
-  <div className={styles.gridList()}>
+  <Box css={styles.gridList}>
     {colorKeys.map((color) => (
       <Tag key={color} {...args} color={color}>
         Label
       </Tag>
     ))}
-  </div>
+  </Box>
 );
 
 export const WithIcon = (args: TagProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Tag {...args} leftIcon="BiCalendar" iconAriaLabel="calendar">
       Label
     </Tag>
     <Tag {...args} rightIcon="BiCalendar" iconAriaLabel="calendar">
       Label
     </Tag>
-  </div>
+  </Box>
 );
 
 export const WithClose = (args: TagProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Tag {...args} leftIcon="BiCalendar" iconAriaLabel="calendar">
       Label
       <TagCloseButton />
     </Tag>
-  </div>
+  </Box>
 );
 
 export const Loading = (args: TagProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Tag {...args} isLoading>
       Label
     </Tag>
-  </div>
+  </Box>
 );
 
 export const Disabled = (args: TagProps) => (
-  <div className={styles.wrapper()}>
+  <Box css={styles.wrapper}>
     <Tag {...args} isDisabled>
       Label
     </Tag>
-  </div>
+  </Box>
 );
 
 /**
  * Styles
  */
 const styles = {
-  wrapper: css({
+  wrapper: {
     display: "flex",
     alignItems: "center",
     gap: "$4",
-  }),
-  gridList: css({
+  },
+  gridList: {
     display: "grid",
     gap: "$4",
     gridTemplateColumns: "repeat(6, 1fr)",
-  }),
+  },
 };

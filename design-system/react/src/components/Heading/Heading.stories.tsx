@@ -1,4 +1,5 @@
-import { Heading, HeadingProps } from "./Heading";
+import type { HeadingProps } from "./Heading";
+import { Heading } from "./Heading";
 
 export default {
   component: Heading,
@@ -7,7 +8,5 @@ export default {
 };
 
 export const Usage = (args: HeadingProps) => (
-  <>
-    <Heading {...args}>Some title</Heading>
-  </>
+  <Heading {...args}>Some title</Heading>
 );

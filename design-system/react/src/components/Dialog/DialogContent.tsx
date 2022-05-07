@@ -1,9 +1,10 @@
 import * as RDialog from "@radix-ui/react-dialog";
 
-import { createComponent } from "@/utils";
 import { Icon } from "../Icon";
 
 import * as styles from "./styles";
+
+import { createComponent } from "@/utils";
 
 export type DialogContentProps = RDialog.DialogContentProps;
 export const DialogContent = createComponent<DialogContentProps>(

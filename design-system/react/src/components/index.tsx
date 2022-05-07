@@ -1,6 +1,7 @@
 export * from "./AlertDialog";
 export * from "./Avatar";
 export * from "./Badge";
+export * from "./Box";
 export * from "./BoxCentered";
 export * from "./Button";
 export * from "./ButtonLink";

@@ -27,7 +27,6 @@ const styles = css({
 
   variants: {
     // FIX: adjust type type
-    // eslint-disable-next-line no-underscore-dangle
     fontSize: (utils.textSize.__keys as any[]).reduce(
       (obj, key) => ({ ...obj, [key]: { textSize: key } }),
       {}

@@ -1,4 +1,4 @@
-import { css } from "@fuel/css";
+import { Box } from "../Box";
 
 import type { AvatarProps } from "./Avatar";
 import { Avatar } from "./Avatar";
@@ -10,7 +10,7 @@ export default {
 };
 
 export const Sizes = (args: AvatarProps) => (
-  <div className={css({ display: "flex", alignItems: "center", gap: "$3" })()}>
+  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
     <Avatar {...args} size="sm">
       <Avatar.Image
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
@@ -32,11 +32,11 @@ export const Sizes = (args: AvatarProps) => (
       />
       <Avatar.Fallback delayMs={600}>CT</Avatar.Fallback>
     </Avatar>
-  </div>
+  </Box>
 );
 
 export const Fallback = (args: AvatarProps) => (
-  <div className={css({ display: "flex", alignItems: "center", gap: "$3" })()}>
+  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
     <Avatar {...args}>
       <Avatar.Image
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
@@ -47,5 +47,5 @@ export const Fallback = (args: AvatarProps) => (
     <Avatar {...args}>
       <Avatar.Fallback delayMs={600}>CT</Avatar.Fallback>
     </Avatar>
-  </div>
+  </Box>
 );
