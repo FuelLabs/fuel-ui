@@ -1,6 +1,11 @@
-import { styled } from "@fuel/css";
-import { forwardRef, ReactElement } from "react";
-import { PropsWithAs } from "./types";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { styled } from "@stitches/react";
+import type { ReactElement } from "react";
+import { forwardRef, createElement as baseCreateElement } from "react";
+
+import type { As, Children, PropsWithAs } from "./types";
+
+import { useConstant } from "@/hooks";
 
 type Render<P> = (props: PropsWithAs<P>) => ReactElement;
 
@@ -23,7 +28,7 @@ type Render<P> = (props: PropsWithAs<P>) => ReactElement;
  */
 
 export function createComponent<P>(render: Render<P>) {
-  return styled(
-    forwardRef<any, P>((props, ref) => render({ ref, ...props } as any))
+  return forwardRef<any, PropsWithAs<P>>((props, ref) =>
+    render({ ref, ...props } as any)
   );
 }

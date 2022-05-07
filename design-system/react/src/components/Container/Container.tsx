@@ -1,5 +1,8 @@
-import { createComponent, HTMLProps } from "@/utils";
 import { css, cx, styled } from "@fuel/css";
+import { createElement } from "react";
+
+import type { HTMLProps } from "@/utils";
+import { createComponent } from "@/utils";
 
 export type ContainerSizes = "sm" | "md" | "lg" | "xl";
 export type ContainerProps = HTMLProps["div"] & {
@@ -9,9 +12,9 @@ export type ContainerProps = HTMLProps["div"] & {
 const Root = styled("div");
 
 export const Container = createComponent<ContainerProps>(
-  ({ className, size, ...props }) => {
+  ({ className, size, children, ...props }) => {
     const classes = cx(className, styles({ size }));
-    return <Root {...props} className={classes} />;
+    return createElement(Root, { ...props, className: classes }, children);
   }
 );
 

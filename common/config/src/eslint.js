@@ -29,6 +29,7 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/consistent-type-imports': 2,
     '@typescript-eslint/lines-between-class-members': [
       'error',

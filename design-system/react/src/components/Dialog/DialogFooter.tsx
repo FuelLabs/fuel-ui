@@ -1,4 +1,5 @@
 import { cx, styled } from "@fuel/css";
+import { createElement } from "react";
 
 import * as styles from "./styles";
 
@@ -12,8 +13,8 @@ export type DialogFooterProps = HTMLProps["footer"] & {
 const Root = styled("footer");
 
 export const DialogFooter = createComponent<DialogFooterProps>(
-  ({ align, className, ...props }) => {
+  ({ align, className, children, ...props }) => {
     const classes = cx(className, styles.footer({ align }));
-    return <Root {...props} className={classes} />;
+    return createElement(Root, { ...props, className: classes }, children);
   }
 );

@@ -1,11 +1,17 @@
-import { ReactElement } from "react";
-import { ColorKeys, cx, styled } from "@fuel/css";
+import type { ColorKeys } from "@fuel/css";
+import { cx } from "@fuel/css";
+import { styled } from "@stitches/react";
+import type { ReactElement } from "react";
+import { createElement } from "react";
 
-import { createComponent, HTMLProps } from "@/utils";
-import { createIcon } from "../Text";
-import { Icons } from "../Icon";
+import type { Icons } from "../Icon";
 import { Spinner } from "../Spinner";
+import { createIcon } from "../Text";
+
 import * as styles from "./styles";
+
+import { createComponent } from "@/utils";
+import type { HTMLProps } from "@/utils";
 
 export type ButtonVariants = "solid" | "outlined" | "ghost" | "link";
 export type ButtonSizes = "xs" | "sm" | "md" | "lg";
@@ -67,7 +73,8 @@ export const Button = createComponent<ButtonProps>(
         variant,
         disabled,
         justIcon,
-        color: color as any,
+        color,
+        isLink,
       })
     );
 
@@ -91,13 +98,15 @@ export const Button = createComponent<ButtonProps>(
       className: classes,
     };
 
-    return (
-      <Root {...buttonProps}>
+    return createElement(
+      Root,
+      buttonProps,
+      <>
         {isLoading && <Spinner color="current" size={SPINNER_SIZE[size]} />}
         {!isLoading && iconLeft}
         {isLoading ? "Loading..." : children}
         {!isLoading && iconRight}
-      </Root>
+      </>
     );
   }
 );

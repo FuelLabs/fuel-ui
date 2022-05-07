@@ -1,3 +1,4 @@
+import type { CSS } from '@stitches/react';
 import { createStitches } from '@stitches/react';
 
 import { colors, darkColors } from './colors';
@@ -14,6 +15,8 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     media,
     utils,
   });
+
+export type ThemeUtilsCSS = CSS<typeof config>;
 
 export const darkTheme = createTheme({
   colors: darkColors,

@@ -1,8 +1,14 @@
-import { cloneElement, ReactElement } from "react";
-import { css, allColors, Colors, cx, utils, styled } from "@fuel/css";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Colors } from "@fuel/css";
+import { css, allColors, cx, utils, styled } from "@fuel/css";
+import type { ReactElement } from "react";
+import { cloneElement, createElement } from "react";
 
-import { createComponent, HTMLProps } from "@/utils";
-import { Icon, Icons } from "../Icon";
+import type { Icons } from "../Icon";
+import { Icon } from "../Icon";
+
+import type { HTMLProps } from "@/utils";
+import { createComponent } from "@/utils";
 
 export function createIcon(
   icon?: Icons | ReactElement,
@@ -43,12 +49,14 @@ export const Text = createComponent<TextProps>(
     const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel);
     const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel);
 
-    return (
-      <Root {...props} className={classes}>
+    return createElement(
+      Root,
+      { ...props, className: classes },
+      <>
         {iconLeft}
         {children}
         {iconRight}
-      </Root>
+      </>
     );
   }
 );
@@ -60,6 +68,7 @@ const styles = css({
 
   variants: {
     // TODO: adjust typings
+    // eslint-disable-next-line no-underscore-dangle
     fontSize: (utils.textSize.__keys as any[]).reduce(
       (obj, key) => ({ ...obj, [key]: { textSize: key } }),
       {}
