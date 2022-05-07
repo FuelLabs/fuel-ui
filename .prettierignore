@@ -6,3 +6,5 @@ node_modules
 CHANGELOG.md
 .chglog/CHANGELOG.tpl.md
 storybook-static
+pnpm-lock.yaml
+.github

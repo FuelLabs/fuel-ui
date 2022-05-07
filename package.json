@@ -17,6 +17,11 @@
   "bugs": {
     "url": "https://github.com/FuelLabs/design-sytem/issues"
   },
+  "workspaces": [
+    "./apps/*",
+    "./commmon/*",
+    "./design-system/*"
+  ],
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
@@ -24,8 +29,8 @@
     "lint": "run-s lint:check prettier:check",
     "lint:check": "eslint . --ext .ts",
     "lint:fix": "pnpm lint:check --fix",
-    "prettier:check": "prettier --check packages",
-    "prettier:format": "prettier --write packages",
+    "prettier:check": "prettier --check .",
+    "prettier:format": "prettier --write .",
     "test": "jest",
     "test:watch": "jest --watch"
   },
