@@ -1,14 +1,9 @@
-import { PropsWithChildren, FC } from 'react'
 import * as RDialog from '@radix-ui/react-dialog'
+import { styled } from '@fuel-js/css'
 
-export type DialogTriggerProps = PropsWithChildren<RDialog.DialogTriggerProps>
-export const DialogTrigger: FC<DialogTriggerProps> = ({
-  children,
-  ...props
-}) => {
-  return (
-    <RDialog.Trigger asChild {...props}>
-      {children}
-    </RDialog.Trigger>
-  )
+export type DialogTriggerProps = RDialog.DialogTriggerProps
+export const DialogTrigger = styled(RDialog.DialogTrigger)
+
+DialogTrigger.defaultProps = {
+  asChild: true,
 }

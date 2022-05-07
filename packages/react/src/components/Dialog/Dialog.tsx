@@ -1,33 +1,28 @@
-import { FC } from 'react'
 import * as RDialog from '@radix-ui/react-dialog'
+import { styled } from '@fuel-js/css'
 
-import { RefComponent } from '@/utils'
-import { DialogContent, DialogContentProps } from './DialogContent'
-import { DialogDescription, DialogDescriptionProps } from './DialogDescription'
-import { DialogHeading, DialogHeadingProps } from './DialogHeading'
-import { DialogTrigger, DialogTriggerProps } from './DialogTrigger'
-import { DialogClose, DialogCloseProps } from './DialogClose'
-import { DialogFooter, DialogFooterProps } from './DialogFooter'
+import { DialogContent } from './DialogContent'
+import { DialogDescription } from './DialogDescription'
+import { DialogHeading } from './DialogHeading'
+import { DialogTrigger } from './DialogTrigger'
+import { DialogFooter } from './DialogFooter'
+import { DialogClose } from './DialogClose'
 
-/**
- * Root Dialog Component
- */
-type DialogComponent = FC<RDialog.DialogProps> & {
-  Content: FC<DialogContentProps>
-  Trigger: FC<DialogTriggerProps>
-  Close: FC<DialogCloseProps>
-  Heading: FC<DialogHeadingProps>
-  Description: FC<DialogDescriptionProps>
-  Footer: RefComponent<DialogFooterProps>
+const DialogRoot = styled(RDialog.Root)
+
+type DialogComponent = typeof DialogRoot & {
+  Content: typeof DialogContent
+  Trigger: typeof DialogTrigger
+  Heading: typeof DialogHeading
+  Description: typeof DialogDescription
+  Footer: typeof DialogFooter
+  Close: typeof DialogClose
 }
 
-export const Dialog: DialogComponent = ({ children, ...props }) => {
-  return <RDialog.Root {...props}>{children}</RDialog.Root>
-}
-
+export const Dialog = DialogRoot as DialogComponent
 Dialog.Content = DialogContent
 Dialog.Trigger = DialogTrigger
-Dialog.Close = DialogClose
 Dialog.Heading = DialogHeading
 Dialog.Description = DialogDescription
 Dialog.Footer = DialogFooter
+Dialog.Close = DialogClose

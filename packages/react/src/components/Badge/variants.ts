@@ -38,7 +38,7 @@ function createGhostVariant(keyColor: ColorKeys) {
 export const colors = {
   solid: colorKeys.reduce(
     (obj, key: any) => ({ ...obj, [key]: createSolidVariant(key) }),
-    {}
+    {} as Record<ColorKeys, any>
   ),
   outlined: colorKeys.map((key) => ({
     color: key,

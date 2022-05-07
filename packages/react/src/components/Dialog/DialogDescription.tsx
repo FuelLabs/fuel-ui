@@ -1,21 +1,7 @@
-import { cx } from '@fuel-js/css'
-import { PropsWithChildren, FC } from 'react'
+import { styled } from '@fuel-js/css'
 import * as RDialog from '@radix-ui/react-dialog'
 
-import * as styles from './styles'
+import * as styles from '../Dialog/styles'
 
-export type DialogDescriptionProps = PropsWithChildren<RDialog.DialogTitleProps>
-export const DialogDescription: FC<DialogDescriptionProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <RDialog.Description
-      className={cx(className, styles.description())}
-      {...props}
-    >
-      {children}
-    </RDialog.Description>
-  )
-}
+export type DialogDescriptionProps = RDialog.DialogTitleProps
+export const DialogDescription = styled(RDialog.Description, styles.description)

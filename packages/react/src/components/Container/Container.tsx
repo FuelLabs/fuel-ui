@@ -1,16 +1,17 @@
 import { createComponent, HTMLProps } from '@/utils'
-import { css, cx } from '@fuel-js/css'
-import { createElement } from 'react'
+import { css, cx, styled } from '@fuel-js/css'
 
 export type ContainerSizes = 'sm' | 'md' | 'lg' | 'xl'
 export type ContainerProps = HTMLProps['div'] & {
   size?: ContainerSizes
 }
 
-export const Container = createComponent<ContainerProps, HTMLDivElement>(
-  ({ as = 'div', className, children, size, ...props }) => {
+const Root = styled('div')
+
+export const Container = createComponent<ContainerProps>(
+  ({ className, size, ...props }) => {
     const classes = cx(className, styles({ size }))
-    return createElement(as, { ...props, className: classes }, children)
+    return <Root {...props} className={classes} />
   }
 )
 

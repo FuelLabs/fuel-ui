@@ -1,16 +1,22 @@
 import { createElement } from 'react'
-import { css, cx } from '@fuel-js/css'
+import { css, cx, styled } from '@fuel-js/css'
 
 import { HTMLProps, createComponent } from '@/utils'
 
 export type __COMPONENT__Props = HTMLProps['div'] & {
-  //
+  customProp?: boolean
 }
 
-export const __COMPONENT__ = createComponent<__COMPONENT__Props, HTMLDivElement>(
-  ({ as = 'div', children, className, ...props }) => {
-    const classes = cx(className, styles())
-    return createElement(as, { ...props, className: classes }, children)
+const Root = styled('div')
+
+export const __COMPONENT__ = createComponent<__COMPONENT__Props>(
+  ({ customProp, children, className, ...props }) => {
+    const classes = cx(className, styles({ customProp }))
+    return (
+      <Root as={as} className={classes} {...props}>
+        {children}
+      </Root>
+    )
   }
 )
 
