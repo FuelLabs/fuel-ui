@@ -1,4 +1,4 @@
-import { css } from '@fuel/css'
+import { css } from '@fuel/css';
 
 export const avatar = css({
   display: 'inline-flex',
@@ -27,14 +27,14 @@ export const avatar = css({
   defaultVariants: {
     size: 'md',
   },
-})
+});
 
 export const image = css({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
   borderRadius: 'inherit',
-})
+});
 
 export const fallback = css({
   width: '$full%',
@@ -45,4 +45,4 @@ export const fallback = css({
   color: '$slate12',
   textSize: 'base',
   fontWeight: '$semibold',
-})
+});

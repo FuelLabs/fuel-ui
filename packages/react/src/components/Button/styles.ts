@@ -1,6 +1,6 @@
-import { css } from '@fuel/css'
+import { css } from '@fuel/css';
 
-import * as variants from './variants'
+import * as variants from './variants';
 
 export const button = css({
   appearance: 'none',
@@ -73,4 +73,4 @@ export const button = css({
     color: 'accent',
     variant: 'solid',
   },
-})
+});

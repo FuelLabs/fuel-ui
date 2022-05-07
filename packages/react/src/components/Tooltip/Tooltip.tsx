@@ -1,18 +1,18 @@
-import { ReactElement } from 'react'
-import * as RTooltip from '@radix-ui/react-tooltip'
+import { ReactElement } from "react";
+import * as RTooltip from "@radix-ui/react-tooltip";
 
-import { createComponent, Props } from '@/utils'
-import * as styles from './styles'
+import { createComponent, Props } from "@/utils";
+import * as styles from "./styles";
 
 export type TooltipProps = RTooltip.TooltipProps &
   Props<{
-    content: ReactElement
-    side: RTooltip.PopperContentProps['side']
-    align: RTooltip.PopperContentProps['align']
-  }>
+    content: ReactElement;
+    side: RTooltip.PopperContentProps["side"];
+    align: RTooltip.PopperContentProps["align"];
+  }>;
 
 export const Tooltip = createComponent<TooltipProps>(
-  ({ children, content, side = 'top', align, ...props }) => (
+  ({ children, content, side = "top", align, ...props }) => (
     <RTooltip.Provider>
       <RTooltip.Root {...props}>
         <RTooltip.Trigger asChild>{children}</RTooltip.Trigger>
@@ -32,4 +32,4 @@ export const Tooltip = createComponent<TooltipProps>(
       </RTooltip.Root>
     </RTooltip.Provider>
   )
-)
+);

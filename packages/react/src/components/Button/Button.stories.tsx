@@ -1,36 +1,36 @@
-import { colorKeys } from '@fuel/css'
-import { css } from '@fuel/css'
+import { colorKeys } from "@fuel/css";
+import { css } from "@fuel/css";
 
-import { Button, ButtonProps } from './Button'
-import { Icon } from '../Icon'
+import { Button, ButtonProps } from "./Button";
+import { Icon } from "../Icon";
 
 export default {
-  title: 'UI/Button',
+  title: "UI/Button",
   component: Button,
   argTypes: {
     size: {
-      defaultValue: 'md',
-      control: 'select',
+      defaultValue: "md",
+      control: "select",
     },
     color: {
       options: colorKeys,
-      defaultValue: 'accent',
-      control: 'select',
+      defaultValue: "accent",
+      control: "select",
     },
     variant: {
-      defaultValue: 'solid',
-      control: 'select',
+      defaultValue: "solid",
+      control: "select",
     },
     leftIcon: {
       options: Icon._iconList,
-      control: 'select',
+      control: "select",
     },
     rightIcon: {
       options: Icon._iconList,
-      control: 'select',
+      control: "select",
     },
   },
-}
+};
 
 export const Sizes = (args: ButtonProps) => {
   return (
@@ -48,8 +48,8 @@ export const Sizes = (args: ButtonProps) => {
         Button
       </Button>
     </div>
-  )
-}
+  );
+};
 
 export const Variants = (args: ButtonProps) => (
   <div className={styles.wrapper()}>
@@ -66,7 +66,7 @@ export const Variants = (args: ButtonProps) => (
       Button
     </Button>
   </div>
-)
+);
 
 export const Colors = (args: ButtonProps) => (
   <div className={styles.gridList()}>
@@ -76,7 +76,7 @@ export const Colors = (args: ButtonProps) => (
       </Button>
     ))}
   </div>
-)
+);
 
 export const WithIcon = (args: ButtonProps) => (
   <div className={styles.wrapper()}>
@@ -87,7 +87,7 @@ export const WithIcon = (args: ButtonProps) => (
       Button
     </Button>
   </div>
-)
+);
 
 export const Loading = (args: ButtonProps) => (
   <div className={styles.wrapper()}>
@@ -95,7 +95,7 @@ export const Loading = (args: ButtonProps) => (
       Button
     </Button>
   </div>
-)
+);
 
 export const Disabled = (args: ButtonProps) => (
   <div className={styles.wrapper()}>
@@ -103,20 +103,20 @@ export const Disabled = (args: ButtonProps) => (
       Button
     </Button>
   </div>
-)
+);
 
 /**
  * Styles
  */
 const styles = {
   wrapper: css({
-    display: 'flex',
-    alignItems: 'center',
-    gap: '$4',
+    display: "flex",
+    alignItems: "center",
+    gap: "$4",
   }),
   gridList: css({
-    display: 'grid',
-    gap: '$4',
-    gridTemplateColumns: 'repeat(6, 1fr)',
+    display: "grid",
+    gap: "$4",
+    gridTemplateColumns: "repeat(6, 1fr)",
   }),
-}
+};

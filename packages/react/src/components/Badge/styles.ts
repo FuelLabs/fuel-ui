@@ -1,6 +1,6 @@
-import { css } from '@fuel/css'
+import { css } from '@fuel/css';
 
-import * as variants from './variants'
+import * as variants from './variants';
 
 export const badge = css({
   border: 'none',
@@ -34,4 +34,4 @@ export const badge = css({
     color: 'accent',
     variant: 'ghost',
   },
-})
+});

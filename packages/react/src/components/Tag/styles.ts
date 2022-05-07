@@ -1,6 +1,6 @@
-import { css } from '@fuel/css'
+import { css } from '@fuel/css';
 
-import * as variants from './variants'
+import * as variants from './variants';
 
 export const tag = css({
   display: 'inline-flex',
@@ -51,4 +51,4 @@ export const tag = css({
     color: 'accent',
     variant: 'solid',
   },
-})
+});

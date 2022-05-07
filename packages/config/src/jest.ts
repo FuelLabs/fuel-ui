@@ -1,4 +1,4 @@
-import type { Config } from '@jest/types'
+import type { Config } from '@jest/types';
 
 export function createJestConfig(options: Config.InitialOptions) {
   return {
@@ -27,5 +27,5 @@ export function createJestConfig(options: Config.InitialOptions) {
       ],
     },
     ...options,
-  }
+  };
 }

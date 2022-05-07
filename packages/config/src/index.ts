@@ -1,2 +1,2 @@
-export { createConfig } from './tsup'
-export { createJestConfig } from './jest'
+export { createConfig } from './tsup';
+export { createJestConfig } from './jest';

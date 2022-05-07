@@ -1,39 +1,39 @@
-import { css, cx, styled } from '@fuel/css'
+import { css, cx, styled } from "@fuel/css";
 
-import { HTMLProps, createComponent } from '@/utils'
+import { HTMLProps, createComponent } from "@/utils";
 
-export type BoxCenteredProps = HTMLProps['div'] & {
+export type BoxCenteredProps = HTMLProps["div"] & {
   /**
    * max-width: '100vh
    */
-  minWS?: boolean
+  minWS?: boolean;
   /**
    * max-height: '100vh
    */
-  minHS?: boolean
-}
+  minHS?: boolean;
+};
 
-const Root = styled('div')
+const Root = styled("div");
 
 export const BoxCentered = createComponent<BoxCenteredProps>(
   ({ minWS, minHS, className, ...props }) => {
-    const classes = cx(className, styles({ minWS, minHS }))
-    return <Root {...props} className={classes} />
+    const classes = cx(className, styles({ minWS, minHS }));
+    return <Root {...props} className={classes} />;
   }
-)
+);
 
 const styles = css({
-  is: ['centered'],
+  is: ["centered"],
   variants: {
     minWS: {
       true: {
-        minW: '$screenW',
+        minW: "$screenW",
       },
     },
     minHS: {
       true: {
-        minH: '$screenH',
+        minH: "$screenH",
       },
     },
   },
-})
+});
