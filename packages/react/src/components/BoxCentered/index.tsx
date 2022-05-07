@@ -1,1 +1,1 @@
-export * from './BoxCentered'
+export * from "./BoxCentered";

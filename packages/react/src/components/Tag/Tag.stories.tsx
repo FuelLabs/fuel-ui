@@ -1,36 +1,36 @@
-import { colorKeys, css } from '@fuel/css'
+import { colorKeys, css } from "@fuel/css";
 
-import { Tag, TagProps } from './Tag'
-import { Icon } from '../Icon'
-import { TagCloseButton } from './TagCloseButton'
+import { Tag, TagProps } from "./Tag";
+import { Icon } from "../Icon";
+import { TagCloseButton } from "./TagCloseButton";
 
 export default {
   component: Tag,
-  title: 'UI/Tag',
+  title: "UI/Tag",
   argTypes: {
     size: {
-      defaultValue: 'sm',
-      control: 'select',
+      defaultValue: "sm",
+      control: "select",
     },
     color: {
       options: colorKeys,
-      defaultValue: 'accent',
-      control: 'select',
+      defaultValue: "accent",
+      control: "select",
     },
     variant: {
-      defaultValue: 'solid',
-      control: 'select',
+      defaultValue: "solid",
+      control: "select",
     },
     leftIcon: {
       options: Icon._iconList,
-      control: 'select',
+      control: "select",
     },
     rightIcon: {
       options: Icon._iconList,
-      control: 'select',
+      control: "select",
     },
   },
-}
+};
 
 export const Sizes = (args: TagProps) => {
   return (
@@ -45,8 +45,8 @@ export const Sizes = (args: TagProps) => {
         Label
       </Tag>
     </div>
-  )
-}
+  );
+};
 
 export const Variants = (args: TagProps) => (
   <div className={styles.wrapper()}>
@@ -60,7 +60,7 @@ export const Variants = (args: TagProps) => (
       Label
     </Tag>
   </div>
-)
+);
 
 export const Colors = (args: TagProps) => (
   <div className={styles.gridList()}>
@@ -70,7 +70,7 @@ export const Colors = (args: TagProps) => (
       </Tag>
     ))}
   </div>
-)
+);
 
 export const WithIcon = (args: TagProps) => (
   <div className={styles.wrapper()}>
@@ -81,7 +81,7 @@ export const WithIcon = (args: TagProps) => (
       Label
     </Tag>
   </div>
-)
+);
 
 export const WithClose = (args: TagProps) => (
   <div className={styles.wrapper()}>
@@ -90,7 +90,7 @@ export const WithClose = (args: TagProps) => (
       <TagCloseButton />
     </Tag>
   </div>
-)
+);
 
 export const Loading = (args: TagProps) => (
   <div className={styles.wrapper()}>
@@ -98,7 +98,7 @@ export const Loading = (args: TagProps) => (
       Label
     </Tag>
   </div>
-)
+);
 
 export const Disabled = (args: TagProps) => (
   <div className={styles.wrapper()}>
@@ -106,20 +106,20 @@ export const Disabled = (args: TagProps) => (
       Label
     </Tag>
   </div>
-)
+);
 
 /**
  * Styles
  */
 const styles = {
   wrapper: css({
-    display: 'flex',
-    alignItems: 'center',
-    gap: '$4',
+    display: "flex",
+    alignItems: "center",
+    gap: "$4",
   }),
   gridList: css({
-    display: 'grid',
-    gap: '$4',
-    gridTemplateColumns: 'repeat(6, 1fr)',
+    display: "grid",
+    gap: "$4",
+    gridTemplateColumns: "repeat(6, 1fr)",
   }),
-}
+};

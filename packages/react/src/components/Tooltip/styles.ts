@@ -1,28 +1,28 @@
-import { keyframes, css } from '@fuel/css'
+import { keyframes, css } from '@fuel/css';
 
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(2px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
-})
+});
 
 const slideRightAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateX(-2px)' },
   '100%': { opacity: 1, transform: 'translateX(0)' },
-})
+});
 
 const slideDownAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(-2px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
-})
+});
 
 const slideLeftAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateX(2px)' },
   '100%': { opacity: 1, transform: 'translateX(0)' },
-})
+});
 
 export const arrow = css({
   fill: '$gray12',
-})
+});
 
 export const content = css({
   borderRadius: '$md',
@@ -45,4 +45,4 @@ export const content = css({
       '&[data-side="left"]': { animationName: slideRightAndFade },
     },
   },
-})
+});

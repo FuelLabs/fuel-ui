@@ -1,24 +1,24 @@
-import { css, allColors, Colors, cx, utils, styled } from '@fuel/css'
-import { createComponent, HTMLProps } from '@/utils'
+import { css, allColors, Colors, cx, utils, styled } from "@fuel/css";
+import { createComponent, HTMLProps } from "@/utils";
 
-export type HeadingProps = HTMLProps['h1'] & {
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-  fontSize?: utils.TextSizes
-  fontColor?: Colors
-}
+export type HeadingProps = HTMLProps["h1"] & {
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  fontSize?: utils.TextSizes;
+  fontColor?: Colors;
+};
 
-const Root = styled('h2')
+const Root = styled("h2");
 
 export const Heading = createComponent<HeadingProps>(
   ({ fontSize, fontColor, className, ...props }) => {
-    const classes = cx(className, styles({ fontSize, fontColor }))
-    return <Root {...props} className={classes} />
+    const classes = cx(className, styles({ fontSize, fontColor }));
+    return <Root {...props} className={classes} />;
   }
-)
+);
 
 const styles = css({
-  mt: '0.5rem',
-  mb: '1.25rem',
+  mt: "0.5rem",
+  mb: "1.25rem",
 
   variants: {
     // FIX: adjust type type
@@ -34,7 +34,7 @@ const styles = css({
   },
 
   defaultVariants: {
-    fontSize: 'md',
-    fontColor: 'fontColor',
+    fontSize: "md",
+    fontColor: "fontColor",
   },
-})
+});

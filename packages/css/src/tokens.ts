@@ -34,7 +34,7 @@ export const space = {
   72: '18rem',
   80: '20rem',
   96: '24rem',
-}
+};
 
 export const sizes = {
   ...space,
@@ -58,13 +58,13 @@ export const sizes = {
   fit: 'fit-content',
   screenW: '100vw',
   screenH: '100vh',
-}
+};
 
 export const fonts = {
   sans: '"InterVariable", sans-serif',
   display: '"RalewayVariable", sans-serif',
   heading: '"RalewayVariable", sans-serif',
-}
+};
 
 export const fontSizes = {
   xs: '0.75rem',
@@ -80,7 +80,7 @@ export const fontSizes = {
   '7xl': '4.5rem',
   '8xl': '6rem',
   '9xl': '8rem',
-}
+};
 
 export const fontWeights = {
   thin: '100',
@@ -92,7 +92,7 @@ export const fontWeights = {
   bold: '700',
   extrabold: '800',
   black: '900',
-}
+};
 
 export const letterSpacings = {
   tighter: '-0.05em',
@@ -101,7 +101,7 @@ export const letterSpacings = {
   wide: '0.025em',
   wider: '0.05em',
   widest: '0.1em',
-}
+};
 
 export const lineHeights = {
   none: '1',
@@ -118,7 +118,7 @@ export const lineHeights = {
   8: '2rem',
   9: '2.25rem',
   10: '2.5rem',
-}
+};
 
 export const radii = {
   none: '0px',
@@ -130,7 +130,7 @@ export const radii = {
   '2xl': '1rem',
   '3xl': '1.5rem',
   full: '9999px',
-}
+};
 
 export const shadows = {
   sm: '0 1px 2px 0 rgb(0 0 0 / 0.1)',
@@ -141,7 +141,7 @@ export const shadows = {
   '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
   inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
   none: 'none',
-}
+};
 
 export const zIndices = {
   auto: 'auto',
@@ -151,4 +151,4 @@ export const zIndices = {
   30: '30',
   40: '40',
   50: '50',
-}
+};

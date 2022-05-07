@@ -1,4 +1,4 @@
-import * as buttonVariants from '../Button/variants'
+import * as buttonVariants from '../Button/variants';
 
 export const size = {
   xs: {
@@ -22,10 +22,10 @@ export const size = {
     height: '$8',
     borderRadius: '$full',
   },
-}
+};
 
 export const colors = {
   solid: buttonVariants.getSolidVariants(false),
   outlined: buttonVariants.getOutlinedVariants(false),
   ghost: buttonVariants.getGhostVariants(false),
-}
+};

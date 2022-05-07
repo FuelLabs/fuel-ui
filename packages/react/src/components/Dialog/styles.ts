@@ -1,4 +1,4 @@
-import { css, keyframes } from '@fuel/css'
+import { css, keyframes } from '@fuel/css';
 
 const overlayShow = keyframes({
   '0%': {
@@ -7,7 +7,7 @@ const overlayShow = keyframes({
   '100%': {
     opacity: 1,
   },
-})
+});
 
 const contentShow = keyframes({
   '0%': {
@@ -18,7 +18,7 @@ const contentShow = keyframes({
     opacity: 1,
     transform: 'translate(-50%, -50%) scale(1)',
   },
-})
+});
 
 export const overlay = css({
   inset: 0,
@@ -28,7 +28,7 @@ export const overlay = css({
   '@media (prefers-reduced-motion: no-preference)': {
     animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
   },
-})
+});
 
 export const content = css({
   p: '$8',
@@ -53,20 +53,20 @@ export const content = css({
   '&:focus': {
     outline: 'none',
   },
-})
+});
 
 export const heading = css({
   m: '$0',
   color: '$gray12',
   fontFamily: '$heading',
   fontSize: '$xl',
-})
+});
 
 export const description = css({
   my: '$0',
   color: '$gray10',
   textSize: 'base',
-})
+});
 
 export const footer = css({
   is: ['centered'],
@@ -87,7 +87,7 @@ export const footer = css({
   defaultVariants: {
     align: 'end',
   },
-})
+});
 
 export const closeButton = css({
   is: ['centered', 'noAppearance'],
@@ -102,4 +102,4 @@ export const closeButton = css({
     borderRadius: '$md',
     borderColor: '$gray8',
   },
-})
+});

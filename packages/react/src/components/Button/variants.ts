@@ -1,13 +1,13 @@
-import type { ColorKeys } from '@fuel/css'
-import { colorKeys, isBright } from '@fuel/css'
+import type { ColorKeys } from '@fuel/css';
+import { colorKeys, isBright } from '@fuel/css';
 
 function createSolidVariant(keyColor: ColorKeys, hasHover = true) {
-  const color = String(keyColor)
-  const outlineColor = `$${color}5`
-  const background = isBright(color) ? `$${color}6` : `$${color}9`
-  const hoverColor = isBright(color) ? `$${color}7` : `$${color}10`
-  const textColor = isBright(color) ? `$${color}12` : `$${color}1`
-  const borderColor = isBright(color) ? `$${color}8` : `$${color}11`
+  const color = String(keyColor);
+  const outlineColor = `$${color}5`;
+  const background = isBright(color) ? `$${color}6` : `$${color}9`;
+  const hoverColor = isBright(color) ? `$${color}7` : `$${color}10`;
+  const textColor = isBright(color) ? `$${color}12` : `$${color}1`;
+  const borderColor = isBright(color) ? `$${color}8` : `$${color}11`;
 
   return {
     background,
@@ -23,14 +23,14 @@ function createSolidVariant(keyColor: ColorKeys, hasHover = true) {
     '&:not([aria-disabled=true]):focus': {
       outline: `3px solid ${outlineColor}`,
     },
-  }
+  };
 }
 
 function createOutlinedVariant(keyColor: ColorKeys, hasHover = true) {
-  const color = String(keyColor)
-  const textColor = `$${color}11`
-  const borderColor = `$${color}7`
-  const hoverBg = `$${color}5`
+  const color = String(keyColor);
+  const textColor = `$${color}11`;
+  const borderColor = `$${color}7`;
+  const hoverBg = `$${color}5`;
 
   return {
     borderColor,
@@ -42,14 +42,14 @@ function createOutlinedVariant(keyColor: ColorKeys, hasHover = true) {
         background: hoverBg,
       },
     }),
-  }
+  };
 }
 
 function createGhostVariant(keyColor: ColorKeys, hasHover = true) {
-  const color = String(keyColor)
-  const background = `$${color}3`
-  const hover = `$${color}5`
-  const textColor = `$${color}11`
+  const color = String(keyColor);
+  const background = `$${color}3`;
+  const hover = `$${color}5`;
+  const textColor = `$${color}11`;
 
   return {
     background,
@@ -61,12 +61,12 @@ function createGhostVariant(keyColor: ColorKeys, hasHover = true) {
         background: hover,
       },
     }),
-  }
+  };
 }
 
 function createLinkVariant(keyColor: ColorKeys, hasHover = true) {
-  const color = String(keyColor)
-  const textColor = `$${color}11`
+  const color = String(keyColor);
+  const textColor = `$${color}11`;
 
   return {
     p: '0',
@@ -82,7 +82,7 @@ function createLinkVariant(keyColor: ColorKeys, hasHover = true) {
         textDecoration: 'underline',
       },
     }),
-  }
+  };
 }
 
 export const size = {
@@ -110,7 +110,7 @@ export const size = {
     fontSize: '$lg',
     height: '$12',
   },
-}
+};
 
 export function getSolidVariants(hasHover?: boolean) {
   return colorKeys.reduce(
@@ -119,7 +119,7 @@ export function getSolidVariants(hasHover?: boolean) {
       [key]: createSolidVariant(key, hasHover),
     }),
     {}
-  )
+  );
 }
 
 export function getOutlinedVariants(hasHover?: boolean) {
@@ -127,7 +127,7 @@ export function getOutlinedVariants(hasHover?: boolean) {
     color: key,
     variant: 'outlined',
     css: createOutlinedVariant(key, hasHover),
-  }))
+  }));
 }
 
 export function getGhostVariants(hasHover?: boolean) {
@@ -135,7 +135,7 @@ export function getGhostVariants(hasHover?: boolean) {
     color: key,
     variant: 'ghost',
     css: createGhostVariant(key, hasHover),
-  }))
+  }));
 }
 
 export function getLinkVariants(hasHover?: boolean) {
@@ -143,7 +143,7 @@ export function getLinkVariants(hasHover?: boolean) {
     color: key,
     variant: 'link',
     css: createLinkVariant(key, hasHover),
-  }))
+  }));
 }
 
 export const colors = {
@@ -151,4 +151,4 @@ export const colors = {
   outlined: getOutlinedVariants(),
   ghost: getGhostVariants(),
   link: getLinkVariants(),
-}
+};

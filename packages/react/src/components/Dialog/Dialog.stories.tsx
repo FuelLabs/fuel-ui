@@ -1,13 +1,13 @@
-import { Button } from '../Button'
-import { Dialog } from './Dialog'
+import { Button } from "../Button";
+import { Dialog } from "./Dialog";
 
 export default {
   component: Dialog,
-  title: 'Overlay/Dialog',
+  title: "Overlay/Dialog",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-}
+};
 
 export const Usage = () => {
   return (
@@ -32,9 +32,9 @@ export const Usage = () => {
         </Dialog.Footer>
       </Dialog.Content>
     </Dialog>
-  )
-}
+  );
+};
 
 Usage.parameters = {
-  layout: 'centered',
-}
+  layout: "centered",
+};

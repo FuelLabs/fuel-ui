@@ -1,5 +1,5 @@
-import type { Options } from 'tsup'
-import { defineConfig } from 'tsup'
+import type { Options } from 'tsup';
+import { defineConfig } from 'tsup';
 
 export function createConfig(options: Options) {
   return defineConfig({
@@ -8,5 +8,5 @@ export function createConfig(options: Options) {
     sourcemap: true,
     clean: false,
     minify: !options.watch,
-  })
+  });
 }

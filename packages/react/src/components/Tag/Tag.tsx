@@ -1,34 +1,34 @@
-import { Children, ReactNode } from 'react'
-import { cx, styled } from '@fuel/css'
+import { Children, ReactNode } from "react";
+import { cx, styled } from "@fuel/css";
 
-import { HTMLProps, createComponent } from '@/utils'
-import { createIcon } from '../Text'
-import { Spinner } from '../Spinner'
-import * as styles from './styles'
+import { HTMLProps, createComponent } from "@/utils";
+import { createIcon } from "../Text";
+import { Spinner } from "../Spinner";
+import * as styles from "./styles";
 
-import { ButtonBaseProps, SPINNER_SIZE } from '../Button'
-import { TagCloseButton } from './TagCloseButton'
+import { ButtonBaseProps, SPINNER_SIZE } from "../Button";
+import { TagCloseButton } from "./TagCloseButton";
 
 function getChildren(
   isLoading: boolean | undefined,
-  size: ButtonBaseProps['size'],
-  iconLeft: ButtonBaseProps['leftIcon'],
-  iconRight: ButtonBaseProps['rightIcon'],
+  size: ButtonBaseProps["size"],
+  iconLeft: ButtonBaseProps["leftIcon"],
+  iconRight: ButtonBaseProps["rightIcon"],
   children: ReactNode
 ) {
   if (isLoading) {
     return (
       <>
-        <Spinner color="current" size={SPINNER_SIZE[size || 'md']} />
+        <Spinner color="current" size={SPINNER_SIZE[size || "md"]} />
         {children}
       </>
-    )
+    );
   }
   const hasCloseBtn = Children.toArray(children).some((child: any) =>
-    child.type?.name?.includes('TagCloseButton')
-  )
+    child.type?.name?.includes("TagCloseButton")
+  );
   if (hasCloseBtn) {
-    return children
+    return children;
   }
   return (
     <>
@@ -36,25 +36,25 @@ function getChildren(
       {children}
       {iconRight}
     </>
-  )
+  );
 }
 
-export type TagVariants = 'solid' | 'outlined' | 'ghost'
-export type TagSizes = 'xs' | 'sm' | 'md'
+export type TagVariants = "solid" | "outlined" | "ghost";
+export type TagSizes = "xs" | "sm" | "md";
 
-export type TagProps = HTMLProps['div'] &
+export type TagProps = HTMLProps["div"] &
   ButtonBaseProps & {
-    size?: TagSizes
-    variant?: TagVariants
-  }
+    size?: TagSizes;
+    variant?: TagVariants;
+  };
 
-const Root = styled('div')
+const Root = styled("div");
 
 const TagBase = createComponent<TagProps>(
   ({
-    size = 'sm',
-    color = 'accent',
-    variant = 'solid',
+    size = "sm",
+    color = "accent",
+    variant = "solid",
     leftIcon,
     rightIcon,
     iconSize,
@@ -65,9 +65,9 @@ const TagBase = createComponent<TagProps>(
     className,
     ...props
   }) => {
-    const disabled = isLoading || isDisabled
-    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel)
-    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel)
+    const disabled = isLoading || isDisabled;
+    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel);
+    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel);
 
     const classes = cx(
       className,
@@ -77,7 +77,7 @@ const TagBase = createComponent<TagProps>(
         disabled,
         color: color as any,
       })
-    )
+    );
 
     const customChildren = getChildren(
       isLoading,
@@ -85,19 +85,19 @@ const TagBase = createComponent<TagProps>(
       iconLeft,
       iconRight,
       children
-    )
+    );
 
     return (
       <Root {...props} className={classes}>
         {customChildren}
       </Root>
-    )
+    );
   }
-)
+);
 
 type TagComponent = typeof TagBase & {
-  CloseButton: typeof TagCloseButton
-}
+  CloseButton: typeof TagCloseButton;
+};
 
-export const Tag = TagBase as TagComponent
-Tag.CloseButton = TagCloseButton
+export const Tag = TagBase as TagComponent;
+Tag.CloseButton = TagCloseButton;
