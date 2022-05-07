@@ -1,1 +1,7 @@
 **/*.template
+dist
+.coverage_*
+coverage
+node_modules
+CHANGELOG.md
+.chglog/CHANGELOG.tpl.md
