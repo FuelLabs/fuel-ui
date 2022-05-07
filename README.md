@@ -1,4 +1,5 @@
 # ⚡️ FuelLabs Design System
+
 [![License](https://img.shields.io/github/license/FuelLabs/design-system)](https://github.com/FuelLabs/design-system)
 [![Issues Open](https://img.shields.io/github/issues/FuelLabs/design-system)](https://github.com/FuelLabs/design-system)
 [![Github Forks](https://img.shields.io/github/forks/FuelLabs/design-system)](https://github.com/FuelLabs/design-system)
@@ -19,7 +20,7 @@ This project utilizes Storybook for component development. If you would like to 
 
 ### Running the Development Environment
 
-1. `cd` into `packages/react`
+1. `cd` into `design-system/react`
 2. Run `pnpm storybook`
 
 ### Configuring Node and NVM
@@ -34,14 +35,13 @@ In case you want to manage Node Versions, you can use [NVM](https://nvm.sh/) to 
 2. Run `nvm install --lts` to install the latest version of Node.
 3. Run `nvm use --lts` to use the latest version on your terminal.
 
-
-<!-- 
+<!--
 ## Contributing
 
 TODO: https://github.com/FuelLabs/design-system/issues/11
 -->
 
-<!-- 
+<!--
 ## License
 
 TODO: https://github.com/FuelLabs/design-system/issues/12
