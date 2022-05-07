@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { ColorKeys, cx, styled } from '@fuel-js/css'
+import { ColorKeys, cx, styled } from '@fuel/css'
 
 import { createComponent, HTMLProps } from '@/utils'
 import { createIcon } from '../Text'

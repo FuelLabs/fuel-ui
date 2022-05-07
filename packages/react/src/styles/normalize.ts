@@ -1,4 +1,4 @@
-import { tokens } from '@fuel-js/css'
+import { tokens } from '@fuel/css'
 
 export const normalize: Record<string, any>[] = [
   {

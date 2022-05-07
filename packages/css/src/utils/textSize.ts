@@ -32,4 +32,5 @@ export const textSize = (value: TextSizes) => ({
   lineHeight: TEXT_SIZE_MAP[value][1],
 })
 
+// eslint-disable-next-line no-underscore-dangle
 textSize.__keys = Object.keys(TEXT_SIZE_MAP) as TextSizes[]

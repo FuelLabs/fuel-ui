@@ -1,5 +1,5 @@
 import * as RDialog from '@radix-ui/react-dialog'
-import { styled } from '@fuel-js/css'
+import { styled } from '@fuel/css'
 
 import { DialogContent } from './DialogContent'
 import { DialogDescription } from './DialogDescription'

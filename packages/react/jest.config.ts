@@ -1,4 +1,4 @@
-import { createJestConfig } from '@fuels/config'
+import { createJestConfig } from '@fuel/config'
 
 export default createJestConfig({
   rootDir: __dirname,

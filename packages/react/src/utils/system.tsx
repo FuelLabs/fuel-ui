@@ -1,4 +1,4 @@
-import { styled } from '@fuel-js/css'
+import { styled } from '@fuel/css'
 import { forwardRef, ReactElement } from 'react'
 import { PropsWithAs } from './types'
 

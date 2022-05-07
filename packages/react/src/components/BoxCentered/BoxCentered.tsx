@@ -1,4 +1,4 @@
-import { css, cx, styled } from '@fuel-js/css'
+import { css, cx, styled } from '@fuel/css'
 
 import { HTMLProps, createComponent } from '@/utils'
 

@@ -1,4 +1,4 @@
-import { allColors } from '@fuel-js/css'
+import { allColors } from '@fuel/css'
 import { Text, TextProps } from './Text'
 
 export default {

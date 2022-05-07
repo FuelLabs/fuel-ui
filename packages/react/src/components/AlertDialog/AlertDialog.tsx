@@ -1,5 +1,5 @@
 import * as RAlertDialog from '@radix-ui/react-alert-dialog'
-import { styled } from '@fuel-js/css'
+import { styled } from '@fuel/css'
 
 import { AlertDialogContent } from './AlertDialogContent'
 import { AlertDialogDescription } from './AlertDialogDescription'

@@ -1,4 +1,4 @@
-import { colorKeys, css } from '@fuel-js/css'
+import { colorKeys, css } from '@fuel/css'
 
 import { Tag, TagProps } from './Tag'
 import { Icon } from '../Icon'

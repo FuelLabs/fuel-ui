@@ -1,6 +1,9 @@
+import type { ColorKeys, Colors } from '@fuel/css'
+import { css, colors, keyframes, cx } from '@fuel/css'
 import { useMemo } from 'react'
-import { css, colors, keyframes, ColorKeys, Colors, cx } from '@fuel-js/css'
-import { createComponent, Props } from '@/utils'
+
+import type { Props } from '@/utils'
+import { createComponent } from '@/utils'
 
 export type SpinnerProps = Props<{
   size?: number

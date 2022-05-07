@@ -1,6 +1,7 @@
-import { css } from '@fuel-js/css'
+import { css } from '@fuel/css'
 
-import { IconButton, IconButtonProps } from './IconButton'
+import type { IconButtonProps } from './IconButton'
+import { IconButton } from './IconButton'
 
 export default {
   component: IconButton,
