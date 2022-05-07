@@ -1,5 +1,7 @@
 import { css } from "@fuel/css";
-import { Avatar, AvatarProps } from "./Avatar";
+
+import type { AvatarProps } from "./Avatar";
+import { Avatar } from "./Avatar";
 
 export default {
   component: Avatar,

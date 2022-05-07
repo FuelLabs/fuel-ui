@@ -1,4 +1,5 @@
-import { BoxCentered, BoxCenteredProps } from "./BoxCentered";
+import type { BoxCenteredProps } from "./BoxCentered";
+import { BoxCentered } from "./BoxCentered";
 
 export default {
   component: BoxCentered,

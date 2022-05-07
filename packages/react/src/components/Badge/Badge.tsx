@@ -1,7 +1,10 @@
-import { ColorKeys, cx, styled } from "@fuel/css";
+import type { ColorKeys } from "@fuel/css";
+import { cx, styled } from "@fuel/css";
 
-import { HTMLProps, createComponent } from "@/utils";
 import * as styles from "./styles";
+
+import type { HTMLProps } from "@/utils";
+import { createComponent } from "@/utils";
 
 export type BadgeVariants = "solid" | "outlined" | "ghost";
 export type BadgeProps = HTMLProps["span"] & {

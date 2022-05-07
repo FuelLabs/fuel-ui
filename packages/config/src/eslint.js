@@ -23,9 +23,6 @@ module.exports = {
     'plugin:react/recommended',
     'prettier',
   ],
-  env: {
-    jest: true,
-  },
   settings: {
     react: {
       version: 'detect',
@@ -74,6 +71,9 @@ module.exports = {
   overrides: [
     {
       files: ['*.test.ts'],
+      env: {
+        jest: true,
+      },
       rules: {
         '@typescript-eslint/no-unused-expressions': 'off',
       },

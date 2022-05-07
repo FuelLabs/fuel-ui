@@ -1,8 +1,9 @@
-import { colorKeys } from "@fuel/css";
-import { css } from "@fuel/css";
+import { colorKeys, css } from "@fuel/css";
 
-import { Button, ButtonProps } from "./Button";
 import { Icon } from "../Icon";
+
+import type { ButtonProps } from "./Button";
+import { Button } from "./Button";
 
 export default {
   title: "UI/Button",
@@ -32,24 +33,22 @@ export default {
   },
 };
 
-export const Sizes = (args: ButtonProps) => {
-  return (
-    <div className={styles.wrapper()}>
-      <Button {...args} size="xs">
-        Button
-      </Button>
-      <Button {...args} size="sm">
-        Button
-      </Button>
-      <Button {...args} size="md">
-        Button
-      </Button>
-      <Button {...args} size="lg">
-        Button
-      </Button>
-    </div>
-  );
-};
+export const Sizes = (args: ButtonProps) => (
+  <div className={styles.wrapper()}>
+    <Button {...args} size="xs">
+      Button
+    </Button>
+    <Button {...args} size="sm">
+      Button
+    </Button>
+    <Button {...args} size="md">
+      Button
+    </Button>
+    <Button {...args} size="lg">
+      Button
+    </Button>
+  </div>
+);
 
 export const Variants = (args: ButtonProps) => (
   <div className={styles.wrapper()}>

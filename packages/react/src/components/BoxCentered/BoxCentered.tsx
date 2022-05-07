@@ -1,6 +1,7 @@
 import { css, cx, styled } from "@fuel/css";
 
-import { HTMLProps, createComponent } from "@/utils";
+import type { HTMLProps } from "@/utils";
+import { createComponent } from "@/utils";
 
 export type BoxCenteredProps = HTMLProps["div"] & {
   /**
