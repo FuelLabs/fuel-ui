@@ -5,7 +5,7 @@ import { Text } from "./Text";
 
 export default {
   component: Text,
-  title: "Typography/Text",
+  title: "Base/Text",
   argTypes: {
     color: {
       options: allColors,
