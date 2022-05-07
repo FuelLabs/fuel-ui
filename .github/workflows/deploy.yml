@@ -22,8 +22,9 @@ jobs:
           version: 6.0.2
           run_install: true
 
-      - name: Build Storybook
+      - name: Lint, Test & Build Storybook
         run: |
+          pnpm lint
           pnpm test
           pnpm build
 
@@ -32,4 +33,4 @@ jobs:
         with:
           clean: true
           branch: gh-pages
-          folder: packages/react/storybook-static
+          folder: design-system/react/storybook-static
