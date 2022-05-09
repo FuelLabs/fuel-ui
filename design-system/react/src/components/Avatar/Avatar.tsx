@@ -2,30 +2,39 @@ import { cx, styled } from "@fuel/css";
 import * as RAvatar from "@radix-ui/react-avatar";
 import { createElement } from "react";
 
-import { AvatarFallback } from "./AvatarFallback";
-import { AvatarImage } from "./AvatarImage";
 import * as styles from "./styles";
 
 import { createComponent } from "@/utils";
 
-export type AvatarProps = RAvatar.AvatarProps & {
+type OmitProps = "children";
+export type AvatarProps = RAvatar.AvatarImageProps & {
+  name: string;
+  fallback?: string;
   size?: "sm" | "md" | "lg";
 };
 
 const Root = styled(RAvatar.Root);
 
-const AvatarBase = createComponent<AvatarProps>(
-  ({ size, children, className, ...props }) => {
+export const Avatar = createComponent<AvatarProps, OmitProps>(
+  ({ name, size, className, css, as, ...props }) => {
     const classes = cx(className, styles.avatar({ size }));
-    return createElement(Root, { ...props, className: classes }, children);
+    const wrapperProps = { as, css, className: classes };
+    const children = (
+      <>
+        <RAvatar.AvatarImage
+          {...props}
+          alt={props.alt || name}
+          className={styles.image()}
+        />
+        <RAvatar.AvatarFallback className={styles.fallback()}>
+          {name
+            .split(" ")
+            .map((w) => w.slice(0, 1))
+            .join("")}
+        </RAvatar.AvatarFallback>
+      </>
+    );
+
+    return createElement(Root, wrapperProps, children);
   }
 );
-
-type AvatarComponent = typeof AvatarBase & {
-  Image: typeof AvatarImage;
-  Fallback: typeof AvatarFallback;
-};
-
-export const Avatar = AvatarBase as AvatarComponent;
-Avatar.Image = AvatarImage;
-Avatar.Fallback = AvatarFallback;

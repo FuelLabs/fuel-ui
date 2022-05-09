@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { styled } from "@stitches/react";
 import type { ReactElement } from "react";
-import { forwardRef, createElement as baseCreateElement } from "react";
+import { forwardRef } from "react";
 
-import type { As, Children, PropsWithAs } from "./types";
+import type { PropsWithAs } from "./types";
 
-import { useConstant } from "@/hooks";
-
-type Render<P> = (props: PropsWithAs<P>) => ReactElement;
+type Render<P, OP extends string> = (
+  props: Omit<PropsWithAs<P>, OP>
+) => ReactElement;
 
 /**
  * Creates a type-safe component with the `as`, css prop and `React.forwardRef`
@@ -27,8 +26,11 @@ type Render<P> = (props: PropsWithAs<P>) => ReactElement;
  * <Component as="button" customProp />
  */
 
-export function createComponent<P>(render: Render<P>) {
-  return forwardRef<any, PropsWithAs<P>>((props, ref) =>
+export function createComponent<P, OP extends string = "">(
+  render: Render<P, OP>
+) {
+  type Props = Omit<PropsWithAs<P>, OP>;
+  return forwardRef<any, Props>((props, ref) =>
     render({ ref, ...props } as any)
   );
 }
