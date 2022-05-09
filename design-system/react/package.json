@@ -10,8 +10,8 @@
     "add:component": "node ./scripts/generateComponent"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.7",
-    "@fontsource/raleway": "^4.5.5",
+    "@fontsource/inter": "^4.5.10",
+    "@fontsource/raleway": "^4.5.8",
     "@fuel/css": "workspace:*",
     "@radix-ui/react-alert-dialog": "^0.1.7",
     "@radix-ui/react-avatar": "^0.1.4",
@@ -27,21 +27,21 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@fuel/config": "workspace:*",
-    "@storybook/components": "^6.4.22",
-    "@storybook/core-events": "^6.4.22",
-    "@storybook/api": "^6.4.22",
-    "@storybook/addons": "^6.4.22",
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
     "@storybook/addon-storysource": "^6.4.22",
+    "@storybook/addons": "^6.4.22",
+    "@storybook/api": "^6.4.22",
+    "@storybook/components": "^6.4.22",
+    "@storybook/core-events": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
     "@storybook/theming": "^6.4.22",
-    "@testing-library/react": "^13.2.0",
     "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
     "@types/color": "^3.0.3",
     "@types/fs-extra": "^9.0.13",
     "@types/react": "^18.0.8",
@@ -50,8 +50,8 @@
     "fs-extra": "^10.1.0",
     "storybook-dark-mode": "^1.1.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
-    "yargs": "^17.4.1",
     "typescript": "^4.6.4",
-    "webpack": "^5.72.0"
+    "webpack": "^5.72.0",
+    "yargs": "^17.4.1"
   }
 }
