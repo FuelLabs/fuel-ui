@@ -1,4 +1,5 @@
 import { colorKeys } from "@fuel/css";
+import { FaCalendar } from "react-icons/fa";
 
 import { Box } from "../Box";
 import { Icon } from "../Icon";
@@ -83,7 +84,15 @@ export const WithIcon = (args: ButtonProps) => (
     <Button {...args} leftIcon="BiCalendar" iconAriaLabel="calendar">
       Button
     </Button>
-    <Button {...args} rightIcon="BiCalendar" iconAriaLabel="calendar">
+    <Button
+      {...args}
+      leftIcon="BiCalendar"
+      rightIcon="BiCalendar"
+      iconAriaLabel="calendar"
+    >
+      Button
+    </Button>
+    <Button {...args} leftIcon={FaCalendar} iconAriaLabel="calendar">
       Button
     </Button>
   </Box>
