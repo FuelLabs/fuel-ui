@@ -1,7 +1,7 @@
-import { cx, styled } from "@fuel/css";
-import type { ReactNode } from "react";
-import { Children, createElement } from "react";
+import { cx } from "@fuel/css";
+import { Children } from "react";
 
+import { Box } from "../Box";
 import type { ButtonBaseProps } from "../Button";
 import { SPINNER_SIZE } from "../Button";
 import { Spinner } from "../Spinner";
@@ -13,13 +13,17 @@ import * as styles from "./styles";
 import { createComponent } from "@/utils";
 import type { HTMLProps } from "@/utils";
 
-function getChildren(
-  isLoading: boolean | undefined,
-  size: ButtonBaseProps["size"],
-  iconLeft: ButtonBaseProps["leftIcon"],
-  iconRight: ButtonBaseProps["rightIcon"],
-  children: ReactNode
-) {
+type GetChildrenParams = TagProps & {
+  iconLeft?: JSX.Element;
+  iconRight?: JSX.Element;
+};
+function getChildren({
+  isLoading,
+  size,
+  children,
+  iconLeft,
+  iconRight,
+}: GetChildrenParams) {
   if (isLoading) {
     return (
       <>
@@ -28,17 +32,16 @@ function getChildren(
       </>
     );
   }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const hasCloseBtn = Children.toArray(children).some((child: any) =>
-    child.type?.name?.includes("TagCloseButton")
+    child.type?.displayName?.includes("TagCloseButton")
   );
-  if (hasCloseBtn) {
-    return children;
-  }
   return (
     <>
       {iconLeft}
       {children}
-      {iconRight}
+      {!hasCloseBtn && iconRight}
     </>
   );
 }
@@ -47,22 +50,22 @@ export type TagVariants = "solid" | "outlined" | "ghost";
 export type TagSizes = "xs" | "sm" | "md";
 
 export type TagProps = HTMLProps["div"] &
-  ButtonBaseProps & {
+  Omit<ButtonBaseProps, "iconAriaLabel"> & {
     size?: TagSizes;
     variant?: TagVariants;
   };
 
-const Root = styled("div");
-
 const TagBase = createComponent<TagProps>(
   ({
+    as = "span",
     size = "sm",
     color = "accent",
     variant = "solid",
     leftIcon,
     rightIcon,
     iconSize,
-    iconAriaLabel,
+    leftIconAriaLabel,
+    rightIconAriaLabel,
     isLoading,
     isDisabled,
     children,
@@ -70,8 +73,8 @@ const TagBase = createComponent<TagProps>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled;
-    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel);
-    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel);
+    const iconLeft = createIcon(leftIcon, iconSize, leftIconAriaLabel);
+    const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
 
     const classes = cx(
       className,
@@ -83,18 +86,18 @@ const TagBase = createComponent<TagProps>(
       })
     );
 
-    const customChildren = getChildren(
+    const customChildren = getChildren({
       isLoading,
       size,
       iconLeft,
       iconRight,
-      children
-    );
+      children,
+    });
 
-    return createElement(
-      Root,
-      { ...props, className: classes },
-      customChildren
+    return (
+      <Box as={as} {...props} className={classes}>
+        {customChildren}
+      </Box>
     );
   }
 );
