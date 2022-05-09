@@ -1,22 +1,25 @@
 import type { ColorKeys, Colors } from "@fuel/css";
-import { css, colors, keyframes, cx } from "@fuel/css";
+import { styled, css, colors, keyframes, cx } from "@fuel/css";
 import { useMemo } from "react";
 
-import type { Props } from "@/utils";
 import { createComponent } from "@/utils";
 
-export type SpinnerProps = Props<{
+type OmitProps = "as" | "children";
+export type SpinnerProps = {
   size?: number;
   color?: Colors | ColorKeys | string;
-}>;
+};
 
-export const Spinner = createComponent<SpinnerProps>(
-  ({ size = 24, color = "accent", className }) => {
+const Root = styled("svg");
+
+export const Spinner = createComponent<SpinnerProps, OmitProps>(
+  ({ size = 24, color = "accent", className, ...props }) => {
     const styles = useMemo(() => getStyles(size, color), [size]);
+    const classes = cx(className, styles());
     return (
-      <svg className={cx(className, styles())} viewBox={`0 0 ${size} ${size}`}>
+      <Root className={classes} viewBox={`0 0 ${size} ${size}`} {...props}>
         <circle cx={size / 2} cy={size / 2} r={size * 0.4} />
-      </svg>
+      </Root>
     );
   }
 );
