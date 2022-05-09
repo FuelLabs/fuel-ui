@@ -1,33 +1,38 @@
 import type { Colors } from "@fuel/css";
 import { styled } from "@fuel/css";
 import type { ElementType } from "react";
-import { useMemo } from "react";
+import { useMemo, createElement } from "react";
 import type { IconType } from "react-icons";
 import * as IconSet from "react-icons/bi";
 
 import { createComponent } from "@/utils";
 
 export type Icons = keyof typeof IconSet;
+type OmitProps = "as" | "children";
 
 export type IconProps = {
-  icon: Icons;
+  icon: Icons | ElementType;
   size?: number;
   className?: string;
   color?: Colors;
   ["aria-label"]?: string;
 };
 
-const IconBase = createComponent<IconProps>(
+const IconBase = createComponent<IconProps, OmitProps>(
   ({ icon, size, color, ...props }) => {
-    const Component = useMemo(() => styled(IconSet[icon] || icon), [icon]);
-    const ariaLabel = props["aria-label"];
-    return (
-      <Component
-        css={{ color: `$${color}` }}
-        {...(ariaLabel && { "aria-label": ariaLabel })}
-        {...(size && { size })}
-      />
+    const element = useMemo(
+      () => styled(typeof icon === "string" ? IconSet[icon] : icon),
+      [icon]
     );
+    const ariaLabel = props["aria-label"];
+    const iconProps = {
+      ...props,
+      css: { color: `$${color}` },
+      ...(ariaLabel && { "aria-label": ariaLabel }),
+      ...(size && { size }),
+    };
+
+    return createElement(element, iconProps);
   }
 );
 

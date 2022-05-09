@@ -1,3 +1,4 @@
+import { FiBox } from "react-icons/fi";
 import { useCopyToClipboard } from "react-use";
 
 import { Box } from "../Box";
@@ -21,9 +22,10 @@ export default {
 };
 
 export const Usage = (args: IconProps) => (
-  <div>
+  <Box css={{ display: "flex", p: "$5", gap: "$4" }}>
     <Icon {...args} icon="BiAlarm" />
-  </div>
+    <Icon {...args} icon={FiBox} />
+  </Box>
 );
 
 export const AllIcons = () => {
