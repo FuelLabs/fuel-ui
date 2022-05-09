@@ -3,7 +3,7 @@ import { Heading } from "./Heading";
 
 export default {
   component: Heading,
-  title: "Base/Heading",
+  title: "Base/Typography/Heading",
   argTypes: {},
 };
 
