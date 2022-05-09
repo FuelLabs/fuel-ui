@@ -1,7 +1,7 @@
 import type { ColorKeys } from "@fuel/css";
 import { cx } from "@fuel/css";
 import { styled } from "@stitches/react";
-import type { ReactElement } from "react";
+import type { ElementType } from "react";
 import { createElement } from "react";
 
 import type { Icons } from "../Icon";
@@ -13,6 +13,31 @@ import * as styles from "./styles";
 import { createComponent } from "@/utils";
 import type { HTMLProps } from "@/utils";
 
+type GetChildrenParams = ButtonProps & {
+  iconLeft?: JSX.Element;
+  iconRight?: JSX.Element;
+};
+function getChildren({
+  isLoading,
+  size = "md",
+  children,
+  iconLeft,
+  iconRight,
+}: GetChildrenParams) {
+  if (isLoading) {
+    return (
+      <>
+        <Spinner color="current" size={SPINNER_SIZE[size]} /> Loading...
+      </>
+    );
+  }
+  return (
+    <>
+      {iconLeft} {children} {iconRight}
+    </>
+  );
+}
+
 export type ButtonVariants = "solid" | "outlined" | "ghost" | "link";
 export type ButtonSizes = "xs" | "sm" | "md" | "lg";
 
@@ -20,10 +45,11 @@ export type ButtonBaseProps = {
   size?: ButtonSizes;
   color?: ColorKeys;
   variant?: ButtonVariants;
-  leftIcon?: Icons | ReactElement;
-  rightIcon?: Icons | ReactElement;
+  leftIcon?: Icons | ElementType;
+  rightIcon?: Icons | ElementType;
   iconSize?: number;
-  iconAriaLabel?: string;
+  leftIconAriaLabel?: string;
+  rightIconAriaLabel?: string;
   isLoading?: boolean;
   isDisabled?: boolean;
 };
@@ -53,7 +79,8 @@ export const Button = createComponent<ButtonProps>(
     leftIcon,
     rightIcon,
     iconSize,
-    iconAriaLabel,
+    leftIconAriaLabel,
+    rightIconAriaLabel,
     isLoading,
     isDisabled,
     className,
@@ -63,8 +90,8 @@ export const Button = createComponent<ButtonProps>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled;
-    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel);
-    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel);
+    const iconLeft = createIcon(leftIcon, iconSize, leftIconAriaLabel);
+    const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
 
     const classes = cx(
       className,
@@ -98,15 +125,13 @@ export const Button = createComponent<ButtonProps>(
       className: classes,
     };
 
-    return createElement(
-      Root,
-      buttonProps,
-      <>
-        {isLoading && <Spinner color="current" size={SPINNER_SIZE[size]} />}
-        {!isLoading && iconLeft}
-        {isLoading ? "Loading..." : children}
-        {!isLoading && iconRight}
-      </>
-    );
+    const customChildren = getChildren({
+      size,
+      isLoading,
+      children,
+      iconLeft,
+      iconRight,
+    });
+    return createElement(Root, buttonProps, customChildren);
   }
 );
