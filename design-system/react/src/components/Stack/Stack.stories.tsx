@@ -5,7 +5,7 @@ import { Stack } from "./Stack";
 
 export default {
   component: Stack,
-  title: "Base/Stack",
+  title: "Base/Layout/Stack",
   argTypes: {},
 };
 
