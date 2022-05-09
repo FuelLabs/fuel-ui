@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Colors } from "@fuel/css";
 import { css, allColors, cx, utils, styled } from "@fuel/css";
-import type { ReactElement } from "react";
-import { cloneElement, createElement } from "react";
+import type { ElementType } from "react";
+import { createElement } from "react";
 
 import type { Icons } from "../Icon";
 import { Icon } from "../Icon";
@@ -11,22 +11,22 @@ import type { HTMLProps } from "@/utils";
 import { createComponent } from "@/utils";
 
 export function createIcon(
-  icon?: Icons | ReactElement,
+  icon?: Icons | ElementType,
   iconSize?: number,
   iconAriaLabel?: string
 ) {
   return typeof icon === "string" ? (
     <Icon icon={icon} size={iconSize} aria-label={iconAriaLabel} />
   ) : (
-    icon && cloneElement(icon, { size: iconSize, "aria-label": iconAriaLabel })
+    icon && createElement(icon, { size: iconSize, "aria-label": iconAriaLabel })
   );
 }
 
 export type TextProps = HTMLProps["p"] & {
   fontSize?: utils.TextSizes;
   color?: Colors;
-  leftIcon?: Icons | ReactElement;
-  rightIcon?: Icons | ReactElement;
+  leftIcon?: Icons | ElementType;
+  rightIcon?: Icons | ElementType;
   iconSize?: number;
   iconAriaLabel?: string;
 };

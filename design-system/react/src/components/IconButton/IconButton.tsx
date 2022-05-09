@@ -6,16 +6,12 @@ import type { Icons } from "../Icon";
 
 import { createComponent } from "@/utils";
 
-type CustomButtonProps = Omit<
-  ButtonProps,
-  "leftIcon" | "rightIcon" | "justIcon"
->;
-
-export type IconButtonProps = CustomButtonProps & {
+type OmitProps = "leftIcon" | "rightIcon" | "justIcon";
+export type IconButtonProps = ButtonProps & {
   "aria-label": string;
   icon: Icons | ReactElement;
 };
 
-export const IconButton = createComponent<IconButtonProps>(
+export const IconButton = createComponent<IconButtonProps, OmitProps>(
   ({ icon, ...props }) => <Button {...props} leftIcon={icon} justIcon />
 );
