@@ -28,7 +28,8 @@ export type TextProps = HTMLProps["p"] & {
   leftIcon?: Icons | ElementType;
   rightIcon?: Icons | ElementType;
   iconSize?: number;
-  iconAriaLabel?: string;
+  leftIconAriaLabel?: string;
+  rightIconAriaLabel?: string;
 };
 
 const Root = styled("p");
@@ -42,12 +43,13 @@ export const Text = createComponent<TextProps>(
     leftIcon,
     rightIcon,
     iconSize,
-    iconAriaLabel,
+    leftIconAriaLabel,
+    rightIconAriaLabel,
     ...props
   }) => {
     const classes = cx(className, styles({ fontSize, color }));
-    const iconLeft = createIcon(leftIcon, iconSize, iconAriaLabel);
-    const iconRight = createIcon(rightIcon, iconSize, iconAriaLabel);
+    const iconLeft = createIcon(leftIcon, iconSize, leftIconAriaLabel);
+    const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
 
     return createElement(
       Root,

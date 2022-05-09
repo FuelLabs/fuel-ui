@@ -10,7 +10,7 @@ describe("Icon", () => {
     expect(screen.getByLabelText("Delete")).toBeInTheDocument();
   });
 
-  it.only("should render an arbitraty icon as react element", async () => {
+  it("should render an arbitraty icon as react element", async () => {
     const { container } = render(<Icon aria-label="Delete" icon={FiBox} />);
     expect(container.querySelector("svg")).toBeInTheDocument();
     expect(screen.getByLabelText("Delete")).toBeInTheDocument();
