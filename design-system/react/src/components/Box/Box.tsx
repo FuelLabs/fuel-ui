@@ -10,3 +10,7 @@ const Root = styled("div");
 export const Box = createComponent<BoxProps>(({ children, ...props }) =>
   createElement(Root, props, children)
 );
+
+Box.defaultProps = {
+  role: "region",
+};

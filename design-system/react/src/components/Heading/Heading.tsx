@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Colors } from "@fuel/css";
-import { css, allColors, cx, utils, styled } from "@fuel/css";
-import { createElement } from "react";
+import { css, allColors, cx, utils } from "@fuel/css";
+
+import { Box } from "../Box";
 
 import type { HTMLProps } from "@/utils";
 import { createComponent } from "@/utils";
@@ -12,12 +13,10 @@ export type HeadingProps = HTMLProps["h1"] & {
   fontColor?: Colors;
 };
 
-const Root = styled("h2");
-
 export const Heading = createComponent<HeadingProps>(
-  ({ fontSize, fontColor, className, children, ...props }) => {
+  ({ as = "h2", fontSize, fontColor, className, ...props }) => {
     const classes = cx(className, styles({ fontSize, fontColor }));
-    return createElement(Root, { ...props, className: classes }, children);
+    return <Box {...props} as={as} className={classes} role="heading" />;
   }
 );
 
