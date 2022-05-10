@@ -2,7 +2,7 @@ import * as RAlertDialog from "@radix-ui/react-alert-dialog";
 
 import * as styles from "../Dialog/styles";
 
-import { createComponent } from "@/utils";
+import { createComponent } from "../../utils";
 
 export type AlertDialogContentProps = RAlertDialog.AlertDialogContentProps;
 export const AlertDialogContent = createComponent<AlertDialogContentProps>(

@@ -6,8 +6,8 @@ import { createElement } from "react";
 import type { IconProps } from "../Icon";
 import { Icon } from "../Icon";
 
-import type { HTMLProps } from "@/utils";
-import { createComponent } from "@/utils";
+import type { HTMLProps } from "../../utils";
+import { createComponent } from "../../utils";
 
 export function createIcon(
   icon?: IconProps["icon"],

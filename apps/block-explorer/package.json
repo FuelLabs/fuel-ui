@@ -11,6 +11,8 @@
   "dependencies": {
     "@fuel/css": "workspace:*",
     "@fuel/react": "workspace:*",
+    "@fontsource/inter": "^4.5.10",
+    "@fontsource/raleway": "^4.5.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

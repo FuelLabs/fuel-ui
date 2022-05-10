@@ -4,7 +4,7 @@ import { createElement } from "react";
 
 import * as styles from "./styles";
 
-import { createComponent } from "@/utils";
+import { createComponent } from "../../utils";
 
 type OmitProps = "children";
 export type AvatarProps = RAvatar.AvatarImageProps & {

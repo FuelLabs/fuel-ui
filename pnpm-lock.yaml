@@ -48,6 +48,8 @@ importers:
 
   apps/block-explorer:
     specifiers:
+      '@fontsource/inter': ^4.5.10
+      '@fontsource/raleway': ^4.5.8
       '@fuel/css': workspace:*
       '@fuel/react': workspace:*
       '@types/react': ^18.0.0
@@ -58,6 +60,8 @@ importers:
       typescript: ^4.6.3
       vite: ^2.9.7
     dependencies:
+      '@fontsource/inter': 4.5.10
+      '@fontsource/raleway': 4.5.8
       '@fuel/css': link:../../design-system/css
       '@fuel/react': link:../../design-system/react
       react: 18.1.0
@@ -85,6 +89,7 @@ importers:
       eslint-plugin-react: ^7.29.4
       eslint-plugin-react-hooks: ^4.3.0
       eslint-plugin-testing-library: ^5.4.0
+      fs-extra: ^10.1.0
       prettier: ^2.6.2
       react: ^18.1.0
       react-dom: ^18.1.0
@@ -106,6 +111,7 @@ importers:
       eslint-plugin-react: 7.29.4_eslint@8.15.0
       eslint-plugin-react-hooks: 4.5.0_eslint@8.15.0
       eslint-plugin-testing-library: 5.4.0_hcfsmds2fshutdssjqluwm76uu
+      fs-extra: 10.1.0
       prettier: 2.6.2
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -118,6 +124,7 @@ importers:
     specifiers:
       '@chakra-ui/utils': 2.0.0-next.2
       '@fuel/config': workspace:*
+      '@testing-library/dom': ^8.13.0
       '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^13.2.0
       '@testing-library/react-hooks': ^8.0.0
@@ -127,16 +134,21 @@ importers:
       jest-axe: ^6.0.0
       jest-fail-on-console: ^2.4.1
       jest-matcher-utils: ^28.1.0
+      react: ^18.1.0
+      react-dom: ^18.1.0
     dependencies:
       '@chakra-ui/utils': 2.0.0-next.2
+      '@testing-library/dom': 8.13.0
       '@testing-library/jest-dom': 5.16.4
-      '@testing-library/react': 13.2.0
-      '@testing-library/react-hooks': 8.0.0
-      '@testing-library/user-event': 14.1.1
+      '@testing-library/react': 13.2.0_ef5jwxihqo6n7gxfmzogljlgcm
+      '@testing-library/react-hooks': 8.0.0_ef5jwxihqo6n7gxfmzogljlgcm
+      '@testing-library/user-event': 14.1.1_tlwynutqiyp5mns3woioasuxnq
       '@types/testing-library__jest-dom': 5.14.3
       jest-axe: 6.0.0
       jest-fail-on-console: 2.4.1
       jest-matcher-utils: 28.1.0
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
     devDependencies:
       '@fuel/config': link:../config
       '@types/jest-axe': 3.5.3
@@ -4581,7 +4593,7 @@ packages:
       redent: 3.0.0
     dev: false
 
-  /@testing-library/react-hooks/8.0.0:
+  /@testing-library/react-hooks/8.0.0_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-uZqcgtcUUtw7Z9N32W13qQhVAD+Xki2hxbTR461MKax8T6Jr8nsUvZB+vcBTkzY2nFvsUet434CsgF0ncW2yFw==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -4598,10 +4610,12 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.17.9
-      react-error-boundary: 3.1.4
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-error-boundary: 3.1.4_react@18.1.0
     dev: false
 
-  /@testing-library/react/13.2.0:
+  /@testing-library/react/13.2.0_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-Bprbz/SZVONCJy5f7hcihNCv313IJXdYiv0nSJklIs1SQCIHHNlnGNkosSXnGZTmesyGIcBGNppYhXcc11pb7g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -4611,6 +4625,8 @@ packages:
       '@babel/runtime': 7.17.9
       '@testing-library/dom': 8.13.0
       '@types/react-dom': 18.0.3
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
     dev: false
 
   /@testing-library/user-event/13.5.0_tlwynutqiyp5mns3woioasuxnq:
@@ -4623,11 +4639,13 @@ packages:
       '@testing-library/dom': 8.13.0
     dev: true
 
-  /@testing-library/user-event/14.1.1:
+  /@testing-library/user-event/14.1.1_tlwynutqiyp5mns3woioasuxnq:
     resolution: {integrity: sha512-XrjH/iEUqNl9lF2HX9YhPNV7Amntkcnpw0Bo1KkRzowNDcgSN9i0nm4Q8Oi5wupgdfPaJNMAWa61A+voD6Kmwg==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
+    dependencies:
+      '@testing-library/dom': 8.13.0
     dev: false
 
   /@tootallnate/once/2.0.0:
@@ -9377,7 +9395,6 @@ packages:
       graceful-fs: 4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
-    dev: true
 
   /fs-extra/8.1.0:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
@@ -9677,7 +9694,6 @@ packages:
 
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
-    dev: true
 
   /growly/1.3.0:
     resolution: {integrity: sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=}
@@ -11785,7 +11801,6 @@ packages:
       universalify: 2.0.0
     optionalDependencies:
       graceful-fs: 4.2.10
-    dev: true
 
   /jsprim/1.4.2:
     resolution: {integrity: sha512-P2bSOMAc/ciLz6DzgjVlGJP9+BrJWu5UDGK70C2iweC5QBIeFf0ZXRvGjEj2uYgrY2MkAAhsSWHDWlFtEroZWw==}
@@ -13663,13 +13678,14 @@ packages:
       react-is: 17.0.2
     dev: true
 
-  /react-error-boundary/3.1.4:
+  /react-error-boundary/3.1.4_react@18.1.0:
     resolution: {integrity: sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==}
     engines: {node: '>=10', npm: '>=6'}
     peerDependencies:
       react: '>=16.13.1'
     dependencies:
       '@babel/runtime': 7.17.9
+      react: 18.1.0
     dev: false
 
   /react-fast-compare/3.2.0:
@@ -16198,7 +16214,6 @@ packages:
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
-    dev: true
 
   /unpipe/1.0.0:
     resolution: {integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=}

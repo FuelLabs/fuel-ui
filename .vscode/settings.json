@@ -1,5 +1,6 @@
 {
   "jest.autoRun": "false",
+  "jest.jestCommandLine": "pnpm test",
   "jest.nodeEnv": {
     "NODE_ENV": "test"
   }

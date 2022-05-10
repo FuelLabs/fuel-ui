@@ -10,8 +10,8 @@ import { createIcon } from "../Text";
 import { TagCloseButton } from "./TagCloseButton";
 import * as styles from "./styles";
 
-import { createComponent } from "@/utils";
-import type { HTMLProps } from "@/utils";
+import { createComponent } from "../../utils";
+import type { HTMLProps } from "../../utils";
 
 type GetChildrenParams = TagProps & {
   iconLeft?: JSX.Element;

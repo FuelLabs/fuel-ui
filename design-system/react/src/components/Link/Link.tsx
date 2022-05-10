@@ -4,8 +4,8 @@ import { createElement } from "react";
 
 import { Icon } from "../Icon";
 
-import type { HTMLProps } from "@/utils";
-import { createComponent } from "@/utils";
+import type { HTMLProps } from "../../utils";
+import { createComponent } from "../../utils";
 
 export type LinkProps = HTMLProps["a"] & {
   isExternal?: boolean;

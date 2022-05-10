@@ -1,19 +1,22 @@
 {
   "name": "@fuel/react",
   "version": "0.0.1",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
+  "main": "./src/index.tsx",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "typings": "dist/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "./dist/index.js",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "files": [
+      "dist"
+    ]
   },
-  "files": [
-    "dist"
-  ],
   "license": "Apache-2.0",
   "scripts": {
     "add:component": "node ./scripts/generateComponent",
@@ -65,8 +68,5 @@
     "typescript": "^4.6.4",
     "webpack": "^5.72.0",
     "yargs": "^17.4.1"
-  },
-  "peerDependencies": {
-    "react": ">=18"
   }
 }

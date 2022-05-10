@@ -13,7 +13,7 @@ type Render<P, OP extends string> = (
  * inherit from styled function of Stitches.
  *
  * @example
- * import { createComponent } from "@/utils/system";
+ * import { createComponent } from "../../utils/system";
  *
  * type Props = {
  *   customProp?: boolean;

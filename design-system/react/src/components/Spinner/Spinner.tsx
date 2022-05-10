@@ -2,7 +2,7 @@ import type { ColorKeys, Colors } from "@fuel/css";
 import { styled, css, colors, keyframes, cx } from "@fuel/css";
 import { useMemo } from "react";
 
-import { createComponent } from "@/utils";
+import { createComponent } from "../../utils";
 
 type OmitProps = "as" | "children";
 export type SpinnerProps = {

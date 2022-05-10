@@ -4,14 +4,13 @@ import type { ButtonProps as AriaButtonProps } from "ariakit";
 import { Button as AriaButton } from "ariakit";
 import { useMemo, createElement } from "react";
 
+import { createComponent } from "../../utils";
+import type { HTMLProps } from "../../utils";
 import type { IconProps } from "../Icon";
 import { Spinner } from "../Spinner";
 import { createIcon } from "../Text";
 
 import * as styles from "./styles";
-
-import { createComponent } from "@/utils";
-import type { HTMLProps } from "@/utils";
 
 type GetChildrenParams = ButtonProps & {
   iconLeft?: JSX.Element;
