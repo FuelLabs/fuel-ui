@@ -1,7 +1,6 @@
-import "@fontsource/inter/variable.css";
-import "@fontsource/raleway/variable.css";
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { colors, globalCss } from "@fuel/css";
+
 import { opinionated } from "./normalize";
 
 const customStyles = {

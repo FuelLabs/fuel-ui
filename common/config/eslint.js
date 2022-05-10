@@ -1,7 +1,7 @@
 const path = require('path');
 
 const resolveDir = (dir) => path.resolve(__dirname, dir);
-const resolveRoot = (dir = '') => resolveDir(path.join('../../../', dir));
+const resolveRoot = (dir = '') => resolveDir(path.join('../../', dir));
 
 module.exports = {
   parser: '@typescript-eslint/parser',
@@ -29,6 +29,7 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/consistent-type-imports': 2,
     '@typescript-eslint/lines-between-class-members': [

@@ -1,15 +1,9 @@
 import type { Config } from '@jest/types';
 
 export const config: Config.InitialOptions = {
-  rootDir: __dirname,
   testEnvironment: 'jsdom',
+  testMatch: ['<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)'],
   reporters: ['default', 'github-actions'],
-  projects: ['<rootDir>/design-system/**/jest.config.ts'],
-  collectCoverageFrom: [
-    'design-system/**/*.{js,ts,tsx}',
-    '!**/*test.{js,ts,tsx}',
-    '!**/test-*.{js,ts}',
-  ],
   setupFilesAfterEnv: ['@fuel/test-utils/setup.ts'],
   testPathIgnorePatterns: ['/lib/', '/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
@@ -32,6 +26,14 @@ export const config: Config.InitialOptions = {
         },
       },
     ],
+  },
+  collectCoverageFrom: [
+    '<rootDir>/**/*.{js,ts,tsx}',
+    '!**/*test.{js,ts,tsx}',
+    '!**/test-*.{js,ts}',
+  ],
+  moduleNameMapper: {
+    '@/(.*)$': '<rootDir>/src/$1',
   },
 };
 
