@@ -2,10 +2,9 @@
 import type { Colors } from "@fuel/css";
 import { css, allColors, cx, utils } from "@fuel/css";
 
-import { Box } from "../Box";
-
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { Box } from "../Box";
 
 export type HeadingProps = HTMLProps["h1"] & {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -15,7 +14,11 @@ export type HeadingProps = HTMLProps["h1"] & {
 
 export const Heading = createComponent<HeadingProps>(
   ({ as = "h2", fontSize, fontColor, className, ...props }) => {
-    const classes = cx(className, styles({ fontSize, fontColor }));
+    const classes = cx(
+      "fuel_heading",
+      className,
+      styles({ fontSize, fontColor })
+    );
     return <Box {...props} as={as} className={classes} role="heading" />;
   }
 );

@@ -76,6 +76,7 @@ const TagBase = createComponent<TagProps>(
     const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
 
     const classes = cx(
+      "fuel_tag",
       className,
       styles.tag({
         size,

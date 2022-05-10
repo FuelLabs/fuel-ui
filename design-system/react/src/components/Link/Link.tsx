@@ -2,10 +2,9 @@ import type { Colors } from "@fuel/css";
 import { allColors, css, cx, styled } from "@fuel/css";
 import { createElement } from "react";
 
-import { Icon } from "../Icon";
-
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { Icon } from "../Icon";
 
 export type LinkProps = HTMLProps["a"] & {
   isExternal?: boolean;
@@ -19,7 +18,7 @@ export const Link = createComponent<LinkProps>(
     const customProps = {
       ...props,
       role: "link",
-      className: cx(className, styles.link({ color })),
+      className: cx("fuel_link", className, styles.link({ color })),
       ...(isExternal && { target: "_blank", rel: "noopener noreferrer" }),
     };
 

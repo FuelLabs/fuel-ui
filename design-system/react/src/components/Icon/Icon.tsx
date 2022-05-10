@@ -1,5 +1,5 @@
 import type { Colors } from "@fuel/css";
-import { styled } from "@fuel/css";
+import { cx, styled } from "@fuel/css";
 import type { ElementType } from "react";
 import { useMemo, createElement } from "react";
 import type { IconType } from "react-icons";
@@ -19,7 +19,8 @@ export type IconProps = {
 };
 
 const IconBase = createComponent<IconProps, OmitProps>(
-  ({ icon, size, color, ...props }) => {
+  ({ icon, size, color, className, ...props }) => {
+    const classes = cx("fuel_icon", `fuel_icon--${icon}`, className);
     const element = useMemo(
       () => styled(typeof icon === "string" ? IconSet[icon] : icon),
       [icon]
@@ -27,6 +28,7 @@ const IconBase = createComponent<IconProps, OmitProps>(
     const ariaLabel = props["aria-label"];
     const iconProps = {
       ...props,
+      className: classes,
       css: { color: `$${color}` },
       ...(ariaLabel && { "aria-label": ariaLabel }),
       ...(size && { size }),
@@ -36,11 +38,12 @@ const IconBase = createComponent<IconProps, OmitProps>(
   }
 );
 
-export type IconComponent = typeof IconBase & {
-  [K in Icons]: IconType | ElementType;
-} & {
-  _iconList: Icons[];
-};
+export type IconComponent = typeof IconBase &
+  {
+    [K in Icons]: IconType | ElementType;
+  } & {
+    _iconList: Icons[];
+  };
 
 export const Icon = IconBase as IconComponent;
 Icon._iconList = Object.keys(IconSet) as Icons[];

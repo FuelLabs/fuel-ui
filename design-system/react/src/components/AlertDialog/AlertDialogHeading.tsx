@@ -1,7 +1,17 @@
-import { styled } from "@fuel/css";
+import { cx, styled } from "@fuel/css";
 import * as RAlertDialog from "@radix-ui/react-alert-dialog";
+import { createElement } from "react";
 
+import { createComponent } from "../../utils";
 import * as styles from "../Dialog/styles";
 
 export type AlertDialogHeadingProps = RAlertDialog.AlertDialogTitleProps;
-export const AlertDialogHeading = styled(RAlertDialog.Title, styles.heading);
+
+const Root = styled(RAlertDialog.Title, styles.heading);
+
+export const AlertDialogHeading = createComponent<AlertDialogHeadingProps>(
+  ({ className, children, ...props }) => {
+    const classes = cx("fuel_alert-dialog--heading", className);
+    return createElement(Root, { ...props, className: classes }, children);
+  }
+);

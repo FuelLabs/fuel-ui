@@ -2,9 +2,9 @@ import { cx, styled } from "@fuel/css";
 import * as RAvatar from "@radix-ui/react-avatar";
 import { createElement } from "react";
 
-import * as styles from "./styles";
-
 import { createComponent } from "../../utils";
+
+import * as styles from "./styles";
 
 type OmitProps = "children";
 export type AvatarProps = RAvatar.AvatarImageProps & {
@@ -17,7 +17,7 @@ const Root = styled(RAvatar.Root);
 
 export const Avatar = createComponent<AvatarProps, OmitProps>(
   ({ name, size, className, css, as, ...props }) => {
-    const classes = cx(className, styles.avatar({ size }));
+    const classes = cx("fuel_avatar", className, styles.avatar({ size }));
     const wrapperProps = { as, css, className: classes };
     const children = (
       <>
