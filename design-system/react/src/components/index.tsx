@@ -1,3 +1,4 @@
+/* eslint-disable import/export */
 export * from "./AlertDialog";
 export * from "./Avatar";
 export * from "./Badge";
@@ -7,6 +8,8 @@ export * from "./Button";
 export * from "./ButtonLink";
 export * from "./Container";
 export * from "./Dialog";
+export * from "./Flex";
+export * from "./Grid";
 export * from "./Heading";
 export * from "./Icon";
 export * from "./IconButton";

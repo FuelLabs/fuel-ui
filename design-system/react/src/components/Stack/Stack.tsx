@@ -1,15 +1,12 @@
-import { Box } from "../Box";
+import type { FlexProps } from "../Flex";
+import { Flex } from "../Flex";
 
-import type { HTMLProps } from "@/utils";
 import { createComponent } from "@/utils";
 
-export type StackProps = HTMLProps["div"] & {
-  gap?: string;
-  direction?: "row" | "column";
-};
+export type StackProps = FlexProps;
 
 export const Stack = createComponent<StackProps>(
-  ({ gap = "$2", direction: flexDirection = "column", css, ...props }) => (
-    <Box {...props} css={{ display: "flex", gap, flexDirection, ...css }} />
+  ({ gap = "$2", direction = "column", ...props }) => (
+    <Flex {...props} gap={gap} direction={direction} />
   )
 );
