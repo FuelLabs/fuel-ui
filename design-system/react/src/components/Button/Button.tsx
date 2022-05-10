@@ -94,6 +94,7 @@ export const Button = createComponent<ButtonProps>(
     const customStyle = useMemo(() => css(customCSS || {})(), [customCSSStr]);
 
     const classes = cx([
+      "fuel_button",
       ...(customCSS ? [customStyle] : []),
       className,
       styles.button({

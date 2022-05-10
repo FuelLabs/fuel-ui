@@ -1,9 +1,8 @@
 import { css, cx } from "@fuel/css";
 
-import { Box } from "../Box";
-
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { Box } from "../Box";
 
 export type ContainerSizes = "sm" | "md" | "lg" | "xl";
 export type ContainerProps = HTMLProps["div"] & {
@@ -12,7 +11,7 @@ export type ContainerProps = HTMLProps["div"] & {
 
 export const Container = createComponent<ContainerProps>(
   ({ className, size, ...props }) => {
-    const classes = cx(className, styles({ size }));
+    const classes = cx("fuel_container", className, styles({ size }));
     return <Box {...props} className={classes} />;
   }
 );

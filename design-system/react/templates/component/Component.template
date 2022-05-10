@@ -1,8 +1,8 @@
 import { css, cx, styled } from '@fuel/css'
 import { createElement } from 'react'
 
-import { createComponent } from '@/utils'
-import type { HTMLProps } from "@/utils";
+import { createComponent } from '../../utils'
+import type { HTMLProps } from "../../utils";
 
 export type __COMPONENT__Props = HTMLProps['div'] & {
   customProp?: boolean

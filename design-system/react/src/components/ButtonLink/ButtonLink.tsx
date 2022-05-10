@@ -1,8 +1,9 @@
-import type { ButtonProps } from "../Button";
-import { Button } from "../Button";
+import { cx } from "@fuel/css";
 
 import { createComponent } from "../../utils";
 import type { HTMLProps } from "../../utils";
+import type { ButtonProps } from "../Button";
+import { Button } from "../Button";
 
 export type ButtonLinkProps = ButtonProps &
   HTMLProps["a"] & {
@@ -10,16 +11,16 @@ export type ButtonLinkProps = ButtonProps &
   };
 
 export const ButtonLink = createComponent<ButtonLinkProps>(
-  ({ as = "a", role = "link", isExternal, ...props }) => {
+  ({ as = "a", role = "link", isExternal, className, ...props }) => {
     const customProps = {
       ...props,
+      className: cx("fuel_button-link", className),
       ...(isExternal && {
         target: "_blank",
         rel: "noopener noreferrer",
         rightIcon: "BiLinkExternal" as ButtonProps["rightIcon"],
       }),
     };
-
     return (
       <Button as={as} {...customProps} variant="link" role={role} isLink />
     );

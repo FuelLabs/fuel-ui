@@ -30,7 +30,7 @@
     "dev": "turbo run dev --parallel",
     "dev:apps": "turbo run dev --parallel --filter=./apps/**",
     "dev:libs": "turbo run dev --parallel --filter=!./apps/**",
-    "lint:check": "eslint . --ext .ts",
+    "lint:check": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "pnpm lint:check --fix",
     "lint": "run-s lint:check prettier:check",
     "prettier:check": "prettier --check .",

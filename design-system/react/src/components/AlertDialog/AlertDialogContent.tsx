@@ -1,17 +1,28 @@
+import { cx } from "@fuel/css";
 import * as RAlertDialog from "@radix-ui/react-alert-dialog";
 
+import { createComponent } from "../../utils";
 import * as styles from "../Dialog/styles";
 
-import { createComponent } from "../../utils";
+export type AlertDialogContentProps = RAlertDialog.AlertDialogContentProps & {
+  overlayClassName?: string;
+};
 
-export type AlertDialogContentProps = RAlertDialog.AlertDialogContentProps;
 export const AlertDialogContent = createComponent<AlertDialogContentProps>(
-  ({ children, ...props }) => (
+  ({ children, className, overlayClassName, ...props }) => (
     <RAlertDialog.Portal>
-      <RAlertDialog.Overlay className={styles.overlay()} />
-      <RAlertDialog.Content {...props} className={styles.content()}>
+      <RAlertDialog.Overlay className={cx(overlayClassName, CLASSES.Overlay)} />
+      <RAlertDialog.Content
+        {...props}
+        className={cx(className, CLASSES.Content)}
+      >
         {children}
       </RAlertDialog.Content>
     </RAlertDialog.Portal>
   )
 );
+
+const CLASSES = {
+  Overlay: cx("fuel_alert-dialog--overlay", styles.overlay()),
+  Content: cx("fuel_alert-dialog--content", styles.content()),
+};

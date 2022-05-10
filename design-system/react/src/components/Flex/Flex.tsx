@@ -1,9 +1,9 @@
 import type { ThemeUtilsCSS } from "@fuel/css";
-
-import { Box } from "../Box";
+import { cx } from "@fuel/css";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { Box } from "../Box";
 
 export type FlexProps = HTMLProps["div"] & {
   /**
@@ -59,22 +59,27 @@ export const Flex = createComponent<FlexProps>(
     grow,
     shrink,
     css,
+    className,
     ...props
-  }) => (
-    <Box
-      {...props}
-      css={{
-        gap,
-        flexDirection: direction,
-        alignItems: align,
-        justifyContent: justify,
-        flexWrap: wrap,
-        flexBasis: basis,
-        flexGrow: grow,
-        flexShrink: shrink,
-        ...css,
-        display: "flex",
-      }}
-    />
-  )
+  }) => {
+    const classes = cx("fuel_box--flex", className);
+    return (
+      <Box
+        {...props}
+        className={classes}
+        css={{
+          gap,
+          flexDirection: direction,
+          alignItems: align,
+          justifyContent: justify,
+          flexWrap: wrap,
+          flexBasis: basis,
+          flexGrow: grow,
+          flexShrink: shrink,
+          ...css,
+          display: "flex",
+        }}
+      />
+    );
+  }
 );

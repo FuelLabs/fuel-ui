@@ -1,9 +1,8 @@
 import type { ThemeUtilsCSS } from "@fuel/css";
 
-import { Box } from "../Box";
-
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { Box } from "../Box";
 
 export type GridItemProps = HTMLProps["div"] & {
   /**

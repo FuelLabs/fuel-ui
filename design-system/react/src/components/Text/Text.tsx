@@ -3,11 +3,10 @@ import type { Colors } from "@fuel/css";
 import { css, allColors, cx, utils, styled } from "@fuel/css";
 import { createElement } from "react";
 
-import type { IconProps } from "../Icon";
-import { Icon } from "../Icon";
-
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import type { IconProps } from "../Icon";
+import { Icon } from "../Icon";
 
 export function createIcon(
   icon?: IconProps["icon"],
@@ -46,7 +45,7 @@ export const Text = createComponent<TextProps>(
     rightIconAriaLabel,
     ...props
   }) => {
-    const classes = cx(className, styles({ fontSize, color }));
+    const classes = cx("fuel_text", className, styles({ fontSize, color }));
     const iconLeft = createIcon(leftIcon, iconSize, leftIconAriaLabel);
     const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
 

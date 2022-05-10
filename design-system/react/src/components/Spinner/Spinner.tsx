@@ -15,7 +15,7 @@ const Root = styled("svg");
 export const Spinner = createComponent<SpinnerProps, OmitProps>(
   ({ size = 24, color = "accent", className, ...props }) => {
     const styles = useMemo(() => getStyles(size, color), [size]);
-    const classes = cx(className, styles());
+    const classes = cx("fuel_spinner", className, styles());
     return (
       <Root className={classes} viewBox={`0 0 ${size} ${size}`} {...props}>
         <circle cx={size / 2} cy={size / 2} r={size * 0.4} />

@@ -1,11 +1,11 @@
 import type { ThemeUtilsCSS } from "@fuel/css";
-
-import { Box } from "../Box";
-
-import { GridItem } from "./GridItem";
+import { cx } from "@fuel/css";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { Box } from "../Box";
+
+import { GridItem } from "./GridItem";
 
 export type GridProps = HTMLProps["div"] & {
   /**
@@ -67,25 +67,30 @@ const GridBase = createComponent<GridProps>(
     templateColumns,
     templateRows,
     css,
+    className,
     ...props
-  }) => (
-    <Box
-      {...props}
-      css={{
-        gap,
-        gridAutoFlow: direction,
-        gridAutoColumns: autoColumns,
-        gridAutoRows: autoRows,
-        gridColumn: column,
-        gridRow: row,
-        gridTemplateAreas: templateAreas,
-        gridTemplateColumns: templateColumns,
-        gridTemplateRows: templateRows,
-        ...css,
-        display: "grid",
-      }}
-    />
-  )
+  }) => {
+    const classes = cx("fuel_box--grid", className);
+    return (
+      <Box
+        {...props}
+        className={classes}
+        css={{
+          gap,
+          gridAutoFlow: direction,
+          gridAutoColumns: autoColumns,
+          gridAutoRows: autoRows,
+          gridColumn: column,
+          gridRow: row,
+          gridTemplateAreas: templateAreas,
+          gridTemplateColumns: templateColumns,
+          gridTemplateRows: templateRows,
+          ...css,
+          display: "grid",
+        }}
+      />
+    );
+  }
 );
 
 type GridComponent = typeof GridBase & {
