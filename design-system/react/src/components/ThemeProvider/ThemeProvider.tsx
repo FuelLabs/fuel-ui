@@ -8,10 +8,20 @@ import { GlobalStyles } from "../../styles/GlobalStyles";
 
 export type FuelTheme = "light" | "dark";
 
-const themeAtom = atomWithStorage<FuelTheme>("fuel-theme", "light");
+const themeAtom = atomWithStorage<FuelTheme>(
+  "fuel-theme",
+  getDefaultSystemTheme()
+);
+
+function getDefaultSystemTheme() {
+  const isDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return isDark ? "dark" : "light";
+}
 
 export const ThemeProvider: FC<{ children: ReactElement }> = ({ children }) => {
-  const [theme] = useAtom(themeAtom);
+  const [theme, setTheme] = useAtom(themeAtom);
 
   useEffect(() => {
     const html = document.documentElement;
@@ -22,6 +32,20 @@ export const ThemeProvider: FC<{ children: ReactElement }> = ({ children }) => {
       theme === "light" ? darkTheme.className : lightTheme.className
     );
   }, [theme]);
+
+  useEffect(() => {
+    function callback(event: MediaQueryListEvent) {
+      setTheme(event.matches ? "dark" : "light");
+    }
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", callback);
+    return () => {
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener("change", callback);
+    };
+  }, []);
 
   return (
     <>
