@@ -14,7 +14,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'testing-library', 'jest-dom'],
   extends: [
     'airbnb-base',
     'airbnb-typescript/base',
@@ -72,12 +72,13 @@ module.exports = {
   // Disable no-unused-expressions to allow chai 'expect' expressions in testing
   overrides: [
     {
-      files: ['*.test.ts'],
+      files: ['*.test.{ts,tsx}'],
       env: {
         jest: true,
       },
       rules: {
         '@typescript-eslint/no-unused-expressions': 'off',
+        'import/no-extraneous-dependencies': 'off',
       },
     },
   ],
