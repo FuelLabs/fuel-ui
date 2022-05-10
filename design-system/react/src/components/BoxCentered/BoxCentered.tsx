@@ -1,10 +1,10 @@
 import { css, cx } from "@fuel/css";
 
-import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
-import { Box } from "../Box";
+import type { FlexProps } from "../Flex";
+import { Flex } from "../Flex";
 
-export type BoxCenteredProps = HTMLProps["div"] & {
+export type BoxCenteredProps = FlexProps & {
   /**
    * max-width: '100vh
    */
@@ -18,7 +18,7 @@ export type BoxCenteredProps = HTMLProps["div"] & {
 export const BoxCentered = createComponent<BoxCenteredProps>(
   ({ minWS, minHS, className, ...props }) => {
     const classes = cx(className, styles({ minWS, minHS }));
-    return <Box {...props} className={classes} />;
+    return <Flex {...props} className={classes} />;
   }
 );
 
