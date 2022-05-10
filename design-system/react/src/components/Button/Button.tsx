@@ -1,8 +1,9 @@
 import type { ColorKeys } from "@fuel/css";
-import { cx } from "@fuel/css";
-import { styled } from "@stitches/react";
+import { css, cx } from "@fuel/css";
+import type { ButtonProps as AriaButtonProps } from "ariakit";
+import { Button as AriaButton } from "ariakit";
 import type { ElementType } from "react";
-import { createElement } from "react";
+import { useMemo, createElement } from "react";
 
 import type { Icons } from "../Icon";
 import { Spinner } from "../Spinner";
@@ -41,7 +42,7 @@ function getChildren({
 export type ButtonVariants = "solid" | "outlined" | "ghost" | "link";
 export type ButtonSizes = "xs" | "sm" | "md" | "lg";
 
-export type ButtonBaseProps = {
+export type ButtonBaseProps = Omit<AriaButtonProps, "as"> & {
   size?: ButtonSizes;
   color?: ColorKeys;
   variant?: ButtonVariants;
@@ -67,10 +68,9 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
-const Root = styled("button");
-
 export const Button = createComponent<ButtonProps>(
   ({
+    css: customCSS,
     role = "button",
     type = "button",
     size = "md",
@@ -92,8 +92,10 @@ export const Button = createComponent<ButtonProps>(
     const disabled = isLoading || isDisabled;
     const iconLeft = createIcon(leftIcon, iconSize, leftIconAriaLabel);
     const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
-
-    const classes = cx(
+    const customCSSStr = JSON.stringify(customCSS);
+    const customStyle = useMemo(() => css(customCSS || {})(), [customCSSStr]);
+    const classes = cx([
+      ...(customCSS ? [customStyle] : []),
       className,
       styles.button({
         size,
@@ -102,8 +104,8 @@ export const Button = createComponent<ButtonProps>(
         justIcon,
         color,
         isLink,
-      })
-    );
+      }),
+    ]);
 
     /**
      * Modify handlers to don't execute if disabled is true
@@ -121,17 +123,19 @@ export const Button = createComponent<ButtonProps>(
       ...(isLink ? { role: "link" } : { role }),
       ...(!isLink && { type }),
       disabled,
-      "aria-disabled": disabled,
       className: classes,
-    };
+    } as AriaButtonProps;
 
-    const customChildren = getChildren({
-      size,
-      isLoading,
-      children,
-      iconLeft,
-      iconRight,
-    });
-    return createElement(Root, buttonProps, customChildren);
+    return createElement(
+      AriaButton,
+      buttonProps,
+      getChildren({
+        size,
+        isLoading,
+        children,
+        iconLeft,
+        iconRight,
+      })
+    );
   }
 );

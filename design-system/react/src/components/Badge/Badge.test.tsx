@@ -1,8 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, testA11y } from "@fuel/test-utils";
 
 import { Badge } from "./Badge";
 
 describe("Badge", () => {
+  it("a11y", async () => {
+    await testA11y(<Badge>Label</Badge>);
+  });
+
   it("should render a span with inner text as Label", () => {
     const { container } = render(<Badge>Label</Badge>);
     expect(container.querySelector("span")).toBeInTheDocument();

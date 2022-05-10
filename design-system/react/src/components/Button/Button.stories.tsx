@@ -81,18 +81,22 @@ export const Colors = (args: ButtonProps) => (
 
 export const WithIcon = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
-    <Button {...args} leftIcon="BiCalendar" iconAriaLabel="calendar">
+    <Button {...args} leftIcon="BiCalendar" leftIconAriaLabel="calendar">
+      Button
+    </Button>
+    <Button {...args} rightIcon="BiCalendar" leftIconAriaLabel="calendar">
       Button
     </Button>
     <Button
       {...args}
       leftIcon="BiCalendar"
+      leftIconAriaLabel="calendar"
       rightIcon="BiCalendar"
-      iconAriaLabel="calendar"
+      rightIconAriaLabel="calendar"
     >
       Button
     </Button>
-    <Button {...args} leftIcon={FaCalendar} iconAriaLabel="calendar">
+    <Button {...args} leftIcon={FaCalendar} leftIconAriaLabel="calendar">
       Button
     </Button>
   </Box>

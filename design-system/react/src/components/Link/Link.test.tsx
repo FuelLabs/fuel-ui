@@ -1,8 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { testA11y, render, screen } from "@fuel/test-utils";
 
 import { Link } from "./Link";
 
 describe("Link", () => {
+  it("a11y", async () => {
+    await testA11y(<Link href="https://fuel.sh">Click</Link>);
+  });
+
   it("should render a basic link component", () => {
     const { container } = render(<Link href="https://fuel.sh">Click</Link>);
     expect(container.querySelector("a")).toBeInTheDocument();

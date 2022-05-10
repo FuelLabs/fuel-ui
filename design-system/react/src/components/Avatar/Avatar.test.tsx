@@ -1,29 +1,17 @@
-import type { RenderResult } from "@testing-library/react";
-import { render } from "@testing-library/react";
+import type { RenderResult } from "@fuel/test-utils";
+import { screen, mocks, testA11y, render } from "@fuel/test-utils";
 
 import { Avatar } from "./Avatar";
 
 describe("Avatar", () => {
   let rendered: RenderResult;
-  const orignalGlobalImage = window.Image;
 
   beforeAll(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (window.Image as any) = class MockImage {
-      onload: () => void = () => {};
-      src: string = "";
-      constructor() {
-        setTimeout(() => {
-          this.onload();
-        }, 300);
-        // eslint-disable-next-line no-constructor-return
-        return this;
-      }
-    };
+    mocks.image();
   });
 
   afterAll(() => {
-    window.Image = orignalGlobalImage;
+    mocks.image.restore();
   });
 
   beforeEach(() => {
@@ -34,18 +22,23 @@ describe("Avatar", () => {
       />
     );
   });
+
+  it("a11y", async () => {
+    await testA11y(rendered.container);
+  });
+
   it("should render the fallback initially with first with letters of name", async () => {
     expect(rendered.getByText("CT")).toBeInTheDocument();
   });
 
   it("should fallback text has just one letter if name is one word", async () => {
-    const result = render(
+    render(
       <Avatar
         name="Colm"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
       />
     );
-    expect(result.getByText("C")).toBeInTheDocument();
+    expect(screen.getByText("C")).toBeInTheDocument();
   });
 
   it("should not render the image initially", () => {
