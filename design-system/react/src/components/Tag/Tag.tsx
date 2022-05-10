@@ -1,6 +1,8 @@
 import { cx } from "@fuel/css";
 import { Children } from "react";
 
+import { createComponent } from "../../utils";
+import type { HTMLProps } from "../../utils";
 import { Box } from "../Box";
 import type { ButtonBaseProps } from "../Button";
 import { SPINNER_SIZE } from "../Button";
@@ -9,9 +11,6 @@ import { createIcon } from "../Text";
 
 import { TagCloseButton } from "./TagCloseButton";
 import * as styles from "./styles";
-
-import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
 
 type GetChildrenParams = TagProps & {
   iconLeft?: JSX.Element;
@@ -35,7 +34,7 @@ function getChildren({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const hasCloseBtn = Children.toArray(children).some((child: any) =>
-    child.type?.displayName?.includes("TagCloseButton")
+    child.type?.id?.includes("TagCloseButton")
   );
   return (
     <>
