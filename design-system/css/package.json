@@ -2,19 +2,22 @@
   "name": "@fuel/css",
   "version": "0.0.1",
   "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "default": "./dist/index.mjs"
-    }
+  "main": "./src/index.ts",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "typings": "dist/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "./dist/index.js",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "files": [
+      "dist"
+    ]
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "tsup --dts"
   },

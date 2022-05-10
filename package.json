@@ -23,9 +23,13 @@
     "./design-system/*"
   ],
   "scripts": {
-    "build:watch": "turbo run build -- --watch",
-    "build": "turbo run build --filter=!config",
+    "build": "turbo run build",
+    "build:apps": "turbo run build --filter=./apps/**",
+    "build:libs": "turbo run build --filter=!./apps/**",
+    "build:libs-watch": "pnpm -r --filter=!./apps/** --parallel build --watch",
     "dev": "turbo run dev --parallel",
+    "dev:apps": "turbo run dev --parallel --filter=./apps/**",
+    "dev:libs": "turbo run dev --parallel --filter=!./apps/**",
     "lint:check": "eslint . --ext .ts",
     "lint:fix": "pnpm lint:check --fix",
     "lint": "run-s lint:check prettier:check",

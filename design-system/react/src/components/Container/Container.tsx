@@ -2,8 +2,8 @@ import { css, cx } from "@fuel/css";
 
 import { Box } from "../Box";
 
-import type { HTMLProps } from "@/utils";
-import { createComponent } from "@/utils";
+import type { HTMLProps } from "../../utils";
+import { createComponent } from "../../utils";
 
 export type ContainerSizes = "sm" | "md" | "lg" | "xl";
 export type ContainerProps = HTMLProps["div"] & {

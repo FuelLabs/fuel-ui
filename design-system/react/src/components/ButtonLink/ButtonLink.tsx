@@ -1,8 +1,8 @@
 import type { ButtonProps } from "../Button";
 import { Button } from "../Button";
 
-import { createComponent } from "@/utils";
-import type { HTMLProps } from "@/utils";
+import { createComponent } from "../../utils";
+import type { HTMLProps } from "../../utils";
 
 export type ButtonLinkProps = ButtonProps &
   HTMLProps["a"] & {

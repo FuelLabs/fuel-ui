@@ -4,8 +4,8 @@ import { css, allColors, cx, utils } from "@fuel/css";
 
 import { Box } from "../Box";
 
-import type { HTMLProps } from "@/utils";
-import { createComponent } from "@/utils";
+import type { HTMLProps } from "../../utils";
+import { createComponent } from "../../utils";
 
 export type HeadingProps = HTMLProps["h1"] & {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

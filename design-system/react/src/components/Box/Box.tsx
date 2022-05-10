@@ -1,8 +1,8 @@
 import { styled } from "@fuel/css";
 import { createElement } from "react";
 
-import type { HTMLProps } from "@/utils";
-import { createComponent } from "@/utils";
+import type { HTMLProps } from "../../utils";
+import { createComponent } from "../../utils";
 
 export type BoxProps = HTMLProps["div"];
 

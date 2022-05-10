@@ -3,8 +3,8 @@ import { createElement } from "react";
 
 import * as styles from "./styles";
 
-import type { HTMLProps } from "@/utils";
-import { createComponent } from "@/utils";
+import type { HTMLProps } from "../../utils";
+import { createComponent } from "../../utils";
 
 export type DialogFooterProps = HTMLProps["footer"] & {
   align?: "start" | "end";

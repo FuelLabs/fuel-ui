@@ -3,8 +3,8 @@ import type { ReactElement } from "react";
 
 import * as styles from "./styles";
 
-import type { Props } from "@/utils";
-import { createComponent } from "@/utils";
+import type { Props } from "../../utils";
+import { createComponent } from "../../utils";
 
 export type TooltipProps = RTooltip.TooltipProps &
   Props<{

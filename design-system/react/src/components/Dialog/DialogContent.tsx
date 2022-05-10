@@ -4,7 +4,7 @@ import { Icon } from "../Icon";
 
 import * as styles from "./styles";
 
-import { createComponent } from "@/utils";
+import { createComponent } from "../../utils";
 
 export type DialogContentProps = RDialog.DialogContentProps;
 export const DialogContent = createComponent<DialogContentProps>(

@@ -1,7 +1,7 @@
 import type { IconButtonProps } from "../IconButton";
 import { IconButton } from "../IconButton";
 
-import { createComponent } from "@/utils";
+import { createComponent } from "../../utils";
 
 export type TagCloseButtonsProp = Omit<IconButtonProps, "icon" | "aria-label">;
 

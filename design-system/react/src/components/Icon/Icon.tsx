@@ -5,7 +5,7 @@ import { useMemo, createElement } from "react";
 import type { IconType } from "react-icons";
 import * as IconSet from "react-icons/bi";
 
-import { createComponent } from "@/utils";
+import { createComponent } from "../../utils";
 
 export type Icons = keyof typeof IconSet;
 type OmitProps = "as" | "children";
