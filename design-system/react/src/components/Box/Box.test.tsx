@@ -1,8 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, testA11y } from "@fuel/test-utils";
 
 import { Box } from "./Box";
 
 describe("Box", () => {
+  it("a11y", async () => {
+    await testA11y(<Box>Text</Box>);
+  });
+
   it("should render a basic div", () => {
     const { container } = render(<Box>Text</Box>);
     expect(container.querySelector("div")).toBeInTheDocument();

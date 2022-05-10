@@ -1,9 +1,13 @@
-import { render, screen } from "@testing-library/react";
+import { press, render, screen, testA11y } from "@fuel/test-utils";
 import { FaCalendar } from "react-icons/fa";
 
 import { Tag } from "./Tag";
 
 describe("Tag", () => {
+  it("a11y", async () => {
+    await testA11y(<Tag>Text</Tag>);
+  });
+
   it("should render a basic tag", () => {
     const { container } = render(<Tag>Text</Tag>);
     expect(container.querySelector("span")).toBeInTheDocument();
@@ -65,5 +69,17 @@ describe("Tag", () => {
     expect(container.querySelector("button")).toBeInTheDocument();
     expect(screen.getByLabelText("calendar")).toBeInTheDocument();
     expect(() => screen.getByLabelText("delete")).toThrow();
+  });
+
+  it("should focus on button close on tab", async () => {
+    render(
+      <Tag>
+        Text <Tag.CloseButton />
+      </Tag>
+    );
+
+    expect(screen.getByRole("button")).not.toHaveFocus();
+    await press.Tab();
+    expect(screen.getByRole("button")).toHaveFocus();
   });
 });

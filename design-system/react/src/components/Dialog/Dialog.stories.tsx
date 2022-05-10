@@ -22,7 +22,7 @@ export const Usage = () => (
       </Dialog.Description>
       <Dialog.Footer>
         <Dialog.Close>
-          <Button as={Dialog.Close} variant="outlined" color="tomato">
+          <Button variant="outlined" color="tomato">
             Cancel
           </Button>
         </Dialog.Close>
