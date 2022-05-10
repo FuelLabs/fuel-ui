@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { tokens } from '@fuel/css';
 
 export const normalize: Record<string, any>[] = [
   {
@@ -123,17 +122,4 @@ export const normalize: Record<string, any>[] = [
   },
 ];
 
-export const opinionated: Record<string, any>[] = [
-  {
-    body: {
-      margin: '0',
-      letterSpacing: 0,
-      fontFamily: tokens.fonts.sans,
-      fontFeatureSettings: '"ss02" on, "ss01" on',
-      backgroundColor: '$bodyColor',
-      color: '$textColor',
-      textSize: 'base',
-    },
-  },
-  ...normalize,
-];
+export const opinionated: Record<string, any>[] = [{}, ...normalize];

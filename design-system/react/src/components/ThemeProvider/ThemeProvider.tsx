@@ -5,9 +5,9 @@ import { useLocalStorage } from "react-use";
 
 import { GlobalStyles } from "../../styles/GlobalStyles";
 
-export type Theme = "light" | "dark";
+export type FuelTheme = "light" | "dark";
 interface ThemeContext {
-  theme: Theme;
+  theme: FuelTheme;
   toggle: () => void;
 }
 
@@ -17,7 +17,7 @@ const ctx = createContext<ThemeContext>({
 });
 
 export const ThemeProvider: FC<{ children: ReactElement }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<FuelTheme>("light");
   const [, setLocalStorage] = useLocalStorage("fuel-theme");
 
   function toggle() {
