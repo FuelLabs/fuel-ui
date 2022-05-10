@@ -92,6 +92,7 @@ export const Button = createComponent<ButtonProps>(
     const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
     const customCSSStr = JSON.stringify(customCSS);
     const customStyle = useMemo(() => css(customCSS || {})(), [customCSSStr]);
+
     const classes = cx([
       ...(customCSS ? [customStyle] : []),
       className,

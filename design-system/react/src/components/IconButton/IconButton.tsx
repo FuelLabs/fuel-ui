@@ -1,8 +1,7 @@
+import { createComponent } from "../../utils";
 import type { ButtonProps } from "../Button";
 import { Button } from "../Button";
 import type { IconProps } from "../Icon";
-
-import { createComponent } from "../../utils";
 
 type OmitProps = "leftIcon" | "rightIcon" | "justIcon";
 export type IconButtonProps = ButtonProps & {
