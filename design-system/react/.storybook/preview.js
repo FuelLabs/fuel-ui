@@ -1,12 +1,14 @@
 import '@fontsource/inter/variable.css';
 import '@fontsource/raleway/variable.css';
+import { useDarkMode } from 'storybook-dark-mode';
 
 import { themes } from '@storybook/theming';
 
 import theme from './theme';
 
 import { darkTheme, theme as lightTheme } from '@fuel/css';
-import { GlobalStyles } from '../src/styles/GlobalStyles';
+import { ThemeProvider, useFuelTheme } from '../src';
+import { useEffect } from 'react';
 
 export const parameters = {
   actions: {
@@ -38,11 +40,21 @@ export const parameters = {
   },
 };
 
+function ThemeWrapper(props) {
+  const isDark = useDarkMode();
+  const { setTheme } = useFuelTheme();
+
+  useEffect(() => {
+    setTheme(isDark ? 'dark' : 'light');
+  }, [isDark]);
+
+  return <ThemeProvider>{props.children}</ThemeProvider>;
+}
+
 export const decorators = [
   (Story) => (
-    <>
-      <GlobalStyles />
+    <ThemeWrapper>
       <Story />
-    </>
+    </ThemeWrapper>
   ),
 ];

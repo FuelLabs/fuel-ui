@@ -1,30 +1,17 @@
 import { theme as lightTheme, darkTheme } from "@fuel/css";
+import { useAtom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 import type { FC, ReactElement } from "react";
-import { createContext, useContext, useEffect, useState } from "react";
-import { useLocalStorage } from "react-use";
+import { useEffect } from "react";
 
 import { GlobalStyles } from "../../styles/GlobalStyles";
 
 export type FuelTheme = "light" | "dark";
-interface ThemeContext {
-  theme: FuelTheme;
-  toggle: () => void;
-}
 
-const ctx = createContext<ThemeContext>({
-  theme: "light",
-  toggle: () => null,
-});
+const themeAtom = atomWithStorage<FuelTheme>("fuel-theme", "light");
 
 export const ThemeProvider: FC<{ children: ReactElement }> = ({ children }) => {
-  const [theme, setTheme] = useState<FuelTheme>("light");
-  const [, setLocalStorage] = useLocalStorage("fuel-theme");
-
-  function toggle() {
-    const next = theme === "light" ? "dark" : "light";
-    setLocalStorage(next);
-    setTheme(next);
-  }
+  const [theme] = useAtom(themeAtom);
 
   useEffect(() => {
     const html = document.documentElement;
@@ -39,11 +26,22 @@ export const ThemeProvider: FC<{ children: ReactElement }> = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <ctx.Provider value={{ theme, toggle }}>{children}</ctx.Provider>
+      {children}
     </>
   );
 };
 
 export function useFuelTheme() {
-  return useContext(ctx);
+  const [theme, set] = useAtom(themeAtom);
+
+  function toggleTheme() {
+    const next = theme === "light" ? "dark" : "light";
+    set(next);
+  }
+
+  function setTheme(next: FuelTheme) {
+    set(next);
+  }
+
+  return { theme, toggleTheme, setTheme };
 }
