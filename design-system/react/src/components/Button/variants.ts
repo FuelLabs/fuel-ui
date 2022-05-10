@@ -69,7 +69,6 @@ function createLinkVariant(keyColor: ColorKeys, hasHover = true) {
   const textColor = `$${color}11`;
 
   return {
-    p: '0',
     height: 'auto',
     minW: 'auto',
     background: 'transparent',
