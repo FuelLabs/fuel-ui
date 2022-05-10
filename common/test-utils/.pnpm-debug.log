@@ -1,0 +1,17 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1,
+    "workspacePrefix": "/Users/pedronauck/Projects/fuel/design-system"
+  },
+  "1 error pnpm": {
+    "fileName": "/Users/pedronauck/Projects/fuel/design-system/common/test-utils/package.json",
+    "codeFrame": "\u001b[0m \u001b[90m 26 |\u001b[39m     \u001b[32m\"ariakit-test\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"0.17.0-next.21\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m     \u001b[32m\"jest-axe\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^6.0.0\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m\u001b[0m",
+    "code": "ERR_PNPM_JSON_PARSE",
+    "err": {
+      "name": "pnpm",
+      "message": "Unexpected token \"}\" (0x7D) in JSON at position 591 while parsing near \"...t-axe\\\": \\\"^6.0.0\\\",\\n  }\\n}\\n\" in /Users/pedronauck/Projects/fuel/design-system/common/test-utils/package.json \n\n\u001b[0m \u001b[90m 26 |\u001b[39m     \u001b[32m\"ariakit-test\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"0.17.0-next.21\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m     \u001b[32m\"jest-axe\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^6.0.0\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m\u001b[0m\n",
+      "code": "ERR_PNPM_JSON_PARSE",
+      "stack": "pnpm: Unexpected token \"}\" (0x7D) in JSON at position 591 while parsing near \"...t-axe\\\": \\\"^6.0.0\\\",\\n  }\\n}\\n\" in /Users/pedronauck/Projects/fuel/design-system/common/test-utils/package.json \n\n\u001b[0m \u001b[90m 26 |\u001b[39m     \u001b[32m\"ariakit-test\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"0.17.0-next.21\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m     \u001b[32m\"jest-axe\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^6.0.0\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 28 |\u001b[39m   }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 29 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m\u001b[0m\n\n    at parseJson (/Users/pedronauck/.nvm/versions/node/v16.15.0/lib/node_modules/pnpm/dist/pnpm.cjs:3133:27)\n    at readJsonFile (/Users/pedronauck/.nvm/versions/node/v16.15.0/lib/node_modules/pnpm/dist/pnpm.cjs:19605:42)\n    at async readExactProjectManifest (/Users/pedronauck/.nvm/versions/node/v16.15.0/lib/node_modules/pnpm/dist/pnpm.cjs:19738:34)\n    at async /Users/pedronauck/.nvm/versions/node/v16.15.0/lib/node_modules/pnpm/dist/pnpm.cjs:49116:16"
+    }
+  }
+}

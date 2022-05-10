@@ -10,7 +10,7 @@ export const config: Config.InitialOptions = {
     '!**/*test.{js,ts,tsx}',
     '!**/test-*.{js,ts}',
   ],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  setupFilesAfterEnv: ['@fuel/test-utils/setup.ts'],
   testPathIgnorePatterns: ['/lib/', '/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
