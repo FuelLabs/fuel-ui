@@ -1,13 +1,7 @@
 import { theme as lightTheme, darkTheme } from "@fuel/css";
+import type { FC, ReactElement } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "react-use";
-import {
-  createContext,
-  FC,
-  PropsWithChildren,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
 
 import { GlobalStyles } from "../../styles/GlobalStyles";
 
@@ -22,7 +16,7 @@ const ctx = createContext<ThemeContext>({
   toggle: () => null,
 });
 
-export const ThemeProvider: FC<PropsWithChildren<null>> = ({ children }) => {
+export const ThemeProvider: FC<{ children: ReactElement }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>("light");
   const [, setLocalStorage] = useLocalStorage("fuel-theme");
 

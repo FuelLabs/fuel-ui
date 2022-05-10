@@ -7,11 +7,8 @@ import pkg from './package.json';
 
 const config: Config.InitialOptions = {
   ...baseConfig,
+  rootDir: __dirname,
   displayName: pkg.name,
-  testEnvironment: 'jsdom',
-  moduleNameMapper: {
-    '@/(.*)$': '<rootDir>/design-system/react/src/$1',
-  },
 };
 
 export default config;

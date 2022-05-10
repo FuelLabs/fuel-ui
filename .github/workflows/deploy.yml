@@ -26,7 +26,8 @@ jobs:
         run: |
           pnpm lint
           pnpm test
-          pnpm build
+          cd ./design-system/react
+          pnpm build:storybook
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3

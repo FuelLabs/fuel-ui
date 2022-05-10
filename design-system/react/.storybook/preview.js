@@ -1,3 +1,6 @@
+import '@fontsource/inter/variable.css';
+import '@fontsource/raleway/variable.css';
+
 import { themes } from '@storybook/theming';
 
 import theme from './theme';

@@ -2,10 +2,9 @@ import type { ColorKeys } from "@fuel/css";
 import { css, cx } from "@fuel/css";
 import type { ButtonProps as AriaButtonProps } from "ariakit";
 import { Button as AriaButton } from "ariakit";
-import type { ElementType } from "react";
 import { useMemo, createElement } from "react";
 
-import type { Icons } from "../Icon";
+import type { IconProps } from "../Icon";
 import { Spinner } from "../Spinner";
 import { createIcon } from "../Text";
 
@@ -46,8 +45,8 @@ export type ButtonBaseProps = Omit<AriaButtonProps, "as"> & {
   size?: ButtonSizes;
   color?: ColorKeys;
   variant?: ButtonVariants;
-  leftIcon?: Icons | ElementType;
-  rightIcon?: Icons | ElementType;
+  leftIcon?: IconProps["icon"];
+  rightIcon?: IconProps["icon"];
   iconSize?: number;
   leftIconAriaLabel?: string;
   rightIconAriaLabel?: string;

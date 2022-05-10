@@ -19,20 +19,19 @@
   },
   "workspaces": [
     "./apps/*",
-    "./commmon/*",
+    "./common/*",
     "./design-system/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --parallel",
-    "build": "turbo run build",
     "build:watch": "turbo run build -- --watch",
-    "lint": "run-s lint:check prettier:check",
+    "build": "turbo run build --filter=!config",
+    "dev": "turbo run dev --parallel",
     "lint:check": "eslint . --ext .ts",
     "lint:fix": "pnpm lint:check --fix",
+    "lint": "run-s lint:check prettier:check",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
