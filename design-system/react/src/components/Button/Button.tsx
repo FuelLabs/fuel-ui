@@ -5,7 +5,7 @@ import { Button as AriaButton } from "ariakit";
 import { useMemo, createElement } from "react";
 
 import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
+import type { HTMLProps, CreateComponent } from "../../utils";
 import type { IconProps } from "../Icon";
 import { Spinner } from "../Spinner";
 import { createIcon } from "../Text";
@@ -66,7 +66,7 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
-const ButtonBase = createComponent<ButtonProps>(
+export const Button = createComponent<ButtonProps>(
   ({
     css: customCSS,
     role = "button",
@@ -138,10 +138,8 @@ const ButtonBase = createComponent<ButtonProps>(
       })
     );
   }
-);
-
-type ButtonComponent = typeof ButtonBase & {
+) as CreateComponent<ButtonProps> & {
   id: string;
 };
-export const Button = ButtonBase as ButtonComponent;
+
 Button.id = "Button";

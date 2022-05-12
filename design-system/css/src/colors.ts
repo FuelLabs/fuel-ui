@@ -38,7 +38,7 @@ export const colors = {
 
   bodyColor: radixColors.slate.slate3,
   textColor: radixColors.slate.slate11,
-  borderColor: radixColors.slate.slate6,
+  borderColor: radixColors.slate.slate5,
 
   gray1: radixColors.slate.slate1,
   gray2: radixColors.slate.slate2,
@@ -94,7 +94,7 @@ export const darkColors = {
 
   bodyColor: radixColors.slateDark.slate2,
   textColor: radixColors.slateDark.slate11,
-  borderColor: radixColors.slateDark.slate6,
+  borderColor: radixColors.slateDark.slate3,
 
   gray1: radixColors.slateDark.slate1,
   gray2: radixColors.slateDark.slate2,

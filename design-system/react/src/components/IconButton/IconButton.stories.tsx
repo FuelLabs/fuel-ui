@@ -13,3 +13,14 @@ export const Usage = (args: IconButtonProps) => (
     <IconButton {...args} aria-label="Button" icon="BiCalendar" />
   </Box>
 );
+
+export const WithTooltip = (args: IconButtonProps) => (
+  <Box css={{ display: "flex", gap: "$2" }}>
+    <IconButton
+      {...args}
+      aria-label="Button"
+      icon="BiCalendar"
+      tooltip="View Calendar"
+    />
+  </Box>
+);

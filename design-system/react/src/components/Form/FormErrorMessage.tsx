@@ -1,5 +1,6 @@
 import { cx } from "@fuel/css";
 
+import type { CreateComponent, WithParentId } from "../../utils";
 import { createComponent } from "../../utils";
 import type { TextProps } from "../Text";
 import { Text } from "../Text";
@@ -7,11 +8,9 @@ import { Text } from "../Text";
 import * as styles from "./styles";
 import { useFormControlProps } from "./useFormControlProps";
 
-export type FormErrorMessageProps = TextProps & {
-  _parentId?: string;
-};
+export type FormErrorMessageProps = WithParentId<TextProps>;
 
-const FormErrorMessageBase = createComponent<FormErrorMessageProps>(
+export const FormErrorMessage = createComponent<FormErrorMessageProps>(
   ({ _parentId: id, as = "div", color, children, className, ...props }) => {
     const parentProps = useFormControlProps(id);
     const classes = cx(
@@ -37,11 +36,8 @@ const FormErrorMessageBase = createComponent<FormErrorMessageProps>(
       </Text>
     );
   }
-);
-
-type FormErrorMessageComponent = typeof FormErrorMessageBase & {
+) as CreateComponent<FormErrorMessageProps> & {
   id: string;
 };
-export const FormErrorMessage =
-  FormErrorMessageBase as FormErrorMessageComponent;
+
 FormErrorMessage.id = "FormErrorMessage";

@@ -8,8 +8,8 @@ import * as styles from "./styles";
 
 export type TooltipProps = RTooltip.TooltipProps & {
   content: ReactElement;
-  side: RTooltip.PopperContentProps["side"];
-  align: RTooltip.PopperContentProps["align"];
+  side?: RTooltip.PopperContentProps["side"];
+  align?: RTooltip.PopperContentProps["align"];
   arrowClassName?: string;
 };
 
