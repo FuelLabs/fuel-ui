@@ -48,11 +48,19 @@ export const FormControl = createComponent<FormControlProps>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const childArr = Children.toArray(children) as any[];
     const childIds = childArr.map((child) => child?.type?.id);
+    const describedBy = getRightDescribedBy(childIds, id, isInvalid);
 
     const items = childArr.map((child) => {
       if (child?.type?.id === "Input") {
-        const describedBy = getRightDescribedBy(childIds, id, isInvalid);
         return cloneElement(child, { ...inputProps, describedBy });
+      }
+      if (child?.type?.id === "Checkbox") {
+        return cloneElement(child, {
+          "aria-describedby": describedBy,
+          isDisabled,
+          isReadOnly,
+          required: isRequired,
+        });
       }
       if (
         child?.type?.id === "FormLabel" ||
