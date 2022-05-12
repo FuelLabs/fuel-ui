@@ -1,6 +1,6 @@
 import { css } from '@fuel/css';
 
-const OUTLINE_COLOR = '$gray7';
+const OUTLINE_COLOR = '$gray4';
 const BORDER_RADIUS = '$md';
 const HIGHLIGHT_COLOR = '$accent9';
 
