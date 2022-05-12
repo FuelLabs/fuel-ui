@@ -27,7 +27,7 @@ const InputElement = createComponent<InputElementProps>(
     const parentProps = useInputState(_parentId);
     const disabled = parentProps?.isDisabled || parentProps?.isReadOnly;
     const classes = cx(
-      "fuel__input--element",
+      "fuel_input--element",
       className,
       styles.element({ size })
     );

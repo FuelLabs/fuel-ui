@@ -15,7 +15,7 @@ const Root = styled("div");
 
 const InputAddon = createComponent<InputAddonProps>(
   ({ size, className, children, ...props }) => {
-    const classes = cx("fuel__input--addon", className, styles.addon({ size }));
+    const classes = cx("fuel_input--addon", className, styles.addon({ size }));
     const filteredProps = omit(["_parentId"], props);
     const customProps = { ...filteredProps, className: classes };
     return createElement(Root, customProps, children);

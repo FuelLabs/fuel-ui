@@ -12,7 +12,7 @@ const Root = styled('div')
 
 export const __COMPONENT__ = createComponent<__COMPONENT__Props>(
   ({ customProp, children, className, ...props }) => {
-    const classes = cx('fuel__$CLASS$', className, styles({ customProp }))
+    const classes = cx('fuel_$CLASS$', className, styles({ customProp }))
     return createElement(Root, { ...props, className: classes }, children)
   }
 )

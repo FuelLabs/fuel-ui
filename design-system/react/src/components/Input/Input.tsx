@@ -38,7 +38,7 @@ const InputBase = createComponent<InputProps>(
     const id = useConstant(() => cuid());
     const disabled = isDisabled || isReadOnly;
     const classes = cx(
-      "fuel__input",
+      "fuel_input",
       className,
       styles.input({
         size,
