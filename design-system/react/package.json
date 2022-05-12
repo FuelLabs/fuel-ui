@@ -23,7 +23,7 @@
     "build:storybook": "build-storybook -s ./public",
     "build": "tsup --dts",
     "dev": "start-storybook -p 6006 -s ./public",
-    "test": "jest"
+    "test": "jest --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.10",
@@ -49,6 +49,7 @@
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-jest": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
     "@storybook/addon-storysource": "^6.4.22",
     "@storybook/addons": "^6.4.22",

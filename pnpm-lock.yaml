@@ -190,6 +190,7 @@ importers:
       '@storybook/addon-actions': ^6.4.22
       '@storybook/addon-essentials': ^6.4.22
       '@storybook/addon-interactions': ^6.4.22
+      '@storybook/addon-jest': ^6.4.22
       '@storybook/addon-links': ^6.4.22
       '@storybook/addon-storysource': ^6.4.22
       '@storybook/addons': ^6.4.22
@@ -241,6 +242,7 @@ importers:
       '@storybook/addon-actions': 6.4.22_ohobp6rpsmerwlq5ipwfh5yigy
       '@storybook/addon-essentials': 6.4.22_edrkbmb2e4mbfe76xwjgejke54
       '@storybook/addon-interactions': 6.4.22_measpm3wxxxmj4uuo5xjelmbxa
+      '@storybook/addon-jest': 6.4.22_ohobp6rpsmerwlq5ipwfh5yigy
       '@storybook/addon-links': 6.4.22_ef5jwxihqo6n7gxfmzogljlgcm
       '@storybook/addon-storysource': 6.4.22_ohobp6rpsmerwlq5ipwfh5yigy
       '@storybook/addons': 6.4.22_ef5jwxihqo6n7gxfmzogljlgcm
@@ -3355,6 +3357,33 @@ packages:
       - vue-template-compiler
       - webpack-cli
       - webpack-command
+    dev: true
+
+  /@storybook/addon-jest/6.4.22_ohobp6rpsmerwlq5ipwfh5yigy:
+    resolution: {integrity: sha512-63L+KU1nGAY3ipo84ylxMwJajTBV6+PQAq9BIOuuVUFCuQdopaugHiqORnQMwsvS5VlRfb1hHY86UBAf5VnNrQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@storybook/addons': 6.4.22_ef5jwxihqo6n7gxfmzogljlgcm
+      '@storybook/api': 6.4.22_ef5jwxihqo6n7gxfmzogljlgcm
+      '@storybook/components': 6.4.22_ohobp6rpsmerwlq5ipwfh5yigy
+      '@storybook/core-events': 6.4.22
+      '@storybook/theming': 6.4.22_ef5jwxihqo6n7gxfmzogljlgcm
+      core-js: 3.22.5
+      global: 4.4.0
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+      react-sizeme: 3.0.2
+      regenerator-runtime: 0.13.9
+      upath: 1.2.0
+    transitivePeerDependencies:
+      - '@types/react'
     dev: true
 
   /@storybook/addon-links/6.4.22_ef5jwxihqo6n7gxfmzogljlgcm:
@@ -16361,7 +16390,6 @@ packages:
     resolution: {integrity: sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==}
     engines: {node: '>=4'}
     dev: true
-    optional: true
 
   /uri-js/4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
