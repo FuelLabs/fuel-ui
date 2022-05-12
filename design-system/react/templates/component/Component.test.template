@@ -1,0 +1,14 @@
+import { press, render, testA11y, screen } from "@fuel/test-utils";
+
+import { __COMPONENT__ } from "./__COMPONENT__";
+
+describe("__COMPONENT__", () => {
+  it("a11y", async () => {
+    await testA11y(<__COMPONENT__>Hello world</__COMPONENT__>);
+  });
+
+  it("should ...", async () => {
+    // render(<__COMPONENT__>Hello world</__COMPONENT__>);
+    // expect()
+  });
+});

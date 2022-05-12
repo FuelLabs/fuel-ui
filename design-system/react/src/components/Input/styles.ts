@@ -3,7 +3,6 @@ import { css } from '@fuel/css';
 const BG_COLOR = '$gray1';
 const TEXT_COLOR = '$gray8';
 const PLACEHOLDER_COLOR = '$gray10';
-const BORDER_COLOR = '$gray6';
 const OUTLINE_COLOR = '$gray3';
 const INPUT_COLOR = '$gray11';
 const ADDON_COLOR = '$gray9';
@@ -12,7 +11,7 @@ const ADDON_BG_COLOR = '$gray4';
 export const input = css({
   display: 'inline-flex',
   background: BG_COLOR,
-  border: `1px solid ${BORDER_COLOR}`,
+  border: `1px solid $borderColor`,
   fontFamily: '$sans',
   color: TEXT_COLOR,
   boxSizing: 'content-box',
@@ -149,10 +148,10 @@ export const addon = css({
   color: ADDON_COLOR,
 
   '&[class*="left"]': {
-    borderRight: `1px solid ${BORDER_COLOR}`,
+    borderRight: `1px solid $borderColor`,
   },
 
   '&[class*="right"]': {
-    borderLeft: `1px solid ${BORDER_COLOR}`,
+    borderLeft: `1px solid $borderColor`,
   },
 });
