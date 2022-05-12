@@ -3,6 +3,7 @@ const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const path = require('path');
 const fs = require('fs-extra');
+const snakeCase = require('lodash/snakeCase');
 
 (async function () {
   const argv = yargs(hideBin(process.argv)).argv;
@@ -10,6 +11,7 @@ const fs = require('fs-extra');
   const componentsDir = path.resolve(process.cwd(), 'src/components');
   const component = argv.name;
   const componentDir = path.join(componentsDir, component);
+  const componentClass = snakeCase(component);
 
   if (fs.pathExistsSync(componentDir)) {
     throw new Error('This component already exist, choose another name!');
@@ -26,7 +28,10 @@ const fs = require('fs-extra');
     fs.moveSync(filePath, newFilePath);
 
     const rawFile = fs.readFileSync(newFilePath, 'utf-8');
-    const newRawFile = rawFile.replaceAll('__COMPONENT__', component);
+    const newRawFile = rawFile
+      .replaceAll('__COMPONENT__', component)
+      .replace('$CLASS$', componentClass);
+
     fs.outputFile(newFilePath, newRawFile);
   }
 })();

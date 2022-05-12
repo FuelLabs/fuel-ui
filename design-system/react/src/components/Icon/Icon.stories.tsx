@@ -32,7 +32,7 @@ export const AllIcons = () => {
   const [, copy] = useCopyToClipboard();
   return (
     <Box css={styles.list}>
-      {Icon._iconList.map((key) => (
+      {Icon.iconList.map((key) => (
         <Box
           key={key}
           css={styles.iconWrapper}
