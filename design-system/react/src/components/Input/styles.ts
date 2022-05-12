@@ -5,7 +5,7 @@ const TEXT_COLOR = '$gray8';
 const PLACEHOLDER_COLOR = '$gray10';
 const BORDER_COLOR = '$gray6';
 const OUTLINE_COLOR = '$gray3';
-const INPUT_COLOR = '$gray12';
+const INPUT_COLOR = '$gray11';
 const ADDON_COLOR = '$gray9';
 const ADDON_BG_COLOR = '$gray4';
 
