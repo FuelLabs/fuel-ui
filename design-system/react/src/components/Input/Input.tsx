@@ -3,14 +3,14 @@ import cuid from "cuid";
 import { Children, cloneElement, createElement } from "react";
 
 import { useConstant } from "../../hooks";
-import type { InputSizes } from "../../hooks/useInputState";
-import { useSetInputState } from "../../hooks/useInputState";
 import { createComponent } from "../../utils";
 
 import { InputAddonLeft, InputAddonRight } from "./InputAddon";
 import { InputElementLeft, InputElementRight } from "./InputElement";
 import { InputField } from "./InputField";
 import * as styles from "./styles";
+import { useSetInputState } from "./useInputState";
+import type { InputSizes } from "./useInputState";
 
 export type InputProps = {
   size?: InputSizes;
@@ -74,10 +74,10 @@ const InputBase = createComponent<InputProps>(
     const inputProps = {
       ...props,
       children: items,
-      "aria-disabled": isDisabled,
+      className: classes,
     };
 
-    return createElement(Root, { ...inputProps, className: classes }, items);
+    return createElement(Root, inputProps, items);
   }
 );
 
