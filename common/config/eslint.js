@@ -38,15 +38,6 @@ module.exports = {
       { exceptAfterSingleLine: true },
     ],
     '@typescript-eslint/no-inferrable-types': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'after-used',
-        ignoreRestSiblings: false,
-        argsIgnorePattern: '^_',
-      },
-    ],
     '@typescript-eslint/no-var-requires': 'off',
     'class-methods-use-this': 'off',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
@@ -69,6 +60,15 @@ module.exports = {
     'react/display-name': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'after-used',
+        ignoreRestSiblings: false,
+        argsIgnorePattern: '^_',
+      },
+    ],
   },
   // Disable no-unused-expressions to allow chai 'expect' expressions in testing
   overrides: [

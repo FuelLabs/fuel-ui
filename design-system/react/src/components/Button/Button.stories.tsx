@@ -25,11 +25,11 @@ export default {
       control: "select",
     },
     leftIcon: {
-      options: Icon._iconList,
+      options: Icon.iconList,
       control: "select",
     },
     rightIcon: {
-      options: Icon._iconList,
+      options: Icon.iconList,
       control: "select",
     },
   },

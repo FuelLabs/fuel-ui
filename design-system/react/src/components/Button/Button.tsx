@@ -66,7 +66,7 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
-export const Button = createComponent<ButtonProps>(
+const ButtonBase = createComponent<ButtonProps>(
   ({
     css: customCSS,
     role = "button",
@@ -139,3 +139,9 @@ export const Button = createComponent<ButtonProps>(
     );
   }
 );
+
+type ButtonComponent = typeof ButtonBase & {
+  id: string;
+};
+export const Button = ButtonBase as ButtonComponent;
+Button.id = "Button";
