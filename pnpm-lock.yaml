@@ -183,6 +183,7 @@ importers:
       '@fuel/css': workspace:*
       '@radix-ui/react-alert-dialog': ^0.1.7
       '@radix-ui/react-avatar': ^0.1.4
+      '@radix-ui/react-checkbox': ^0.1.5
       '@radix-ui/react-dialog': ^0.1.7
       '@radix-ui/react-tabs': ^0.1.5
       '@radix-ui/react-tooltip': ^0.1.7
@@ -226,6 +227,7 @@ importers:
       '@fuel/css': link:../css
       '@radix-ui/react-alert-dialog': 0.1.7_ohobp6rpsmerwlq5ipwfh5yigy
       '@radix-ui/react-avatar': 0.1.4_react@18.1.0
+      '@radix-ui/react-checkbox': 0.1.5_react@18.1.0
       '@radix-ui/react-dialog': 0.1.7_ohobp6rpsmerwlq5ipwfh5yigy
       '@radix-ui/react-tabs': 0.1.5_react@18.1.0
       '@radix-ui/react-tooltip': 0.1.7_ef5jwxihqo6n7gxfmzogljlgcm
@@ -2633,6 +2635,24 @@ packages:
       react: 18.1.0
     dev: false
 
+  /@radix-ui/react-checkbox/0.1.5_react@18.1.0:
+    resolution: {integrity: sha512-M8Y4dSXsKSbF+FryG5VvZKr/1MukMVG7swq9p5s7wYb8Rvn0UM0rQ5w8BWmSWSV4BL/gbJdhwVCznwXXlgZRZg==}
+    peerDependencies:
+      react: ^16.8 || ^17.0
+    dependencies:
+      '@babel/runtime': 7.17.9
+      '@radix-ui/primitive': 0.1.0
+      '@radix-ui/react-compose-refs': 0.1.0_react@18.1.0
+      '@radix-ui/react-context': 0.1.1_react@18.1.0
+      '@radix-ui/react-label': 0.1.5_react@18.1.0
+      '@radix-ui/react-presence': 0.1.2_react@18.1.0
+      '@radix-ui/react-primitive': 0.1.4_react@18.1.0
+      '@radix-ui/react-use-controllable-state': 0.1.0_react@18.1.0
+      '@radix-ui/react-use-previous': 0.1.1_react@18.1.0
+      '@radix-ui/react-use-size': 0.1.1_react@18.1.0
+      react: 18.1.0
+    dev: false
+
   /@radix-ui/react-collection/0.1.4_react@18.1.0:
     resolution: {integrity: sha512-3muGI15IdgaDFjOcO7xX8a35HQRBRF6LH9pS6UCeZeRmbslkVeHyJRQr2rzICBUoX7zgIA0kXyMDbpQnJGyJTA==}
     peerDependencies:
@@ -2734,6 +2754,19 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.9
       '@radix-ui/react-use-layout-effect': 0.1.0_react@18.1.0
+      react: 18.1.0
+    dev: false
+
+  /@radix-ui/react-label/0.1.5_react@18.1.0:
+    resolution: {integrity: sha512-Au9+n4/DhvjR0IHhvZ1LPdx/OW+3CGDie30ZyCkbSHIuLp4/CV4oPPGBwJ1vY99Jog3zyQhsGww9MXj8O9Aj/A==}
+    peerDependencies:
+      react: ^16.8 || ^17.0
+    dependencies:
+      '@babel/runtime': 7.17.9
+      '@radix-ui/react-compose-refs': 0.1.0_react@18.1.0
+      '@radix-ui/react-context': 0.1.1_react@18.1.0
+      '@radix-ui/react-id': 0.1.5_react@18.1.0
+      '@radix-ui/react-primitive': 0.1.4_react@18.1.0
       react: 18.1.0
     dev: false
 
