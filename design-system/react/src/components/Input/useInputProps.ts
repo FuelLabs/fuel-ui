@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 export type InputSizes = 'sm' | 'md' | 'lg';
 
-export type InputStateProps = {
+type StateProps = {
   size?: InputSizes;
   isRequired?: boolean;
   isInvalid?: boolean;
@@ -12,23 +12,10 @@ export type InputStateProps = {
   isReadOnly?: boolean;
 };
 
-type InputState = Record<string, InputStateProps>;
-
+type InputState = Record<string, StateProps>;
 export const inputsAtom = atom<InputState>({});
-export const inputsFamily = atomFamily((id?: string) =>
-  atom(
-    (get) => id && get(inputsAtom)[id],
-    (get, set, arg: Partial<InputStateProps>) => {
-      if (!id) return null;
-      const prev = get(inputsAtom);
-      const newInputs = { ...prev, [id]: { ...prev[id], ...arg } };
-      set(inputsAtom, newInputs);
-      return newInputs;
-    }
-  )
-);
 
-export function useSetInputState(id: string, props: InputStateProps) {
+export function useSetInputProps(id: string, props: StateProps) {
   const setState = useSetAtom(inputsAtom);
   useEffect(() => {
     setState((inputs) => ({ ...inputs, [id]: props }));
@@ -39,6 +26,6 @@ const inputAtom = atomFamily((id?: string) =>
   selectAtom(inputsAtom, (inputs) => (id ? inputs[id] : null))
 );
 
-export function useInputState(id?: string) {
+export function useInputProps(id?: string) {
   return useAtomValue(inputAtom(id));
 }

@@ -5,8 +5,8 @@ import { Children, cloneElement, createElement } from "react";
 import { createComponent } from "../../utils";
 
 import * as styles from "./styles";
-import type { InputSizes } from "./useInputState";
-import { useInputState } from "./useInputState";
+import type { InputSizes } from "./useInputProps";
+import { useInputProps } from "./useInputProps";
 
 export type InputElementProps = {
   size?: InputSizes;
@@ -24,7 +24,7 @@ const Root = styled("div");
 
 const InputElement = createComponent<InputElementProps>(
   ({ element, size, className, children, _parentId, ...props }) => {
-    const parentProps = useInputState(_parentId);
+    const parentProps = useInputProps(_parentId);
     const disabled = parentProps?.isDisabled || parentProps?.isReadOnly;
     const classes = cx(
       "fuel_input--element",

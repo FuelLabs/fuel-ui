@@ -5,7 +5,7 @@ import { createComponent } from "../../utils";
 import { omit } from "../../utils/helpers";
 
 import * as styles from "./styles";
-import type { InputSizes } from "./useInputState";
+import type { InputSizes } from "./useInputProps";
 
 export type InputAddonProps = {
   size?: InputSizes;

@@ -7,7 +7,7 @@ import type { HTMLProps } from "../../utils";
 import { omit } from "../../utils/helpers";
 
 import * as styles from "./styles";
-import { useInputState } from "./useInputState";
+import { useInputProps } from "./useInputProps";
 
 type HTMLInputProps = HTMLProps["input"];
 
@@ -28,7 +28,7 @@ const InputFieldBase = createComponent<InputFieldProps, OmitProps>(
     _parentId,
     ...props
   }) => {
-    const parentProps = useInputState(_parentId);
+    const parentProps = useInputProps(_parentId);
     const isRequired = parentProps?.isRequired;
     const isDisabled = parentProps?.isDisabled;
     const isReadOnly = parentProps?.isReadOnly;
