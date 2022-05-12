@@ -1,14 +1,15 @@
 import '@fontsource/inter/variable.css';
 import '@fontsource/raleway/variable.css';
-import { useDarkMode } from 'storybook-dark-mode';
 
-import { themes } from '@storybook/theming';
-
-import theme from './theme';
-
-import { darkTheme, theme as lightTheme } from '@fuel/css';
-import { ThemeProvider, useFuelTheme } from '../src';
 import { useEffect } from 'react';
+import { useDarkMode } from 'storybook-dark-mode';
+import { withTests } from '@storybook/addon-jest';
+import { themes } from '@storybook/theming';
+import { darkTheme, theme as lightTheme } from '@fuel/css';
+
+import results from '../.jest-test-results.json';
+import { ThemeProvider, useFuelTheme } from '../src';
+import theme from './theme';
 
 export const parameters = {
   actions: {
@@ -52,6 +53,9 @@ function ThemeWrapper(props) {
 }
 
 export const decorators = [
+  withTests({
+    results,
+  }),
   (Story) => (
     <ThemeWrapper>
       <Story />
