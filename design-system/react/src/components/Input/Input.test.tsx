@@ -77,6 +77,16 @@ describe("Input", () => {
     );
   });
 
+  it("should render elements using element prop", async () => {
+    render(
+      <Input isDisabled>
+        <Input.Field {...FIELD_ARGS} />
+        <Input.ElementRight element={<Button>Click</Button>} />
+      </Input>
+    );
+    expect(screen.getByRole("button")).toBeInTheDocument();
+  });
+
   it("should don't call elements if disabled", async () => {
     render(
       <Input isDisabled>
