@@ -1,16 +1,14 @@
 import { cx, styled } from "@fuel/css";
-import cuid from "cuid";
-import { Children, cloneElement, createElement } from "react";
+import { Children, cloneElement, createElement, useId } from "react";
 
-import { useConstant } from "../../hooks";
 import { createComponent } from "../../utils";
 
 import { InputAddonLeft, InputAddonRight } from "./InputAddon";
 import { InputElementLeft, InputElementRight } from "./InputElement";
 import { InputField } from "./InputField";
 import * as styles from "./styles";
-import { useSetInputState } from "./useInputState";
-import type { InputSizes } from "./useInputState";
+import { useSetInputProps } from "./useInputProps";
+import type { InputSizes } from "./useInputProps";
 
 export type InputProps = {
   size?: InputSizes;
@@ -35,7 +33,7 @@ const InputBase = createComponent<InputProps>(
     children,
     ...props
   }) => {
-    const id = useConstant(() => cuid());
+    const id = useId();
     const disabled = isDisabled || isReadOnly;
     const classes = cx(
       "fuel_input",
@@ -49,7 +47,7 @@ const InputBase = createComponent<InputProps>(
       })
     );
 
-    useSetInputState(id, {
+    useSetInputProps(id, {
       size,
       isRequired,
       isInvalid,
@@ -82,6 +80,7 @@ const InputBase = createComponent<InputProps>(
 );
 
 type InputComponent = typeof InputBase & {
+  id: string;
   AddonLeft: typeof InputAddonLeft;
   AddonRight: typeof InputAddonRight;
   ElementLeft: typeof InputElementLeft;
@@ -90,6 +89,7 @@ type InputComponent = typeof InputBase & {
 };
 
 export const Input = InputBase as InputComponent;
+Input.id = "Input";
 Input.AddonLeft = InputAddonLeft;
 Input.AddonRight = InputAddonRight;
 Input.ElementLeft = InputElementLeft;
