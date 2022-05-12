@@ -31,10 +31,8 @@ export const overlay = css({
 });
 
 export const content = css({
-  p: '$8',
   display: 'flex',
   flexDirection: 'column',
-  gap: '$4',
   position: 'fixed',
   top: '50%',
   left: '50%',
@@ -56,13 +54,16 @@ export const content = css({
 });
 
 export const heading = css({
+  p: '$4',
   m: '$0',
   color: '$gray12',
   fontFamily: '$heading',
   fontSize: '$xl',
+  borderBottom: '1px solid $borderColor',
 });
 
 export const description = css({
+  p: '$4',
   my: '$0',
   color: '$gray10',
   textSize: 'base',
@@ -72,6 +73,8 @@ export const footer = css({
   is: ['centered'],
   gap: '$3',
   mt: '$2',
+  p: '$4',
+  borderTop: '1px solid $borderColor',
 
   variants: {
     align: {

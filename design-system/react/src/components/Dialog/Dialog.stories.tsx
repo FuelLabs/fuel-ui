@@ -16,18 +16,13 @@ export const Usage = () => (
       <Button>Open</Button>
     </Dialog.Trigger>
     <Dialog.Content>
-      <Dialog.Heading>Hello World</Dialog.Heading>
+      <Dialog.Heading>Dialog Title</Dialog.Heading>
       <Dialog.Description>
         Just a big text with a nice description here
       </Dialog.Description>
       <Dialog.Footer>
         <Dialog.Close>
-          <Button variant="outlined" color="tomato">
-            Cancel
-          </Button>
-        </Dialog.Close>
-        <Dialog.Close>
-          <Button>Save</Button>
+          <Button color="gray">Close</Button>
         </Dialog.Close>
       </Dialog.Footer>
     </Dialog.Content>
