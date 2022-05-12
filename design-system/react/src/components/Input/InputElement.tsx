@@ -2,11 +2,11 @@ import { cx, styled } from "@fuel/css";
 import type { ReactNode } from "react";
 import { Children, cloneElement, createElement } from "react";
 
-import type { InputSizes } from "../../hooks/useInputState";
-import { useInputState } from "../../hooks/useInputState";
 import { createComponent } from "../../utils";
 
 import * as styles from "./styles";
+import type { InputSizes } from "./useInputState";
+import { useInputState } from "./useInputState";
 
 export type InputElementProps = {
   size?: InputSizes;

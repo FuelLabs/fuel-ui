@@ -2,12 +2,12 @@ import { cx, styled } from "@fuel/css";
 import { useFocusable } from "ariakit";
 import { createElement } from "react";
 
-import { useInputState } from "../../hooks/useInputState";
 import { createComponent } from "../../utils";
 import type { HTMLProps } from "../../utils";
 import { omit } from "../../utils/helpers";
 
 import * as styles from "./styles";
+import { useInputState } from "./useInputState";
 
 type HTMLInputProps = HTMLProps["input"];
 
@@ -56,6 +56,7 @@ const InputFieldBase = createComponent<InputFieldProps, OmitProps>(
       disabled,
       role,
       size: htmlSize,
+      required: isRequired,
       "aria-required": isRequired,
       "aria-invalid": isInvalid,
       "aria-disabled": isDisabled,

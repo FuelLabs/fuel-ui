@@ -1,11 +1,11 @@
 import { cx, styled } from "@fuel/css";
 import { createElement } from "react";
 
-import type { InputSizes } from "../../hooks/useInputState";
 import { createComponent } from "../../utils";
 import { omit } from "../../utils/helpers";
 
 import * as styles from "./styles";
+import type { InputSizes } from "./useInputState";
 
 export type InputAddonProps = {
   size?: InputSizes;
