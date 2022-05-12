@@ -37,7 +37,7 @@ const InputFieldBase = createComponent<InputFieldProps, OmitProps>(
     const name = `${nameProp}`;
     const disabled = isDisabled || isReadOnly;
     const classes = cx(
-      "fuel__input--field",
+      "fuel_input--field",
       className,
       styles.field({
         isRequired,
