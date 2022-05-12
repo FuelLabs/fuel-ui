@@ -23,8 +23,8 @@ export const ICON_SIZES = {
 const Root = styled("div");
 
 const InputElement = createComponent<InputElementProps>(
-  ({ element, size, className, children, _parentId, ...props }) => {
-    const parentProps = useInputProps(_parentId);
+  ({ _parentId: id, element, size, className, children, ...props }) => {
+    const parentProps = useInputProps(id);
     const disabled = parentProps?.isDisabled || parentProps?.isReadOnly;
     const classes = cx(
       "fuel_input--element",

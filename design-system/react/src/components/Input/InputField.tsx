@@ -10,8 +10,8 @@ import * as styles from "./styles";
 import { useInputProps } from "./useInputProps";
 
 type HTMLInputProps = HTMLProps["input"];
-
 type OmitProps = "as" | "children";
+
 export type InputFieldProps = Omit<HTMLInputProps, "size"> & {
   htmlSize?: HTMLInputProps["size"];
   _parentId?: string;
@@ -21,14 +21,14 @@ const Root = styled("input");
 
 const InputFieldBase = createComponent<InputFieldProps, OmitProps>(
   ({
+    _parentId: id,
     name: nameProp,
     htmlSize,
     role = "textbox",
     className,
-    _parentId,
     ...props
   }) => {
-    const parentProps = useInputProps(_parentId);
+    const parentProps = useInputProps(id);
     const isRequired = parentProps?.isRequired;
     const isDisabled = parentProps?.isDisabled;
     const isReadOnly = parentProps?.isReadOnly;

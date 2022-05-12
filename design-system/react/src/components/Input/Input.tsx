@@ -17,6 +17,7 @@ export type InputProps = {
   isDisabled?: boolean;
   isReadOnly?: boolean;
   isFullWidth?: boolean;
+  describedBy?: string;
 };
 
 const Root = styled("div");
@@ -29,6 +30,7 @@ const InputBase = createComponent<InputProps>(
     isDisabled,
     isReadOnly,
     isFullWidth,
+    describedBy,
     className,
     children,
     ...props
@@ -58,7 +60,10 @@ const InputBase = createComponent<InputProps>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const items = Children.toArray(children).map((child: any) => {
       if (child?.type?.id === "InputField") {
-        return cloneElement(child, { _parentId: id });
+        return cloneElement(child, {
+          _parentId: id,
+          "aria-describedby": child.props?.["aria-describedby"] || describedBy,
+        });
       }
       if (
         child?.type?.id === "InputAddon" ||
