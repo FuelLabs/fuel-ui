@@ -1,18 +1,17 @@
 import { cx, styled } from "@fuel/css";
 import { createElement } from "react";
 
-import type { HTMLProps } from "../../utils";
+import type { CreateComponent, HTMLProps, WithParentId } from "../../utils";
 import { createComponent } from "../../utils";
 
 import * as styles from "./styles";
 import { useFormControlProps } from "./useFormControlProps";
 
-export type FormLabelProps = HTMLProps["label"] & {
-  _parentId?: string;
-};
+export type FormLabelProps = WithParentId<HTMLProps["label"]>;
 
 const Root = styled("label");
-const FormLabelBase = createComponent<FormLabelProps>(
+
+export const FormLabel = createComponent<FormLabelProps>(
   ({ _parentId: id, children, className, ...props }) => {
     const parentProps = useFormControlProps(id);
     const classes = cx(
@@ -31,10 +30,8 @@ const FormLabelBase = createComponent<FormLabelProps>(
 
     return createElement(Root, customProps, children);
   }
-);
-
-type FormLabelComponent = typeof FormLabelBase & {
+) as CreateComponent<FormLabelProps> & {
   id: string;
 };
-export const FormLabel = FormLabelBase as FormLabelComponent;
+
 FormLabel.id = "FormLabel";

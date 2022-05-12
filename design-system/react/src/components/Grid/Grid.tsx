@@ -1,7 +1,7 @@
 import type { ThemeUtilsCSS } from "@fuel/css";
 import { cx } from "@fuel/css";
 
-import type { HTMLProps } from "../../utils";
+import type { CreateComponent, HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
 import { Box } from "../Box";
 
@@ -55,7 +55,7 @@ export type GridProps = HTMLProps["div"] & {
   templateRows?: ThemeUtilsCSS["gridTemplateRows"];
 };
 
-const GridBase = createComponent<GridProps>(
+export const Grid = createComponent<GridProps>(
   ({
     autoColumns,
     autoRows,
@@ -91,11 +91,8 @@ const GridBase = createComponent<GridProps>(
       />
     );
   }
-);
-
-type GridComponent = typeof GridBase & {
+) as CreateComponent<GridProps> & {
   Item: typeof GridItem;
 };
 
-export const Grid = GridBase as GridComponent;
 Grid.Item = GridItem;

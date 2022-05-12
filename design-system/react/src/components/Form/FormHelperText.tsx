@@ -1,5 +1,6 @@
 import { cx } from "@fuel/css";
 
+import type { CreateComponent, WithParentId } from "../../utils";
 import { createComponent } from "../../utils";
 import type { TextProps } from "../Text";
 import { Text } from "../Text";
@@ -7,11 +8,9 @@ import { Text } from "../Text";
 import * as styles from "./styles";
 import { useFormControlProps } from "./useFormControlProps";
 
-export type FormHelperTextProps = TextProps & {
-  _parentId?: string;
-};
+export type FormHelperTextProps = WithParentId<TextProps>;
 
-const FormHelperTextBase = createComponent<FormHelperTextProps>(
+export const FormHelperText = createComponent<FormHelperTextProps>(
   ({ _parentId: id, as = "div", color, children, className, ...props }) => {
     const parentProps = useFormControlProps(id);
     const classes = cx(
@@ -37,10 +36,8 @@ const FormHelperTextBase = createComponent<FormHelperTextProps>(
       </Text>
     );
   }
-);
-
-type FormHelperTextComponent = typeof FormHelperTextBase & {
+) as CreateComponent<FormHelperTextProps> & {
   id: string;
 };
-export const FormHelperText = FormHelperTextBase as FormHelperTextComponent;
+
 FormHelperText.id = "FormHelperText";

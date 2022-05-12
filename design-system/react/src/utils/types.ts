@@ -26,6 +26,10 @@ export type Options<T extends As = any> = { as?: T };
  */
 export type Children = ReactNode;
 
+export type WithParentId<P> = P & {
+  _parentId?: string;
+};
+
 /**
  * Props that automatically includes base props based on the `as` prop.
  * @example

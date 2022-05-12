@@ -3,7 +3,7 @@ import { useFocusable } from "ariakit";
 import { createElement } from "react";
 
 import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
+import type { HTMLProps, WithParentId, CreateComponent } from "../../utils";
 import { omit } from "../../utils/helpers";
 
 import * as styles from "./styles";
@@ -12,14 +12,15 @@ import { useInputProps } from "./useInputProps";
 type HTMLInputProps = HTMLProps["input"];
 type OmitProps = "as" | "children";
 
-export type InputFieldProps = Omit<HTMLInputProps, "size"> & {
-  htmlSize?: HTMLInputProps["size"];
-  _parentId?: string;
-};
+export type InputFieldProps = WithParentId<
+  Omit<HTMLInputProps, "size"> & {
+    htmlSize?: HTMLInputProps["size"];
+  }
+>;
 
 const Root = styled("input");
 
-const InputFieldBase = createComponent<InputFieldProps, OmitProps>(
+export const InputField = createComponent<InputFieldProps, OmitProps>(
   ({
     _parentId: id,
     name: nameProp,
@@ -70,10 +71,8 @@ const InputFieldBase = createComponent<InputFieldProps, OmitProps>(
       className: classes,
     });
   }
-);
-
-type InputFieldComponent = typeof InputFieldBase & {
+) as CreateComponent<InputFieldProps, OmitProps> & {
   id: string;
 };
-export const InputField = InputFieldBase as InputFieldComponent;
+
 InputField.id = "InputField";

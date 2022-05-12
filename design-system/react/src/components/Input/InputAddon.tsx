@@ -1,6 +1,7 @@
 import { cx, styled } from "@fuel/css";
 import { createElement } from "react";
 
+import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import { omit } from "../../utils/helpers";
 
@@ -23,7 +24,7 @@ const InputAddon = createComponent<InputAddonProps>(
 );
 
 type OmitProps = "size" | "left" | "right";
-type InputAddonComponent = typeof InputAddon & {
+type InputAddonComponent = CreateComponent<InputAddonProps> & {
   id?: string;
 };
 
@@ -35,7 +36,6 @@ export const InputAddonLeft = createComponent<InputAddonProps, OmitProps>(
     />
   )
 ) as InputAddonComponent;
-InputAddonLeft.id = "InputAddon";
 
 export const InputAddonRight = createComponent<InputAddonProps, OmitProps>(
   ({ className, ...props }) => (
@@ -45,4 +45,6 @@ export const InputAddonRight = createComponent<InputAddonProps, OmitProps>(
     />
   )
 ) as InputAddonComponent;
+
+InputAddonLeft.id = "InputAddon";
 InputAddonRight.id = "InputAddon";

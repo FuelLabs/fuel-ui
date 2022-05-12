@@ -1,6 +1,7 @@
 import { cx, styled } from "@fuel/css";
 import { Children, cloneElement, createElement, useId } from "react";
 
+import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 
 import { InputAddonLeft, InputAddonRight } from "./InputAddon";
@@ -22,7 +23,7 @@ export type InputProps = {
 
 const Root = styled("div");
 
-const InputBase = createComponent<InputProps>(
+export const Input = createComponent<InputProps>(
   ({
     size = "md",
     isRequired,
@@ -82,9 +83,7 @@ const InputBase = createComponent<InputProps>(
 
     return createElement(Root, inputProps, items);
   }
-);
-
-type InputComponent = typeof InputBase & {
+) as CreateComponent<InputProps> & {
   id: string;
   AddonLeft: typeof InputAddonLeft;
   AddonRight: typeof InputAddonRight;
@@ -93,7 +92,6 @@ type InputComponent = typeof InputBase & {
   Field: typeof InputField;
 };
 
-export const Input = InputBase as InputComponent;
 Input.id = "Input";
 Input.AddonLeft = InputAddonLeft;
 Input.AddonRight = InputAddonRight;

@@ -1,31 +1,16 @@
-import { css } from '@fuel/css';
+import { css, darkTheme, theme } from '@fuel/css';
 
 export const card = css({
   background: '$gray1',
   borderRadius: '$md',
+  border: '1px solid transparent',
 
-  variants: {
-    shadow: {
-      sm: {
-        boxShadow: '$sm',
-      },
-      base: {
-        boxShadow: '$base',
-      },
-      md: {
-        boxShadow: '$md',
-      },
-      lg: {
-        boxShadow: '$lg',
-      },
-      xl: {
-        boxShadow: '$xl',
-      },
-    },
+  [`.${theme} &`]: {
+    boxShadow: '$sm',
   },
 
-  defaultVariants: {
-    shadow: 'base',
+  [`.${darkTheme} &`]: {
+    borderColor: '$borderColor',
   },
 });
 

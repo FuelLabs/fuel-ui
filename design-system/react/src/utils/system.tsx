@@ -1,12 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ReactElement } from "react";
+import type {
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  ReactElement,
+  RefAttributes,
+} from "react";
 import { forwardRef } from "react";
 
 import type { PropsWithAs } from "./types";
 
-type Render<P, OP extends string> = (
-  props: Omit<PropsWithAs<P>, OP>
+type Render<P, OP = any> = (
+  props: PropsWithAs<OP extends string ? Omit<P, OP> : P>
 ) => ReactElement;
+
+export type CreateComponent<P, OP = any> = ForwardRefExoticComponent<
+  PropsWithoutRef<PropsWithAs<OP extends string ? Omit<P, OP> : P>> &
+    RefAttributes<any>
+>;
 
 /**
  * Creates a type-safe component with the `as`, css prop and `React.forwardRef`
@@ -26,10 +36,10 @@ type Render<P, OP extends string> = (
  * <Component as="button" customProp />
  */
 
-export function createComponent<P, OP extends string = "">(
-  render: Render<P, OP>
+export function createComponent<InitialProps, OmitProps extends string = "">(
+  render: Render<InitialProps, OmitProps>
 ) {
-  type Props = Omit<PropsWithAs<P>, OP>;
+  type Props = Omit<PropsWithAs<InitialProps>, OmitProps>;
   return forwardRef<any, Props>((props, ref) =>
     render({ ref, ...props } as any)
   );

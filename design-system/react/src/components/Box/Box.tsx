@@ -14,7 +14,3 @@ export const Box = createComponent<BoxProps>(
     return createElement(Root, { ...props, className: classes }, children);
   }
 );
-
-Box.defaultProps = {
-  role: "region",
-};

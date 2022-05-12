@@ -2,6 +2,7 @@ import { cx, styled } from "@fuel/css";
 import type { ReactNode } from "react";
 import { Children, cloneElement, createElement } from "react";
 
+import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 
 import * as styles from "./styles";
@@ -69,7 +70,7 @@ const InputElement = createComponent<InputElementProps>(
 );
 
 type OmitProps = "size";
-type InputElementComponent = typeof InputElement & {
+type InputElementComponent = CreateComponent<InputElementProps> & {
   id?: string;
 };
 
@@ -81,7 +82,6 @@ export const InputElementLeft = createComponent<InputElementProps, OmitProps>(
     />
   )
 ) as InputElementComponent;
-InputElementLeft.id = "InputElement";
 
 export const InputElementRight = createComponent<InputElementProps, OmitProps>(
   ({ className, ...props }) => (
@@ -91,4 +91,6 @@ export const InputElementRight = createComponent<InputElementProps, OmitProps>(
     />
   )
 ) as InputElementComponent;
+
+InputElementLeft.id = "InputElement";
 InputElementRight.id = "InputElement";

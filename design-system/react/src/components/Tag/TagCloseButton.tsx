@@ -1,12 +1,13 @@
 import { cx } from "@fuel/css";
 
+import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import type { IconButtonProps } from "../IconButton";
 import { IconButton } from "../IconButton";
 
 export type TagCloseButtonsProp = Omit<IconButtonProps, "icon" | "aria-label">;
 
-const TagCloseButtonBase = createComponent<TagCloseButtonsProp>(
+export const TagCloseButton = createComponent<TagCloseButtonsProp>(
   ({ className, ...props }) => {
     const classes = cx("fuel_tag--close-btn", className);
     return (
@@ -19,14 +20,8 @@ const TagCloseButtonBase = createComponent<TagCloseButtonsProp>(
       />
     );
   }
-);
-
-/**
- * This is used inside children iteration in <Tag> component
- */
-type TagCloseButtonComponent = typeof TagCloseButtonBase & {
+) as CreateComponent<TagCloseButtonsProp> & {
   id: string;
 };
 
-export const TagCloseButton = TagCloseButtonBase as TagCloseButtonComponent;
 TagCloseButton.id = "TagCloseButton";

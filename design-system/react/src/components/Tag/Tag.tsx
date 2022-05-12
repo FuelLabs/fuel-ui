@@ -2,7 +2,7 @@ import { cx } from "@fuel/css";
 import { Children } from "react";
 
 import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
+import type { HTMLProps, CreateComponent } from "../../utils";
 import { Box } from "../Box";
 import type { ButtonBaseProps } from "../Button";
 import { SPINNER_SIZE } from "../Button";
@@ -54,7 +54,7 @@ export type TagProps = HTMLProps["div"] &
     variant?: TagVariants;
   };
 
-const TagBase = createComponent<TagProps>(
+export const Tag = createComponent<TagProps>(
   ({
     as = "span",
     size = "sm",
@@ -100,11 +100,8 @@ const TagBase = createComponent<TagProps>(
       </Box>
     );
   }
-);
-
-type TagComponent = typeof TagBase & {
+) as CreateComponent<TagProps> & {
   CloseButton: typeof TagCloseButton;
 };
 
-export const Tag = TagBase as TagComponent;
 Tag.CloseButton = TagCloseButton;
