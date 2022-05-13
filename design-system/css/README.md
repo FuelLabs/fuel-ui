@@ -1,4 +1,4 @@
-<h1>⚡️ `@fuels-ui/css`</h1>
+<h1>⚡️ @fuels-ui/css</h1>
 
 [![CI status][github-action-image]][github-action-url]
 [![codecov][codecov-image]][codecov-url]
