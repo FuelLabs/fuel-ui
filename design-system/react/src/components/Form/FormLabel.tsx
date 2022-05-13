@@ -24,7 +24,7 @@ export const FormLabel = createComponent<FormLabelProps>(
 
     const customProps = {
       ...props,
-      id: `label${id}`,
+      id: id ? `label${id}` : props.id,
       className: classes,
     };
 

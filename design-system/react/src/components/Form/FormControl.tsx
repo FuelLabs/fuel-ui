@@ -62,6 +62,13 @@ export const FormControl = createComponent<FormControlProps>(
           required: isRequired,
         });
       }
+      if (child?.type?.id === "RadioGroup") {
+        return cloneElement(child, {
+          isDisabled,
+          isReadOnly,
+          required: isRequired,
+        });
+      }
       if (
         child?.type?.id === "FormLabel" ||
         child?.type?.id === "FormHelperText" ||
