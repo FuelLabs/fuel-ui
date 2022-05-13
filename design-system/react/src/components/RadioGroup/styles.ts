@@ -1,15 +1,24 @@
 import { css } from '@fuel/css';
 
 export const root = css({
+  display: 'flex',
+
+  variants: {
+    disabled: {
+      true: {
+        opacity: '0.5',
+      },
+    },
+  },
+});
+
+export const item = css({
   all: 'unset',
   position: 'relative',
   backgroundColor: '$gray1',
   width: '$6',
   height: '$6',
-  borderRadius: '$md',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  borderRadius: '100%',
   boxShadow: '$sm',
 
   '&:after': {
@@ -21,7 +30,7 @@ export const root = css({
     w: 'calc(100%)',
     height: 'calc(100%)',
     background: 'transparent',
-    borderRadius: 'calc($md + 4px)',
+    borderRadius: '100%',
     transform: 'translate(-2px, -2px)',
   },
 
@@ -32,25 +41,22 @@ export const root = css({
       border: '2px solid $accent5',
     },
   },
-
-  variants: {
-    disabled: {
-      true: {
-        opacity: '0.5',
-      },
-    },
-  },
 });
 
 export const indicator = css({
-  is: ['centered'],
-  color: '$accent9',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%',
+  position: 'relative',
 
-  variants: {
-    disabled: {
-      true: {
-        color: '$gray10',
-      },
-    },
+  '&::after': {
+    content: '""',
+    display: 'block',
+    width: '9px',
+    height: '9px',
+    borderRadius: '50%',
+    backgroundColor: '$accent9',
   },
 });
