@@ -1,4 +1,4 @@
-import { css, darkTheme } from '@fuel/css';
+import { css, darkTheme } from '@fuels-ui/css';
 
 export const root = css({
   all: 'unset',

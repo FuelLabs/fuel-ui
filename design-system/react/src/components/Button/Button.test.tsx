@@ -1,5 +1,4 @@
-import { press, render, testA11y, screen } from "@fuel/test-utils";
-import { FaCalendar } from "react-icons/fa";
+import { press, render, testA11y, screen } from "@fuels-ui/test-utils";
 
 import { Button } from "./Button";
 
@@ -41,7 +40,7 @@ describe("Button", () => {
       </Button>
     );
     expect(screen.getByRole("button")).toBeInTheDocument();
-    expect(screen.getByLabelText("calendar")).toBeInTheDocument();
+    expect(screen.getByText("calendar")).toBeInTheDocument();
   });
 
   it("should render with an icon on right", () => {
@@ -51,16 +50,6 @@ describe("Button", () => {
       </Button>
     );
     expect(screen.getByRole("button")).toBeInTheDocument();
-    expect(screen.getByLabelText("calendar")).toBeInTheDocument();
-  });
-
-  it("should render with an arbitraty icon component", () => {
-    render(
-      <Button rightIcon={FaCalendar} rightIconAriaLabel="calendar">
-        Click
-      </Button>
-    );
-    expect(screen.getByRole("button")).toBeInTheDocument();
-    expect(screen.getByLabelText("calendar")).toBeInTheDocument();
+    expect(screen.getByText("calendar")).toBeInTheDocument();
   });
 });

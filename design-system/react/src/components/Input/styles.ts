@@ -1,4 +1,4 @@
-import { css } from '@fuel/css';
+import { css } from '@fuels-ui/css';
 
 const BG_COLOR = '$inputBg';
 const TEXT_COLOR = '$gray8';

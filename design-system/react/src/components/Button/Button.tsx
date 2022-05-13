@@ -1,5 +1,5 @@
-import type { ColorKeys } from "@fuel/css";
-import { css, cx } from "@fuel/css";
+import type { ColorKeys } from "@fuels-ui/css";
+import { css, cx } from "@fuels-ui/css";
 import type { ButtonProps as AriaButtonProps } from "ariakit";
 import { Button as AriaButton } from "ariakit";
 import { useMemo, createElement } from "react";

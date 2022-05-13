@@ -1,5 +1,5 @@
-import type { ColorKeys, Colors } from "@fuel/css";
-import { styled, css, colors, keyframes, cx } from "@fuel/css";
+import type { ColorKeys, Colors } from "@fuels-ui/css";
+import { styled, css, colors, keyframes, cx } from "@fuels-ui/css";
 import { useMemo } from "react";
 
 import { createComponent } from "../../utils";

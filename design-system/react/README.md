@@ -159,7 +159,7 @@ To make this available in some component inside our design system, we created a 
 Check this example of our `Box` component:
 
 ```tsx
-import { cx, styled } from "@fuel/css";
+import { cx, styled } from "@fuels-ui/css";
 import { createElement } from "react";
 
 import type { HTMLProps } from "../../utils";
@@ -191,7 +191,7 @@ It's extremelly important that all components that has custom behaviors and sett
 A base test of some component always include `a11y` test as first case:
 
 ```jsx
-import { testA11y } from "@fuel/test-utils";
+import { testA11y } from "@fuels-ui/test-utils";
 import { MyComponent } from "./MyComponent";
 
 describe("MyComponent", () => {
@@ -204,7 +204,7 @@ describe("MyComponent", () => {
 With test utils package you can run some triggers in order to test accessibility as well. Keyboard commands like `Tab` and `ArrowDown` is very easy by using `press` helper:
 
 ```jsx
-import { press, render, screen } from "@fuel/test-utils";
+import { press, render, screen } from "@fuels-ui/test-utils";
 import { RadioGroup } from "./RadioGroup";
 
 describe("RadioGroup", () => {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ThemeUtilsCSS } from '@fuel/css';
+import type { ThemeUtilsCSS } from '@fuels-ui/css';
 import type {
   ComponentPropsWithRef,
   ElementType,

@@ -11,8 +11,8 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.10",
     "@fontsource/raleway": "^4.5.8",
-    "@fuel/css": "workspace:*",
-    "@fuel/react": "workspace:*",
+    "@fuels-ui/css": "workspace:*",
+    "@fuels-ui/react": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",

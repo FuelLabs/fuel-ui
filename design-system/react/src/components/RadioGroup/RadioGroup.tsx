@@ -1,5 +1,5 @@
-import type { ThemeUtilsCSS } from "@fuel/css";
-import { cx, styled } from "@fuel/css";
+import type { ThemeUtilsCSS } from "@fuels-ui/css";
+import { cx, styled } from "@fuels-ui/css";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Children, cloneElement, createElement } from "react";
 

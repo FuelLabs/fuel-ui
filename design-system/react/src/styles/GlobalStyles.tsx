@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { globalCss, tokens } from "@fuel/css";
+import { globalCss, tokens } from "@fuels-ui/css";
 
 import { opinionated } from "./normalize";
 

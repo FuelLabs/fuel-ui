@@ -1,4 +1,4 @@
-import { cx } from "@fuel/css";
+import { cx } from "@fuels-ui/css";
 import * as RTooltip from "@radix-ui/react-tooltip";
 import type { ReactElement } from "react";
 

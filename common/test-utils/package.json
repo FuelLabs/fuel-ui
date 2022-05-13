@@ -1,5 +1,5 @@
 {
-  "name": "@fuel/test-utils",
+  "name": "@fuels-ui/test-utils",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "main": "src/index.ts",
@@ -37,7 +37,7 @@
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "@fuel/config": "workspace:*",
+    "@fuels-ui/config": "workspace:*",
     "@types/jest-axe": "^3.5.3"
   },
   "peerDependencies": {

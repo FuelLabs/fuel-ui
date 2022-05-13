@@ -1,5 +1,5 @@
-import type { ColorKeys } from '@fuel/css';
-import { colorKeys, isBright } from '@fuel/css';
+import type { ColorKeys } from '@fuels-ui/css';
+import { colorKeys, isBright } from '@fuels-ui/css';
 
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor);

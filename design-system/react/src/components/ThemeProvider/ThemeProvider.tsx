@@ -1,4 +1,4 @@
-import { theme as lightTheme, darkTheme } from "@fuel/css";
+import { theme as lightTheme, darkTheme } from "@fuels-ui/css";
 import { useAtom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import type { FC, ReactElement } from "react";

@@ -1,5 +1,5 @@
-import type { RenderResult } from "@fuel/test-utils";
-import { screen, mocks, testA11y, render } from "@fuel/test-utils";
+import type { RenderResult } from "@fuels-ui/test-utils";
+import { screen, mocks, testA11y, render } from "@fuels-ui/test-utils";
 
 import { Avatar } from "./Avatar";
 
