@@ -47,7 +47,9 @@ export const RadioGroupItem = createComponent<RadioGroupItemProps, OmitProps>(
     const element = createElement(
       Root,
       customProps,
-      <RadioGroupPrimitive.Indicator className={styles.indicator()} />
+      <RadioGroupPrimitive.Indicator
+        className={styles.indicator({ disabled })}
+      />
     );
 
     return (

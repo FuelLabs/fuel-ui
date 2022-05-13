@@ -4,6 +4,8 @@ import { IconButton } from "./IconButton";
 
 describe("IconButton", () => {
   it("a11y", async () => {
-    await testA11y(<IconButton aria-label="Button" icon="BiCalendar" />);
+    await testA11y(
+      <IconButton aria-label="Calendar Button" icon="CalendarIcon" />
+    );
   });
 });

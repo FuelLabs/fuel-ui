@@ -76,8 +76,8 @@ export const Flex = createComponent<FlexProps>(
           flexBasis: basis,
           flexGrow: grow,
           flexShrink: shrink,
-          ...css,
           display: "flex",
+          ...css,
         }}
       />
     );

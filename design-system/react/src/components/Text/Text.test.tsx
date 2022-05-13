@@ -14,7 +14,7 @@ describe("Text", () => {
 
   it("should render with an icon on left", () => {
     const { container } = render(
-      <Text leftIcon="BiTrash" leftIconAriaLabel="delete">
+      <Text leftIcon="TrashIcon" leftIconAriaLabel="delete">
         Text
       </Text>
     );
@@ -24,7 +24,7 @@ describe("Text", () => {
 
   it("should render with an icon on right", () => {
     const { container } = render(
-      <Text rightIcon="BiTrash" rightIconAriaLabel="delete">
+      <Text rightIcon="TrashIcon" rightIconAriaLabel="delete">
         Text
       </Text>
     );

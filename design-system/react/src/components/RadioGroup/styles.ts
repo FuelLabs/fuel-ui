@@ -15,7 +15,8 @@ export const root = css({
 export const item = css({
   all: 'unset',
   position: 'relative',
-  backgroundColor: '$gray1',
+  cursor: 'pointer',
+  backgroundColor: '$inputBg',
   width: '$6',
   height: '$6',
   borderRadius: '100%',
@@ -41,6 +42,11 @@ export const item = css({
       border: '2px solid $accent5',
     },
   },
+
+  '&[aria-disabled=true]': {
+    cursor: 'default',
+    opacity: '0.5',
+  },
 });
 
 export const indicator = css({
@@ -58,5 +64,15 @@ export const indicator = css({
     height: '9px',
     borderRadius: '50%',
     backgroundColor: '$accent9',
+  },
+
+  variants: {
+    disabled: {
+      true: {
+        '&:after': {
+          background: '$gray10',
+        },
+      },
+    },
   },
 });

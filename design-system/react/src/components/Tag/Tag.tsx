@@ -62,7 +62,6 @@ export const Tag = createComponent<TagProps>(
     variant = "solid",
     leftIcon,
     rightIcon,
-    iconSize,
     leftIconAriaLabel,
     rightIconAriaLabel,
     isLoading,
@@ -72,8 +71,8 @@ export const Tag = createComponent<TagProps>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled;
-    const iconLeft = createIcon(leftIcon, iconSize, leftIconAriaLabel);
-    const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel);
 
     const classes = cx(
       "fuel_tag",

@@ -75,10 +75,10 @@ export const Colors = (args: TagProps) => (
 
 export const WithIcon = (args: TagProps) => (
   <Box css={styles.wrapper}>
-    <Tag {...args} leftIcon="BiCalendar" leftIconAriaLabel="calendar">
+    <Tag {...args} leftIcon="CalendarIcon" leftIconAriaLabel="calendar">
       Label
     </Tag>
-    <Tag {...args} rightIcon="BiCalendar" rightIconAriaLabel="calendar">
+    <Tag {...args} rightIcon="CalendarIcon" rightIconAriaLabel="calendar">
       Label
     </Tag>
   </Box>
@@ -86,7 +86,7 @@ export const WithIcon = (args: TagProps) => (
 
 export const WithClose = (args: TagProps) => (
   <Box css={styles.wrapper}>
-    <Tag {...args} leftIcon="BiCalendar" leftIconAriaLabel="calendar">
+    <Tag {...args} leftIconAriaLabel="calendar">
       Label
       <TagCloseButton />
     </Tag>

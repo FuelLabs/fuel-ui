@@ -36,10 +36,6 @@ export const colors = {
   ...radixColors.gold,
   ...radixColors.bronze,
 
-  bodyColor: radixColors.slate.slate3,
-  textColor: radixColors.slate.slate11,
-  borderColor: radixColors.slate.slate5,
-
   gray1: radixColors.slate.slate1,
   gray2: radixColors.slate.slate2,
   gray3: radixColors.slate.slate3,
@@ -65,6 +61,15 @@ export const colors = {
   accent10: radixColors.green.green10,
   accent11: radixColors.green.green11,
   accent12: radixColors.green.green12,
+
+  bodyColor: '#F5F6F7',
+  textColor: '$gray11',
+  borderColor: '$gray5',
+
+  inputBg: '$gray1',
+  inputAddonBg: '$gray5',
+  inputBorder: '$gray6',
+  inputOutline: '$blackA2',
 };
 
 export const darkColors = {
@@ -92,10 +97,6 @@ export const darkColors = {
   ...radixColors.goldDark,
   ...radixColors.bronzeDark,
 
-  bodyColor: radixColors.slateDark.slate2,
-  textColor: radixColors.slateDark.slate11,
-  borderColor: radixColors.slateDark.slate3,
-
   gray1: radixColors.slateDark.slate1,
   gray2: radixColors.slateDark.slate2,
   gray3: radixColors.slateDark.slate3,
@@ -121,6 +122,15 @@ export const darkColors = {
   accent10: radixColors.greenDark.green10,
   accent11: radixColors.greenDark.green11,
   accent12: radixColors.greenDark.green12,
+
+  bodyColor: '$gray2',
+  textColor: '$gray11',
+  borderColor: '$gray3',
+
+  inputBg: '$blackA8',
+  inputAddonBg: '$gray3',
+  inputBorder: 'transparent',
+  inputOutline: '$whiteA3',
 };
 
 export type ColorKeys =

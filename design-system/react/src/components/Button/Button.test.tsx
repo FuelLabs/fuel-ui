@@ -36,7 +36,7 @@ describe("Button", () => {
 
   it("should render with an icon on left", () => {
     render(
-      <Button leftIcon="BiCalendar" leftIconAriaLabel="calendar">
+      <Button leftIcon="CalendarIcon" leftIconAriaLabel="calendar">
         Click
       </Button>
     );
@@ -46,7 +46,7 @@ describe("Button", () => {
 
   it("should render with an icon on right", () => {
     render(
-      <Button rightIcon="BiCalendar" rightIconAriaLabel="calendar">
+      <Button rightIcon="CalendarIcon" rightIconAriaLabel="calendar">
         Click
       </Button>
     );

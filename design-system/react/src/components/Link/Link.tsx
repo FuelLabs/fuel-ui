@@ -26,7 +26,7 @@ export const Link = createComponent<LinkProps>(
       Root,
       customProps,
       <>
-        {children} {isExternal && <Icon icon="BiLinkExternal" />}
+        {children} {isExternal && <Icon icon="ExternalLinkIcon" />}
       </>
     );
   }

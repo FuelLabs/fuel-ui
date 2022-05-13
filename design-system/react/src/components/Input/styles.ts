@@ -1,25 +1,26 @@
 import { css } from '@fuel/css';
 
-const BG_COLOR = '$gray1';
+const BG_COLOR = '$inputBg';
 const TEXT_COLOR = '$gray8';
+const BORDER_COLOR = '$inputBorder';
 const PLACEHOLDER_COLOR = '$gray10';
-const OUTLINE_COLOR = '$gray3';
+const OUTLINE_COLOR = '$inputOutline';
 const INPUT_COLOR = '$gray11';
 const ADDON_COLOR = '$gray9';
-const ADDON_BG_COLOR = '$gray4';
+const ADDON_BG_COLOR = '$inputAddonBg';
 
 export const input = css({
   display: 'inline-flex',
   background: BG_COLOR,
-  border: `1px solid $borderColor`,
+  border: `1px solid ${BORDER_COLOR}`,
   fontFamily: '$sans',
   color: TEXT_COLOR,
   boxSizing: 'content-box',
   borderRadius: '$md',
   overflow: 'hidden',
 
-  '&:focus-within': {
-    outline: `3px solid ${OUTLINE_COLOR}`,
+  [`&:focus-within`]: {
+    outline: `2px solid ${OUTLINE_COLOR}`,
   },
   '&[aria-disabled=true]:focus-within': {
     outline: 'none',
@@ -148,10 +149,10 @@ export const addon = css({
   color: ADDON_COLOR,
 
   '&[class*="left"]': {
-    borderRight: `1px solid $borderColor`,
+    borderRight: `1px solid ${BORDER_COLOR}`,
   },
 
   '&[class*="right"]': {
-    borderLeft: `1px solid $borderColor`,
+    borderLeft: `1px solid ${BORDER_COLOR}`,
   },
 });

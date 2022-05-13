@@ -10,7 +10,7 @@ export default {
 
 export const Usage = (args: IconButtonProps) => (
   <Box css={{ display: "flex", gap: "$2" }}>
-    <IconButton {...args} aria-label="Button" icon="BiCalendar" />
+    <IconButton {...args} aria-label="Button" icon="CalendarIcon" />
   </Box>
 );
 
@@ -19,7 +19,7 @@ export const WithTooltip = (args: IconButtonProps) => (
     <IconButton
       {...args}
       aria-label="Button"
-      icon="BiCalendar"
+      icon="CalendarIcon"
       tooltip="View Calendar"
     />
   </Box>

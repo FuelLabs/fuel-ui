@@ -1,5 +1,4 @@
 import { colorKeys } from "@fuel/css";
-import { FaCalendar } from "react-icons/fa";
 
 import { Box } from "../Box";
 import { Icon } from "../Icon";
@@ -81,22 +80,19 @@ export const Colors = (args: ButtonProps) => (
 
 export const WithIcon = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
-    <Button {...args} leftIcon="BiCalendar" leftIconAriaLabel="calendar">
+    <Button {...args} leftIcon="CalendarIcon" leftIconAriaLabel="calendar">
       Button
     </Button>
-    <Button {...args} rightIcon="BiCalendar" leftIconAriaLabel="calendar">
+    <Button {...args} rightIcon="CalendarIcon" leftIconAriaLabel="calendar">
       Button
     </Button>
     <Button
       {...args}
-      leftIcon="BiCalendar"
+      leftIcon="CalendarIcon"
       leftIconAriaLabel="calendar"
-      rightIcon="BiCalendar"
+      rightIcon="CalendarIcon"
       rightIconAriaLabel="calendar"
     >
-      Button
-    </Button>
-    <Button {...args} leftIcon={FaCalendar} leftIconAriaLabel="calendar">
       Button
     </Button>
   </Box>
