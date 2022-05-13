@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuel/css";
+import { cx, styled } from "@fuels-ui/css";
 import { useFocusable } from "ariakit";
 import { createElement } from "react";
 

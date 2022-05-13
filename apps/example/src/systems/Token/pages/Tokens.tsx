@@ -1,4 +1,4 @@
-import { Box, BoxCentered, Flex, Heading } from "@fuel/react";
+import { Box, BoxCentered, Flex, Heading } from "@fuels-ui/react";
 import { Outlet } from "react-router-dom";
 
 import { Layout, Link } from "@/systems/Core";

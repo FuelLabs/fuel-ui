@@ -1,5 +1,5 @@
-import type { Colors } from "@fuel/css";
-import { allColors, css, cx, styled } from "@fuel/css";
+import type { Colors } from "@fuels-ui/css";
+import { allColors, css, cx, styled } from "@fuels-ui/css";
 import { createElement } from "react";
 
 import type { HTMLProps } from "../../utils";

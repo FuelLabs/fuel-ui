@@ -1,4 +1,4 @@
-import { testA11y, render, screen } from "@fuel/test-utils";
+import { testA11y, render, screen } from "@fuels-ui/test-utils";
 
 import { Icon } from "./Icon";
 
@@ -8,8 +8,8 @@ describe("Icon", () => {
   });
 
   it("should render a basic icon component", () => {
-    const { container } = render(<Icon icon="TrashIcon" label="Delete Icon" />);
+    const { container } = render(<Icon icon="TrashIcon" label="Delete" />);
     expect(container.querySelector("svg")).toBeInTheDocument();
-    expect(screen.getByLabelText("Delete")).toBeInTheDocument();
+    expect(screen.getByText("Delete")).toBeInTheDocument();
   });
 });

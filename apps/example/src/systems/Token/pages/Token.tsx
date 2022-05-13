@@ -1,4 +1,4 @@
-import { Box } from "@fuel/react";
+import { Box } from "@fuels-ui/react";
 import { useParams } from "react-router-dom";
 
 export function Token() {

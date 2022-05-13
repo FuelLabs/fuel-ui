@@ -1,4 +1,4 @@
-import { css } from '@fuel/css';
+import { css } from '@fuels-ui/css';
 
 export const card = css({
   background: '$gray1',

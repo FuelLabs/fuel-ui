@@ -1,5 +1,5 @@
 {
-  "name": "@fuel/react",
+  "name": "@fuels-ui/react",
   "version": "0.0.1",
   "main": "./src/index.tsx",
   "publishConfig": {
@@ -28,7 +28,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.10",
     "@fontsource/raleway": "^4.5.8",
-    "@fuel/css": "workspace:*",
+    "@fuels-ui/css": "workspace:*",
     "@radix-ui/react-alert-dialog": "^0.1.7",
     "@radix-ui/react-avatar": "^0.1.4",
     "@radix-ui/react-checkbox": "^0.1.5",
@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
-    "@fuel/config": "workspace:*",
+    "@fuels-ui/config": "workspace:*",
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Colors } from "@fuel/css";
-import { css, allColors, cx, utils } from "@fuel/css";
+import type { Colors } from "@fuels-ui/css";
+import { css, allColors, cx, utils } from "@fuels-ui/css";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";

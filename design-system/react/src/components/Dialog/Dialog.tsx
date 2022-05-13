@@ -1,4 +1,4 @@
-import { styled } from "@fuel/css";
+import { styled } from "@fuels-ui/css";
 import * as RDialog from "@radix-ui/react-dialog";
 
 import { DialogClose } from "./DialogClose";

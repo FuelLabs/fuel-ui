@@ -1,4 +1,4 @@
-import { cx } from "@fuel/css";
+import { cx } from "@fuels-ui/css";
 import { Children } from "react";
 
 import { createComponent } from "../../utils";

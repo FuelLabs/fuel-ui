@@ -1,4 +1,4 @@
-import { css } from '@fuel/css';
+import { css } from '@fuels-ui/css';
 
 const OUTLINE_COLOR = '$gray4';
 const BORDER_RADIUS = '$md';

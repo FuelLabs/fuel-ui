@@ -1,9 +1,9 @@
 {
-  "name": "@fuel/design-system",
+  "name": "@fuels-ui/design-system",
   "version": "0.0.1",
   "private": true,
   "description": "Fuel Design System",
-  "author": "Fuel Labs <contact@fuel.sh> (https://fuel.network/)",
+  "author": "Fuel Labs <contact@fuels-ui.sh> (https://fuel.network/)",
   "engines": {
     "node": ">=14.19.0",
     "pnpm": ">=7"
@@ -35,11 +35,11 @@
     "lint": "run-s lint:check prettier:check",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
-    "test": "turbo run test"
+    "test": "turbo run test -- --passWithNoTests"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
-    "@fuel/test-utils": "workspace:*",
+    "@fuels-ui/test-utils": "workspace:*",
     "@jest/types": "^28.1.0",
     "@swc/core": "^1.2.179",
     "@swc/jest": "^0.2.21",

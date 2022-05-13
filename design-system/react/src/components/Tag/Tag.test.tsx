@@ -1,5 +1,4 @@
-import { press, render, screen, testA11y } from "@fuel/test-utils";
-import { FaCalendar } from "react-icons/fa";
+import { press, render, screen, testA11y } from "@fuels-ui/test-utils";
 
 import { Tag } from "./Tag";
 
@@ -20,7 +19,7 @@ describe("Tag", () => {
       </Tag>
     );
     expect(container.querySelector("span")).toBeInTheDocument();
-    expect(screen.getByLabelText("delete")).toBeInTheDocument();
+    expect(screen.getByText("delete")).toBeInTheDocument();
   });
 
   it("should render with an icon on right", () => {
@@ -30,7 +29,7 @@ describe("Tag", () => {
       </Tag>
     );
     expect(container.querySelector("span")).toBeInTheDocument();
-    expect(screen.getByLabelText("delete")).toBeInTheDocument();
+    expect(screen.getByText("delete")).toBeInTheDocument();
   });
 
   it("should render with a close button", () => {
@@ -41,16 +40,6 @@ describe("Tag", () => {
     );
     expect(container.querySelector("span")).toBeInTheDocument();
     expect(container.querySelector("button")).toBeInTheDocument();
-  });
-
-  it("should render with an arbitraty icon component", () => {
-    const { container } = render(
-      <Tag leftIcon={FaCalendar} leftIconAriaLabel="calendar">
-        Text
-      </Tag>
-    );
-    expect(container.querySelector("span")).toBeInTheDocument();
-    expect(screen.getByLabelText("calendar")).toBeInTheDocument();
   });
 
   it("should not render a right icon if has a close button", () => {
@@ -67,8 +56,8 @@ describe("Tag", () => {
 
     expect(container.querySelector("span")).toBeInTheDocument();
     expect(container.querySelector("button")).toBeInTheDocument();
-    expect(screen.getByLabelText("calendar")).toBeInTheDocument();
-    expect(() => screen.getByLabelText("delete")).toThrow();
+    expect(screen.getByText("calendar")).toBeInTheDocument();
+    expect(() => screen.getByText("delete")).toThrow();
   });
 
   it("should focus on button close on tab", async () => {

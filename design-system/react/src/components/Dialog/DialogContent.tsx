@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuel/css";
+import { cx, styled } from "@fuels-ui/css";
 import * as RDialog from "@radix-ui/react-dialog";
 
 import { createComponent } from "../../utils";

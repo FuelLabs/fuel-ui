@@ -1,4 +1,4 @@
-import { BoxCentered } from "@fuel/react";
+import { BoxCentered } from "@fuels-ui/react";
 
 import { Layout } from "@/systems/Core";
 

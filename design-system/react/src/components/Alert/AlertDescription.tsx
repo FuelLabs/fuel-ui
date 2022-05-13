@@ -1,4 +1,4 @@
-import { cx } from "@fuel/css";
+import { cx } from "@fuels-ui/css";
 
 import { createComponent } from "../../utils";
 import type { BoxProps } from "../Box";

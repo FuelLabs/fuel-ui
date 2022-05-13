@@ -1,4 +1,4 @@
-import { allColors } from "@fuel/css";
+import { allColors } from "@fuels-ui/css";
 
 import type { TextProps } from "./Text";
 import { Text } from "./Text";

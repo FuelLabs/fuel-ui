@@ -4,7 +4,7 @@ export const config: Config.InitialOptions = {
   testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)'],
   reporters: ['default', 'github-actions'],
-  setupFilesAfterEnv: ['@fuel/test-utils/setup.ts'],
+  setupFilesAfterEnv: ['@fuels-ui/test-utils/setup.ts'],
   testPathIgnorePatterns: ['/lib/', '/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],

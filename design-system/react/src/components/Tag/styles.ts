@@ -1,4 +1,4 @@
-import { css } from '@fuel/css';
+import { css } from '@fuels-ui/css';
 
 import * as variants from './variants';
 

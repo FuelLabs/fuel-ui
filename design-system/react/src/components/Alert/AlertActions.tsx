@@ -1,4 +1,4 @@
-import { cx } from "@fuel/css";
+import { cx } from "@fuels-ui/css";
 import { Children, cloneElement } from "react";
 
 import type { CreateComponent, WithParentId } from "../../utils";

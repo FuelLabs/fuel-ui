@@ -5,7 +5,7 @@ import {
   IconButton,
   Stack,
   useFuelTheme,
-} from "@fuel/react";
+} from "@fuels-ui/react";
 
 import { Link } from "./Link";
 
