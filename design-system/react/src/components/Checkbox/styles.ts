@@ -1,9 +1,10 @@
-import { css } from '@fuel/css';
+import { css, darkTheme } from '@fuel/css';
 
 export const root = css({
   all: 'unset',
+  cursor: 'pointer',
   position: 'relative',
-  backgroundColor: '$gray1',
+  backgroundColor: '$inputBg',
   width: '$6',
   height: '$6',
   borderRadius: '$md',
@@ -11,6 +12,10 @@ export const root = css({
   alignItems: 'center',
   justifyContent: 'center',
   boxShadow: '$sm',
+
+  [`.${darkTheme} &`]: {
+    background: '$blackA9',
+  },
 
   '&:after': {
     position: 'absolute',
@@ -33,12 +38,9 @@ export const root = css({
     },
   },
 
-  variants: {
-    disabled: {
-      true: {
-        opacity: '0.5',
-      },
-    },
+  '&[aria-disabled=true]': {
+    opacity: '0.5',
+    cursor: 'default',
   },
 });
 

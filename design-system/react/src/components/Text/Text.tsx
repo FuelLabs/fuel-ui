@@ -8,64 +8,29 @@ import { createComponent } from "../../utils";
 import type { IconProps } from "../Icon";
 import { Icon } from "../Icon";
 
-export function createIcon(
-  icon?: IconProps["icon"],
-  iconSize?: number,
-  iconAriaLabel?: string
-) {
+export function createIcon(icon?: IconProps["icon"], iconAriaLabel?: string) {
   return typeof icon === "string" ? (
-    <Icon icon={icon} size={iconSize} aria-label={iconAriaLabel} />
+    <Icon icon={icon} label={iconAriaLabel} />
   ) : (
-    icon && createElement(icon, { size: iconSize, "aria-label": iconAriaLabel })
+    icon && createElement(icon, { label: iconAriaLabel })
   );
 }
 
 export type TextProps = HTMLProps["p"] & {
   fontSize?: utils.TextSizes;
   color?: Colors;
-  leftIcon?: IconProps["icon"];
-  rightIcon?: IconProps["icon"];
-  iconSize?: number;
-  leftIconAriaLabel?: string;
-  rightIconAriaLabel?: string;
 };
 
 const Root = styled("p");
 
 export const Text = createComponent<TextProps>(
-  ({
-    fontSize,
-    color,
-    children,
-    className,
-    leftIcon,
-    rightIcon,
-    iconSize,
-    leftIconAriaLabel,
-    rightIconAriaLabel,
-    ...props
-  }) => {
+  ({ fontSize, color, children, className, ...props }) => {
     const classes = cx("fuel_text", className, styles({ fontSize, color }));
-    const iconLeft = createIcon(leftIcon, iconSize, leftIconAriaLabel);
-    const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
-
-    return createElement(
-      Root,
-      { ...props, className: classes },
-      <>
-        {iconLeft}
-        {children}
-        {iconRight}
-      </>
-    );
+    return createElement(Root, { ...props, className: classes }, children);
   }
 );
 
 const styles = css({
-  display: "flex",
-  alignItems: "center",
-  gap: "$3",
-
   variants: {
     // TODO: adjust typings
     fontSize: (utils.textSize.__keys as any[]).reduce(

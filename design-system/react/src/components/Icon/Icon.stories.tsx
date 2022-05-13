@@ -1,7 +1,9 @@
-import { FiBox } from "react-icons/fi";
 import { useCopyToClipboard } from "react-use";
 
 import { Box } from "../Box";
+import { Flex } from "../Flex";
+import { Link } from "../Link";
+import { Text } from "../Text";
 
 import type { IconProps } from "./Icon";
 import { Icon } from "./Icon";
@@ -11,10 +13,6 @@ export default {
   title: "UI/Icon",
   argTypes: {
     color: { control: "select" },
-    size: {
-      defaultValue: 40,
-      control: { type: "number" },
-    },
   },
   parameters: {
     layout: "fullscreen",
@@ -22,10 +20,16 @@ export default {
 };
 
 export const Usage = (args: IconProps) => (
-  <Box css={{ display: "flex", p: "$5", gap: "$4" }}>
-    <Icon {...args} icon="BiAlarm" />
-    <Icon {...args} icon={FiBox} />
-  </Box>
+  <Flex css={{ p: "$5", maxW: "350px" }} align="flex-start" direction="column">
+    <Icon {...args} icon="PersonIcon" inline />
+    <Text fontSize="sm">
+      We&apos;re using{" "}
+      <Link isExternal href="https://https://icons.modulz.app/">
+        Radix
+      </Link>{" "}
+      Icons as icon set, so you can check more details about it on their website
+    </Text>
+  </Flex>
 );
 
 export const AllIcons = () => {
@@ -39,7 +43,7 @@ export const AllIcons = () => {
           onClick={() => copy(key)}
           title="Click to copy"
         >
-          <Icon key={key} icon={key} size={24} />
+          <Icon key={key} icon={key} />
           <Box as="span" css={styles.iconLabel}>
             {key}
           </Box>

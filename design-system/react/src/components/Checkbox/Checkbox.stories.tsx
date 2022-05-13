@@ -13,7 +13,7 @@ export default {
 export const Usage = (args: CheckboxProps) => (
   <Stack>
     <Form.Control css={{ flexDirection: "row" }}>
-      <Checkbox {...args} defaultChecked id="c1" aria-label="Accept terms" />
+      <Checkbox {...args} defaultChecked id="c1" />
       <Form.Label htmlFor="c1">Accept terms and condition</Form.Label>
     </Form.Control>
   </Stack>
@@ -22,7 +22,7 @@ export const Usage = (args: CheckboxProps) => (
 export const Disabled = (args: CheckboxProps) => (
   <Stack>
     <Form.Control css={{ flexDirection: "row" }} isDisabled>
-      <Checkbox {...args} defaultChecked id="c1" aria-label="Accept terms" />
+      <Checkbox {...args} defaultChecked id="c1" />
       <Form.Label htmlFor="c1">Accept terms and condition</Form.Label>
     </Form.Control>
   </Stack>
@@ -31,7 +31,7 @@ export const Disabled = (args: CheckboxProps) => (
 export const ReadOnly = (args: CheckboxProps) => (
   <Stack>
     <Form.Control css={{ flexDirection: "row" }} isReadOnly>
-      <Checkbox {...args} defaultChecked id="c1" aria-label="Accept terms" />
+      <Checkbox {...args} defaultChecked id="c1" />
       <Form.Label htmlFor="c1">Accept terms and condition</Form.Label>
     </Form.Control>
   </Stack>

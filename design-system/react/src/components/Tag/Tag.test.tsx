@@ -15,7 +15,7 @@ describe("Tag", () => {
 
   it("should render with an icon on left", () => {
     const { container } = render(
-      <Tag leftIcon="BiTrash" leftIconAriaLabel="delete">
+      <Tag leftIcon="TrashIcon" leftIconAriaLabel="delete">
         Text
       </Tag>
     );
@@ -25,7 +25,7 @@ describe("Tag", () => {
 
   it("should render with an icon on right", () => {
     const { container } = render(
-      <Tag rightIcon="BiTrash" rightIconAriaLabel="delete">
+      <Tag rightIcon="TrashIcon" rightIconAriaLabel="delete">
         Text
       </Tag>
     );
@@ -56,8 +56,8 @@ describe("Tag", () => {
   it("should not render a right icon if has a close button", () => {
     const { container } = render(
       <Tag
-        leftIcon="BiCalendar"
-        rightIcon="BiTrash"
+        leftIcon="CalendarIcon"
+        rightIcon="TrashIcon"
         leftIconAriaLabel="calendar"
         rightIconAriaLabel="delete"
       >

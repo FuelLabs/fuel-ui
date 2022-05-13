@@ -1,45 +1,71 @@
 import type { Colors } from "@fuel/css";
 import { cx, styled } from "@fuel/css";
-import type { ElementType } from "react";
-import { useMemo, createElement } from "react";
-import * as IconSet from "react-icons/bi";
+import * as RadixIcons from "@radix-ui/react-icons";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import { createElement } from "react";
 
+import { useConstant } from "../../hooks";
 import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
+import { omit } from "../../utils/helpers";
+import type { FlexProps } from "../Flex";
+import { Flex } from "../Flex";
 
-export type Icons = keyof typeof IconSet;
-type OmitProps = "as" | "children";
+export type Icons = keyof typeof RadixIcons;
+type OmitProps = "children";
 
-export type IconProps = {
-  icon: Icons | ElementType;
-  size?: number;
-  className?: string;
+export type IconProps = FlexProps & {
+  icon: Icons;
+  wrapperClassName?: string;
   color?: Colors;
-  ["aria-label"]?: string;
+  inline?: boolean;
+  label?: string;
 };
 
 export const Icon = createComponent<IconProps, OmitProps>(
-  ({ icon, size = 16, color, className, ...props }) => {
-    const classes = cx("fuel_icon", `fuel_icon--${icon}`, className);
-    const element = useMemo(
-      () => styled(typeof icon === "string" ? IconSet[icon] : icon),
+  ({
+    label: initialLabel,
+    inline,
+    icon,
+    color,
+    className,
+    wrapperClassName,
+    css,
+    ...props
+  }) => {
+    const iconElement = useConstant(
+      () => styled(typeof icon === "string" ? RadixIcons[icon] : icon),
       [icon]
     );
-    const ariaLabel = props["aria-label"];
+
+    const label = initialLabel || props["aria-label"];
     const iconProps = {
-      ...props,
-      className: classes,
-      css: { color: `$${color}` },
-      ...(ariaLabel && { "aria-label": ariaLabel }),
-      ...(size && { size }),
+      className: cx(`fuel_icon--${icon}`, className),
+      focusable: false,
+      "aria-hidden": true,
     };
 
-    return createElement(element, iconProps);
+    return (
+      <Flex
+        {...omit(["aria-label"], props)}
+        className={cx("fuel_icon", wrapperClassName)}
+        css={{
+          display: inline ? "inline-flex" : "flex",
+          color: `$${color}`,
+          ...css,
+        }}
+        align="center"
+        justify="center"
+      >
+        {createElement(iconElement, iconProps)}
+        <VisuallyHidden.Root>{label || icon}</VisuallyHidden.Root>
+      </Flex>
+    );
   }
 ) as CreateComponent<IconProps, OmitProps> & {
   iconList: Icons[];
   id: string;
 };
 
-Icon.iconList = Object.keys(IconSet) as Icons[];
+Icon.iconList = Object.keys(RadixIcons) as Icons[];
 Icon.id = "Icon";

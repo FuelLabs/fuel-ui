@@ -46,7 +46,6 @@ export type ButtonBaseProps = Omit<AriaButtonProps, "as"> & {
   variant?: ButtonVariants;
   leftIcon?: IconProps["icon"];
   rightIcon?: IconProps["icon"];
-  iconSize?: number;
   leftIconAriaLabel?: string;
   rightIconAriaLabel?: string;
   isLoading?: boolean;
@@ -76,7 +75,6 @@ export const Button = createComponent<ButtonProps>(
     variant = "solid",
     leftIcon,
     rightIcon,
-    iconSize,
     leftIconAriaLabel,
     rightIconAriaLabel,
     isLoading,
@@ -88,8 +86,8 @@ export const Button = createComponent<ButtonProps>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled;
-    const iconLeft = createIcon(leftIcon, iconSize, leftIconAriaLabel);
-    const iconRight = createIcon(rightIcon, iconSize, rightIconAriaLabel);
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel);
     const customCSSStr = JSON.stringify(customCSS);
     const customStyle = useMemo(() => css(customCSS || {})(), [customCSSStr]);
 

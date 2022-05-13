@@ -11,12 +11,14 @@ export default {
   argTypes: {},
 };
 
+const EMAIL_ICON = <Icon icon="EnvelopeOpenIcon" label="Email" />;
+
 export const Usage = (args: FormControlProps) => (
   <Stack css={{ maxW: "400px" }}>
     <Form.Control {...args} isRequired>
       <Form.Label htmlFor="email">Email</Form.Label>
       <Input isFullWidth>
-        <Input.ElementLeft element={<Icon icon="BiEnvelope" />} />
+        <Input.ElementLeft element={EMAIL_ICON} />
         <Input.Field
           type="email"
           id="email"
@@ -34,7 +36,7 @@ export const Invalid = (args: FormControlProps) => (
     <Form.Control {...args} isRequired isInvalid>
       <Form.Label htmlFor="email">Email</Form.Label>
       <Input isFullWidth>
-        <Input.ElementLeft element={<Icon icon="BiEnvelope" />} />
+        <Input.ElementLeft element={EMAIL_ICON} />
         <Input.Field
           type="email"
           id="email"

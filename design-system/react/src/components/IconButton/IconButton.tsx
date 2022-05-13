@@ -9,8 +9,9 @@ import { Tooltip } from "../Tooltip";
 
 type OmitProps = "leftIcon" | "rightIcon" | "justIcon";
 export type IconButtonProps = Omit<ButtonProps, OmitProps> & {
-  icon: IconProps["icon"];
+  size?: "xs" | "sm" | "md";
   "aria-label": string;
+  icon: IconProps["icon"];
   tooltip?: ReactNode;
 };
 

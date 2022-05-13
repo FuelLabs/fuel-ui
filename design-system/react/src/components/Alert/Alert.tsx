@@ -7,6 +7,7 @@ import { createComponent } from "../../utils";
 import type { BoxProps } from "../Box";
 import { Box } from "../Box";
 import { Flex } from "../Flex";
+import type { Icons } from "../Icon";
 import { Icon } from "../Icon";
 
 import { AlertActions } from "./AlertActions";
@@ -22,11 +23,15 @@ export type AlertProps = BoxProps & {
   status?: AlertStatus;
 };
 
-const STATUS_ICONS = {
-  info: "BiInfoCircle",
-  warning: "BiError",
-  success: "BiCheckCircle",
-  error: "BiXCircle",
+type IconProps = {
+  icon: Icons;
+};
+
+const STATUS_ICONS: Record<string, IconProps> = {
+  info: { icon: "InfoCircledIcon" },
+  warning: { icon: "ExclamationTriangleIcon" },
+  success: { icon: "CheckCircledIcon" },
+  error: { icon: "CrossCircledIcon" },
 };
 
 export const Alert = createComponent<AlertProps>(
@@ -57,7 +62,7 @@ export const Alert = createComponent<AlertProps>(
     return (
       <Box {...customProps}>
         <Box className="fuel_alert--icon">
-          <Icon icon={STATUS_ICONS[status] as any} size={20} />
+          <Icon {...STATUS_ICONS[status]} />
         </Box>
         <Flex className="fuel_alert--content">{items}</Flex>
       </Box>

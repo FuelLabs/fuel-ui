@@ -36,7 +36,7 @@ export const Horizontal = (args: AlertProps) => (
       A new software update is available. See what&apos;s new in the v0.1
     </Alert.Description>
     <Alert.Actions>
-      <Alert.Button rightIcon="BiRightArrowAlt">Details</Alert.Button>
+      <Alert.Button rightIcon="ArrowRightIcon">Details</Alert.Button>
     </Alert.Actions>
   </Alert>
 );

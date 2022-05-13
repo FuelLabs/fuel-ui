@@ -10,17 +10,16 @@ import * as styles from "./styles";
 
 type OmitProps = "children" | "as";
 export type CheckboxProps = CheckboxPrimitive.CheckboxProps & {
-  "aria-label": string;
   isDisabled?: boolean;
   isReadOnly?: boolean;
 };
 
 const Root = styled(CheckboxPrimitive.Root);
-
 export const Checkbox = createComponent<CheckboxProps, OmitProps>(
   ({ isDisabled, isReadOnly, className, ...props }) => {
     const disabled = isDisabled || isReadOnly;
     const classes = cx("fuel_checkbox", className, styles.root({ disabled }));
+    const indicatorClass = styles.indicator({ disabled });
 
     const customProps = {
       ...props,
@@ -30,16 +29,13 @@ export const Checkbox = createComponent<CheckboxProps, OmitProps>(
       className: classes,
     };
 
-    const customChildren = (
-      <>
-        <CheckboxPrimitive.CheckboxIndicator
-          className={styles.indicator({ disabled })}
-        >
-          <Icon icon="BiCheck" size={18} />
-        </CheckboxPrimitive.CheckboxIndicator>
-      </>
+    return createElement(
+      Root,
+      customProps,
+      <CheckboxPrimitive.CheckboxIndicator className={indicatorClass}>
+        <Icon icon="CheckIcon" />
+      </CheckboxPrimitive.CheckboxIndicator>
     );
-    return createElement(Root, customProps, customChildren);
   }
 ) as CreateComponent<CheckboxProps, OmitProps> & {
   id: string;

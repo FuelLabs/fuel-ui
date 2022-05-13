@@ -26,7 +26,7 @@ export const DialogContent = createComponent<DialogContentProps>(
       <Root {...props} css={css} className={cx(className, CLASSES.Content)}>
         {children}
         <RDialog.Close className={cx(closeClassName, styles.closeButton())}>
-          <Icon icon="BiX" size={20} color="gray10" />
+          <Icon icon="Cross2Icon" color="gray10" />
         </RDialog.Close>
       </Root>
     </RDialog.Portal>
