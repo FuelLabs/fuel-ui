@@ -5,7 +5,7 @@
 - [🙋🏻&nbsp; Getting Started](#-getting-started)
 - [🛠&nbsp; Tools used](#-tools-used)
 - [🗃&nbsp; Systems Based Architecture](#-systems-based-architecture)
-- [�&nbsp; Routes](#-routes)
+- [🛤&nbsp; Routes](#-routes)
 - [📜&nbsp; License](#-license)
 
 ---
