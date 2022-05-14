@@ -41,6 +41,7 @@
     "@react-aria/button": "^3.4.4",
     "@react-aria/focus": "^3.5.5",
     "@react-aria/interactions": "^3.8.4",
+    "@react-aria/textfield": "^3.5.5",
     "@stitches/react": "^1.2.8",
     "ariakit": "2.0.0-next.26",
     "color": "^4.2.3",

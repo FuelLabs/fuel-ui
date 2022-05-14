@@ -5,6 +5,7 @@ import { Children, cloneElement, createElement } from "react";
 
 import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
+import { useFormControlProps } from "../Form/FormControl";
 
 import { RadioGroupItem } from "./RadioGroupItem";
 import * as styles from "./styles";
@@ -29,7 +30,14 @@ export const RadioGroup = createComponent<RadioGroupProps>(
     className,
     ...props
   }) => {
-    const disabled = isDisabled || isReadOnly;
+    const formControlProps = useFormControlProps();
+    const disabled =
+      isDisabled ||
+      isReadOnly ||
+      formControlProps.isDisabled ||
+      formControlProps.isReadOnly;
+
+    const readonly = isReadOnly || formControlProps.isReadOnly;
     const classes = cx(
       "fuel_radio_group",
       className,
@@ -51,9 +59,9 @@ export const RadioGroup = createComponent<RadioGroupProps>(
     const customChildren = Children.toArray(children).map((child: any) => {
       if (child?.type?.id === "RadioGroupItem") {
         return cloneElement(child, {
-          isDisabled,
-          isReadOnly,
-          required: props.required,
+          isDisabled: disabled,
+          isReadOnly: readonly,
+          required: props.required || formControlProps.isRequired,
         });
       }
       return child;

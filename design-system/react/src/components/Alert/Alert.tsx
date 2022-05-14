@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { cx } from "@fuels-ui/css";
-import { Children, cloneElement, useId } from "react";
+import { Children, cloneElement, createContext, useContext } from "react";
 
 import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
@@ -15,8 +15,16 @@ import { AlertButton } from "./AlertButton";
 import { AlertDescription } from "./AlertDescription";
 import { AlertTitle } from "./AlertTitle";
 import * as styles from "./styles";
-import type { AlertStatus } from "./useAlertProps";
-import { useSetAlertProps } from "./useAlertProps";
+
+export type AlertStatus = "info" | "warning" | "success" | "error";
+type ContextProps = {
+  status?: AlertStatus;
+};
+
+const ctx = createContext<ContextProps>({});
+export function useAlertProps() {
+  return useContext(ctx);
+}
 
 export type AlertProps = BoxProps & {
   direction?: "row" | "column";
@@ -42,30 +50,33 @@ export const Alert = createComponent<AlertProps>(
     className,
     ...props
   }) => {
-    const id = useId();
     const classes = cx(
       "fuel_alert",
       className,
       styles.root({ status, direction })
     );
 
-    const customProps = { ...props, direction, className: classes };
-    useSetAlertProps(id, { status });
-
+    const customProps = {
+      ...props,
+      direction,
+      className: classes,
+    };
     const items = Children.toArray(children).map((child: any) => {
       if (child?.type?.id === "AlertActions") {
-        return cloneElement(child, { _parentId: id });
+        return cloneElement(child);
       }
       return child;
     });
 
     return (
-      <Box {...customProps}>
-        <Box className="fuel_alert--icon">
-          <Icon {...STATUS_ICONS[status]} />
+      <ctx.Provider value={{ status }}>
+        <Box {...customProps}>
+          <Box className="fuel_alert--icon">
+            <Icon {...STATUS_ICONS[status]} />
+          </Box>
+          <Flex className="fuel_alert--content">{items}</Flex>
         </Box>
-        <Flex className="fuel_alert--content">{items}</Flex>
-      </Box>
+      </ctx.Provider>
     );
   }
 ) as CreateComponent<AlertProps> & {

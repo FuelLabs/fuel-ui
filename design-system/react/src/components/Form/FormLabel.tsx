@@ -1,19 +1,19 @@
 import { cx, styled } from "@fuels-ui/css";
 import { createElement } from "react";
 
-import type { CreateComponent, HTMLProps, WithParentId } from "../../utils";
+import type { CreateComponent, HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
 
+import { useFormControlProps } from "./FormControl";
 import * as styles from "./styles";
-import { useFormControlProps } from "./useFormControlProps";
 
-export type FormLabelProps = WithParentId<HTMLProps["label"]>;
+export type FormLabelProps = HTMLProps["label"];
 
 const Root = styled("label");
 
 export const FormLabel = createComponent<FormLabelProps>(
-  ({ _parentId: id, children, className, ...props }) => {
-    const parentProps = useFormControlProps(id);
+  ({ children, className, ...props }) => {
+    const { id, ...parentProps } = useFormControlProps();
     const classes = cx(
       "fuel_form--label",
       className,

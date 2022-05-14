@@ -4,6 +4,7 @@ import { createElement } from "react";
 
 import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
+import { useFormControlProps } from "../Form/FormControl";
 import { Icon } from "../Icon";
 
 import * as styles from "./styles";
@@ -17,7 +18,14 @@ export type CheckboxProps = CheckboxPrimitive.CheckboxProps & {
 const Root = styled(CheckboxPrimitive.Root);
 export const Checkbox = createComponent<CheckboxProps, OmitProps>(
   ({ isDisabled, isReadOnly, className, ...props }) => {
-    const disabled = isDisabled || isReadOnly;
+    const formControlProps = useFormControlProps();
+    const disabled =
+      isDisabled ||
+      isReadOnly ||
+      formControlProps.isDisabled ||
+      formControlProps.isReadOnly;
+
+    const readonly = isReadOnly || formControlProps.isReadOnly;
     const classes = cx("fuel_checkbox", className, styles.root({ disabled }));
     const indicatorClass = styles.indicator({ disabled });
 
@@ -25,8 +33,9 @@ export const Checkbox = createComponent<CheckboxProps, OmitProps>(
       ...props,
       disabled,
       "aria-disabled": disabled,
-      "aria-readonly": isReadOnly,
+      "aria-readonly": readonly,
       className: classes,
+      required: props.required || formControlProps.isRequired,
     };
 
     return createElement(

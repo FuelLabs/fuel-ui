@@ -191,6 +191,7 @@ importers:
       '@react-aria/button': ^3.4.4
       '@react-aria/focus': ^3.5.5
       '@react-aria/interactions': ^3.8.4
+      '@react-aria/textfield': ^3.5.5
       '@react-types/button': ^3.4.5
       '@stitches/react': ^1.2.8
       '@storybook/addon-a11y': ^6.4.22
@@ -242,6 +243,7 @@ importers:
       '@react-aria/button': 3.4.4_react@18.1.0
       '@react-aria/focus': 3.5.5_react@18.1.0
       '@react-aria/interactions': 3.8.4_react@18.1.0
+      '@react-aria/textfield': 3.5.5_react@18.1.0
       '@stitches/react': 1.2.8_react@18.1.0
       ariakit: 2.0.0-next.26_ef5jwxihqo6n7gxfmzogljlgcm
       color: 4.2.3
@@ -3057,12 +3059,38 @@ packages:
       react: 18.1.0
     dev: false
 
+  /@react-aria/label/3.2.5_react@18.1.0:
+    resolution: {integrity: sha512-MkcPa7Ps/BsWTctH7IgVWtYENwrByfYMPmYdZCgotI0MiI6wK4LWwRaUQmfc7mWwJ7ns2NPyBRwrzJT4+RRbew==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1
+    dependencies:
+      '@babel/runtime': 7.17.9
+      '@react-aria/utils': 3.12.0_react@18.1.0
+      '@react-types/label': 3.5.4_react@18.1.0
+      '@react-types/shared': 3.12.0_react@18.1.0
+      react: 18.1.0
+    dev: false
+
   /@react-aria/ssr/3.1.2_react@18.1.0:
     resolution: {integrity: sha512-amXY11ImpokvkTMeKRHjsSsG7v1yzzs6yeqArCyBIk60J3Yhgxwx9Cah+Uu/804ATFwqzN22AXIo7SdtIaMP+g==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1
     dependencies:
       '@babel/runtime': 7.17.9
+      react: 18.1.0
+    dev: false
+
+  /@react-aria/textfield/3.5.5_react@18.1.0:
+    resolution: {integrity: sha512-ZbGbdObR9cXPXfOr5Ius//nO5Y9yZ+pOT8ymTQTb/X8hLZdfpHqDD9SOjxlTt047ByWfIL0cRlOoEh3MHwvNFg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1
+    dependencies:
+      '@babel/runtime': 7.17.9
+      '@react-aria/focus': 3.5.5_react@18.1.0
+      '@react-aria/label': 3.2.5_react@18.1.0
+      '@react-aria/utils': 3.12.0_react@18.1.0
+      '@react-types/shared': 3.12.0_react@18.1.0
+      '@react-types/textfield': 3.4.0_react@18.1.0
       react: 18.1.0
     dev: false
 
@@ -3117,12 +3145,30 @@ packages:
       react: 18.1.0
     dev: false
 
+  /@react-types/label/3.5.4_react@18.1.0:
+    resolution: {integrity: sha512-LuShOdEYokzn58SKUIo7kQdN3CV5Rs+HCxmvix4+Uw6BAYG9/aqqoKKolTA9klbM8rvvEzDqFzNZZHeMTBoN6w==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1
+    dependencies:
+      '@react-types/shared': 3.12.0_react@18.1.0
+      react: 18.1.0
+    dev: false
+
   /@react-types/shared/3.12.0_react@18.1.0:
     resolution: {integrity: sha512-faGr9xOjtMlkQPfA1i36iUmWS/hpPPtxIwdAtBi6p7rCejmShMLFZ2YN4DxzbJUCVubF2S1+rMMIKuXG17DkEw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1
     dependencies:
       react: 18.1.0
+
+  /@react-types/textfield/3.4.0_react@18.1.0:
+    resolution: {integrity: sha512-NL97JvdzsuGDYGx/JlE/yCceUR4IS1dX6CK9PljI0ZTsOOXLGynJ4HCpayBzbelUA617a+qr/v0c1CxY3y1qfg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1
+    dependencies:
+      '@react-types/shared': 3.12.0_react@18.1.0
+      react: 18.1.0
+    dev: false
 
   /@rollup/plugin-babel/5.3.1_d7pn3wqtbuzdunda4z5wtbe4v4:
     resolution: {integrity: sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q==}

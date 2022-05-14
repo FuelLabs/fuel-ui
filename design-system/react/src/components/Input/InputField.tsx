@@ -2,36 +2,27 @@ import { cx, styled } from "@fuels-ui/css";
 import { createElement } from "react";
 
 import { createComponent } from "../../utils";
-import type { HTMLProps, WithParentId, CreateComponent } from "../../utils";
+import type { HTMLProps, CreateComponent } from "../../utils";
 
+import { useInputProps } from "./Input";
 import * as styles from "./styles";
-import { useInputProps } from "./useInputProps";
 
 type HTMLInputProps = HTMLProps["input"];
 type OmitProps = "as" | "children";
-
-export type InputFieldProps = WithParentId<
-  Omit<HTMLInputProps, "size"> & {
-    htmlSize?: HTMLInputProps["size"];
-  }
->;
+export type InputFieldProps = Omit<HTMLInputProps, "size"> & {
+  htmlSize?: HTMLInputProps["size"];
+};
 
 const Root = styled("input");
 
 export const InputField = createComponent<InputFieldProps, OmitProps>(
-  ({
-    _parentId: id,
-    name: nameProp,
-    htmlSize,
-    role = "textbox",
-    className,
-    ...props
-  }) => {
-    const parentProps = useInputProps(id);
+  ({ name: nameProp, htmlSize, role = "textbox", className, ...props }) => {
+    const parentProps = useInputProps();
     const isRequired = parentProps?.isRequired;
     const isDisabled = parentProps?.isDisabled;
     const isReadOnly = parentProps?.isReadOnly;
     const isInvalid = parentProps?.isInvalid;
+    const describedBy = parentProps?.describedBy;
 
     const name = `${nameProp}`;
     const disabled = isDisabled || isReadOnly;
@@ -54,6 +45,7 @@ export const InputField = createComponent<InputFieldProps, OmitProps>(
       role,
       size: htmlSize,
       required: isRequired,
+      "aria-describedby": describedBy,
       "aria-required": isRequired,
       "aria-invalid": isInvalid,
       "aria-disabled": isDisabled,
