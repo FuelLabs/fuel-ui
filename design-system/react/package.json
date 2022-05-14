@@ -38,6 +38,9 @@
     "@radix-ui/react-tabs": "^0.1.5",
     "@radix-ui/react-tooltip": "^0.1.7",
     "@radix-ui/react-visually-hidden": "^0.1.4",
+    "@react-aria/button": "^3.4.4",
+    "@react-aria/focus": "^3.5.5",
+    "@react-aria/interactions": "^3.8.4",
     "@stitches/react": "^1.2.8",
     "ariakit": "2.0.0-next.26",
     "color": "^4.2.3",
@@ -49,6 +52,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@fuels-ui/config": "workspace:*",
+    "@react-types/button": "^3.4.5",
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",

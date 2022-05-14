@@ -16,7 +16,7 @@ describe("Button", () => {
 
   it("should click when space", async () => {
     const handler = jest.fn();
-    render(<Button onClick={handler}>Click</Button>);
+    render(<Button onPress={handler}>Click</Button>);
     await press.Tab();
     await press.Space();
     expect(handler).toBeCalledTimes(1);

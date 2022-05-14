@@ -22,9 +22,9 @@ export function TopNav() {
           <IconButton
             variant="link"
             aria-label="Theme Switcher"
-            icon={theme === "light" ? "BiMoon" : "BiSun"}
+            icon={theme === "light" ? "MoonIcon" : "SunIcon"}
             color={theme === "light" ? "gray" : "yellow"}
-            onClick={toggleTheme}
+            onPress={toggleTheme}
           />
         </Flex>
       </Container>

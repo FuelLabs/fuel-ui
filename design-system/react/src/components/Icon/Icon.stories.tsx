@@ -1,6 +1,7 @@
 import { useCopyToClipboard } from "react-use";
 
 import { Box } from "../Box";
+import { Button } from "../Button";
 import { Flex } from "../Flex";
 import { Link } from "../Link";
 import { Text } from "../Text";
@@ -37,16 +38,14 @@ export const AllIcons = () => {
   return (
     <Box css={styles.list}>
       {Icon.iconList.map((key) => (
-        <Box
-          key={key}
-          css={styles.iconWrapper}
-          onClick={() => copy(key)}
-          title="Click to copy"
-        >
+        <Box key={key} css={styles.iconWrapper}>
           <Icon key={key} icon={key} />
           <Box as="span" css={styles.iconLabel}>
             {key}
           </Box>
+          <Button variant="link" onPress={() => copy(key)}>
+            Copy
+          </Button>
         </Box>
       ))}
     </Box>

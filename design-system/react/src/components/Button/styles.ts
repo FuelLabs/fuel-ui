@@ -13,7 +13,7 @@ export const button = css({
   transition: 'all',
   textDecoration: 'none',
 
-  '&:active': {
+  '&:not([aria-disabled=true]):active, &:not([aria-disabled=true])[aria-pressed=true]': {
     transform: 'scale(0.96)',
   },
 

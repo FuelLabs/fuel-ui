@@ -10,6 +10,9 @@ export default {
   title: "UI/Button",
   component: Button,
   argTypes: {
+    onPress: {
+      action: "pressed",
+    },
     size: {
       defaultValue: "md",
       control: "select",
