@@ -92,7 +92,7 @@ export const WithButton = (args: InputProps) => {
           placeholder="Your password..."
         />
         <Input.ElementRight>
-          <Button variant="outlined" onClick={toggle} css={{ mr: "-8px" }}>
+          <Button variant="outlined" onPress={toggle} css={{ mr: "-8px" }}>
             Show
           </Button>
         </Input.ElementRight>

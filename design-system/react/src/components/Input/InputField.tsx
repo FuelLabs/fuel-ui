@@ -1,10 +1,8 @@
 import { cx, styled } from "@fuels-ui/css";
-import { useFocusable } from "ariakit";
 import { createElement } from "react";
 
 import { createComponent } from "../../utils";
 import type { HTMLProps, WithParentId, CreateComponent } from "../../utils";
-import { omit } from "../../utils/helpers";
 
 import * as styles from "./styles";
 import { useInputProps } from "./useInputProps";
@@ -48,8 +46,6 @@ export const InputField = createComponent<InputFieldProps, OmitProps>(
       })
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const focusProps = omit(["children", "wrapElement"], useFocusable()) as any;
     const inputProps = {
       ...props,
       children: null,
@@ -66,7 +62,6 @@ export const InputField = createComponent<InputFieldProps, OmitProps>(
     };
 
     return createElement(Root, {
-      ...focusProps,
       ...inputProps,
       className: classes,
     });

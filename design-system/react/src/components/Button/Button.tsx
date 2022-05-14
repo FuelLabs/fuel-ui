@@ -1,11 +1,11 @@
 import type { ColorKeys } from "@fuels-ui/css";
-import { css, cx } from "@fuels-ui/css";
-import type { ButtonProps as AriaButtonProps } from "ariakit";
-import { Button as AriaButton } from "ariakit";
-import { useMemo, createElement } from "react";
+import { styled, css, cx } from "@fuels-ui/css";
+import { useButton } from "@react-aria/button";
+import type { AriaButtonProps } from "@react-types/button";
+import { useMemo, createElement, useRef } from "react";
 
 import { createComponent } from "../../utils";
-import type { HTMLProps, CreateComponent } from "../../utils";
+import type { CreateComponent, HTMLProps } from "../../utils";
 import type { IconProps } from "../Icon";
 import { Spinner } from "../Spinner";
 import { createIcon } from "../Text";
@@ -40,7 +40,7 @@ function getChildren({
 export type ButtonVariants = "solid" | "outlined" | "ghost" | "link";
 export type ButtonSizes = "xs" | "sm" | "md" | "lg";
 
-export type ButtonBaseProps = Omit<AriaButtonProps, "as"> & {
+export type ButtonBaseProps = {
   size?: ButtonSizes;
   color?: ColorKeys;
   variant?: ButtonVariants;
@@ -52,10 +52,15 @@ export type ButtonBaseProps = Omit<AriaButtonProps, "as"> & {
   isDisabled?: boolean;
 };
 
-export type ButtonProps = HTMLProps["button"] &
+export type ButtonProps = Omit<HTMLProps["button"], "onClick"> &
+  AriaButtonProps<"button"> &
   ButtonBaseProps & {
     justIcon?: boolean;
     isLink?: boolean;
+    /**
+     * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
+     */
+    onClick?: HTMLProps["button"]["onClick"];
   };
 
 export const SPINNER_SIZE = {
@@ -65,11 +70,12 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
+const Root = styled("button");
+
 export const Button = createComponent<ButtonProps>(
   ({
+    as = "button",
     css: customCSS,
-    role = "button",
-    type = "button",
     size = "md",
     color = "accent",
     variant = "solid",
@@ -90,7 +96,6 @@ export const Button = createComponent<ButtonProps>(
     const iconRight = createIcon(rightIcon, rightIconAriaLabel);
     const customCSSStr = JSON.stringify(customCSS);
     const customStyle = useMemo(() => css(customCSS || {})(), [customCSSStr]);
-
     const classes = cx([
       "fuel_button",
       ...(customCSS ? [customStyle] : []),
@@ -105,28 +110,24 @@ export const Button = createComponent<ButtonProps>(
       }),
     ]);
 
-    /**
-     * Modify handlers to don't execute if disabled is true
-     */
-    const handleProps = Object.entries(props)
-      .filter(([key]) => key.startsWith("on"))
-      .reduce(
-        (obj, [key, val]) => ({ ...obj, [key]: disabled ? () => null : val }),
-        {}
-      );
+    const ref = useRef<HTMLButtonElement | null>(null);
+    const { buttonProps, isPressed } = useButton(
+      { ...props, isDisabled, ...(isLink && { elementType: "a" }) },
+      ref
+    );
 
-    const buttonProps = {
-      ...props,
-      ...handleProps,
-      ...(isLink ? { role: "link" } : { role }),
-      ...(!isLink && { type }),
+    const customProps = {
+      ...buttonProps,
+      as,
       disabled,
       className: classes,
-    } as AriaButtonProps;
+      "aria-disabled": disabled,
+      "aria-pressed": isPressed,
+    };
 
     return createElement(
-      AriaButton,
-      buttonProps,
+      Root,
+      customProps,
       getChildren({
         size,
         isLoading,
