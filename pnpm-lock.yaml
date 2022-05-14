@@ -219,6 +219,7 @@ importers:
       lodash: ^4.17.21
       react: ^18.1.0
       react-dom: ^18.1.0
+      react-merge-refs: ^1.1.0
       react-use: ^17.3.2
       storybook-dark-mode: ^1.1.0
       tsconfig-paths-webpack-plugin: ^3.5.2
@@ -247,6 +248,7 @@ importers:
       jotai: 1.6.6_vm2wkhzl5f5eyl7hfuywll6uzq
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
+      react-merge-refs: 1.1.0
       react-use: 17.3.2_ef5jwxihqo6n7gxfmzogljlgcm
     devDependencies:
       '@babel/core': 7.17.10
@@ -14081,6 +14083,10 @@ packages:
 
   /react-is/18.1.0:
     resolution: {integrity: sha512-Fl7FuabXsJnV5Q1qIOQwx/sagGF18kogb4gpfcG4gjLBWO0WDiiz1ko/ExayuxE7InyQkBLkxRFG5oxY6Uu3Kg==}
+
+  /react-merge-refs/1.1.0:
+    resolution: {integrity: sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==}
+    dev: false
 
   /react-popper-tooltip/3.1.1_ef5jwxihqo6n7gxfmzogljlgcm:
     resolution: {integrity: sha512-EnERAnnKRptQBJyaee5GJScWNUKQPDD2ywvzZyUjst/wj5U64C8/CnSYLNEmP2hG0IJ3ZhtDxE8oDN+KOyavXQ==}

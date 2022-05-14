@@ -10,7 +10,8 @@ import { forwardRef } from "react";
 import type { PropsWithAs } from "./types";
 
 type Render<P, OP = any> = (
-  props: PropsWithAs<OP extends string ? Omit<P, OP> : P>
+  props: PropsWithoutRef<PropsWithAs<OP extends string ? Omit<P, OP> : P>> &
+    RefAttributes<any>
 ) => ReactElement;
 
 export type CreateComponent<P, OP = any> = ForwardRefExoticComponent<
@@ -36,10 +37,10 @@ export type CreateComponent<P, OP = any> = ForwardRefExoticComponent<
  * <Component as="button" customProp />
  */
 
-export function createComponent<InitialProps, OmitProps extends string = "">(
-  render: Render<InitialProps, OmitProps>
+export function createComponent<P, OP extends string = "">(
+  render: Render<P, OP>
 ) {
-  type Props = Omit<PropsWithAs<InitialProps>, OmitProps>;
+  type Props = PropsWithAs<OP extends string ? Omit<P, OP> : P>;
   return forwardRef<any, Props>((props, ref) =>
     render({ ref, ...props } as any)
   );
