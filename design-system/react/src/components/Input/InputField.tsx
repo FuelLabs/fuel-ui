@@ -1,5 +1,8 @@
 import { cx, styled } from "@fuels-ui/css";
-import { createElement } from "react";
+import { useFocusable } from "@react-aria/focus";
+import { mergeProps } from "@react-aria/utils";
+import { createElement, useRef } from "react";
+import mergeRefs from "react-merge-refs";
 
 import { createComponent } from "../../utils";
 import type { HTMLProps, CreateComponent } from "../../utils";
@@ -53,9 +56,15 @@ export const InputField = createComponent<InputFieldProps, OmitProps>(
       "aria-placeholder": props.placeholder,
     };
 
+    const ref = useRef<HTMLInputElement | null>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { focusableProps } = useFocusable(props as any, ref);
+    const customProps = mergeProps(inputProps, focusableProps);
+
     return createElement(Root, {
-      ...inputProps,
+      ...customProps,
       className: classes,
+      ref: mergeRefs([ref, props.ref!]),
     });
   }
 ) as CreateComponent<InputFieldProps, OmitProps> & {
