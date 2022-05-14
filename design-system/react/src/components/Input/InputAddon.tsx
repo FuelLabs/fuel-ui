@@ -1,34 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { cx, styled } from "@fuels-ui/css";
 import { createElement } from "react";
 
 import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
-import { omit } from "../../utils/helpers";
 
+import { useInputProps } from "./Input";
 import * as styles from "./styles";
-import type { InputSizes } from "./useInputProps";
-
-export type InputAddonProps = {
-  size?: InputSizes;
-};
 
 const Root = styled("div");
 
-const InputAddon = createComponent<InputAddonProps>(
-  ({ size, className, children, ...props }) => {
-    const classes = cx("fuel_input--addon", className, styles.addon({ size }));
-    const filteredProps = omit(["_parentId"], props);
-    const customProps = { ...filteredProps, className: classes };
-    return createElement(Root, customProps, children);
-  }
-);
+const InputAddon = createComponent(({ className, children, ...props }) => {
+  const { size } = useInputProps();
+  const classes = cx("fuel_input--addon", className, styles.addon({ size }));
+  const customProps = { ...props, className: classes };
+  return createElement(Root, customProps, children);
+});
 
-type OmitProps = "size" | "left" | "right";
-type InputAddonComponent = CreateComponent<InputAddonProps> & {
+type OmitProps = "left" | "right";
+type InputAddonComponent = CreateComponent<any> & {
   id?: string;
 };
 
-export const InputAddonLeft = createComponent<InputAddonProps, OmitProps>(
+export const InputAddonLeft = createComponent<any, OmitProps>(
   ({ className, ...props }) => (
     <InputAddon
       {...props}
@@ -37,7 +31,7 @@ export const InputAddonLeft = createComponent<InputAddonProps, OmitProps>(
   )
 ) as InputAddonComponent;
 
-export const InputAddonRight = createComponent<InputAddonProps, OmitProps>(
+export const InputAddonRight = createComponent<any, OmitProps>(
   ({ className, ...props }) => (
     <InputAddon
       {...props}

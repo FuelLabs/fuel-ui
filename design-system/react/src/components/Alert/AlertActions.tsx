@@ -1,15 +1,15 @@
 import { cx } from "@fuels-ui/css";
 import { Children, cloneElement } from "react";
 
-import type { CreateComponent, WithParentId } from "../../utils";
+import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import type { FlexProps } from "../Flex";
 import { Flex } from "../Flex";
 
+import { useAlertProps } from "./Alert";
 import * as styles from "./styles";
-import { useAlertProps } from "./useAlertProps";
 
-export type AlertActionsProps = WithParentId<FlexProps>;
+export type AlertActionsProps = FlexProps;
 
 const BUTTON_COLORS = {
   info: "blue",
@@ -19,10 +19,11 @@ const BUTTON_COLORS = {
 };
 
 export const AlertActions = createComponent<AlertActionsProps>(
-  ({ _parentId: id, children, className, ...props }) => {
+  ({ children, className, ...props }) => {
     const classes = cx("fuel_alert--actions", className, styles.actions());
     const customProps = { ...props, className: classes };
-    const parentProps = useAlertProps(id);
+
+    const parentProps = useAlertProps();
     const defaultStatus = parentProps?.status || "info";
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -5,14 +5,11 @@ import { Children, cloneElement, createElement } from "react";
 import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 
+import { useInputProps } from "./Input";
 import * as styles from "./styles";
-import type { InputSizes } from "./useInputProps";
-import { useInputProps } from "./useInputProps";
 
 export type InputElementProps = {
-  size?: InputSizes;
   element?: ReactNode;
-  _parentId?: string;
 };
 
 export const ICON_SIZES = {
@@ -24,8 +21,8 @@ export const ICON_SIZES = {
 const Root = styled("div");
 
 const InputElement = createComponent<InputElementProps>(
-  ({ _parentId: id, element, size, className, children, ...props }) => {
-    const parentProps = useInputProps(id);
+  ({ element, className, children, ...props }) => {
+    const { size, ...parentProps } = useInputProps();
     const disabled = parentProps?.isDisabled || parentProps?.isReadOnly;
     const classes = cx(
       "fuel_input--element",
@@ -69,12 +66,11 @@ const InputElement = createComponent<InputElementProps>(
   }
 );
 
-type OmitProps = "size";
 type InputElementComponent = CreateComponent<InputElementProps> & {
   id?: string;
 };
 
-export const InputElementLeft = createComponent<InputElementProps, OmitProps>(
+export const InputElementLeft = createComponent<InputElementProps>(
   ({ className, ...props }) => (
     <InputElement
       {...props}
@@ -83,7 +79,7 @@ export const InputElementLeft = createComponent<InputElementProps, OmitProps>(
   )
 ) as InputElementComponent;
 
-export const InputElementRight = createComponent<InputElementProps, OmitProps>(
+export const InputElementRight = createComponent<InputElementProps>(
   ({ className, ...props }) => (
     <InputElement
       {...props}

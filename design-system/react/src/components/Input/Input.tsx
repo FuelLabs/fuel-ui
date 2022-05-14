@@ -1,16 +1,16 @@
 import { cx, styled } from "@fuels-ui/css";
-import { Children, cloneElement, createElement, useId } from "react";
+import { createElement, createContext, useContext } from "react";
 
 import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
+import { useFormControlProps } from "../Form/FormControl";
 
 import { InputAddonLeft, InputAddonRight } from "./InputAddon";
 import { InputElementLeft, InputElementRight } from "./InputElement";
 import { InputField } from "./InputField";
 import * as styles from "./styles";
-import { useSetInputProps } from "./useInputProps";
-import type { InputSizes } from "./useInputProps";
 
+export type InputSizes = "sm" | "md" | "lg";
 export type InputProps = {
   size?: InputSizes;
   isRequired?: boolean;
@@ -20,6 +20,11 @@ export type InputProps = {
   isFullWidth?: boolean;
   describedBy?: string;
 };
+
+const ctx = createContext<InputProps>({});
+export function useInputProps() {
+  return useContext(ctx);
+}
 
 const Root = styled("div");
 
@@ -36,52 +41,45 @@ export const Input = createComponent<InputProps>(
     children,
     ...props
   }) => {
-    const id = useId();
-    const disabled = isDisabled || isReadOnly;
+    const formControlProps = useFormControlProps();
+    const disabled =
+      isDisabled ||
+      isReadOnly ||
+      formControlProps.isDisabled ||
+      formControlProps.isReadOnly;
+
     const classes = cx(
       "fuel_input",
       className,
       styles.input({
         size,
         disabled,
-        required: isRequired,
-        invalid: isInvalid,
+        required: isRequired || formControlProps.isRequired,
+        invalid: isInvalid || formControlProps.isInvalid,
         full: isFullWidth,
       })
     );
 
-    useSetInputProps(id, {
+    const providerProps = {
       size,
       isRequired,
       isInvalid,
       isDisabled,
       isReadOnly,
-    });
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const items = Children.toArray(children).map((child: any) => {
-      if (child?.type?.id === "InputField") {
-        return cloneElement(child, {
-          _parentId: id,
-          "aria-describedby": child.props?.["aria-describedby"] || describedBy,
-        });
-      }
-      if (
-        child?.type?.id === "InputAddon" ||
-        child?.type?.id === "InputElement"
-      ) {
-        return cloneElement(child, { ...child.props, size, _parentId: id });
-      }
-      return child;
-    });
+      describedBy,
+      ...formControlProps,
+    };
 
     const inputProps = {
       ...props,
-      children: items,
       className: classes,
     };
 
-    return createElement(Root, inputProps, items);
+    return (
+      <ctx.Provider value={providerProps}>
+        {createElement(Root, inputProps, children)}
+      </ctx.Provider>
+    );
   }
 ) as CreateComponent<InputProps> & {
   id: string;
