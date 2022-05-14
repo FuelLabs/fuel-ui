@@ -47,6 +47,7 @@
     "jotai": "^1.6.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-merge-refs": "^1.1.0",
     "react-use": "^17.3.2"
   },
   "devDependencies": {
