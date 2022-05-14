@@ -21,11 +21,16 @@ export default {
 };
 
 export const Usage = (args: IconProps) => (
-  <Flex css={{ p: "$5", maxW: "350px" }} align="flex-start" direction="column">
+  <Flex
+    gap="$3"
+    css={{ p: "$5", maxW: "350px" }}
+    align="flex-start"
+    direction="column"
+  >
     <Icon {...args} icon="PersonIcon" inline />
-    <Text fontSize="sm">
+    <Text fontSize="sm" as="div">
       We&apos;re using{" "}
-      <Link isExternal href="https://https://icons.modulz.app/">
+      <Link isExternal href="https://icons.modulz.app/">
         Radix
       </Link>{" "}
       Icons as icon set, so you can check more details about it on their website

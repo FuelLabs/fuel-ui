@@ -22,14 +22,16 @@ function getRightDescribedBy(ids: string[], id: string, isInvalid?: boolean) {
 }
 
 export type FormControlProps = {
-  id: string;
   isRequired?: boolean;
   isInvalid?: boolean;
   isDisabled?: boolean;
   isReadOnly?: boolean;
 };
 
-type Context = FormControlProps & { describedBy?: string };
+type Context = FormControlProps & {
+  id: string;
+  describedBy?: string;
+};
 
 const ctx = createContext<Context>({ id: "" });
 export function useFormControlProps() {

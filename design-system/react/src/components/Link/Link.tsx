@@ -1,6 +1,8 @@
 import type { Colors } from "@fuels-ui/css";
 import { allColors, css, cx, styled } from "@fuels-ui/css";
-import { createElement } from "react";
+import { useLink } from "@react-aria/link";
+import { mergeProps } from "@react-aria/utils";
+import { createElement, useRef } from "react";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
@@ -15,8 +17,10 @@ const Root = styled("a");
 
 export const Link = createComponent<LinkProps>(
   ({ isExternal, className, children, color, ...props }) => {
+    const ref = useRef<HTMLLinkElement | null>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { linkProps } = useLink(props as any, ref);
     const customProps = {
-      ...props,
       role: "link",
       className: cx("fuel_link", className, styles.link({ color })),
       ...(isExternal && { target: "_blank", rel: "noopener noreferrer" }),
@@ -24,7 +28,7 @@ export const Link = createComponent<LinkProps>(
 
     return createElement(
       Root,
-      customProps,
+      mergeProps(props, customProps, linkProps),
       <>
         {children} {isExternal && <Icon icon="ExternalLinkIcon" />}
       </>
