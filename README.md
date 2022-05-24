@@ -38,7 +38,9 @@ projects and also packages that we're using to build them:
 ┣ 📂 .vscode                    // vscode settings
 ┃
 ┣ 📂 apps                       // our single page apps
-┃ ┗ 📂 example                 // example application using ViteJS
+┃ ┗ 📂 example                 // group folder for an example app
+┃    ┗ 📂 frontend               // vitejs application
+┃    ┗ 📂 contracts            // contracts related to example app
 ┃
 ┣ 📂 common                     // common packages used across monorepo
 ┃ ┗ 📂 config                  // project containing some monorepo tools configurations

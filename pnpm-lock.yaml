@@ -44,7 +44,7 @@ importers:
       turbo: 1.2.9
       typescript: 4.6.4
 
-  apps/example:
+  apps/example/client:
     specifiers:
       '@fontsource/inter': ^4.5.10
       '@fontsource/raleway': ^4.5.8
@@ -63,8 +63,8 @@ importers:
     dependencies:
       '@fontsource/inter': 4.5.10
       '@fontsource/raleway': 4.5.8
-      '@fuels-ui/css': link:../../design-system/css
-      '@fuels-ui/react': link:../../design-system/react
+      '@fuels-ui/css': link:../../../design-system/css
+      '@fuels-ui/react': link:../../../design-system/react
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       react-helmet: 6.1.0_react@18.1.0
@@ -1433,7 +1433,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.17.10
-      '@babel/helper-plugin-utils': 7.16.7
+      '@babel/helper-plugin-utils': 7.17.12
     dev: true
 
   /@babel/plugin-transform-react-jsx/7.17.3_@babel+core@7.17.10:

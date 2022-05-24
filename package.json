@@ -18,7 +18,7 @@
     "url": "https://github.com/FuelLabs/design-sytem/issues"
   },
   "workspaces": [
-    "./apps/*",
+    "./apps/**/*",
     "./common/*",
     "./design-system/*"
   ],
