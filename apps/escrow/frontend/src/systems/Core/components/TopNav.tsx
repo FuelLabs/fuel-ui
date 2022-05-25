@@ -6,9 +6,14 @@ import {
   Stack,
   useFuelTheme,
 } from "@fuels-ui/react";
+import { useWallet } from "../context/AppContext";
+
+import { WalletWidget } from "./WalletWidget";
 
 export function TopNav() {
   const { theme, toggleTheme } = useFuelTheme();
+  const wallet = useWallet();
+
   return (
     <Box css={{ borderBottom: "1px solid $gray5", background: "$gray3" }}>
       <Container>
@@ -21,6 +26,7 @@ export function TopNav() {
             color={theme === "light" ? "gray" : "yellow"}
             onPress={toggleTheme}
           />
+        {wallet && <WalletWidget />}
         </Flex>
       </Container>
     </Box>
