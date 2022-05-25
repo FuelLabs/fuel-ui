@@ -47,7 +47,7 @@ export const AppContextProvider = ({
     }, [privateKeyList]);
 
     const wallet = useMemo(() => {
-        if (!currentWalletIndex || !wallets) {
+        if (currentWalletIndex === null || !wallets) {
             return null;
         }
         return wallets[currentWalletIndex];
