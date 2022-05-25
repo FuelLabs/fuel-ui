@@ -6,12 +6,12 @@ import { useAppContext } from "../context/AppContext";
 import { Pages } from "../types/pages";
 
 export default function CreateWallet() {
-  const { createWallet } = useAppContext()!;
+  const { createWallets } = useAppContext()!;
   const navigate = useNavigate();
 
   function handleCreateWallet() {
-    createWallet();
-    navigate(Pages.escrow);
+      createWallets();
+      navigate(Pages.escrow);
   }
 
   return (
