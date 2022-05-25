@@ -1,0 +1,30 @@
+{
+  "name": "escrow",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^4.5.10",
+    "@fontsource/raleway": "^4.5.8",
+    "@fuels-ui/css": "workspace:*",
+    "@fuels-ui/react": "workspace:*",
+    "fuels": "^0.6.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/react-helmet": "^6.1.5",
+    "@vitejs/plugin-react": "^1.3.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.7"
+  }
+}
