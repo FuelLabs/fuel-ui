@@ -6,9 +6,7 @@ import { AppContextProvider } from "./systems/Core/context/AppContext";
 export const routes = (
   <BrowserRouter>
     <AppContextProvider>
-      <Routes>
-        {coreRoutes}
-      </Routes>
+      <Routes>{coreRoutes}</Routes>
     </AppContextProvider>
   </BrowserRouter>
 );

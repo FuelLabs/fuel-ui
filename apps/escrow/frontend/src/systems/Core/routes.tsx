@@ -1,6 +1,6 @@
 import { Navigate, Route } from "react-router-dom";
-import { RequireWallet } from "./components/RequireWallet";
 
+import { RequireWallet } from "./components/RequireWallet";
 import CreateWallet from "./pages/CreateWallet";
 import EscrowPage from "./pages/Escrow";
 import { Pages } from "./types/pages";
