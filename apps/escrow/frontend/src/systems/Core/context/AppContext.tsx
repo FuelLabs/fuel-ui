@@ -1,6 +1,6 @@
 import { Wallet } from "fuels";
 import { useAtom } from "jotai";
-import React, { useContext, useState, useMemo } from "react";
+import React, { useContext, useState, useMemo, useEffect } from "react";
 import type { PropsWithChildren } from "react";
 
 import { FUEL_PROVIDER_URL } from "../../../config";
@@ -12,7 +12,6 @@ const NUM_WALLETS = 10;
 interface AppContextValue {
     wallets: Array<Wallet> | null;
     wallet: Wallet | null;
-    createWallets: () => void;
 }
 
 export const AppContext = React.createContext<AppContextValue | null>(null);
@@ -54,25 +53,27 @@ export const AppContextProvider = ({
         return wallets[currentWalletIndex];
     }, [currentWalletIndex]);
 
+    // TODO store wallets in local storage or somewhere more persistant
+    useEffect(() => {
+      if (wallets!.length > 0) {
+        return;
+      }
+      let nextPrivateKeyList: Array<string> | null = Array(NUM_WALLETS);
+      for (let i = 0; i < NUM_WALLETS; i++) {
+          const nextWallet = Wallet.generate({
+              provider: FUEL_PROVIDER_URL,
+          });
+          nextPrivateKeyList[i] = nextWallet.privateKey;
+      }
+      setPrivateKeyList(nextPrivateKeyList);
+      setCurrentWalletIndex(0);
+    });
+
     return (
         <AppContext.Provider
             value={{
                 wallets,
-                wallet,
-                createWallets: () => {
-                    let walletList: Array<Wallet | null> = Array(NUM_WALLETS);
-                    let nextWallet: Wallet;
-                    // TODO this is only generate two unique wallets
-                    for (let i = 0; i < NUM_WALLETS; i++) {
-                        nextWallet = Wallet.generate({
-                            provider: FUEL_PROVIDER_URL,
-                        });
-                        walletList[i] = nextWallet;
-                        setPrivateKeyList(oldPrivateKeyList => [...oldPrivateKeyList!, nextWallet.privateKey]);
-                    }
-                    setCurrentWalletIndex(0);
-                    return walletList;
-                }
+                wallet
             }}
         >
             {children}
