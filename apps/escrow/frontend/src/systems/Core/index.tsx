@@ -6,7 +6,7 @@ export { coreRoutes } from "./routes";
 // ----------------------------------------------------------------------------
 // Components
 // ----------------------------------------------------------------------------
-export * from "./components/Layout";
-export * from "./components/Link";
-export * from "./components/TopNav";
-export * from "./components/RequireWallet";
+export { Layout } from "./components/Layout";
+export { Link } from "./components/Link";
+export { TopNav } from "./components/TopNav";
+export { RequireWallet } from "./components/RequireWallet";
