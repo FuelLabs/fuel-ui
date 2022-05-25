@@ -56,6 +56,7 @@ importers:
       '@vitejs/plugin-react': ^1.3.0
       clipboard: ^2.0.11
       fuels: ^0.6.0
+      jotai: ^1.6.6
       react: ^18.0.0
       react-dom: ^18.0.0
       react-helmet: ^6.1.0
@@ -70,6 +71,7 @@ importers:
       '@fuels-ui/react': link:../../../design-system/react
       clipboard: 2.0.11
       fuels: 0.6.0
+      jotai: 1.6.6_react@18.1.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       react-helmet: 6.1.0_react@18.1.0
@@ -12400,6 +12402,43 @@ packages:
       - supports-color
       - ts-node
     dev: true
+
+  /jotai/1.6.6_react@18.1.0:
+    resolution: {integrity: sha512-rzUyxHFImnDDjUmC0i0BXyppq1M6ZxrHjhp0SK3VQXvXYAu5Hz9wPJ6w207s2Mlv7jpfiIf26w9m82FLCP3eqw==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@babel/core': '*'
+      '@babel/template': '*'
+      '@urql/core': '*'
+      immer: '*'
+      optics-ts: '*'
+      react: '>=16.8'
+      react-query: '*'
+      valtio: '*'
+      wonka: '*'
+      xstate: '*'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@babel/template':
+        optional: true
+      '@urql/core':
+        optional: true
+      immer:
+        optional: true
+      optics-ts:
+        optional: true
+      react-query:
+        optional: true
+      valtio:
+        optional: true
+      wonka:
+        optional: true
+      xstate:
+        optional: true
+    dependencies:
+      react: 18.1.0
+    dev: false
 
   /jotai/1.6.6_vm2wkhzl5f5eyl7hfuywll6uzq:
     resolution: {integrity: sha512-rzUyxHFImnDDjUmC0i0BXyppq1M6ZxrHjhp0SK3VQXvXYAu5Hz9wPJ6w207s2Mlv7jpfiIf26w9m82FLCP3eqw==}

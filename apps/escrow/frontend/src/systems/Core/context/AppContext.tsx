@@ -1,8 +1,10 @@
 import { Wallet } from "fuels";
+import { useAtom } from "jotai";
 import React, { useContext, useState, useMemo } from "react";
 import type { PropsWithChildren } from "react";
 
 import { FUEL_PROVIDER_URL } from "../../../config";
+import { walletIndexAtom } from "../jotai";
 
 // Initial number of wallets to populate in app
 const NUM_WALLETS = 10;
@@ -30,16 +32,14 @@ export const useWalletList = () => {
 export const AppContextProvider = ({
   children,
 }: PropsWithChildren<unknown>) => {
-    const [privateKey, setPrivateKey] = useState<string | null>(null);
+    const [currentWalletIndex, setCurrentWalletIndex] = useAtom(walletIndexAtom);
     const [privateKeyList, setPrivateKeyList] = useState<Array<string> | null>([]);
 
     const wallets = useMemo(() => {
-        console.log("wallet list");
         if (!privateKeyList) {
             return null;
         }
         let walletList: Array<Wallet> | null = Array();
-        console.log(walletList);
         privateKeyList.forEach(privateKey => {
             walletList?.push(new Wallet (privateKey, FUEL_PROVIDER_URL));
         });
@@ -48,11 +48,11 @@ export const AppContextProvider = ({
     }, [privateKeyList]);
 
     const wallet = useMemo(() => {
-        if (!privateKey) {
+        if (!currentWalletIndex || !wallets) {
             return null;
         }
-        return new Wallet(privateKey, FUEL_PROVIDER_URL)
-    }, [privateKey]);
+        return wallets[currentWalletIndex];
+    }, [currentWalletIndex]);
 
     return (
         <AppContext.Provider
@@ -62,6 +62,7 @@ export const AppContextProvider = ({
                 createWallets: () => {
                     let walletList: Array<Wallet | null> = Array(NUM_WALLETS);
                     let nextWallet: Wallet;
+                    // TODO this is only generate two unique wallets
                     for (let i = 0; i < NUM_WALLETS; i++) {
                         nextWallet = Wallet.generate({
                             provider: FUEL_PROVIDER_URL,
@@ -69,7 +70,7 @@ export const AppContextProvider = ({
                         walletList[i] = nextWallet;
                         setPrivateKeyList(oldPrivateKeyList => [...oldPrivateKeyList!, nextWallet.privateKey]);
                     }
-                    setPrivateKey(walletList[0]!.privateKey);
+                    setCurrentWalletIndex(0);
                     return walletList;
                 }
             }}
