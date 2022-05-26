@@ -9,52 +9,49 @@ import { useWallet, useWalletList } from "../context/AppContext"
 import { walletIndexAtom } from "../jotai";
 import { Dropdown } from "./Dropdown";
 
+const WALLET_NAMES = ["Ava", "Bob", "Charlie", "Dan", "Elmo", "Felicia", "Hannah", "Ian", "Jess", "Kelvin"];
+
+const optionStyle = {
+  fontFamily: "sans-serif"
+};
+
 export const WalletWidget = () => {
-    const wallets = useWalletList();
-    const wallet = useWallet();
+  const wallets = useWalletList();
+  const wallet = useWallet();
   const setCurrentWalletIndex = useSetAtom(walletIndexAtom);
 
-
-    const getWalletOptions = () => {
-      let walletOptions = [];
-      for (const [i, wallet] of wallets!.entries()) {
-        walletOptions.push(
-          <option key={i} value={i}>
-              {wallet?.address.slice(0, 4)}...{wallet?.address.slice(-4)}
-          </option>
-        );
-      }
-      return walletOptions;
+  const getWalletOptions = () => {
+    let walletOptions = [];
+    for (const [i, wallet] of wallets!.entries()) {
+      walletOptions.push(
+        <option key={i} value={i} style={optionStyle}>
+          {wallet?.address.slice(0, 4)}...{wallet?.address.slice(-4)} ({WALLET_NAMES[i]})
+        </option>
+      );
     }
+    return walletOptions;
+  }
 
-    const handleWalletChange = (event: ChangeEvent) => {
-      const currentWalletIndex = parseInt((event.target as HTMLInputElement).value);
-      setCurrentWalletIndex(currentWalletIndex);
-    };
+  const handleWalletChange = (event: ChangeEvent) => {
+    const currentWalletIndex = parseInt((event.target as HTMLInputElement).value);
+    setCurrentWalletIndex(currentWalletIndex);
+  };
 
-    const handleCopy = () => {
-        clipboard.copy(wallet!.address);
-    }
+  const handleCopy = () => {
+    clipboard.copy(wallet!.address);
+  }
 
-    return (
-        <>
-        <div className="flex items-center bg-gray-700 rounded-full">
-          <Dropdown onChange={handleWalletChange}>
-            {getWalletOptions()}
-          </Dropdown>
-            <Button>
-              {wallet?.address.slice(0, 4)}...{wallet?.address.slice(-4)}
-            </Button>
-            {/* <Popover {...popover.rootProps}>
-              <WalletInfo onClose={handleClose} />
-            </Popover> */}
-            <Button
-              aria-label="Copy your wallet address"
-              onPress={handleCopy}
-            >
-              <FaRegCopy size="1em" />
-            </Button>
-        </div>
-      </>
-    )
+  return (
+    <>
+      <Dropdown onChange={handleWalletChange}>
+        {getWalletOptions()}
+      </Dropdown>
+      <Button
+        aria-label="Copy your wallet address"
+        onPress={handleCopy}
+      >
+        <FaRegCopy size="1em" />
+      </Button>
+    </>
+  )
 }

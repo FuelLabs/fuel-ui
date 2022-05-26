@@ -1,5 +1,4 @@
-import { Wallet } from "fuels";
-import { ChangeEvent, FC, ReactNode, SyntheticEvent } from "react";
+import { ChangeEvent, FC, ReactNode } from "react";
 
 interface Props {
     onChange: (event: ChangeEvent) => void;
