@@ -1,3 +1,4 @@
+import { css } from "@fuels-ui/css";
 import { Button } from "@fuels-ui/react";
 import clipboard from "clipboard";
 import { useSetAtom } from "jotai";
@@ -54,10 +55,25 @@ export const WalletWidget = () => {
 
   return (
     <>
-      <Dropdown onChange={handleWalletChange}>{getWalletOptions()}</Dropdown>
+      <Dropdown className={dropDownStyle()} onChange={handleWalletChange}>
+        {getWalletOptions()}
+      </Dropdown>
       <Button aria-label="Copy your wallet address" onPress={handleCopy}>
         <FaRegCopy size="1em" />
       </Button>
     </>
   );
 };
+
+const dropDownStyle = css({
+  bg: "$accent9",
+  color: "$gray1",
+  textSize: "base",
+  font: "$sans",
+  cursor: "pointer",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "1px solid transparent",
+  borderRadius: "$lg",
+});
