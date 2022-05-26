@@ -28,15 +28,15 @@ export const WalletWidget = () => {
   const setCurrentWalletIndex = useSetAtom(walletIndexAtom);
 
   const getWalletOptions = () => {
-    const walletOptions = [];
-    for (const [i, nextWallet] of wallets!.entries()) {
+    const walletOptions: Array<JSX.Element> = [];
+    wallets?.forEach((nextWallet, i) => {
       walletOptions.push(
         <option key={i} value={i}>
           {nextWallet?.address.slice(0, 4)}...{nextWallet?.address.slice(-4)} (
           {WALLET_NAMES[i]})
         </option>
       );
-    }
+    });
     return walletOptions;
   };
 
