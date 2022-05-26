@@ -6,7 +6,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "build-contracts": "sh ./scripts/build-contracts.sh",
+    "deploy-contracts": "sh ./scripts/deploy-contracts.sh"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.10",
