@@ -13,10 +13,13 @@
     "@fontsource/raleway": "^4.5.8",
     "@fuels-ui/css": "workspace:*",
     "@fuels-ui/react": "workspace:*",
+    "clipboard": "^2.0.11",
     "fuels": "^0.6.0",
+    "jotai": "^1.6.6",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {

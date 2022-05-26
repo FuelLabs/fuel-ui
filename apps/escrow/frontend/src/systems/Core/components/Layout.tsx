@@ -24,8 +24,8 @@ export const Layout: FC<Props> = ({
   return (
     <>
       <Helmet>
-        <title>{title && `${title} | `}FuelScan</title>
-        <meta name="description" content="Fuel Block Explorer" />
+        <title>{title && `${title} | `}FuelEscrow</title>
+        <meta name="description" content="Fuel Escrow" />
       </Helmet>
       {isLoading ? (
         <Box as="main" className={cx("loading", className)}>

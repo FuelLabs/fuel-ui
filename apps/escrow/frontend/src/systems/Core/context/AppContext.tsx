@@ -1,12 +1,17 @@
 import { Wallet } from "fuels";
-import React, { useContext, useState, useMemo } from "react";
+import { useAtom } from "jotai";
+import React, { useContext, useState, useMemo, useEffect } from "react";
 import type { PropsWithChildren } from "react";
 
 import { FUEL_PROVIDER_URL } from "../../../config";
+import { walletIndexAtom } from "../jotai";
+
+// Initial number of wallets to populate in app
+const NUM_WALLETS = 10;
 
 interface AppContextValue {
+  wallets: Array<Wallet> | null;
   wallet: Wallet | null;
-  createWallet: () => void;
 }
 
 export const AppContext = React.createContext<AppContextValue | null>(null);
@@ -18,29 +23,58 @@ export const useWallet = () => {
   return wallet;
 };
 
+export const useWalletList = () => {
+  const { wallets } = useContext(AppContext)!;
+  return wallets;
+};
+
 export const AppContextProvider = ({
   children,
 }: PropsWithChildren<unknown>) => {
-  const [privateKey, setPrivateKey] = useState<string | null>(null);
+  const [currentWalletIndex, setCurrentWalletIndex] = useAtom(walletIndexAtom);
+  const [privateKeyList, setPrivateKeyList] = useState<Array<string> | null>(
+    []
+  );
 
-  const wallet = useMemo(() => {
-    if (!privateKey) {
+  const wallets = useMemo(() => {
+    if (!privateKeyList) {
       return null;
     }
-    return new Wallet(privateKey, FUEL_PROVIDER_URL);
-  }, [privateKey]);
+    const walletList: Array<Wallet> | null = [];
+    privateKeyList.forEach((privateKey) => {
+      walletList?.push(new Wallet(privateKey, FUEL_PROVIDER_URL));
+    });
+    return walletList;
+  }, [privateKeyList]);
+
+  const wallet = useMemo(() => {
+    if (currentWalletIndex === null || !wallets) {
+      return null;
+    }
+    return wallets[currentWalletIndex];
+  }, [currentWalletIndex]);
+
+  // TODO store wallets in local storage or somewhere more persistant
+  useEffect(() => {
+    if (wallets!.length > 0) {
+      return;
+    }
+    const nextPrivateKeyList: Array<string> | null = Array(NUM_WALLETS);
+    for (let i = 0; i < NUM_WALLETS; i += 1) {
+      const nextWallet = Wallet.generate({
+        provider: FUEL_PROVIDER_URL,
+      });
+      nextPrivateKeyList[i] = nextWallet.privateKey;
+    }
+    setPrivateKeyList(nextPrivateKeyList);
+    setCurrentWalletIndex(0);
+  });
 
   return (
     <AppContext.Provider
       value={{
+        wallets,
         wallet,
-        createWallet: () => {
-          const nextWallet = Wallet.generate({
-            provider: FUEL_PROVIDER_URL,
-          });
-          setPrivateKey(nextWallet.privateKey);
-          return nextWallet;
-        },
       }}
     >
       {children}
