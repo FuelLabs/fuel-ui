@@ -1,18 +1,10 @@
-import { ChangeEvent, FC, ReactNode } from "react";
+import type { ChangeEvent, FC, ReactNode } from "react";
 
 interface Props {
-    onChange: (event: ChangeEvent) => void;
-    children: ReactNode;
+  onChange: (event: ChangeEvent) => void;
+  children: ReactNode;
 }
 
-export const Dropdown: FC<Props> = ({
-    children,
-    onChange,
-  }) => {
-
-    return (
-        <select onChange={onChange}>
-            {children}
-        </select>
-    );
-};
+export const Dropdown: FC<Props> = ({ children, onChange }) => (
+  <select onChange={onChange}>{children}</select>
+);

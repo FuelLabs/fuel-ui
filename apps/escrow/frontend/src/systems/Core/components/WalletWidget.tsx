@@ -1,19 +1,26 @@
+import { Button } from "@fuels-ui/react";
 import clipboard from "clipboard";
+import { useSetAtom } from "jotai";
+import type { ChangeEvent } from "react";
 import { FaRegCopy } from "react-icons/fa";
 
-import { Button } from "@fuels-ui/react"
-import { useSetAtom } from "jotai"
-import { ChangeEvent } from "react";
-
-import { useWallet, useWalletList } from "../context/AppContext"
+import { useWallet, useWalletList } from "../context/AppContext";
 import { walletIndexAtom } from "../jotai";
+
 import { Dropdown } from "./Dropdown";
 
-const WALLET_NAMES = ["Ava", "Bob", "Charlie", "Dan", "Elmo", "Felicia", "Hannah", "Ian", "Jess", "Kelvin"];
-
-const optionStyle = {
-  fontFamily: "sans-serif"
-};
+const WALLET_NAMES = [
+  "Ava",
+  "Bob",
+  "Charlie",
+  "Dan",
+  "Elmo",
+  "Felicia",
+  "Hannah",
+  "Ian",
+  "Jess",
+  "Kelvin",
+];
 
 export const WalletWidget = () => {
   const wallets = useWalletList();
@@ -21,37 +28,36 @@ export const WalletWidget = () => {
   const setCurrentWalletIndex = useSetAtom(walletIndexAtom);
 
   const getWalletOptions = () => {
-    let walletOptions = [];
-    for (const [i, wallet] of wallets!.entries()) {
+    const walletOptions = [];
+    for (const [i, nextWallet] of wallets!.entries()) {
       walletOptions.push(
-        <option key={i} value={i} style={optionStyle}>
-          {wallet?.address.slice(0, 4)}...{wallet?.address.slice(-4)} ({WALLET_NAMES[i]})
+        <option key={i} value={i}>
+          {nextWallet?.address.slice(0, 4)}...{nextWallet?.address.slice(-4)} (
+          {WALLET_NAMES[i]})
         </option>
       );
     }
     return walletOptions;
-  }
+  };
 
   const handleWalletChange = (event: ChangeEvent) => {
-    const currentWalletIndex = parseInt((event.target as HTMLInputElement).value);
+    const currentWalletIndex = parseInt(
+      (event.target as HTMLInputElement).value,
+      10
+    );
     setCurrentWalletIndex(currentWalletIndex);
   };
 
   const handleCopy = () => {
     clipboard.copy(wallet!.address);
-  }
+  };
 
   return (
     <>
-      <Dropdown onChange={handleWalletChange}>
-        {getWalletOptions()}
-      </Dropdown>
-      <Button
-        aria-label="Copy your wallet address"
-        onPress={handleCopy}
-      >
+      <Dropdown onChange={handleWalletChange}>{getWalletOptions()}</Dropdown>
+      <Button aria-label="Copy your wallet address" onPress={handleCopy}>
         <FaRegCopy size="1em" />
       </Button>
     </>
-  )
-}
+  );
+};

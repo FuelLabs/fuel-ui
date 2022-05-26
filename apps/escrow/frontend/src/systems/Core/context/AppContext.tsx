@@ -10,8 +10,8 @@ import { walletIndexAtom } from "../jotai";
 const NUM_WALLETS = 10;
 
 interface AppContextValue {
-    wallets: Array<Wallet> | null;
-    wallet: Wallet | null;
+  wallets: Array<Wallet> | null;
+  wallet: Wallet | null;
 }
 
 export const AppContext = React.createContext<AppContextValue | null>(null);
@@ -24,59 +24,60 @@ export const useWallet = () => {
 };
 
 export const useWalletList = () => {
-    const { wallets } = useContext(AppContext)!;
-    return wallets;
-}
+  const { wallets } = useContext(AppContext)!;
+  return wallets;
+};
 
 export const AppContextProvider = ({
   children,
 }: PropsWithChildren<unknown>) => {
-    const [currentWalletIndex, setCurrentWalletIndex] = useAtom(walletIndexAtom);
-    const [privateKeyList, setPrivateKeyList] = useState<Array<string> | null>([]);
+  const [currentWalletIndex, setCurrentWalletIndex] = useAtom(walletIndexAtom);
+  const [privateKeyList, setPrivateKeyList] = useState<Array<string> | null>(
+    []
+  );
 
-    const wallets = useMemo(() => {
-        if (!privateKeyList) {
-            return null;
-        }
-        let walletList: Array<Wallet> | null = Array();
-        privateKeyList.forEach(privateKey => {
-            walletList?.push(new Wallet (privateKey, FUEL_PROVIDER_URL));
-        });
-        return walletList;
-
-    }, [privateKeyList]);
-
-    const wallet = useMemo(() => {
-        if (currentWalletIndex === null || !wallets) {
-            return null;
-        }
-        return wallets[currentWalletIndex];
-    }, [currentWalletIndex]);
-
-    // TODO store wallets in local storage or somewhere more persistant
-    useEffect(() => {
-      if (wallets!.length > 0) {
-        return;
-      }
-      let nextPrivateKeyList: Array<string> | null = Array(NUM_WALLETS);
-      for (let i = 0; i < NUM_WALLETS; i++) {
-          const nextWallet = Wallet.generate({
-              provider: FUEL_PROVIDER_URL,
-          });
-          nextPrivateKeyList[i] = nextWallet.privateKey;
-      }
-      setPrivateKeyList(nextPrivateKeyList);
-      setCurrentWalletIndex(0);
+  const wallets = useMemo(() => {
+    if (!privateKeyList) {
+      return null;
+    }
+    const walletList: Array<Wallet> | null = [];
+    privateKeyList.forEach((privateKey) => {
+      walletList?.push(new Wallet(privateKey, FUEL_PROVIDER_URL));
     });
+    return walletList;
+  }, [privateKeyList]);
 
-    return (
-        <AppContext.Provider
-            value={{
-                wallets,
-                wallet
-            }}
-        >
-            {children}
-        </AppContext.Provider>
-    );
-}
+  const wallet = useMemo(() => {
+    if (currentWalletIndex === null || !wallets) {
+      return null;
+    }
+    return wallets[currentWalletIndex];
+  }, [currentWalletIndex]);
+
+  // TODO store wallets in local storage or somewhere more persistant
+  useEffect(() => {
+    if (wallets!.length > 0) {
+      return;
+    }
+    const nextPrivateKeyList: Array<string> | null = Array(NUM_WALLETS);
+    for (let i = 0; i < NUM_WALLETS; i += 1) {
+      const nextWallet = Wallet.generate({
+        provider: FUEL_PROVIDER_URL,
+      });
+      nextPrivateKeyList[i] = nextWallet.privateKey;
+    }
+    setPrivateKeyList(nextPrivateKeyList);
+    setCurrentWalletIndex(0);
+  });
+
+  return (
+    <AppContext.Provider
+      value={{
+        wallets,
+        wallet,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+};
