@@ -1,4 +1,9 @@
-import { Wallet } from "fuels";
+import { parseUnits, randomBytes } from 'ethers/lib/utils';
+import {
+  NativeAssetId,
+  ScriptTransactionRequest,
+  Wallet,
+} from 'fuels';
 import { useAtom } from "jotai";
 import React, { useContext, useState, useMemo, useEffect } from "react";
 import type { PropsWithChildren } from "react";
@@ -26,6 +31,27 @@ export const useWallet = () => {
 export const useWalletList = () => {
   const { wallets } = useContext(AppContext)!;
   return wallets;
+};
+
+// @ts-ignore
+export const seedWallet = async (wallet: Wallet) => {
+  const transactionRequest = new ScriptTransactionRequest({
+    gasPrice: 0,
+    gasLimit: '0x0F4240',
+    script: '0x24400000',
+    scriptData: randomBytes(32),
+  });
+  // @ts-ignore
+  transactionRequest.addCoin({
+    id: '0x000000000000000000000000000000000000000000000000000000000000000000',
+    assetId: NativeAssetId,
+    amount: parseUnits('1', 18),
+    owner: '0xf1e92c42b90934aa6372e30bc568a326f6e66a1a0288595e6e3fbd392a4f3e6e',
+  });
+  transactionRequest.addCoinOutput(wallet.address, parseUnits('1', 18).toBigInt(), NativeAssetId);
+  const submit = await wallet.sendTransaction(transactionRequest);
+
+  return submit.wait();
 };
 
 export const AppContextProvider = ({
@@ -64,6 +90,7 @@ export const AppContextProvider = ({
       const nextWallet = Wallet.generate({
         provider: FUEL_PROVIDER_URL,
       });
+      seedWallet(nextWallet);
       nextPrivateKeyList[i] = nextWallet.privateKey;
     }
     setPrivateKeyList(nextPrivateKeyList);

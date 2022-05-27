@@ -11,21 +11,24 @@ import type {
   BigNumberish,
   BytesLike,
   BigNumber,
-} from 'fuels';
+} from "fuels";
 
 export type AddressStruct = { value: string };
 
 interface AssetAbiInterface extends Interface {
   functions: {
-    'mint_and_send_to_address(u64,struct Address)': FunctionFragment;
+    "mint_and_send_to_address(u64,struct Address)": FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: 'mint_and_send_to_address',
+    functionFragment: "mint_and_send_to_address",
     values: [BigNumberish, AddressStruct]
   ): string;
 
-  decodeFunctionData(functionFragment: 'mint_and_send_to_address', data: BytesLike): DecodedValue;
+  decodeFunctionData(
+    functionFragment: "mint_and_send_to_address",
+    data: BytesLike
+  ): DecodedValue;
 }
 
 export class AssetAbi extends Contract {
@@ -37,7 +40,7 @@ export class AssetAbi extends Contract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<boolean>;
 
-    'mint_and_send_to_address(u64,struct Address)'(
+    "mint_and_send_to_address(u64,struct Address)"(
       amount: BigNumberish,
       recipient: AddressStruct,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -50,7 +53,7 @@ export class AssetAbi extends Contract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<boolean>;
 
-  'mint_and_send_to_address(u64,struct Address)'(
+  "mint_and_send_to_address(u64,struct Address)"(
     amount: BigNumberish,
     recipient: AddressStruct,
     overrides?: Overrides & { from?: string | Promise<string> }

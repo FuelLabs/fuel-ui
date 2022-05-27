@@ -13,9 +13,12 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.10",
     "@fontsource/raleway": "^4.5.8",
+    "@fuel-ts/contract": "0.0.0-master-6c8ce489",
+    "@fuel-ts/providers": "0.0.0-master-6c8ce489",
     "@fuels-ui/css": "workspace:*",
     "@fuels-ui/react": "workspace:*",
     "clipboard": "^2.0.11",
+    "ethers": "^5.6.5",
     "fuels": "^0.6.0",
     "jotai": "^1.6.6",
     "react": "^18.0.0",
@@ -29,6 +32,8 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-helmet": "^6.1.5",
     "@vitejs/plugin-react": "^1.3.0",
+    "typechain": "^8.0.0",
+    "typechain-target-fuels": "^0.6.0",
     "typescript": "^4.6.3",
     "vite": "^2.9.7"
   }

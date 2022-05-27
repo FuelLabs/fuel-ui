@@ -30,11 +30,12 @@ export const WalletWidget = () => {
 
   const getWalletOptions = () => {
     const walletOptions: Array<JSX.Element> = [];
-    wallets?.forEach((nextWallet, i) => {
+    wallets?.forEach(async (nextWallet, i) => {
+      console.log(await nextWallet.getBalances());
       walletOptions.push(
         <option key={i} value={i}>
-          {nextWallet?.address.slice(0, 4)}...{nextWallet?.address.slice(-4)} (
-          {WALLET_NAMES[i]})
+          {nextWallet?.address.slice(0, 4)}...{nextWallet?.address.slice(-4)}
+          ({WALLET_NAMES[i]})
         </option>
       );
     });
