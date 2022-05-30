@@ -72,7 +72,7 @@ export const WalletWidget = () => {
   // TODO format the eth in a better way and maybe make it generic for different coins
   return (
     <>
-      {balance?.amount.div(1e9).div(1e9).toString()} (ETH)
+      <div className={balanceStyle()}>{balance?.amount.div(1e9).div(1e9).toString()} (ETH)</div>
       <Dropdown className={dropDownStyle()} onChange={handleWalletChange}>
         {getWalletOptions()}
       </Dropdown>
@@ -82,6 +82,18 @@ export const WalletWidget = () => {
     </>
   );
 };
+
+const balanceStyle = css({
+  bg: "$accent9",
+  color: "$gray1",
+  textSize: "base",
+  font: "$sans",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "1px solid transparent",
+  borderRadius: "$lg",
+});
 
 const dropDownStyle = css({
   bg: "$accent9",
