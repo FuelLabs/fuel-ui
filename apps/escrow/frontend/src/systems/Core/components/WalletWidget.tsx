@@ -3,7 +3,7 @@ import { Button } from "@fuels-ui/react";
 import clipboard from "clipboard";
 import { useSetAtom } from "jotai";
 import { ChangeEvent, useEffect, useState } from "react";
-//import { BigNumber } from "fuels";
+import { BigNumber } from "ethers";
 import type { CoinQuantity } from "fuels";
 import { FaRegCopy } from "react-icons/fa";
 
@@ -72,7 +72,7 @@ export const WalletWidget = () => {
   // TODO format the eth in a better way and maybe make it generic for different coins
   return (
     <>
-      <div className={balanceStyle()}>{(balance?.amount!.div(1e9).div(1e9))!.toString()} (ETH)</div>
+      <div className={balanceStyle()}>{(BigNumber.from(balance?.amount!).div("10000000000000000000"))!.toString()} (ETH)</div>
       <Dropdown className={dropDownStyle()} onChange={handleWalletChange}>
         {getWalletOptions()}
       </Dropdown>

@@ -45,7 +45,7 @@ export const seedWallet = async (wallet: Wallet) => {
   transactionRequest.addCoin({
     id: '0x000000000000000000000000000000000000000000000000000000000000000000',
     assetId: NativeAssetId,
-    amount: parseUnits('1', 18),
+    amount: parseUnits('1', 18).toBigInt(),
     owner: '0xf1e92c42b90934aa6372e30bc568a326f6e66a1a0288595e6e3fbd392a4f3e6e',
   });
   transactionRequest.addCoinOutput(wallet.address, parseUnits('1', 18).toBigInt(), NativeAssetId);
