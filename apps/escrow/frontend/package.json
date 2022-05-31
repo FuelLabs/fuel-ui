@@ -13,8 +13,6 @@
   "dependencies": {
     "@fontsource/inter": "^4.5.10",
     "@fontsource/raleway": "^4.5.8",
-    "@fuel-ts/contract": "0.0.0-master-6c8ce489",
-    "@fuel-ts/providers": "0.0.0-master-6c8ce489",
     "@fuels-ui/css": "workspace:*",
     "@fuels-ui/react": "workspace:*",
     "clipboard": "^2.0.11",
