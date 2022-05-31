@@ -1,71 +1,61 @@
-import { theme as lightTheme, darkTheme } from "@fuels-ui/css";
-import { useAtom } from "jotai";
-import { atomWithStorage } from "jotai/utils";
-import type { FC, ReactElement } from "react";
-import { useEffect } from "react";
+import { useMachine } from "@xstate/react";
+import type { FC, ReactNode } from "react";
+import { useContext, createContext } from "react";
 
 import { GlobalStyles } from "../../styles/GlobalStyles";
 
-export type FuelTheme = "light" | "dark";
+import type { FuelTheme } from "./machine";
+import { getDefaultSystemTheme, themeProviderMachine } from "./machine";
 
-const themeAtom = atomWithStorage<FuelTheme>(
-  "fuel-theme",
-  getDefaultSystemTheme()
-);
+type ThemeProviderContext = {
+  theme: FuelTheme;
+  setTheme: (theme: FuelTheme) => void;
+  toggleTheme: () => void;
+};
 
-function getDefaultSystemTheme() {
-  const isDark =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return isDark ? "dark" : "light";
-}
+const context = createContext<ThemeProviderContext>({
+  theme: getDefaultSystemTheme(),
+  setTheme: () => null,
+  toggleTheme: () => null,
+});
 
-export const ThemeProvider: FC<{ children: ReactElement }> = ({ children }) => {
-  const [theme, setTheme] = useAtom(themeAtom);
+export type ThemeProps = {
+  theme?: "dark" | "light";
+  children: ReactNode;
+};
 
-  useEffect(() => {
-    const html = document.documentElement;
-    html.classList.add(
-      theme === "dark" ? darkTheme.className : lightTheme.className
-    );
-    html.classList.remove(
-      theme === "light" ? darkTheme.className : lightTheme.className
-    );
-  }, [theme]);
+export const ThemeProvider: FC<ThemeProps> = ({
+  children,
+  theme: defaultTheme,
+}) => {
+  const [state, send] = useMachine(
+    defaultTheme
+      ? themeProviderMachine.withContext({ theme: defaultTheme })
+      : themeProviderMachine
+  );
 
-  useEffect(() => {
-    function callback(event: MediaQueryListEvent) {
-      setTheme(event.matches ? "dark" : "light");
-    }
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", callback);
-    return () => {
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .removeEventListener("change", callback);
-    };
-  }, []);
+  function setTheme(value: FuelTheme) {
+    send("SET_THEME", { value });
+  }
+
+  function toggleTheme() {
+    send("TOGGLE_THEME");
+  }
+
+  const contextValue = {
+    setTheme,
+    toggleTheme,
+    theme: state.context.theme,
+  };
 
   return (
-    <>
+    <context.Provider value={contextValue}>
       <GlobalStyles />
       {children}
-    </>
+    </context.Provider>
   );
 };
 
 export function useFuelTheme() {
-  const [theme, set] = useAtom(themeAtom);
-
-  function toggleTheme() {
-    const next = theme === "light" ? "dark" : "light";
-    set(next);
-  }
-
-  function setTheme(next: FuelTheme) {
-    set(next);
-  }
-
-  return { theme, toggleTheme, setTheme };
+  return useContext(context);
 }
