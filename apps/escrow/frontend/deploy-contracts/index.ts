@@ -14,7 +14,7 @@ import {
   ScriptTransactionRequest,
   Wallet,
   ZeroBytes32,
-  toBigInt
+  toBigInt,
 } from 'fuels';
 import type { Interface, JsonAbi } from 'fuels';
 import path from 'path';
@@ -30,7 +30,7 @@ const escrowPath = path.join(
 const seedWallet = async (wallet: Wallet) => {
   const transactionRequest = new ScriptTransactionRequest({
     gasPrice: 0,
-    gasLimit: 100_000,
+    gasLimit: 100,
     script: '0x24400000',
     scriptData: randomBytes(32),
   });
@@ -58,16 +58,13 @@ async function deployContractBinary(
   const wallet = Wallet.generate({ provider: FUEL_PROVIDER_URL });
 
   console.log(contextLog, 'Funding wallet with some coins');
-  const tx = await seedWallet(wallet);
-  console.log(tx);
+  await seedWallet(wallet);
 
   // Deploy
   console.log(contextLog, 'Load contract binary...');
   const bytecode = fs.readFileSync(binaryPath);
   console.log(contextLog, 'Deploy contract...');
   const factory = new ContractFactory(bytecode, abi, wallet);
-  console.log("factory");
-  console.log(factory);
   const contract = await factory.deployContract({
     salt: ZeroBytes32,
     stateRoot: ZeroBytes32,
