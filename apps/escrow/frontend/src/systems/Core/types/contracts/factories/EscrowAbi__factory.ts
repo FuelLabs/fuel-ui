@@ -2,138 +2,138 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type { Provider, Wallet } from "fuels";
-import { Interface, Contract } from "fuels";
-import type { EscrowAbi, EscrowAbiInterface } from "../EscrowAbi";
+import type { Provider, Wallet } from 'fuels';
+import { Interface, Contract } from 'fuels';
+import type { EscrowAbi, EscrowAbiInterface } from '../EscrowAbi';
 const _abi = [
   {
-    type: "function",
+    type: 'function',
     inputs: [
       {
-        name: "buyer",
-        type: "struct Address",
+        name: 'buyer',
+        type: 'struct Address',
         components: [
           {
-            name: "value",
-            type: "b256",
+            name: 'value',
+            type: 'b256',
             components: null,
           },
         ],
       },
       {
-        name: "seller",
-        type: "struct Address",
+        name: 'seller',
+        type: 'struct Address',
         components: [
           {
-            name: "value",
-            type: "b256",
+            name: 'value',
+            type: 'b256',
             components: null,
           },
         ],
       },
       {
-        name: "asset",
-        type: "struct ContractId",
+        name: 'asset',
+        type: 'struct ContractId',
         components: [
           {
-            name: "value",
-            type: "b256",
+            name: 'value',
+            type: 'b256',
             components: null,
           },
         ],
       },
       {
-        name: "asset_amount",
-        type: "u64",
+        name: 'asset_amount',
+        type: 'u64',
         components: null,
       },
     ],
-    name: "constructor",
+    name: 'constructor',
     outputs: [
       {
-        name: "",
-        type: "bool",
+        name: '',
+        type: 'bool',
         components: null,
       },
     ],
   },
   {
-    type: "function",
+    type: 'function',
     inputs: [],
-    name: "deposit",
+    name: 'deposit',
     outputs: [
       {
-        name: "",
-        type: "bool",
+        name: '',
+        type: 'bool',
         components: null,
       },
     ],
   },
   {
-    type: "function",
+    type: 'function',
     inputs: [],
-    name: "approve",
+    name: 'approve',
     outputs: [
       {
-        name: "",
-        type: "bool",
+        name: '',
+        type: 'bool',
         components: null,
       },
     ],
   },
   {
-    type: "function",
+    type: 'function',
     inputs: [],
-    name: "withdraw",
+    name: 'withdraw',
     outputs: [
       {
-        name: "",
-        type: "bool",
+        name: '',
+        type: 'bool',
         components: null,
       },
     ],
   },
   {
-    type: "function",
+    type: 'function',
     inputs: [],
-    name: "get_balance",
+    name: 'get_balance',
     outputs: [
       {
-        name: "",
-        type: "u64",
+        name: '',
+        type: 'u64',
         components: null,
       },
     ],
   },
   {
-    type: "function",
+    type: 'function',
     inputs: [
       {
-        name: "user",
-        type: "struct Address",
+        name: 'user',
+        type: 'struct Address',
         components: [
           {
-            name: "value",
-            type: "b256",
+            name: 'value',
+            type: 'b256',
             components: null,
           },
         ],
       },
     ],
-    name: "get_user_data",
+    name: 'get_user_data',
     outputs: [
       {
-        name: "",
-        type: "(bool, bool)",
+        name: '',
+        type: '(bool, bool)',
         components: [
           {
-            name: "__tuple_element",
-            type: "bool",
+            name: '__tuple_element',
+            type: 'bool',
             components: null,
           },
           {
-            name: "__tuple_element",
-            type: "bool",
+            name: '__tuple_element',
+            type: 'bool',
             components: null,
           },
         ],
@@ -141,13 +141,13 @@ const _abi = [
     ],
   },
   {
-    type: "function",
+    type: 'function',
     inputs: [],
-    name: "get_state",
+    name: 'get_state',
     outputs: [
       {
-        name: "",
-        type: "u64",
+        name: '',
+        type: 'u64',
         components: null,
       },
     ],

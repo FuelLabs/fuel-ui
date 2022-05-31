@@ -10,52 +10,78 @@ import type {
   Overrides,
   BigNumberish,
   BytesLike,
-  BigNumber,
-} from "fuels";
+} from 'fuels';
 
-export type AddressStruct = { value: string };
+export type AddressInput = { value: string };
+
+export type Address = { value: string };
 
 interface AssetAbiInterface extends Interface {
-  functions: {
-    "mint_and_send_to_address(u64,struct Address)": FunctionFragment;
+  submit: {
+    mint_and_send_to_address: FunctionFragment;
+  };
+  submitResult: {
+    mint_and_send_to_address: FunctionFragment;
+  };
+  dryRun: {
+    mint_and_send_to_address: FunctionFragment;
+  };
+  dryRunResult: {
+    mint_and_send_to_address: FunctionFragment;
+  };
+  prepareCall: {
+    mint_and_send_to_address: FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "mint_and_send_to_address",
-    values: [BigNumberish, AddressStruct]
-  ): string;
+    functionFragment: 'mint_and_send_to_address',
+    values: [BigNumberish, AddressInput]
+  ): Uint8Array;
 
-  decodeFunctionData(
-    functionFragment: "mint_and_send_to_address",
-    data: BytesLike
-  ): DecodedValue;
+  decodeFunctionData(functionFragment: 'mint_and_send_to_address', data: BytesLike): DecodedValue;
 }
 
 export class AssetAbi extends Contract {
   interface: AssetAbiInterface;
-  functions: {
+  submit: {
     mint_and_send_to_address(
       amount: BigNumberish,
-      recipient: AddressStruct,
+      recipient: AddressInput,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<boolean>;
-
-    "mint_and_send_to_address(u64,struct Address)"(
+  };
+  submitResult: {
+    mint_and_send_to_address(
       amount: BigNumberish,
-      recipient: AddressStruct,
+      recipient: AddressInput,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<boolean>;
+  };
+  dryRun: {
+    mint_and_send_to_address(
+      amount: BigNumberish,
+      recipient: AddressInput,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<boolean>;
+  };
+  dryRunResult: {
+    mint_and_send_to_address(
+      amount: BigNumberish,
+      recipient: AddressInput,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<boolean>;
+  };
+  prepareCall: {
+    mint_and_send_to_address(
+      amount: BigNumberish,
+      recipient: AddressInput,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<boolean>;
   };
 
   mint_and_send_to_address(
     amount: BigNumberish,
-    recipient: AddressStruct,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<boolean>;
-
-  "mint_and_send_to_address(u64,struct Address)"(
-    amount: BigNumberish,
-    recipient: AddressStruct,
+    recipient: AddressInput,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<boolean>;
 }

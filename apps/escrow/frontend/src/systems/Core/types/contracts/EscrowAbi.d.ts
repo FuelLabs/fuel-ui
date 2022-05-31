@@ -10,204 +10,226 @@ import type {
   Overrides,
   BigNumberish,
   BytesLike,
-  BigNumber,
-} from "fuels";
+} from 'fuels';
 
-export type AddressStruct = { value: string };
+export type AddressInput = { value: string };
 
-export type ContractIdStruct = { value: string };
+export type Address = { value: string };
+
+export type ContractIdInput = { value: string };
+
+export type ContractId = { value: string };
 
 interface EscrowAbiInterface extends Interface {
-  functions: {
-    "constructor(struct Address,struct Address,struct ContractId,u64)": FunctionFragment;
-    "deposit()": FunctionFragment;
-    "approve()": FunctionFragment;
-    "withdraw()": FunctionFragment;
-    "get_balance()": FunctionFragment;
-    "get_user_data(struct Address)": FunctionFragment;
-    "get_state()": FunctionFragment;
+  submit: {
+    constructor: FunctionFragment;
+    deposit: FunctionFragment;
+    approve: FunctionFragment;
+    withdraw: FunctionFragment;
+    get_balance: FunctionFragment;
+    get_user_data: FunctionFragment;
+    get_state: FunctionFragment;
+  };
+  submitResult: {
+    constructor: FunctionFragment;
+    deposit: FunctionFragment;
+    approve: FunctionFragment;
+    withdraw: FunctionFragment;
+    get_balance: FunctionFragment;
+    get_user_data: FunctionFragment;
+    get_state: FunctionFragment;
+  };
+  dryRun: {
+    constructor: FunctionFragment;
+    deposit: FunctionFragment;
+    approve: FunctionFragment;
+    withdraw: FunctionFragment;
+    get_balance: FunctionFragment;
+    get_user_data: FunctionFragment;
+    get_state: FunctionFragment;
+  };
+  dryRunResult: {
+    constructor: FunctionFragment;
+    deposit: FunctionFragment;
+    approve: FunctionFragment;
+    withdraw: FunctionFragment;
+    get_balance: FunctionFragment;
+    get_user_data: FunctionFragment;
+    get_state: FunctionFragment;
+  };
+  prepareCall: {
+    constructor: FunctionFragment;
+    deposit: FunctionFragment;
+    approve: FunctionFragment;
+    withdraw: FunctionFragment;
+    get_balance: FunctionFragment;
+    get_user_data: FunctionFragment;
+    get_state: FunctionFragment;
   };
 
   encodeFunctionData(
-    functionFragment: "constructor",
-    values: [AddressStruct, AddressStruct, ContractIdStruct, BigNumberish]
-  ): string;
-  encodeFunctionData(functionFragment: "deposit", values?: undefined): string;
-  encodeFunctionData(functionFragment: "approve", values?: undefined): string;
-  encodeFunctionData(functionFragment: "withdraw", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "get_balance",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "get_user_data",
-    values: [AddressStruct]
-  ): string;
-  encodeFunctionData(functionFragment: "get_state", values?: undefined): string;
+    functionFragment: 'constructor',
+    values: [AddressInput, AddressInput, ContractIdInput, BigNumberish]
+  ): Uint8Array;
+  encodeFunctionData(functionFragment: 'deposit', values?: undefined): Uint8Array;
+  encodeFunctionData(functionFragment: 'approve', values?: undefined): Uint8Array;
+  encodeFunctionData(functionFragment: 'withdraw', values?: undefined): Uint8Array;
+  encodeFunctionData(functionFragment: 'get_balance', values?: undefined): Uint8Array;
+  encodeFunctionData(functionFragment: 'get_user_data', values: [AddressInput]): Uint8Array;
+  encodeFunctionData(functionFragment: 'get_state', values?: undefined): Uint8Array;
 
-  decodeFunctionData(
-    functionFragment: "constructor",
-    data: BytesLike
-  ): DecodedValue;
-  decodeFunctionData(
-    functionFragment: "deposit",
-    data: BytesLike
-  ): DecodedValue;
-  decodeFunctionData(
-    functionFragment: "approve",
-    data: BytesLike
-  ): DecodedValue;
-  decodeFunctionData(
-    functionFragment: "withdraw",
-    data: BytesLike
-  ): DecodedValue;
-  decodeFunctionData(
-    functionFragment: "get_balance",
-    data: BytesLike
-  ): DecodedValue;
-  decodeFunctionData(
-    functionFragment: "get_user_data",
-    data: BytesLike
-  ): DecodedValue;
-  decodeFunctionData(
-    functionFragment: "get_state",
-    data: BytesLike
-  ): DecodedValue;
+  decodeFunctionData(functionFragment: 'constructor', data: BytesLike): DecodedValue;
+  decodeFunctionData(functionFragment: 'deposit', data: BytesLike): DecodedValue;
+  decodeFunctionData(functionFragment: 'approve', data: BytesLike): DecodedValue;
+  decodeFunctionData(functionFragment: 'withdraw', data: BytesLike): DecodedValue;
+  decodeFunctionData(functionFragment: 'get_balance', data: BytesLike): DecodedValue;
+  decodeFunctionData(functionFragment: 'get_user_data', data: BytesLike): DecodedValue;
+  decodeFunctionData(functionFragment: 'get_state', data: BytesLike): DecodedValue;
 }
 
 export class EscrowAbi extends Contract {
   interface: EscrowAbiInterface;
-  functions: {
+  submit: {
     constructor(
-      buyer: AddressStruct,
-      seller: AddressStruct,
-      asset: ContractIdStruct,
+      buyer: AddressInput,
+      seller: AddressInput,
+      asset: ContractIdInput,
       asset_amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<boolean>;
 
-    "constructor(struct Address,struct Address,struct ContractId,u64)"(
-      buyer: AddressStruct,
-      seller: AddressStruct,
-      asset: ContractIdStruct,
-      asset_amount: BigNumberish,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
+    deposit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
 
-    deposit(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
+    approve(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
 
-    "deposit()"(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
+    withdraw(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
 
-    approve(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
-
-    "approve()"(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
-
-    withdraw(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
-
-    "withdraw()"(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
-
-    get_balance(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    "get_balance()"(
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    get_balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
 
     get_user_data(
-      user: AddressStruct,
+      user: AddressInput,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<any>;
 
-    "get_user_data(struct Address)"(
-      user: AddressStruct,
+    get_state(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
+  };
+  submitResult: {
+    constructor(
+      buyer: AddressInput,
+      seller: AddressInput,
+      asset: ContractIdInput,
+      asset_amount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<boolean>;
+
+    deposit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    approve(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    withdraw(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    get_balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
+
+    get_user_data(
+      user: AddressInput,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<any>;
 
-    get_state(
+    get_state(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
+  };
+  dryRun: {
+    constructor(
+      buyer: AddressInput,
+      seller: AddressInput,
+      asset: ContractIdInput,
+      asset_amount: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    ): Promise<boolean>;
 
-    "get_state()"(
+    deposit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    approve(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    withdraw(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    get_balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
+
+    get_user_data(
+      user: AddressInput,
       overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
+    ): Promise<any>;
+
+    get_state(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
+  };
+  dryRunResult: {
+    constructor(
+      buyer: AddressInput,
+      seller: AddressInput,
+      asset: ContractIdInput,
+      asset_amount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<boolean>;
+
+    deposit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    approve(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    withdraw(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    get_balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
+
+    get_user_data(
+      user: AddressInput,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<any>;
+
+    get_state(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
+  };
+  prepareCall: {
+    constructor(
+      buyer: AddressInput,
+      seller: AddressInput,
+      asset: ContractIdInput,
+      asset_amount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<boolean>;
+
+    deposit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    approve(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    withdraw(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
+
+    get_balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
+
+    get_user_data(
+      user: AddressInput,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<any>;
+
+    get_state(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
   };
 
   constructor(
-    buyer: AddressStruct,
-    seller: AddressStruct,
-    asset: ContractIdStruct,
+    buyer: AddressInput,
+    seller: AddressInput,
+    asset: ContractIdInput,
     asset_amount: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<boolean>;
 
-  "constructor(struct Address,struct Address,struct ContractId,u64)"(
-    buyer: AddressStruct,
-    seller: AddressStruct,
-    asset: ContractIdStruct,
-    asset_amount: BigNumberish,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<boolean>;
+  deposit(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
 
-  deposit(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<boolean>;
+  approve(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
 
-  "deposit()"(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<boolean>;
+  withdraw(overrides?: Overrides & { from?: string | Promise<string> }): Promise<boolean>;
 
-  approve(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<boolean>;
-
-  "approve()"(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<boolean>;
-
-  withdraw(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<boolean>;
-
-  "withdraw()"(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<boolean>;
-
-  get_balance(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<BigNumber>;
-
-  "get_balance()"(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<BigNumber>;
+  get_balance(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
 
   get_user_data(
-    user: AddressStruct,
+    user: AddressInput,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<any>;
 
-  "get_user_data(struct Address)"(
-    user: AddressStruct,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<any>;
-
-  get_state(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<BigNumber>;
-
-  "get_state()"(
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<BigNumber>;
+  get_state(overrides?: Overrides & { from?: string | Promise<string> }): Promise<bigint>;
 }
