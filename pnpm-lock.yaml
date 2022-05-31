@@ -255,6 +255,7 @@ importers:
       '@types/fs-extra': ^9.0.13
       '@types/react': ^18.0.8
       '@types/react-dom': ^18.0.0
+      '@xstate/react': ^3.0.0
       ariakit: 2.0.0-next.26
       babel-loader: ^8.2.5
       color: ^4.2.3
@@ -269,6 +270,7 @@ importers:
       tsconfig-paths-webpack-plugin: ^3.5.2
       typescript: ^4.6.4
       webpack: ^5.72.0
+      xstate: ^4.32.1
       yargs: ^17.4.1
     dependencies:
       '@fontsource/inter': 4.5.10
@@ -290,13 +292,15 @@ importers:
       '@react-aria/link': 3.2.5_react@18.1.0
       '@react-aria/utils': 3.12.0_react@18.1.0
       '@stitches/react': 1.2.8_react@18.1.0
+      '@xstate/react': 3.0.0_ds25dbl6ssacjrt3wvmav227dq
       ariakit: 2.0.0-next.26_ef5jwxihqo6n7gxfmzogljlgcm
       color: 4.2.3
-      jotai: 1.6.6_vm2wkhzl5f5eyl7hfuywll6uzq
+      jotai: 1.6.6_xyg6tz4d2b2armkv6lbbelchhu
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
       react-merge-refs: 1.1.0
       react-use: 17.3.2_ef5jwxihqo6n7gxfmzogljlgcm
+      xstate: 4.32.1
     devDependencies:
       '@babel/core': 7.17.10
       '@fuels-ui/config': link:../../common/config
@@ -6169,6 +6173,26 @@ packages:
 
   /@xobotyi/scrollbar-width/1.9.5:
     resolution: {integrity: sha512-N8tkAACJx2ww8vFMneJmaAgmjAG1tnVBZJRLRcx061tmsLRZHSEZSLuGWnwPtunsSLvSqXQ2wfp7Mgqg1I+2dQ==}
+    dev: false
+
+  /@xstate/react/3.0.0_ds25dbl6ssacjrt3wvmav227dq:
+    resolution: {integrity: sha512-KHSCfwtb8gZ7QH2luihvmKYI+0lcdHQOmGNRUxUEs4zVgaJCyd8csCEmwPsudpliLdUmyxX2pzUBojFkINpotw==}
+    peerDependencies:
+      '@xstate/fsm': ^2.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      xstate: ^4.31.0
+    peerDependenciesMeta:
+      '@xstate/fsm':
+        optional: true
+      xstate:
+        optional: true
+    dependencies:
+      react: 18.1.0
+      use-isomorphic-layout-effect: 1.1.2_7cpxmzzodpxnolj5zcc5cr63ji
+      use-sync-external-store: 1.1.0_react@18.1.0
+      xstate: 4.32.1
+    transitivePeerDependencies:
+      - '@types/react'
     dev: false
 
   /@xtuc/ieee754/1.2.0:
@@ -12440,7 +12464,7 @@ packages:
       react: 18.1.0
     dev: false
 
-  /jotai/1.6.6_vm2wkhzl5f5eyl7hfuywll6uzq:
+  /jotai/1.6.6_xyg6tz4d2b2armkv6lbbelchhu:
     resolution: {integrity: sha512-rzUyxHFImnDDjUmC0i0BXyppq1M6ZxrHjhp0SK3VQXvXYAu5Hz9wPJ6w207s2Mlv7jpfiIf26w9m82FLCP3eqw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -12476,6 +12500,7 @@ packages:
     dependencies:
       '@babel/core': 7.17.10
       react: 18.1.0
+      xstate: 4.32.1
     dev: false
 
   /joycon/3.1.1:
@@ -17215,7 +17240,6 @@ packages:
     dependencies:
       '@types/react': 18.0.9
       react: 18.1.0
-    dev: true
 
   /use-latest/1.2.1_7cpxmzzodpxnolj5zcc5cr63ji:
     resolution: {integrity: sha512-xA+AVm/Wlg3e2P/JiItTziwS7FK92LWrDB0p+hgXloIMuVCeJJ8v6f0eeHyPZaJrM+usM1FkFfbNCrJGs8A/zw==}
@@ -17245,6 +17269,14 @@ packages:
       detect-node-es: 1.1.0
       react: 18.1.0
       tslib: 2.4.0
+    dev: false
+
+  /use-sync-external-store/1.1.0_react@18.1.0:
+    resolution: {integrity: sha512-SEnieB2FPKEVne66NpXPd1Np4R1lTNKfjuy3XdIoPQKYBAFdzbzSZlSn1KJZUiihQLQC5Znot4SBz1EOTBwQAQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.1.0
     dev: false
 
   /use/3.1.1:
@@ -17816,6 +17848,10 @@ packages:
   /xmlchars/2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
     dev: true
+
+  /xstate/4.32.1:
+    resolution: {integrity: sha512-QYUd+3GkXZ8i6qdixnOn28bL3EvA++LONYL/EMWwKlFSh/hiLndJ8YTnz77FDs+JUXcwU7NZJg7qoezoRHc4GQ==}
+    dev: false
 
   /xtend/4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
