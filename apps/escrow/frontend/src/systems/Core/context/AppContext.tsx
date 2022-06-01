@@ -1,9 +1,10 @@
-import { parseUnits, randomBytes } from 'ethers/lib/utils';
+import { randomBytes } from "ethers/lib/utils";
 import {
   NativeAssetId,
   ScriptTransactionRequest,
+  toBigInt,
   Wallet,
-} from 'fuels';
+} from "fuels";
 import { useAtom } from "jotai";
 import React, { useContext, useState, useMemo, useEffect } from "react";
 import type { PropsWithChildren } from "react";
@@ -33,24 +34,26 @@ export const useWalletList = () => {
   return wallets;
 };
 
-// @ts-ignore
 export const seedWallet = async (wallet: Wallet) => {
   const transactionRequest = new ScriptTransactionRequest({
     gasPrice: 0,
-    gasLimit: '0x0F4240',
-    script: '0x24400000',
+    gasLimit: 100_000_000,
+    script: "0x24400000",
     scriptData: randomBytes(32),
   });
   // @ts-ignore
   transactionRequest.addCoin({
-    id: '0x000000000000000000000000000000000000000000000000000000000000000000',
+    id: "0x000000000000000000000000000000000000000000000000000000000000000000",
     assetId: NativeAssetId,
-    amount: parseUnits('1', 18).toBigInt(),
-    owner: '0xf1e92c42b90934aa6372e30bc568a326f6e66a1a0288595e6e3fbd392a4f3e6e',
+    amount: toBigInt(1_000_000_000_000_000_000),
+    owner: "0xf1e92c42b90934aa6372e30bc568a326f6e66a1a0288595e6e3fbd392a4f3e6e",
   });
-  transactionRequest.addCoinOutput(wallet.address, parseUnits('1', 18).toBigInt(), NativeAssetId);
+  transactionRequest.addCoinOutput(
+    wallet.address,
+    toBigInt(1_000_000_000_000_000_000),
+    NativeAssetId
+  );
   const submit = await wallet.sendTransaction(transactionRequest);
-
   return submit.wait();
 };
 
@@ -77,6 +80,7 @@ export const AppContextProvider = ({
     if (currentWalletIndex === null || !wallets) {
       return null;
     }
+    console.log("app wallet", wallets[currentWalletIndex].address);
     return wallets[currentWalletIndex];
   }, [currentWalletIndex]);
 

@@ -1,5 +1,3 @@
-import { FUEL_PROVIDER_URL } from "../src/config";
-
 /**
  * Deploy contract to SwaySwap node.
  */
@@ -19,18 +17,15 @@ import {
 import type { Interface, JsonAbi } from 'fuels';
 import path from 'path';
 
-// @ts-ignore
-import { EscrowAbi__factory } from "../src/systems/Core/types/contracts"
+import { FUEL_PROVIDER_URL } from '../src/config';
+import { EscrowAbi__factory } from '../src/systems/Core/types/contracts';
 
-const escrowPath = path.join(
-    __dirname,
-    "../../contracts/escrow/out/debug/escrow.bin"
-);
+const escrowPath = path.join(__dirname, '../../contracts/escrow/out/debug/escrow.bin');
 
 const seedWallet = async (wallet: Wallet) => {
   const transactionRequest = new ScriptTransactionRequest({
     gasPrice: 0,
-    gasLimit: 100,
+    gasLimit: 100_000_000,
     script: '0x24400000',
     scriptData: randomBytes(32),
   });
@@ -38,8 +33,7 @@ const seedWallet = async (wallet: Wallet) => {
   transactionRequest.addCoin({
     id: '0x000000000000000000000000000000000000000000000000000000000000000000',
     assetId: NativeAssetId,
-    // @ts-ignore
-    amount: 100_000_000,
+    amount: toBigInt(100_000_000),
     owner: '0xf1e92c42b90934aa6372e30bc568a326f6e66a1a0288595e6e3fbd392a4f3e6e',
   });
   transactionRequest.addCoinOutput(wallet.address, toBigInt(100_000_000), NativeAssetId);
@@ -65,22 +59,21 @@ async function deployContractBinary(
   const bytecode = fs.readFileSync(binaryPath);
   console.log(contextLog, 'Deploy contract...');
   const factory = new ContractFactory(bytecode, abi, wallet);
-  const contract = await factory.deployContract();
+  const contract = await factory.deployContract({
+    salt: ZeroBytes32,
+    stateRoot: ZeroBytes32,
+  });
 
   console.log(contextLog, 'Contract deployed...');
   return contract;
 }
-  
-  (async function main() {
-    try {
-      const contract = await deployContractBinary(
-        'FuelEscrow',
-        escrowPath,
-        EscrowAbi__factory.abi
-      );
-  
-      console.log('Fuel Escrow Contract Id', contract.id);
-    } catch (err) {
-      console.error(err);
-    }
-  })();
+
+(async function main() {
+  try {
+    const contract = await deployContractBinary('FuelEscrow', escrowPath, EscrowAbi__factory.abi);
+
+    console.log('Fuel Escrow Contract Id', contract.id);
+  } catch (err) {
+    console.error(err);
+  }
+})();
