@@ -14,7 +14,17 @@ First, go through the setup process in [CONTRIBUTING.md](../../../CONTRIBUTING.m
 
 ## 🖥️ Running The Project
 
-Then, inside of `escrow/frontend` run the development server:
+In the root directory make sure you start your local fuel node:
+```bash
+docker compose up
+```
+
+Then, inside of `escrow/frontend` build and deploy the contracts
+```bash
+pnpm build-contracts
+pnpm deploy-contracts
+```
+Then run the development server:
 
 ```bash
 pnpm run dev
