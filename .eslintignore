@@ -3,3 +3,4 @@
 *.js
 dist
 CHANGELOG.md
+apps/escrow/frontend/src/systems/Core/types

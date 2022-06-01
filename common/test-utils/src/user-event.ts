@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { act } from '@testing-library/react';
 import $userEvent from '@testing-library/user-event';
 
