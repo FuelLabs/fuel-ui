@@ -20,7 +20,7 @@ import type { Interface, JsonAbi } from 'fuels';
 import path from 'path';
 
 // @ts-ignore
-import { EscrowAbi__factory} from "../src/systems/Core/types/contracts"
+import { EscrowAbi__factory } from "../src/systems/Core/types/contracts"
 
 const escrowPath = path.join(
     __dirname,
@@ -65,10 +65,7 @@ async function deployContractBinary(
   const bytecode = fs.readFileSync(binaryPath);
   console.log(contextLog, 'Deploy contract...');
   const factory = new ContractFactory(bytecode, abi, wallet);
-  const contract = await factory.deployContract({
-    salt: ZeroBytes32,
-    stateRoot: ZeroBytes32,
-  });
+  const contract = await factory.deployContract();
 
   console.log(contextLog, 'Contract deployed...');
   return contract;
