@@ -19,26 +19,20 @@ export const ShowBalances = () => {
   };
 
   return (
-    // <Box as="aside" css={{ width: "250px" }}>
-    <Flex css={{ direction: "rtl" }}>
-      <Flex css={{ direction: "ltr" }}>
-        <Card css={{ width: "250px", bg: "$gray7" }}>
-          <CardHeader>
-            <Heading>Balances</Heading>
-          </CardHeader>
-          <CardBody>
-            <Stack>
-              {coins.map((coin) => (
-                <div className={coinStyle()} key={coin.assetId}>
-                  {formatValue(coin.amount)} {coin.symbol}
-                </div>
-              ))}
-            </Stack>
-          </CardBody>
-        </Card>
-      </Flex>
-    </Flex>
-    // </Box>
+    <Card css={{ width: "250px", selfAlign: "flex-end", bg: "$gray7", marginTop: "10px", marginRight: "10px" }}>
+      <CardHeader>
+        <Heading>Balances</Heading>
+      </CardHeader>
+      <CardBody>
+        <Stack>
+          {coins.map((coin) => (
+            <div className={coinStyle()} key={coin.assetId}>
+              {formatValue(coin.amount)} {coin.symbol}
+            </div>
+          ))}
+        </Stack>
+      </CardBody>
+    </Card>
   );
 };
 
