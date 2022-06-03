@@ -6,13 +6,17 @@ import { css } from "@fuels-ui/css";
 import { Card } from "@fuels-ui/react";
 import { CardHeader } from "@fuels-ui/react/src/components/Card/CardHeader";
 import { CardBody } from "@fuels-ui/react/src/components/Card/CardBody";
+import { DECIMAL_PLACES } from "@/config";
+import { useWallet } from "../context/AppContext";
+import { useMemo } from "react";
 
 export const ShowBalances = () => {
-    const coins = useAssets();
+    const wallet = useWallet();
+    let coins = useAssets();
 
     const formatValue = (amount: bigint | null | undefined) => {
         if (amount != null) {
-            return formatUnits(amount, 18)
+            return formatUnits(amount, DECIMAL_PLACES);
         }
         return "";
     }
