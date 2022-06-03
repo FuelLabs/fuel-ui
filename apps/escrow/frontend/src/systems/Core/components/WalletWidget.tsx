@@ -76,11 +76,17 @@ export const WalletWidget = () => {
     clipboard.copy(wallet!.address);
   };
 
+  const handleBalances = () => {
+    console.log("blanc");
+  }
+
+  const displayBalance = !!balance?.amount && BigNumber.from(balance?.amount).div("1000000000000000000")!.toString()
+
   // TODO format the eth in a better way and maybe make it generic for different coins
   return (
     <>
       <div className={balanceStyle()}>
-        {BigNumber.from(balance?.amount).div("1000000000000000000")!.toString()}{" "}
+        {displayBalance}{" "}
         (ETH)
       </div>
       <Dropdown className={dropDownStyle()} onChange={handleWalletChange}>
@@ -89,6 +95,7 @@ export const WalletWidget = () => {
       <Button aria-label="Copy your wallet address" onPress={handleCopy}>
         <FaRegCopy size="1em" />
       </Button>
+      <Button leftIcon="DotsHorizontalIcon" onPress={handleBalances} />
     </>
   );
 };
