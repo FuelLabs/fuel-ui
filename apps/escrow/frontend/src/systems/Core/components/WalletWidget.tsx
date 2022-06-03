@@ -4,13 +4,13 @@ import clipboard from "clipboard";
 import { BigNumber } from "ethers";
 import { toBigInt } from "fuels";
 import type { CoinQuantity } from "fuels";
-import { useSetAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import { FaRegCopy } from "react-icons/fa";
 
 import { useWallet, useWalletList } from "../context/AppContext";
-import { walletIndexAtom } from "../jotai";
+import { showBalancesAtom, walletIndexAtom } from "../jotai";
 
 import { Dropdown } from "./Dropdown";
 
@@ -35,6 +35,7 @@ export const WalletWidget = () => {
     amount: toBigInt(0),
     assetId: "",
   });
+  const [showBalance, setShowBalance] = useAtom(showBalancesAtom);
 
   // TODO there is probably a much better way to load the balance
   useEffect(() => {
@@ -76,13 +77,13 @@ export const WalletWidget = () => {
     clipboard.copy(wallet!.address);
   };
 
-  const handleBalances = () => {
-    console.log("blanc");
+  const handleShowBalances = () => {
+    setShowBalance(!showBalance);
   }
 
+  // TODO format the eth in a better way and maybe make it generic for different coins
   const displayBalance = !!balance?.amount && BigNumber.from(balance?.amount).div("1000000000000000000")!.toString()
 
-  // TODO format the eth in a better way and maybe make it generic for different coins
   return (
     <>
       <div className={balanceStyle()}>
@@ -95,7 +96,7 @@ export const WalletWidget = () => {
       <Button aria-label="Copy your wallet address" onPress={handleCopy}>
         <FaRegCopy size="1em" />
       </Button>
-      <Button leftIcon="DotsHorizontalIcon" onPress={handleBalances} />
+      <Button leftIcon="DotsHorizontalIcon" onPress={handleShowBalances} />
     </>
   );
 };
