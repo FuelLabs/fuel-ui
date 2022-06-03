@@ -9,7 +9,7 @@ import { useAtom } from "jotai";
 import React, { useContext, useState, useMemo, useEffect } from "react";
 import type { PropsWithChildren } from "react";
 
-import { FUEL_PROVIDER_URL } from "../../../config";
+import { ASSETS, FUEL_PROVIDER_URL } from "../../../config";
 import { walletIndexAtom } from "../jotai";
 
 // Initial number of wallets to populate in app
@@ -34,7 +34,7 @@ export const useWalletList = () => {
   return wallets;
 };
 
-export const seedWallet = async (wallet: Wallet) => {
+export const seedWallet = async (wallet: Wallet, assetId: string) => {
   const transactionRequest = new ScriptTransactionRequest({
     gasPrice: 0,
     gasLimit: 100_000_000,
@@ -44,14 +44,14 @@ export const seedWallet = async (wallet: Wallet) => {
   // @ts-ignore
   transactionRequest.addCoin({
     id: "0x000000000000000000000000000000000000000000000000000000000000000000",
-    assetId: NativeAssetId,
+    assetId: assetId,
     amount: toBigInt(1_000_000_000_000_000_000),
     owner: "0xf1e92c42b90934aa6372e30bc568a326f6e66a1a0288595e6e3fbd392a4f3e6e",
   });
   transactionRequest.addCoinOutput(
     wallet.address,
     toBigInt(1_000_000_000_000_000_000),
-    NativeAssetId
+    assetId
   );
   const submit = await wallet.sendTransaction(transactionRequest);
   return submit.wait();
@@ -94,7 +94,9 @@ export const AppContextProvider = ({
       const nextWallet = Wallet.generate({
         provider: FUEL_PROVIDER_URL,
       });
-      seedWallet(nextWallet);
+      for (const assetId of ASSETS) {
+        seedWallet(nextWallet, assetId);
+      }
       nextPrivateKeyList[i] = nextWallet.privateKey;
     }
     setPrivateKeyList(nextPrivateKeyList);
