@@ -1,4 +1,4 @@
-import { Box, Heading, Stack } from "@fuels-ui/react";
+import { Box, Flex, Heading, Stack } from "@fuels-ui/react";
 import { formatUnits } from "ethers/lib/utils";
 import { useAssets } from "../hooks/useAssets";
 
@@ -8,7 +8,6 @@ import { CardHeader } from "@fuels-ui/react/src/components/Card/CardHeader";
 import { CardBody } from "@fuels-ui/react/src/components/Card/CardBody";
 import { DECIMAL_PLACES } from "@/config";
 import { useWallet } from "../context/AppContext";
-import { useMemo } from "react";
 
 export const ShowBalances = () => {
     const wallet = useWallet();
@@ -22,8 +21,9 @@ export const ShowBalances = () => {
     }
 
     return (
-        <Box css={{ width: "250px" }}>
-            <Card css={{ bg: "$gray7" }}>
+        // <Box as="aside" css={{ width: "250px" }}>
+        <Flex css={{ direction: "rtl"}}>
+            <Card css={{ width: "250px", bg: "$gray7" }}>
                 <CardHeader>
                     <Heading>
                         Balances
@@ -39,7 +39,8 @@ export const ShowBalances = () => {
                     </Stack>
                 </CardBody>
             </Card>
-        </Box>
+        </Flex>
+        // </Box>
     );
 }
 
