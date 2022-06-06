@@ -1,10 +1,5 @@
 import { randomBytes } from "ethers/lib/utils";
-import {
-  BigNumberish,
-  ScriptTransactionRequest,
-  toBigInt,
-  Wallet,
-} from "fuels";
+import { ScriptTransactionRequest, toBigInt, Wallet } from "fuels";
 import { useAtom } from "jotai";
 import React, { useContext, useState, useMemo, useEffect } from "react";
 import type { PropsWithChildren } from "react";
@@ -34,7 +29,11 @@ export const useWalletList = () => {
   return wallets;
 };
 
-export const seedWallet = async (wallet: Wallet, assetId: string, assetAmount: bigint) => {
+export const seedWallet = async (
+  wallet: Wallet,
+  assetId: string,
+  assetAmount: bigint
+) => {
   const transactionRequest = new ScriptTransactionRequest({
     gasPrice: 0,
     gasLimit: 100_000_000,
@@ -44,15 +43,11 @@ export const seedWallet = async (wallet: Wallet, assetId: string, assetAmount: b
   // @ts-ignore
   transactionRequest.addCoin({
     id: "0x000000000000000000000000000000000000000000000000000000000000000000",
-    assetId: assetId,
+    assetId,
     amount: assetAmount,
     owner: "0xf1e92c42b90934aa6372e30bc568a326f6e66a1a0288595e6e3fbd392a4f3e6e",
   });
-  transactionRequest.addCoinOutput(
-    wallet.address,
-    assetAmount,
-    assetId
-  );
+  transactionRequest.addCoinOutput(wallet.address, assetAmount, assetId);
   const submit = await wallet.sendTransaction(transactionRequest);
   return submit.wait();
 };
@@ -94,10 +89,14 @@ export const AppContextProvider = ({
       const nextWallet = Wallet.generate({
         provider: FUEL_PROVIDER_URL,
       });
-      for (const assetId of ASSETS) {
+      ASSETS.forEach((assetId) => {
         const randAssetAmount = Math.floor(Math.random() * 9) + 1;
-        seedWallet(nextWallet, assetId, DECIMAL_PRECISION * toBigInt(randAssetAmount));
-      }
+        seedWallet(
+          nextWallet,
+          assetId,
+          DECIMAL_PRECISION * toBigInt(randAssetAmount)
+        );
+      });
       nextPrivateKeyList[i] = nextWallet.privateKey;
     }
     setPrivateKeyList(nextPrivateKeyList);

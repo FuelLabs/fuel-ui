@@ -30,7 +30,7 @@ export const WalletWidget = () => {
   const wallets = useWalletList();
   const wallet = useWallet();
   const setCurrentWalletIndex = useSetAtom(walletIndexAtom);
-  const [balance, setBalance] = useState<CoinQuantity | null>({
+  const [, setBalance] = useState<CoinQuantity | null>({
     amount: toBigInt(0),
     assetId: "",
   });
@@ -78,7 +78,7 @@ export const WalletWidget = () => {
 
   const handleShowBalances = () => {
     setShowBalance(!showBalance);
-  }
+  };
 
   return (
     <>
@@ -92,18 +92,6 @@ export const WalletWidget = () => {
     </>
   );
 };
-
-const balanceStyle = css({
-  bg: "$accent9",
-  color: "$gray1",
-  textSize: "base",
-  font: "$sans",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  border: "1px solid transparent",
-  borderRadius: "$lg",
-});
 
 const dropDownStyle = css({
   bg: "$accent9",

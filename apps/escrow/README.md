@@ -15,15 +15,18 @@ First, go through the setup process in [CONTRIBUTING.md](../../../CONTRIBUTING.m
 ## 🖥️ Running The Project
 
 In the root directory make sure you start your local fuel node:
+
 ```bash
 docker compose up
 ```
 
 Then, inside of `/frontend` build and deploy the contracts
+
 ```bash
 pnpm build-contracts
 pnpm deploy-contracts
 ```
+
 Then run the development server:
 
 ```bash
@@ -38,7 +41,9 @@ You can start editing the page by modifying any `pages/` folder inside the `src/
 The page auto-updates as you edit the file.
 
 ## Testing the Program
+
 Insde of `/contracts/escrow` folder test the contracts:
+
 ```bash
 forc test
 ```

@@ -5,8 +5,8 @@ import { ThemeProvider } from "@fuels-ui/react";
 import { StrictMode } from "react";
 import { QueryClientProvider } from "react-query";
 
-import { routes } from "./routes";
 import { queryClient } from "./queryClient";
+import { routes } from "./routes";
 
 export function App() {
   return (
