@@ -19,7 +19,7 @@ In the root directory make sure you start your local fuel node:
 docker compose up
 ```
 
-Then, inside of `escrow/frontend` build and deploy the contracts
+Then, inside of `/frontend` build and deploy the contracts
 ```bash
 pnpm build-contracts
 pnpm deploy-contracts
@@ -36,6 +36,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying any `pages/` folder inside the `src/systems/`.
 The page auto-updates as you edit the file.
+
+## Testing the Program
+Insde of `/contracts/escrow` folder test the contracts:
+```bash
+forc test
+```
 
 ## 📜&nbsp; License
 
