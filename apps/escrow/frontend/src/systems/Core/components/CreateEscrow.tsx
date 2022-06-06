@@ -47,6 +47,15 @@ export const CreateEscrow = () => {
         });
     }
 
+    const handleRemoveAsset = (assetIdx: number) => {
+        setFormState({
+            ...formState,
+            assets: formState.assets.filter((asset, i) => {
+                return i !== assetIdx;
+            })
+        });
+    }
+
     return (
         <Flex css={{ flex: "1", justifyContent: "center" }}>
             <Card css={{ margin: "10px", bg: "$gray7", marginTop: "50px" }}>
@@ -89,6 +98,9 @@ export const CreateEscrow = () => {
                                         onChange={handleChange}
                                         css={{ font: "$sans" }}
                                     />
+                                    <InputElementRight>
+                                        <Button color="tomato" leftIcon="DividerHorizontalIcon" onPress={() => handleRemoveAsset(i)} />
+                                    </InputElementRight>
                                 </Input>
                             </>
                         ))}
