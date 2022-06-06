@@ -3,6 +3,8 @@ import { InputElementRight } from "@fuels-ui/react/src/components/Input/InputEle
 import { InputField } from "@fuels-ui/react/src/components/Input/InputField";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 
+import { AddressInputContainer } from "./AddressInputContainer"
+
 export const CreateEscrow = () => {
     const [formState, setFormState] = useState({
         users: ["", ""],
@@ -21,22 +23,6 @@ export const CreateEscrow = () => {
         setFormState({
             ...formState,
             [event.target.name]: event.target.value
-        });
-    }
-
-    const handleAddUser = (event: any) => {
-        setFormState({
-            ...formState,
-            users: [...(formState.users), ""]
-        });
-    }
-
-    const handleRemoveUser = (userId: number) => {
-        setFormState({
-            ...formState,
-            users: formState.users.filter((user, i) => {
-                return i !== userId;
-            })
         });
     }
 
@@ -61,22 +47,7 @@ export const CreateEscrow = () => {
             <Card css={{ margin: "10px", bg: "$gray7", marginTop: "50px" }}>
                 <form onSubmit={handleSubmit}>
                     <Stack css={{ width: "475px", margin: "10px", alignItems: "center" }}>
-                        {formState.users.map((user, i) => (
-                            <Input css={{ alignSelf: "stretch" }} >
-                                <InputField
-                                    id={`user${i}`}
-                                    name={`user${i}`}
-                                    placeholder={`User ${i} Address`}
-                                    type="text"
-                                    onChange={handleChange}
-                                    css={{ font: "$sans" }}
-                                />
-                                <InputElementRight>
-                                    <Button color="tomato" leftIcon="DividerHorizontalIcon" onPress={() => handleRemoveUser(i)} />
-                                </InputElementRight>
-                            </Input>
-                        ))}
-                        <Button leftIcon="PlusIcon" css={{ font: "$sans", width: "50%" }} onPress={handleAddUser}>Add User</Button>
+                        <AddressInputContainer />
                         {formState.assets.map((asset, i) => (
                             <>
                                 <Input css={{ alignSelf: "stretch" }}>
