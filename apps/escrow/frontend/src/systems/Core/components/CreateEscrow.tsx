@@ -4,10 +4,11 @@ import { ChangeEvent, SyntheticEvent, useState } from "react";
 
 export const CreateEscrow = () => {
     const [formState, setFormState] = useState({
-        buyerAddress: "",
-        sellerAddress: "",
-        assetId: "",
-        assetAmount: ""
+        users: ["", ""],
+        assets: [{
+            assetId: "",
+            assetAmount: ""
+        }]
     });
 
     const handleSubmit = (event: SyntheticEvent) => {
@@ -21,52 +22,58 @@ export const CreateEscrow = () => {
             [event.target.name]: event.target.value
         });
     }
+
+    const handleAddUser = (event: any) => {
+        setFormState({
+            ...formState,
+            users: [...(formState.users), ""]
+        });
+    }
+
     return (
         <Flex css={{ flex: "1", justifyContent: "center" }}>
-            <Card css={{ margin: "10px", alignItems: "center", bg: "$gray7", marginTop: "50px" }}>
+            <Card css={{ margin: "10px", bg: "$gray7", marginTop: "50px" }}>
                 <form onSubmit={handleSubmit}>
-                    <Stack css={{ width: "475px", margin: "10px" }}>
-                        <Input>
-                            <InputField
-                                id="buyer"
-                                name="buyer"
-                                placeholder="Buyer Address"
-                                type="text"
-                                onChange={handleChange}
-                                css={{ font: "$sans" }}
-                            />
-                        </Input>
-                        <Input>
-                            <InputField
-                                id="seller"
-                                name="seller"
-                                placeholder="Seller Address"
-                                type="text"
-                                onChange={handleChange}
-                                css={{ font: "$sans" }}
-                            />
-                        </Input>
-                        <Input>
-                            <InputField
-                                id="assetId"
-                                name="assetId"
-                                placeholder="Asset Id"
-                                type="text"
-                                onChange={handleChange}
-                                css={{ font: "$sans" }}
-                            />
-                        </Input>
-                        <Input>
-                            <InputField
-                                id="assetAmount"
-                                name="assetAmount"
-                                placeholder="Asset Amount"
-                                type="text"
-                                onChange={handleChange}
-                                css={{ font: "$sans" }}
-                            />
-                        </Input>
-                        <Button type="submit" leftIcon="PlusIcon" css={{ font: "$sans" }}>Create Escrow</Button>
+                    <Stack css={{ width: "475px", margin: "10px", alignItems: "center" }}>
+                        {formState.users.map((user, i) => (
+                            <Input css={{ alignSelf: "stretch" }}>
+                                <InputField
+                                    id={`user${i}`}
+                                    name={`user${i}`}
+                                    placeholder={`User ${i} Address`}
+                                    type="text"
+                                    onChange={handleChange}
+                                    css={{ font: "$sans" }}
+                                />
+                            </Input>
+                        ))}
+                        <Button leftIcon="PlusIcon" css={{ font: "$sans", width: "50%" }} onPress={handleAddUser}>Add User</Button>
+                        {formState.assets.map((asset, i) => (
+                            <>
+                                <Input css={{ alignSelf: "stretch" }}>
+                                    <InputField
+                                        id={`assetId${i}`}
+                                        name={`assetId${i}`}
+                                        placeholder={`Asset ${i} Id`}
+                                        type="text"
+                                        onChange={handleChange}
+                                        css={{ font: "$sans" }}
+                                    />
+                                </Input>
+                                <Input css={{ alignSelf: "stretch" }}>
+                                    <InputField
+                                        id={`assetAmount${i}`}
+                                        name={`assetAmount${i}`}
+                                        placeholder={`Asset ${i} Amount`}
+                                        type="text"
+                                        onChange={handleChange}
+                                        css={{ font: "$sans" }}
+                                    />
+                                </Input>
+                            </>
+                        ))}
+                        <Button leftIcon="PlusIcon" css={{ font: "$sans", width: "50%" }}>Add Asset</Button>
+                        <Button type="submit" leftIcon="PlusIcon" css={{ font: "$sans", alignSelf: "stretch" }}>Create Escrow</Button>
                     </Stack>
                 </form>
             </Card>
