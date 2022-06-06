@@ -40,6 +40,13 @@ export const CreateEscrow = () => {
         });
     }
 
+    const handleAddAsset = () => {
+        setFormState({
+            ...formState,
+            assets: [...(formState.assets), { assetId: "", assetAmount: "" }]
+        });
+    }
+
     return (
         <Flex css={{ flex: "1", justifyContent: "center" }}>
             <Card css={{ margin: "10px", bg: "$gray7", marginTop: "50px" }}>
@@ -85,7 +92,7 @@ export const CreateEscrow = () => {
                                 </Input>
                             </>
                         ))}
-                        <Button leftIcon="PlusIcon" css={{ font: "$sans", width: "50%" }}>Add Asset</Button>
+                        <Button leftIcon="PlusIcon" css={{ font: "$sans", width: "50%" }} onPress={handleAddAsset}>Add Asset</Button>
                         <Button type="submit" leftIcon="PlusIcon" css={{ font: "$sans", alignSelf: "stretch" }}>Create Escrow</Button>
                     </Stack>
                 </form>
