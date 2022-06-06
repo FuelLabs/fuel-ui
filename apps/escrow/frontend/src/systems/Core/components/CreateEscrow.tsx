@@ -1,4 +1,5 @@
 import { BoxCentered, Button, Stack, Input, Card, Flex } from "@fuels-ui/react";
+import { InputElementRight } from "@fuels-ui/react/src/components/Input/InputElement";
 import { InputField } from "@fuels-ui/react/src/components/Input/InputField";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 
@@ -30,13 +31,22 @@ export const CreateEscrow = () => {
         });
     }
 
+    const handleRemoveUser = (userId: number) => {
+        setFormState({
+            ...formState,
+            users: formState.users.filter((user, i) => {
+                return i !== userId;
+            })
+        });
+    }
+
     return (
         <Flex css={{ flex: "1", justifyContent: "center" }}>
             <Card css={{ margin: "10px", bg: "$gray7", marginTop: "50px" }}>
                 <form onSubmit={handleSubmit}>
                     <Stack css={{ width: "475px", margin: "10px", alignItems: "center" }}>
                         {formState.users.map((user, i) => (
-                            <Input css={{ alignSelf: "stretch" }}>
+                            <Input css={{ alignSelf: "stretch" }} >
                                 <InputField
                                     id={`user${i}`}
                                     name={`user${i}`}
@@ -45,6 +55,9 @@ export const CreateEscrow = () => {
                                     onChange={handleChange}
                                     css={{ font: "$sans" }}
                                 />
+                                <InputElementRight>
+                                    <Button color="tomato" leftIcon="DividerHorizontalIcon" onPress={() => handleRemoveUser(i)} />
+                                </InputElementRight>
                             </Input>
                         ))}
                         <Button leftIcon="PlusIcon" css={{ font: "$sans", width: "50%" }} onPress={handleAddUser}>Add User</Button>
