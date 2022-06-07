@@ -4,6 +4,7 @@ import { InputField } from "@fuels-ui/react/src/components/Input/InputField";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 
 import { AddressInputContainer } from "./AddressInputContainer"
+import { AssetInputContainer } from "./AssetInputContainer";
 
 export const CreateEscrow = () => {
     const [formState, setFormState] = useState({
@@ -48,34 +49,7 @@ export const CreateEscrow = () => {
                 <form onSubmit={handleSubmit}>
                     <Stack css={{ width: "475px", margin: "10px", alignItems: "center" }}>
                         <AddressInputContainer />
-                        {formState.assets.map((asset, i) => (
-                            <>
-                                <Input css={{ alignSelf: "stretch" }}>
-                                    <InputField
-                                        id={`assetId${i}`}
-                                        name={`assetId${i}`}
-                                        placeholder={`Asset ${i} Id`}
-                                        type="text"
-                                        onChange={handleChange}
-                                        css={{ font: "$sans" }}
-                                    />
-                                </Input>
-                                <Input css={{ alignSelf: "stretch" }}>
-                                    <InputField
-                                        id={`assetAmount${i}`}
-                                        name={`assetAmount${i}`}
-                                        placeholder={`Asset ${i} Amount`}
-                                        type="text"
-                                        onChange={handleChange}
-                                        css={{ font: "$sans" }}
-                                    />
-                                    <InputElementRight>
-                                        <Button color="tomato" leftIcon="DividerHorizontalIcon" onPress={() => handleRemoveAsset(i)} />
-                                    </InputElementRight>
-                                </Input>
-                            </>
-                        ))}
-                        <Button leftIcon="PlusIcon" css={{ font: "$sans", width: "50%" }} onPress={handleAddAsset}>Add Asset</Button>
+                        <AssetInputContainer />
                         <Button type="submit" leftIcon="PlusIcon" css={{ font: "$sans", alignSelf: "stretch" }}>Create Escrow</Button>
                     </Stack>
                 </form>
