@@ -7,41 +7,10 @@ import { AddressInputContainer } from "./AddressInputContainer"
 import { AssetInputContainer } from "./AssetInputContainer";
 
 export const CreateEscrow = () => {
-    const [formState, setFormState] = useState({
-        users: ["", ""],
-        assets: [{
-            assetId: "",
-            assetAmount: ""
-        }]
-    });
-
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
-        console.log(formState);
     }
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setFormState({
-            ...formState,
-            [event.target.name]: event.target.value
-        });
-    }
-
-    const handleAddAsset = () => {
-        setFormState({
-            ...formState,
-            assets: [...(formState.assets), { assetId: "", assetAmount: "" }]
-        });
-    }
-
-    const handleRemoveAsset = (assetIdx: number) => {
-        setFormState({
-            ...formState,
-            assets: formState.assets.filter((asset, i) => {
-                return i !== assetIdx;
-            })
-        });
-    }
 
     return (
         <Flex css={{ flex: "1", justifyContent: "center" }}>
