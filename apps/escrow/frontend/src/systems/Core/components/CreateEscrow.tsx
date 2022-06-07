@@ -8,6 +8,10 @@ import { AssetInputContainer } from "./AssetInputContainer";
 
 export const CreateEscrow = () => {
     const [users, setUsers] = useState(["", ""]);
+    const [assets, setAssets] = useState([{
+        assetId: "",
+        assetAmount: ""
+    }]);
 
     const handleUsersChange = (event: ChangeEvent<HTMLInputElement>, userIdx: number) => {
         const newUsers = [...users];
@@ -26,11 +30,32 @@ export const CreateEscrow = () => {
         }));
     }
 
+    const handleAssetIdChange = (event: ChangeEvent<HTMLInputElement>, assetIdx: number) => {
+        const newAssets = [...assets];
+        newAssets[assetIdx].assetId = event.target.value;
+        setAssets(newAssets);
+    }
+
+    const handleAssetAmountChange = (event: ChangeEvent<HTMLInputElement>, assetIdx: number) => {
+        const newAssets = [...assets];
+        newAssets[assetIdx].assetAmount = event.target.value;
+        setAssets(newAssets);
+    }
+
+    const handleAddAsset = () => {
+        setAssets([...assets, { assetId: "", assetAmount: "" }]);
+    }
+
+    const handleRemoveAsset = (assetIdx: number) => {
+        setAssets(assets.filter((asset, i) => {
+            return i !== assetIdx;
+        }));
+    }
+
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
         console.log(users);
     }
-
 
     return (
         <Flex css={{ flex: "1", justifyContent: "center" }}>
@@ -43,7 +68,13 @@ export const CreateEscrow = () => {
                             onUserInfoChange={handleUsersChange}
                             users={users}
                         />
-                        <AssetInputContainer />
+                        <AssetInputContainer
+                            onAddAsset={handleAddAsset}
+                            onRemoveAsset={handleRemoveAsset}
+                            onAssetAmountChange={handleAssetAmountChange}
+                            onAssetIdChange={handleAssetIdChange}
+                            assets={assets}
+                        />
                         <Button type="submit" leftIcon="PlusIcon" css={{ font: "$sans", alignSelf: "stretch" }}>Create Escrow</Button>
                     </Stack>
                 </form>
