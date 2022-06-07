@@ -1,12 +1,19 @@
+import { ESCROW_PATH } from "@/config";
 import { BoxCentered, Button, Stack, Input, Card, Flex } from "@fuels-ui/react";
 import { InputElementRight } from "@fuels-ui/react/src/components/Input/InputElement";
 import { InputField } from "@fuels-ui/react/src/components/Input/InputField";
 import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { useWallet } from "../context/AppContext";
+import { useContract } from "../hooks/useContract";
+import { EscrowAbi__factory } from "../types/contracts";
+import { deployContractBinary } from "../utils/helpers";
 
 import { AddressInputContainer } from "./AddressInputContainer"
 import { AssetInputContainer } from "./AssetInputContainer";
 
 export const CreateEscrow = () => {
+    const wallet = useWallet();
+    //const contract = useContract();
     const [users, setUsers] = useState(["", ""]);
     const [assets, setAssets] = useState([{
         assetId: "",
@@ -51,12 +58,13 @@ export const CreateEscrow = () => {
         }));
     }
 
-    const handleSubmit = (event: SyntheticEvent) => {
+    const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
+        const escrow = await deployContractBinary("Escrow Contract", ESCROW_PATH, EscrowAbi__factory.abi, wallet!);
+        const contract = EscrowAbi__factory.connect(escrow.id, wallet!);
+        contract?.submit.constructor(users, assets);
         setUsers(["", ""]);
         setAssets([{ assetAmount: "", assetId: ""}]);
-        console.log(users);
-        console.log(assets);
     }
 
     return (

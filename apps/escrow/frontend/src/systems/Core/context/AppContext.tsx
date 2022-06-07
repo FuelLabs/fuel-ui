@@ -4,8 +4,9 @@ import { useAtom } from "jotai";
 import React, { useContext, useState, useMemo, useEffect } from "react";
 import type { PropsWithChildren } from "react";
 
-import { ASSETS, DECIMAL_PRECISION, FUEL_PROVIDER_URL } from "../../../config";
+import { ASSETS, DECIMAL_PRECISION, FUEL_PROVIDER_URL, ESCROW_ID } from "../../../config";
 import { walletIndexAtom } from "../jotai";
+import { EscrowAbi, EscrowAbi__factory } from "../types/contracts";
 
 // Initial number of wallets to populate in app
 const NUM_WALLETS = 10;
@@ -13,6 +14,8 @@ const NUM_WALLETS = 10;
 interface AppContextValue {
   wallets: Array<Wallet> | null;
   wallet: Wallet | null;
+  contract: EscrowAbi | null;
+  //contracts: Array<EscrowAbi> | null;
 }
 
 export const AppContext = React.createContext<AppContextValue | null>(null);
@@ -79,6 +82,11 @@ export const AppContextProvider = ({
     return wallets[currentWalletIndex];
   }, [currentWalletIndex]);
 
+  const contract = useMemo(() => {
+    if (!wallet) return null;
+    return EscrowAbi__factory.connect(ESCROW_ID, wallet);
+  }, [wallet]);
+
   // TODO store wallets in local storage or somewhere more persistant
   useEffect(() => {
     if (wallets!.length > 0) {
@@ -108,6 +116,7 @@ export const AppContextProvider = ({
       value={{
         wallets,
         wallet,
+        contract,
       }}
     >
       {children}

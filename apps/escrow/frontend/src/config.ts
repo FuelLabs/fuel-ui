@@ -1,4 +1,5 @@
 import { NativeAssetId, toBigInt } from 'fuels';
+import path from 'path';
 
 export const FUEL_PROVIDER_URL = 'http://localhost:4000/graphql';
 
@@ -35,3 +36,7 @@ export const CoinsMetadata = [FETH, FDAI, FUSDC, FUNI];
 
 export const DECIMAL_PLACES = 15;
 export const DECIMAL_PRECISION = toBigInt(1e18);
+
+export const ESCROW_ID = process.env.ESCROW_ID!;
+
+export const ESCROW_PATH = path.join(__dirname, '../../contracts/escrow/out/debug/escrow.bin');
