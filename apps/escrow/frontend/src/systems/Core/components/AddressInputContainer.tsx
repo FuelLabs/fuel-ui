@@ -19,6 +19,7 @@ export const AddressInputContainer = (props: Props) => {
                         id={`user${i}`}
                         name={`user${i}`}
                         placeholder={`User ${i} Address`}
+                        value={user}
                         type="text"
                         onChange={(e) => props.onUserInfoChange(e, i)}
                         css={{ font: "$sans" }}

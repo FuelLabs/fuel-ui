@@ -17,33 +17,6 @@ interface Props {
 }
 
 export const AssetInputContainer = (props: Props) => {
-    // const [assets, setAssets] = useState([{
-    //     assetId: "",
-    //     assetAmount: ""
-    // }]);
-
-    // const handleAssetIdChange = (event: ChangeEvent<HTMLInputElement>, assetIdx: number) => {
-    //     const newAssets = [...assets];
-    //     newAssets[assetIdx].assetId = event.target.value;
-    //     setAssets(newAssets);
-    // }
-
-    // const handleAssetAmountChange = (event: ChangeEvent<HTMLInputElement>, assetIdx: number) => {
-    //     const newAssets = [...assets];
-    //     newAssets[assetIdx].assetAmount = event.target.value;
-    //     setAssets(newAssets);
-    // }
-
-    // const handleAddAsset = () => {
-    //     setAssets([...assets, { assetId: "", assetAmount: "" }]);
-    // }
-
-    // const handleRemoveAsset = (assetIdx: number) => {
-    //     setAssets(assets.filter((asset, i) => {
-    //         return i !== assetIdx;
-    //     }));
-    // }
-
     return (
         <>
             {props.assets.map((asset, i) => (
@@ -53,6 +26,7 @@ export const AssetInputContainer = (props: Props) => {
                             id={`assetId${i}`}
                             name={`assetId${i}`}
                             placeholder={`Asset ${i} Id`}
+                            value={asset.assetId}
                             type="text"
                             onChange={(e) => props.onAssetIdChange(e, i)}
                             css={{ font: "$sans" }}
@@ -63,6 +37,7 @@ export const AssetInputContainer = (props: Props) => {
                             id={`assetAmount${i}`}
                             name={`assetAmount${i}`}
                             placeholder={`Asset ${i} Amount`}
+                            value={asset.assetAmount}
                             type="text"
                             onChange={(e) => props.onAssetAmountChange(e, i)}
                             css={{ font: "$sans" }}
