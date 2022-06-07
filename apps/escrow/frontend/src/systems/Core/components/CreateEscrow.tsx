@@ -23,7 +23,6 @@ export const CreateEscrow = () => {
         setUsers([...users, ""]);
     }
 
-    // TODO (FIX) the way we remove and display users this really just pops the last user from the list
     const handleRemoveUser = (userId: number) => {
         setUsers(users.filter((user, i) => {
             return i !== userId;
@@ -54,7 +53,10 @@ export const CreateEscrow = () => {
 
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
+        setUsers(["", ""]);
+        setAssets([{ assetAmount: "", assetId: ""}]);
         console.log(users);
+        console.log(assets);
     }
 
     return (
