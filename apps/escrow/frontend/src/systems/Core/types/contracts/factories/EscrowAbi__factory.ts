@@ -10,27 +10,116 @@ const _abi = [
     type: 'function',
     inputs: [
       {
-        name: 'buyer',
-        type: 'struct Address',
+        name: 'users',
+        type: '[enum Identity; 2]',
         components: [
           {
-            name: 'value',
-            type: 'b256',
-            components: null,
+            name: '__array_element',
+            type: 'enum Identity',
+            components: [
+              {
+                name: 'Address',
+                type: 'struct Address',
+                components: [
+                  {
+                    name: 'value',
+                    type: 'b256',
+                    components: null,
+                  },
+                ],
+              },
+              {
+                name: 'ContractId',
+                type: 'struct ContractId',
+                components: [
+                  {
+                    name: 'value',
+                    type: 'b256',
+                    components: null,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
       {
-        name: 'seller',
-        type: 'struct Address',
+        name: 'assets',
+        type: '[struct Asset; 2]',
         components: [
           {
-            name: 'value',
-            type: 'b256',
-            components: null,
+            name: '__array_element',
+            type: 'struct Asset',
+            components: [
+              {
+                name: 'amount',
+                type: 'u64',
+                components: null,
+              },
+              {
+                name: 'id',
+                type: 'struct ContractId',
+                components: [
+                  {
+                    name: 'value',
+                    type: 'b256',
+                    components: null,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
+    ],
+    name: 'constructor',
+    outputs: [
+      {
+        name: '',
+        type: '()',
+        components: [],
+      },
+    ],
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'deposit',
+    outputs: [
+      {
+        name: '',
+        type: '()',
+        components: [],
+      },
+    ],
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'approve',
+    outputs: [
+      {
+        name: '',
+        type: '()',
+        components: [],
+      },
+    ],
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'withdraw',
+    outputs: [
+      {
+        name: '',
+        type: '()',
+        components: [],
+      },
+    ],
+  },
+  {
+    type: 'function',
+    inputs: [
       {
         name: 'asset',
         type: 'struct ContractId',
@@ -42,89 +131,12 @@ const _abi = [
           },
         ],
       },
-      {
-        name: 'asset_amount',
-        type: 'u64',
-        components: null,
-      },
     ],
-    name: 'constructor',
-    outputs: [
-      {
-        name: '',
-        type: 'bool',
-        components: null,
-      },
-    ],
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'deposit',
-    outputs: [
-      {
-        name: '',
-        type: 'bool',
-        components: null,
-      },
-    ],
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'approve',
-    outputs: [
-      {
-        name: '',
-        type: 'bool',
-        components: null,
-      },
-    ],
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'withdraw',
-    outputs: [
-      {
-        name: '',
-        type: 'bool',
-        components: null,
-      },
-    ],
-  },
-  {
-    type: 'function',
-    inputs: [],
     name: 'get_balance',
     outputs: [
       {
         name: '',
-        type: 'u64',
-        components: null,
-      },
-    ],
-  },
-  {
-    type: 'function',
-    inputs: [
-      {
-        name: 'user',
-        type: 'struct Address',
-        components: [
-          {
-            name: 'value',
-            type: 'b256',
-            components: null,
-          },
-        ],
-      },
-    ],
-    name: 'get_user_data',
-    outputs: [
-      {
-        name: '',
-        type: '(bool, bool)',
+        type: '(bool, u64)',
         components: [
           {
             name: '__tuple_element',
@@ -133,6 +145,74 @@ const _abi = [
           },
           {
             name: '__tuple_element',
+            type: 'u64',
+            components: null,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    type: 'function',
+    inputs: [
+      {
+        name: 'user',
+        type: 'enum Identity',
+        components: [
+          {
+            name: 'Address',
+            type: 'struct Address',
+            components: [
+              {
+                name: 'value',
+                type: 'b256',
+                components: null,
+              },
+            ],
+          },
+          {
+            name: 'ContractId',
+            type: 'struct ContractId',
+            components: [
+              {
+                name: 'value',
+                type: 'b256',
+                components: null,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    name: 'get_user_data',
+    outputs: [
+      {
+        name: '',
+        type: 'struct User',
+        components: [
+          {
+            name: 'approved',
+            type: 'bool',
+            components: null,
+          },
+          {
+            name: 'asset',
+            type: 'struct ContractId',
+            components: [
+              {
+                name: 'value',
+                type: 'b256',
+                components: null,
+              },
+            ],
+          },
+          {
+            name: 'exists',
+            type: 'bool',
+            components: null,
+          },
+          {
+            name: 'deposited',
             type: 'bool',
             components: null,
           },
