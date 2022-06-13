@@ -1,13 +1,17 @@
 library errors;
 
 pub enum AccessError {
+    InvalidIdentifier: (),
     UnauthorizedUser: (),
 }
 
-pub enum InitError {
+pub enum ApproveError {
+    AlreadyApproved: (),
+}
+
+pub enum CreationError {
     AssetAmountCannotBeZero: (),
     AssetIdCannotBeZero: (),
-    CannotReinitialize: (),
 }
 
 pub enum DepositError {
@@ -17,8 +21,8 @@ pub enum DepositError {
     IncorrectAssetDeposited: (),
 }
 
-pub enum ApproveError {
-    AlreadyApproved: (),
+pub enum InitError {
+    CannotReinitialize: (),
 }
 
 pub enum StateError {
