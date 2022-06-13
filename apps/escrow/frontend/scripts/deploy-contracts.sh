@@ -3,4 +3,4 @@
 # Import env variables
 source .env;
 
-npx ts-node deploy-contracts
+pnpm ts-node deploy-contracts
