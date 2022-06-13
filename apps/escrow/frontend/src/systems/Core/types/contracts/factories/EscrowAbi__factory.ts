@@ -10,6 +10,47 @@ const _abi = [
     type: 'function',
     inputs: [
       {
+        name: 'owner',
+        type: 'enum Identity',
+        components: [
+          {
+            name: 'Address',
+            type: 'struct Address',
+            components: [
+              {
+                name: 'value',
+                type: 'b256',
+                components: null,
+              },
+            ],
+          },
+          {
+            name: 'ContractId',
+            type: 'struct ContractId',
+            components: [
+              {
+                name: 'value',
+                type: 'b256',
+                components: null,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    name: 'constructor',
+    outputs: [
+      {
+        name: '',
+        type: '()',
+        components: [],
+      },
+    ],
+  },
+  {
+    type: 'function',
+    inputs: [
+      {
         name: 'users',
         type: '[enum Identity; 2]',
         components: [
@@ -72,7 +113,7 @@ const _abi = [
         ],
       },
     ],
-    name: 'constructor',
+    name: 'create_escrow',
     outputs: [
       {
         name: '',
@@ -83,7 +124,13 @@ const _abi = [
   },
   {
     type: 'function',
-    inputs: [],
+    inputs: [
+      {
+        name: 'identifier',
+        type: 'u64',
+        components: null,
+      },
+    ],
     name: 'deposit',
     outputs: [
       {
@@ -95,7 +142,13 @@ const _abi = [
   },
   {
     type: 'function',
-    inputs: [],
+    inputs: [
+      {
+        name: 'identifier',
+        type: 'u64',
+        components: null,
+      },
+    ],
     name: 'approve',
     outputs: [
       {
@@ -107,7 +160,13 @@ const _abi = [
   },
   {
     type: 'function',
-    inputs: [],
+    inputs: [
+      {
+        name: 'identifier',
+        type: 'u64',
+        components: null,
+      },
+    ],
     name: 'withdraw',
     outputs: [
       {
@@ -121,31 +180,80 @@ const _abi = [
     type: 'function',
     inputs: [
       {
-        name: 'asset',
-        type: 'struct ContractId',
+        name: 'identifier',
+        type: 'u64',
+        components: null,
+      },
+      {
+        name: 'user',
+        type: 'enum Identity',
         components: [
           {
-            name: 'value',
-            type: 'b256',
-            components: null,
+            name: 'Address',
+            type: 'struct Address',
+            components: [
+              {
+                name: 'value',
+                type: 'b256',
+                components: null,
+              },
+            ],
+          },
+          {
+            name: 'ContractId',
+            type: 'struct ContractId',
+            components: [
+              {
+                name: 'value',
+                type: 'b256',
+                components: null,
+              },
+            ],
           },
         ],
       },
     ],
-    name: 'get_balance',
+    name: 'user_data',
     outputs: [
       {
         name: '',
-        type: '(bool, u64)',
+        type: 'struct User',
         components: [
           {
-            name: '__tuple_element',
+            name: 'approved',
             type: 'bool',
             components: null,
           },
           {
-            name: '__tuple_element',
-            type: 'u64',
+            name: 'asset',
+            type: 'enum Option',
+            components: [
+              {
+                name: 'Some',
+                type: 'struct ContractId',
+                components: [
+                  {
+                    name: 'value',
+                    type: 'b256',
+                    components: null,
+                  },
+                ],
+              },
+              {
+                name: 'None',
+                type: '()',
+                components: [],
+              },
+            ],
+          },
+          {
+            name: 'exists',
+            type: 'bool',
+            components: null,
+          },
+          {
+            name: 'deposited',
+            type: 'bool',
             components: null,
           },
         ],
@@ -184,37 +292,33 @@ const _abi = [
         ],
       },
     ],
-    name: 'get_user_data',
+    name: 'user_escrows',
     outputs: [
       {
         name: '',
-        type: 'struct User',
+        type: 'struct UserEscrows',
         components: [
           {
-            name: 'approved',
-            type: 'bool',
-            components: null,
-          },
-          {
-            name: 'asset',
-            type: 'struct ContractId',
+            name: 'active',
+            type: '[u64; 1]',
             components: [
               {
-                name: 'value',
-                type: 'b256',
+                name: '__array_element',
+                type: 'u64',
                 components: null,
               },
             ],
           },
           {
-            name: 'exists',
-            type: 'bool',
-            components: null,
-          },
-          {
-            name: 'deposited',
-            type: 'bool',
-            components: null,
+            name: 'completed',
+            type: '[u64; 1]',
+            components: [
+              {
+                name: '__array_element',
+                type: 'u64',
+                components: null,
+              },
+            ],
           },
         ],
       },
@@ -222,13 +326,108 @@ const _abi = [
   },
   {
     type: 'function',
-    inputs: [],
-    name: 'get_state',
+    inputs: [
+      {
+        name: 'identifier',
+        type: 'u64',
+        components: null,
+      },
+    ],
+    name: 'escrow_data',
     outputs: [
       {
         name: '',
-        type: 'u64',
-        components: null,
+        type: 'struct EscrowData',
+        components: [
+          {
+            name: 'approval_count',
+            type: 'u64',
+            components: null,
+          },
+          {
+            name: 'assets',
+            type: '[struct Asset; 2]',
+            components: [
+              {
+                name: '__array_element',
+                type: 'struct Asset',
+                components: [
+                  {
+                    name: 'amount',
+                    type: 'u64',
+                    components: null,
+                  },
+                  {
+                    name: 'id',
+                    type: 'struct ContractId',
+                    components: [
+                      {
+                        name: 'value',
+                        type: 'b256',
+                        components: null,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            name: 'state',
+            type: 'enum State',
+            components: [
+              {
+                name: 'Pending',
+                type: '()',
+                components: [],
+              },
+              {
+                name: 'Completed',
+                type: '()',
+                components: [],
+              },
+            ],
+          },
+          {
+            name: 'threshold',
+            type: 'u64',
+            components: null,
+          },
+          {
+            name: 'users',
+            type: '[enum Identity; 2]',
+            components: [
+              {
+                name: '__array_element',
+                type: 'enum Identity',
+                components: [
+                  {
+                    name: 'Address',
+                    type: 'struct Address',
+                    components: [
+                      {
+                        name: 'value',
+                        type: 'b256',
+                        components: null,
+                      },
+                    ],
+                  },
+                  {
+                    name: 'ContractId',
+                    type: 'struct ContractId',
+                    components: [
+                      {
+                        name: 'value',
+                        type: 'b256',
+                        components: null,
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ],
   },

@@ -10,6 +10,9 @@ import type {
   Overrides,
   BigNumberish,
   BytesLike,
+  CallResult,
+  ScriptTransactionRequest,
+  TransactionResult,
 } from 'fuels';
 
 export type AddressInput = { value: string };
@@ -27,6 +30,12 @@ interface AssetAbiInterface extends Interface {
     mint_and_send_to_address: FunctionFragment;
   };
   dryRunResult: {
+    mint_and_send_to_address: FunctionFragment;
+  };
+  simulate: {
+    mint_and_send_to_address: FunctionFragment;
+  };
+  simulateResult: {
     mint_and_send_to_address: FunctionFragment;
   };
   prepareCall: {
@@ -55,7 +64,7 @@ export class AssetAbi extends Contract {
       amount: BigNumberish,
       recipient: AddressInput,
       overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
+    ): Promise<TransactionResult<any>>;
   };
   dryRun: {
     mint_and_send_to_address(
@@ -69,14 +78,28 @@ export class AssetAbi extends Contract {
       amount: BigNumberish,
       recipient: AddressInput,
       overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<boolean>;
+    ): Promise<CallResult>;
   };
   prepareCall: {
     mint_and_send_to_address(
       amount: BigNumberish,
       recipient: AddressInput,
       overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ScriptTransactionRequest>;
+  };
+  simulate: {
+    mint_and_send_to_address(
+      amount: BigNumberish,
+      recipient: AddressInput,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<boolean>;
+  };
+  simulateResult: {
+    mint_and_send_to_address(
+      amount: BigNumberish,
+      recipient: AddressInput,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<CallResult>;
   };
 
   mint_and_send_to_address(
