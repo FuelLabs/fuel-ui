@@ -72,6 +72,7 @@ impl Escrow for Contract {
     /// The function will panic when
     /// - The constructor is called more than once
     fn constructor(owner: Identity) {
+        revert(300);
         require(!storage.initialized, InitError::CannotReinitialize);
         storage.owner = owner;
         storage.initialized = true;
@@ -271,7 +272,7 @@ impl Escrow for Contract {
         require(user.deposited, DepositError::DepositRequired);
 
         // Safe to unwrap since the asset is set during the deposit
-        // let deposited_asset = user.asset.unwrap();
+        //let deposited_asset = user.asset.unwrap();
 
         let deposited_asset = match user.asset {
             Option::Some(asset) => asset, 

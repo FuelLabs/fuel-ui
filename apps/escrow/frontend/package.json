@@ -17,7 +17,7 @@
     "@fuels-ui/react": "workspace:*",
     "clipboard": "^2.0.11",
     "ethers": "^5.6.5",
-    "fuels": "0.0.0-master-b912b987",
+    "fuels": "0.0.0-master-92cc35d4",
     "jotai": "^1.6.6",
     "path-browserify": "^1.0.1",
     "react": "^18.0.0",
@@ -34,7 +34,7 @@
     "@types/react-helmet": "^6.1.5",
     "@vitejs/plugin-react": "^1.3.0",
     "typechain": "^8.0.0",
-    "typechain-target-fuels": "0.0.0-master-b912b987",
+    "typechain-target-fuels": "0.0.0-master-92cc35d4",
     "typescript": "^4.6.3",
     "vite": "^2.9.7"
   }

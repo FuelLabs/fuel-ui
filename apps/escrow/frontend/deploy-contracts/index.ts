@@ -18,7 +18,8 @@ import type { Interface, JsonAbi } from 'fuels';
 import path from 'path';
 
 import { FUEL_PROVIDER_URL } from '../src/config';
-import { EscrowAbi__factory } from '../src/systems/Core/types/contracts';
+import { EscrowAbi__factory, EscrowAbi } from '../src/systems/Core/types/contracts';
+import { IdentityInput } from '../src/systems/Core/types/contracts/EscrowAbi';
 
 const escrowPath = path.join(__dirname, '../../contracts/escrow/out/debug/escrow.bin');
 
@@ -33,10 +34,10 @@ const seedWallet = async (wallet: Wallet) => {
   transactionRequest.addCoin({
     id: '0x000000000000000000000000000000000000000000000000000000000000000000',
     assetId: NativeAssetId,
-    amount: toBigInt(100_000_000),
+    amount: toBigInt(100_000_000_000),
     owner: '0xf1e92c42b90934aa6372e30bc568a326f6e66a1a0288595e6e3fbd392a4f3e6e',
   });
-  transactionRequest.addCoinOutput(wallet.address, toBigInt(100_000_000), NativeAssetId);
+  transactionRequest.addCoinOutput(wallet.address, toBigInt(100_000_000_000), NativeAssetId);
   const submit = await wallet.sendTransaction(transactionRequest);
 
   return submit.wait();
@@ -65,13 +66,14 @@ async function deployContractBinary(
   });
 
   console.log(contextLog, 'Contract deployed...');
-  return contract;
+  return { contract, wallet };
 }
+
 
 (async function main() {
   try {
-    const contract = await deployContractBinary('FuelEscrow', escrowPath, EscrowAbi__factory.abi);
-
+    const { contract, wallet } = await deployContractBinary('FuelEscrow', escrowPath, EscrowAbi__factory.abi) as { contract: EscrowAbi, wallet: Wallet };
+    await contract.submit.constructor({ Address: { value: wallet.address } } as IdentityInput);
     console.log('Fuel Escrow Contract Id', contract.id);
   } catch (err) {
     console.error(err);

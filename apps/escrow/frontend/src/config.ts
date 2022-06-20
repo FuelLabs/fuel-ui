@@ -38,5 +38,3 @@ export const DECIMAL_PLACES = 15;
 export const DECIMAL_PRECISION = toBigInt(1e18);
 
 export const ESCROW_ID = process.env.ESCROW_ID!;
-
-export const ESCROW_PATH = path.join(__dirname, '../../contracts/escrow/out/debug/escrow.bin');

@@ -1,4 +1,4 @@
-import { ESCROW_PATH } from "@/config";
+//import { ESCROW_PATH } from "@/config";
 import { BoxCentered, Button, Stack, Input, Card, Flex } from "@fuels-ui/react";
 import { InputElementRight } from "@fuels-ui/react/src/components/Input/InputElement";
 import { InputField } from "@fuels-ui/react/src/components/Input/InputField";
@@ -13,7 +13,7 @@ import { AssetInputContainer } from "./AssetInputContainer";
 
 export const CreateEscrow = () => {
     const wallet = useWallet();
-    //const contract = useContract();
+    const contract = useContract();
     const [users, setUsers] = useState(["", ""]);
     const [assets, setAssets] = useState([{
         assetId: "",
@@ -60,9 +60,7 @@ export const CreateEscrow = () => {
 
     const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
-        const escrow = await deployContractBinary("Escrow Contract", ESCROW_PATH, EscrowAbi__factory.abi, wallet!);
-        const contract = EscrowAbi__factory.connect(escrow.id, wallet!);
-        contract?.submit.constructor(users, assets);
+        contract?.submit.create_escrow(users, assets);
         setUsers(["", ""]);
         setAssets([{ assetAmount: "", assetId: ""}]);
     }
