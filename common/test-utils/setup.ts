@@ -21,6 +21,4 @@ if (typeof window.matchMedia !== 'function') {
   });
 }
 
-export function setup() {
-  failOnConsole();
-}
+failOnConsole();
