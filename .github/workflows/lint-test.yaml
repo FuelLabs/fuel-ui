@@ -1,6 +1,11 @@
-name: Build and Deploy
+name: "Lint & Test"
 
 on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
   push:
     branches:
       - master
@@ -14,7 +19,7 @@ env:
   PNPM_VERSION: 7.0.0
 
 jobs:
-  build-storybook:
+  lint-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js
@@ -37,14 +42,15 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
           run_install: true
 
-      - name: Build Storybook
+      - name: Lint
         run: |
-          cd ./design-system/react
-          pnpm build:storybook
+          pnpm lint
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+      - name: Test with coverage
+        run: pnpm test:coverage
+
+      - name: Report coverage
+        uses: romeovs/lcov-reporter-action@v0.2.16
+        if: ${{ github.event_name == 'pull_request' }}
         with:
-          clean: true
-          branch: gh-pages
-          folder: design-system/react/storybook-static
+          github-token: ${{ secrets.GITHUB_TOKEN }}
