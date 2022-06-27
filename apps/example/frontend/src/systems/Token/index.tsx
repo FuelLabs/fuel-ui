@@ -1,1 +1,0 @@
-export { tokenRoutes } from "./routes";

@@ -37,11 +37,6 @@ projects and also packages that we're using to build them:
 ┣ 📂 .github                    // git related files
 ┣ 📂 .vscode                    // vscode settings
 ┃
-┣ 📂 apps                       // our single page apps
-┃ ┗ 📂 example                 // group folder for an example app
-┃    ┗ 📂 frontend               // vitejs application
-┃    ┗ 📂 contracts            // contracts related to example app
-┃
 ┣ 📂 common                     // common packages used across monorepo
 ┃ ┗ 📂 config                  // project containing some monorepo tools configurations
 ┃ ┗ 📂 test-utils              // package used for testing (patch on @testing-library/react)
@@ -51,8 +46,7 @@ projects and also packages that we're using to build them:
 ┃ ┗ 📂 react                   // ui related react components
 ```
 
-All this tree folders (`apps`, `common`, `design-system`) are configured
-using [PNPM workspaces](https://pnpm.io/workspaces).
+All this two folders (`common`, `design-system`) are configured using [PNPM workspaces](https://pnpm.io/workspaces).
 
 ## 📦&nbsp; Install
 
