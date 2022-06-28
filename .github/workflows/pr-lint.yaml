@@ -1,4 +1,4 @@
-name: "Lint PR"
+name: "Validate PR Title"
 
 on:
   pull_request:
@@ -13,7 +13,6 @@ concurrency:
 
 jobs:
   validate-title:
-    name: Validate PR title
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v4

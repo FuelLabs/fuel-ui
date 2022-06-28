@@ -1,4 +1,4 @@
-name: "Lint & Test"
+name: "Release"
 
 on:
   push:
@@ -9,7 +9,8 @@ env:
   NPM_TAG: dev
 
 jobs:
-  snapshot-release:
+  release:
+    name: Changesets Release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
