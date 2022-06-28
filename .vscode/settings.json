@@ -1,7 +1,8 @@
 {
-  "jest.autoRun": "false",
-  "jest.jestCommandLine": "pnpm test",
-  "jest.nodeEnv": {
-    "NODE_ENV": "test"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.prettierPath": "./node_modules/prettier",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   }
 }
