@@ -1,5 +1,5 @@
-import { styled } from "@fuels-ui/css";
 import * as RDialog from "@radix-ui/react-dialog";
+import { styled } from "@test-changeset/css";
 
 export type DialogCloseProps = RDialog.DialogCloseProps;
 export const DialogClose = styled(RDialog.Close);

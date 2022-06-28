@@ -1,4 +1,4 @@
-import { press, render, screen, testA11y } from "@fuels-ui/test-utils";
+import { press, render, screen, testA11y } from "@test-changeset/test-utils";
 
 import { RadioGroup } from "./RadioGroup";
 

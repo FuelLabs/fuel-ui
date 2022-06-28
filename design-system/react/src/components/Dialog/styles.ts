@@ -1,4 +1,4 @@
-import { css, keyframes } from '@fuels-ui/css';
+import { css, keyframes } from '@test-changeset/css';
 
 const overlayShow = keyframes({
   '0%': {

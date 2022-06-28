@@ -1,5 +1,5 @@
-import { styled } from "@fuels-ui/css";
 import * as RDialog from "@radix-ui/react-dialog";
+import { styled } from "@test-changeset/css";
 
 import { DialogClose } from "./DialogClose";
 import { DialogContent } from "./DialogContent";

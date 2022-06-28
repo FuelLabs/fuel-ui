@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from "@fuels-ui/test-utils";
+import { render, screen, testA11y } from "@test-changeset/test-utils";
 
 import { ButtonLink } from "./ButtonLink";
 

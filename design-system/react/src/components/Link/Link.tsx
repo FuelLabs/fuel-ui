@@ -1,7 +1,7 @@
-import type { Colors } from "@fuels-ui/css";
-import { allColors, css, cx, styled } from "@fuels-ui/css";
 import { useLink } from "@react-aria/link";
 import { mergeProps } from "@react-aria/utils";
+import type { Colors } from "@test-changeset/css";
+import { allColors, css, cx, styled } from "@test-changeset/css";
 import { createElement, useRef } from "react";
 
 import type { HTMLProps } from "../../utils";

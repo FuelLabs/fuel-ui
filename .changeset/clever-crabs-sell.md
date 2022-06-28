@@ -5,4 +5,4 @@
 "@test-changeset/react": patch
 ---
 
-Add changesets to monorepo
+Rename packages

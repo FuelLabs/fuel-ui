@@ -5,7 +5,7 @@
     { "repo": "fuellabs/fuels-ui" }
   ],
   "commit": false,
-  "fixed": [["@fuels-ui/react", "@fuels-ui/css"]],
+  "fixed": [["@test-changeset/react", "@test-changeset/css"]],
   "linked": [],
   "access": "public",
   "baseBranch": "master",

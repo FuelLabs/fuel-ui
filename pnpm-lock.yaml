@@ -12,8 +12,8 @@ importers:
       '@babel/core': ^7.18.6
       '@changesets/changelog-github': ^0.4.5
       '@changesets/cli': ^2.23.0
-      '@fuels-ui/test-utils': workspace:*
       '@jest/types': ^28.1.1
+      '@test-changeset/test-utils': workspace:*
       '@types/jest': ^28.1.3
       '@types/node': ^18.0.0
       '@types/react': ^18.0.14
@@ -40,8 +40,8 @@ importers:
     devDependencies:
       '@babel/core': 7.18.6
       '@changesets/cli': 2.23.0
-      '@fuels-ui/test-utils': link:common/test-utils
       '@jest/types': 28.1.1
+      '@test-changeset/test-utils': link:common/test-utils
       '@types/jest': 28.1.3
       '@types/node': 18.0.0
       '@types/react': 18.0.14
@@ -110,7 +110,7 @@ importers:
   common/test-utils:
     specifiers:
       '@chakra-ui/utils': 2.0.2
-      '@fuels-ui/config': workspace:*
+      '@test-changeset/config': workspace:*
       '@testing-library/dom': ^8.14.0
       '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': ^13.3.0
@@ -137,14 +137,14 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
-      '@fuels-ui/config': link:../config
+      '@test-changeset/config': link:../config
       '@types/jest-axe': 3.5.4
 
   design-system/css:
     specifiers:
-      '@fuels-ui/config': workspace:*
       '@radix-ui/colors': ^0.1.8
       '@stitches/react': ^1.2.8
+      '@test-changeset/config': workspace:*
       classnames: ^2.3.1
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -155,16 +155,13 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
-      '@fuels-ui/config': link:../../common/config
+      '@test-changeset/config': link:../../common/config
 
   design-system/react:
     specifiers:
       '@babel/core': ^7.18.6
       '@fontsource/inter': ^4.5.11
       '@fontsource/raleway': ^4.5.9
-      '@fuels-ui/config': workspace:*
-      '@fuels-ui/css': workspace:*
-      '@fuels-ui/test-utils': workspace:*
       '@radix-ui/react-alert-dialog': ^0.1.7
       '@radix-ui/react-avatar': ^0.1.4
       '@radix-ui/react-checkbox': ^0.1.5
@@ -195,6 +192,9 @@ importers:
       '@storybook/react': ^6.5.9
       '@storybook/testing-library': ^0.0.13
       '@storybook/theming': ^6.5.9
+      '@test-changeset/config': workspace:*
+      '@test-changeset/css': workspace:*
+      '@test-changeset/test-utils': workspace:*
       '@types/color': ^3.0.3
       '@types/fs-extra': ^9.0.13
       '@types/react': ^18.0.14
@@ -215,8 +215,6 @@ importers:
     dependencies:
       '@fontsource/inter': 4.5.11
       '@fontsource/raleway': 4.5.9
-      '@fuels-ui/css': link:../css
-      '@fuels-ui/test-utils': link:../../common/test-utils
       '@radix-ui/react-alert-dialog': 0.1.7_twyhzqqpkwvvgrmyeapdo6i4my
       '@radix-ui/react-avatar': 0.1.4_react@18.2.0
       '@radix-ui/react-checkbox': 0.1.5_react@18.2.0
@@ -232,6 +230,8 @@ importers:
       '@react-aria/link': 3.3.1_react@18.2.0
       '@react-aria/utils': 3.13.1_react@18.2.0
       '@stitches/react': 1.2.8_react@18.2.0
+      '@test-changeset/css': link:../css
+      '@test-changeset/test-utils': link:../../common/test-utils
       '@xstate/react': 3.0.0_qkj3h26yqjpoza3bh3zse7k4ye
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -239,7 +239,6 @@ importers:
       xstate: 4.32.1
     devDependencies:
       '@babel/core': 7.18.6
-      '@fuels-ui/config': link:../../common/config
       '@react-types/button': 3.5.1_react@18.2.0
       '@storybook/addon-a11y': 6.5.9_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-actions': 6.5.9_biqbaboplfbrettd7655fr4n2y
@@ -255,6 +254,7 @@ importers:
       '@storybook/react': 6.5.9_yxn6z2vmowm4i6agrj2djkw3cu
       '@storybook/testing-library': 0.0.13_biqbaboplfbrettd7655fr4n2y
       '@storybook/theming': 6.5.9_biqbaboplfbrettd7655fr4n2y
+      '@test-changeset/config': link:../../common/config
       '@types/color': 3.0.3
       '@types/fs-extra': 9.0.13
       '@types/react': 18.0.14

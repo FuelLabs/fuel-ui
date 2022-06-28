@@ -1,5 +1,5 @@
 {
-  "name": "@fuels-ui/config",
+  "name": "@test-changeset/config",
   "version": "0.0.1",
   "files": [
     "./eslint.js",

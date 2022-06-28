@@ -1,5 +1,5 @@
-import { cx, styled } from "@fuels-ui/css";
 import * as RAlertDialog from "@radix-ui/react-alert-dialog";
+import { cx, styled } from "@test-changeset/css";
 
 import { createComponent } from "../../utils";
 import * as styles from "../Dialog/styles";

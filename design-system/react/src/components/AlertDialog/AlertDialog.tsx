@@ -1,5 +1,5 @@
-import { styled } from "@fuels-ui/css";
 import * as RAlertDialog from "@radix-ui/react-alert-dialog";
+import { styled } from "@test-changeset/css";
 
 import { AlertDialogAction } from "./AlertDialogAction";
 import { AlertDialogCancel } from "./AlertDialogCancel";

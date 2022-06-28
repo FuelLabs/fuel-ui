@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@test-changeset/css";
 import { createElement, createContext, useContext } from "react";
 
 import type { CreateComponent } from "../../utils";
