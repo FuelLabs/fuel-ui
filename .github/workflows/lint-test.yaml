@@ -6,9 +6,6 @@ on:
       - opened
       - edited
       - synchronize
-  push:
-    branches:
-      - master
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -25,6 +22,9 @@ jobs:
 
       - name: Audit, Lint & Test
         uses: ./.github/actions/ci-checks
+
+      - name: Changesets check
+        run: pnpm changeset:check
 
       - name: Report coverage
         uses: romeovs/lcov-reporter-action@v0.2.16

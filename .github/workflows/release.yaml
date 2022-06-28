@@ -18,6 +18,24 @@ jobs:
       - name: CI Setup
         uses: ./.github/actions/ci-setup
 
+      - name: Configure npm
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Ensure NPM access
+        run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Setup git user (for changelog step)
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
       - name: Build
         run: pnpm build
 
@@ -35,11 +53,12 @@ jobs:
       - name: Release to @dev tag
         if: steps.changesets.outputs.published != 'true'
         run: |
-          pnpm exec changeset version --snapshot ${{ env.NPM_TAG }}
-          pnpm exec changeset publish --no-git-tag --tag ${{ env.NPM_TAG }}
+          git checkout master
+          pnpm changeset version --snapshot dev
+          pnpm changeset publish --tag dev
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Storybook
         run: |

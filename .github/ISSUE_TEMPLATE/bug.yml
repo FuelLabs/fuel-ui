@@ -1,7 +1,6 @@
 name: 🐛 Bug Report
-description: Something is wrong with Remix.
-labels:
-  - 'bug:unverified'
+description: Something is wrong with Fuels Design System.
+labels: ['bug']
 body:
   - type: markdown
     attributes:
