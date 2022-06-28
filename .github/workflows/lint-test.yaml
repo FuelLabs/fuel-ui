@@ -20,11 +20,11 @@ jobs:
       - name: CI Setup
         uses: ./.github/actions/ci-setup
 
-      - name: Audit, Lint & Test
-        uses: ./.github/actions/ci-checks
-
       - name: Changesets check
         run: pnpm changeset:check
+
+      - name: Audit, Lint & Test
+        uses: ./.github/actions/ci-checks
 
       - name: Report coverage
         uses: romeovs/lcov-reporter-action@v0.2.16
