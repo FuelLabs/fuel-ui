@@ -5,9 +5,6 @@ on:
     branches:
       - master
 
-env:
-  NPM_TAG: dev
-
 jobs:
   release:
     name: Changesets Release
@@ -43,8 +40,8 @@ jobs:
       - name: Release to @dev tag
         if: steps.changesets.outputs.published != 'true'
         run: |
-          pnpm exec changeset version --snapshot ${{ env.NPM_TAG }}
-          pnpm exec changeset publish --no-git-tag --tag ${{ env.NPM_TAG }}
+          pnpm exec changeset version --snapshot dev
+          pnpm exec changeset publish --tag dev
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
