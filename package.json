@@ -24,6 +24,10 @@
   "scripts": {
     "build": "turbo run build",
     "build:watch": "pnpm -r --parallel build --watch",
+    "changeset": "changeset",
+    "changeset:release": "changeset publish",
+    "changeset:version": "changeset version",
+    "changeset:check": "changeset status --since=master",
     "dev": "turbo run dev --parallel",
     "deps:update": "updates -gu && pnpm -r exec updates -gu",
     "lint:check": "eslint . --ext .ts,.tsx,.js,.jsx",
@@ -38,6 +42,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
+    "@changesets/cli": "^2.23.0",
     "@fuels-ui/test-utils": "workspace:*",
     "@jest/types": "^28.1.1",
     "@types/jest": "^28.1.3",

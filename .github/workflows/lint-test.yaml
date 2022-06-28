@@ -23,6 +23,9 @@ jobs:
       - name: CI Setup
         uses: ./.github/actions/ci-setup
 
+      - name: Checking changesets
+        run: pnpm changeset:check
+
       - name: Audit, Lint & Test
         uses: ./.github/actions/ci-checks
 

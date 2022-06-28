@@ -1,0 +1,53 @@
+name: "Lint & Test"
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  NPM_TAG: dev
+
+jobs:
+  snapshot-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: CI Setup
+        uses: ./.github/actions/ci-setup
+
+      - name: Build
+        run: pnpm build
+
+      - name: Create Release Pull Request or Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm changeset:release
+          commit: "ci(changesets): versioning packages"
+          title: "ci(changesets): versioning packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Release to @dev tag
+        if: steps.changesets.outputs.published != 'true'
+        run: |
+          pnpm exec changeset version --snapshot ${{ env.NPM_TAG }}
+          pnpm exec changeset publish --no-git-tag --tag ${{ env.NPM_TAG }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build Storybook
+        run: |
+          cd ./design-system/react
+          pnpm build:storybook
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          clean: true
+          branch: gh-pages
+          folder: design-system/react/storybook-static

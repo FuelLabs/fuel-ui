@@ -1,0 +1,17 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "fuellabs/fuels-ui" }
+  ],
+  "commit": false,
+  "fixed": [["@fuels-ui/react", "@fuels-ui/css"]],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "master",
+  "updateInternalDependencies": "patch",
+  "ignore": [],
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "useCalculatedVersionForSnapshots": true
+  }
+}
