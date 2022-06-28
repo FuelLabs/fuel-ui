@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
   "changelog": [
     "@changesets/changelog-github",
-    { "repo": "fuellabs/fuels-ui" }
+    { "repo": "pedronauck/fuels-ui" }
   ],
   "commit": false,
   "fixed": [["@test-changeset/react", "@test-changeset/css"]],
