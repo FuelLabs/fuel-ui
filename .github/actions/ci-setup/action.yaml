@@ -21,7 +21,6 @@ runs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ inputs.node-version }}
-        registry-url: "https://registry.npmjs.org"
 
     - name: Setup PNPM
       uses: pnpm/action-setup@v2.1.0
