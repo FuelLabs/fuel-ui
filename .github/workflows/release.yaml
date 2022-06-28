@@ -50,11 +50,12 @@ jobs:
       - name: Release to @dev tag
         if: steps.changesets.outputs.published != 'true'
         run: |
-          pnpm exec changeset version --snapshot dev
-          pnpm exec changeset publish --tag dev
+          git checkout master
+          pnpm changeset version --snapshot dev
+          pnpm changeset publish --tag dev
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Storybook
         run: |
