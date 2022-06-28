@@ -18,44 +18,70 @@
     "url": "https://github.com/FuelLabs/design-sytem/issues"
   },
   "workspaces": [
-    "./apps/**/*",
     "./common/*",
     "./design-system/*"
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:apps": "turbo run build --filter=./apps/**",
-    "build:libs": "turbo run build --filter=!./apps/**",
-    "build:libs-watch": "pnpm -r --filter=!./apps/** --parallel build --watch",
+    "build:watch": "pnpm -r --parallel build --watch",
+    "changeset": "changeset",
+    "changeset:release": "changeset publish",
+    "changeset:version": "changeset version",
+    "changeset:check": "changeset status --since=master",
     "dev": "turbo run dev --parallel",
-    "dev:apps": "turbo run dev --parallel --filter=./apps/**",
-    "dev:libs": "turbo run dev --parallel --filter=!./apps/**",
+    "deps:update": "updates -gu && pnpm -r exec updates -gu",
     "lint:check": "eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "pnpm lint:check --fix",
     "lint": "run-s lint:check prettier:check",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
-    "test": "turbo run test -- --passWithNoTests"
+    "test": "jest --verbose",
+    "test:watch": "pnpm test -- --watch",
+    "test:coverage": "pnpm test -- --coverage",
+    "test:clear": "jest --clearCache && pnpm -r exec jest --clearCache"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.10",
+    "@babel/core": "^7.18.6",
+    "@changesets/cli": "^2.23.0",
     "@fuels-ui/test-utils": "workspace:*",
-    "@jest/types": "^28.1.0",
-    "@swc/core": "^1.2.179",
-    "@swc/jest": "^0.2.21",
-    "@types/jest": "^27.5.0",
-    "@types/node": "^17.0.31",
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.3",
-    "dotenv": "^16.0.0",
-    "eslint": "^8.15.0",
-    "jest": "^28.1.0",
-    "jest-environment-jsdom": "^28.1.0",
+    "@jest/types": "^28.1.1",
+    "@types/jest": "^28.1.3",
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "depcheck": "^1.4.3",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.18.0",
+    "husky": "^8.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
+    "jest-transform-stub": "^2.0.0",
+    "lint-staged": "^13.0.3",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.2",
-    "ts-node": "^10.7.0",
-    "tsup": "^5.12.7",
-    "turbo": "^1.2.8",
-    "typescript": "^4.6.4"
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.1",
+    "tsup": "^6.1.2",
+    "turbo": "^1.3.1",
+    "typescript": "^4.7.4",
+    "updates": "^13.1.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "react",
+        "react-dom"
+      ],
+      "ignoreMissing": [
+        "react",
+        "react-dom"
+      ]
+    },
+    "overrides": {
+      "glob-parent@<5.1.2": ">=5.1.2",
+      "trim@<0.0.3": ">=0.0.3",
+      "trim-newlines@<3.0.1": ">=3.0.1"
+    }
   }
 }

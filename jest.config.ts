@@ -1,40 +1,21 @@
+import baseConfig from '@fuels-ui/test-utils/config';
 import type { Config } from '@jest/types';
 
-export const config: Config.InitialOptions = {
-  testEnvironment: 'jsdom',
-  testMatch: ['<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)'],
+const config: Config.InitialOptions = {
+  ...baseConfig,
+  rootDir: __dirname,
+  modulePathIgnorePatterns: ['node_modules', 'dist'],
   reporters: ['default', 'github-actions'],
-  setupFilesAfterEnv: ['@fuels-ui/test-utils/setup.ts'],
-  testPathIgnorePatterns: ['/lib/', '/node_modules/'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
-  transform: {
-    '^.+\\.(t|j)sx?$': [
-      '@swc/jest',
-      {
-        sourceMaps: true,
-        jsc: {
-          parser: {
-            syntax: 'typescript',
-            tsx: true,
-          },
-          transform: {
-            react: {
-              runtime: 'automatic',
-            },
-          },
-        },
-      },
-    ],
-  },
   collectCoverageFrom: [
-    '<rootDir>/**/*.{js,ts,tsx}',
-    '!**/*test.{js,ts,tsx}',
-    '!**/test-*.{js,ts}',
+    '<rootDir>/design-system/react/src/**/*.{ts,tsx}',
+    '!<rootDir>/**/*d.ts',
+    '!<rootDir>/**/*test.{ts,tsx}',
+    '!<rootDir>/**/*stories.{ts,tsx}',
+    '!<rootDir>/**/test-*.{ts}',
+    '!<rootDir>/**/__mocks__/**',
+    '!<rootDir>/**/jest.config.ts',
+    '!<rootDir>/types/**',
   ],
-  moduleNameMapper: {
-    '@/(.*)$': '<rootDir>/src/$1',
-  },
 };
 
 export default config;

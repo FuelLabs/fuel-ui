@@ -1,8 +1,7 @@
 import { cx, styled } from "@fuels-ui/css";
 import { useFocusable } from "@react-aria/focus";
-import { mergeProps } from "@react-aria/utils";
+import { mergeProps, mergeRefs } from "@react-aria/utils";
 import { createElement, useRef } from "react";
-import mergeRefs from "react-merge-refs";
 
 import { createComponent } from "../../utils";
 import type { HTMLProps, CreateComponent } from "../../utils";
@@ -64,7 +63,7 @@ export const InputField = createComponent<InputFieldProps, OmitProps>(
     return createElement(Root, {
       ...customProps,
       className: classes,
-      ref: mergeRefs([ref, props.ref!]),
+      ref: mergeRefs(ref, props.ref!),
     });
   }
 ) as CreateComponent<InputFieldProps, OmitProps> & {

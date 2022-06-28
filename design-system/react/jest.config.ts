@@ -1,7 +1,5 @@
-/* eslint-disable import/no-relative-packages */
+import baseConfig from '@fuels-ui/test-utils/config';
 import type { Config } from '@jest/types';
-
-import baseConfig from '../../jest.config';
 
 import pkg from './package.json';
 

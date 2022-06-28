@@ -1,10 +1,9 @@
 import type { ColorKeys } from "@fuels-ui/css";
 import { styled, css, cx } from "@fuels-ui/css";
 import { useButton } from "@react-aria/button";
-import { mergeProps } from "@react-aria/utils";
+import { mergeProps, mergeRefs } from "@react-aria/utils";
 import type { AriaButtonProps } from "@react-types/button";
 import { useMemo, createElement, useRef } from "react";
-import mergeRefs from "react-merge-refs";
 
 import { createComponent } from "../../utils";
 import type { CreateComponent, HTMLProps } from "../../utils";
@@ -121,7 +120,7 @@ export const Button = createComponent<ButtonProps>(
     const customProps = {
       as,
       disabled,
-      ref: mergeRefs([props.ref!, ref]),
+      ref: mergeRefs(props.ref!, ref),
       className: classes,
       "aria-disabled": disabled,
       "aria-pressed": isPressed,

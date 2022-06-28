@@ -1,0 +1,15 @@
+name: 'CI check'
+runs:
+  using: 'composite'
+  steps:
+    - name: Audit
+      run: pnpm audit
+      shell: bash
+
+    - name: Lint
+      run: pnpm lint
+      shell: bash
+
+    - name: Test with coverage
+      run: pnpm test:coverage
+      shell: bash
