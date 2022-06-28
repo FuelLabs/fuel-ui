@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@test-changeset/css";
 import { useFocusable } from "@react-aria/focus";
 import { mergeProps, mergeRefs } from "@react-aria/utils";
 import { createElement, useRef } from "react";

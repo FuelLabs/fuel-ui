@@ -1,5 +1,5 @@
-import type { ThemeUtilsCSS } from "@fuels-ui/css";
-import { cx } from "@fuels-ui/css";
+import type { ThemeUtilsCSS } from "@test-changeset/css";
+import { cx } from "@test-changeset/css";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";

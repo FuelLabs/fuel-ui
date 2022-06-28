@@ -1,4 +1,4 @@
-import baseConfig from '@fuels-ui/test-utils/config';
+import baseConfig from '@test-changeset/test-utils/config';
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {

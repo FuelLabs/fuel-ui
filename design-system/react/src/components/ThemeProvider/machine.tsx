@@ -1,4 +1,4 @@
-import { theme as lightTheme, darkTheme } from "@fuels-ui/css";
+import { theme as lightTheme, darkTheme } from "@test-changeset/css";
 import { assign, createMachine } from "xstate";
 
 export type FuelTheme = "light" | "dark";

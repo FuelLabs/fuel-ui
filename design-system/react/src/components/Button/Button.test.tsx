@@ -1,4 +1,4 @@
-import { press, render, testA11y, screen } from "@fuels-ui/test-utils";
+import { press, render, testA11y, screen } from "@test-changeset/test-utils";
 
 import { Button } from "./Button";
 

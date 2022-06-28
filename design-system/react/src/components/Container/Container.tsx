@@ -1,4 +1,4 @@
-import { css, cx } from "@fuels-ui/css";
+import { css, cx } from "@test-changeset/css";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";

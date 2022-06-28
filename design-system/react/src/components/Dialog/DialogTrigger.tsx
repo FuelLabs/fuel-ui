@@ -1,4 +1,4 @@
-import { styled } from "@fuels-ui/css";
+import { styled } from "@test-changeset/css";
 import * as RDialog from "@radix-ui/react-dialog";
 
 export type DialogTriggerProps = RDialog.DialogTriggerProps;

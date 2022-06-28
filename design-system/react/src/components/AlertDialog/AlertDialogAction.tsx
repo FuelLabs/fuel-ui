@@ -1,4 +1,4 @@
-import { styled } from "@fuels-ui/css";
+import { styled } from "@test-changeset/css";
 import * as RAlertDialog from "@radix-ui/react-alert-dialog";
 
 export type AlertDialogActionProps = RAlertDialog.AlertDialogActionProps;

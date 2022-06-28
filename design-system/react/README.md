@@ -1,18 +1,18 @@
-<h1>⚡️ @fuels-ui/react</h1>
+<h1>⚡️ @test-changeset/react</h1>
 
 [![CI status][github-action-image]][github-action-url]
 [![codecov][codecov-image]][codecov-url]
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][download-image]][download-url]
 
-[npm-image]: http://img.shields.io/npm/v/@fuels-ui/react.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/@fuels-ui/react
+[npm-image]: http://img.shields.io/npm/v/@test-changeset/react.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/@test-changeset/react
 [github-action-image]: https://github.com/fuellabs/fuels-ui/workflows/%E2%9C%85%20test/badge.svg
 [github-action-url]: https://github.com/fuellabs/fuels-ui/actions?query=workflow%3A%22%E2%9C%85+test%22
 [codecov-image]: https://img.shields.io/codecov/c/github/fuellabs/fuels-ui/master.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/fuellabs/fuels-ui/branch/master
-[download-image]: https://img.shields.io/npm/dm/@fuels-ui/react.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@fuels-ui/react
+[download-image]: https://img.shields.io/npm/dm/@test-changeset/react.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@test-changeset/react
 
 <br>
 
@@ -35,7 +35,7 @@
 - [⚙️&nbsp; Dev Environment](#️-dev-environment)
   - [⌨️&nbsp; Local Commands](#️-local-commands)
   - [🛠&nbsp; Tools](#-tools)
-    - [→ @fuels-ui/css](#-fuels-uicss)
+    - [→ @test-changeset/css](#-fuels-uicss)
     - [→ StorybookJS](#-storybookjs)
     - [→ RadixUI](#-radixui)
     - [→ Radix Icons](#-radix-icons)
@@ -53,11 +53,11 @@ Inside this package you'll found styled, very opiniated, acessible with high-qua
 ## 📦&nbsp; Install
 
 ```bash
-$ yarn add @fuels-ui/react
+$ yarn add @test-changeset/react
 ```
 
 ```bash
-$ pnpm install @fuels-ui/react
+$ pnpm install @test-changeset/react
 ```
 
 ### 👨🏻‍💻&nbsp; Usage
@@ -65,7 +65,7 @@ $ pnpm install @fuels-ui/react
 First wrap your entire application using our `ThemeProvider` component
 
 ```jsx
-import { ThemeProvider } from "@fuels-ui/react";
+import { ThemeProvider } from "@test-changeset/react";
 
 const Main = () => (
   <ThemeProvider>
@@ -77,7 +77,7 @@ const Main = () => (
 Then inside your app you can use as you want our component
 
 ```jsx
-import { Button, Form, Icon, Input, Stack } from "@fuels-ui/react";
+import { Button, Form, Icon, Input, Stack } from "@test-changeset/react";
 
 const App = () => {
   const [showing, setShowing] = useState(false);
@@ -113,13 +113,13 @@ const App = () => {
 
 ### 💅🏻&nbsp; Styling Components
 
-The best approach to style our component is by using `@fuels-ui/css` package. It's include all Stitches theme features and also our theme/tokens definitions.
+The best approach to style our component is by using `@test-changeset/css` package. It's include all Stitches theme features and also our theme/tokens definitions.
 
 You can simply create a `className` with it or use the `css` prop of our components:
 
 ```jsx
-import { css } from "@fuels-ui/css";
-import { Box } from "@fuels-ui/react";
+import { css } from "@test-changeset/css";
+import { Box } from "@test-changeset/react";
 
 const App = () => {
   <Box className={customStyle()} css={{ display: "flex" }}>
@@ -159,7 +159,7 @@ To make this available in some component inside our design system, we created a 
 Check this example of our `Box` component:
 
 ```tsx
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@test-changeset/css";
 import { createElement } from "react";
 
 import type { HTMLProps } from "../../utils";
@@ -186,12 +186,12 @@ $ pnpm add:component --name NameOfYourComponent
 
 ### ✅&nbsp; Testing Components
 
-It's extremelly important that all components that has custom behaviors and settings are testes. So, we have `@fuels-ui/test-utils` package that will help you to test using React Testing Library with some cools patches and modifications for accessibility tests as well (this package is a copy of ChakraUI [test utils](https://github.com/chakra-ui/chakra-ui/blob/next/tooling/test-utils) package).
+It's extremelly important that all components that has custom behaviors and settings are testes. So, we have `@test-changeset/test-utils` package that will help you to test using React Testing Library with some cools patches and modifications for accessibility tests as well (this package is a copy of ChakraUI [test utils](https://github.com/chakra-ui/chakra-ui/blob/next/tooling/test-utils) package).
 
 A base test of some component always include `a11y` test as first case:
 
 ```jsx
-import { testA11y } from "@fuels-ui/test-utils";
+import { testA11y } from "@test-changeset/test-utils";
 import { MyComponent } from "./MyComponent";
 
 describe("MyComponent", () => {
@@ -204,7 +204,7 @@ describe("MyComponent", () => {
 With test utils package you can run some triggers in order to test accessibility as well. Keyboard commands like `Tab` and `ArrowDown` is very easy by using `press` helper:
 
 ```jsx
-import { press, render, screen } from "@fuels-ui/test-utils";
+import { press, render, screen } from "@test-changeset/test-utils";
 import { RadioGroup } from "./RadioGroup";
 
 describe("RadioGroup", () => {
@@ -245,7 +245,7 @@ There are several tools we're using inside our design system and all of them is 
 mainly because we really care about our user experience and we wan't to [achieve good
 accessibility](../../ACCESSIBILITY.md) inside our components
 
-#### → [@fuels-ui/css](../css)
+#### → [@test-changeset/css](../css)
 
 This is an internal package containing all styles, theme and tokens definitions that we need
 for entire monorepo and mainly here in our design system. Couple tools like [Stitches]() and
@@ -267,7 +267,7 @@ As icon set, we're using Radix Icons here. Radix Icons is crisp set of 15×15 ic
 
 #### → [Radix Colors](https://www.radix-ui.com/colors)
 
-We also use Radix Colors inside the `@fuels-ui/css` package. So, you we can check all colors inside the [package folder](../css/src).
+We also use Radix Colors inside the `@test-changeset/css` package. So, you we can check all colors inside the [package folder](../css/src).
 
 #### → [Jotai](https://jotai.org/)
 

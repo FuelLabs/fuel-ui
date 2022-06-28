@@ -1,4 +1,4 @@
-import { render, testA11y } from "@fuels-ui/test-utils";
+import { render, testA11y } from "@test-changeset/test-utils";
 
 import { Text } from "./Text";
 

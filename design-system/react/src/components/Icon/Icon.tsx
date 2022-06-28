@@ -1,5 +1,5 @@
-import type { Colors } from "@fuels-ui/css";
-import { cx, styled } from "@fuels-ui/css";
+import type { Colors } from "@test-changeset/css";
+import { cx, styled } from "@test-changeset/css";
 import * as RadixIcons from "@radix-ui/react-icons";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { createElement } from "react";

@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@test-changeset/css";
 import * as RAlertDialog from "@radix-ui/react-alert-dialog";
 
 import { createComponent } from "../../utils";

@@ -1,4 +1,4 @@
-import { testA11y, render, screen } from "@fuels-ui/test-utils";
+import { testA11y, render, screen } from "@test-changeset/test-utils";
 
 import { Icon } from "./Icon";
 

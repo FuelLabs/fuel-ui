@@ -1,4 +1,4 @@
-import { colorKeys } from "@fuels-ui/css";
+import { colorKeys } from "@test-changeset/css";
 
 import { Box } from "../Box";
 import { Icon } from "../Icon";

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx } from "@fuels-ui/css";
+import { cx } from "@test-changeset/css";
 import { Children, cloneElement, createContext, useContext } from "react";
 
 import type { CreateComponent } from "../../utils";
