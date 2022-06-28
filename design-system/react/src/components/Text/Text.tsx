@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Colors } from "@test-changeset/css";
-import { css, allColors, cx, utils, styled } from "@test-changeset/css";
+import type { Colors } from "@test-changesets/css";
+import { css, allColors, cx, utils, styled } from "@test-changesets/css";
 import { createElement } from "react";
 
 import type { HTMLProps } from "../../utils";

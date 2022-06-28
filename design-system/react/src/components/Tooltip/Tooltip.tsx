@@ -1,5 +1,5 @@
 import * as RTooltip from "@radix-ui/react-tooltip";
-import { cx } from "@test-changeset/css";
+import { cx } from "@test-changesets/css";
 import type { ReactElement } from "react";
 
 import { createComponent } from "../../utils";

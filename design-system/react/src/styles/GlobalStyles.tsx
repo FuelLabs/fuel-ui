@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { globalCss, tokens } from "@test-changeset/css";
+import { globalCss, tokens } from "@test-changesets/css";
 
 import { opinionated } from "./normalize";
 

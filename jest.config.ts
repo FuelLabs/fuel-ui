@@ -1,5 +1,5 @@
 import type { Config } from '@jest/types';
-import baseConfig from '@test-changeset/test-utils/config';
+import baseConfig from '@test-changesets/test-utils/config';
 
 const config: Config.InitialOptions = {
   ...baseConfig,

@@ -1,4 +1,4 @@
-import { cx, styled } from "@test-changeset/css";
+import { cx, styled } from "@test-changesets/css";
 import type { ReactNode } from "react";
 import { Children, cloneElement, createElement } from "react";
 

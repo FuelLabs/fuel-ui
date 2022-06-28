@@ -1,5 +1,5 @@
-import type { RenderResult } from "@test-changeset/test-utils";
-import { screen, mocks, testA11y, render } from "@test-changeset/test-utils";
+import type { RenderResult } from "@test-changesets/test-utils";
+import { screen, mocks, testA11y, render } from "@test-changesets/test-utils";
 
 import { Avatar } from "./Avatar";
 

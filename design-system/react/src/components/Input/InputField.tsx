@@ -1,6 +1,6 @@
 import { useFocusable } from "@react-aria/focus";
 import { mergeProps, mergeRefs } from "@react-aria/utils";
-import { cx, styled } from "@test-changeset/css";
+import { cx, styled } from "@test-changesets/css";
 import { createElement, useRef } from "react";
 
 import { createComponent } from "../../utils";

@@ -1,4 +1,4 @@
-import { css, darkTheme } from '@test-changeset/css';
+import { css, darkTheme } from '@test-changesets/css';
 
 export const root = css({
   all: 'unset',

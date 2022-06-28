@@ -1,5 +1,5 @@
-import type { ColorKeys } from "@test-changeset/css";
-import { styled, cx } from "@test-changeset/css";
+import type { ColorKeys } from "@test-changesets/css";
+import { styled, cx } from "@test-changesets/css";
 import { createElement } from "react";
 
 import type { HTMLProps } from "../../utils";

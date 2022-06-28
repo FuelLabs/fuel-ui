@@ -1,4 +1,4 @@
-import { css, keyframes } from '@test-changeset/css';
+import { css, keyframes } from '@test-changesets/css';
 
 const overlayShow = keyframes({
   '0%': {

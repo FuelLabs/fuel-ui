@@ -1,7 +1,7 @@
 import * as RadixIcons from "@radix-ui/react-icons";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import type { Colors } from "@test-changeset/css";
-import { cx, styled } from "@test-changeset/css";
+import type { Colors } from "@test-changesets/css";
+import { cx, styled } from "@test-changesets/css";
 import { createElement } from "react";
 
 import { useConstant } from "../../hooks";

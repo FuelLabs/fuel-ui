@@ -5,4 +5,4 @@
 "@test-changesets/react": patch
 ---
 
-Rename packages
+Change name again

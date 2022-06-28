@@ -1,4 +1,4 @@
-import { cx, styled } from "@test-changeset/css";
+import { cx, styled } from "@test-changesets/css";
 import { createElement, createContext, useContext } from "react";
 
 import type { CreateComponent } from "../../utils";

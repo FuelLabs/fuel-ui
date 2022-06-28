@@ -1,4 +1,4 @@
-import { css } from '@test-changeset/css';
+import { css } from '@test-changesets/css';
 
 import * as variants from './variants';
 

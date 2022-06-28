@@ -1,4 +1,4 @@
-import { css, cx } from "@test-changeset/css";
+import { css, cx } from "@test-changesets/css";
 
 import { createComponent } from "../../utils";
 import type { FlexProps } from "../Flex";

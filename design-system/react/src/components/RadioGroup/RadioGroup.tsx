@@ -1,6 +1,6 @@
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import type { ThemeUtilsCSS } from "@test-changeset/css";
-import { cx, styled } from "@test-changeset/css";
+import type { ThemeUtilsCSS } from "@test-changesets/css";
+import { cx, styled } from "@test-changesets/css";
 import { Children, cloneElement, createElement } from "react";
 
 import type { CreateComponent } from "../../utils";

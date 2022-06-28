@@ -1,5 +1,5 @@
 import * as RDialog from "@radix-ui/react-dialog";
-import { cx, styled } from "@test-changeset/css";
+import { cx, styled } from "@test-changesets/css";
 import { createElement } from "react";
 
 import { createComponent } from "../../utils";

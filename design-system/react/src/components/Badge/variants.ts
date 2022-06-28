@@ -1,5 +1,5 @@
-import type { ColorKeys } from '@test-changeset/css';
-import { colorKeys, isBright } from '@test-changeset/css';
+import type { ColorKeys } from '@test-changesets/css';
+import { colorKeys, isBright } from '@test-changesets/css';
 
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor);

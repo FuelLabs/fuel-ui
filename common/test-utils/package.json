@@ -1,9 +1,10 @@
 {
-  "name": "@test-changeset/test-utils",
+  "name": "@test-changesets/test-utils",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "main": "src/index.ts",
   "publishConfig": {
+    "access": "public",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
@@ -38,7 +39,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@test-changeset/config": "workspace:*",
+    "@test-changesets/config": "workspace:*",
     "@types/jest-axe": "^3.5.4"
   },
   "peerDependencies": {

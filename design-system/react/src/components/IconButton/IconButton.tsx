@@ -1,4 +1,4 @@
-import { cx } from "@test-changeset/css";
+import { cx } from "@test-changesets/css";
 import type { ReactNode } from "react";
 
 import { createComponent } from "../../utils";

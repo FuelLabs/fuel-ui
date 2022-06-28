@@ -1,4 +1,4 @@
-import { colorKeys } from "@test-changeset/css";
+import { colorKeys } from "@test-changesets/css";
 
 import { Box } from "../Box";
 import { Icon } from "../Icon";

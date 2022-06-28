@@ -1,4 +1,4 @@
-import type { ThemeUtilsCSS } from "@test-changeset/css";
+import type { ThemeUtilsCSS } from "@test-changesets/css";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";

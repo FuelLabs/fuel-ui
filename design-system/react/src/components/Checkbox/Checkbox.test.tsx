@@ -1,4 +1,4 @@
-import { testA11y } from "@test-changeset/test-utils";
+import { testA11y } from "@test-changesets/test-utils";
 
 import { Form } from "../Form";
 

@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from "@test-changeset/test-utils";
+import { render, screen, testA11y } from "@test-changesets/test-utils";
 import type { PropsWithChildren } from "react";
 
 import { Input } from "../Input";

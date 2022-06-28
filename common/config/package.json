@@ -1,10 +1,11 @@
 {
-  "name": "@test-changeset/config",
+  "name": "@test-changesets/config",
   "version": "0.0.1",
   "files": [
     "./eslint.js",
     "./tsup.js"
   ],
+  "access": "public",
   "license": "Apache-2.0",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.0",

@@ -1,4 +1,4 @@
-import { css } from '@test-changeset/css';
+import { css } from '@test-changesets/css';
 
 export const root = css({
   display: 'flex',

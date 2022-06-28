@@ -1,4 +1,4 @@
-import { testA11y, render, screen } from "@test-changeset/test-utils";
+import { testA11y, render, screen } from "@test-changesets/test-utils";
 
 import { Heading } from "./Heading";
 

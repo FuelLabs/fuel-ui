@@ -1,4 +1,4 @@
-import { css } from '@test-changeset/css';
+import { css } from '@test-changesets/css';
 
 export const avatar = css({
   display: 'inline-flex',

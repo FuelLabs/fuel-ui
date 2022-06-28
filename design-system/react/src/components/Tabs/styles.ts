@@ -1,4 +1,4 @@
-import { css } from '@test-changeset/css';
+import { css } from '@test-changesets/css';
 
 const OUTLINE_COLOR = '$gray4';
 const BORDER_RADIUS = '$md';

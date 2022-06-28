@@ -1,5 +1,5 @@
-import type { ThemeUtilsCSS } from "@test-changeset/css";
-import { cx } from "@test-changeset/css";
+import type { ThemeUtilsCSS } from "@test-changesets/css";
+import { cx } from "@test-changesets/css";
 
 import type { CreateComponent, HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";

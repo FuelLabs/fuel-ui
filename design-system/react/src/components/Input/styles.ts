@@ -1,4 +1,4 @@
-import { css } from '@test-changeset/css';
+import { css } from '@test-changesets/css';
 
 const BG_COLOR = '$inputBg';
 const TEXT_COLOR = '$gray8';

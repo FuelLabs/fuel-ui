@@ -5,7 +5,7 @@
     { "repo": "pedronauck/fuels-ui" }
   ],
   "commit": false,
-  "fixed": [["@test-changeset/react", "@test-changeset/css"]],
+  "fixed": [["@test-changesets/react", "@test-changesets/css"]],
   "linked": [],
   "access": "public",
   "baseBranch": "master",

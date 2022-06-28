@@ -1,4 +1,4 @@
-import { render, testA11y } from "@test-changeset/test-utils";
+import { render, testA11y } from "@test-changesets/test-utils";
 
 import { Text } from "./Text";
 

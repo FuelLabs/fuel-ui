@@ -1,5 +1,5 @@
 import { defineConfig } from 'tsup';
-import baseConfig from '@test-changeset/config/tsup';
+import baseConfig from '@test-changesets/config/tsup';
 
 export default defineConfig((options) => ({
   ...baseConfig(options),
