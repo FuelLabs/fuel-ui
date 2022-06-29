@@ -4,6 +4,7 @@ import { useButton } from "@react-aria/button";
 import { mergeProps, mergeRefs } from "@react-aria/utils";
 import type { AriaButtonProps } from "@react-types/button";
 import { useMemo, createElement, useRef } from "react";
+import { omit } from "src/utils/helpers";
 
 import { createComponent } from "../../utils";
 import type { CreateComponent, HTMLProps } from "../../utils";
@@ -90,6 +91,7 @@ export const Button = createComponent<ButtonProps>(
     justIcon,
     isLink,
     children,
+    ref,
     ...props
   }) => {
     const disabled = isLoading || isDisabled;
@@ -111,26 +113,32 @@ export const Button = createComponent<ButtonProps>(
       }),
     ]);
 
-    const ref = useRef<HTMLButtonElement | null>(null);
+    const innerRef = useRef<HTMLButtonElement | null>(null);
+    const onClick = props.onClick as typeof props.onPress;
     const { buttonProps, isPressed } = useButton(
-      { ...props, isDisabled, ...(isLink && { elementType: "a" }) },
-      ref
+      {
+        ...props,
+        isDisabled,
+        onPress: onClick || props.onPress,
+        ...(isLink && { elementType: "a" }),
+      },
+      innerRef
     );
 
     const customProps = {
+      ...omit(["onPress", "onClick"], props),
       as,
       disabled,
-      ref: mergeRefs(props.ref!, ref),
+      ref: mergeRefs(ref!, innerRef),
       className: classes,
-      "aria-disabled": disabled,
-      "aria-pressed": isPressed,
+      "aria-pressed": !isDisabled && isPressed,
+      "aria-disabled": isDisabled,
+      "aria-busy": isLoading,
     };
-
-    const mergedProps = mergeProps(buttonProps, customProps);
 
     return createElement(
       Root,
-      mergedProps,
+      mergeProps(buttonProps, customProps),
       getChildren({
         size,
         isLoading,
