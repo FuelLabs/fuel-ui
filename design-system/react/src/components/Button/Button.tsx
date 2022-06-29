@@ -126,7 +126,7 @@ export const Button = createComponent<ButtonProps>(
     );
 
     const customProps = {
-      ...omit(["onPress", "onClick"], props),
+      ...omit(["onPress"], props),
       as,
       disabled,
       ref: mergeRefs(ref!, innerRef),
