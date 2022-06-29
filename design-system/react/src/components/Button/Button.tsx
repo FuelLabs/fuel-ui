@@ -4,10 +4,10 @@ import { useButton } from "@react-aria/button";
 import { mergeProps, mergeRefs } from "@react-aria/utils";
 import type { AriaButtonProps } from "@react-types/button";
 import { useMemo, createElement, useRef } from "react";
-import { omit } from "src/utils/helpers";
 
 import { createComponent } from "../../utils";
 import type { CreateComponent, HTMLProps } from "../../utils";
+import { omit } from "../../utils/helpers";
 import type { IconProps } from "../Icon";
 import { Spinner } from "../Spinner";
 import { createIcon } from "../Text";
@@ -131,9 +131,9 @@ export const Button = createComponent<ButtonProps>(
       disabled,
       ref: mergeRefs(ref!, innerRef),
       className: classes,
-      "aria-pressed": !isDisabled && isPressed,
       "aria-disabled": isDisabled,
       "aria-busy": isLoading,
+      ...(!isLink && { "aria-pressed": !isDisabled && isPressed }),
     };
 
     return createElement(
