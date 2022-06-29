@@ -3,7 +3,7 @@
 "@fuels-ui/react": patch
 ---
 
-Add a new component `<AspectRatio>` for embed images with pre-defined ratio
+Add a new component `<AspectRatio>` for embedding images with a pre-defined ratio
 
 ```jsx
 <AspectRatio ratio={16 / 9} {...args}>
