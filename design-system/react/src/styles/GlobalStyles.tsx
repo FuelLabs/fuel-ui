@@ -15,6 +15,20 @@ const customStyles = {
     color: "$textColor",
     background: "$bodyColor",
   },
+  "@font-face": [
+    {
+      fontFamily: "UTL",
+      src: 'url("https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/untitled-regular.woff2") format("woff2"), url("https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/untitled-regular.woff") format("woff")',
+      fontWeight: 400,
+      fontStyle: "normal",
+    },
+    {
+      fontFamily: "UTL",
+      src: 'url("https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/untitled-medium.woff2") format("woff2"), url("https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/untitled-medium.woff") format("woff")',
+      fontWeight: 600,
+      fontStyle: "normal",
+    },
+  ],
 };
 
 const styles = () => {

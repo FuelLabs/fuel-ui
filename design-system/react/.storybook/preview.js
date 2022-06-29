@@ -1,6 +1,3 @@
-import '@fontsource/inter/variable.css';
-import '@fontsource/raleway/variable.css';
-
 import { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { withTests } from '@storybook/addon-jest';
