@@ -17,7 +17,7 @@
 
 ## 🙋🏻&nbsp; Getting Started
 
-Thanks for showing interest to contribute to Fuels UI, you rock!
+Thanks for showing interest to contribute to Fuel UI, you rock!
 
 When it comes to open source, there are different ways you can contribute, all
 of which are valuable. Here's a few guidelines that should help you as you
@@ -40,16 +40,16 @@ prepare your contribution.
 
 ## 📟&nbsp; Setup the Project
 
-The following steps will get you up and running to contribute to Fuels UI:
+The following steps will get you up and running to contribute to Fuel UI:
 
 1. Fork the repo (click the <kbd>Fork</kbd> button at the top right of
-   [this page](https://github.com/fuellabs/fuels-ui))
+   [this page](https://github.com/fuellabs/fuel-ui))
 
 2. Clone your fork locally
 
 ```sh
-git clone https://github.com/<your_github_username>/fuels-ui.git
-cd fuels-ui
+git clone https://github.com/<your_github_username>/fuel-ui.git
+cd fuel-ui
 ```
 
 3. Setup all the dependencies and packages by running `pnpm`.
@@ -59,7 +59,7 @@ cd fuels-ui
 
 ## 👨🏻‍💻&nbsp; Development
 
-To improve our development process, we've set up tooling and systems. Fuels UI
+To improve our development process, we've set up tooling and systems. Fuel UI
 uses a monorepo structure as mentioned in our [README](./README#tools).
 
 ### ⌨️&nbsp; Global Commands
@@ -124,7 +124,7 @@ https://www.conventionalcommits.org/ or check out the
 
 ### 🚶🏻‍♂️&nbsp; Steps to PR
 
-1. Fork of the fuels-ui repository and clone your fork
+1. Fork of the fuel-ui repository and clone your fork
 
 2. Create a new branch out of the `master` branch. We follow the convention
    `[type/scope]`. For example `fix/accordion-hook` or `docs/menu-typo`. `type`
@@ -132,7 +132,7 @@ https://www.conventionalcommits.org/ or check out the
    commit type. `scope` is just a short id that describes the scope of work.
 
 3. Make and commit your changes following the
-   [commit convention](https://github.com/fuellabs/fuels-ui/blob/master/CONTRIBUTING.md#commit-convention).
+   [commit convention](https://github.com/fuellabs/fuel-ui/blob/master/CONTRIBUTING.md#commit-convention).
    As you develop, you can run `pnpm build` and
    `pnpm test` to make sure everything works as expected.
 
@@ -159,5 +159,5 @@ be very help with this 🙏🏻
 
 ## 📜&nbsp; License
 
-By contributing your code to the fuels-ui GitHub repository, you agree to
+By contributing your code to the fuel-ui GitHub repository, you agree to
 license your contribution under the `Apache 2.0` license.

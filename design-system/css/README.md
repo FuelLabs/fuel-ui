@@ -1,25 +1,25 @@
-<h1>⚡️ @fuels-ui/css</h1>
+<h1>⚡️ @fuel-ui/css</h1>
 
 [![CI status][github-action-image]][github-action-url]
 [![codecov][codecov-image]][codecov-url]
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][download-image]][download-url]
 
-[npm-image]: http://img.shields.io/npm/v/@fuels-ui/css.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/@fuels-ui/css
-[github-action-image]: https://github.com/fuellabs/fuels-ui/workflows/%E2%9C%85%20test/badge.svg
-[github-action-url]: https://github.com/fuellabs/fuels-ui/actions?query=workflow%3A%22%E2%9C%85+test%22
-[codecov-image]: https://img.shields.io/codecov/c/github/fuellabs/fuels-ui/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/fuellabs/fuels-ui/branch/master
-[download-image]: https://img.shields.io/npm/dm/@fuels-ui/css.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@fuels-ui/css
+[npm-image]: http://img.shields.io/npm/v/@fuel-ui/css.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/@fuel-ui/css
+[github-action-image]: https://github.com/fuellabs/fuel-ui/workflows/%E2%9C%85%20test/badge.svg
+[github-action-url]: https://github.com/fuellabs/fuel-ui/actions?query=workflow%3A%22%E2%9C%85+test%22
+[codecov-image]: https://img.shields.io/codecov/c/github/fuellabs/fuel-ui/master.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/fuellabs/fuel-ui/branch/master
+[download-image]: https://img.shields.io/npm/dm/@fuel-ui/css.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@fuel-ui/css
 
 <br>
 
-[![License](https://img.shields.io/github/license/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Issues Open](https://img.shields.io/github/issues/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Github Forks](https://img.shields.io/github/forks/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Github Stars](https://img.shields.io/github/stars/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
+[![License](https://img.shields.io/github/license/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Issues Open](https://img.shields.io/github/issues/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Github Forks](https://img.shields.io/github/forks/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Github Stars](https://img.shields.io/github/stars/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
 
 <h2>📝&nbsp; Table of Content</h2>
 
@@ -46,17 +46,17 @@ Inside this package you'll found all theme and tokes definitions we're using to 
 ## 📦&nbsp; Install
 
 ```bash
-$ yarn add @fuels-ui/css
+$ yarn add @fuel-ui/css
 ```
 
 ```bash
-$ pnpm install @fuels-ui/css
+$ pnpm install @fuel-ui/css
 ```
 
 ### 👨🏻‍💻&nbsp; Usage
 
 ```jsx
-import { css } from "@fuels-ui/css";
+import { css } from "@fuel-ui/css";
 
 const App = () => <div className={customStyle()}>Hello world</div>;
 

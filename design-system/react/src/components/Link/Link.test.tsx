@@ -1,4 +1,4 @@
-import { testA11y, render, screen } from "@fuels-ui/test-utils";
+import { testA11y, render, screen } from "@fuel-ui/test-utils";
 
 import { Link } from "./Link";
 

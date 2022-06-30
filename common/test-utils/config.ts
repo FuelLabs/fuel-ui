@@ -11,7 +11,7 @@ export const config: Config.InitialOptions = {
   testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)'],
   setupFiles: ['dotenv/config'],
-  setupFilesAfterEnv: ['@fuels-ui/test-utils/setup.ts'],
+  setupFilesAfterEnv: ['@fuel-ui/test-utils/setup.ts'],
   testPathIgnorePatterns: ['/lib/', '/node_modules/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {

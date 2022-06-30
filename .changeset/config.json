@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@2.0.0/schema.json",
   "changelog": "../scripts/changesets/changelog.js",
   "commit": false,
-  "fixed": [["@fuels-ui/react", "@fuels-ui/css"]],
+  "fixed": [["@fuel-ui/react", "@fuel-ui/css"]],
   "linked": [],
   "access": "public",
   "baseBranch": "master",

@@ -1,25 +1,25 @@
-<h1>⚡️ @fuels-ui/react</h1>
+<h1>⚡️ @fuel-ui/react</h1>
 
 [![CI status][github-action-image]][github-action-url]
 [![codecov][codecov-image]][codecov-url]
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][download-image]][download-url]
 
-[npm-image]: http://img.shields.io/npm/v/@fuels-ui/react.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/@fuels-ui/react
-[github-action-image]: https://github.com/fuellabs/fuels-ui/workflows/%E2%9C%85%20test/badge.svg
-[github-action-url]: https://github.com/fuellabs/fuels-ui/actions?query=workflow%3A%22%E2%9C%85+test%22
-[codecov-image]: https://img.shields.io/codecov/c/github/fuellabs/fuels-ui/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/fuellabs/fuels-ui/branch/master
-[download-image]: https://img.shields.io/npm/dm/@fuels-ui/react.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@fuels-ui/react
+[npm-image]: http://img.shields.io/npm/v/@fuel-ui/react.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/@fuel-ui/react
+[github-action-image]: https://github.com/fuellabs/fuel-ui/workflows/%E2%9C%85%20test/badge.svg
+[github-action-url]: https://github.com/fuellabs/fuel-ui/actions?query=workflow%3A%22%E2%9C%85+test%22
+[codecov-image]: https://img.shields.io/codecov/c/github/fuellabs/fuel-ui/master.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/fuellabs/fuel-ui/branch/master
+[download-image]: https://img.shields.io/npm/dm/@fuel-ui/react.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@fuel-ui/react
 
 <br>
 
-[![License](https://img.shields.io/github/license/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Issues Open](https://img.shields.io/github/issues/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Github Forks](https://img.shields.io/github/forks/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Github Stars](https://img.shields.io/github/stars/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
+[![License](https://img.shields.io/github/license/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Issues Open](https://img.shields.io/github/issues/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Github Forks](https://img.shields.io/github/forks/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Github Stars](https://img.shields.io/github/stars/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
 
 <h2>📝&nbsp; Table of Content</h2>
 
@@ -35,12 +35,12 @@
 - [⚙️&nbsp; Dev Environment](#️-dev-environment)
   - [⌨️&nbsp; Local Commands](#️-local-commands)
   - [🛠&nbsp; Tools](#-tools)
-    - [→ @fuels-ui/css](#-fuels-uicss)
+    - [→ @fuel-ui/css](#-fuel-uicss)
     - [→ StorybookJS](#-storybookjs)
     - [→ RadixUI](#-radixui)
     - [→ Radix Icons](#-radix-icons)
     - [→ Radix Colors](#-radix-colors)
-    - [→ Jotai](#-jotai)
+    - [→ XState](#-xstate)
 - [💪🏻&nbsp; Contributing](#-contributing-1)
 - [📜&nbsp; License](#-license)
 
@@ -53,11 +53,11 @@ Inside this package you'll found styled, very opiniated, acessible with high-qua
 ## 📦&nbsp; Install
 
 ```bash
-$ yarn add @fuels-ui/react
+$ yarn add @fuel-ui/react
 ```
 
 ```bash
-$ pnpm install @fuels-ui/react
+$ pnpm install @fuel-ui/react
 ```
 
 ### 👨🏻‍💻&nbsp; Usage
@@ -65,7 +65,7 @@ $ pnpm install @fuels-ui/react
 First wrap your entire application using our `ThemeProvider` component
 
 ```jsx
-import { ThemeProvider } from "@fuels-ui/react";
+import { ThemeProvider } from "@fuel-ui/react";
 
 const Main = () => (
   <ThemeProvider>
@@ -77,7 +77,7 @@ const Main = () => (
 Then inside your app you can use as you want our component
 
 ```jsx
-import { Button, Form, Icon, Input, Stack } from "@fuels-ui/react";
+import { Button, Form, Icon, Input, Stack } from "@fuel-ui/react";
 
 const App = () => {
   const [showing, setShowing] = useState(false);
@@ -113,13 +113,13 @@ const App = () => {
 
 ### 💅🏻&nbsp; Styling Components
 
-The best approach to style our component is by using `@fuels-ui/css` package. It's include all Stitches theme features and also our theme/tokens definitions.
+The best approach to style our component is by using `@fuel-ui/css` package. It's include all Stitches theme features and also our theme/tokens definitions.
 
 You can simply create a `className` with it or use the `css` prop of our components:
 
 ```jsx
-import { css } from "@fuels-ui/css";
-import { Box } from "@fuels-ui/react";
+import { css } from "@fuel-ui/css";
+import { Box } from "@fuel-ui/react";
 
 const App = () => {
   <Box className={customStyle()} css={{ display: "flex" }}>
@@ -159,7 +159,7 @@ To make this available in some component inside our design system, we created a 
 Check this example of our `Box` component:
 
 ```tsx
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@fuel-ui/css";
 import { createElement } from "react";
 
 import type { HTMLProps } from "../../utils";
@@ -186,12 +186,12 @@ $ pnpm add:component --name NameOfYourComponent
 
 ### ✅&nbsp; Testing Components
 
-It's extremelly important that all components that has custom behaviors and settings are testes. So, we have `@fuels-ui/test-utils` package that will help you to test using React Testing Library with some cools patches and modifications for accessibility tests as well (this package is a copy of ChakraUI [test utils](https://github.com/chakra-ui/chakra-ui/blob/next/tooling/test-utils) package).
+It's extremelly important that all components that has custom behaviors and settings are testes. So, we have `@fuel-ui/test-utils` package that will help you to test using React Testing Library with some cools patches and modifications for accessibility tests as well (this package is a copy of ChakraUI [test utils](https://github.com/chakra-ui/chakra-ui/blob/next/tooling/test-utils) package).
 
 A base test of some component always include `a11y` test as first case:
 
 ```jsx
-import { testA11y } from "@fuels-ui/test-utils";
+import { testA11y } from "@fuel-ui/test-utils";
 import { MyComponent } from "./MyComponent";
 
 describe("MyComponent", () => {
@@ -204,7 +204,7 @@ describe("MyComponent", () => {
 With test utils package you can run some triggers in order to test accessibility as well. Keyboard commands like `Tab` and `ArrowDown` is very easy by using `press` helper:
 
 ```jsx
-import { press, render, screen } from "@fuels-ui/test-utils";
+import { press, render, screen } from "@fuel-ui/test-utils";
 import { RadioGroup } from "./RadioGroup";
 
 describe("RadioGroup", () => {
@@ -245,7 +245,7 @@ There are several tools we're using inside our design system and all of them is 
 mainly because we really care about our user experience and we wan't to [achieve good
 accessibility](../../ACCESSIBILITY.md) inside our components
 
-#### → [@fuels-ui/css](../css)
+#### → [@fuel-ui/css](../css)
 
 This is an internal package containing all styles, theme and tokens definitions that we need
 for entire monorepo and mainly here in our design system. Couple tools like [Stitches]() and
@@ -267,13 +267,11 @@ As icon set, we're using Radix Icons here. Radix Icons is crisp set of 15×15 ic
 
 #### → [Radix Colors](https://www.radix-ui.com/colors)
 
-We also use Radix Colors inside the `@fuels-ui/css` package. So, you we can check all colors inside the [package folder](../css/src).
+We also use Radix Colors inside the `@fuel-ui/css` package. So, you we can check all colors inside the [package folder](../css/src).
 
-#### → [Jotai](https://jotai.org/)
+#### → [XState](https://xstate.js.org/)
 
-We also use Jotai as state management internally mainly for provider's like components.
-
-> Jotai takes a bottom-up approach to React state management with an atomic model inspired by Recoil. One can build state by combining atoms and renders are optimized based on atom dependency. This solves the extra re-render issue of React context and eliminates the need for the memoization technique.
+We also use XState as state management internally.
 
 ## 💪🏻&nbsp; Contributing
 
