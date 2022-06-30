@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@fuel-ui/css";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { createElement } from "react";
 

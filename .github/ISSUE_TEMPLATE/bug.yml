@@ -1,5 +1,5 @@
 name: 🐛 Bug Report
-description: Something is wrong with Fuels Design System.
+description: Something is wrong with Fuel UI.
 labels: ['bug']
 body:
   - type: markdown

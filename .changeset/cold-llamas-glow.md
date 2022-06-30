@@ -1,8 +1,8 @@
 ---
-"@fuels-ui/config": patch
-"@fuels-ui/test-utils": patch
-"@fuels-ui/css": patch
-"@fuels-ui/react": patch
+"@fuel-ui/config": patch
+"@fuel-ui/test-utils": patch
+"@fuel-ui/css": patch
+"@fuel-ui/react": patch
 ---
 
 Add changesets to monorepo

@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@fuel-ui/css";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { createElement } from "react";
 

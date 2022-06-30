@@ -1,4 +1,4 @@
-import { cx } from "@fuels-ui/css";
+import { cx } from "@fuel-ui/css";
 import type { ReactNode } from "react";
 
 import { createComponent } from "../../utils";

@@ -1,5 +1,5 @@
-import type { ColorKeys } from "@fuels-ui/css";
-import { styled, cx } from "@fuels-ui/css";
+import type { ColorKeys } from "@fuel-ui/css";
+import { styled, cx } from "@fuel-ui/css";
 import { createElement } from "react";
 
 import type { HTMLProps } from "../../utils";
