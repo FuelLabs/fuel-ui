@@ -1,4 +1,4 @@
-import { css } from "@fuels-ui/css";
+import { css } from "@fuel-ui/css";
 
 import { Box } from "../Box";
 

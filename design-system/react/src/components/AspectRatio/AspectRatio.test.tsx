@@ -1,4 +1,4 @@
-import { testA11y } from "@fuels-ui/test-utils";
+import { testA11y } from "@fuel-ui/test-utils";
 
 import { AspectRatio } from "./AspectRatio";
 

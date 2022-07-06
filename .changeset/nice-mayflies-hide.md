@@ -1,6 +1,6 @@
 ---
-"@fuels-ui/css": patch
-"@fuels-ui/react": patch
+"@fuel-ui/css": patch
+"@fuel-ui/react": patch
 ---
 
 Add a new component `<AspectRatio>` for embedding images with a pre-defined ratio

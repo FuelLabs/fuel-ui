@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@fuel-ui/css";
 import * as AspectRatioPrimitive from "@radix-ui/react-aspect-ratio";
 import { createElement } from "react";
 

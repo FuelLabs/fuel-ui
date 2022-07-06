@@ -1,6 +1,6 @@
 ---
-"@fuels-ui/css": patch
-"@fuels-ui/react": patch
+"@fuel-ui/css": patch
+"@fuel-ui/react": patch
 ---
 
 Add a new `<Popover>` component using Radix as base component

@@ -1,4 +1,4 @@
-import { cx } from "@fuels-ui/css";
+import { cx } from "@fuel-ui/css";
 import { Cross1Icon } from "@radix-ui/react-icons";
 import * as RPopover from "@radix-ui/react-popover";
 import type { ReactNode } from "react";
