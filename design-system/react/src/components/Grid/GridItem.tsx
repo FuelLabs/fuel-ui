@@ -1,4 +1,4 @@
-import type { ThemeUtilsCSS } from "@fuels-ui/css";
+import type { ThemeUtilsCSS } from "@fuel-ui/css";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";

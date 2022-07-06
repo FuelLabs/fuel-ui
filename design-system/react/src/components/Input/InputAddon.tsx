@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx, styled } from "@fuels-ui/css";
+import { cx, styled } from "@fuel-ui/css";
 import { createElement } from "react";
 
 import type { CreateComponent } from "../../utils";

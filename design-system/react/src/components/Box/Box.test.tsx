@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from "@fuels-ui/test-utils";
+import { render, screen, testA11y } from "@fuel-ui/test-utils";
 
 import { Box } from "./Box";
 

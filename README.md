@@ -1,19 +1,19 @@
-<h1>⚡️ Fuels UI</h1>
+<h1>⚡️ Fuel UI</h1>
 
 [![CI status][github-action-image]][github-action-url]
 [![codecov][codecov-image]][codecov-url]
 
-[github-action-image]: https://github.com/fuellabs/fuels-ui/workflows/%E2%9C%85%20test/badge.svg
-[github-action-url]: https://github.com/fuellabs/fuels-ui/actions?query=workflow%3A%22%E2%9C%85+test%22
-[codecov-image]: https://img.shields.io/codecov/c/github/fuellabs/fuels-ui/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/fuellabs/fuels-ui/branch/master
+[github-action-image]: https://github.com/fuellabs/fuel-ui/workflows/%E2%9C%85%20test/badge.svg
+[github-action-url]: https://github.com/fuellabs/fuel-ui/actions?query=workflow%3A%22%E2%9C%85+test%22
+[codecov-image]: https://img.shields.io/codecov/c/github/fuellabs/fuel-ui/master.svg?style=flat-square
+[codecov-url]: https://codecov.io/gh/fuellabs/fuel-ui/branch/master
 
 <br>
 
-[![License](https://img.shields.io/github/license/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Issues Open](https://img.shields.io/github/issues/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Github Forks](https://img.shields.io/github/forks/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
-[![Github Stars](https://img.shields.io/github/stars/fuellabs/fuels-ui)](https://github.com/fuellabs/fuels-ui)
+[![License](https://img.shields.io/github/license/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Issues Open](https://img.shields.io/github/issues/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Github Forks](https://img.shields.io/github/forks/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
+[![Github Stars](https://img.shields.io/github/stars/fuellabs/fuel-ui)](https://github.com/fuellabs/fuel-ui)
 
 <h2>📝&nbsp; Table of Content</h2>
 
@@ -22,8 +22,6 @@
 - [🛠&nbsp; Tools](#-tools)
 - [💪🏻&nbsp; Contributing](#-contributing)
 - [📜&nbsp; License](#-license)
-- [🤔&nbsp; FAQ](#-faq)
-  - [Why is the prefix `fuels` and not `fuel`?](#why-is-the-prefix-fuels-and-not-fuel)
 
 ---
 
@@ -33,7 +31,7 @@ Inside this monorepo you'll find all UI related projects from some of our
 projects and also packages that we're using to build them:
 
 ```
-📦 fuels-ui                      // root
+📦 fuel-ui                      // root
 ┣ 📂 .github                    // git related files
 ┣ 📂 .vscode                    // vscode settings
 ┃
@@ -84,9 +82,3 @@ Feel like contributing? That's awesome! We have a [contributing guide](./CONTRIB
 ## 📜&nbsp; License
 
 The primary license for this repo is `Apache 2.0`, see [`LICENSE`](./LICENSE).
-
-## 🤔&nbsp; FAQ
-
-### Why is the prefix `fuels` and not `fuel`?
-
-In order to make the SDK for Fuel feel familiar with those coming from the [ethers.js](https://github.com/ethers-io/ethers.js) ecosystem, this project opted for an `s` at the end. The `fuels-*` family of SDKs is inspired by The Ethers Project.

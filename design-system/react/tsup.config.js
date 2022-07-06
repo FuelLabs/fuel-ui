@@ -1,5 +1,5 @@
 import { defineConfig } from 'tsup';
-import baseConfig from '@fuels-ui/config/tsup';
+import baseConfig from '@fuel-ui/config/tsup';
 
 export default defineConfig((options) => ({
   ...baseConfig(options, { withReact: true }),

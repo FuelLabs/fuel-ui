@@ -1,9 +1,9 @@
 {
-  "name": "@fuels-ui/design-system",
+  "name": "@fuel-ui/design-system",
   "version": "0.0.1",
   "private": true,
   "description": "Fuel Design System",
-  "author": "Fuel Labs <contact@fuels-ui.sh> (https://fuel.network/)",
+  "author": "Fuel Labs <contact@fuel-ui.sh> (https://fuel.network/)",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@changesets/cli": "^2.23.0",
-    "@fuels-ui/test-utils": "workspace:*",
+    "@fuel-ui/test-utils": "workspace:*",
     "@jest/types": "^28.1.1",
     "@types/jest": "^28.1.3",
     "@types/node": "^18.0.0",
