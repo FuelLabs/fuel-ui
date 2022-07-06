@@ -59,15 +59,3 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build Storybook
-        run: |
-          cd ./design-system/react
-          pnpm build:storybook
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          clean: true
-          branch: gh-pages
-          folder: design-system/react/storybook-static
