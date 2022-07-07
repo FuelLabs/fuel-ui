@@ -1,5 +1,4 @@
 ---
-"@fuel-ui/css": patch
 "@fuel-ui/react": patch
 ---
 
