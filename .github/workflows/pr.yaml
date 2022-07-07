@@ -10,6 +10,7 @@ concurrency:
 
 jobs:
   validate-title:
+    name: Validate PR Title
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v4
@@ -41,7 +42,6 @@ jobs:
     permissions:
       checks: write
       pull-requests: write
-      contents: read
       contents: write
     steps:
       - uses: actions/checkout@v3
