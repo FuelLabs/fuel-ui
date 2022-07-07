@@ -17,7 +17,7 @@ export const Heading = createComponent<HeadingProps>(
     const classes = cx(
       "fuel_heading",
       className,
-      styles({ fontSize, fontColor })
+      styles({ fontSize, fontColor, as })
     );
     return <Box {...props} as={as} className={classes} role="heading" />;
   }
@@ -26,6 +26,7 @@ export const Heading = createComponent<HeadingProps>(
 const styles = css({
   mt: "0.5rem",
   mb: "1.25rem",
+  letterSpacing: "-.05em",
 
   variants: {
     // FIX: adjust type type
@@ -38,6 +39,26 @@ const styles = css({
       (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
       {}
     ),
+    as: {
+      h1: {
+        textSize: "5xl",
+      },
+      h2: {
+        textSize: "4xl",
+      },
+      h3: {
+        textSize: "3xl",
+      },
+      h4: {
+        textSize: "2xl",
+      },
+      h5: {
+        textSize: "xl",
+      },
+      h6: {
+        textSize: "lg",
+      },
+    },
   },
 
   defaultVariants: {

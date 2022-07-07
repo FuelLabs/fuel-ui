@@ -8,3 +8,4 @@ CHANGELOG.md
 storybook-static
 pnpm-lock.yaml
 .github
+design-system/react/.jest-test-results.json

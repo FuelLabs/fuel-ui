@@ -45,7 +45,7 @@ const styles = css({
   },
 
   defaultVariants: {
-    fontSize: "md",
+    fontSize: "base",
     color: "textColor",
   },
 });

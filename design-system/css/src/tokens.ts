@@ -56,9 +56,9 @@ export const sizes = {
 };
 
 export const fonts = {
-  sans: '"InterVariable", sans-serif',
-  display: '"RalewayVariable", sans-serif',
-  heading: '"RalewayVariable", sans-serif',
+  sans: 'UTL, sans-serif',
+  display: 'UTL, sans-serif',
+  heading: 'UTL, sans-serif',
 };
 
 export const fontSizes = {

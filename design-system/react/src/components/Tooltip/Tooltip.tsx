@@ -1,16 +1,19 @@
 import { cx } from "@fuel-ui/css";
 import * as RTooltip from "@radix-ui/react-tooltip";
-import type { ReactElement } from "react";
+import type { ReactNode } from "react";
 
 import { createComponent } from "../../utils";
 
 import * as styles from "./styles";
 
 export type TooltipProps = RTooltip.TooltipProps & {
-  content: ReactElement;
+  content: ReactNode;
   side?: RTooltip.PopperContentProps["side"];
   align?: RTooltip.PopperContentProps["align"];
+  className?: string;
   arrowClassName?: string;
+  sideOffset?: RTooltip.TooltipContentProps["sideOffset"];
+  alignOffset?: RTooltip.TooltipContentProps["alignOffset"];
 };
 
 export const Tooltip = createComponent<TooltipProps>(
@@ -21,6 +24,8 @@ export const Tooltip = createComponent<TooltipProps>(
     align,
     className,
     arrowClassName,
+    sideOffset,
+    alignOffset,
     ...props
   }) => (
     <RTooltip.Provider>
@@ -30,6 +35,8 @@ export const Tooltip = createComponent<TooltipProps>(
           className={cx(className, CLASSES.Content)}
           side={side}
           align={align}
+          sideOffset={sideOffset}
+          alignOffset={alignOffset}
         >
           <RTooltip.Arrow
             offset={5}

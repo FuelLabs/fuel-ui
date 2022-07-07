@@ -87,25 +87,25 @@ function createLinkVariant(keyColor: ColorKeys, hasHover = true) {
 export const size = {
   xs: {
     gap: '5px',
-    px: '$2',
+    px: '$3',
     fontSize: '$xs',
     height: '$7',
   },
   sm: {
     gap: '$2',
-    px: '$3',
+    px: '$4',
     fontSize: '$sm',
     height: '$8',
   },
   md: {
     gap: '$2',
-    px: '$4',
+    px: '$5',
     fontSize: '$base',
     height: '$10',
   },
   lg: {
     gap: '$3',
-    px: '$5',
+    px: '$6',
     fontSize: '$lg',
     height: '$12',
   },
