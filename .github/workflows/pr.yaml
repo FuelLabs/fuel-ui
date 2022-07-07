@@ -1,0 +1,68 @@
+name: "PR Checks"
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited, closed]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  audit:
+    name: Audit
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.action != 'edited' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/ci-setup
+      - run: pnpm audit
+
+  lint-and-test:
+    name: Lint
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.action != 'edited' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/ci-setup
+      - run: pnpm lint
+
+  test:
+    name: Test with coverage
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.action != 'edited' }}
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: read
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/ci-setup
+
+      - name: Run tests with coverage
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          package-manager: pnpm
+          test-script: pnpm test
+
+  changesets:
+    name: Changeset Checks
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.action != 'edited' }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # need this to get full git-history/clone in order to build changelogs and check changesets
+          fetch-depth: 0
+
+      - uses: ./.github/actions/ci-setup
+      - run: pnpm changeset status --since=origin/master
