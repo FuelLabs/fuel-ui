@@ -28,4 +28,5 @@ export * from "./Tabs";
 export * from "./Tag";
 export * from "./Text";
 export * from "./ThemeProvider";
+export * from "./Toast";
 export * from "./Tooltip";
