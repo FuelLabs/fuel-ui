@@ -53,6 +53,7 @@ module.exports = {
       },
     ],
     'import/prefer-default-export': 'off',
+    'arrow-body-style': 'off',
     'no-await-in-loop': 0,
     'no-bitwise': 0,
     'no-underscore-dangle': 'off',
