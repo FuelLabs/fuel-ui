@@ -1,4 +1,4 @@
-import { cx, styled } from "@fuel-ui/css";
+import { css, cx, styled } from "@fuel-ui/css";
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import type { ReactNode } from "react";
 
@@ -15,7 +15,7 @@ const Icon = styled(QuestionMarkCircledIcon);
 
 export const HelperIcon = createComponent<HelperIconProps>(
   ({ children, className, ...props }) => {
-    const classes = cx("fuel_helper-icon", className);
+    const classes = cx("fuel_helper-icon", className, styles());
     return (
       <Flex align="center" gap="$2" {...props}>
         {children}
@@ -26,3 +26,7 @@ export const HelperIcon = createComponent<HelperIconProps>(
     );
   }
 );
+
+const styles = css({
+  display: "inline-flex",
+});
