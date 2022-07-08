@@ -16,6 +16,7 @@ export * from "./Grid";
 export * from "./Heading";
 export * from "./Icon";
 export * from "./IconButton";
+export * from "./Image";
 export * from "./Input";
 export * from "./Link";
 export * from "./RadioGroup";
