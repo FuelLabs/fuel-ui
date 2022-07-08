@@ -4,6 +4,7 @@ const { hideBin } = require('yargs/helpers');
 const path = require('path');
 const fs = require('fs-extra');
 const snakeCase = require('lodash/snakeCase');
+const prettier = require('prettier');
 
 (async function () {
   const argv = yargs(hideBin(process.argv)).argv;
@@ -32,6 +33,6 @@ const snakeCase = require('lodash/snakeCase');
       .replaceAll('__COMPONENT__', component)
       .replace('$CLASS$', componentClass);
 
-    fs.outputFile(newFilePath, newRawFile);
+    fs.outputFile(newFilePath, prettier.format(newRawFile, { parser: 'typescript' }));
   }
 })();
