@@ -15,7 +15,7 @@ const Root = styled(AC.AccordionContent);
 
 export const AccordionContent = createComponent<AccordionContentProps>(
   ({ className, children, ...props }) => {
-    const classes = cx("fuel_accordion-header", className, styles.content());
+    const classes = cx("fuel_accordion-content", className, styles.content());
     return createElement(
       Root,
       { ...props, className: classes },
