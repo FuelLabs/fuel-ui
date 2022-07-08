@@ -1,5 +1,7 @@
 /* eslint-disable import/export */
+export * from "./Alert";
 export * from "./AlertDialog";
+export * from "./AspectRatio";
 export * from "./Avatar";
 export * from "./Badge";
 export * from "./Box";
@@ -18,6 +20,7 @@ export * from "./Icon";
 export * from "./IconButton";
 export * from "./Input";
 export * from "./Link";
+export * from "./Popover";
 export * from "./RadioGroup";
 export * from "./Spinner";
 export * from "./Stack";
