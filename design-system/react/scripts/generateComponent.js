@@ -4,14 +4,14 @@ const { hideBin } = require('yargs/helpers');
 const path = require('path');
 const fs = require('fs-extra');
 const snakeCase = require('lodash/snakeCase');
+const prettier = require('prettier');
 
-(async function () {
-  const argv = yargs(hideBin(process.argv)).argv;
+function generateComponentFiles(argv) {
+  const component = argv.name;
   const templatesDir = path.resolve(process.cwd(), 'templates/component');
   const componentsDir = path.resolve(process.cwd(), 'src/components');
-  const component = argv.name;
   const componentDir = path.join(componentsDir, component);
-  const componentClass = snakeCase(component);
+  const componentClass = snakeCase(component).replaceAll('_', '-');
 
   if (fs.pathExistsSync(componentDir)) {
     throw new Error('This component already exist, choose another name!');
@@ -32,6 +32,24 @@ const snakeCase = require('lodash/snakeCase');
       .replaceAll('__COMPONENT__', component)
       .replace('$CLASS$', componentClass);
 
-    fs.outputFile(newFilePath, newRawFile);
+    fs.outputFile(newFilePath, prettier.format(newRawFile, { parser: 'typescript' }));
   }
+}
+
+function generateComponentsIndex() {
+  const componentsDir = path.resolve(process.cwd(), 'src/components');
+  const dirs = fs.readdirSync(componentsDir);
+  const filepath = path.resolve(componentsDir, 'index.tsx');
+  const exportAll = dirs
+    .map((dir) => dir !== 'index.tsx' && `export * from "./${dir}";`)
+    .filter(Boolean);
+
+  fs.outputFile(filepath, prettier.format(exportAll.join('\n'), { parser: 'typescript' }));
+}
+
+(async function () {
+  const argv = yargs(hideBin(process.argv)).argv;
+
+  generateComponentFiles(argv);
+  generateComponentsIndex();
 })();
