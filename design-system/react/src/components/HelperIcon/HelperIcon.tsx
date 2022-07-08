@@ -17,10 +17,10 @@ export const HelperIcon = createComponent<HelperIconProps>(
   ({ children, className, ...props }) => {
     const classes = cx("fuel_helper-icon", className, styles());
     return (
-      <Flex align="center" gap="$2" {...props}>
+      <Flex align="center" gap="$2" {...props} className={classes}>
         {children}
         <Tooltip content={props.message}>
-          <Icon className={classes} aria-label="Helper Icon" />
+          <Icon aria-label="Helper Icon" />
         </Tooltip>
       </Flex>
     );

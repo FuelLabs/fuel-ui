@@ -2,7 +2,7 @@ import { HelperIcon } from "./HelperIcon";
 
 export default {
   component: HelperIcon,
-  title: "UI/HelperIcon",
+  title: "Helpers/HelperIcon",
   parameters: {
     layout: "fullscreen",
   },
