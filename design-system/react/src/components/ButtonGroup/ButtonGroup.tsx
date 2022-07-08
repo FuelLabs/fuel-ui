@@ -2,7 +2,7 @@ import { cx, styled } from "@fuel-ui/css";
 import { FocusScope, useFocusManager } from "@react-aria/focus";
 import { mergeProps } from "@react-aria/utils";
 import type { ReactNode, KeyboardEvent } from "react";
-import { createElement, Children, cloneElement } from "react";
+import { useId, createElement, Children, cloneElement } from "react";
 
 import { createComponent } from "../../utils";
 import { pick } from "../../utils/helpers";
@@ -45,13 +45,11 @@ const BUTTON_BASE_PROPS = ["size", "color", "variant", "isDisabled"];
 export type ButtonGroupProps = Omit<ButtonProps, "className">;
 
 export const ButtonGroup = createComponent<ButtonGroupProps>(
-  ({ children, ...props }) => {
-    return (
-      <FocusScope>
-        <GroupChildren childrenProps={pick(BUTTON_BASE_PROPS, props)}>
-          {children}
-        </GroupChildren>
-      </FocusScope>
-    );
-  }
+  ({ children, ...props }) => (
+    <FocusScope>
+      <GroupChildren childrenProps={pick(BUTTON_BASE_PROPS, props)}>
+        {children}
+      </GroupChildren>
+    </FocusScope>
+  )
 );
