@@ -19,6 +19,7 @@ export * from "./Icon";
 export * from "./IconButton";
 export * from "./Input";
 export * from "./Link";
+export * from "./Menu";
 export * from "./Popover";
 export * from "./RadioGroup";
 export * from "./Spinner";
