@@ -4,7 +4,7 @@
 
 Add `<Menu />` component using React Aria [useMenu()](https://react-spectrum.adobe.com/react-aria/useMenu.html) as base to create it
 
-````jsx
+```jsx
 <Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
   <Menu.Item key="settings" textValue="Settings">
     Settings
@@ -16,4 +16,4 @@ Add `<Menu />` component using React Aria [useMenu()](https://react-spectrum.ado
     Edit
   </Menu.Item>
 </Menu>
-````
+```
