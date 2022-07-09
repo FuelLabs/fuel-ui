@@ -4,7 +4,7 @@
 
 Add `<Focus.ArrowNavigator />` component, a component that create a focus scope and add focus navigation using arrows automatically on children.
 
-````jsx
+```jsx
 <Focus.ArrowNavigator asChild autoFocus>
   <Stack gap="$3" direction="row">
     <Button>First</Button>
@@ -12,4 +12,4 @@ Add `<Focus.ArrowNavigator />` component, a component that create a focus scope 
     <Button>Third</Button>
   </Stack>
 </Focus.ArrowNavigator>
-````
+```
