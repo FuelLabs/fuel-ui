@@ -14,6 +14,7 @@ export * from "./Checkbox";
 export * from "./Container";
 export * from "./Dialog";
 export * from "./Flex";
+export * from "./Focus";
 export * from "./Form";
 export * from "./Grid";
 export * from "./Heading";
