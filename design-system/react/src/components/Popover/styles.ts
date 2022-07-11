@@ -49,7 +49,8 @@ export const content = css({
   },
 
   '&:not([aria-disabled=true]):focus': {
-    outline: `3px solid $gray10`,
+    outline: `2px solid $gray10`,
+    outlineOffset: '1px',
   },
 });
 
@@ -65,6 +66,7 @@ export const closeButton = css({
 
   '&:focus': {
     borderRadius: '$md',
-    outline: `2px solid $accent9`,
+    outline: `2px solid $blackA8`,
+    outlineOffset: '1px',
   },
 });
