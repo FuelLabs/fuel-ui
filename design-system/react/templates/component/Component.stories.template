@@ -1,9 +1,9 @@
-import type { __COMPONENT__Props } from './__COMPONENT__'
-import { __COMPONENT__ } from './__COMPONENT__'
+import type { __COMPONENT__Props } from "./__COMPONENT__"
+import { __COMPONENT__ } from "./__COMPONENT__"
 
 export default {
   component: __COMPONENT__,
-  title: 'UI/__COMPONENT__',
+  title: "UI/__COMPONENT__",
   argTypes: {},
 }
 
