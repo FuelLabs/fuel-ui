@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:storybook": "pnpm --filter=\"@fuel-ui/react\" -r build:storybook",
     "build:watch": "pnpm -r --parallel build --watch",
     "changeset": "changeset",
     "changeset:release": "changeset publish",

@@ -21,7 +21,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "add:component": "node ./scripts/generateComponent",
-    "build:storybook": "build-storybook -s ./public",
+    "build:storybook": "pnpm test && build-storybook -s ./public",
     "build": "tsup --dts",
     "dev": "start-storybook -p 6006 -s ./public",
     "test": "jest --verbose --json --outputFile=.jest-test-results.json"
