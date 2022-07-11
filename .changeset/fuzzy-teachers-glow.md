@@ -1,5 +1,5 @@
 ---
-"@fuel-ui/react": patch
+"@fuel-ui/react": minor
 ---
 
 Add new `<Copyable />` component. A component that adds a copy to clipboard icon and handler in a text.

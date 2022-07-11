@@ -1,5 +1,5 @@
 ---
-"@fuel-ui/react": patch
+"@fuel-ui/react": minor
 ---
 
 Add new `<HelperIcon />`, a component that will show a helper icon with a Tooltip included
