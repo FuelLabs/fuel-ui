@@ -3,6 +3,7 @@ import type { FC, ReactNode } from "react";
 import { useContext, createContext } from "react";
 
 import { GlobalStyles } from "../../styles/GlobalStyles";
+import { ToastProvider } from "../Toast";
 
 import type { FuelTheme } from "./machine";
 import { getDefaultSystemTheme, themeProviderMachine } from "./machine";
@@ -50,6 +51,7 @@ export const ThemeProvider: FC<ThemeProps> = ({
 
   return (
     <context.Provider value={contextValue}>
+      <ToastProvider />
       <GlobalStyles />
       {children}
     </context.Provider>
