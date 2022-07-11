@@ -21,7 +21,8 @@ function createSolidVariant(keyColor: ColorKeys, hasHover = true) {
     }),
 
     '&:not([aria-disabled=true]):focus': {
-      outline: `3px solid ${outlineColor}`,
+      outline: `2px solid ${outlineColor}`,
+      outlineOffset: '1px',
     },
   };
 }
