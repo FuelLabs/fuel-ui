@@ -24,6 +24,7 @@ export * from "./Popover";
 export * from "./RadioGroup";
 export * from "./Spinner";
 export * from "./Stack";
+export * from "./Switch";
 export * from "./Tabs";
 export * from "./Tag";
 export * from "./Text";
