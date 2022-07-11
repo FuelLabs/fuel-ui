@@ -15,12 +15,12 @@ export const Usage = (args: AccordionProps) => (
       <Accordion.Item value="item-1">
         <Accordion.Trigger>What&apos; Fuel?</Accordion.Trigger>
         <Accordion.Content>
-          The fastest execution modular blokchain
+          The world&apos;s fastest modular execution layer.
         </Accordion.Content>
       </Accordion.Item>
       <Accordion.Item value="item-2">
         <Accordion.Trigger>Is really fast?</Accordion.Trigger>
-        <Accordion.Content>Yes, blazingly fast!</Accordion.Content>
+        <Accordion.Content>Yes, it&apos;s blazingly fast.</Accordion.Content>
       </Accordion.Item>
     </Accordion>
   </Box>
