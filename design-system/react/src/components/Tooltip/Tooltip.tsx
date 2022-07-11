@@ -24,7 +24,7 @@ export const Tooltip = createComponent<TooltipProps>(
     align,
     className,
     arrowClassName,
-    sideOffset,
+    sideOffset = 5,
     alignOffset,
     ...props
   }) => (
