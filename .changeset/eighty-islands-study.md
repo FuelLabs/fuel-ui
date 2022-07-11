@@ -1,5 +1,5 @@
 ---
-"@fuel-ui/react": patch
+"@fuel-ui/react": minor
 ---
 
 Add new `<Accordion />` component using [Radix Accordion](https://www.radix-ui.com/docs/primitives/components/accordion) as base component

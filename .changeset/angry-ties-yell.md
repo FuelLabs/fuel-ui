@@ -1,5 +1,5 @@
 ---
-"@fuel-ui/react": patch
+"@fuel-ui/react": minor
 ---
 
-Add a `<Image />` component
+Add a `<Image />` component.

@@ -1,5 +1,5 @@
 ---
-"@fuel-ui/react": patch
+"@fuel-ui/react": minor
 ---
 
 Add new `<Switch />` component using [Radix Switch](https://www.radix-ui.com/docs/primitives/components/switch) as base

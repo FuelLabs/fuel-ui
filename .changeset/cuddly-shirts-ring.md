@@ -1,5 +1,5 @@
 ---
-"@fuel-ui/react": patch
+"@fuel-ui/react": minor
 ---
 
 Add `<Focus.ArrowNavigator />` component, a component that create a focus scope and add focus navigation using arrows automatically on children.
