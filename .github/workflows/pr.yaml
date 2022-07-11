@@ -66,3 +66,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: pnpm
           test-script: pnpm test
+          annotations: failed-tests
