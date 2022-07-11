@@ -85,7 +85,7 @@ export const normalize: Record<string, any>[] = [
       },
     'button, input:is([type="button" i], [type="color" i], [type="reset" i], [type="submit" i]))::-moz-focusring':
       {
-        outline: '1px dotted ButtonText',
+        outline: '1px dotted $accent9',
       },
     ':-moz-ui-invalid': {
       boxShadow: 'none',
