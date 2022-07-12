@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { cx, styled } from "@fuel-ui/css";
-import type { FocusScopeProps } from "@react-aria/focus";
 import { FocusScope, useFocusManager } from "@react-aria/focus";
 import type { KeyboardEvent, ReactNode } from "react";
 import { createElement, Children, cloneElement } from "react";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+
+import type { FocusScopeProps } from "./FocusScope";
 
 type GroupChildrenProps = HTMLProps["div"] & {
   asChild?: boolean;
