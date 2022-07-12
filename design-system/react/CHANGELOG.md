@@ -1,11 +1,17 @@
 # @fuel-ui/react
 
+## 0.1.1
+
+### Patch Changes
+
+- ⚠️ Fix: export missing FocusScopeProps on Focus component, by [@pedronauck](https://github.com/pedronauck) (See [#102](https://github.com/FuelLabs/fuel-ui/pull/102))
+
 ## 0.1.0
 
 ### Minor Changes
 
 - Add `<Menu />` component using React Aria [useMenu()](https://react-spectrum.adobe.com/react-aria/useMenu.html) as base to create it
-  ````jsx
+  ```jsx
   <Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
     <Menu.Item key="settings" textValue="Settings">
       Settings
@@ -17,14 +23,14 @@
       Edit
     </Menu.Item>
   </Menu>
-  ````
+  ```
 - Add a `<Image />` component, by [@pedronauck](https://github.com/pedronauck) (See [#89](https://github.com/FuelLabs/fuel-ui/pull/89))
 - Add new `<HelperIcon />`, a component that will show a helper icon with a Tooltip included
-  ````jsx
+  ```jsx
   <HelperIcon message="This is a helper message">Some information</HelperIcon>
-  ````
+  ```
 - Add `<Focus.ArrowNavigator />` component, a component that create a focus scope and add focus navigation using arrows automatically on children.
-  ````jsx
+  ```jsx
   <Focus.ArrowNavigator asChild autoFocus>
     <Stack gap="$3" direction="row">
       <Button>First</Button>
@@ -32,9 +38,9 @@
       <Button>Third</Button>
     </Stack>
   </Focus.ArrowNavigator>
-  ````
+  ```
 - Add new `<Accordion />` component using [Radix Accordion](https://www.radix-ui.com/docs/primitives/components/accordion) as base component
-  ````jsx
+  ```jsx
   <Accordion {...args} type="single" defaultValue="item-1" collapsible>
     <Accordion.Item value="item-1">
       <Accordion.Trigger>What&apos; Fuel?</Accordion.Trigger>
@@ -47,33 +53,33 @@
       <Accordion.Content>Yes, blazingly fast!</Accordion.Content>
     </Accordion.Item>
   </Accordion>
-  ````
+  ```
 - Add new `<ButtonGroup />` component
-  ````jsx
+  ```jsx
   <ButtonGroup {...args} color="blue" size="sm">
     <Button>First</Button>
     <Button leftIcon="CalendarIcon">Second</Button>
     <Button>Third</Button>
   </ButtonGroup>
-  ````
+  ```
 - Add new `<Copyable />` component. A component that adds a copy to clipboard icon and handler in a text.
-  ````jsx
+  ```jsx
   <Copyable>Some value</Copyable>
-  ````
+  ```
 - Add new `<Switch />` component using [Radix Switch](https://www.radix-ui.com/docs/primitives/components/switch) as base
-  ````jsx
+  ```jsx
   <Flex align="center">
     <Form.Label htmlFor="s1">Label</Form.Label>
     <Switch defaultChecked id="s1" {...args} />
   </Flex>
-  ````
+  ```
 - Add new `toast()` function that shows a toast using [react-hot-toast](https://react-hot-toast.com/) behind the scenes. It also includes `<ToastProvider />` in our `<ThemeProvider />` by default.
-  ````jsx
+  ```jsx
   import { Button, toast } from "@fuel-ui/react";
   function App() {
     return <Button onPress={() => toast("Hello world!")}>Show toast</Button>;
   }
-  ````
+  ```
 
 ### Patch Changes
 
