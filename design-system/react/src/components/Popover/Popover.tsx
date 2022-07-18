@@ -43,7 +43,7 @@ export const Popover = createComponent<PopoverProps>(
         alignOffset={alignOffset}
       >
         <RPopover.Arrow
-          offset={0}
+          offset={4}
           width={15}
           height={5}
           className={cx(arrowClassName, CLASSES.Arrow)}
