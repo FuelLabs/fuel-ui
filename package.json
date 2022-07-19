@@ -80,9 +80,10 @@
       ]
     },
     "overrides": {
-      "glob-parent@<5.1.2": ">=6.0.1",
+      "glob-parent@<5.1.2": ">=5.1.2",
       "trim@<0.0.3": ">=0.0.3",
-      "trim-newlines@<3.0.1": ">=3.0.1"
+      "trim-newlines@<3.0.1": ">=3.0.1",
+      "glob-parent@<6.0.1": ">=6.0.1"
     }
   },
   "dependencies": {

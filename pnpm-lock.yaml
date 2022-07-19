@@ -1,9 +1,10 @@
 lockfileVersion: 5.4
 
 overrides:
-  glob-parent@<5.1.2: '>=6.0.1'
+  glob-parent@<5.1.2: '>=5.1.2'
   trim@<0.0.3: '>=0.0.3'
   trim-newlines@<3.0.1: '>=3.0.1'
+  glob-parent@<6.0.1: '>=6.0.1'
 
 importers:
 
@@ -7540,7 +7541,7 @@ packages:
     dependencies:
       anymatch: 3.1.2
       braces: 3.0.2
-      glob-parent: 5.1.2
+      glob-parent: 6.0.2
       is-binary-path: 2.1.0
       is-glob: 4.0.3
       normalize-path: 3.0.0
@@ -9495,7 +9496,7 @@ packages:
     dependencies:
       '@nodelib/fs.stat': 2.0.5
       '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
+      glob-parent: 6.0.2
       merge2: 1.4.1
       micromatch: 4.0.5
 
@@ -9999,12 +10000,6 @@ packages:
   /github-slugger/1.4.0:
     resolution: {integrity: sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==}
     dev: true
-
-  /glob-parent/5.1.2:
-    resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
-    engines: {node: '>= 6'}
-    dependencies:
-      is-glob: 4.0.3
 
   /glob-parent/6.0.2:
     resolution: {integrity: sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==}
