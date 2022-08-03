@@ -80,5 +80,3 @@ Icon.id = "Icon";
 Icon.iconList = Object.keys(
   omit(["Icon", "IconProps", "IconWeight", "IconContext"], PhosphorIcons)
 ) as Icons[];
-
-console.log(Icon.iconList);

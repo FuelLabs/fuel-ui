@@ -18,6 +18,10 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
 
 export type ThemeUtilsCSS = CSS<typeof config>;
 
+export function cssObj(opts: ThemeUtilsCSS) {
+  return opts;
+}
+
 export const lightTheme = createTheme('fuel__light-theme', {
   colors: lightColors,
 });

@@ -36,10 +36,10 @@ type IconProps = {
 };
 
 const STATUS_ICONS: Record<string, IconProps> = {
-  info: { icon: "InfoCircledIcon" },
-  warning: { icon: "ExclamationTriangleIcon" },
-  success: { icon: "CheckCircledIcon" },
-  error: { icon: "CrossCircledIcon" },
+  info: { icon: "WarningCircle" },
+  warning: { icon: "Warning" },
+  success: { icon: "CheckCircle" },
+  error: { icon: "XCircle" },
 };
 
 export const Alert = createComponent<AlertProps>(
