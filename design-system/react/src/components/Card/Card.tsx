@@ -23,14 +23,13 @@ export const Card = createComponent<CardProps>(
     const classes = cx("fuel_card", className, styles.card());
     const customProps = { ...props, direction, className: classes };
     const { theme } = useFuelTheme();
-    const boxShadow = theme === "light" ? "$sm" : "none";
     const borderColor = theme === "dark" ? "$borderColor" : "transparent";
 
     return (
       <Flex
         as="article"
         {...customProps}
-        css={{ ...(!within && { boxShadow, borderColor }), ...css }}
+        css={{ ...(!within && { borderColor }), ...css }}
       >
         {children}
       </Flex>

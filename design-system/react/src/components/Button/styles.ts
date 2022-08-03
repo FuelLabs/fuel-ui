@@ -60,7 +60,7 @@ export const button = css({
     {
       size: 'xs',
       justIcon: true,
-      css: { px: '$2' },
+      css: { px: '$1' },
     },
     {
       size: 'sm',

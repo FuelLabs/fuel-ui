@@ -23,7 +23,7 @@ export const WithHeader = (args: CardProps) => (
   <Box css={{ maxW: "400px" }}>
     <Card {...args}>
       <Card.Header>
-        <Heading>Welcome Fuel</Heading>
+        <Heading as="h3">Welcome Fuel</Heading>
       </Card.Header>
       <Card.Body>We are the fastest modular execution layer</Card.Body>
     </Card>
@@ -34,7 +34,7 @@ export const WithFooter = (args: CardProps) => (
   <Box css={{ maxW: "400px" }}>
     <Card {...args}>
       <Card.Header>
-        <Heading>Title</Heading>
+        <Heading as="h3">Title</Heading>
       </Card.Header>
       <Card.Body>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate

@@ -5,21 +5,55 @@ import { css, allColors, cx, utils } from "@fuel-ui/css";
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
 import { Box } from "../Box";
+import { createIcon } from "../Button";
+import type { IconProps } from "../Icon";
 
 export type HeadingProps = HTMLProps["h1"] & {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   fontSize?: utils.TextSizes;
   fontColor?: Colors;
+  iconSize?: number;
+  leftIcon?: IconProps["icon"];
+  rightIcon?: IconProps["icon"];
+  leftIconAriaLabel?: string;
+  rightIconAriaLabel?: string;
 };
 
+function getIconSize(as: HeadingProps["as"], iconSize?: number) {
+  if (iconSize) return iconSize;
+  if (as === "h1" || as === "h2") return 22;
+  if (as === "h5" || as === "h6") return 16;
+  return 18;
+}
+
 export const Heading = createComponent<HeadingProps>(
-  ({ as = "h2", fontSize, fontColor, className, ...props }) => {
+  ({
+    as = "h2",
+    fontSize,
+    fontColor,
+    className,
+    iconSize: initialIconSize,
+    leftIcon,
+    rightIcon,
+    leftIconAriaLabel,
+    rightIconAriaLabel,
+    children,
+    ...props
+  }) => {
+    const iconSize = getIconSize(as, initialIconSize);
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
+    const withIcon = Boolean(leftIcon || rightIcon);
     const classes = cx(
       "fuel_heading",
       className,
-      styles({ fontSize, fontColor, as })
+      styles({ fontSize, fontColor, as, withIcon })
     );
-    return <Box {...props} as={as} className={classes} role="heading" />;
+    return (
+      <Box {...props} as={as} className={classes} role="heading">
+        {iconLeft} {children} {iconRight}
+      </Box>
+    );
   }
 );
 
@@ -27,6 +61,11 @@ const styles = css({
   mt: "0.5rem",
   mb: "1.25rem",
   letterSpacing: "-.05em",
+  color: "$gray12",
+
+  "& .fuel_icon": {
+    color: "$gray8",
+  },
 
   variants: {
     // FIX: adjust type type
@@ -41,22 +80,28 @@ const styles = css({
     ),
     as: {
       h1: {
-        textSize: "5xl",
-      },
-      h2: {
         textSize: "4xl",
       },
-      h3: {
+      h2: {
         textSize: "3xl",
       },
-      h4: {
+      h3: {
         textSize: "2xl",
       },
-      h5: {
+      h4: {
         textSize: "xl",
       },
-      h6: {
+      h5: {
         textSize: "lg",
+      },
+      h6: {
+        textSize: "base",
+      },
+    },
+    withIcon: {
+      true: {
+        display: "inline-flex",
+        gap: "$2",
       },
     },
   },

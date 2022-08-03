@@ -5,7 +5,7 @@ export const root = css({
   alignItems: 'center',
 
   '& > .fuel_button ~ .fuel_button': {
-    marginLeft: -1,
+    marginLeft: 1,
   },
   '& > .fuel_button:first-of-type': {
     borderTopRightRadius: '$0',

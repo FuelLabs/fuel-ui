@@ -3,16 +3,35 @@ import { styled, css, cx } from "@fuel-ui/css";
 import { useButton } from "@react-aria/button";
 import { mergeProps, mergeRefs } from "@react-aria/utils";
 import type { AriaButtonProps } from "@react-types/button";
-import { useMemo, createElement, useRef } from "react";
+import { useMemo, createElement, useRef, cloneElement } from "react";
 
 import { createComponent } from "../../utils";
 import type { CreateComponent, HTMLProps } from "../../utils";
 import { omit } from "../../utils/helpers";
 import type { IconProps } from "../Icon";
+import { Icon } from "../Icon";
 import { Spinner } from "../Spinner";
-import { createIcon } from "../Text";
 
 import * as styles from "./styles";
+
+export function createIcon(
+  icon?: IconProps["icon"],
+  iconAriaLabel?: string,
+  iconSize?: number
+) {
+  return typeof icon === "string" ? (
+    <Icon icon={icon} label={iconAriaLabel} size={iconSize} />
+  ) : (
+    icon && createElement(icon, { label: iconAriaLabel })
+  );
+}
+
+export function getIconSize(size: ButtonSizes, iconSize?: number) {
+  if (iconSize) return iconSize;
+  if (size === "lg") return 20;
+  if (size === "md") return 18;
+  return 16;
+}
 
 type GetChildrenParams = ButtonProps & {
   iconLeft?: JSX.Element;
@@ -34,7 +53,9 @@ function getChildren({
   }
   return (
     <>
-      {iconLeft} {children} {iconRight}
+      {iconLeft && cloneElement(iconLeft)}
+      {children}
+      {iconRight && cloneElement(iconRight)}
     </>
   );
 }
@@ -46,9 +67,10 @@ export type ButtonBaseProps = {
   size?: ButtonSizes;
   color?: ColorKeys;
   variant?: ButtonVariants;
+  iconSize?: number;
   leftIcon?: IconProps["icon"];
-  rightIcon?: IconProps["icon"];
   leftIconAriaLabel?: string;
+  rightIcon?: IconProps["icon"];
   rightIconAriaLabel?: string;
   isLoading?: boolean;
   isDisabled?: boolean;
@@ -81,9 +103,10 @@ export const Button = createComponent<ButtonProps>(
     size = "md",
     color = "accent",
     variant = "solid",
+    iconSize: initialIconSize,
     leftIcon,
-    rightIcon,
     leftIconAriaLabel,
+    rightIcon,
     rightIconAriaLabel,
     isLoading,
     isDisabled,
@@ -95,8 +118,9 @@ export const Button = createComponent<ButtonProps>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled;
-    const iconLeft = createIcon(leftIcon, leftIconAriaLabel);
-    const iconRight = createIcon(rightIcon, rightIconAriaLabel);
+    const iconSize = getIconSize(size, initialIconSize);
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
     const customCSSStr = JSON.stringify(customCSS);
     const customStyle = useMemo(() => css(customCSS || {})(), [customCSSStr]);
     const classes = cx([

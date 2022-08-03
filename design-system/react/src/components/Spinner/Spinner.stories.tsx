@@ -10,7 +10,7 @@ export default {
 export const Usage = () => (
   <Box css={{ display: "flex", alignItems: "center", gap: "$2" }}>
     <Spinner />
-    <Spinner size={30} color="indigo" />
-    <Spinner size={50} color="gray" />
+    <Spinner size={30} color="indigo9" />
+    <Spinner size={50} color="gray6" />
   </Box>
 );

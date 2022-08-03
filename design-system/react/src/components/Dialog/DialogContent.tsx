@@ -2,7 +2,7 @@ import { cx, styled } from "@fuel-ui/css";
 import * as RDialog from "@radix-ui/react-dialog";
 
 import { createComponent } from "../../utils";
-import { Icon } from "../Icon";
+import { IconButton } from "../IconButton";
 
 import * as styles from "./styles";
 
@@ -25,8 +25,17 @@ export const DialogContent = createComponent<DialogContentProps>(
       <RDialog.Overlay className={cx(overlayClassName, CLASSES.Overlay)} />
       <Root {...props} css={css} className={cx(className, CLASSES.Content)}>
         {children}
-        <RDialog.Close className={cx(closeClassName, styles.closeButton())}>
-          <Icon icon="X" color="gray10" />
+        <RDialog.Close
+          className={cx(closeClassName, styles.closeButton())}
+          asChild
+        >
+          <IconButton
+            size="xs"
+            aria-label="Close"
+            icon="X"
+            color="gray"
+            variant="link"
+          />
         </RDialog.Close>
       </Root>
     </RDialog.Portal>

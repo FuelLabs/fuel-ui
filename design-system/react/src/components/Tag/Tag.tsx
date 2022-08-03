@@ -5,12 +5,17 @@ import { createComponent } from "../../utils";
 import type { HTMLProps, CreateComponent } from "../../utils";
 import { Box } from "../Box";
 import type { ButtonBaseProps } from "../Button";
-import { SPINNER_SIZE } from "../Button";
+import { SPINNER_SIZE, createIcon } from "../Button";
 import { Spinner } from "../Spinner";
-import { createIcon } from "../Text";
 
 import { TagCloseButton } from "./TagCloseButton";
 import * as styles from "./styles";
+
+function getIconSize(size: TagProps["size"], iconSize?: number) {
+  if (iconSize) return iconSize;
+  if (size === "xs") return 14;
+  return 16;
+}
 
 type GetChildrenParams = TagProps & {
   iconLeft?: JSX.Element;
@@ -60,6 +65,7 @@ export const Tag = createComponent<TagProps>(
     size = "sm",
     color = "accent",
     variant = "solid",
+    iconSize: initialIconSize,
     leftIcon,
     rightIcon,
     leftIconAriaLabel,
@@ -71,8 +77,9 @@ export const Tag = createComponent<TagProps>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled;
-    const iconLeft = createIcon(leftIcon, leftIconAriaLabel);
-    const iconRight = createIcon(rightIcon, rightIconAriaLabel);
+    const iconSize = getIconSize(size, initialIconSize);
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
 
     const classes = cx(
       "fuel_tag",

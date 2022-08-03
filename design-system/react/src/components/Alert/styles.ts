@@ -1,26 +1,41 @@
 import { css } from '@fuel-ui/css';
 
 export const root = css({
-  p: '$4',
+  padding: '$4',
+  position: 'relative',
   borderRadius: '$md',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   gap: '$4',
+  background: '$gray1',
 
   '.fuel_alert--content': {
     flex: 1,
     gap: '$3',
   },
 
+  '& .fuel_heading': {
+    textSize: 'lg',
+    margin: 0,
+  },
+
+  '&:after': {
+    display: 'block',
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '3px',
+    height: '100%',
+    borderTopLeftRadius: '$md',
+    borderBottomLeftRadius: '$md',
+  },
+
   variants: {
     status: {
       info: {
-        bg: '$blue4',
-        color: '$blue10',
-        border: '1px solid $blue5',
-
-        '& .fuel_heading': {
+        '& .fuel_heading, & .fuel_icon': {
           color: '$blue11',
         },
 
@@ -29,13 +44,13 @@ export const root = css({
           color: '$blue10',
           fontWeight: '$semibold',
         },
+
+        '&:after': {
+          background: '$blue11',
+        },
       },
       warning: {
-        bg: '$amber4',
-        color: '$amber11',
-        border: '1px solid $amber6',
-
-        '& .fuel_heading': {
+        '& .fuel_heading, & .fuel_icon': {
           color: '$amber11',
         },
 
@@ -44,13 +59,13 @@ export const root = css({
           color: '$amber10',
           fontWeight: '$semibold',
         },
+
+        '&:after': {
+          background: '$amber11',
+        },
       },
       success: {
-        bg: '$green4',
-        color: '$green10',
-        border: '1px solid $green5',
-
-        '& .fuel_heading': {
+        '& .fuel_heading, & .fuel_icon': {
           color: '$green11',
         },
 
@@ -59,13 +74,13 @@ export const root = css({
           color: '$green10',
           fontWeight: '$semibold',
         },
+
+        '&:after': {
+          background: '$green11',
+        },
       },
       error: {
-        bg: '$red4',
-        color: '$red10',
-        border: '1px solid $red5',
-
-        '& .fuel_heading': {
+        '& .fuel_heading, & .fuel_icon': {
           color: '$red11',
         },
 
@@ -73,6 +88,10 @@ export const root = css({
           p: 0,
           color: '$red10',
           fontWeight: '$semibold',
+        },
+
+        '&:after': {
+          background: '$red11',
         },
       },
     },
@@ -83,7 +102,7 @@ export const root = css({
           flexDirection: 'column',
         },
         '.fuel_alert--icon': {
-          pt: '1px',
+          pt: '5px',
           alignSelf: 'stretch',
         },
       },

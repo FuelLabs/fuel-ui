@@ -41,7 +41,7 @@ export const content = css({
   maxHeight: '85vh',
   br: '$md',
   backgroundColor: '$gray1',
-  boxShadow: '$md',
+  boxShadow: '$sm',
   transform: 'translate(-50%, -50%)',
 
   '@media (prefers-reduced-motion: no-preference)': {
@@ -93,16 +93,7 @@ export const footer = css({
 });
 
 export const closeButton = css({
-  is: ['centered', 'noAppearance'],
-  cursor: 'pointer',
   position: 'absolute',
-  border: '2px solid transparent',
   top: '$2',
   right: '$2',
-  px: '$0',
-
-  '&:focus': {
-    borderRadius: '$md',
-    borderColor: '$gray8',
-  },
 });

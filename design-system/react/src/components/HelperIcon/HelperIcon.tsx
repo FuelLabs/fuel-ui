@@ -27,4 +27,8 @@ export const HelperIcon = createComponent<HelperIconProps>(
 
 const styles = css({
   display: "inline-flex",
+
+  "& .fuel_icon": {
+    color: "$gray8",
+  },
 });

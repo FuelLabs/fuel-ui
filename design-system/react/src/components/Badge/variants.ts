@@ -3,8 +3,8 @@ import { colorKeys, isBright } from '@fuel-ui/css';
 
 function createSolidVariant(keyColor: ColorKeys) {
   const color = String(keyColor);
-  const background = isBright(color) ? `$${color}6` : `$${color}9`;
-  const textColor = isBright(color) ? `$${color}12` : `$${color}1`;
+  const background = isBright(color) ? `$${color}11` : `$${color}9`;
+  const textColor = isBright(color) ? `$${color}3` : `$${color}1`;
 
   return {
     background,

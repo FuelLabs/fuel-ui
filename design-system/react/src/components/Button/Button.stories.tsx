@@ -39,7 +39,7 @@ export default {
 
 export const Sizes = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
-    <Button {...args} size="xs" onPress={() => console.log("helo")}>
+    <Button {...args} size="xs">
       Button
     </Button>
     <Button {...args} size="sm">
@@ -83,18 +83,35 @@ export const Colors = (args: ButtonProps) => (
 
 export const WithIcon = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
-    <Button {...args} leftIcon="Calendar" leftIconAriaLabel="calendar">
-      Button
-    </Button>
-    <Button {...args} rightIcon="Calendar" leftIconAriaLabel="calendar">
+    <Button
+      {...args}
+      size="xs"
+      leftIcon="Calendar"
+      leftIconAriaLabel="calendar"
+    >
       Button
     </Button>
     <Button
       {...args}
+      size="sm"
       leftIcon="Calendar"
       leftIconAriaLabel="calendar"
-      rightIcon="Calendar"
-      rightIconAriaLabel="calendar"
+    >
+      Button
+    </Button>
+    <Button
+      {...args}
+      size="md"
+      leftIcon="Calendar"
+      leftIconAriaLabel="calendar"
+    >
+      Button
+    </Button>
+    <Button
+      {...args}
+      size="lg"
+      leftIcon="Calendar"
+      leftIconAriaLabel="calendar"
     >
       Button
     </Button>

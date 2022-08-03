@@ -23,7 +23,9 @@ export const Usage = () => (
       </AlertDialog.Description>
       <AlertDialog.Footer>
         <AlertDialog.Cancel>
-          <Button color="gray">Cancel</Button>
+          <Button color="gray" variant="ghost">
+            Cancel
+          </Button>
         </AlertDialog.Cancel>
         <AlertDialog.Action>
           <Button variant="outlined" color="tomato">

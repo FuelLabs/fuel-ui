@@ -2,7 +2,7 @@ import { css } from '@fuel-ui/css';
 
 const OUTLINE_COLOR = '$gray4';
 const BORDER_RADIUS = '$md';
-const HIGHLIGHT_COLOR = '$accent9';
+const HIGHLIGHT_COLOR = '$accent11';
 
 export const root = css({
   display: 'flex',

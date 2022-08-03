@@ -65,7 +65,7 @@ const styles = {
     },
 
     defaultVariants: {
-      color: "accent9",
+      color: "accent11",
     },
   }),
 };

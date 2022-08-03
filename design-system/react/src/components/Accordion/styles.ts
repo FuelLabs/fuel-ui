@@ -17,6 +17,7 @@ export const root = css({
 
 export const item = css({
   overflow: 'hidden',
+  borderTop: '1px solid $bodyColor',
 
   '&:first-child': {
     marginTop: 0,
@@ -35,13 +36,10 @@ export const item = css({
   },
 
   [`.${darkTheme} &`]: {
-    backgroundColor: '$blackA9',
+    backgroundColor: '$gray1',
   },
   [`.${darkTheme} &:focus-within`]: {
     outline: `2px solid ${darkColors.gray4}`,
-  },
-  [`.${darkTheme} & ~ &`]: {
-    borderTop: '1px solid $gray2',
   },
 
   [`.${lightTheme} &`]: {
@@ -49,9 +47,6 @@ export const item = css({
   },
   [`.${lightTheme} &:focus-within`]: {
     outline: `2px solid ${lightColors.gray7}`,
-  },
-  [`.${lightTheme} & ~ &`]: {
-    borderTop: '1px solid $gray4',
   },
 });
 
@@ -69,6 +64,7 @@ export const trigger = css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  borderBottom: '1px solid $bodyColor',
   textSize: 'base',
   transition: 'color .2s',
 
@@ -76,17 +72,10 @@ export const trigger = css({
     color: '$gray9',
   },
   '&[data-state="open"]': {
-    color: '$accent9',
+    color: '$accent11',
   },
   '&:hover': {
-    color: '$accent9',
-  },
-
-  [`.${darkTheme} &[data-state="open"]`]: {
-    borderBottom: '1px solid $gray2',
-  },
-  [`.${lightTheme} &[data-state="open"]`]: {
-    borderBottom: '1px solid $gray5',
+    color: '$accent11',
   },
 });
 

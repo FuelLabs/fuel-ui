@@ -5,32 +5,59 @@ import { createElement } from "react";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { createIcon } from "../Button";
 import type { IconProps } from "../Icon";
-import { Icon } from "../Icon";
-
-export function createIcon(icon?: IconProps["icon"], iconAriaLabel?: string) {
-  return typeof icon === "string" ? (
-    <Icon icon={icon} label={iconAriaLabel} />
-  ) : (
-    icon && createElement(icon, { label: iconAriaLabel })
-  );
-}
 
 export type TextProps = HTMLProps["p"] & {
   fontSize?: utils.TextSizes;
   color?: Colors;
+  iconSize?: number;
+  leftIcon?: IconProps["icon"];
+  rightIcon?: IconProps["icon"];
+  leftIconAriaLabel?: string;
+  rightIconAriaLabel?: string;
 };
 
 const Root = styled("p");
 
 export const Text = createComponent<TextProps>(
-  ({ fontSize, color, children, className, ...props }) => {
-    const classes = cx("fuel_text", className, styles({ fontSize, color }));
-    return createElement(Root, { ...props, className: classes }, children);
+  ({
+    fontSize,
+    color,
+    children,
+    className,
+    iconSize = 16,
+    leftIcon,
+    rightIcon,
+    leftIconAriaLabel,
+    rightIconAriaLabel,
+    ...props
+  }) => {
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
+    const withIcon = Boolean(leftIcon || rightIcon);
+    const classes = cx(
+      "fuel_text",
+      className,
+      styles({ fontSize, color, withIcon })
+    );
+    return createElement(
+      Root,
+      { ...props, className: classes },
+      <>
+        {iconLeft} {children} {iconRight}
+      </>
+    );
   }
 );
 
 const styles = css({
+  margin: 0,
+
+  "& .fuel_icon": {
+    color: "$gray8",
+  },
+
   variants: {
     // TODO: adjust typings
     fontSize: (utils.textSize.__keys as any[]).reduce(
@@ -42,6 +69,12 @@ const styles = css({
       (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
       {}
     ),
+    withIcon: {
+      true: {
+        display: "inline-flex",
+        gap: "$2",
+      },
+    },
   },
 
   defaultVariants: {

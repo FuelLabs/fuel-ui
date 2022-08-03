@@ -5,16 +5,16 @@ export const root = css({
   position: 'relative',
   width: 42,
   height: 25,
-  backgroundColor: '$blackA9',
+  backgroundColor: '$gray2',
   borderRadius: '$full',
-  boxShadow: '$md',
+  boxShadow: '$sm',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 
   '&:focus': {
     outline: '2px solid $gray5',
   },
   '&[data-state="checked"]': {
-    backgroundColor: '$blackA9',
+    backgroundColor: '$gray2',
   },
 
   variants: {
@@ -37,7 +37,7 @@ export const root = css({
 
 export const thumb = css({
   display: 'block',
-  backgroundColor: '$gray3',
+  backgroundColor: '$gray7',
   borderRadius: '$full',
   boxShadow: `$md`,
   transition: 'all 100ms',
@@ -46,7 +46,7 @@ export const thumb = css({
 
   '&[data-state="checked"]': {
     transform: 'translateX(19px)',
-    backgroundColor: '$accent9',
+    backgroundColor: '$accent11',
   },
 
   variants: {

@@ -3,7 +3,7 @@ import * as RPopover from "@radix-ui/react-popover";
 import type { ReactNode } from "react";
 
 import { createComponent } from "../../utils";
-import { Icon } from "../Icon";
+import { IconButton } from "../IconButton";
 
 import * as styles from "./styles";
 
@@ -52,8 +52,15 @@ export const Popover = createComponent<PopoverProps>(
           <RPopover.Close
             aria-label="Close"
             className={cx(closeButtonClassName, CLASSES.CloseButton)}
+            asChild
           >
-            <Icon icon="X" />
+            <IconButton
+              size="xs"
+              aria-label="Close"
+              icon="X"
+              color="gray"
+              variant="link"
+            />
           </RPopover.Close>
         )}
         {content}
