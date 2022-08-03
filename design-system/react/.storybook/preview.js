@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { withTests } from '@storybook/addon-jest';
 import { themes } from '@storybook/theming';
-import { darkTheme, theme as lightTheme } from '@fuel-ui/css';
+import { darkTheme, lightTheme } from '@fuel-ui/css';
 
 import results from '../.jest-test-results.json';
 import { ThemeProvider, useFuelTheme } from '../src';

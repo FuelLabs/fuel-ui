@@ -1,12 +1,13 @@
-import { theme as lightTheme, darkTheme } from "@fuel-ui/css";
+import { lightTheme, darkTheme } from "@fuel-ui/css";
 import { assign, createMachine } from "xstate";
 
-export type FuelTheme = "light" | "dark";
+export type FuelTheme = "light" | "dark" | typeof lightTheme;
 
 const LOCALSTORAGE_KEY = "fuel-theme";
+const DEFAULT_THEME = "dark";
 
-export function getDefaultSystemTheme() {
-  if (typeof window === "undefined") return "dark";
+export function getDefaultSystemTheme(): FuelTheme {
+  if (typeof window === "undefined") return DEFAULT_THEME;
   const isDark =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -67,7 +68,7 @@ export const themeProviderMachine = machine.withConfig({
   actions: {
     setDefaultTheme: assign({
       theme: (ctx) => {
-        if (typeof window === "undefined") return "dark";
+        if (typeof window === "undefined") return DEFAULT_THEME;
         const theme = localStorage.getItem(LOCALSTORAGE_KEY) as FuelTheme;
         return ctx.theme || theme || getDefaultSystemTheme();
       },
@@ -76,15 +77,24 @@ export const themeProviderMachine = machine.withConfig({
       theme: (_, ev) => ev.value,
     }),
     toggleTheme: assign({
-      theme: (ctx) => (ctx.theme === "dark" ? "light" : "dark"),
+      theme: (ctx) => {
+        if (ctx.theme !== "dark" && ctx.theme !== "light") return ctx.theme;
+        return ctx.theme === "dark" ? "light" : "dark";
+      },
     }),
     addDocumentClass: ({ theme }) => {
       const html = document.documentElement;
-      html.classList.add(
-        theme === "dark" ? darkTheme.className : lightTheme.className
-      );
+
+      if (theme !== "dark" && theme !== "light") {
+        html.classList.add(theme.className);
+        return;
+      }
+
       html.classList.remove(
         theme === "light" ? darkTheme.className : lightTheme.className
+      );
+      html.classList.add(
+        theme === "dark" ? darkTheme.className : lightTheme.className
       );
     },
   },

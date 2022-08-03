@@ -1,4 +1,4 @@
-import { colors, css, darkColors, darkTheme, keyframes, theme as lightTheme } from '@fuel-ui/css';
+import { lightColors, css, darkColors, darkTheme, keyframes, lightTheme } from '@fuel-ui/css';
 
 const slideDown = keyframes({
   from: { height: 0 },
@@ -48,7 +48,7 @@ export const item = css({
     backgroundColor: 'white',
   },
   [`.${lightTheme} &:focus-within`]: {
-    outline: `2px solid ${colors.gray7}`,
+    outline: `2px solid ${lightColors.gray7}`,
   },
   [`.${lightTheme} & ~ &`]: {
     borderTop: '1px solid $gray4',

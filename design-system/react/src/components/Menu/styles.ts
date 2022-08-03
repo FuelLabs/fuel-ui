@@ -1,4 +1,4 @@
-import { css, theme as lightTheme } from '@fuel-ui/css';
+import { css, lightTheme } from '@fuel-ui/css';
 
 export const menu = css({
   p: '$0',

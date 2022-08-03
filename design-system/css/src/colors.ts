@@ -1,6 +1,6 @@
 import * as radixColors from '@radix-ui/colors';
 
-export type Colors = keyof typeof colors;
+export type Colors = keyof typeof lightColors;
 
 export const base = {
   inherit: 'inherit',
@@ -11,7 +11,7 @@ export const base = {
   ...radixColors.whiteA,
 };
 
-export const colors = {
+export const lightColors = {
   ...base,
   ...radixColors.tomato,
   ...radixColors.red,
@@ -186,7 +186,7 @@ export const colorKeys: ColorKeys[] = [
   'bronze',
 ];
 
-export const allColors = Object.keys(colors);
+export const allColors = Object.keys(lightColors);
 
 export function isBright(color: string) {
   return Boolean(color.match(/gray|sky|mint|lime|yellow|amber/));

@@ -1,5 +1,5 @@
 import type { ColorKeys, Colors } from "@fuel-ui/css";
-import { styled, css, colors, keyframes, cx } from "@fuel-ui/css";
+import { styled, css, lightColors, keyframes, cx } from "@fuel-ui/css";
 import { useMemo } from "react";
 
 import { createComponent } from "../../utils";
@@ -25,7 +25,7 @@ export const Spinner = createComponent<SpinnerProps, OmitProps>(
 );
 
 function getStyles(size: number, color: Colors | ColorKeys | string) {
-  const strokeColor = colors[color] || colors[`${color}9`] || color;
+  const strokeColor = lightColors[color] || lightColors[`${color}9`] || color;
   const animation = keyframes({
     "0%": {
       strokeDashoffset: 0.66 * size,
