@@ -1,5 +1,7 @@
 # @fuel-ui/test-utils
 
+## 0.2.0
+
 ## 0.0.2
 
 ### Patch Changes
