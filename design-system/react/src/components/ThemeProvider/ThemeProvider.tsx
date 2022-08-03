@@ -29,7 +29,7 @@ export const ThemeProvider: FC<ThemeProps> = ({
   children,
   theme: defaultTheme,
 }) => {
-  const [state, send] = useMachine(
+  const [state, send] = useMachine(() =>
     defaultTheme
       ? themeProviderMachine.withContext({ theme: defaultTheme })
       : themeProviderMachine
