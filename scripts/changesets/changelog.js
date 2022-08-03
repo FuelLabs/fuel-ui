@@ -100,7 +100,16 @@ const changelogFunctions = {
 
     let annotation = '';
     if (type === 'patch' && /^\s*fix/i.test(firstLine)) {
-      annotation = '⚠️ ';
+      annotation = '🐞 ';
+    }
+    if (type === 'patch' && /^\s*feat/i.test(firstLine)) {
+      annotation = '✨ ';
+    }
+    if (type === 'patch' && /^\s*style/i.test(firstLine)) {
+      annotation = '💅🏻 ';
+    }
+    if (type === 'patch' && /^\s*doc/i.test(firstLine)) {
+      annotation = '📃 ';
     }
 
     let str = `- ${annotation}${firstLine}`;
