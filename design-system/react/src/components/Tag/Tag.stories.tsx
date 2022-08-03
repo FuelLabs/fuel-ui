@@ -75,10 +75,13 @@ export const Colors = (args: TagProps) => (
 
 export const WithIcon = (args: TagProps) => (
   <Box css={styles.wrapper}>
-    <Tag {...args} leftIcon="CalendarIcon" leftIconAriaLabel="calendar">
+    <Tag {...args} size="xs" leftIcon="Calendar" leftIconAriaLabel="calendar">
       Label
     </Tag>
-    <Tag {...args} rightIcon="CalendarIcon" rightIconAriaLabel="calendar">
+    <Tag {...args} size="sm" leftIcon="Calendar" leftIconAriaLabel="calendar">
+      Label
+    </Tag>
+    <Tag {...args} size="md" leftIcon="Calendar" leftIconAriaLabel="calendar">
       Label
     </Tag>
   </Box>

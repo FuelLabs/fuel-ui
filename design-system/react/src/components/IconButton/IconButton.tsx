@@ -21,9 +21,9 @@ export const IconButton = createComponent<IconButtonProps, OmitProps>(
     const content = (
       <Button
         {...props}
+        justIcon
         className={classes}
         leftIcon={icon}
-        justIcon
         {...(tooltip && {
           onClick: props.onClick || props.onPress,
           onPress: null,

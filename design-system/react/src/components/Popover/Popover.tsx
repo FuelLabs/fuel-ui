@@ -1,9 +1,9 @@
 import { cx } from "@fuel-ui/css";
-import { Cross1Icon } from "@radix-ui/react-icons";
 import * as RPopover from "@radix-ui/react-popover";
 import type { ReactNode } from "react";
 
 import { createComponent } from "../../utils";
+import { IconButton } from "../IconButton";
 
 import * as styles from "./styles";
 
@@ -52,8 +52,15 @@ export const Popover = createComponent<PopoverProps>(
           <RPopover.Close
             aria-label="Close"
             className={cx(closeButtonClassName, CLASSES.CloseButton)}
+            asChild
           >
-            <Cross1Icon />
+            <IconButton
+              size="xs"
+              aria-label="Close"
+              icon="X"
+              color="gray"
+              variant="link"
+            />
           </RPopover.Close>
         )}
         {content}

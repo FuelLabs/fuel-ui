@@ -1,26 +1,26 @@
-name: 'CI setup'
+name: "CI setup"
 inputs:
   node-version:
-    description: 'Node version'
-    default: 16
+    description: "Node version"
+    default: 16.15
   pnpm-version:
-    description: 'PNPM version'
+    description: "PNPM version"
     default: latest
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: Cache PNPM modules
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
-        path: ~/.pnpm-store
-        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+        path: ~/.local/share/pnpm/store/v3
+        key: ${{ runner.os }}-node-${{ inputs.node-version }}-pnpm-${{ inputs.pnpm-version }}-lock-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pnpm
-
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
         node-version: ${{ inputs.node-version }}
+        registry-url: "https://registry.npmjs.org"
 
     - name: Setup PNPM
       uses: pnpm/action-setup@v2.1.0

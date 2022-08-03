@@ -4,6 +4,6 @@ import { Copyable } from "./Copyable";
 
 describe("Copyable", () => {
   it("a11y", async () => {
-    await testA11y(<Copyable>Some value</Copyable>);
+    await testA11y(<Copyable value="Some value">Some value</Copyable>);
   });
 });

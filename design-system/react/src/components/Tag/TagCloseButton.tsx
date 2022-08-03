@@ -14,7 +14,7 @@ export const TagCloseButton = createComponent<TagCloseButtonsProp>(
       <IconButton
         {...props}
         aria-label="close"
-        icon="Cross2Icon"
+        icon="X"
         variant="link"
         className={classes}
       />

@@ -1,28 +1,26 @@
 import type { ColorKeys } from '@fuel-ui/css';
-import { colorKeys, isBright } from '@fuel-ui/css';
+import { darkColors, colorKeys, isBright } from '@fuel-ui/css';
 
 function createSolidVariant(keyColor: ColorKeys, hasHover = true) {
   const color = String(keyColor);
   const outlineColor = `$${color}5`;
-  const background = isBright(color) ? `$${color}6` : `$${color}9`;
-  const hoverColor = isBright(color) ? `$${color}7` : `$${color}10`;
-  const textColor = isBright(color) ? `$${color}12` : `$${color}1`;
-  const borderColor = isBright(color) ? `$${color}8` : `$${color}11`;
+  const background = isBright(color) ? `$${color}11` : `$${color}9`;
+  const textColor = isBright(color) ? `$${color}3` : `$${color}1`;
 
   return {
     background,
-    borderColor,
+    borderColor: 'transparent',
     color: textColor,
 
     ...(hasHover && {
       '&:not([aria-disabled=true]):hover': {
-        background: hoverColor,
+        borderColor: '$whiteA7',
+        boxShadow: `inset 0 0 1000px ${darkColors.whiteA7}`,
       },
     }),
 
     '&:not([aria-disabled=true]):focus': {
-      outline: `2px solid ${outlineColor}`,
-      outlineOffset: '1px',
+      outline: `3px solid ${outlineColor}`,
     },
   };
 }
@@ -31,7 +29,7 @@ function createOutlinedVariant(keyColor: ColorKeys, hasHover = true) {
   const color = String(keyColor);
   const textColor = `$${color}11`;
   const borderColor = `$${color}7`;
-  const hoverBg = `$${color}5`;
+  const hoverBg = `$${color}4`;
 
   return {
     borderColor,
@@ -40,6 +38,8 @@ function createOutlinedVariant(keyColor: ColorKeys, hasHover = true) {
 
     ...(hasHover && {
       '&:not([aria-disabled=true]):hover': {
+        borderColor,
+        boxShadow: 'none',
         background: hoverBg,
       },
     }),
@@ -59,9 +59,16 @@ function createGhostVariant(keyColor: ColorKeys, hasHover = true) {
 
     ...(hasHover && {
       '&:not([aria-disabled=true]):hover': {
+        borderColor: 'transparent',
+        boxShadow: 'none',
         background: hover,
       },
     }),
+
+    '&:not([aria-disabled=true]):focus': {
+      outline: `3px solid $${color}2`,
+      outlineOffset: '1px',
+    },
   };
 }
 
@@ -70,6 +77,8 @@ function createLinkVariant(keyColor: ColorKeys, hasHover = true) {
   const textColor = `$${color}11`;
 
   return {
+    py: '$1',
+    px: '$1',
     height: 'auto',
     minW: 'auto',
     background: 'transparent',
@@ -78,35 +87,42 @@ function createLinkVariant(keyColor: ColorKeys, hasHover = true) {
 
     ...(hasHover && {
       '&:not([aria-disabled=true]):hover': {
+        borderColor: 'transparent',
+        boxShadow: 'none',
         backgroundColor: 'transparent !important',
         textDecoration: 'underline',
       },
     }),
+
+    '&:not([aria-disabled=true]):focus': {
+      outline: `2px solid $${color}2`,
+      outlineOffset: '1px',
+    },
   };
 }
 
 export const size = {
   xs: {
     gap: '5px',
-    px: '$3',
+    px: '$2',
     fontSize: '$xs',
     height: '$7',
   },
   sm: {
     gap: '$2',
-    px: '$4',
+    px: '$3',
     fontSize: '$sm',
     height: '$8',
   },
   md: {
     gap: '$2',
-    px: '$5',
+    px: '$4',
     fontSize: '$base',
     height: '$10',
   },
   lg: {
     gap: '$3',
-    px: '$6',
+    px: '$5',
     fontSize: '$lg',
     height: '$12',
   },

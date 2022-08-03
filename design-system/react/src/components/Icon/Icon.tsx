@@ -1,7 +1,7 @@
 import type { Colors } from "@fuel-ui/css";
 import { cx, styled } from "@fuel-ui/css";
-import * as RadixIcons from "@radix-ui/react-icons";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
+import * as PhosphorIcons from "phosphor-react";
 import { createElement } from "react";
 
 import { useConstant } from "../../hooks";
@@ -11,16 +11,18 @@ import { omit } from "../../utils/helpers";
 import type { FlexProps } from "../Flex";
 import { Flex } from "../Flex";
 
-export type Icons = keyof typeof RadixIcons;
+type ToOmit = "Icon" | "IconProps" | "IconWeight" | "IconContext";
+export type Icons = keyof Omit<typeof PhosphorIcons, ToOmit>;
 type OmitProps = "children";
 
-export type IconProps = FlexProps & {
-  icon: Icons;
-  wrapperClassName?: string;
-  color?: Colors;
-  inline?: boolean;
-  label?: string;
-};
+export type IconProps = FlexProps &
+  PhosphorIcons.IconProps & {
+    icon: Icons;
+    wrapperClassName?: string;
+    color?: Colors;
+    inline?: boolean;
+    label?: string;
+  };
 
 export const Icon = createComponent<IconProps, OmitProps>(
   ({
@@ -31,18 +33,25 @@ export const Icon = createComponent<IconProps, OmitProps>(
     className,
     wrapperClassName,
     css,
+    alt,
+    size,
+    weight,
+    mirrored,
     ...props
   }) => {
-    const iconElement = useConstant(
-      () => styled(typeof icon === "string" ? RadixIcons[icon] : icon),
-      [icon]
-    );
+    const Component = typeof icon === "string" ? PhosphorIcons[icon] : icon;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const iconElement = useConstant(() => styled(Component as any), [icon]);
 
     const label = initialLabel || props["aria-label"];
     const iconProps = {
       className: cx(`fuel_icon--${icon}`, className),
       focusable: false,
       "aria-hidden": true,
+      alt,
+      size,
+      weight,
+      mirrored,
     };
 
     return (
@@ -67,5 +76,7 @@ export const Icon = createComponent<IconProps, OmitProps>(
   id: string;
 };
 
-Icon.iconList = Object.keys(RadixIcons) as Icons[];
 Icon.id = "Icon";
+Icon.iconList = Object.keys(
+  omit(["Icon", "IconProps", "IconWeight", "IconContext"], PhosphorIcons)
+) as Icons[];

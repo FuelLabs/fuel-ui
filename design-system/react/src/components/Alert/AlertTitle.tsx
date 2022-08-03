@@ -13,7 +13,7 @@ export const AlertTitle = createComponent<FlexProps>(
     const customProps = { ...props, className: classes };
     return (
       <Flex as="header" {...customProps}>
-        <Heading as="h3">{children}</Heading>
+        <Heading as="h2">{children}</Heading>
       </Flex>
     );
   }

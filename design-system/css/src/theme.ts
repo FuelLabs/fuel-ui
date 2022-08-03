@@ -1,7 +1,7 @@
 import type { CSS } from '@stitches/react';
 import { createStitches } from '@stitches/react';
 
-import { colors, darkColors } from './colors';
+import { lightColors, darkColors } from './colors';
 import { media } from './media';
 import * as tokens from './tokens';
 import * as utils from './utils';
@@ -10,7 +10,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
   createStitches({
     theme: {
       ...tokens,
-      colors,
+      colors: lightColors,
     },
     media,
     utils,
@@ -18,7 +18,15 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
 
 export type ThemeUtilsCSS = CSS<typeof config>;
 
-export const darkTheme = createTheme({
+export function cssObj(opts: ThemeUtilsCSS) {
+  return opts;
+}
+
+export const lightTheme = createTheme('fuel__light-theme', {
+  colors: lightColors,
+});
+
+export const darkTheme = createTheme('fuel__dark-theme', {
   colors: darkColors,
 });
 

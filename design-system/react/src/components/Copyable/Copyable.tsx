@@ -1,4 +1,5 @@
 import { css, cx } from "@fuel-ui/css";
+import type { ReactNode } from "react";
 import { useCopyToClipboard } from "react-use";
 
 import { createComponent } from "../../utils";
@@ -7,11 +8,12 @@ import { Flex } from "../Flex";
 import { IconButton } from "../IconButton";
 
 export type CopyableProps = Omit<FlexProps, "children"> & {
-  children: string;
+  value: string;
+  children: ReactNode;
 };
 
 export const Copyable = createComponent<CopyableProps>(
-  ({ children, className, ...props }) => {
+  ({ children, className, value, ...props }) => {
     const classes = cx("fuel_copyable", className, styles.root());
     const iconClass = cx("fuel_copyable-icon", styles.icon());
     const [, copy] = useCopyToClipboard();
@@ -22,9 +24,9 @@ export const Copyable = createComponent<CopyableProps>(
         <IconButton
           color="gray"
           tooltip="Click here to copy to clipboard"
-          onPress={() => copy(children)}
+          onPress={() => copy(value)}
           variant="link"
-          icon="ClipboardCopyIcon"
+          icon="CopySimple"
           aria-label="Copy to clipboard"
           className={iconClass}
         />

@@ -21,7 +21,7 @@ const slideLeftAndFade = keyframes({
 });
 
 export const arrow = css({
-  fill: '$gray12',
+  fill: '$gray2',
 });
 
 export const content = css({
@@ -30,9 +30,9 @@ export const content = css({
   px: '$4',
   fontSize: '$sm',
   lineHeight: 1,
-  color: '$gray1',
-  backgroundColor: '$gray12',
-  boxShadow: '$md',
+  color: '$gray10',
+  backgroundColor: '$gray2',
+  boxShadow: '$sm',
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: '400ms',
     animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',

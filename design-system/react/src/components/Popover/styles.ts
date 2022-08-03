@@ -21,7 +21,7 @@ const slideLeftAndFade = keyframes({
 });
 
 export const arrow = css({
-  fill: '$gray12',
+  fill: '$gray2',
 });
 
 export const content = css({
@@ -31,9 +31,9 @@ export const content = css({
   pr: '$7',
   fontSize: '$sm',
   lineHeight: 1,
-  color: '$gray1',
-  backgroundColor: '$gray12',
-  boxShadow: '$md',
+  color: '$gray10',
+  backgroundColor: '$gray2',
+  boxShadow: '$sm',
 
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: '400ms',
@@ -55,18 +55,7 @@ export const content = css({
 });
 
 export const closeButton = css({
-  is: ['centered', 'noAppearance'],
-  cursor: 'pointer',
   position: 'absolute',
-  border: '2px solid transparent',
   top: '$2',
   right: '$2',
-  p: '$1',
-  color: '$gray10',
-
-  '&:focus': {
-    borderRadius: '$md',
-    outline: `2px solid $blackA8`,
-    outlineOffset: '1px',
-  },
 });

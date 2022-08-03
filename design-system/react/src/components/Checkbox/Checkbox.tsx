@@ -42,7 +42,7 @@ export const Checkbox = createComponent<CheckboxProps, OmitProps>(
       Root,
       customProps,
       <CheckboxPrimitive.CheckboxIndicator className={indicatorClass}>
-        <Icon icon="CheckIcon" />
+        <Icon icon="Check" />
       </CheckboxPrimitive.CheckboxIndicator>
     );
   }

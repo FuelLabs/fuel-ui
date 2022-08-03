@@ -10,9 +10,9 @@ export default {
 };
 
 export const Usage = (args: ButtonGroupProps) => (
-  <ButtonGroup {...args} color="blue" size="sm">
+  <ButtonGroup {...args}>
     <Button>First</Button>
-    <Button leftIcon="CalendarIcon">Second</Button>
+    <Button leftIcon="Calendar">Second</Button>
     <Button>Third</Button>
   </ButtonGroup>
 );

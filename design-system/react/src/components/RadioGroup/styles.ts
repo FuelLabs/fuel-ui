@@ -1,4 +1,4 @@
-import { css } from '@fuel-ui/css';
+import { css, darkTheme } from '@fuel-ui/css';
 
 export const root = css({
   display: 'flex',
@@ -21,6 +21,10 @@ export const item = css({
   height: '$6',
   borderRadius: '100%',
   boxShadow: '$sm',
+
+  [`.${darkTheme} &`]: {
+    background: '$gray2',
+  },
 
   '&:after': {
     position: 'absolute',
@@ -63,7 +67,7 @@ export const indicator = css({
     width: '9px',
     height: '9px',
     borderRadius: '50%',
-    backgroundColor: '$accent9',
+    backgroundColor: '$accent11',
   },
 
   variants: {

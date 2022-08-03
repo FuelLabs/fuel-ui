@@ -1,8 +1,8 @@
-import { press, render, screen, testA11y } from "@fuel-ui/test-utils";
+import { render, screen, testA11y } from "@fuel-ui/test-utils";
 
 import { RadioGroup } from "./RadioGroup";
 
-const content = (
+const Content = () => (
   <RadioGroup defaultValue="default" aria-label="View density">
     <RadioGroup.Item value="default" id="r1" label="Default" />
     <RadioGroup.Item value="comfortable" id="r2" label="Comfortable" />
@@ -12,17 +12,17 @@ const content = (
 
 describe("RadioGroup", () => {
   it("a11y", async () => {
-    await testA11y(content);
+    await testA11y(<Content />);
   });
 
   it("should focus correctly", async () => {
-    render(content);
+    const { user } = render(<Content />);
 
-    await press.Tab();
+    await user.tab();
     expect(screen.getByLabelText("Default")).toHaveFocus();
-    await press.ArrowDown();
+    await user.press("ArrowDown");
     expect(screen.getByLabelText("Comfortable")).toHaveFocus();
-    await press.ArrowDown();
+    await user.press("ArrowDown");
     expect(screen.getByLabelText("Compact")).toHaveFocus();
   });
 });

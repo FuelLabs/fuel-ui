@@ -1,4 +1,5 @@
 import { useMachine } from "@xstate/react";
+import { IconContext } from "phosphor-react";
 import type { FC, ReactNode } from "react";
 import { useContext, createContext } from "react";
 
@@ -22,14 +23,16 @@ const context = createContext<ThemeProviderContext>({
 
 export type ThemeProps = {
   theme?: "dark" | "light";
+  withFonts?: boolean;
   children: ReactNode;
 };
 
 export const ThemeProvider: FC<ThemeProps> = ({
   children,
+  withFonts = true,
   theme: defaultTheme,
 }) => {
-  const [state, send] = useMachine(
+  const [state, send] = useMachine(() =>
     defaultTheme
       ? themeProviderMachine.withContext({ theme: defaultTheme })
       : themeProviderMachine
@@ -50,11 +53,13 @@ export const ThemeProvider: FC<ThemeProps> = ({
   };
 
   return (
-    <context.Provider value={contextValue}>
-      <ToastProvider />
-      <GlobalStyles />
-      {children}
-    </context.Provider>
+    <IconContext.Provider value={{ size: 16 }}>
+      <context.Provider value={contextValue}>
+        <ToastProvider />
+        <GlobalStyles withFonts={withFonts} />
+        {children}
+      </context.Provider>
+    </IconContext.Provider>
   );
 };
 

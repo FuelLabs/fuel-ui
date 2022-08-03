@@ -22,3 +22,9 @@ export const Usage = (args: TextProps) => (
     in deserunt laboriosam amet atque? Consectetur, blanditiis?
   </Text>
 );
+
+export const WithIcon = (args: TextProps) => (
+  <Text {...args} leftIcon="Calendar" leftIconAriaLabel="Calendar">
+    Jun 22, 2022
+  </Text>
+);

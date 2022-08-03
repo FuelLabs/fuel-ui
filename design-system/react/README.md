@@ -130,7 +130,7 @@ const App = () => {
 const customStyle = css({
   alignItems: "center",
   justifyContent: "center",
-  bg: "$accent9",
+  bg: "$accent11",
   px: "$4",
   textSize: "base",
 });

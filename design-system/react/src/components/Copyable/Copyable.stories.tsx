@@ -8,7 +8,7 @@ export default {
   },
 };
 
-export const Usage = () => <Copyable>Some value</Copyable>;
+export const Usage = () => <Copyable value="Some value">Some value</Copyable>;
 
 Usage.parameters = {
   layout: "centered",

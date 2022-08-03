@@ -1,15 +1,14 @@
 import { css, cx } from "@fuel-ui/css";
-import { Cross1Icon } from "@radix-ui/react-icons";
 import type { ToasterProps } from "react-hot-toast";
 import toast, { ToastBar, Toaster as Root } from "react-hot-toast";
 
 import { createComponent } from "../../utils";
-import { Button } from "../Button";
+import { IconButton } from "../IconButton";
 
 export type ToastProps = ToasterProps;
 
 export const ToastProvider = createComponent<ToastProps>(
-  ({ className, position = "top-right", ...props }) => {
+  ({ className, position = "bottom-right", ...props }) => {
     const classes = cx("fuel_toast", className, styles.root());
     return (
       <Root {...props} position={position}>
@@ -23,14 +22,16 @@ export const ToastProvider = createComponent<ToastProps>(
                 {icon}
                 {message}
                 {t.type !== "loading" && (
-                  <Button
+                  <IconButton
                     autoFocus
+                    size="xs"
+                    aria-label="Close"
+                    icon="X"
+                    color="gray"
                     variant="link"
                     className={styles.closeButton()}
                     onPress={() => toast.dismiss(t.id)}
-                  >
-                    <Cross1Icon />
-                  </Button>
+                  />
                 )}
               </div>
             )}
@@ -73,8 +74,6 @@ const styles = {
     },
   }),
   closeButton: css({
-    p: "$1 !important",
-    height: "auto",
     alignSelf: "flex-start",
   }),
 };

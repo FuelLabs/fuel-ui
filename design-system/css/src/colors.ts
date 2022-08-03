@@ -1,6 +1,6 @@
 import * as radixColors from '@radix-ui/colors';
 
-export type Colors = keyof typeof colors;
+export type Colors = keyof typeof lightColors;
 
 export const base = {
   inherit: 'inherit',
@@ -11,7 +11,7 @@ export const base = {
   ...radixColors.whiteA,
 };
 
-export const colors = {
+export const lightColors = {
   ...base,
   ...radixColors.tomato,
   ...radixColors.red,
@@ -49,18 +49,18 @@ export const colors = {
   gray11: radixColors.slate.slate11,
   gray12: radixColors.slate.slate12,
 
-  accent1: radixColors.green.green1,
-  accent2: radixColors.green.green2,
-  accent3: radixColors.green.green3,
-  accent4: radixColors.green.green4,
-  accent5: radixColors.green.green5,
-  accent6: radixColors.green.green6,
-  accent7: radixColors.green.green7,
-  accent8: radixColors.green.green8,
-  accent9: radixColors.green.green9,
-  accent10: radixColors.green.green10,
-  accent11: radixColors.green.green11,
-  accent12: radixColors.green.green12,
+  accent1: radixColors.mint.mint1,
+  accent2: radixColors.mint.mint2,
+  accent3: radixColors.mint.mint3,
+  accent4: radixColors.mint.mint4,
+  accent5: radixColors.mint.mint5,
+  accent6: radixColors.mint.mint6,
+  accent7: radixColors.mint.mint7,
+  accent8: radixColors.mint.mint8,
+  accent9: radixColors.mint.mint9,
+  accent10: radixColors.mint.mint10,
+  accent11: radixColors.mint.mint11,
+  accent12: radixColors.mint.mint12,
 
   bodyColor: '#F5F6F7',
   textColor: '$gray11',
@@ -110,25 +110,25 @@ export const darkColors = {
   gray11: radixColors.slateDark.slate11,
   gray12: radixColors.slateDark.slate12,
 
-  accent1: radixColors.greenDark.green1,
-  accent2: radixColors.greenDark.green2,
-  accent3: radixColors.greenDark.green3,
-  accent4: radixColors.greenDark.green4,
-  accent5: radixColors.greenDark.green5,
-  accent6: radixColors.greenDark.green6,
-  accent7: radixColors.greenDark.green7,
-  accent8: radixColors.greenDark.green8,
-  accent9: radixColors.greenDark.green9,
-  accent10: radixColors.greenDark.green10,
-  accent11: radixColors.greenDark.green11,
-  accent12: radixColors.greenDark.green12,
+  accent1: radixColors.mintDark.mint1,
+  accent2: radixColors.mintDark.mint2,
+  accent3: radixColors.mintDark.mint3,
+  accent4: radixColors.mintDark.mint4,
+  accent5: radixColors.mintDark.mint5,
+  accent6: radixColors.mintDark.mint6,
+  accent7: radixColors.mintDark.mint7,
+  accent8: radixColors.mintDark.mint8,
+  accent9: radixColors.mintDark.mint9,
+  accent10: radixColors.mintDark.mint10,
+  accent11: radixColors.mintDark.mint11,
+  accent12: radixColors.mintDark.mint12,
 
-  bodyColor: '$gray2',
+  bodyColor: '#101112',
   textColor: '$gray11',
   borderColor: '$gray3',
 
-  inputBg: '$blackA8',
-  inputAddonBg: '$gray3',
+  inputBg: '$gray2',
+  inputAddonBg: '$gray1',
   inputBorder: 'transparent',
   inputOutline: '$whiteA3',
 };
@@ -186,8 +186,8 @@ export const colorKeys: ColorKeys[] = [
   'bronze',
 ];
 
-export const allColors = Object.keys(colors);
+export const allColors = Object.keys(lightColors);
 
 export function isBright(color: string) {
-  return Boolean(color.match(/gray|sky|mint|lime|yellow|amber/));
+  return Boolean(color.match(/gray|accent|mint|sky|lime|yellow|amber/));
 }

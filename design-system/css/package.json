@@ -5,10 +5,10 @@
   "main": "./src/index.ts",
   "publishConfig": {
     "access": "public",
-    "main": "dist/index.js",
-    "module": "dist/index.mjs",
-    "types": "dist/index.d.ts",
-    "typings": "dist/index.d.ts",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "typings": "./dist/index.d.ts",
     "exports": {
       ".": {
         "require": "./dist/index.js",

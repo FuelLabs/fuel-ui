@@ -4,6 +4,7 @@ export const card = css({
   background: '$gray1',
   borderRadius: '$md',
   border: '1px solid transparent',
+  boxShadow: '$sm',
 });
 
 export const header = css({

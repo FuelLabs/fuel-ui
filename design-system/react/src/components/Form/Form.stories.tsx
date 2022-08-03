@@ -11,7 +11,7 @@ export default {
   argTypes: {},
 };
 
-const EMAIL_ICON = <Icon icon="EnvelopeOpenIcon" label="Email" />;
+const EMAIL_ICON = <Icon icon="Envelope" label="Email" />;
 
 export const Usage = (args: FormControlProps) => (
   <Stack css={{ maxW: "400px" }}>

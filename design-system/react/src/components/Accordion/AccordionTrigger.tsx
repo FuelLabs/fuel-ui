@@ -1,9 +1,9 @@
 import { cx, styled } from "@fuel-ui/css";
 import * as AC from "@radix-ui/react-accordion";
-import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { createElement } from "react";
 
 import { createComponent } from "../../utils";
+import { Icon } from "../Icon";
 
 import * as styles from "./styles";
 
@@ -28,7 +28,7 @@ export const AccordionTrigger = createComponent<AccordionTriggerProps>(
       { className: classes },
       <AC.AccordionTrigger {...props} className={triggerClass}>
         {children}
-        <ChevronDownIcon aria-hidden className={iconClass} />
+        <Icon icon="CaretDown" aria-hidden className={iconClass} />
       </AC.AccordionTrigger>
     );
   }

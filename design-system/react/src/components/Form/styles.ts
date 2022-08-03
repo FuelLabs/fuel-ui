@@ -20,7 +20,7 @@ export const label = css({
         '&:after': {
           display: 'block',
           content: '*',
-          color: '$accent9',
+          color: '$accent11',
         },
       },
     },

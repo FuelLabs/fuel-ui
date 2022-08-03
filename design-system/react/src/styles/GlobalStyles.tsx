@@ -9,11 +9,16 @@ const customStyles = {
     "-moz-osx-font-smoothing": "grayscale",
     margin: "0",
     letterSpacing: 0,
-    fontFamily: tokens.fonts.sans,
-    fontFeatureSettings: '"ss02" on, "ss01" on',
     textSize: "base" as any,
     color: "$textColor",
     background: "$bodyColor",
+  },
+};
+
+const fontStyles = {
+  body: {
+    fontFamily: tokens.fonts.sans,
+    fontFeatureSettings: '"ss02" on, "ss01" on',
   },
   "@font-face": [
     {
@@ -31,12 +36,22 @@ const customStyles = {
   ],
 };
 
-const styles = () => {
+function styles() {
   globalCss(opinionated)();
   globalCss(customStyles)();
+}
+
+function fonts() {
+  globalCss(fontStyles)();
+}
+
+type GlobalStylesProps = {
+  withFonts?: boolean;
 };
 
-export const GlobalStyles = () => {
+export const GlobalStyles = ({ withFonts }: GlobalStylesProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+  withFonts && fonts();
   styles();
   return null;
 };

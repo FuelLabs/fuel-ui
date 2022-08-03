@@ -14,7 +14,7 @@ export const root = css({
   boxShadow: '$sm',
 
   [`.${darkTheme} &`]: {
-    background: '$blackA9',
+    background: '$gray2',
   },
 
   '&:after': {
@@ -46,7 +46,7 @@ export const root = css({
 
 export const indicator = css({
   is: ['centered'],
-  color: '$accent9',
+  color: '$accent11',
 
   variants: {
     disabled: {

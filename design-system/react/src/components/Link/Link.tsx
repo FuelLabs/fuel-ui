@@ -30,7 +30,7 @@ export const Link = createComponent<LinkProps>(
       Root,
       mergeProps(props, customProps, linkProps),
       <>
-        {children} {isExternal && <Icon icon="ExternalLinkIcon" />}
+        {children} {isExternal && <Icon icon="LinkSimple" />}
       </>
     );
   }
@@ -65,7 +65,7 @@ const styles = {
     },
 
     defaultVariants: {
-      color: "accent9",
+      color: "accent11",
     },
   }),
 };
