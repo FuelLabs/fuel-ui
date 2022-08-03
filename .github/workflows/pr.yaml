@@ -20,7 +20,6 @@ jobs:
   changesets:
     name: Changeset Checks
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.action != 'edited' }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -33,16 +32,14 @@ jobs:
   audit:
     name: Audit
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.action != 'edited' }}
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/ci-setup
-      - run: pnpm audit
+      - run: pnpm audit --prod
 
   lint-and-test:
     name: Lint
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.action != 'edited' }}
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/ci-setup
@@ -51,7 +48,6 @@ jobs:
   test:
     name: Test with coverage
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.action != 'edited' }}
     permissions:
       checks: write
       pull-requests: write
