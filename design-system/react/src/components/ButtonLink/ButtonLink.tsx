@@ -18,7 +18,7 @@ export const ButtonLink = createComponent<ButtonLinkProps>(
       ...(isExternal && {
         target: "_blank",
         rel: "noopener noreferrer",
-        rightIcon: "ExternalLinkIcon" as ButtonProps["rightIcon"],
+        rightIcon: "LinkSimple" as ButtonProps["rightIcon"],
       }),
     };
     return (

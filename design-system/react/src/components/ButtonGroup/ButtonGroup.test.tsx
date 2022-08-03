@@ -9,7 +9,7 @@ describe("ButtonGroup", () => {
     await testA11y(
       <ButtonGroup>
         <Button>First</Button>
-        <Button leftIcon="CalendarIcon">Second</Button>
+        <Button leftIcon="Calendar">Second</Button>
         <Button>Third</Button>
       </ButtonGroup>
     );

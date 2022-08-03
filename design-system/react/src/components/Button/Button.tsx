@@ -119,7 +119,7 @@ export const Button = createComponent<ButtonProps>(
       {
         ...props,
         isDisabled,
-        onPress: onClick || props.onPress,
+        onPress: props.onPress || onClick,
         ...(isLink && { elementType: "a" }),
       },
       innerRef

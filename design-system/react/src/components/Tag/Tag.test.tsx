@@ -1,4 +1,4 @@
-import { press, render, screen, testA11y } from "@fuel-ui/test-utils";
+import { render, screen, testA11y } from "@fuel-ui/test-utils";
 
 import { Tag } from "./Tag";
 
@@ -14,7 +14,7 @@ describe("Tag", () => {
 
   it("should render with an icon on left", () => {
     const { container } = render(
-      <Tag leftIcon="TrashIcon" leftIconAriaLabel="delete">
+      <Tag leftIcon="Trash" leftIconAriaLabel="delete">
         Text
       </Tag>
     );
@@ -24,7 +24,7 @@ describe("Tag", () => {
 
   it("should render with an icon on right", () => {
     const { container } = render(
-      <Tag rightIcon="TrashIcon" rightIconAriaLabel="delete">
+      <Tag rightIcon="Trash" rightIconAriaLabel="delete">
         Text
       </Tag>
     );
@@ -45,8 +45,8 @@ describe("Tag", () => {
   it("should not render a right icon if has a close button", () => {
     const { container } = render(
       <Tag
-        leftIcon="CalendarIcon"
-        rightIcon="TrashIcon"
+        leftIcon="Calendar"
+        rightIcon="Trash"
         leftIconAriaLabel="calendar"
         rightIconAriaLabel="delete"
       >
@@ -61,14 +61,14 @@ describe("Tag", () => {
   });
 
   it("should focus on button close on tab", async () => {
-    render(
+    const { user } = render(
       <Tag>
         Text <Tag.CloseButton />
       </Tag>
     );
 
     expect(screen.getByRole("button")).not.toHaveFocus();
-    await press.Tab();
+    await user.tab();
     expect(screen.getByRole("button")).toHaveFocus();
   });
 });

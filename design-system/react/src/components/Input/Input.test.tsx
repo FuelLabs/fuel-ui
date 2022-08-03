@@ -1,4 +1,4 @@
-import { press, render, screen, testA11y } from "@fuel-ui/test-utils";
+import { render, screen, testA11y } from "@fuel-ui/test-utils";
 
 import { Button } from "../Button";
 
@@ -114,7 +114,7 @@ describe("Input", () => {
   });
 
   it("should focus correctly when have button inside element", async () => {
-    render(
+    const { user } = render(
       <Input>
         <Input.Field {...FIELD_ARGS} />
         <Input.ElementRight>
@@ -123,9 +123,9 @@ describe("Input", () => {
       </Input>
     );
 
-    await press.Tab();
+    await user.tab();
     expect(screen.getByRole("textbox")).toHaveFocus();
-    await press.Tab();
+    await user.tab();
     expect(screen.getByRole("button")).toHaveFocus();
   });
 });

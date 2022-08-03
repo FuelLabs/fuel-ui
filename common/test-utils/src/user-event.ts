@@ -4,7 +4,7 @@ import { act } from '@testing-library/react';
 import $userEvent from '@testing-library/user-event';
 
 import { press } from './press';
-import { sleep } from './utils';
+import { sleep } from './utils/act';
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 

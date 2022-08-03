@@ -1,8 +1,8 @@
-import { getNextTabbable, getPreviousTabbable } from '@chakra-ui/utils';
 import { fireEvent } from '@testing-library/react';
 
 import { focus } from './focus';
-import { queue, sleep } from './utils';
+import { queue, sleep } from './utils/act';
+import { getNextTabbable, getPreviousTabbable } from './utils/dom-query';
 
 const keydownMap: Record<string, (element: Element, options: KeyboardEventInit) => void> = {
   Tab: (_, { shiftKey }) => {
