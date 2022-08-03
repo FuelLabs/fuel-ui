@@ -65,12 +65,12 @@ export const Addon = (args: InputProps) => (
 export const WithIcon = (args: InputProps) => (
   <Stack css={{ maxW: "350px" }} gap="$3">
     <Input {...args}>
-      <Input.ElementLeft element={<Icon icon="EnvelopeOpenIcon" />} />
+      <Input.ElementLeft element={<Icon icon="Envelope" />} />
       <Input.Field {...FIELD_ARGS} />
     </Input>
     <Input {...args}>
       <Input.Field {...FIELD_ARGS} />
-      <Input.ElementRight element={<Icon icon="EnvelopeOpenIcon" />} />
+      <Input.ElementRight element={<Icon icon="Envelope" />} />
     </Input>
   </Stack>
 );
@@ -85,7 +85,7 @@ export const WithButton = (args: InputProps) => {
   return (
     <Stack css={{ maxW: "350px" }} gap="$3">
       <Input {...args}>
-        <Input.ElementLeft element={<Icon icon="LockClosedIcon" />} />
+        <Input.ElementLeft element={<Icon icon="Lock" />} />
         <Input.Field
           type={showing ? "text" : "password"}
           name="password"
@@ -104,7 +104,7 @@ export const WithButton = (args: InputProps) => {
 export const Invalid = (args: InputProps) => (
   <Stack css={{ maxW: "350px" }} gap="$3">
     <Input {...args} isInvalid>
-      <Input.ElementLeft element={<Icon icon="EnvelopeOpenIcon" />} />
+      <Input.ElementLeft element={<Icon icon="Envelope" />} />
       <Input.Field {...FIELD_ARGS} />
     </Input>
     <Input {...args} isInvalid>

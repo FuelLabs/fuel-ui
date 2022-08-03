@@ -24,7 +24,7 @@ export const Copyable = createComponent<CopyableProps>(
           tooltip="Click here to copy to clipboard"
           onPress={() => copy(children)}
           variant="link"
-          icon="ClipboardCopyIcon"
+          icon="CopySimple"
           aria-label="Copy to clipboard"
           className={iconClass}
         />

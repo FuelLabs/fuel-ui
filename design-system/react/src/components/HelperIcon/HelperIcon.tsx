@@ -1,17 +1,15 @@
-import { css, cx, styled } from "@fuel-ui/css";
-import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import { css, cx } from "@fuel-ui/css";
 import type { ReactNode } from "react";
 
 import { createComponent } from "../../utils";
 import type { FlexProps } from "../Flex";
 import { Flex } from "../Flex";
+import { Icon } from "../Icon";
 import { Tooltip } from "../Tooltip";
 
 export type HelperIconProps = FlexProps & {
   message: ReactNode;
 };
-
-const Icon = styled(QuestionMarkCircledIcon);
 
 export const HelperIcon = createComponent<HelperIconProps>(
   ({ children, className, ...props }) => {
@@ -20,7 +18,7 @@ export const HelperIcon = createComponent<HelperIconProps>(
       <Flex align="center" gap="$2" {...props} className={classes}>
         {children}
         <Tooltip content={props.message}>
-          <Icon aria-label="Helper Icon" />
+          <Icon icon="Question" aria-label="Helper Icon" />
         </Tooltip>
       </Flex>
     );

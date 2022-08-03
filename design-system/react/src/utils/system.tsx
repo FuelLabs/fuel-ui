@@ -37,10 +37,11 @@ export type CreateComponent<P, OP = any> = ForwardRefExoticComponent<
  * <Component as="button" customProp />
  */
 
-export function createComponent<P, OP extends string = "">(
-  render: Render<P, OP>
-) {
-  type Props = PropsWithAs<OP extends string ? Omit<P, OP> : P>;
+export function createComponent<
+  P,
+  OP = unknown,
+  Props = PropsWithAs<OP extends string ? Omit<P, OP> : P>
+>(render: Render<P, OP>) {
   return forwardRef<any, Props>((props, ref) =>
     render({ ref, ...props } as any)
   );

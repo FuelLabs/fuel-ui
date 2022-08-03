@@ -27,7 +27,7 @@ function Account() {
           <Form.Control>
             <Form.Label htmlFor="name">Name</Form.Label>
             <Input>
-              <Input.ElementLeft element={<Icon icon="PersonIcon" />} />
+              <Input.ElementLeft element={<Icon icon="User" />} />
               <Input.Field
                 type="text"
                 name="name"
@@ -39,7 +39,7 @@ function Account() {
           <Form.Control>
             <Form.Label htmlFor="email">Email</Form.Label>
             <Input>
-              <Input.ElementLeft element={<Icon icon="EnvelopeClosedIcon" />} />
+              <Input.ElementLeft element={<Icon icon="Envelope" />} />
               <Input.Field
                 type="email"
                 name="email"
@@ -68,7 +68,7 @@ function Password() {
           <Form.Control>
             <Form.Label htmlFor="currentPassword">Current password</Form.Label>
             <Input>
-              <Input.ElementLeft element={<Icon icon="LockClosedIcon" />} />
+              <Input.ElementLeft element={<Icon icon="Lock" />} />
               <Input.Field
                 type="password"
                 name="currentPassword"
@@ -80,7 +80,7 @@ function Password() {
           <Form.Control>
             <Form.Label htmlFor="newPassword">New password</Form.Label>
             <Input>
-              <Input.ElementLeft element={<Icon icon="LockClosedIcon" />} />
+              <Input.ElementLeft element={<Icon icon="Lock" />} />
               <Input.Field
                 type="password"
                 name="newPassword"

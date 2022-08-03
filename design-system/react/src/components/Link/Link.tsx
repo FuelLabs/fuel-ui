@@ -30,7 +30,7 @@ export const Link = createComponent<LinkProps>(
       Root,
       mergeProps(props, customProps, linkProps),
       <>
-        {children} {isExternal && <Icon icon="ExternalLinkIcon" />}
+        {children} {isExternal && <Icon icon="LinkSimple" />}
       </>
     );
   }

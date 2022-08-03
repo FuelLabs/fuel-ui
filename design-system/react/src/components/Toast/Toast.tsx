@@ -1,10 +1,10 @@
 import { css, cx } from "@fuel-ui/css";
-import { Cross1Icon } from "@radix-ui/react-icons";
 import type { ToasterProps } from "react-hot-toast";
 import toast, { ToastBar, Toaster as Root } from "react-hot-toast";
 
 import { createComponent } from "../../utils";
 import { Button } from "../Button";
+import { Icon } from "../Icon";
 
 export type ToastProps = ToasterProps;
 
@@ -29,7 +29,7 @@ export const ToastProvider = createComponent<ToastProps>(
                     className={styles.closeButton()}
                     onPress={() => toast.dismiss(t.id)}
                   >
-                    <Cross1Icon />
+                    <Icon icon="X" />
                   </Button>
                 )}
               </div>

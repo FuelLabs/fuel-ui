@@ -14,15 +14,15 @@ export const Usage = (args: MenuProps) => (
   <Box css={{ width: "200px" }}>
     <Menu {...args} autoFocus disabledKeys={["edit"]} aria-label="Actions">
       <Menu.Item key="settings" textValue="Settings">
-        <Icon icon="GearIcon" css={{ color: "$gray8" }} />
+        <Icon icon="Gear" css={{ color: "$gray8" }} />
         Settings
       </Menu.Item>
       <Menu.Item key="trash" textValue="Delete">
-        <Icon icon="TrashIcon" css={{ color: "$gray8" }} />
+        <Icon icon="Trash" css={{ color: "$gray8" }} />
         Delete
       </Menu.Item>
       <Menu.Item key="edit" textValue="Edit">
-        <Icon icon="Pencil2Icon" css={{ color: "$gray8" }} />
+        <Icon icon="NotePencil" css={{ color: "$gray8" }} />
         Edit
       </Menu.Item>
     </Menu>
