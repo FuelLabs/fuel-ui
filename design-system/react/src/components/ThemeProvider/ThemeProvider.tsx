@@ -22,11 +22,13 @@ const context = createContext<ThemeProviderContext>({
 
 export type ThemeProps = {
   theme?: "dark" | "light";
+  withFonts?: boolean;
   children: ReactNode;
 };
 
 export const ThemeProvider: FC<ThemeProps> = ({
   children,
+  withFonts = true,
   theme: defaultTheme,
 }) => {
   const [state, send] = useMachine(() =>
@@ -52,7 +54,7 @@ export const ThemeProvider: FC<ThemeProps> = ({
   return (
     <context.Provider value={contextValue}>
       <ToastProvider />
-      <GlobalStyles />
+      <GlobalStyles withFonts={withFonts} />
       {children}
     </context.Provider>
   );
