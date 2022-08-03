@@ -6,6 +6,7 @@ export type FuelTheme = "light" | "dark";
 const LOCALSTORAGE_KEY = "fuel-theme";
 
 export function getDefaultSystemTheme() {
+  if (typeof window === "undefined") return "dark";
   const isDark =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -66,6 +67,7 @@ export const themeProviderMachine = machine.withConfig({
   actions: {
     setDefaultTheme: assign({
       theme: (ctx) => {
+        if (typeof window === "undefined") return "dark";
         const theme = localStorage.getItem(LOCALSTORAGE_KEY) as FuelTheme;
         return ctx.theme || theme || getDefaultSystemTheme();
       },
