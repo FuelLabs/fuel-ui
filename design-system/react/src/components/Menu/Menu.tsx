@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ThemeUtilsCSS } from "@fuel-ui/css";
 import { cx, styled } from "@fuel-ui/css";
 import { FocusScope } from "@react-aria/focus";
 import { useMenu } from "@react-aria/menu";
@@ -12,6 +13,7 @@ import { createElement, useRef } from "react";
 
 import type { CreateComponent, HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { omit } from "../../utils/helpers";
 import type { ButtonProps } from "../Button";
 
 import { MenuListItem } from "./MenuListItem";
@@ -32,6 +34,7 @@ export const Menu = createComponent<MenuProps>(
     const { menuProps } = useMenu(props, state, ref);
     const classes = cx("fuel_menu", className, styles.menu());
     const customProps = {
+      ...omit(["disabledKeys"], props),
       ref: mergeRefs(ref, props.ref!),
       className: classes,
     };
@@ -55,7 +58,13 @@ export const Menu = createComponent<MenuProps>(
     return <FocusScope autoFocus={autoFocus}>{element}</FocusScope>;
   }
 ) as CreateComponent<MenuProps> & {
-  Item: FC<ItemProps<any> & { onPress?: ButtonProps["onPress"] }>;
+  Item: FC<
+    ItemProps<any> & {
+      onPress?: ButtonProps["onPress"];
+      className?: string;
+      css?: ThemeUtilsCSS;
+    }
+  >;
 };
 
 Menu.Item = Item;

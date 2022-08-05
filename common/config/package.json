@@ -2,8 +2,10 @@
   "name": "@fuel-ui/config",
   "version": "0.2.0",
   "license": "Apache-2.0",
+  "main": "./index.js",
   "files": [
-    "./eslint.js",
+    "./index.js",
+    "./react-imports.js",
     "./tsup.js"
   ],
   "publishConfig": {

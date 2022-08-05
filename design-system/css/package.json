@@ -2,17 +2,17 @@
   "name": "@fuel-ui/css",
   "version": "0.2.0",
   "license": "Apache-2.0",
-  "main": "./src/index.ts",
+  "main": "src/index.ts",
   "publishConfig": {
     "access": "public",
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
-    "typings": "./dist/index.d.ts",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "typings": "dist/index.d.ts",
     "exports": {
       ".": {
-        "require": "./dist/index.js",
-        "default": "./dist/index.mjs"
+        "require": "dist/index.js",
+        "default": "dist/index.mjs"
       }
     },
     "files": [
@@ -28,8 +28,5 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "classnames": "^2.3.1"
-  },
-  "devDependencies": {
-    "@fuel-ui/config": "workspace:*"
   }
 }

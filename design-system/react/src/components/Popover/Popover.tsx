@@ -1,4 +1,4 @@
-import { cx } from "@fuel-ui/css";
+import { cx, styled } from "@fuel-ui/css";
 import * as RPopover from "@radix-ui/react-popover";
 import type { ReactNode } from "react";
 
@@ -13,11 +13,13 @@ export type PopoverProps = RPopover.PopoverProps & {
   align?: RPopover.PopperContentProps["align"];
   showCloseButton?: boolean;
   className?: string;
+  arrowProps?: RPopover.PopoverArrowProps;
   arrowClassName?: string;
   closeButtonClassName?: string;
-  sideOffset?: RPopover.PopoverContentProps["sideOffset"];
-  alignOffset?: RPopover.PopoverContentProps["alignOffset"];
+  contentProps?: RPopover.PopoverContentProps;
 };
+
+const Content = styled(RPopover.Content);
 
 export const Popover = createComponent<PopoverProps>(
   ({
@@ -29,23 +31,25 @@ export const Popover = createComponent<PopoverProps>(
     className,
     arrowClassName,
     closeButtonClassName,
-    sideOffset = 10,
-    alignOffset,
+    arrowProps,
+    contentProps,
+    css,
     ...props
   }) => (
     <RPopover.Root {...props}>
       <RPopover.Trigger asChild>{children}</RPopover.Trigger>
-      <RPopover.Content
+      <Content
+        css={css}
         className={cx(className, CLASSES.Content)}
         side={side}
         align={align}
-        sideOffset={sideOffset}
-        alignOffset={alignOffset}
+        {...contentProps}
       >
         <RPopover.Arrow
           offset={0}
           width={15}
           height={5}
+          {...arrowProps}
           className={cx(arrowClassName, CLASSES.Arrow)}
         />
         {showCloseButton && (
@@ -64,7 +68,7 @@ export const Popover = createComponent<PopoverProps>(
           </RPopover.Close>
         )}
         {content}
-      </RPopover.Content>
+      </Content>
     </RPopover.Root>
   )
 );

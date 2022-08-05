@@ -4,8 +4,8 @@
 
 ### Minor Changes
 
-- Feat: accept a theme object for custom theme on <ThemeProvider>, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
-- Feat: expose a cssObj function that help on css objects creation, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
+- ✨ Feat: accept a theme object for custom theme on `<ThemeProvider>`, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
+- ✨ Feat: expose a `cssObj` function that help on css objects creation, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
 
 ### Patch Changes
 
