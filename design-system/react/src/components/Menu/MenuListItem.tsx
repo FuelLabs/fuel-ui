@@ -1,3 +1,4 @@
+import type { ThemeUtilsCSS } from "@fuel-ui/css";
 import { cx, styled } from "@fuel-ui/css";
 import { useButton } from "@react-aria/button";
 import { useMenuItem } from "@react-aria/menu";
@@ -16,6 +17,7 @@ export type MenuListItemProps = HTMLProps["li"] & {
   item: Node<ReactNode>;
   state: TreeState<ReactNode>;
   onAction?: (key: Key) => void;
+  css?: ThemeUtilsCSS;
   className?: string;
 };
 
@@ -41,6 +43,7 @@ export const MenuListItem = createComponent<MenuListItemProps>(
     const classes = cx("fuel_menu-list-item", className, styles.item());
     const customProps = {
       ...props,
+      css: item.props.css,
       "aria-label": item.props["aria-label"],
       ref: mergeRefs(ref, props.ref!),
       className: classes,
