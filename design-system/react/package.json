@@ -4,6 +4,8 @@
   "main": "./src/index.tsx",
   "publishConfig": {
     "access": "public",
+    "directory": "dist",
+    "linkDirectory": true,
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -61,7 +63,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
-    "@fuel-ui/config": "workspace:*",
     "@react-types/button": "^3.6.0",
     "@react-types/shared": "^3.14.0",
     "@storybook/addon-a11y": "^6.5.9",

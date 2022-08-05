@@ -1,7 +1,6 @@
 import baseConfig from '@fuel-ui/test-utils/config';
-import type { Config } from '@jest/types';
 
-const config: Config.InitialOptions = {
+const config: typeof baseConfig = {
   ...baseConfig,
   rootDir: __dirname,
   modulePathIgnorePatterns: ['node_modules', 'dist'],

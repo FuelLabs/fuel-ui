@@ -16,6 +16,7 @@ importers:
       '@changesets/cli': ^2.24.1
       '@changesets/get-github-info': ^0.5.1
       '@fuel-ui/test-utils': workspace:*
+      '@fuel-ui/tsconfig': workspace:*
       '@jest/types': ^28.1.3
       '@types/jest': ^28.1.6
       '@types/node': ^18.6.3
@@ -39,13 +40,13 @@ importers:
       turbo: ^1.4.2
       typescript: ^4.7.4
       updates: ^13.1.4
-    dependencies:
-      '@changesets/changelog-github': 0.4.6
-      '@changesets/get-github-info': 0.5.1
     devDependencies:
       '@babel/core': 7.18.10
+      '@changesets/changelog-github': 0.4.6
       '@changesets/cli': 2.24.1
+      '@changesets/get-github-info': 0.5.1
       '@fuel-ui/test-utils': link:common/test-utils
+      '@fuel-ui/tsconfig': link:common/tsconfig
       '@jest/types': 28.1.3
       '@types/jest': 28.1.6
       '@types/node': 18.6.3
@@ -144,9 +145,14 @@ importers:
       '@fuel-ui/config': link:../config
       '@types/jest-axe': 3.5.4
 
+  common/tsconfig:
+    specifiers:
+      typescript: ^4.7.4
+    dependencies:
+      typescript: 4.7.4
+
   design-system/css:
     specifiers:
-      '@fuel-ui/config': workspace:*
       '@radix-ui/colors': ^0.1.8
       '@stitches/react': ^1.2.8
       classnames: ^2.3.1
@@ -158,15 +164,13 @@ importers:
       classnames: 2.3.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    devDependencies:
-      '@fuel-ui/config': link:../../common/config
+    publishDirectory: dist
 
   design-system/react:
     specifiers:
       '@babel/core': ^7.18.10
       '@fontsource/inter': ^4.5.11
       '@fontsource/raleway': ^4.5.9
-      '@fuel-ui/config': workspace:*
       '@fuel-ui/css': workspace:*
       '@fuel-ui/test-utils': workspace:*
       '@radix-ui/react-accordion': ^1.0.0
@@ -228,7 +232,7 @@ importers:
     dependencies:
       '@fontsource/inter': 4.5.11
       '@fontsource/raleway': 4.5.9
-      '@fuel-ui/css': link:../css
+      '@fuel-ui/css': link:../css/dist
       '@fuel-ui/test-utils': link:../../common/test-utils
       '@radix-ui/react-accordion': 1.0.0_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-alert-dialog': 1.0.0_bb2bxwco6ptpubzwpazr52qf6i
@@ -260,7 +264,6 @@ importers:
       xstate: 4.32.1
     devDependencies:
       '@babel/core': 7.18.10
-      '@fuel-ui/config': link:../../common/config
       '@react-types/button': 3.6.0_react@18.2.0
       '@react-types/shared': 3.14.0_react@18.2.0
       '@storybook/addon-a11y': 6.5.9_biqbaboplfbrettd7655fr4n2y
@@ -289,6 +292,7 @@ importers:
       typescript: 4.7.4
       webpack: 5.74.0
       yargs: 17.5.1
+    publishDirectory: dist
 
 packages:
 
@@ -1982,7 +1986,7 @@ packages:
       dotenv: 8.6.0
     transitivePeerDependencies:
       - encoding
-    dev: false
+    dev: true
 
   /@changesets/cli/2.24.1:
     resolution: {integrity: sha512-7Lz1inqGQjBrXgnXlENtzQ7EmO/9c+09d9oi8XoK4ARqlJe8GpafjqKRobcjcA/TTI7Fn2+cke4CrXFZfVF8Rw==}
@@ -2058,7 +2062,7 @@ packages:
       node-fetch: 2.6.7
     transitivePeerDependencies:
       - encoding
-    dev: false
+    dev: true
 
   /@changesets/get-release-plan/3.0.12:
     resolution: {integrity: sha512-TlpEdpxV5ZQmNeHoD6KNKAc01wjRrcu9/CQqzmO4qAlX7ARA4pIuAxd8QZ1AQXv/l4qhHox7SUYH3VLHfarv5w==}
@@ -2129,6 +2133,7 @@ packages:
 
   /@changesets/types/5.1.0:
     resolution: {integrity: sha512-uUByGATZCdaPkaO9JkBsgGDjEvHyY2Sb0e/J23+cwxBi5h0fxpLF/HObggO/Fw8T2nxK6zDfJbPsdQt5RwYFJA==}
+    dev: true
 
   /@changesets/write/0.1.9:
     resolution: {integrity: sha512-E90ZrsrfJVOOQaP3Mm5Xd7uDwBAqq3z5paVEavTHKA8wxi7NAL8CmjgbGxSFuiP7ubnJA2BuHlrdE4z86voGOg==}
@@ -8172,7 +8177,7 @@ packages:
 
   /dataloader/1.4.0:
     resolution: {integrity: sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==}
-    dev: false
+    dev: true
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -8508,6 +8513,7 @@ packages:
   /dotenv/8.6.0:
     resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}
     engines: {node: '>=10'}
+    dev: true
 
   /duplexify/3.7.1:
     resolution: {integrity: sha512-07z8uv2wMyS51kKhD1KsdXJg5WQ6t93RneqRxUHnskXVtlYYkLqM0gqStQZ3pj073g687jPCHrqNfCzawLYh5g==}
@@ -12590,6 +12596,7 @@ packages:
         optional: true
     dependencies:
       whatwg-url: 5.0.0
+    dev: true
 
   /node-int64/0.4.0:
     resolution: {integrity: sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs=}
@@ -15480,6 +15487,7 @@ packages:
 
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
+    dev: true
 
   /tr46/1.0.1:
     resolution: {integrity: sha512-dTpowEjclQ7Kgx5SdBkqRzVhERQXov8/l9Ft9dVM9fmg0W0KQSVaXX9T4i6twCPNtYiZM53lpSSUAwJbFPOHxA==}
@@ -16375,6 +16383,7 @@ packages:
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+    dev: true
 
   /webidl-conversions/4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
@@ -16558,6 +16567,7 @@ packages:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
+    dev: true
 
   /whatwg-url/7.1.0:
     resolution: {integrity: sha512-WUu7Rg1DroM7oQvGWfOiAK21n74Gg+T4elXEQYkOhtyLeWiJFoOGLXPKI/9gzIie9CtwVLm8wtw6YJdKyxSjeg==}
