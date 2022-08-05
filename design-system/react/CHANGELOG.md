@@ -4,14 +4,14 @@
 
 ### Minor Changes
 
-- Feat: add a custom prop on ThemeProvider to don't load fonts by default, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
-- Feat: use Phosphor icons instead of Radix Icons, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
-- Feat: accept a theme object for custom theme on <ThemeProvider>, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
+- ✨ Feat: add a custom prop on ThemeProvider to don't load fonts by default, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
+- ✨ Feat: use Phosphor icons instead of Radix Icons, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
+- ✨ Feat: accept a theme object for custom theme on `<ThemeProvider>`, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
 
 ### Patch Changes
 
 - 🐞 Fix: check if window is undefined for SSR purposes, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
-- 🐞 Fix: add value prop for <Copyable>, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
+- 🐞 Fix: add value prop for `<Copyable>`, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
 - 💅🏻 Style: general adjustments according to Figma design specs, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
 - 🐞 Fix: pass machine for useMachine on ThemeProvider in a right way, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
 - Updated dependencies (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105), [#105](https://github.com/FuelLabs/fuel-ui/pull/105), and [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
@@ -22,13 +22,13 @@
 
 ### Patch Changes
 
-- ⚠️ Fix: export missing FocusScopeProps on Focus component, by [@pedronauck](https://github.com/pedronauck) (See [#102](https://github.com/FuelLabs/fuel-ui/pull/102))
+- 🐞 Fix: export missing FocusScopeProps on Focus component, by [@pedronauck](https://github.com/pedronauck) (See [#102](https://github.com/FuelLabs/fuel-ui/pull/102))
 
 ## 0.1.0
 
 ### Minor Changes
 
-- Add `<Menu />` component using React Aria [useMenu()](https://react-spectrum.adobe.com/react-aria/useMenu.html) as base to create it
+- ✨ Feat: add `<Menu />` component using React Aria [useMenu()](https://react-spectrum.adobe.com/react-aria/useMenu.html) as base to create it
   ```jsx
   <Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
     <Menu.Item key="settings" textValue="Settings">
@@ -42,12 +42,12 @@
     </Menu.Item>
   </Menu>
   ```
-- Add a `<Image />` component, by [@pedronauck](https://github.com/pedronauck) (See [#89](https://github.com/FuelLabs/fuel-ui/pull/89))
-- Add new `<HelperIcon />`, a component that will show a helper icon with a Tooltip included
+- ✨ Feat: add a `<Image />` component, by [@pedronauck](https://github.com/pedronauck) (See [#89](https://github.com/FuelLabs/fuel-ui/pull/89))
+- ✨ Feat: add new `<HelperIcon />`, a component that will show a helper icon with a Tooltip included
   ```jsx
   <HelperIcon message="This is a helper message">Some information</HelperIcon>
   ```
-- Add `<Focus.ArrowNavigator />` component, a component that create a focus scope and add focus navigation using arrows automatically on children.
+- ✨ Feat: add `<Focus.ArrowNavigator />` component, a component that create a focus scope and add focus navigation using arrows automatically on children.
   ```jsx
   <Focus.ArrowNavigator asChild autoFocus>
     <Stack gap="$3" direction="row">
@@ -57,7 +57,7 @@
     </Stack>
   </Focus.ArrowNavigator>
   ```
-- Add new `<Accordion />` component using [Radix Accordion](https://www.radix-ui.com/docs/primitives/components/accordion) as base component
+- ✨ Feat: add new `<Accordion />` component using [Radix Accordion](https://www.radix-ui.com/docs/primitives/components/accordion) as base component
   ```jsx
   <Accordion {...args} type="single" defaultValue="item-1" collapsible>
     <Accordion.Item value="item-1">
@@ -72,7 +72,7 @@
     </Accordion.Item>
   </Accordion>
   ```
-- Add new `<ButtonGroup />` component
+- ✨ Feat: add new `<ButtonGroup />` component
   ```jsx
   <ButtonGroup {...args} color="blue" size="sm">
     <Button>First</Button>
@@ -80,18 +80,18 @@
     <Button>Third</Button>
   </ButtonGroup>
   ```
-- Add new `<Copyable />` component. A component that adds a copy to clipboard icon and handler in a text.
+- ✨ Feat: add new `<Copyable />` component. A component that adds a copy to clipboard icon and handler in a text.
   ```jsx
   <Copyable>Some value</Copyable>
   ```
-- Add new `<Switch />` component using [Radix Switch](https://www.radix-ui.com/docs/primitives/components/switch) as base
+- ✨ Feat: add new `<Switch />` component using [Radix Switch](https://www.radix-ui.com/docs/primitives/components/switch) as base
   ```jsx
   <Flex align="center">
     <Form.Label htmlFor="s1">Label</Form.Label>
     <Switch defaultChecked id="s1" {...args} />
   </Flex>
   ```
-- Add new `toast()` function that shows a toast using [react-hot-toast](https://react-hot-toast.com/) behind the scenes. It also includes `<ToastProvider />` in our `<ThemeProvider />` by default.
+- ✨ Feat: add new `toast()` function that shows a toast using [react-hot-toast](https://react-hot-toast.com/) behind the scenes. It also includes `<ToastProvider />` in our `<ThemeProvider />` by default.
   ```jsx
   import { Button, toast } from "@fuel-ui/react";
   function App() {
@@ -101,7 +101,7 @@
 
 ### Patch Changes
 
-- ⚠️ Fix: adjust focus active style on buttons inside `<ButtonGroup />`, by [@pedronauck](https://github.com/pedronauck) (See [#97](https://github.com/FuelLabs/fuel-ui/pull/97))
+- 🐞 Fix: adjust focus active style on buttons inside `<ButtonGroup />`, by [@pedronauck](https://github.com/pedronauck) (See [#97](https://github.com/FuelLabs/fuel-ui/pull/97))
 
 ## 0.0.2
 
