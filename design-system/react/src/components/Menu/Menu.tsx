@@ -13,6 +13,7 @@ import { createElement, useRef } from "react";
 
 import type { CreateComponent, HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import { omit } from "../../utils/helpers";
 import type { ButtonProps } from "../Button";
 
 import { MenuListItem } from "./MenuListItem";
@@ -33,7 +34,7 @@ export const Menu = createComponent<MenuProps>(
     const { menuProps } = useMenu(props, state, ref);
     const classes = cx("fuel_menu", className, styles.menu());
     const customProps = {
-      ...props,
+      ...omit(["disabledKeys"], props),
       ref: mergeRefs(ref, props.ref!),
       className: classes,
     };
