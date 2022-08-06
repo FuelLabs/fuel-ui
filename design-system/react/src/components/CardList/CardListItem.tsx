@@ -62,7 +62,7 @@ const styles = {
         true: {
           "&:hover, &:focus-within": {
             outline: "none",
-            borderColor: "$borderColor",
+            borderColor: "$borderHover",
           },
         },
       },
