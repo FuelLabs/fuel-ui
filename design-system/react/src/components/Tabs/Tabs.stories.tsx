@@ -18,7 +18,7 @@ export default {
 
 function Account() {
   return (
-    <Card within>
+    <Card>
       <Card.Body>
         <Text css={{ mt: "$0" }}>
           Make changes to your account here. Click save when you&apos;re done.
@@ -59,7 +59,7 @@ function Account() {
 
 function Password() {
   return (
-    <Card within>
+    <Card>
       <Card.Body>
         <Text css={{ mt: "$0" }}>
           Change your password here. After saving, you&apos;ll be logged out.
