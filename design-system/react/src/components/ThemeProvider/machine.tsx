@@ -7,11 +7,7 @@ const LOCALSTORAGE_KEY = "fuel-theme";
 const DEFAULT_THEME = "dark";
 
 export function getDefaultSystemTheme(): FuelTheme {
-  if (typeof window === "undefined") return DEFAULT_THEME;
-  const isDark =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return isDark ? "dark" : "light";
+  return DEFAULT_THEME;
 }
 
 type MachineContext = {
@@ -38,26 +34,6 @@ const machine = createMachine<MachineContext>({
         },
         TOGGLE_THEME: {
           actions: ["toggleTheme", "addDocumentClass"],
-        },
-      },
-      invoke: {
-        src: () => (send) => {
-          function callback(event: MediaQueryListEvent) {
-            send({
-              type: "SET_THEME",
-              value: event.matches ? "dark" : "light",
-            });
-          }
-
-          window
-            .matchMedia("(prefers-color-scheme: dark)")
-            .addEventListener("change", callback);
-
-          return () => {
-            window
-              .matchMedia("(prefers-color-scheme: dark)")
-              .removeEventListener("change", callback);
-          };
         },
       },
     },
