@@ -18,5 +18,5 @@ export function useConstant<T>(fn: () => T, deps: any[] = []): T {
     ref.current = { v: fn() };
   }, deps);
 
-  return ref.current.v;
+  return ref.current.v as T;
 }

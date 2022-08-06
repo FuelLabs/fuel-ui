@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ColorKeys } from "@fuel-ui/css";
 import { styled, css, cx } from "@fuel-ui/css";
 import { useButton } from "@react-aria/button";
 import { mergeProps, mergeRefs } from "@react-aria/utils";
 import type { AriaButtonProps } from "@react-types/button";
+import type { ReactNode } from "react";
 import { useMemo, createElement, useRef, cloneElement } from "react";
 
 import { createComponent } from "../../utils";
@@ -22,7 +24,7 @@ export function createIcon(
   return typeof icon === "string" ? (
     <Icon icon={icon} label={iconAriaLabel} size={iconSize} />
   ) : (
-    icon && createElement(icon, { label: iconAriaLabel })
+    icon && cloneElement(icon as any, { label: iconAriaLabel })
   );
 }
 
@@ -34,8 +36,8 @@ export function getIconSize(size: ButtonSizes, iconSize?: number) {
 }
 
 type GetChildrenParams = ButtonProps & {
-  iconLeft?: JSX.Element;
-  iconRight?: JSX.Element;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
 };
 function getChildren({
   isLoading,
@@ -53,9 +55,9 @@ function getChildren({
   }
   return (
     <>
-      {iconLeft && cloneElement(iconLeft)}
+      {iconLeft}
       {children}
-      {iconRight && cloneElement(iconRight)}
+      {iconRight}
     </>
   );
 }

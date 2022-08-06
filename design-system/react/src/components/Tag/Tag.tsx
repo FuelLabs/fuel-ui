@@ -1,4 +1,5 @@
 import { cx } from "@fuel-ui/css";
+import type { ReactNode } from "react";
 import { Children } from "react";
 
 import { createComponent } from "../../utils";
@@ -18,8 +19,8 @@ function getIconSize(size: TagProps["size"], iconSize?: number) {
 }
 
 type GetChildrenParams = TagProps & {
-  iconLeft?: JSX.Element;
-  iconRight?: JSX.Element;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
 };
 function getChildren({
   isLoading,

@@ -2,7 +2,8 @@ import type { Colors } from "@fuel-ui/css";
 import { cx, styled } from "@fuel-ui/css";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import * as PhosphorIcons from "phosphor-react";
-import { createElement } from "react";
+import type { ReactElement, ReactNode } from "react";
+import { cloneElement } from "react";
 
 import { useConstant } from "../../hooks";
 import type { CreateComponent } from "../../utils";
@@ -17,7 +18,7 @@ type OmitProps = "children";
 
 export type IconProps = FlexProps &
   PhosphorIcons.IconProps & {
-    icon: Icons;
+    icon: Icons | ReactNode;
     wrapperClassName?: string;
     color?: Colors;
     inline?: boolean;
@@ -39,9 +40,16 @@ export const Icon = createComponent<IconProps, OmitProps>(
     mirrored,
     ...props
   }) => {
-    const Component = typeof icon === "string" ? PhosphorIcons[icon] : icon;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const iconElement = useConstant(() => styled(Component as any), [icon]);
+    const iconElement = useConstant<ReactElement>(
+      (() => {
+        if (typeof icon === "string") {
+          const Component = styled(PhosphorIcons[icon]);
+          return <Component />;
+        }
+        return icon;
+      }) as () => ReactElement,
+      [icon]
+    );
 
     const label = initialLabel || props["aria-label"];
     const iconProps = {
@@ -60,23 +68,27 @@ export const Icon = createComponent<IconProps, OmitProps>(
         className={cx("fuel_icon", wrapperClassName)}
         css={{
           display: inline ? "inline-flex" : "flex",
-          color: `$${color}`,
+          ...(color && { color: `$${color}` }),
           ...css,
         }}
         align="center"
         justify="center"
       >
-        {createElement(iconElement, iconProps)}
+        {cloneElement(iconElement, iconProps)}
         <VisuallyHidden.Root>{label || icon}</VisuallyHidden.Root>
       </Flex>
     );
   }
 ) as CreateComponent<IconProps, OmitProps> & {
+  is: (icon: Icons) => Icons;
   iconList: Icons[];
   id: string;
 };
 
-Icon.id = "Icon";
-Icon.iconList = Object.keys(
+const iconList = Object.keys(
   omit(["Icon", "IconProps", "IconWeight", "IconContext"], PhosphorIcons)
 ) as Icons[];
+
+Icon.id = "Icon";
+Icon.iconList = iconList;
+Icon.is = (icon: Icons) => icon;
