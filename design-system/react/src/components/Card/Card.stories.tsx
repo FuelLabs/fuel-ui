@@ -1,6 +1,7 @@
 import { Box } from "../Box";
 import { Button } from "../Button";
 import { Heading } from "../Heading";
+import { Icon } from "../Icon";
 
 import type { CardProps } from "./Card";
 import { Card } from "./Card";
@@ -34,7 +35,9 @@ export const WithFooter = (args: CardProps) => (
   <Box css={{ maxW: "400px" }}>
     <Card {...args}>
       <Card.Header>
-        <Heading as="h3">Title</Heading>
+        <Heading as="h3" leftIcon={Icon.is("Calendar")}>
+          Calendar
+        </Heading>
       </Card.Header>
       <Card.Body>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate

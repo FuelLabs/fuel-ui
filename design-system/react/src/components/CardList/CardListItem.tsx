@@ -41,6 +41,7 @@ const styles = {
     py: "$3",
     px: "$4",
     gap: "$3",
+    borderColor: "transparent",
 
     variants: {
       isActive: {
@@ -61,7 +62,7 @@ const styles = {
         true: {
           "&:hover, &:focus-within": {
             outline: "none",
-            borderColor: "$gray5",
+            borderColor: "$borderColor",
           },
         },
       },
@@ -69,6 +70,7 @@ const styles = {
 
     defaultVariants: {
       isActive: false,
+      isClickable: false,
     },
   }),
 };

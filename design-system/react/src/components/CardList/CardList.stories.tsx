@@ -1,5 +1,6 @@
 import { Avatar } from "../Avatar";
 import { Heading } from "../Heading";
+import { Icon } from "../Icon";
 import { IconButton } from "../IconButton";
 
 import type { CardListProps } from "./CardList";
@@ -62,9 +63,9 @@ export const WithAction = (args: CardListProps) => (
           size="xs"
           variant="link"
           color="gray"
-          icon="DotsThreeOutline"
+          icon={<Icon icon="DotsThreeOutline" color="gray8" />}
           aria-label="Action"
-          css={{ px: "$0" }}
+          css={{ px: "$0", color: "$gray10" }}
         />
       }
     >
