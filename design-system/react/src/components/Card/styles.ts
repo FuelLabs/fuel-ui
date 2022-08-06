@@ -9,7 +9,7 @@ export const card = css({
 
 export const header = css({
   p: '$5',
-  borderBottom: '1px solid $bodyColor',
+  borderBottom: '1px solid $borderColor',
 
   '& .fuel_heading': {
     margin: 0,
@@ -24,5 +24,5 @@ export const body = css({
 
 export const footer = css({
   p: '$5',
-  borderTop: '1px solid $bodyColor',
+  borderTop: '1px solid $borderColor',
 });

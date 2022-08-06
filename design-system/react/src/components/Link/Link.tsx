@@ -30,7 +30,7 @@ export const Link = createComponent<LinkProps>(
       Root,
       mergeProps(props, customProps, linkProps),
       <>
-        {children} {isExternal && <Icon icon="LinkSimple" />}
+        {children} {isExternal && <Icon icon="LinkSimple" color="gray8" />}
       </>
     );
   }
@@ -40,8 +40,9 @@ const styles = {
   link: css({
     display: "inline-flex",
     alignItems: "center",
-    gap: "$2",
+    gap: "$1",
     textDecoration: "none",
+    fontWeight: "$medium",
 
     "&:hover": {
       textDecoration: "underline",

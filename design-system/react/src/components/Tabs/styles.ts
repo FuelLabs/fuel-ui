@@ -21,7 +21,8 @@ export const list = css({
 export const trigger = css({
   all: 'unset',
   position: 'relative',
-  fontFamily: 'inherit',
+  fontFamily: '$sans',
+  fontWeight: '$bold',
   px: '$5',
   height: '$12',
   flex: 1,

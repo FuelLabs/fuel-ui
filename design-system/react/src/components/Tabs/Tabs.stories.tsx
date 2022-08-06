@@ -20,7 +20,7 @@ function Account() {
   return (
     <Card>
       <Card.Body>
-        <Text css={{ mt: "$0" }}>
+        <Text css={{ mt: "$0", mb: "$4" }}>
           Make changes to your account here. Click save when you&apos;re done.
         </Text>
         <Stack gap="$4">
@@ -61,7 +61,7 @@ function Password() {
   return (
     <Card>
       <Card.Body>
-        <Text css={{ mt: "$0" }}>
+        <Text css={{ mt: "$0", mb: "$4" }}>
           Change your password here. After saving, you&apos;ll be logged out.
         </Text>
         <Stack gap="$4">

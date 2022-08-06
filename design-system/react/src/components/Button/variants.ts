@@ -106,24 +106,28 @@ export const size = {
     gap: '5px',
     px: '$2',
     fontSize: '$xs',
+    fontWeight: '$semibold',
     height: '$7',
   },
   sm: {
     gap: '$2',
     px: '$3',
     fontSize: '$sm',
+    fontWeight: '$medium',
     height: '$8',
   },
   md: {
     gap: '$2',
     px: '$4',
     fontSize: '$base',
+    fontWeight: '$medium',
     height: '$10',
   },
   lg: {
     gap: '$3',
     px: '$5',
     fontSize: '$lg',
+    fontWeight: '$medium',
     height: '$12',
   },
 };

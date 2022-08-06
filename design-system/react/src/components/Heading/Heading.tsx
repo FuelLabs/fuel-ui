@@ -60,8 +60,10 @@ export const Heading = createComponent<HeadingProps>(
 const styles = css({
   mt: "0.5rem",
   mb: "1.25rem",
-  letterSpacing: "-.05em",
+  letterSpacing: "-0.02em",
   color: "$gray12",
+  fontFamily: "$heading",
+  fontWeight: "$semibold",
 
   "& .fuel_icon": {
     color: "$gray8",

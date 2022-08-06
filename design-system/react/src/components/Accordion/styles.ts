@@ -57,7 +57,8 @@ export const header = css({
 
 export const trigger = css({
   all: 'unset',
-  fontFamily: 'inherit',
+  fontFamily: '$sans',
+  fontWeight: '$semibold',
   px: '$4',
   height: 45,
   flex: 1,
@@ -69,7 +70,7 @@ export const trigger = css({
   transition: 'color .2s',
 
   '&[data-state="closed"]': {
-    color: '$gray9',
+    color: '$gray12',
   },
   '&[data-state="open"]': {
     color: '$accent11',

@@ -125,7 +125,7 @@ export const darkColors = {
 
   bodyColor: '#101112',
   textColor: '$gray11',
-  borderColor: '$gray3',
+  borderColor: '$bodyColor',
 
   inputBg: '$gray2',
   inputAddonBg: '$gray1',
