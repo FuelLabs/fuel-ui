@@ -17,15 +17,15 @@ import { Spinner } from "../Spinner";
 import * as styles from "./styles";
 
 export function createIcon(
-  icon?: IconProps["icon"],
+  icon: string | ReactNode,
   iconAriaLabel?: string,
   iconSize?: number
 ) {
-  return typeof icon === "string" ? (
-    <Icon icon={icon} label={iconAriaLabel} size={iconSize} />
-  ) : (
-    icon && cloneElement(icon as any, { label: iconAriaLabel })
-  );
+  if (typeof icon === "string") {
+    return <Icon icon={icon} label={iconAriaLabel} size={iconSize} />;
+  }
+  // TODO: fix any here
+  return icon && cloneElement(icon as any, { label: iconAriaLabel });
 }
 
 export function getIconSize(size: ButtonSizes, iconSize?: number) {

@@ -21,8 +21,6 @@ export const input = css({
 
   [`&:focus-within`]: {
     borderColor: '$gray6',
-    // outline: `3px solid ${OUTLINE_COLOR}`,
-    // outlineOffset: '1px',
   },
   '&[aria-disabled=true]:focus-within': {
     outline: 'none',
