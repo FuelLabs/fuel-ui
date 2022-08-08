@@ -19,16 +19,7 @@ export const IconButton = createComponent<IconButtonProps, OmitProps>(
   ({ icon, tooltip, className, ...props }) => {
     const classes = cx("fuel_icon-buton", className);
     const content = (
-      <Button
-        {...props}
-        justIcon
-        className={classes}
-        leftIcon={icon}
-        {...(tooltip && {
-          onClick: props.onClick || props.onPress,
-          onPress: null,
-        })}
-      />
+      <Button {...props} justIcon className={classes} leftIcon={icon} />
     );
 
     if (tooltip) {
