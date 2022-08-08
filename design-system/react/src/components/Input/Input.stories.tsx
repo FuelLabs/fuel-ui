@@ -22,13 +22,13 @@ const FIELD_ARGS = {
 export const Sizes = (args: InputProps) => (
   <Stack css={{ maxW: "350px" }} gap="$3">
     <Input {...FIELD_ARGS} {...args} size="sm">
-      <Input.Field {...FIELD_ARGS} />
+      <Input.Field {...FIELD_ARGS} type="email" />
     </Input>
     <Input {...FIELD_ARGS} {...args} size="md">
-      <Input.Field {...FIELD_ARGS} />
+      <Input.Field {...FIELD_ARGS} type="email" />
     </Input>
     <Input {...FIELD_ARGS} {...args} size="lg">
-      <Input.Field {...FIELD_ARGS} />
+      <Input.Field {...FIELD_ARGS} type="email" />
     </Input>
   </Stack>
 );

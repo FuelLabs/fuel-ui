@@ -16,6 +16,7 @@ export const item = css({
   opacity: 0.4,
   borderRadius: '$md',
   color: '$gray10',
+  fontWeight: '$medium',
 
   '&:not([aria-disabled="true"])': {
     cursor: 'pointer',

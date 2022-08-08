@@ -56,9 +56,11 @@ export const sizes = {
 };
 
 export const fonts = {
-  sans: 'UTL, sans-serif',
-  display: 'UTL, sans-serif',
-  heading: 'UTL, sans-serif',
+  sans: '"Satoshi", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+  display:
+    '"Satoshi", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+  heading:
+    '"General Sans", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
 };
 
 export const fontSizes = {

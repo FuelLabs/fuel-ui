@@ -4,7 +4,7 @@ const BG_COLOR = '$inputBg';
 const TEXT_COLOR = '$gray8';
 const BORDER_COLOR = '$inputBorder';
 const PLACEHOLDER_COLOR = '$gray10';
-const OUTLINE_COLOR = '$inputOutline';
+// const OUTLINE_COLOR = '$inputOutline';
 const INPUT_COLOR = '$gray11';
 const ADDON_COLOR = '$gray9';
 const ADDON_BG_COLOR = '$inputAddonBg';
@@ -20,8 +20,7 @@ export const input = css({
   overflow: 'hidden',
 
   [`&:focus-within`]: {
-    outline: `2px solid ${OUTLINE_COLOR}`,
-    outlineOffset: '1px',
+    borderColor: '$gray6',
   },
   '&[aria-disabled=true]:focus-within': {
     outline: 'none',

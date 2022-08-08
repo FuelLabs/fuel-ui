@@ -9,6 +9,7 @@ export const tag = css({
   border: '1px solid transparent',
   transition: 'all',
   textDecoration: 'none',
+  fontFamily: '$sans',
 
   '& button': {
     px: '$0',

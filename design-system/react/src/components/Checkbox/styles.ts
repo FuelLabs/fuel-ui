@@ -12,6 +12,7 @@ export const root = css({
   alignItems: 'center',
   justifyContent: 'center',
   boxShadow: '$sm',
+  fontSize: '$base',
 
   [`.${darkTheme} &`]: {
     background: '$gray2',

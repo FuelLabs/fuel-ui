@@ -12,7 +12,8 @@ export const label = css({
   alignItems: 'center',
   gap: '$2',
   color: '$gray11',
-  fontWeight: '$semibold',
+  fontWeight: '$medium',
+  fontSize: '$base',
 
   variants: {
     required: {

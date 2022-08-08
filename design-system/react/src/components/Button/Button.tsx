@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ColorKeys } from "@fuel-ui/css";
 import { styled, css, cx } from "@fuel-ui/css";
 import { useButton } from "@react-aria/button";
 import { mergeProps, mergeRefs } from "@react-aria/utils";
 import type { AriaButtonProps } from "@react-types/button";
+import type { ReactNode } from "react";
 import { useMemo, createElement, useRef, cloneElement } from "react";
 
 import { createComponent } from "../../utils";
@@ -15,15 +17,15 @@ import { Spinner } from "../Spinner";
 import * as styles from "./styles";
 
 export function createIcon(
-  icon?: IconProps["icon"],
+  icon: string | ReactNode,
   iconAriaLabel?: string,
   iconSize?: number
 ) {
-  return typeof icon === "string" ? (
-    <Icon icon={icon} label={iconAriaLabel} size={iconSize} />
-  ) : (
-    icon && createElement(icon, { label: iconAriaLabel })
-  );
+  if (typeof icon === "string") {
+    return <Icon icon={icon} label={iconAriaLabel} size={iconSize} />;
+  }
+  // TODO: fix any here
+  return icon && cloneElement(icon as any, { label: iconAriaLabel });
 }
 
 export function getIconSize(size: ButtonSizes, iconSize?: number) {
@@ -34,8 +36,8 @@ export function getIconSize(size: ButtonSizes, iconSize?: number) {
 }
 
 type GetChildrenParams = ButtonProps & {
-  iconLeft?: JSX.Element;
-  iconRight?: JSX.Element;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
 };
 function getChildren({
   isLoading,
@@ -53,9 +55,9 @@ function getChildren({
   }
   return (
     <>
-      {iconLeft && cloneElement(iconLeft)}
+      {iconLeft}
       {children}
-      {iconRight && cloneElement(iconRight)}
+      {iconRight}
     </>
   );
 }

@@ -10,7 +10,8 @@ export const badge = css({
   px: '$2',
   borderRadius: '$md',
   textTransform: 'uppercase',
-  fontWeight: '$semibold',
+  fontFamily: '$sans',
+  fontWeight: '$extrabold',
 
   variants: {
     color: variants.colors.solid,

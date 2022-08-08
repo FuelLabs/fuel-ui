@@ -12,6 +12,7 @@ export const button = css({
   borderRadius: '$lg',
   transition: 'all',
   textDecoration: 'none',
+  fontFamily: '$sans',
 
   '&:not([aria-disabled=true]):active, &:not([aria-disabled=true])[aria-pressed=true]': {
     transform: 'scale(0.96)',

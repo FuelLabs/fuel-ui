@@ -4,33 +4,21 @@ import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import type { FlexProps } from "../Flex";
 import { Flex } from "../Flex";
-import { useFuelTheme } from "../ThemeProvider";
 
 import { CardBody } from "./CardBody";
 import { CardFooter } from "./CardFooter";
 import { CardHeader } from "./CardHeader";
 import * as styles from "./styles";
 
-export type CardProps = FlexProps & {
-  /**
-   * This prop will remove boxShadow/borderColor
-   */
-  within?: boolean;
-};
+export type CardProps = FlexProps;
 
 export const Card = createComponent<CardProps>(
-  ({ direction = "column", within, children, className, css, ...props }) => {
+  ({ direction = "column", children, className, ...props }) => {
     const classes = cx("fuel_card", className, styles.card());
     const customProps = { ...props, direction, className: classes };
-    const { theme } = useFuelTheme();
-    const borderColor = theme === "dark" ? "$borderColor" : "transparent";
 
     return (
-      <Flex
-        as="article"
-        {...customProps}
-        css={{ ...(!within && { borderColor }), ...css }}
-      >
+      <Flex as="article" {...customProps}>
         {children}
       </Flex>
     );

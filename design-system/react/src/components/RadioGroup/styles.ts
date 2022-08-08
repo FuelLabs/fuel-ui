@@ -3,6 +3,10 @@ import { css, darkTheme } from '@fuel-ui/css';
 export const root = css({
   display: 'flex',
 
+  '& label': {
+    fontSize: '$base',
+  },
+
   variants: {
     disabled: {
       true: {

@@ -16,6 +16,7 @@ export const root = css({
   },
 
   '& .fuel_heading': {
+    fontWeight: '$bold',
     textSize: 'lg',
     margin: 0,
   },
