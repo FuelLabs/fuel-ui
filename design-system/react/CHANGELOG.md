@@ -1,5 +1,32 @@
 # @fuel-ui/react
 
+## 0.3.0
+
+### Minor Changes
+
+- ✨ Feat: add new `<CardList>` component, basically a list of cards that can be clickable and have right elements as actions.
+  ````jsx
+  <CardList {...args} css={{ maxW: "$md" }}>
+    <CardList.Item isActive>
+      <Avatar
+        {...args}
+        size="sm"
+        name="Colm Tuite"
+        src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+      />
+      <Heading as="h6" css={{ margin: 0 }}>
+        Colm Tuite
+      </Heading>
+    </CardList.Item>
+  </CardList>
+  ````
+
+### Patch Changes
+
+- 🐞 Fix: add contentProps and arrowProps for `<Popover>`, by [@pedronauck](https://github.com/pedronauck) (See [#108](https://github.com/FuelLabs/fuel-ui/pull/108))
+- 🐞 Fix: resolve props passed as handlers for Button component, by [@pedronauck](https://github.com/pedronauck) (See [#112](https://github.com/FuelLabs/fuel-ui/pull/112))
+- 🐞 Fix: add css prop for `<Menu>`, by [@pedronauck](https://github.com/pedronauck) (See [#108](https://github.com/FuelLabs/fuel-ui/pull/108))
+
 ## 0.2.0
 
 ### Minor Changes
