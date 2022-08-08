@@ -2,7 +2,6 @@ import { cx, styled } from "@fuel-ui/css";
 import type { ReactNode } from "react";
 import { Children, cloneElement, createElement } from "react";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 
 import { useInputProps } from "./Input";
@@ -66,27 +65,29 @@ const InputElement = createComponent<InputElementProps>(
   }
 );
 
-type InputElementComponent = CreateComponent<InputElementProps> & {
+type InputElementObjProps = {
   id?: string;
 };
 
-export const InputElementLeft = createComponent<InputElementProps>(
-  ({ className, ...props }) => (
-    <InputElement
-      {...props}
-      className={cx("fuel_input-element--left", className)}
-    />
-  )
-) as InputElementComponent;
+export const InputElementLeft = createComponent<
+  InputElementProps,
+  InputElementObjProps
+>(({ className, ...props }) => (
+  <InputElement
+    {...props}
+    className={cx("fuel_input-element--left", className)}
+  />
+));
 
-export const InputElementRight = createComponent<InputElementProps>(
-  ({ className, ...props }) => (
-    <InputElement
-      {...props}
-      className={cx("fuel_input-element--right", className)}
-    />
-  )
-) as InputElementComponent;
+export const InputElementRight = createComponent<
+  InputElementProps,
+  InputElementObjProps
+>(({ className, ...props }) => (
+  <InputElement
+    {...props}
+    className={cx("fuel_input-element--right", className)}
+  />
+));
 
 InputElementLeft.id = "InputElement";
 InputElementRight.id = "InputElement";

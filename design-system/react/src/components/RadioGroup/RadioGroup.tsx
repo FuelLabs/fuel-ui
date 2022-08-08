@@ -3,7 +3,6 @@ import { cx, styled } from "@fuel-ui/css";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Children, cloneElement, createElement } from "react";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import { useFormControlProps } from "../Form/FormControl";
 
@@ -17,9 +16,14 @@ export type RadioGroupProps = RadioGroupPrimitive.RadioGroupProps & {
   isReadOnly?: boolean;
 };
 
+type ObjProps = {
+  id: string;
+  Item: typeof RadioGroupItem;
+};
+
 const Root = styled(RadioGroupPrimitive.Root);
 
-export const RadioGroup = createComponent<RadioGroupProps>(
+export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
   ({
     gap = "$2",
     direction = "column",
@@ -69,10 +73,7 @@ export const RadioGroup = createComponent<RadioGroupProps>(
 
     return createElement(Root, customProps, customChildren);
   }
-) as CreateComponent<RadioGroupProps> & {
-  id: string;
-  Item: typeof RadioGroupItem;
-};
+);
 
 RadioGroup.id = "RadioGroup";
 RadioGroup.Item = RadioGroupItem;

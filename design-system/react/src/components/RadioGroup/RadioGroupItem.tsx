@@ -3,7 +3,6 @@ import { cx, styled } from "@fuel-ui/css";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { createElement, useId } from "react";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import { Flex } from "../Flex";
 import { Form } from "../Form";
@@ -19,9 +18,17 @@ export type RadioGroupItemProps = RadioGroupPrimitive.RadioGroupItemProps & {
   labelCSS?: ThemeUtilsCSS;
 };
 
+type ObjProps = {
+  id: string;
+};
+
 const Root = styled(RadioGroupPrimitive.Item);
 
-export const RadioGroupItem = createComponent<RadioGroupItemProps, OmitProps>(
+export const RadioGroupItem = createComponent<
+  RadioGroupItemProps,
+  ObjProps,
+  OmitProps
+>(
   ({
     isDisabled,
     isReadOnly,
@@ -66,8 +73,6 @@ export const RadioGroupItem = createComponent<RadioGroupItemProps, OmitProps>(
       </Flex>
     );
   }
-) as CreateComponent<RadioGroupItemProps, OmitProps> & {
-  id: string;
-};
+);
 
 RadioGroupItem.id = "RadioGroupItem";

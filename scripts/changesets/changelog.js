@@ -40,39 +40,8 @@ const templateSeeRef = (links) => {
 };
 
 const changelogFunctions = {
-  getDependencyReleaseLine: async (changesets, dependenciesUpdated) => {
-    if (dependenciesUpdated.length === 0) return '';
-
-    const dependenciesLinks = await Promise.all(
-      changesets.map(async (cs) => {
-        if (!cs.commit) return undefined;
-
-        const lines = getSummaryLines(cs);
-        const prLine = lines.find((line) => SEE_LINE.test(line));
-        if (prLine) {
-          const match = prLine.match(SEE_LINE);
-          return (match && match[1].trim()) || undefined;
-        }
-
-        const { links } = await getInfo({
-          repo: REPO,
-          commit: cs.commit,
-        });
-
-        return links;
-      })
-    );
-
-    let changesetLink = '- Updated dependencies';
-
-    const seeRef = templateSeeRef(dependenciesLinks);
-    if (seeRef) changesetLink += ` ${seeRef}`;
-
-    const detailsLinks = dependenciesUpdated.map((dep) => {
-      return `  - ${dep.name}@${dep.newVersion}`;
-    });
-
-    return [changesetLink, ...detailsLinks].join('\n');
+  getDependencyReleaseLine: async () => {
+    return '';
   },
   getReleaseLine: async (changeset, type) => {
     let pull, commit, user;

@@ -19,6 +19,7 @@ type MachineEvents =
   | { type: "TOGGLE" };
 
 const machine = createMachine<MachineContext>({
+  predictableActionArguments: true,
   schema: {
     context: {} as MachineContext,
     events: {} as MachineEvents,

@@ -4,7 +4,7 @@ import { mergeProps, mergeRefs } from "@react-aria/utils";
 import { createElement, useRef } from "react";
 
 import { createComponent } from "../../utils";
-import type { HTMLProps, CreateComponent } from "../../utils";
+import type { HTMLProps } from "../../utils";
 
 import { useInputProps } from "./Input";
 import * as styles from "./styles";
@@ -15,9 +15,13 @@ export type InputFieldProps = Omit<HTMLInputProps, "size"> & {
   htmlSize?: HTMLInputProps["size"];
 };
 
+type ObjProps = {
+  id: string;
+};
+
 const Root = styled("input");
 
-export const InputField = createComponent<InputFieldProps, OmitProps>(
+export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
   ({ name: nameProp, htmlSize, role = "textbox", className, ...props }) => {
     const parentProps = useInputProps();
     const isRequired = parentProps?.isRequired;
@@ -66,8 +70,6 @@ export const InputField = createComponent<InputFieldProps, OmitProps>(
       ref: mergeRefs(ref, props.ref!),
     });
   }
-) as CreateComponent<InputFieldProps, OmitProps> & {
-  id: string;
-};
+);
 
 InputField.id = "InputField";

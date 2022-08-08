@@ -14,8 +14,8 @@ export type AnyFunction = (...args: any) => any;
  * the render phase.
  * @example
  * function Component(props) {
- *   const onClick = useEvent(props.onClick);
- *   React.useEffect(() => {}, [onClick]);
+ *   const onPress = useEvent(props.onPress);
+ *   React.useEffect(() => {}, [onPress]);
  * }
  */
 export function useEvent<T extends AnyFunction>(callback?: T) {

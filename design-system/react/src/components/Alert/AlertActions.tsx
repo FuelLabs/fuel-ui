@@ -1,7 +1,6 @@
 import { cx } from "@fuel-ui/css";
 import { Children, cloneElement } from "react";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import type { FlexProps } from "../Flex";
 import { Flex } from "../Flex";
@@ -11,6 +10,10 @@ import * as styles from "./styles";
 
 export type AlertActionsProps = FlexProps;
 
+type ObjProps = {
+  id: string;
+};
+
 const BUTTON_COLORS = {
   info: "blue",
   warning: "amber",
@@ -18,7 +21,7 @@ const BUTTON_COLORS = {
   error: "red",
 };
 
-export const AlertActions = createComponent<AlertActionsProps>(
+export const AlertActions = createComponent<AlertActionsProps, ObjProps>(
   ({ children, className, ...props }) => {
     const classes = cx("fuel_alert--actions", className, styles.actions());
     const customProps = { ...props, className: classes };
@@ -40,8 +43,6 @@ export const AlertActions = createComponent<AlertActionsProps>(
       </Flex>
     );
   }
-) as CreateComponent<AlertActionsProps> & {
-  id: string;
-};
+);
 
 AlertActions.id = "AlertActions";

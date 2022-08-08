@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { cx, styled } from "@fuel-ui/css";
 import { createElement } from "react";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 
 import { useInputProps } from "./Input";
@@ -18,27 +16,27 @@ const InputAddon = createComponent(({ className, children, ...props }) => {
 });
 
 type OmitProps = "left" | "right";
-type InputAddonComponent = CreateComponent<any> & {
+type ObjProps = {
   id?: string;
 };
 
-export const InputAddonLeft = createComponent<any, OmitProps>(
+export const InputAddonLeft = createComponent<unknown, ObjProps, OmitProps>(
   ({ className, ...props }) => (
     <InputAddon
       {...props}
       className={cx("fuel_input-addon--left", className)}
     />
   )
-) as InputAddonComponent;
+);
 
-export const InputAddonRight = createComponent<any, OmitProps>(
+export const InputAddonRight = createComponent<unknown, ObjProps, OmitProps>(
   ({ className, ...props }) => (
     <InputAddon
       {...props}
       className={cx("fuel_input-addon--right", className)}
     />
   )
-) as InputAddonComponent;
+);
 
 InputAddonLeft.id = "InputAddon";
 InputAddonRight.id = "InputAddon";

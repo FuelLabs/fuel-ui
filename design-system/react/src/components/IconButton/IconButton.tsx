@@ -9,31 +9,19 @@ import { Tooltip } from "../Tooltip";
 
 type OmitProps = "leftIcon" | "rightIcon" | "justIcon";
 export type IconButtonProps = Omit<ButtonProps, OmitProps> & {
-  size?: "xs" | "sm" | "md";
   "aria-label": string;
+  size?: "xs" | "sm" | "md";
   icon: IconProps["icon"];
   tooltip?: ReactNode;
 };
 
-export const IconButton = createComponent<IconButtonProps, OmitProps>(
+export const IconButton = createComponent<IconButtonProps, unknown, OmitProps>(
   ({ icon, tooltip, className, ...props }) => {
     const classes = cx("fuel_icon-buton", className);
     const content = (
-      <Button
-        {...props}
-        justIcon
-        className={classes}
-        leftIcon={icon}
-        {...(tooltip && {
-          onClick: props.onClick || props.onPress,
-          onPress: null,
-        })}
-      />
+      <Button {...props} justIcon className={classes} leftIcon={icon} />
     );
 
-    if (tooltip) {
-      return <Tooltip content={tooltip}>{content}</Tooltip>;
-    }
-    return content;
+    return tooltip ? <Tooltip content={tooltip}>{content}</Tooltip> : content;
   }
 );
