@@ -1,23 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type {
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  ReactElement,
-  RefAttributes,
-} from "react";
+import type { ReactElement, RefAttributes } from "react";
 import { forwardRef } from "react";
 
 import type { PropsWithAs } from "./types";
 
-type Render<P, OP = any> = (
-  props: PropsWithoutRef<PropsWithAs<OP extends string ? Omit<P, OP> : P>> &
-    RefAttributes<any>
-) => ReactElement;
-
-export type CreateComponent<P, OP = any> = ForwardRefExoticComponent<
-  PropsWithoutRef<PropsWithAs<OP extends string ? Omit<P, OP> : P>> &
-    RefAttributes<any>
->;
+type Render<P, HT = any> = (props: P & RefAttributes<HT>) => ReactElement;
 
 /**
  * Creates a type-safe component with the `as`, css prop and `React.forwardRef`
@@ -38,11 +25,16 @@ export type CreateComponent<P, OP = any> = ForwardRefExoticComponent<
  */
 
 export function createComponent<
-  P,
-  OP = unknown,
-  Props = PropsWithAs<OP extends string ? Omit<P, OP> : P>
->(render: Render<P, OP>) {
-  return forwardRef<any, Props>((props, ref) =>
-    render({ ref, ...props } as any)
+  Props,
+  CustomObjProps = unknown,
+  PropsToOmit = unknown,
+  HTMLElement = any,
+  FinalProps = PropsWithAs<
+    PropsToOmit extends string ? Omit<Props, PropsToOmit> : Props
+  >
+>(render: Render<FinalProps, HTMLElement>) {
+  const Component = forwardRef<HTMLElement, FinalProps>((props, ref) =>
+    render({ ref, ...props })
   );
+  return Component as typeof Component & CustomObjProps;
 }

@@ -1,11 +1,14 @@
 import { cx } from "@fuel-ui/css";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import type { ButtonProps } from "../Button";
 import { Button } from "../Button";
 
-export const AlertButton = createComponent<ButtonProps>(
+type ObjProps = {
+  id: string;
+};
+
+export const AlertButton = createComponent<ButtonProps, ObjProps>(
   ({ children, className, ...props }) => {
     const classes = cx("fuel_alert--button", className);
     const customProps = { ...props, className: classes };
@@ -15,8 +18,6 @@ export const AlertButton = createComponent<ButtonProps>(
       </Button>
     );
   }
-) as CreateComponent<ButtonProps> & {
-  id: string;
-};
+);
 
 AlertButton.id = "AlertButton";

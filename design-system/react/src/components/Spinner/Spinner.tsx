@@ -12,7 +12,7 @@ export type SpinnerProps = {
 
 const Root = styled("svg");
 
-export const Spinner = createComponent<SpinnerProps, OmitProps>(
+export const Spinner = createComponent<SpinnerProps, unknown, OmitProps>(
   ({ size = 24, color = "accent9", className, ...props }) => {
     const styles = useMemo(() => getStyles(size, color), [size]);
     const classes = cx("fuel_spinner", className, styles());

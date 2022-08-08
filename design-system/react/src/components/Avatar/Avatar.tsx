@@ -15,7 +15,7 @@ export type AvatarProps = RAvatar.AvatarImageProps & {
 
 const Root = styled(RAvatar.Root);
 
-export const Avatar = createComponent<AvatarProps, OmitProps>(
+export const Avatar = createComponent<AvatarProps, unknown, OmitProps>(
   ({ name, size, className, css, as, ...props }) => {
     const classes = cx("fuel_avatar", className, styles.avatar({ size }));
     const wrapperProps = { as, css, className: classes };

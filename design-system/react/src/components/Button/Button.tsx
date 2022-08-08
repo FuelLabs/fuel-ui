@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 import { useMemo, createElement, useRef, cloneElement } from "react";
 
 import { createComponent } from "../../utils";
-import type { CreateComponent, HTMLProps } from "../../utils";
+import type { HTMLProps } from "../../utils";
 import { omit } from "../../utils/helpers";
 import type { IconProps } from "../Icon";
 import { Icon } from "../Icon";
@@ -89,6 +89,10 @@ export type ButtonProps = Omit<HTMLProps["button"], "onClick"> &
     onClick?: HTMLProps["button"]["onClick"];
   };
 
+type ObjProps = {
+  id: string;
+};
+
 export const SPINNER_SIZE = {
   xs: 12,
   sm: 14,
@@ -98,7 +102,7 @@ export const SPINNER_SIZE = {
 
 const Root = styled("button");
 
-export const Button = createComponent<ButtonProps>(
+export const Button = createComponent<ButtonProps, ObjProps>(
   ({
     as = "button",
     css: customCSS,
@@ -168,8 +172,6 @@ export const Button = createComponent<ButtonProps>(
       })
     );
   }
-) as CreateComponent<ButtonProps> & {
-  id: string;
-};
+);
 
 Button.id = "Button";

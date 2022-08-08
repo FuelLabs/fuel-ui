@@ -2,7 +2,6 @@ import { cx, styled } from "@fuel-ui/css";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { createElement } from "react";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import { useFormControlProps } from "../Form/FormControl";
 import { Icon } from "../Icon";
@@ -15,8 +14,12 @@ export type CheckboxProps = CheckboxPrimitive.CheckboxProps & {
   isReadOnly?: boolean;
 };
 
+type ObjProps = {
+  id: string;
+};
+
 const Root = styled(CheckboxPrimitive.Root);
-export const Checkbox = createComponent<CheckboxProps, OmitProps>(
+export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
   ({ isDisabled, isReadOnly, className, ...props }) => {
     const formControlProps = useFormControlProps();
     const disabled =
@@ -46,8 +49,6 @@ export const Checkbox = createComponent<CheckboxProps, OmitProps>(
       </CheckboxPrimitive.CheckboxIndicator>
     );
   }
-) as CreateComponent<CheckboxProps, OmitProps> & {
-  id: string;
-};
+);
 
 Checkbox.id = "Checkbox";

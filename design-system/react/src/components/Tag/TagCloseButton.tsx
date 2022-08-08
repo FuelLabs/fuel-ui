@@ -1,13 +1,16 @@
 import { cx } from "@fuel-ui/css";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import type { IconButtonProps } from "../IconButton";
 import { IconButton } from "../IconButton";
 
 export type TagCloseButtonsProp = Omit<IconButtonProps, "icon" | "aria-label">;
 
-export const TagCloseButton = createComponent<TagCloseButtonsProp>(
+type ObjProps = {
+  id: string;
+};
+
+export const TagCloseButton = createComponent<TagCloseButtonsProp, ObjProps>(
   ({ className, ...props }) => {
     const classes = cx("fuel_tag--close-btn", className);
     return (
@@ -20,8 +23,6 @@ export const TagCloseButton = createComponent<TagCloseButtonsProp>(
       />
     );
   }
-) as CreateComponent<TagCloseButtonsProp> & {
-  id: string;
-};
+);
 
 TagCloseButton.id = "TagCloseButton";

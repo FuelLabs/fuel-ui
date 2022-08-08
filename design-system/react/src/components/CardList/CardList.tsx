@@ -3,7 +3,6 @@ import { createContext, useContext } from "react";
 
 import type { StackProps } from "..";
 import { Focus, Stack } from "..";
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 
 import { CardListItem } from "./CardListItem";
@@ -22,7 +21,12 @@ export type CardListProps = StackProps & {
   isClickable?: boolean;
 };
 
-export const CardList = createComponent<CardListProps>(
+type ObjProps = {
+  id: string;
+  Item: typeof CardListItem;
+};
+
+export const CardList = createComponent<CardListProps, ObjProps>(
   ({ children, className, isClickable, ...props }) => {
     const classes = cx("fuel_card-list", className);
     const content = (
@@ -42,9 +46,6 @@ export const CardList = createComponent<CardListProps>(
       </ctx.Provider>
     );
   }
-) as CreateComponent<CardListProps> & {
-  id: string;
-  Item: typeof CardListItem;
-};
+);
 
 CardList.Item = CardListItem;

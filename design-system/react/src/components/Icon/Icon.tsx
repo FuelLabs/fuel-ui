@@ -6,7 +6,6 @@ import type { ReactElement, ReactNode } from "react";
 import { cloneElement } from "react";
 
 import { useConstant } from "../../hooks";
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import { omit } from "../../utils/helpers";
 import type { FlexProps } from "../Flex";
@@ -25,7 +24,13 @@ export type IconProps = FlexProps &
     label?: string;
   };
 
-export const Icon = createComponent<IconProps, OmitProps>(
+type ObjProps = {
+  is: (icon: Icons) => Icons;
+  iconList: Icons[];
+  id: string;
+};
+
+export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
   ({
     label: initialLabel,
     inline,
@@ -79,11 +84,7 @@ export const Icon = createComponent<IconProps, OmitProps>(
       </Flex>
     );
   }
-) as CreateComponent<IconProps, OmitProps> & {
-  is: (icon: Icons) => Icons;
-  iconList: Icons[];
-  id: string;
-};
+);
 
 const iconList = Object.keys(
   omit(["Icon", "IconProps", "IconWeight", "IconContext"], PhosphorIcons)

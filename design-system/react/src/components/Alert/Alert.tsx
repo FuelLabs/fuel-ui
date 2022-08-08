@@ -2,7 +2,6 @@
 import { cx } from "@fuel-ui/css";
 import { Children, cloneElement, createContext, useContext } from "react";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import type { BoxProps } from "../Box";
 import { Box } from "../Box";
@@ -31,6 +30,14 @@ export type AlertProps = BoxProps & {
   status?: AlertStatus;
 };
 
+type ObjProps = {
+  id: string;
+  Title: typeof AlertTitle;
+  Description: typeof AlertDescription;
+  Actions: typeof AlertActions;
+  Button: typeof AlertButton;
+};
+
 type IconProps = {
   icon: Icons;
 };
@@ -42,7 +49,7 @@ const STATUS_ICONS: Record<string, IconProps> = {
   error: { icon: "XCircle" },
 };
 
-export const Alert = createComponent<AlertProps>(
+export const Alert = createComponent<AlertProps, ObjProps>(
   ({
     direction = "column",
     status = "info",
@@ -79,13 +86,7 @@ export const Alert = createComponent<AlertProps>(
       </ctx.Provider>
     );
   }
-) as CreateComponent<AlertProps> & {
-  id: string;
-  Title: typeof AlertTitle;
-  Description: typeof AlertDescription;
-  Actions: typeof AlertActions;
-  Button: typeof AlertButton;
-};
+);
 
 Alert.id = "Alert";
 Alert.Title = AlertTitle;

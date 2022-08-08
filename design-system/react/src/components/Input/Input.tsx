@@ -1,7 +1,6 @@
 import { cx, styled } from "@fuel-ui/css";
 import { createElement, createContext, useContext } from "react";
 
-import type { CreateComponent } from "../../utils";
 import { createComponent } from "../../utils";
 import { useFormControlProps } from "../Form/FormControl";
 
@@ -21,6 +20,15 @@ export type InputProps = {
   describedBy?: string;
 };
 
+type ObjProps = {
+  id: string;
+  AddonLeft: typeof InputAddonLeft;
+  AddonRight: typeof InputAddonRight;
+  ElementLeft: typeof InputElementLeft;
+  ElementRight: typeof InputElementRight;
+  Field: typeof InputField;
+};
+
 const ctx = createContext<InputProps>({});
 export function useInputProps() {
   return useContext(ctx);
@@ -28,7 +36,7 @@ export function useInputProps() {
 
 const Root = styled("div");
 
-export const Input = createComponent<InputProps>(
+export const Input = createComponent<InputProps, ObjProps>(
   ({
     size = "md",
     isRequired,
@@ -81,14 +89,7 @@ export const Input = createComponent<InputProps>(
       </ctx.Provider>
     );
   }
-) as CreateComponent<InputProps> & {
-  id: string;
-  AddonLeft: typeof InputAddonLeft;
-  AddonRight: typeof InputAddonRight;
-  ElementLeft: typeof InputElementLeft;
-  ElementRight: typeof InputElementRight;
-  Field: typeof InputField;
-};
+);
 
 Input.id = "Input";
 Input.AddonLeft = InputAddonLeft;

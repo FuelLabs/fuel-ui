@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { Children } from "react";
 
 import { createComponent } from "../../utils";
-import type { HTMLProps, CreateComponent } from "../../utils";
+import type { HTMLProps } from "../../utils";
 import { Box } from "../Box";
 import type { ButtonBaseProps } from "../Button";
 import { SPINNER_SIZE, createIcon } from "../Button";
@@ -60,7 +60,11 @@ export type TagProps = HTMLProps["div"] &
     variant?: TagVariants;
   };
 
-export const Tag = createComponent<TagProps>(
+type ObjProps = {
+  CloseButton: typeof TagCloseButton;
+};
+
+export const Tag = createComponent<TagProps, ObjProps>(
   ({
     as = "span",
     size = "sm",
@@ -107,8 +111,6 @@ export const Tag = createComponent<TagProps>(
       </Box>
     );
   }
-) as CreateComponent<TagProps> & {
-  CloseButton: typeof TagCloseButton;
-};
+);
 
 Tag.CloseButton = TagCloseButton;

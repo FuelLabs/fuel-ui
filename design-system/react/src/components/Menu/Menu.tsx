@@ -11,7 +11,7 @@ import type { ItemProps } from "@react-types/shared";
 import type { FC, Key } from "react";
 import { createElement, useRef } from "react";
 
-import type { CreateComponent, HTMLProps } from "../../utils";
+import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
 import { omit } from "../../utils/helpers";
 import type { ButtonProps } from "../Button";
@@ -25,9 +25,19 @@ export type MenuProps = HTMLProps["ul"] &
     autoFocus?: boolean;
   };
 
+type ObjProps = {
+  Item: FC<
+    ItemProps<any> & {
+      onPress?: ButtonProps["onPress"];
+      className?: string;
+      css?: ThemeUtilsCSS;
+    }
+  >;
+};
+
 const Root = styled("ul");
 
-export const Menu = createComponent<MenuProps>(
+export const Menu = createComponent<MenuProps, ObjProps>(
   ({ className, onAction, autoFocus, selectionMode = "none", ...props }) => {
     const ref = useRef<HTMLUListElement | null>(null);
     const state = useTreeState({ ...props, selectionMode });
@@ -57,14 +67,6 @@ export const Menu = createComponent<MenuProps>(
 
     return <FocusScope autoFocus={autoFocus}>{element}</FocusScope>;
   }
-) as CreateComponent<MenuProps> & {
-  Item: FC<
-    ItemProps<any> & {
-      onPress?: ButtonProps["onPress"];
-      className?: string;
-      css?: ThemeUtilsCSS;
-    }
-  >;
-};
+);
 
 Menu.Item = Item;

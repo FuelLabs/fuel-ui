@@ -11,7 +11,7 @@ export default {
 
 export const Usage = (args: AccordionProps) => (
   <Box css={{ maxW: "$lg" }}>
-    <Accordion {...args} type="single" defaultValue="item-1" collapsible>
+    <Accordion {...args} type="single" defaultValue="item-1">
       <Accordion.Item value="item-1">
         <Accordion.Trigger>What&apos;s Fuel?</Accordion.Trigger>
         <Accordion.Content>
