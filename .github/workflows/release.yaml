@@ -50,6 +50,14 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Bump and Collect Version
+        run: |
+          pnpm changeset version
+          echo "BUILD_VERSION=$(sed -nE 's/^\s*"version": "(.*?)",$/\1/p' design-system/react/package.json)" >> $GITHUB_ENV
+          git reset --hard
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Ensure NPM access
         run: npm whoami
         env:
@@ -71,6 +79,8 @@ jobs:
           commit: "ci(changesets): versioning packages"
           title: "ci(changesets): versioning packages"
           createGithubReleases: aggregate
+          githubReleaseName: v${{ env.BUILD_VERSION }}
+          githubTagName: v${{ env.BUILD_VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

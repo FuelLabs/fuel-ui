@@ -40,6 +40,9 @@ const templateSeeRef = (links) => {
 };
 
 const changelogFunctions = {
+  getDependencyReleaseLine: async () => {
+    return '';
+  },
   getReleaseLine: async (changeset, type) => {
     let pull, commit, user;
 
