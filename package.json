@@ -26,7 +26,7 @@
     "build:storybook": "pnpm --filter=\"@fuel-ui/react\" -r build:storybook",
     "build:watch": "pnpm -r --filter './design-system/*' --parallel build --watch",
     "changeset": "changeset",
-    "changeset:release": "changeset publish",
+    "changeset:release": "changeset publish --no-git-tag",
     "changeset:version": "changeset version",
     "changeset:check": "changeset status --since=master",
     "dev": "turbo run dev --parallel",

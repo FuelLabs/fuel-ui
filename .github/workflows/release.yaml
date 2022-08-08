@@ -65,11 +65,12 @@ jobs:
 
       - name: Create Release Pull Request or Publish to NPM
         id: changesets
-        uses: changesets/action@v1
+        uses: FuelLabs/changesets-action@main
         with:
           publish: pnpm changeset:release
           commit: "ci(changesets): versioning packages"
           title: "ci(changesets): versioning packages"
+          createGithubReleases: aggregate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
