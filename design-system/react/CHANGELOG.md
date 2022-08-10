@@ -1,11 +1,22 @@
 # @fuel-ui/react
 
+## 0.4.0
+
+### Minor Changes
+
+- ✨ Feat: add new `<Input.Number>` component that uses `react-number-format` under the hood to create a full numeric type input (all `react-number-format` props are allowed on this component)
+  ````jsx
+  <Input>
+    <Input.Number name="amount" placeholder="0.0" inputMode="decimal" />
+  </Input>
+  ````
+
 ## 0.3.0
 
 ### Minor Changes
 
 - ✨ Feat: add new `<CardList>` component, basically a list of cards that can be clickable and have right elements as actions.
-  ````jsx
+  ```jsx
   <CardList {...args} css={{ maxW: "$md" }}>
     <CardList.Item isActive>
       <Avatar
@@ -19,7 +30,7 @@
       </Heading>
     </CardList.Item>
   </CardList>
-  ````
+  ```
 
 ### Patch Changes
 
