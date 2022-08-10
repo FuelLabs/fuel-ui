@@ -15,7 +15,7 @@ import * as styles from "./styles";
 
 type HTMLInputProps = HTMLProps["input"];
 type OmitProps = "as" | "children";
-export type InputAmountProps = Omit<HTMLInputProps, "size"> &
+export type InputNumberProps = Omit<HTMLInputProps, "size"> &
   NumberFormatPropsBase<Omit<InputFieldProps, "onBlur">> & {
     htmlSize?: HTMLInputProps["size"];
   };
@@ -26,8 +26,8 @@ type ObjProps = {
 
 const Root = styled(NumberFormat, {});
 
-export const InputAmount = createComponent<
-  InputAmountProps,
+export const InputNumber = createComponent<
+  InputNumberProps,
   ObjProps,
   OmitProps
 >(({ name: nameProp, htmlSize, role = "textbox", className, ...props }) => {
@@ -83,4 +83,4 @@ export const InputAmount = createComponent<
   );
 });
 
-InputAmount.id = "InputAmount";
+InputNumber.id = "InputNumber";

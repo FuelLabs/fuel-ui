@@ -80,7 +80,7 @@ describe("Input", () => {
   it("should render input amount correctly", () => {
     render(
       <Input>
-        <Input.Amount placeholder="0.0" />
+        <Input.Number placeholder="0.0" />
       </Input>
     );
     expect(screen.getByRole("textbox")).toHaveAttribute("inputmode", "numeric");

@@ -33,11 +33,11 @@ export const Sizes = (args: InputProps) => (
   </Stack>
 );
 
-export const TypeAmount = (_args: InputProps) => {
+export const TypeNumber = (_args: InputProps) => {
   return (
     <Stack css={{ maxW: "350px" }} gap="$3">
       <Input>
-        <Input.Amount name="amount" placeholder="0.0" inputMode="decimal" />
+        <Input.Number name="amount" placeholder="0.0" inputMode="decimal" />
       </Input>
     </Stack>
   );
