@@ -5,6 +5,7 @@ import { createComponent } from "../../utils";
 import { useFormControlProps } from "../Form/FormControl";
 
 import { InputAddonLeft, InputAddonRight } from "./InputAddon";
+import { InputAmount } from "./InputAmount";
 import { InputElementLeft, InputElementRight } from "./InputElement";
 import { InputField } from "./InputField";
 import * as styles from "./styles";
@@ -27,6 +28,7 @@ type ObjProps = {
   ElementLeft: typeof InputElementLeft;
   ElementRight: typeof InputElementRight;
   Field: typeof InputField;
+  Amount: typeof InputAmount;
 };
 
 const ctx = createContext<InputProps>({});
@@ -97,3 +99,4 @@ Input.AddonRight = InputAddonRight;
 Input.ElementLeft = InputElementLeft;
 Input.ElementRight = InputElementRight;
 Input.Field = InputField;
+Input.Amount = InputAmount;
