@@ -77,6 +77,15 @@ describe("Input", () => {
     );
   });
 
+  it("should render input amount correctly", () => {
+    render(
+      <Input>
+        <Input.Number placeholder="0.0" />
+      </Input>
+    );
+    expect(screen.getByRole("textbox")).toHaveAttribute("inputmode", "numeric");
+  });
+
   it("should render elements using element prop", async () => {
     render(
       <Input isDisabled>

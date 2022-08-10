@@ -20,9 +20,9 @@
   },
   "scripts": {
     "add:component": "node ./scripts/generateComponent",
-    "build:storybook": "pnpm test && build-storybook -s ./public",
+    "build:storybook": "pnpm test && build-storybook",
     "build": "tsup --dts",
-    "dev": "start-storybook -p 6006 -s ./public",
+    "dev": "start-storybook -p 6006",
     "test": "jest --verbose --json --outputFile=.jest-test-results.json"
   },
   "dependencies": {
@@ -54,6 +54,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.3.0",
+    "react-number-format": "^4.9.3",
     "react-use": "^17.4.0",
     "xstate": "^4.33.0"
   },

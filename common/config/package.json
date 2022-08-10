@@ -3,13 +3,13 @@
   "version": "0.3.0",
   "license": "Apache-2.0",
   "main": "./index.js",
-  "files": [
-    "./index.js",
-    "./react-imports.js",
-    "./tsup.js"
-  ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "files": [
+      "./index.js",
+      "./react-imports.js",
+      "./tsup.js"
+    ]
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.33.0",
