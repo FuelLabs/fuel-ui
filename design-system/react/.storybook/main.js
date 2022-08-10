@@ -12,6 +12,7 @@ module.exports = {
     'storybook-dark-mode',
   ],
   framework: '@storybook/react',
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     config.resolve.plugins = [new TsconfigPathsPlugin()];
     return config;
