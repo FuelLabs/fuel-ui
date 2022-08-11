@@ -261,9 +261,9 @@ We are using Radix as base components extensively here:
 
 > Radix Primitives is a low-level UI component library with a focus on accessibility, customization and developer experience. You can use their components either as the base layer of your design system, or adopt them incrementally. We're
 
-#### → [Radix Icons](https://icons.modulz.app/)
+#### → [Phosphor Icons](https://phosphoricons.com/)
 
-As icon set, we're using Radix Icons here. Radix Icons is crisp set of 15×15 icons designed by the Modulz team.
+As icon set, we're using Phosphor Icons here. Phosphor Icons is a flexible icon family for interfaces, diagrams, presentations — whatever, really.
 
 #### → [Radix Colors](https://www.radix-ui.com/colors)
 
