@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { cx, styled } from "@fuel-ui/css";
-import { FocusScope, useFocusManager } from "@react-aria/focus";
 import type { KeyboardEvent, ReactNode } from "react";
 import { createElement, Children, cloneElement } from "react";
+import { FocusScope, useFocusManager } from "react-aria";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";

@@ -1,8 +1,7 @@
 import { cx, styled } from "@fuel-ui/css";
-import { FocusScope, useFocusManager } from "@react-aria/focus";
-import { mergeProps } from "@react-aria/utils";
 import type { ReactNode, KeyboardEvent } from "react";
 import { createElement, Children, cloneElement } from "react";
+import { mergeProps, FocusScope, useFocusManager } from "react-aria";
 
 import { createComponent } from "../../utils";
 import { pick } from "../../utils/helpers";

@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ColorKeys } from "@fuel-ui/css";
 import { styled, css, cx } from "@fuel-ui/css";
-import { useButton } from "@react-aria/button";
-import { mergeProps, mergeRefs } from "@react-aria/utils";
-import type { AriaButtonProps } from "@react-types/button";
+import { mergeRefs } from "@react-aria/utils";
 import type { ReactNode } from "react";
 import { useMemo, createElement, useRef, cloneElement } from "react";
+import type { AriaButtonProps } from "react-aria";
+import { mergeProps, useButton } from "react-aria";
 
 import { createComponent } from "../../utils";
 import type { HTMLProps } from "../../utils";
