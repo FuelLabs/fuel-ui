@@ -85,6 +85,7 @@ export type ButtonProps = Omit<HTMLProps["button"], "onClick"> &
     isLink?: boolean;
     /**
      * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
+     * You're able to use just one or another, don't use onClick and onPress together
      */
     onClick?: HTMLProps["button"]["onClick"];
   };
@@ -145,7 +146,18 @@ export const Button = createComponent<ButtonProps, ObjProps>(
 
     const innerRef = useRef<HTMLButtonElement | null>(null);
     const { buttonProps, isPressed } = useButton(
-      { ...props, isDisabled, ...(isLink && { elementType: "a" }) },
+      {
+        ...props,
+        isDisabled,
+        ...(isLink && { elementType: "a" }),
+        /**
+         * Need this because of triggers components on Radix uses asChild props
+         * to pass handlers directly with onClick instead of onPress
+         */
+        ...(typeof props.onClick !== "undefined" && {
+          onPress: props.onClick as any,
+        }),
+      },
       innerRef
     );
 
