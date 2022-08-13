@@ -23,7 +23,9 @@
     "build:storybook": "pnpm test && build-storybook",
     "build": "tsup --dts",
     "dev": "start-storybook -p 6006",
-    "test": "jest --verbose --json --outputFile=.jest-test-results.json"
+    "test": "jest --verbose --json --outputFile=.jest-test-results.json",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@fuel-ui/css": "workspace:*",
@@ -56,7 +58,7 @@
     "react-hot-toast": "^2.3.0",
     "react-number-format": "^4.9.3",
     "react-use": "^17.4.0",
-    "xstate": "^4.33.0"
+    "xstate": "^4.33.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -71,8 +73,10 @@
     "@storybook/addon-storysource": "^6.5.10",
     "@storybook/addons": "^6.5.10",
     "@storybook/api": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
     "@storybook/components": "^6.5.10",
     "@storybook/core-events": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/theming": "^6.5.10",
@@ -86,7 +90,19 @@
     "storybook-dark-mode": "^1.1.0",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "typescript": "^4.7.4",
-    "webpack": "^5.74.0",
+    "webpack": "5",
     "yargs": "^17.5.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "webpack": "^5.0.0",
+      "css-loader": "^5.0.0",
+      "dotenv-webpack": "^6.0.0",
+      "html-webpack-plugin": "^5.0.0",
+      "style-loader": "^2.0.0",
+      "terser-webpack-plugin": "^5.0.0",
+      "webpack-dev-middleware": "^4.1.0",
+      "webpack-virtual-modules": "^0.4.2"
+    }
   }
 }
