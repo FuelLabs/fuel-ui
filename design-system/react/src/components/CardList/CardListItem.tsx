@@ -18,13 +18,9 @@ export const CardListItem = createComponent<CardListProps>(
       className,
       styles.root({ isActive, isClickable })
     );
+
     return (
-      <Card
-        direction={"row"}
-        {...(isClickable && { tabIndex: 0 })}
-        {...props}
-        className={classes}
-      >
+      <Card direction={"row"} {...props} className={classes}>
         <Flex align="center" gap="$3" css={{ flex: 1 }}>
           {children}
         </Flex>
