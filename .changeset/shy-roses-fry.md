@@ -2,4 +2,4 @@
 "@fuel-ui/react": patch
 ---
 
-Fix: usage of Focus.ArrowNavigator
+Fix: remove usage of `asChild` on `<Focus.ArrowNavigator>`
