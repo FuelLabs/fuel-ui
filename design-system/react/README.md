@@ -186,7 +186,7 @@ $ pnpm add:component --name NameOfYourComponent
 
 ### ✅&nbsp; Testing Components
 
-It's extremelly important that all components that has custom behaviors and settings are testes. So, we have `@fuel-ui/test-utils` package that will help you to test using React Testing Library with some cools patches and modifications for accessibility tests as well (this package is a copy of ChakraUI [test utils](https://github.com/chakra-ui/chakra-ui/blob/next/tooling/test-utils) package).
+It's extremelly important that all components that has custom behaviors and settings are tested. So, we have `@fuel-ui/test-utils` package that will help you to test using React Testing Library with some cool patches and modifications for accessibility tests as well (this package is a copy of ChakraUI [test utils](https://github.com/chakra-ui/chakra-ui/blob/next/tooling/test-utils) package).
 
 A base test of some component always include `a11y` test as first case:
 
