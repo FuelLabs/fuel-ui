@@ -23,7 +23,9 @@
     "build:storybook": "pnpm test && build-storybook",
     "build": "tsup --dts",
     "dev": "start-storybook -p 6006",
-    "test": "jest --verbose --json --outputFile=.jest-test-results.json"
+    "test": "jest --verbose --json --outputFile=.jest-test-results.json",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@fuel-ui/css": "workspace:*",
@@ -41,22 +43,18 @@
     "@radix-ui/react-tabs": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.0.0",
     "@radix-ui/react-visually-hidden": "^1.0.0",
-    "@react-aria/button": "^3.6.0",
-    "@react-aria/focus": "^3.7.0",
-    "@react-aria/link": "^3.3.2",
-    "@react-aria/menu": "^3.6.0",
     "@react-aria/utils": "^3.13.2",
-    "@react-stately/collections": "^3.4.2",
-    "@react-stately/tree": "^3.3.2",
     "@stitches/react": "^1.2.8",
     "@xstate/react": "^3.0.1",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
+    "react-aria": "^3.18.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.3.0",
     "react-number-format": "^4.9.3",
+    "react-stately": "^3.16.0",
     "react-use": "^17.4.0",
-    "xstate": "^4.33.0"
+    "xstate": "^4.33.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
@@ -71,8 +69,10 @@
     "@storybook/addon-storysource": "^6.5.10",
     "@storybook/addons": "^6.5.10",
     "@storybook/api": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
     "@storybook/components": "^6.5.10",
     "@storybook/core-events": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/theming": "^6.5.10",
@@ -86,7 +86,19 @@
     "storybook-dark-mode": "^1.1.0",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "typescript": "^4.7.4",
-    "webpack": "^5.74.0",
+    "webpack": "5",
     "yargs": "^17.5.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "webpack": "^5.0.0",
+      "css-loader": "^5.0.0",
+      "dotenv-webpack": "^6.0.0",
+      "html-webpack-plugin": "^5.0.0",
+      "style-loader": "^2.0.0",
+      "terser-webpack-plugin": "^5.0.0",
+      "webpack-dev-middleware": "^4.1.0",
+      "webpack-virtual-modules": "^0.4.2"
+    }
   }
 }

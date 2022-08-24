@@ -68,9 +68,9 @@ export const lightColors = {
   borderHover: '$gray7',
 
   inputBg: '$gray1',
-  inputAddonBg: '$gray5',
+  inputColor: '$gray11',
   inputBorder: '$gray6',
-  inputOutline: '$blackA2',
+  inputPlaceholderColor: '$gray9',
 };
 
 export const darkColors = {
@@ -130,9 +130,9 @@ export const darkColors = {
   borderHover: '$gray5',
 
   inputBg: '$gray2',
-  inputAddonBg: '$gray1',
+  inputColor: '$gray12',
   inputBorder: 'transparent',
-  inputOutline: '$whiteA3',
+  inputPlaceholderColor: '$gray9',
 };
 
 export type ColorKeys =

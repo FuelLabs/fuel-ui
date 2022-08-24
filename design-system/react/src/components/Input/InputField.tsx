@@ -1,7 +1,7 @@
 import { cx, styled } from "@fuel-ui/css";
-import { useFocusable } from "@react-aria/focus";
-import { mergeProps, mergeRefs } from "@react-aria/utils";
+import { mergeRefs } from "@react-aria/utils";
 import { createElement, useRef } from "react";
+import { mergeProps, useFocusable } from "react-aria";
 
 import { createComponent } from "../../utils";
 import type { HTMLProps } from "../../utils";

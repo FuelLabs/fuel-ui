@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ColorKeys } from "@fuel-ui/css";
 import { styled, css, cx } from "@fuel-ui/css";
-import { useButton } from "@react-aria/button";
-import { mergeProps, mergeRefs } from "@react-aria/utils";
-import type { AriaButtonProps } from "@react-types/button";
+import { mergeRefs } from "@react-aria/utils";
 import type { ReactNode } from "react";
 import { useMemo, createElement, useRef, cloneElement } from "react";
+import type { AriaButtonProps } from "react-aria";
+import { mergeProps, useButton } from "react-aria";
 
 import { createComponent } from "../../utils";
 import type { HTMLProps } from "../../utils";
@@ -85,6 +85,7 @@ export type ButtonProps = Omit<HTMLProps["button"], "onClick"> &
     isLink?: boolean;
     /**
      * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
+     * You're able to use just one or another, don't use onClick and onPress together
      */
     onClick?: HTMLProps["button"]["onClick"];
   };
@@ -145,7 +146,18 @@ export const Button = createComponent<ButtonProps, ObjProps>(
 
     const innerRef = useRef<HTMLButtonElement | null>(null);
     const { buttonProps, isPressed } = useButton(
-      { ...props, isDisabled, ...(isLink && { elementType: "a" }) },
+      {
+        ...props,
+        isDisabled,
+        ...(isLink && { elementType: "a" }),
+        /**
+         * Need this because of triggers components on Radix uses asChild props
+         * to pass handlers directly with onClick instead of onPress
+         */
+        ...(typeof props.onClick !== "undefined" && {
+          onPress: props.onClick as any,
+        }),
+      },
       innerRef
     );
 

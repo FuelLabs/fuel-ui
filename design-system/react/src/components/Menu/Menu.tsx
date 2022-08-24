@@ -1,15 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ThemeUtilsCSS } from "@fuel-ui/css";
 import { cx, styled } from "@fuel-ui/css";
-import { FocusScope } from "@react-aria/focus";
-import { useMenu } from "@react-aria/menu";
-import { mergeProps, mergeRefs } from "@react-aria/utils";
-import { Item } from "@react-stately/collections";
-import type { TreeProps } from "@react-stately/tree";
-import { useTreeState } from "@react-stately/tree";
-import type { ItemProps } from "@react-types/shared";
+import { mergeRefs } from "@react-aria/utils";
 import type { FC, Key } from "react";
 import { createElement, useRef } from "react";
+import { FocusScope, mergeProps, useMenu } from "react-aria";
+import type { TreeProps, ItemProps } from "react-stately";
+import { Item, useTreeState } from "react-stately";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
@@ -27,11 +24,11 @@ export type MenuProps = HTMLProps["ul"] &
 
 type ObjProps = {
   Item: FC<
-    ItemProps<any> & {
+    ItemProps<{
       onPress?: ButtonProps["onPress"];
       className?: string;
       css?: ThemeUtilsCSS;
-    }
+    }>
   >;
 };
 
