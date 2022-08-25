@@ -4,5 +4,8 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "SimonSiefke.prettier-vscode"
   }
 }

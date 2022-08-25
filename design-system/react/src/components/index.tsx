@@ -26,6 +26,7 @@ export * from "./IconButton";
 export * from "./Image";
 export * from "./Input";
 export * from "./Link";
+export * from "./Logo";
 export * from "./Menu";
 export * from "./Popover";
 export * from "./RadioGroup";
