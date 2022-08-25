@@ -40,6 +40,7 @@ const InputElement = createComponent<InputElementProps>(
           const childProps = child?.props;
           const defaultSize = size === "sm" ? "xs" : "sm";
           return cloneElement(child, {
+            ...childProps,
             disabled,
             isDisabled: disabled,
             size: childProps.size || defaultSize,
@@ -50,6 +51,7 @@ const InputElement = createComponent<InputElementProps>(
           const childProps = child?.props;
           const defaultSize = ICON_SIZES[size || "md"];
           return cloneElement(child, {
+            ...childProps,
             size: childProps.size || defaultSize,
           });
         }

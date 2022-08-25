@@ -12,10 +12,10 @@ import { createComponent } from "../../utils";
 import * as styles from "./styles";
 
 function getRightDescribedBy(ids: string[], id: string, isInvalid?: boolean) {
-  if (isInvalid && ids.some((i) => i.includes("FormErrorMessage"))) {
+  if (isInvalid && ids.some((i) => i?.includes("FormErrorMessage"))) {
     return `feedback${id}`;
   }
-  if (ids.some((i) => i.includes("FormHelperText"))) {
+  if (ids.some((i) => i?.includes("FormHelperText"))) {
     return `helperText${id}`;
   }
   return `label${id}`;
