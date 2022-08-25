@@ -1,15 +1,30 @@
 # @fuel-ui/react
 
+## 0.5.0
+
+### Minor Changes
+
+- ✨ Feat: add `<InputPassword>` component. This component already have element configured for a input password like a button to toggle password and a lock icon on left.
+  ````jsx
+  <InputPassword name="password" placeholder="Type your password">
+  ````
+- ✨ Feat: add new `<FuelLogo>` component, by [@pedronauck](https://github.com/pedronauck) (See [#123](https://github.com/FuelLabs/fuel-ui/pull/123))
+
+### Patch Changes
+
+- 🐞 Fix: remove usage of `asChild` on `<Focus.ArrowNavigator>`, by [@pedronauck](https://github.com/pedronauck) (See [#118](https://github.com/FuelLabs/fuel-ui/pull/118))
+- 🐞 Fix: use `onClick` to fix `asChild` prop dilling on `<Button>`, by [@pedronauck](https://github.com/pedronauck) (See [#118](https://github.com/FuelLabs/fuel-ui/pull/118))
+
 ## 0.4.0
 
 ### Minor Changes
 
 - ✨ Feat: add new `<Input.Number>` component that uses `react-number-format` under the hood to create a full numeric type input (all `react-number-format` props are allowed on this component)
-  ````jsx
+  ```jsx
   <Input>
     <Input.Number name="amount" placeholder="0.0" inputMode="decimal" />
   </Input>
-  ````
+  ```
 
 ## 0.3.0
 
