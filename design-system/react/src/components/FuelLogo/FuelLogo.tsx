@@ -1,21 +1,21 @@
-import { styled } from "@fuel-ui/css";
+import { cx, styled } from "@fuel-ui/css";
 
 import { createComponent } from "../../utils";
 
-export type LogoProps = {
+export type FuelLogoProps = {
   size?: number;
 };
 
 const Svg = styled("svg");
 
-export const Logo = createComponent<LogoProps>(
+export const FuelLogo = createComponent<FuelLogoProps>(
   ({ size = 60, className, ...props }) => {
     return (
       <Svg
         {...props}
         viewBox="0 0 852 852"
         css={{ ...props.css, width: size, height: size }}
-        className={className}
+        className={cx("fuel_logo", className)}
       >
         <path
           fill="#58c09b"

@@ -2,4 +2,4 @@
 "@fuel-ui/react": minor
 ---
 
-Feat: add new `<Logo>` component
+Feat: add new `<FuelLogo>` component
