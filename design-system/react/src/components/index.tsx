@@ -25,6 +25,7 @@ export * from "./Icon";
 export * from "./IconButton";
 export * from "./Image";
 export * from "./Input";
+export * from "./InputPassword";
 export * from "./Link";
 export * from "./FuelLogo";
 export * from "./Menu";

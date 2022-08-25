@@ -3,9 +3,8 @@ import { cx, styled } from "@fuel-ui/css";
 import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import * as PhosphorIcons from "phosphor-react";
 import type { ReactElement, ReactNode } from "react";
-import { cloneElement } from "react";
+import { useMemo, cloneElement } from "react";
 
-import { useConstant } from "../../hooks";
 import { createComponent } from "../../utils";
 import { omit } from "../../utils/helpers";
 import type { FlexProps } from "../Flex";
@@ -45,7 +44,7 @@ export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
     mirrored,
     ...props
   }) => {
-    const iconElement = useConstant<ReactElement>(
+    const iconElement = useMemo<ReactElement>(
       (() => {
         if (typeof icon === "string") {
           const Component = styled(PhosphorIcons[icon]);
