@@ -54,7 +54,6 @@
     "react-hot-toast": "^2.3.0",
     "react-number-format": "^4.9.3",
     "react-stately": "^3.16.0",
-    "react-use": "^17.4.0",
     "xstate": "^4.33.1"
   },
   "devDependencies": {
