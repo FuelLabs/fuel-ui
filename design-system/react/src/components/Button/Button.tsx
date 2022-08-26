@@ -154,9 +154,10 @@ export const Button = createComponent<ButtonProps, ObjProps>(
          * Need this because of triggers components on Radix uses asChild props
          * to pass handlers directly with onClick instead of onPress
          */
-        ...(typeof props.onClick !== "undefined" && {
-          onPress: props.onClick as any,
-        }),
+        ...(typeof props.onClick !== "undefined" &&
+          typeof props.onPress === "undefined" && {
+            onPress: props.onClick as any,
+          }),
       },
       innerRef
     );
