@@ -4,6 +4,7 @@ import { createElement } from "react";
 
 import { createComponent } from "../../utils";
 
+import { AvatarGenerated } from "./AvatarGenerated";
 import * as styles from "./styles";
 
 type OmitProps = "children";
@@ -13,9 +14,13 @@ export type AvatarProps = RAvatar.AvatarImageProps & {
   size?: "sm" | "md" | "lg";
 };
 
+type ObjProps = {
+  Generated: typeof AvatarGenerated;
+};
+
 const Root = styled(RAvatar.Root);
 
-export const Avatar = createComponent<AvatarProps, unknown, OmitProps>(
+export const Avatar = createComponent<AvatarProps, ObjProps, OmitProps>(
   ({ name, size, className, css, as, ...props }) => {
     const classes = cx("fuel_avatar", className, styles.avatar({ size }));
     const wrapperProps = { as, css, className: classes };
@@ -38,3 +43,5 @@ export const Avatar = createComponent<AvatarProps, unknown, OmitProps>(
     return createElement(Root, wrapperProps, children);
   }
 );
+
+Avatar.Generated = AvatarGenerated;
