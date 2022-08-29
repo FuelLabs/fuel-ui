@@ -1,7 +1,6 @@
 import { cx, styled } from "@fuel-ui/css";
-import { useFocusable } from "@react-aria/focus";
-import { mergeProps } from "@react-aria/utils";
 import { useRef } from "react";
+import { mergeProps, useFocusable } from "react-aria";
 import type { NumberFormatPropsBase } from "react-number-format";
 import NumberFormat from "react-number-format";
 

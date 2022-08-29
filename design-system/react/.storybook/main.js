@@ -11,8 +11,11 @@ module.exports = {
     '@storybook/addon-jest',
     'storybook-dark-mode',
   ],
-  framework: '@storybook/react',
   staticDirs: ['../public'],
+  framework: '@storybook/react',
+  core: {
+    builder: '@storybook/builder-webpack5',
+  },
   webpackFinal: async (config) => {
     config.resolve.plugins = [new TsconfigPathsPlugin()];
     return config;

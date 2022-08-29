@@ -41,3 +41,12 @@ export const Fallback = (args: AvatarProps) => (
     />
   </Box>
 );
+
+export const Generated = (args: AvatarProps) => (
+  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
+    <Avatar.Generated
+      {...args}
+      hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
+    />
+  </Box>
+);

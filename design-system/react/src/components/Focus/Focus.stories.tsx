@@ -13,13 +13,13 @@ export default {
 
 export const ArrowNavigator = () => (
   <Box>
-    <Focus.ArrowNavigator asChild autoFocus>
-      <Stack gap="$3" direction="row">
+    <Stack gap="$3" direction="row" css={{ mb: "$3" }}>
+      <Focus.ArrowNavigator autoFocus>
         <Button>First</Button>
         <Button>Second</Button>
         <Button>Third</Button>
-      </Stack>
-    </Focus.ArrowNavigator>
+      </Focus.ArrowNavigator>
+    </Stack>
     <Text>Try to navigate between buttons using arrow keys</Text>
   </Box>
 );

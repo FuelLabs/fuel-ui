@@ -1,20 +1,17 @@
 import { css } from '@fuel-ui/css';
 
 const BG_COLOR = '$inputBg';
-const TEXT_COLOR = '$gray8';
+const INPUT_COLOR = '$inputColor';
 const BORDER_COLOR = '$inputBorder';
-const PLACEHOLDER_COLOR = '$gray10';
-// const OUTLINE_COLOR = '$inputOutline';
-const INPUT_COLOR = '$gray11';
-const ADDON_COLOR = '$gray9';
-const ADDON_BG_COLOR = '$inputAddonBg';
+const PLACEHOLDER_COLOR = '$inputPlaceholderColor';
+const ADDON_COLOR = '$gray7';
 
 export const input = css({
   display: 'inline-flex',
   background: BG_COLOR,
   border: `1px solid ${BORDER_COLOR}`,
   fontFamily: '$sans',
-  color: TEXT_COLOR,
+  color: ADDON_COLOR,
   boxSizing: 'content-box',
   borderRadius: '$md',
   overflow: 'hidden',
@@ -37,7 +34,7 @@ export const input = css({
         height: '$9',
 
         '& > input': {
-          px: '$3',
+          px: '$2',
           textSize: 'sm',
           height: '100%',
         },
@@ -47,7 +44,7 @@ export const input = css({
         height: '$11',
 
         '& > input': {
-          px: '$4',
+          px: '$3',
           textSize: 'base',
           height: '100%',
         },
@@ -57,7 +54,7 @@ export const input = css({
         height: '$12',
 
         '& > input': {
-          px: '$4',
+          px: '$3',
           textSize: 'lg',
           height: '100%',
         },
@@ -116,13 +113,13 @@ const elementDefinitions = {
   variants: {
     size: {
       sm: {
-        px: '$3',
+        px: '$2',
       },
       md: {
-        px: '$4',
+        px: '$3',
       },
       lg: {
-        px: '$4',
+        px: '$3',
       },
     },
   },
@@ -143,16 +140,19 @@ export const element = css({
     pl: 0,
   },
 });
+
 export const addon = css({
   ...elementDefinitions,
-  background: ADDON_BG_COLOR,
   color: ADDON_COLOR,
+  fontWeight: '$semibold',
 
   '&[class*="left"]': {
     borderRight: `1px solid ${BORDER_COLOR}`,
+    pr: '$0',
   },
 
   '&[class*="right"]': {
     borderLeft: `1px solid ${BORDER_COLOR}`,
+    pl: '$0',
   },
 });

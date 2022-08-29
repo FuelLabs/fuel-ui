@@ -9,6 +9,8 @@ import { CardListItem } from "./CardListItem";
 
 type Context = {
   isClickable?: boolean;
+  autoFocus?: boolean;
+  isFocused?: boolean;
 };
 
 const ctx = createContext<Context>({} as Context);
@@ -17,9 +19,7 @@ export function useCardListContext() {
   return useContext(ctx);
 }
 
-export type CardListProps = StackProps & {
-  isClickable?: boolean;
-};
+export type CardListProps = StackProps & Omit<Context, "isFocused">;
 
 type ObjProps = {
   id: string;
@@ -27,22 +27,20 @@ type ObjProps = {
 };
 
 export const CardList = createComponent<CardListProps, ObjProps>(
-  ({ children, className, isClickable, ...props }) => {
+  ({ children, className, isClickable, autoFocus, ...props }) => {
     const classes = cx("fuel_card-list", className);
-    const content = (
-      <Stack {...props} className={classes}>
-        {children}
-      </Stack>
-    );
+
     return (
-      <ctx.Provider value={{ isClickable }}>
-        {!isClickable ? (
-          content
-        ) : (
-          <Focus.ArrowNavigator asChild autoFocus>
-            {content}
-          </Focus.ArrowNavigator>
-        )}
+      <ctx.Provider value={{ isClickable, autoFocus }}>
+        <Stack {...props} className={classes}>
+          {isClickable ? (
+            <Focus.ArrowNavigator autoFocus={autoFocus}>
+              {children}
+            </Focus.ArrowNavigator>
+          ) : (
+            children
+          )}
+        </Stack>
       </ctx.Provider>
     );
   }

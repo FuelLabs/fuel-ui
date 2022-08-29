@@ -1,72 +1,66 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx, styled } from "@fuel-ui/css";
-import { FocusScope, useFocusManager } from "@react-aria/focus";
-import type { KeyboardEvent, ReactNode } from "react";
-import { createElement, Children, cloneElement } from "react";
+import type { KeyboardEvent, ReactElement, ReactNode } from "react";
+import { Children, cloneElement } from "react";
+import { FocusScope, mergeProps, useFocusManager } from "react-aria";
 
-import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
 
 import type { FocusScopeProps } from "./FocusScope";
 
-type GroupChildrenProps = HTMLProps["div"] & {
-  asChild?: boolean;
+type GroupChildrenProps = {
   children: ReactNode;
 };
 
-const Root = styled("div");
+const GroupChildren = createComponent<GroupChildrenProps>(({ children }) => {
+  const { onKeyDown } = useFocusNavigator();
 
-const GroupChildren = createComponent<GroupChildrenProps>(
-  ({ children, asChild, ...props }) => {
-    const { onKeyDown } = useFocusNavigator(props.onKeyDown);
-    const classes = cx("fuel_focus-arrow-navigator", props.className);
-    const customProps = { ...props, className: classes, onKeyDown };
-
-    if (!asChild) {
-      return createElement(Root, customProps, children);
-    }
-
-    if (isRightChildrenType(children)) {
-      const child = Children.only(children);
-      return cloneElement(child as any, { onKeyDown, className: classes });
-    }
-
-    throw new Error("Children type not accepted");
+  if (isRightChildrenType(children)) {
+    return (
+      <>
+        {Children.map(children as ReactElement[], (child: ReactElement, idx) =>
+          cloneElement(
+            child,
+            mergeProps(child?.props || {}, {
+              onKeyDown,
+              tabIndex: idx === 0 ? 0 : -1,
+            })
+          )
+        )}
+      </>
+    );
   }
-);
 
-export type FocusArrowNavigatorProps = FocusScopeProps &
-  HTMLProps["div"] & {
-    asChild?: boolean;
-    children: ReactNode;
-  };
+  throw new Error("Children type not accepted");
+});
+
+export type FocusArrowNavigatorProps = FocusScopeProps & {
+  children: ReactNode;
+};
 
 export const FocusArrowNavigator = createComponent<FocusArrowNavigatorProps>(
-  ({ contain, restoreFocus, autoFocus, children, ...props }) => (
-    <FocusScope {...{ contain, restoreFocus, autoFocus }}>
-      <GroupChildren {...props}>{children}</GroupChildren>
+  ({ children, ...props }) => (
+    <FocusScope {...props}>
+      <GroupChildren>{children}</GroupChildren>
     </FocusScope>
   )
 );
 
-export function useFocusNavigator(keydown: HTMLProps["div"]["onKeyDown"]) {
+export function useFocusNavigator() {
   const focusManager = useFocusManager();
 
   const onKeyDown = (e: KeyboardEvent) => {
-    keydown?.(e as any);
     // eslint-disable-next-line default-case
     switch (e.key) {
       case "ArrowRight":
-        focusManager.focusNext();
-        break;
-      case "ArrowDown":
-        focusManager.focusNext();
-        break;
-      case "ArrowLeft":
-        focusManager.focusPrevious();
+        focusManager.focusPrevious({ wrap: true });
         break;
       case "ArrowUp":
-        focusManager.focusPrevious();
+        focusManager.focusPrevious({ wrap: true });
+        break;
+      case "ArrowLeft":
+        focusManager.focusNext({ wrap: true });
+        break;
+      case "ArrowDown":
+        focusManager.focusNext({ wrap: true });
         break;
     }
   };
