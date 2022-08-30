@@ -9,19 +9,21 @@ const SIZES = {
 
 function getBackgroundColor(
   backgroundColor?: string,
-  unique?: string
+  hash?: string
 ): string | undefined {
   if (backgroundColor === "fuel") return lightColors.brand;
   if (backgroundColor !== "random") return backgroundColor;
-  if (!unique) return unique;
+  if (!hash) return hash;
 
-  const hash = [...unique].reduce(
-    (prev, _cur, i) => unique.charCodeAt(i) + ((prev << 5) - prev),
+  const numberHash = [...hash].reduce(
+    (prev, _cur, i) => hash.charCodeAt(i) + ((prev << 5) - prev),
     0
   );
   return [0, 0, 0].reduce(
     (prev, v, i) =>
-      `${prev}${`00${((hash >> (i * 8)) & 0xff).toString(16)}`.slice(-2)}`,
+      `${prev}${`00${((numberHash >> (i * 8)) & 0xff).toString(16)}`.slice(
+        -2
+      )}`,
     "#"
   );
 }
