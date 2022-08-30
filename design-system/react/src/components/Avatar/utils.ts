@@ -1,8 +1,10 @@
+import { lightColors } from '@fuel-ui/css';
+
 export const getBackgroundColor = (
   backgroundColor?: string,
   unique?: string
 ): string | undefined => {
-  if (backgroundColor === 'fuel') return '#58c09b';
+  if (backgroundColor === 'fuel') return lightColors.brand;
   if (backgroundColor !== 'random') return backgroundColor;
   if (!unique) return unique;
 
