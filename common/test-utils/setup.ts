@@ -21,4 +21,8 @@ if (typeof window.matchMedia !== 'function') {
   });
 }
 
-failOnConsole();
+failOnConsole({
+  shouldFailOnWarn: false,
+});
+
+global.ResizeObserver = require('use-resize-observer/polyfilled');
