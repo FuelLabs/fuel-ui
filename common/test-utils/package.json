@@ -5,14 +5,22 @@
   "main": "src/index.ts",
   "publishConfig": {
     "access": "public",
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
-    "typings": "./dist/index.d.ts",
+    "main": "./dist/src/index.js",
+    "module": "./dist/src/index.mjs",
+    "types": "./dist/src/index.d.ts",
+    "typings": "./dist/src/index.d.ts",
     "exports": {
       ".": {
-        "require": "./dist/index.js",
-        "default": "./dist/index.mjs"
+        "require": "./dist/src/index.js",
+        "default": "./dist/src/index.mjs"
+      },
+      "config": {
+        "require": "./dist/config.js",
+        "default": "./dist/config.mjs"
+      },
+      "setup": {
+        "require": "./dist/setup.js",
+        "default": "./dist/setup.mjs"
       }
     },
     "files": [
