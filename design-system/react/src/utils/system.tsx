@@ -1,10 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ReactElement, RefAttributes } from "react";
+import type { ReactElement } from "react";
 import { forwardRef } from "react";
 
-import type { PropsWithAs } from "./types";
+import type { As, BaseProps, Options, Props } from "./types";
 
-type Render<P, HT = any> = (props: P & RefAttributes<HT>) => ReactElement;
+export type Component<O extends Options> = {
+  <T extends As>(
+    props: Omit<O, "as"> &
+      Omit<BaseProps<Options<T>>, keyof O> &
+      Required<Options<T>>
+  ): JSX.Element | null;
+  (props: Props<O>): JSX.Element | null;
+  displayName?: string;
+};
 
 /**
  * Creates a type-safe component with the `as`, css prop and `React.forwardRef`
@@ -24,17 +32,26 @@ type Render<P, HT = any> = (props: P & RefAttributes<HT>) => ReactElement;
  * <Component as="button" customProp />
  */
 
+// export function createComponent<O extends Options>(
+//   render: (props: PropFinalProps<O>) => ReactElement
+// ) {
+//   const Role = (props: Props<O>, ref: React.Ref<any>) =>
+//     render({ ref, ...props });
+//   return forwardRef(Role) as unknown as Component<O>;
+// }
+
 export function createComponent<
-  Props,
+  O,
   CustomObjProps = unknown,
   PropsToOmit = unknown,
   HTMLElement = any,
-  FinalProps = PropsWithAs<
-    PropsToOmit extends string ? Omit<Props, PropsToOmit> : Props
-  >
->(render: Render<FinalProps, HTMLElement>) {
-  const Component = forwardRef<HTMLElement, FinalProps>((props, ref) =>
-    render({ ref, ...props })
-  );
-  return Component as typeof Component & CustomObjProps;
+  FinalProps = Props<PropsToOmit extends string ? Omit<O, PropsToOmit> : O>
+>(render: (props: Props<FinalProps>) => ReactElement) {
+  const Role = (props: Props<FinalProps>, ref: React.Ref<HTMLElement>) => {
+    return render({ ref, ...props });
+  };
+
+  return forwardRef<HTMLElement, Props<FinalProps>>(
+    Role
+  ) as unknown as Component<FinalProps> & CustomObjProps;
 }

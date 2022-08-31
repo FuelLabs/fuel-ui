@@ -16,6 +16,7 @@ export type As<P = any> = ElementType<P>;
 
 /**
  * Props with the `as` prop.
+ * @template T The `as` prop
  * @example
  * type ButtonOptions = Options<"button">;
  */
@@ -27,24 +28,26 @@ export type Options<T extends As = any> = { as?: T };
 export type Children = ReactNode;
 
 /**
- * Props that automatically includes base props based on the `as` prop.
+ * Props that automatically includes HTML props based on the `as` prop.
+ * @template O Options
  * @example
- * type ButtonBaseProps = BaseProps<Options<"button">>;
+ * type ButtonHTMLProps = BaseProps<Options<"button">>;
  */
 export type BaseProps<O extends Options> = {
-  children?: Children;
+  as?: Element;
+  css?: ThemeUtilsCSS;
   className?: string;
+  children?: Children;
+  [index: `data-${string}`]: unknown;
 } & Omit<ComponentPropsWithRef<NonNullable<O['as']>>, keyof O | 'children'>;
 
-export type Props<P> = P & BaseProps<P>;
-
 /**
- * TODO: add annotations
+ * Options & BaseProps
+ * @template O Options
+ * @example
+ * type ButtonProps = Props<Options<"button">>;
  */
-export type PropsWithAs<P = any> = Props<P> & {
-  as?: ElementType;
-  css?: ThemeUtilsCSS;
-};
+export type Props<O extends Options> = O & BaseProps<O>;
 
 /**
  * TODO: add annotations
