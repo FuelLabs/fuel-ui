@@ -1,53 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import type {
-  ComponentPropsWithRef,
-  ElementType,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
-  ReactNode,
-  RefAttributes,
-} from 'react';
+import type { ReactNode } from 'react';
 
-/**
- * The `as` prop.
- */
-export type As<P = any> = ElementType<P>;
+type Children = ReactNode;
 
-/**
- * Props with the `as` prop.
- * @template T The `as` prop
- * @example
- * type ButtonOptions = Options<"button">;
- */
-export type Options<T extends As = any> = { as?: T };
-
-/**
- * The `children` prop
- */
-export type Children = ReactNode;
-
-/**
- * Props that automatically includes HTML props based on the `as` prop.
- * @template O Options
- * @example
- * type ButtonHTMLProps = BaseProps<Options<"button">>;
- */
-export type BaseProps<O extends Options> = {
-  as?: Element;
+export type BaseProps<O> = {
+  as?: string | Element;
   css?: ThemeUtilsCSS;
   className?: string;
   children?: Children;
   [index: `data-${string}`]: unknown;
-} & Omit<ComponentPropsWithRef<NonNullable<O['as']>>, keyof O | 'children'>;
-
-/**
- * Options & BaseProps
- * @template O Options
- * @example
- * type ButtonProps = Props<Options<"button">>;
- */
-export type Props<O extends Options> = O & BaseProps<O>;
+} & O;
 
 /**
  * TODO: add annotations
@@ -170,8 +132,3 @@ export type HTMLProps = {
   wbr: React.HTMLAttributes<HTMLElement>;
   webview: React.WebViewHTMLAttributes<HTMLWebViewElement>;
 };
-
-/**
- * TODO: add annotations
- */
-export type RefComponent<P> = ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<P>>;
