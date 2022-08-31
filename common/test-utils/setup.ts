@@ -2,6 +2,7 @@ import failOnConsole from 'jest-fail-on-console';
 
 const { getComputedStyle } = window;
 window.getComputedStyle = (elt) => getComputedStyle(elt);
+global.ResizeObserver = require('resize-observer-polyfill');
 
 if (typeof window.matchMedia !== 'function') {
   Object.defineProperty(window, 'matchMedia', {
@@ -30,5 +31,3 @@ failOnConsole({
     return false;
   },
 });
-
-global.ResizeObserver = require('use-resize-observer/polyfilled');
