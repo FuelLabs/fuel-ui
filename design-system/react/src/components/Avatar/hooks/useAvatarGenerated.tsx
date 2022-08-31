@@ -20,7 +20,7 @@ function getBackgroundColor(
     0
   );
   return [0, 0, 0].reduce(
-    (prev, v, i) =>
+    (prev, _v, i) =>
       `${prev}${`00${((numberHash >> (i * 8)) & 0xff).toString(16)}`.slice(
         -2
       )}`,
