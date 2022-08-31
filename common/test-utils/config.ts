@@ -1,5 +1,4 @@
 import type { Config } from '@jest/types';
-import { resolve } from 'path';
 
 export const config: Config.InitialOptions = {
   preset: 'ts-jest/presets/default-esm',
@@ -12,7 +11,6 @@ export const config: Config.InitialOptions = {
   testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)'],
   setupFiles: ['dotenv/config'],
-  setupFilesAfterEnv: [resolve(__dirname, './setup.ts')],
   testPathIgnorePatterns: ['/lib/', '/node_modules/'],
   modulePathIgnorePatterns: ['/dist/'],
   coveragePathIgnorePatterns: ['/dist/'],

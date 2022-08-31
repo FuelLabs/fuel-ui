@@ -2,6 +2,7 @@ import failOnConsole from 'jest-fail-on-console';
 
 const { getComputedStyle } = window;
 window.getComputedStyle = (elt) => getComputedStyle(elt);
+global.ResizeObserver = require('resize-observer-polyfill');
 
 if (typeof window.matchMedia !== 'function') {
   Object.defineProperty(window, 'matchMedia', {
@@ -23,6 +24,10 @@ if (typeof window.matchMedia !== 'function') {
 
 failOnConsole({
   shouldFailOnWarn: false,
+  silenceMessage: (errorMessage) => {
+    if (/Warning: ReactDOM.render is no longer supported in React 18/i.test(errorMessage)) {
+      return true;
+    }
+    return false;
+  },
 });
-
-global.ResizeObserver = require('use-resize-observer/polyfilled');
