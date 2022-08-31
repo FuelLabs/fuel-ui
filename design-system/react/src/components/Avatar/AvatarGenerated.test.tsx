@@ -1,4 +1,3 @@
-import { lightColors } from "@fuel-ui/css";
 import type { RenderResult } from "@fuel-ui/test-utils";
 import { testA11y, render } from "@fuel-ui/test-utils";
 
