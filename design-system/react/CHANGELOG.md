@@ -1,13 +1,29 @@
 # @fuel-ui/react
 
+## 0.6.0
+
+### Minor Changes
+
+- ✨ Feat: add `<Avatar.Generated>` component. This component will generated an unique avatar svg image based in a hash value
+  ````jsx
+  <Avatar.Generated hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71" />
+  ```, by [@pedronauck](https://github.com/pedronauck) (See [#127](https://github.com/FuelLabs/fuel-ui/pull/127))
+  ````
+
+### Patch Changes
+
+- ✨ feat(AvatarGenerated): add `background` prop; apply rounded aspect, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#131](https://github.com/FuelLabs/fuel-ui/pull/131))
+- 🐞 Fix: improve typings for createComponent function, by [@pedronauck](https://github.com/pedronauck) (See [#134](https://github.com/FuelLabs/fuel-ui/pull/134))
+- 🐞 Fix: use browser native Clipboard API instead of ReactUse on `<Clipboard>` component, by [@pedronauck](https://github.com/pedronauck) (See [#126](https://github.com/FuelLabs/fuel-ui/pull/126))
+
 ## 0.5.0
 
 ### Minor Changes
 
 - ✨ Feat: add `<InputPassword>` component. This component already have element configured for a input password like a button to toggle password and a lock icon on left.
-  ````jsx
+  ```jsx
   <InputPassword name="password" placeholder="Type your password">
-  ````
+  ```
 - ✨ Feat: add new `<FuelLogo>` component, by [@pedronauck](https://github.com/pedronauck) (See [#123](https://github.com/FuelLabs/fuel-ui/pull/123))
 
 ### Patch Changes
