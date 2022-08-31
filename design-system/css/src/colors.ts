@@ -6,6 +6,7 @@ export const base = {
   inherit: 'inherit',
   current: 'currentColor',
   transparent: 'transparent',
+  brand: '#58c09b',
 
   ...radixColors.blackA,
   ...radixColors.whiteA,
