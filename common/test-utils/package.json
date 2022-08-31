@@ -14,11 +14,11 @@
         "require": "./dist/src/index.js",
         "default": "./dist/src/index.mjs"
       },
-      "config": {
+      "./config": {
         "require": "./dist/config.js",
         "default": "./dist/config.mjs"
       },
-      "setup": {
+      "./setup": {
         "require": "./dist/setup.js",
         "default": "./dist/setup.mjs"
       }

@@ -12,7 +12,7 @@ export const config: Config.InitialOptions = {
   testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)'],
   setupFiles: ['dotenv/config'],
-  setupFilesAfterEnv: [resolve(__dirname, './setup.ts')],
+  setupFilesAfterEnv: [resolve(__dirname, './setup')],
   testPathIgnorePatterns: ['/lib/', '/node_modules/'],
   modulePathIgnorePatterns: ['/dist/'],
   coveragePathIgnorePatterns: ['/dist/'],
