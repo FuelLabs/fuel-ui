@@ -147,7 +147,7 @@ export const Button = createComponent<ButtonProps, ObjProps>(
     const innerRef = useRef<HTMLButtonElement | null>(null);
     const { buttonProps, isPressed } = useButton(
       {
-        ...props,
+        ...omit(["onClick"], props),
         isDisabled,
         ...(isLink && { elementType: "a" }),
         /**

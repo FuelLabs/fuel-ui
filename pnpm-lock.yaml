@@ -124,6 +124,7 @@ importers:
       react-dom: ^18.2.0
       ts-jest: ^28.0.7
       typescript: ^4.7.4
+      use-resize-observer: ^9.0.2
     dependencies:
       '@testing-library/dom': 8.17.1
       '@testing-library/jest-dom': 5.16.5
@@ -146,6 +147,7 @@ importers:
       '@types/jest-axe': 3.5.4
       '@types/testing-library__jest-dom': 5.14.5
       typescript: 4.7.4
+      use-resize-observer: 9.0.2_biqbaboplfbrettd7655fr4n2y
 
   design-system/css:
     specifiers:
@@ -2550,6 +2552,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.0.7
       '@jridgewell/sourcemap-codec': 1.4.13
+    dev: true
+
+  /@juggle/resize-observer/3.4.0:
+    resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
     dev: true
 
   /@manypkg/find-root/1.1.0:
@@ -17527,6 +17533,22 @@ packages:
       '@types/react': 18.0.17
       react: 18.2.0
     dev: false
+
+  /use-resize-observer/9.0.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-JOzsmF3/IDmtjG7OE5qXOP69LEpBpwhpLSiT1XgSr+uFRX0ftJHQnDaP7Xq+uhbljLYkJt67sqsbnyXBjiY8ig==}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@juggle/resize-observer': 3.4.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: true
 
   /use-sidecar/1.1.2_ug65io7jkbhmo4fihdmbrh3ina:
     resolution: {integrity: sha512-epTbsLuzZ7lPClpz2TyryBfztm7m+28DlEv2ZCQ3MDr5ssiwyOwGH/e5F9CkfWjJ1t4clvI58yF822/GUkjjhw==}
