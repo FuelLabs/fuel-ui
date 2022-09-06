@@ -25,7 +25,8 @@
     "dev": "start-storybook -p 6006",
     "test": "jest --verbose --json --outputFile=.jest-test-results.json",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "@fuel-ui/css": "workspace:*",
@@ -46,18 +47,19 @@
     "@react-aria/utils": "^3.13.3",
     "@stitches/react": "^1.2.8",
     "@xstate/react": "^3.0.1",
+    "framer-motion": "^7.2.1",
     "jdenticon": "^3.2.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-aria": "^3.19.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.3.0",
-    "react-number-format": "^4.9.3",
+    "react-number-format": "^4.9.4",
     "react-stately": "^3.17.0",
-    "xstate": "^4.33.4"
+    "xstate": "^4.33.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.13",
+    "@babel/core": "^7.19.0",
     "@react-types/button": "^3.6.1",
     "@react-types/shared": "^3.14.1",
     "@storybook/addon-a11y": "^6.5.10",

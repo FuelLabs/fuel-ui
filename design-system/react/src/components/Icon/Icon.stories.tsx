@@ -1,7 +1,3 @@
-// import { useCopyToClipboard } from "react-use";
-
-// import { Box } from "../Box";
-// import { Button } from "../Button";
 import { Flex } from "../Flex";
 import { Link } from "../Link";
 import { Text } from "../Text";
