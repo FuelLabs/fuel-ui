@@ -9,14 +9,16 @@ export function createComponent<
   ObjProps = unknown,
   ToOmit = unknown,
   HTMLElement = any,
-  FinalProps = ToOmit extends string ? Omit<Props, ToOmit> : Props
+  FinalProps = ToOmit extends string
+    ? Omit<BaseProps<Props>, ToOmit>
+    : BaseProps<Props>
 >(
   render: (
-    props: BaseProps<FinalProps & { ref: ForwardedRef<HTMLElement> }>
-  ) => ReactElement
+    props: FinalProps & { ref: ForwardedRef<HTMLElement> }
+  ) => ReactElement | null
 ) {
-  const Component = forwardRef<HTMLElement, BaseProps<FinalProps>>(
-    (props, ref) => render({ ref, ...props })
+  const Component = forwardRef<HTMLElement, FinalProps>((props, ref) =>
+    render({ ref, ...props })
   );
   return Component as typeof Component & ObjProps;
 }
