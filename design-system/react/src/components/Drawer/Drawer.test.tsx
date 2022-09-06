@@ -53,6 +53,33 @@ describe("Drawer", () => {
     });
   });
 
+  it("should be able to close when click outside overlay", async () => {
+    const { user } = render(<Content />);
+
+    const trigger = screen.getByText("Open");
+    await user.click(trigger);
+    expect(await screen.findByText("Hello world")).toBeInTheDocument();
+
+    const container = document.querySelector('[data-overlay-container="true"]');
+    await user.click(container as never);
+    await waitFor(() => {
+      expect(() => screen.getByText("Hello world")).toThrow();
+    });
+  });
+
+  it("should be able to close when click on esc", async () => {
+    const { user } = render(<Content />);
+
+    const trigger = screen.getByText("Open");
+    await user.click(trigger);
+    expect(await screen.findByText("Hello world")).toBeInTheDocument();
+
+    await user.press("Esc");
+    await waitFor(() => {
+      expect(() => screen.getByText("Hello world")).toThrow();
+    });
+  });
+
   it("should be able to render inside a custom container", async () => {
     const { user, container, getByText, findByText } = render(<CustomRef />);
     expect(() => getByText("Hello world")).toThrow();
