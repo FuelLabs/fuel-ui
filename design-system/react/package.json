@@ -25,7 +25,8 @@
     "dev": "start-storybook -p 6006",
     "test": "jest --verbose --json --outputFile=.jest-test-results.json",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "@fuel-ui/css": "workspace:*",

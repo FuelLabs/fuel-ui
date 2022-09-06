@@ -20,7 +20,8 @@
     ]
   },
   "scripts": {
-    "build": "tsup --dts"
+    "build": "tsup --dts",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
