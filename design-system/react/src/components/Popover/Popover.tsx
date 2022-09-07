@@ -10,13 +10,18 @@ import * as styles from "./styles";
 export type PopoverProps = RPopover.PopoverProps & {
   content: ReactNode;
   side?: RPopover.PopperContentProps["side"];
+  sideOffset?: RPopover.PopoverContentProps["sideOffset"];
   align?: RPopover.PopperContentProps["align"];
+  alignOffset?: RPopover.PopoverContentProps["sideOffset"];
   showCloseButton?: boolean;
   className?: string;
   arrowProps?: RPopover.PopoverArrowProps;
   arrowClassName?: string;
   closeButtonClassName?: string;
-  contentProps?: RPopover.PopoverContentProps;
+  contentProps?: Omit<
+    RPopover.PopoverContentProps,
+    "sideOffset" | "alignOffset"
+  >;
 };
 
 const Content = styled(RPopover.Content);
@@ -26,7 +31,9 @@ export const Popover = createComponent<PopoverProps>(
     children,
     content,
     side = "bottom",
+    sideOffset = 5,
     align,
+    alignOffset,
     showCloseButton,
     className,
     arrowClassName,
@@ -43,7 +50,7 @@ export const Popover = createComponent<PopoverProps>(
         className={cx(className, CLASSES.Content)}
         side={side}
         align={align}
-        {...contentProps}
+        {...{ ...contentProps, sideOffset, alignOffset }}
       >
         <RPopover.Arrow
           offset={0}
