@@ -9,20 +9,22 @@ import type { TreeState } from "react-stately";
 
 import type { HTMLProps } from "../../utils";
 import { createComponent } from "../../utils";
+import type { ButtonProps } from "../Button";
 
 import * as styles from "./styles";
 
-export type MenuListItemProps = HTMLProps["li"] & {
+export type MenuItemProps = HTMLProps["li"] & {
   item: Node<ReactNode>;
   state: TreeState<ReactNode>;
   onAction?: (key: Key) => void;
+  onPress?: ButtonProps["onPress"];
   css?: ThemeUtilsCSS;
   className?: string;
 };
 
 const Root = styled("li");
 
-export const MenuListItem = createComponent<MenuListItemProps>(
+export const MenuItem = createComponent<MenuItemProps>(
   ({ item, state, onAction, className, ...props }) => {
     const ref = useRef<HTMLLIElement | null>(null);
     const isDisabled = state.disabledKeys.has(item.key);
@@ -42,7 +44,6 @@ export const MenuListItem = createComponent<MenuListItemProps>(
     const classes = cx("fuel_menu-list-item", className, styles.item());
     const customProps = {
       ...props,
-      css: item.props.css,
       ref: mergeRefs(ref, props.ref!),
       className: classes,
       "data-focused": isFocused,
