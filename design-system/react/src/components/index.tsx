@@ -16,6 +16,7 @@ export * from "./Container";
 export * from "./Copyable";
 export * from "./Dialog";
 export * from "./Drawer";
+export * from "./Dropdown";
 export * from "./Flex";
 export * from "./Focus";
 export * from "./Form";
