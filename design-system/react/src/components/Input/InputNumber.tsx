@@ -1,11 +1,12 @@
 import { cx, styled } from "@fuel-ui/css";
+import type { FC } from "react";
 import { useRef } from "react";
 import { mergeProps, useFocusable } from "react-aria";
-import type { NumberFormatPropsBase } from "react-number-format";
+import type { NumberFormatProps } from "react-number-format";
 import NumberFormat from "react-number-format";
 
 import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
+import type { HTMLProps, BaseProps } from "../../utils";
 
 import { useInputProps } from "./Input";
 import type { InputFieldProps } from "./InputField";
@@ -15,7 +16,7 @@ import * as styles from "./styles";
 type HTMLInputProps = HTMLProps["input"];
 type OmitProps = "as" | "children";
 export type InputNumberProps = Omit<HTMLInputProps, "size"> &
-  NumberFormatPropsBase<Omit<InputFieldProps, "onBlur">> & {
+  NumberFormatProps<Omit<InputFieldProps, "onBlur">> & {
     htmlSize?: HTMLInputProps["size"];
   };
 
@@ -70,9 +71,10 @@ export const InputNumber = createComponent<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { focusableProps } = useFocusable(props as any, ref);
   const customProps = mergeProps(inputProps, focusableProps);
+  const Comp = Root as FC<BaseProps<NumberFormatProps<InputFieldProps>>>;
 
   return (
-    <Root
+    <Comp
       {...customProps}
       className={classes}
       getInputRef={ref}

@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/css",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "license": "Apache-2.0",
   "main": "src/index.ts",
   "publishConfig": {
@@ -20,7 +20,8 @@
     ]
   },
   "scripts": {
-    "build": "tsup --dts"
+    "build": "tsup --dts",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",

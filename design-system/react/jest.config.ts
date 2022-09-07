@@ -9,6 +9,7 @@ const config: Config.InitialOptions = {
   displayName: pkg.name,
   modulePathIgnorePatterns: ['node_modules', 'dist', 'jest-test-results.json'],
   reporters: ['default', 'github-actions'],
+  setupFilesAfterEnv: ['../../common/test-utils/setup.ts'],
   projects: ['<rootDir>/jest.config.ts'],
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{ts,tsx}',
