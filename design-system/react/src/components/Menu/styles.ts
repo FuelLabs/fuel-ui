@@ -5,6 +5,10 @@ export const menu = css({
   py: '$2',
   m: '$0',
   borderRadius: '$md',
+
+  '&:focus': {
+    outline: '2px solid $gray5',
+  },
 });
 
 export const item = css({

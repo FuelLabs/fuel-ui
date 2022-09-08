@@ -20,18 +20,19 @@ export type MenuItemProps = HTMLProps["li"] & {
   onPress?: ButtonProps["onPress"];
   css?: ThemeUtilsCSS;
   className?: string;
+  autoFocus?: boolean;
 };
 
 const Root = styled("li");
 
 export const MenuItem = createComponent<MenuItemProps>(
-  ({ item, state, onAction, className, ...props }) => {
+  ({ item, state, onAction, className, autoFocus, ...props }) => {
     const ref = useRef<HTMLLIElement | null>(null);
     const isDisabled = state.disabledKeys.has(item.key);
     const isFocused = state.selectionManager.focusedKey === item.key;
 
     const { buttonProps } = useButton(
-      { isDisabled, onPress: item.props.onPress },
+      { isDisabled, onPress: item.props.onPress, autoFocus },
       ref
     );
 
