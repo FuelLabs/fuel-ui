@@ -5,9 +5,7 @@ import {
   createContext,
   createElement,
   useContext,
-  useEffect,
   useRef,
-  useState,
 } from "react";
 import type { AriaButtonProps, AriaMenuOptions } from "react-aria";
 import { useMenuTrigger } from "react-aria";
@@ -32,7 +30,6 @@ export type DropdownContext = {
   state: MenuTriggerState;
   menuTriggerProps: AriaButtonProps<"button">;
   menuProps: AriaMenuOptions<unknown>;
-  menuMinWidth?: number | null;
 };
 
 const ctx = createContext<DropdownContext>({} as DropdownContext);
@@ -52,36 +49,27 @@ type ObjProps = {
 };
 
 export type DropdownProps = Omit<MenuTriggerProps, "direction"> & {
-  side?: PopoverProps["side"];
-  sideOffset?: PopoverProps["sideOffset"];
-  align?: PopoverProps["align"];
-  alignOffset?: PopoverProps["sideOffset"];
+  popoverProps?: {
+    side?: PopoverProps["side"];
+    sideOffset?: PopoverProps["sideOffset"];
+    align?: PopoverProps["align"];
+    alignOffset?: PopoverProps["sideOffset"];
+  };
 };
 
 const Root = styled("div");
 
 export const Dropdown = createComponent<DropdownProps, ObjProps>(
-  ({
-    children,
-    className,
-    side,
-    sideOffset,
-    align,
-    alignOffset,
-    css,
-    ...props
-  }) => {
+  ({ children, className, css, popoverProps, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
-    const state = useMenuTriggerState({ ...props, direction: side });
+    const state = useMenuTriggerState(props);
     const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref);
     const classes = cx("fuel_dropdown", className);
-    const [menuMinWidth, setMenuMinWidth] = useState<number | null>(null);
 
     const ctxProps = {
       state,
       menuTriggerProps,
       menuProps,
-      menuMinWidth,
       triggerRef: ref,
     };
 
@@ -96,7 +84,7 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
     const customChildren = (
       <ctx.Provider value={ctxProps}>
         <Popover
-          {...{ side, sideOffset, align, alignOffset }}
+          {...popoverProps}
           css={{ padding: "$0", ...css }}
           content={menu}
           open={state.isOpen}
@@ -107,12 +95,6 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
         </Popover>
       </ctx.Provider>
     );
-
-    useEffect(() => {
-      if (ref?.current) {
-        setMenuMinWidth(ref.current.offsetWidth);
-      }
-    }, []);
 
     useKeyPressEvent("Esc", () => {
       if (state.isOpen) {

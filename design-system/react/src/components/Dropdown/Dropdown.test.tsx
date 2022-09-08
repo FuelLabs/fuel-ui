@@ -1,8 +1,34 @@
 import { render, testA11y, screen, waitFor } from "@fuel-ui/test-utils";
 
 import { Button } from "../Button";
+import { Icon } from "../Icon";
 
-import { Content } from "./Dropdown.stories";
+import type { DropdownProps } from "./Dropdown";
+import { Dropdown } from "./Dropdown";
+
+const Content = (props: Partial<DropdownProps>) => {
+  return (
+    <Dropdown {...props}>
+      <Dropdown.Trigger>
+        <Button>Click here</Button>
+      </Dropdown.Trigger>
+      <Dropdown.Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
+        <Dropdown.MenuItem key="settings" textValue="Settings">
+          <Icon icon="Gear" css={{ color: "$gray8" }} />
+          Settings
+        </Dropdown.MenuItem>
+        <Dropdown.MenuItem key="trash" textValue="Delete">
+          <Icon icon="Trash" css={{ color: "$gray8" }} />
+          Delete
+        </Dropdown.MenuItem>
+        <Dropdown.MenuItem key="edit" textValue="Edit">
+          <Icon icon="NotePencil" css={{ color: "$gray8" }} />
+          Edit
+        </Dropdown.MenuItem>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
 
 describe("Dropdown", () => {
   it("a11y", async () => {

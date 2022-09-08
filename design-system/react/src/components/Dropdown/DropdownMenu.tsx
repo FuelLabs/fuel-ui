@@ -12,7 +12,7 @@ type ObjProps = {
 
 export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
   (props) => {
-    const { menuMinWidth, menuProps } = useDropdown();
+    const { menuProps } = useDropdown();
 
     return (
       <Menu
@@ -22,7 +22,6 @@ export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
           py: "$2",
           px: "$2",
           boxSizing: "border-box",
-          minWidth: menuMinWidth as never,
           ...props.css,
         }}
       />
