@@ -20,7 +20,7 @@
   },
   "scripts": {
     "add:component": "node ./scripts/generateComponent",
-    "build:storybook": "pnpm test && build-storybook",
+    "build:storybook": "build-storybook",
     "build": "tsup --dts",
     "dev": "start-storybook -p 6006",
     "test": "jest --verbose",

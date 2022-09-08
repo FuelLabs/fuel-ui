@@ -64,4 +64,5 @@ jobs:
           package-manager: pnpm
           annotations: failed-tests
           test-script: pnpm test
+          working-directory: ./design-system/react
           prnumber: ${{ steps.findPr.outputs.number }}
