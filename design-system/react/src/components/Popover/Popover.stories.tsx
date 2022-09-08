@@ -42,7 +42,7 @@ Usage.parameters = {
 export const Controlled = (args: PopoverProps) => {
   const [opened, setOpened] = useState(false);
   return (
-    <Stack>
+    <Stack gap="$2" direction="row">
       <Button onPress={() => setOpened(true)}>Open</Button>
       <Popover
         {...args}

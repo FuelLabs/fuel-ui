@@ -20,10 +20,10 @@
   },
   "scripts": {
     "add:component": "node ./scripts/generateComponent",
-    "build:storybook": "pnpm test && build-storybook",
+    "build:storybook": "build-storybook",
     "build": "tsup --dts",
     "dev": "start-storybook -p 6006",
-    "test": "jest --verbose --json --outputFile=.jest-test-results.json",
+    "test": "jest --verbose",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "ts:check": "tsc --noEmit"
@@ -56,6 +56,7 @@
     "react-hot-toast": "^2.3.0",
     "react-number-format": "^4.9.4",
     "react-stately": "^3.17.0",
+    "react-use": "^17.4.0",
     "xstate": "^4.33.5"
   },
   "devDependencies": {
@@ -66,7 +67,6 @@
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
-    "@storybook/addon-jest": "^6.5.10",
     "@storybook/addon-links": "^6.5.10",
     "@storybook/addon-storysource": "^6.5.10",
     "@storybook/addons": "^6.5.10",

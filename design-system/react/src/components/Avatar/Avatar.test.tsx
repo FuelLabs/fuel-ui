@@ -1,11 +1,8 @@
-import type { RenderResult } from "@fuel-ui/test-utils";
 import { screen, mocks, testA11y, render } from "@fuel-ui/test-utils";
 
 import { Avatar } from "./Avatar";
 
 describe("Avatar", () => {
-  let rendered: RenderResult;
-
   beforeAll(() => {
     mocks.image();
   });
@@ -15,7 +12,7 @@ describe("Avatar", () => {
   });
 
   beforeEach(() => {
-    rendered = render(
+    render(
       <Avatar
         name="Colm Tuite"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
@@ -24,7 +21,12 @@ describe("Avatar", () => {
   });
 
   it("a11y", async () => {
-    await testA11y(rendered.container);
+    await testA11y(
+      <Avatar
+        name="Colm Tuite"
+        src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+      />
+    );
   });
 
   it("should render the fallback initially with first with letters of name", async () => {
