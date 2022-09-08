@@ -1,5 +1,16 @@
 # @fuel-ui/react
 
+## 0.7.0
+
+### Minor Changes
+
+- ✨ Feat: add new `<Drawer />` component. See `Drawer.stories` for further information about usage, by [@pedronauck](https://github.com/pedronauck) (See [#135](https://github.com/FuelLabs/fuel-ui/pull/135))
+- ✨ Feat: add `<Dropdown>` component. See `Dropdown.stories` for further information on how to use it, by [@pedronauck](https://github.com/pedronauck) (See [#137](https://github.com/FuelLabs/fuel-ui/pull/137))
+
+### Patch Changes
+
+- 🐞 Fix: Dropdown width on dropdown story, by [@pedronauck](https://github.com/pedronauck) (See [#138](https://github.com/FuelLabs/fuel-ui/pull/138))
+
 ## 0.6.0
 
 ### Minor Changes
