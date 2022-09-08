@@ -19,7 +19,7 @@ const Content = (props: Partial<DropdownProps>) => {
   return (
     <Dropdown {...props}>
       <Dropdown.Trigger>
-        <Button css={{ width: "300px" }}>Click here</Button>
+        <Button>Click here</Button>
       </Dropdown.Trigger>
       <Dropdown.Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
         <Dropdown.MenuItem key="settings" textValue="Settings">
