@@ -189,7 +189,6 @@ importers:
       '@storybook/addon-actions': ^6.5.10
       '@storybook/addon-essentials': ^6.5.10
       '@storybook/addon-interactions': ^6.5.10
-      '@storybook/addon-jest': ^6.5.10
       '@storybook/addon-links': ^6.5.10
       '@storybook/addon-storysource': ^6.5.10
       '@storybook/addons': ^6.5.10
@@ -263,7 +262,6 @@ importers:
       '@storybook/addon-actions': 6.5.10_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-essentials': 6.5.10_nzspno5fcqgby2tknypghtdzeu
       '@storybook/addon-interactions': 6.5.10_3icftzbu5z7te3bz3govaddyrm
-      '@storybook/addon-jest': 6.5.10_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-links': 6.5.10_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-storysource': 6.5.10_biqbaboplfbrettd7655fr4n2y
       '@storybook/addons': 6.5.10_biqbaboplfbrettd7655fr4n2y
@@ -5415,32 +5413,6 @@ packages:
       - vue-template-compiler
       - webpack-cli
       - webpack-command
-    dev: true
-
-  /@storybook/addon-jest/6.5.10_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-8QPoEv2B+n/4YqfQY6+g0IxRXg9EOz70MRJ4doIjDpi0QdzT+cWXwbmAIaR7raxnj4FAW57wxpIxPmME973wsQ==}
-    peerDependencies:
-      react: '*'
-      react-dom: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      '@storybook/addons': 6.5.10_biqbaboplfbrettd7655fr4n2y
-      '@storybook/api': 6.5.10_biqbaboplfbrettd7655fr4n2y
-      '@storybook/client-logger': 6.5.10
-      '@storybook/components': 6.5.10_biqbaboplfbrettd7655fr4n2y
-      '@storybook/core-events': 6.5.10
-      '@storybook/theming': 6.5.10_biqbaboplfbrettd7655fr4n2y
-      core-js: 3.22.5
-      global: 4.4.0
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-sizeme: 3.0.2
-      regenerator-runtime: 0.13.9
-      upath: 1.2.0
     dev: true
 
   /@storybook/addon-links/6.5.10_biqbaboplfbrettd7655fr4n2y:
@@ -17955,6 +17927,7 @@ packages:
     resolution: {integrity: sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==}
     engines: {node: '>=4'}
     dev: true
+    optional: true
 
   /updates/13.1.5:
     resolution: {integrity: sha512-7WPn2P8WskugozCdhMI+D1m9OmJnzZqRUuDYM2G8O55TuyvfqOT2vdR2+InkpXUyK6ZNmbLopvw++h9YQElbmg==}
