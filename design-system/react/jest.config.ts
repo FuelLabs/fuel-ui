@@ -7,7 +7,7 @@ const config: Config.InitialOptions = {
   ...baseConfig,
   rootDir: __dirname,
   displayName: pkg.name,
-  modulePathIgnorePatterns: ['node_modules', 'dist', 'jest-test-results.json'],
+  modulePathIgnorePatterns: ['node_modules', 'dist'],
   reporters: ['default', 'github-actions'],
   setupFilesAfterEnv: ['../../common/test-utils/setup.ts'],
   projects: ['<rootDir>/jest.config.ts'],

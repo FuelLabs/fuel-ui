@@ -22,7 +22,6 @@
     "./design-system/*"
   ],
   "scripts": {
-    "postinstall": "pnpm build && pnpm test",
     "build": "turbo run build",
     "build:storybook": "pnpm --filter=\"@fuel-ui/react\" -r build:storybook",
     "build:watch": "pnpm -r --filter './design-system/*' --parallel build --watch",
