@@ -17,6 +17,7 @@ import type { MenuItemProps } from "./MenuItem";
 import { MenuItem } from "./MenuItem";
 import * as styles from "./styles";
 
+export { MenuItemProps };
 export type MenuProps = HTMLProps["ul"] &
   TreeProps<any> &
   AriaMenuOptions<unknown> & {
