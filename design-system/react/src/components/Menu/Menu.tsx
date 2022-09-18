@@ -13,7 +13,7 @@ import { createComponent } from "../../utils";
 import { omit } from "../../utils/helpers";
 import { Box } from "../Box";
 
-import type { MenuItemProps } from "./MenuItem";
+import type { MenuItemProps as BaseMenuItemProps } from "./MenuItem";
 import { MenuItem } from "./MenuItem";
 import * as styles from "./styles";
 
@@ -24,8 +24,9 @@ export type MenuProps = HTMLProps["ul"] &
     autoFocus?: boolean;
   };
 
+export type MenuItemProps = ItemProps<BaseMenuItemProps>;
 type ObjProps = {
-  Item: FC<ItemProps<MenuItemProps>>;
+  Item: FC<MenuItemProps>;
 };
 
 export const Menu = createComponent<MenuProps, ObjProps>(
