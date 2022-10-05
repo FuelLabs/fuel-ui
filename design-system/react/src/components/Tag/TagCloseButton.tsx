@@ -20,6 +20,7 @@ export const TagCloseButton = createComponent<TagCloseButtonsProp, ObjProps>(
         icon="X"
         variant="link"
         className={classes}
+        iconSize={14}
       />
     );
   }

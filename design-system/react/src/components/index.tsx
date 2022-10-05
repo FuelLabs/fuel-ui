@@ -30,6 +30,7 @@ export * from "./Image";
 export * from "./Input";
 export * from "./InputPassword";
 export * from "./Link";
+export * from "./List";
 export * from "./Menu";
 export * from "./Popover";
 export * from "./RadioGroup";

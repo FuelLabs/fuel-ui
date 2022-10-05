@@ -1,11 +1,11 @@
-import type { Config } from '@jest/types';
+import type { JestConfigWithTsJest } from 'ts-jest';
+import { defaultsESM as tsjPreset } from 'ts-jest/presets';
 
-export const config: Config.InitialOptions = {
-  preset: 'ts-jest/presets/default-esm',
-  globals: {
-    'ts-jest': {
-      useESM: true,
-    },
+export type Config = JestConfigWithTsJest;
+
+export const config: JestConfigWithTsJest = {
+  transform: {
+    '^.+\\.[tj]sx?$': ['ts-jest', { ...tsjPreset[1], useESM: true }],
   },
   testTimeout: 20000,
   testEnvironment: 'jsdom',

@@ -12,6 +12,7 @@ export type TextProps = HTMLProps["p"] & {
   fontSize?: utils.TextSizes;
   color?: Colors;
   iconSize?: number;
+  iconColor?: Colors;
   leftIcon?: IconProps["icon"];
   rightIcon?: IconProps["icon"];
   leftIconAriaLabel?: string;
@@ -27,14 +28,25 @@ export const Text = createComponent<TextProps>(
     children,
     className,
     iconSize = 16,
+    iconColor = "gray8",
     leftIcon,
     rightIcon,
     leftIconAriaLabel,
     rightIconAriaLabel,
     ...props
   }) => {
-    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
-    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
+    const iconLeft = createIcon(
+      leftIcon,
+      leftIconAriaLabel,
+      iconSize,
+      iconColor
+    );
+    const iconRight = createIcon(
+      rightIcon,
+      rightIconAriaLabel,
+      iconSize,
+      iconColor
+    );
     const withIcon = Boolean(leftIcon || rightIcon);
     const classes = cx(
       "fuel_text",
@@ -53,10 +65,6 @@ export const Text = createComponent<TextProps>(
 
 const styles = css({
   margin: 0,
-
-  "& .fuel_icon": {
-    color: "$gray8",
-  },
 
   variants: {
     // TODO: adjust typings
