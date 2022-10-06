@@ -68,15 +68,16 @@ export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
 
     return (
       <Flex
+        as="span"
         {...omit(["aria-label"], props)}
         className={cx("fuel_icon", wrapperClassName)}
+        align="center"
+        justify="center"
         css={{
           display: inline ? "inline-flex" : "flex",
           ...(color && { color: `$${color}` }),
           ...css,
         }}
-        align="center"
-        justify="center"
       >
         {cloneElement(iconElement, iconProps)}
         <VisuallyHidden.Root>{label || icon}</VisuallyHidden.Root>

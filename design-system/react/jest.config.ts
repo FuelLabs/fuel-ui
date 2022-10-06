@@ -1,9 +1,9 @@
+import type { Config } from '@fuel-ui/test-utils/config';
 import { config as baseConfig } from '@fuel-ui/test-utils/config';
-import type { Config } from '@jest/types';
 
 import pkg from './package.json';
 
-const config: Config.InitialOptions = {
+const config: Config = {
   ...baseConfig,
   rootDir: __dirname,
   displayName: pkg.name,

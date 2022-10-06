@@ -1,4 +1,4 @@
-import { screen, mocks, testA11y, render } from "@fuel-ui/test-utils";
+import { screen, mocks, testA11y, render, waitFor } from "@fuel-ui/test-utils";
 
 import { Avatar } from "./Avatar";
 
@@ -30,7 +30,7 @@ describe("Avatar", () => {
   });
 
   it("should render the fallback initially with first with letters of name", async () => {
-    expect(await screen.findByText("CT")).toBeInTheDocument();
+    expect(screen.getByText("CT")).toBeInTheDocument();
   });
 
   it("should fallback text has just one letter if name is one word", async () => {
@@ -40,20 +40,26 @@ describe("Avatar", () => {
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
       />
     );
-    expect(await screen.findByText("C")).toBeInTheDocument();
+    expect(screen.getByText("C")).toBeInTheDocument();
   });
 
-  it("should not render the image initially", () => {
-    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+  it("should not render the image initially", async () => {
+    await waitFor(() => {
+      expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    });
   });
 
   it("should render the image after it has loaded", async () => {
-    const image = await screen.findByRole("img");
-    expect(image).toBeInTheDocument();
+    await waitFor(() => {
+      const image = screen.getByRole("img");
+      expect(image).toBeInTheDocument();
+    });
   });
 
   it("should have alt text on the image", async () => {
-    const image = await screen.findByAltText("Colm Tuite");
-    expect(image).toBeInTheDocument();
+    await waitFor(() => {
+      const image = screen.getByAltText("Colm Tuite");
+      expect(image).toBeInTheDocument();
+    });
   });
 });

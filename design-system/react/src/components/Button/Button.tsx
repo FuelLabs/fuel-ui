@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ColorKeys } from "@fuel-ui/css";
+import type { ColorKeys, Colors } from "@fuel-ui/css";
 import { styled, css, cx } from "@fuel-ui/css";
 import { mergeRefs } from "@react-aria/utils";
 import type { ReactNode } from "react";
@@ -19,13 +19,23 @@ import * as styles from "./styles";
 export function createIcon(
   icon: string | ReactNode,
   iconAriaLabel?: string,
-  iconSize?: number
+  iconSize?: number,
+  color?: Colors
 ) {
   if (typeof icon === "string") {
-    return <Icon icon={icon} label={iconAriaLabel} size={iconSize} />;
+    return (
+      <Icon icon={icon} label={iconAriaLabel} size={iconSize} color={color} />
+    );
   }
   // TODO: fix any here
-  return icon && cloneElement(icon as any, { label: iconAriaLabel });
+  return (
+    icon &&
+    cloneElement(icon as any, {
+      label: iconAriaLabel,
+      size: iconSize,
+      ...(color && { color }),
+    })
+  );
 }
 
 export function getIconSize(size: ButtonSizes, iconSize?: number) {
