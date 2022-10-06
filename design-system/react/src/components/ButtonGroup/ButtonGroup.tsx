@@ -1,24 +1,24 @@
-import { cx, styled } from "@fuel-ui/css";
-import type { ReactElement, ReactNode } from "react";
-import { createElement, Children, cloneElement } from "react";
-import { mergeProps } from "react-aria";
+import { cx, styled } from '@fuel-ui/css';
+import type { ReactElement, ReactNode } from 'react';
+import { createElement, Children, cloneElement } from 'react';
+import { mergeProps } from 'react-aria';
 
-import { createComponent } from "../../utils";
-import { pick } from "../../utils/helpers";
-import type { ButtonBaseProps, ButtonProps } from "../Button/Button";
-import { Focus } from "../Focus";
+import { createComponent } from '../../utils';
+import { pick } from '../../utils/helpers';
+import type { ButtonBaseProps, ButtonProps } from '../Button/Button';
+import { Focus } from '../Focus';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
 type GroupChildrenProps = {
   childrenProps: ButtonBaseProps;
   children: ReactNode;
 };
 
-const Root = styled("div");
+const Root = styled('div');
 
 function GroupChildren({ children, childrenProps }: GroupChildrenProps) {
-  const classes = cx("fuel_button-group", styles.root());
+  const classes = cx('fuel_button-group', styles.root());
   return createElement(
     Root,
     { className: classes },
@@ -28,9 +28,9 @@ function GroupChildren({ children, childrenProps }: GroupChildrenProps) {
   );
 }
 
-const BUTTON_BASE_PROPS = ["size", "color", "variant", "isDisabled"];
+const BUTTON_BASE_PROPS = ['size', 'color', 'variant', 'isDisabled'];
 
-export type ButtonGroupProps = Omit<ButtonProps, "className">;
+export type ButtonGroupProps = Omit<ButtonProps, 'className'>;
 
 export const ButtonGroup = createComponent<ButtonGroupProps>(
   ({ children, ...props }) => (

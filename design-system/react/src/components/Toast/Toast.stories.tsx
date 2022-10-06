@@ -1,30 +1,30 @@
-import { css } from "@fuel-ui/css";
+import { css } from '@fuel-ui/css';
 
-import { Box } from "../Box";
-import { Button } from "../Button";
-import { Grid } from "../Grid";
-import { Stack } from "../Stack";
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Grid } from '../Grid';
+import { Stack } from '../Stack';
 
-import { toast } from "./Toast";
+import { toast } from './Toast';
 
 export default {
-  title: "Overlay/Toast",
+  title: 'Overlay/Toast',
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };
 
 export const Usage = () => (
   <Stack gap="$4" direction="row">
-    <Button onPress={() => toast("Just an information")} color="gray">
+    <Button onPress={() => toast('Just an information')} color="gray">
       Show info
     </Button>
-    <Button onPress={() => toast.success("Congrats!")}>Show success</Button>
-    <Button onPress={() => toast.error("Ooops, some error")} color="red">
+    <Button onPress={() => toast.success('Congrats!')}>Show success</Button>
+    <Button onPress={() => toast.error('Ooops, some error')} color="red">
       Show error
     </Button>
     <Button
-      onPress={() => toast("Just an information", { icon: "⚠️" })}
+      onPress={() => toast('Just an information', { icon: '⚠️' })}
       color="gray"
     >
       Custom Icon
@@ -33,18 +33,18 @@ export const Usage = () => (
 );
 
 Usage.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };
 
 const POSITIONS_TOP = [
-  { value: "top-left", label: "Top left" },
-  { value: "top-center", label: "Top center" },
-  { value: "top-right", label: "Top right" },
+  { value: 'top-left', label: 'Top left' },
+  { value: 'top-center', label: 'Top center' },
+  { value: 'top-right', label: 'Top right' },
 ];
 const POSITIONS_BOTTOM = [
-  { value: "bottom-left", label: "Bottom left" },
-  { value: "bottom-center", label: "Bottom center" },
-  { value: "bottom-right", label: "Bottom right" },
+  { value: 'bottom-left', label: 'Bottom left' },
+  { value: 'bottom-center', label: 'Bottom center' },
+  { value: 'bottom-right', label: 'Bottom right' },
 ];
 
 export const Positions = () => (
@@ -53,7 +53,7 @@ export const Positions = () => (
       <Button
         key={pos.value}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onPress={() => toast("Hello world", { position: pos.value as any })}
+        onPress={() => toast('Hello world', { position: pos.value as any })}
         color="gray"
       >
         {pos.label}
@@ -63,7 +63,7 @@ export const Positions = () => (
       <Button
         key={pos.value}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onPress={() => toast("Hello world", { position: pos.value as any })}
+        onPress={() => toast('Hello world', { position: pos.value as any })}
         color="gray"
       >
         {pos.label}
@@ -73,7 +73,7 @@ export const Positions = () => (
 );
 
 Positions.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };
 
 export const Custom = () => (
@@ -90,15 +90,15 @@ export const Custom = () => (
 );
 
 Custom.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };
 
 const styles = {
   custom: css({
-    py: "$2",
-    px: "$6",
-    borderRadius: "$full",
-    backgroundColor: "$accent10",
-    color: "white",
+    py: '$2',
+    px: '$6',
+    borderRadius: '$full',
+    backgroundColor: '$accent10',
+    color: 'white',
   }),
 };

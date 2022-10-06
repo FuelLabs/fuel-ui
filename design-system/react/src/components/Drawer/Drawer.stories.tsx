@@ -1,24 +1,24 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
-import { Button } from "../Button";
-import { Card } from "../Card";
-import { Stack } from "../Stack";
+import { Button } from '../Button';
+import { Card } from '../Card';
+import { Stack } from '../Stack';
 
-import type { DrawerProps } from "./Drawer";
-import { Drawer } from "./Drawer";
+import type { DrawerProps } from './Drawer';
+import { Drawer } from './Drawer';
 
 export default {
   component: Drawer,
-  title: "Overlay/Drawer",
+  title: 'Overlay/Drawer',
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };
 
 const content = (
   <Drawer.Content>
     <Drawer.CloseButton />
-    <Drawer.Body css={{ padding: "$4" }}>Hello world</Drawer.Body>
+    <Drawer.Body css={{ padding: '$4' }}>Hello world</Drawer.Body>
   </Drawer.Content>
 );
 
@@ -34,7 +34,7 @@ export const Usage = (args: DrawerProps) => {
 };
 
 Usage.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };
 
 export const Sides = (args: DrawerProps) => {
@@ -57,10 +57,10 @@ export const Sides = (args: DrawerProps) => {
 };
 
 Sides.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };
 
-const SIZES = ["sm", "md", "lg", "325px"];
+const SIZES = ['sm', 'md', 'lg', '325px'];
 
 export const CustomSize = (args: DrawerProps) => {
   return (
@@ -78,7 +78,7 @@ export const CustomSize = (args: DrawerProps) => {
 };
 
 CustomSize.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };
 
 export const CustomContainer = (args: DrawerProps) => {
@@ -87,13 +87,13 @@ export const CustomContainer = (args: DrawerProps) => {
     <Card
       ref={ref}
       css={{
-        overflow: "hidden",
-        position: "relative",
-        width: "500px",
-        height: "500px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        overflow: 'hidden',
+        position: 'relative',
+        width: '500px',
+        height: '500px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Drawer {...args} side="right" containerRef={ref} size={300}>
@@ -107,5 +107,5 @@ export const CustomContainer = (args: DrawerProps) => {
 };
 
 CustomContainer.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

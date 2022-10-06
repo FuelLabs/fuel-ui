@@ -1,8 +1,8 @@
-import { css, cx } from "@fuel-ui/css";
+import { css, cx } from '@fuel-ui/css';
 
-import { createComponent } from "../../utils";
-import type { FlexProps } from "../Flex";
-import { Flex } from "../Flex";
+import { createComponent } from '../../utils';
+import type { FlexProps } from '../Flex';
+import { Flex } from '../Flex';
 
 export type BoxCenteredProps = FlexProps & {
   /**
@@ -18,7 +18,7 @@ export type BoxCenteredProps = FlexProps & {
 export const BoxCentered = createComponent<BoxCenteredProps>(
   ({ minWS, minHS, className, ...props }) => {
     const classes = cx(
-      "fuel_box-centered",
+      'fuel_box-centered',
       className,
       styles({ minWS, minHS })
     );
@@ -27,16 +27,16 @@ export const BoxCentered = createComponent<BoxCenteredProps>(
 );
 
 const styles = css({
-  is: ["centered"],
+  is: ['centered'],
   variants: {
     minWS: {
       true: {
-        minW: "$screenW",
+        minW: '$screenW',
       },
     },
     minHS: {
       true: {
-        minH: "$screenH",
+        minH: '$screenH',
       },
     },
   },

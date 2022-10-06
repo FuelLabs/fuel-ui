@@ -1,8 +1,8 @@
-import "@testing-library/jest-dom";
-import type { RenderOptions } from "@testing-library/react";
-import { render as rtlRender } from "@testing-library/react";
+import '@testing-library/jest-dom';
+import type { RenderOptions } from '@testing-library/react';
+import { render as rtlRender } from '@testing-library/react';
 
-import { userEvent } from "./user-event";
+import { userEvent } from './user-event';
 
 export function render(
   ui: React.ReactElement,

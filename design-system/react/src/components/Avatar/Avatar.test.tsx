@@ -1,8 +1,8 @@
-import { screen, mocks, testA11y, render, waitFor } from "@fuel-ui/test-utils";
+import { screen, mocks, testA11y, render, waitFor } from '@fuel-ui/test-utils';
 
-import { Avatar } from "./Avatar";
+import { Avatar } from './Avatar';
 
-describe("Avatar", () => {
+describe('Avatar', () => {
   beforeAll(() => {
     mocks.image();
   });
@@ -20,7 +20,7 @@ describe("Avatar", () => {
     );
   });
 
-  it("a11y", async () => {
+  it('a11y', async () => {
     await testA11y(
       <Avatar
         name="Colm Tuite"
@@ -29,36 +29,36 @@ describe("Avatar", () => {
     );
   });
 
-  it("should render the fallback initially with first with letters of name", async () => {
-    expect(screen.getByText("CT")).toBeInTheDocument();
+  it('should render the fallback initially with first with letters of name', async () => {
+    expect(screen.getByText('CT')).toBeInTheDocument();
   });
 
-  it("should fallback text has just one letter if name is one word", async () => {
+  it('should fallback text has just one letter if name is one word', async () => {
     render(
       <Avatar
         name="Colm"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
       />
     );
-    expect(screen.getByText("C")).toBeInTheDocument();
+    expect(screen.getByText('C')).toBeInTheDocument();
   });
 
-  it("should not render the image initially", async () => {
+  it('should not render the image initially', async () => {
     await waitFor(() => {
-      expect(screen.queryByRole("img")).not.toBeInTheDocument();
+      expect(screen.queryByRole('img')).not.toBeInTheDocument();
     });
   });
 
-  it("should render the image after it has loaded", async () => {
+  it('should render the image after it has loaded', async () => {
     await waitFor(() => {
-      const image = screen.getByRole("img");
+      const image = screen.getByRole('img');
       expect(image).toBeInTheDocument();
     });
   });
 
-  it("should have alt text on the image", async () => {
+  it('should have alt text on the image', async () => {
     await waitFor(() => {
-      const image = screen.getByAltText("Colm Tuite");
+      const image = screen.getByAltText('Colm Tuite');
       expect(image).toBeInTheDocument();
     });
   });

@@ -1,11 +1,11 @@
-import { Icon } from "../Icon";
+import { Icon } from '../Icon';
 
-import type { ListProps } from "./List";
-import { List } from "./List";
+import type { ListProps } from './List';
+import { List } from './List';
 
 export default {
   component: List,
-  title: "Base/Typography/List",
+  title: 'Base/Typography/List',
   argTypes: {},
 };
 
@@ -34,7 +34,7 @@ export const Ordered = (args: ListProps) => (
 );
 
 export const WithIcon = (args: ListProps) => (
-  <List {...args} icon={Icon.is("Check")} iconColor="accent9">
+  <List {...args} icon={Icon.is('Check')} iconColor="accent9">
     <List.Item>First item</List.Item>
     <List.Item>Second item</List.Item>
     <List.Item>Third item</List.Item>

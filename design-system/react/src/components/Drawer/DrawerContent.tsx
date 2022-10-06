@@ -1,35 +1,35 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx } from "@fuel-ui/css";
-import { mergeProps, mergeRefs } from "@react-aria/utils";
-import type { AnimationProps } from "framer-motion";
-import { motion } from "framer-motion";
-import { FocusScope, usePreventScroll, useDialog, useModal } from "react-aria";
-import { useClickAway } from "react-use";
+import { cx } from '@fuel-ui/css';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import type { AnimationProps } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { FocusScope, usePreventScroll, useDialog, useModal } from 'react-aria';
+import { useClickAway } from 'react-use';
 
-import type { BoxProps } from "..";
-import { Box } from "..";
+import type { BoxProps } from '..';
+import { Box } from '..';
 
-import { useDrawer } from ".";
-import * as styles from "./styles";
+import { useDrawer } from '.';
+import * as styles from './styles';
 
-import { createComponent } from "~/utils";
+import { createComponent } from '~/utils';
 
 const MotionBox = motion<any>(Box);
-const SPRING: AnimationProps["transition"] = {
-  ease: "linear",
-  duration: "0.1",
+const SPRING: AnimationProps['transition'] = {
+  ease: 'linear',
+  duration: '0.1',
 };
 
 type DrawerContentProps = BoxProps & {
-  transition?: AnimationProps["transition"];
+  transition?: AnimationProps['transition'];
 };
 
 type ObjProps = {
   id: string;
 };
 
-type OmitProps = "as";
-type ElementType = "div";
+type OmitProps = 'as';
+type ElementType = 'div';
 
 export const DrawerContent = createComponent<
   DrawerContentProps,
@@ -47,13 +47,13 @@ export const DrawerContent = createComponent<
     shouldCloseOnClickAway,
   } = useDrawer();
 
-  const { dialogProps } = useDialog({ role: "dialog" }, ref);
+  const { dialogProps } = useDialog({ role: 'dialog' }, ref);
   const { modalProps } = useModal();
   const finalProps = mergeProps(props, overlayProps, dialogProps, modalProps);
 
-  const contentClasses = cx("fuel_drawer-content", className, styles.content());
+  const contentClasses = cx('fuel_drawer-content', className, styles.content());
   const overlayClasses = cx(
-    "fuel_drawer-overlay",
+    'fuel_drawer-overlay',
     className,
     styles.overlay({ side })
   );
@@ -73,8 +73,8 @@ export const DrawerContent = createComponent<
           ref={mergeRefs(innerRef as any, ref)}
           className={contentClasses}
           animate={{ x: 0 }}
-          initial={{ x: side === "right" ? "100%" : "-100%" }}
-          exit={{ x: side === "right" ? "100%" : "-100%" }}
+          initial={{ x: side === 'right' ? '100%' : '-100%' }}
+          exit={{ x: side === 'right' ? '100%' : '-100%' }}
           transition={transition}
           css={{ ...props.css, ...styles.getSize(size) }}
         >
@@ -85,4 +85,4 @@ export const DrawerContent = createComponent<
   );
 });
 
-DrawerContent.id = "DrawerContent";
+DrawerContent.id = 'DrawerContent';

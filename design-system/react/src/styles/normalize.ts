@@ -48,9 +48,10 @@ export const normalize: Record<string, any>[] = [
     button: {
       textTransform: 'none',
     },
-    'button, input:is([type="button" i], [type="reset" i], [type="submit" i])': {
-      WebkitAppearance: 'button',
-    },
+    'button, input:is([type="button" i], [type="reset" i], [type="submit" i])':
+      {
+        WebkitAppearance: 'button',
+      },
     progress: {
       verticalAlign: 'baseline',
     },

@@ -1,9 +1,9 @@
-import type { ButtonLinkProps } from "./ButtonLink";
-import { ButtonLink } from "./ButtonLink";
+import type { ButtonLinkProps } from './ButtonLink';
+import { ButtonLink } from './ButtonLink';
 
 export default {
   component: ButtonLink,
-  title: "UI/ButtonLink",
+  title: 'UI/ButtonLink',
 };
 
 export const Usage = (args: ButtonLinkProps) => (

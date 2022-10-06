@@ -1,18 +1,18 @@
-import { Text } from "..";
-import { Box } from "../Box";
-import { Button } from "../Button";
-import { Card } from "../Card";
-import { Form } from "../Form";
-import { Icon } from "../Icon";
-import { Input } from "../Input";
-import { Stack } from "../Stack";
+import { Text } from '..';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Card } from '../Card';
+import { Form } from '../Form';
+import { Icon } from '../Icon';
+import { Input } from '../Input';
+import { Stack } from '../Stack';
 
-import type { TabsProps } from "./Tabs";
-import { Tabs } from "./Tabs";
+import type { TabsProps } from './Tabs';
+import { Tabs } from './Tabs';
 
 export default {
   component: Tabs,
-  title: "UI/Tabs",
+  title: 'UI/Tabs',
   argTypes: {},
 };
 
@@ -20,7 +20,7 @@ function Account() {
   return (
     <Card>
       <Card.Body>
-        <Text css={{ mt: "$0", mb: "$4" }}>
+        <Text css={{ mt: '$0', mb: '$4' }}>
           Make changes to your account here. Click save when you&apos;re done.
         </Text>
         <Stack gap="$4">
@@ -61,7 +61,7 @@ function Password() {
   return (
     <Card>
       <Card.Body>
-        <Text css={{ mt: "$0", mb: "$4" }}>
+        <Text css={{ mt: '$0', mb: '$4' }}>
           Change your password here. After saving, you&apos;ll be logged out.
         </Text>
         <Stack gap="$4">
@@ -99,7 +99,7 @@ function Password() {
 }
 
 export const Usage = (args: TabsProps) => (
-  <Box css={{ maxW: "400px" }}>
+  <Box css={{ maxW: '400px' }}>
     <Tabs {...args} defaultValue="account">
       <Tabs.List aria-label="Manage your account">
         <Tabs.Trigger value="account">Account</Tabs.Trigger>

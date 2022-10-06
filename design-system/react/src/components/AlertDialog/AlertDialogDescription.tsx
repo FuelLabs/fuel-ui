@@ -1,9 +1,9 @@
-import { cx, styled } from "@fuel-ui/css";
-import * as RAlertDialog from "@radix-ui/react-alert-dialog";
-import { createElement } from "react";
+import { cx, styled } from '@fuel-ui/css';
+import * as RAlertDialog from '@radix-ui/react-alert-dialog';
+import { createElement } from 'react';
 
-import { createComponent } from "../../utils";
-import * as styles from "../Dialog/styles";
+import { createComponent } from '../../utils';
+import * as styles from '../Dialog/styles';
 
 export type AlertDialogDescriptionProps =
   RAlertDialog.AlertDialogDescriptionProps;
@@ -14,7 +14,7 @@ export const AlertDialogDescription =
   createComponent<AlertDialogDescriptionProps>(
     ({ className, children, ...props }) => {
       const classes = cx(
-        "fuel_alert-dialog--description",
+        'fuel_alert-dialog--description',
         className,
         styles.description()
       );

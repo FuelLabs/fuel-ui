@@ -1,16 +1,16 @@
-import { cx } from "@fuel-ui/css";
-import { mergeRefs } from "@react-aria/utils";
-import type { ReactElement } from "react";
-import { Children, cloneElement } from "react";
+import { cx } from '@fuel-ui/css';
+import { mergeRefs } from '@react-aria/utils';
+import type { ReactElement } from 'react';
+import { Children, cloneElement } from 'react';
 
-import type { ButtonProps } from "..";
-import { Icon, Button } from "..";
+import type { ButtonProps } from '..';
+import { Icon, Button } from '..';
 
-import { useDropdown } from ".";
+import { useDropdown } from '.';
 
-import { createComponent } from "~/utils";
+import { createComponent } from '~/utils';
 
-type ElementType = "button";
+type ElementType = 'button';
 type DropdownTriggerProps = ButtonProps & {
   asChild?: boolean;
 };
@@ -25,7 +25,7 @@ export const DropdownTrigger = createComponent<
   unknown,
   ElementType
 >(({ ref, className, asChild = true, children, ...props }) => {
-  const classes = cx("fuel_dropdown-trigger", className);
+  const classes = cx('fuel_dropdown-trigger', className);
   const { state, triggerRef } = useDropdown();
 
   function handleToggle() {
@@ -51,11 +51,11 @@ export const DropdownTrigger = createComponent<
       {...props}
       ref={mergeRefs(ref, triggerRef as never)}
       onPress={handleToggle}
-      rightIcon={state?.isOpen ? Icon.is("CaretUp") : Icon.is("CaretDown")}
+      rightIcon={state?.isOpen ? Icon.is('CaretUp') : Icon.is('CaretDown')}
     >
       {children}
     </Button>
   );
 });
 
-DropdownTrigger.id = "DropdownTrigger";
+DropdownTrigger.id = 'DropdownTrigger';

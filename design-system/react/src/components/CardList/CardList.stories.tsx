@@ -1,14 +1,14 @@
-import { Avatar } from "../Avatar";
-import { Heading } from "../Heading";
-import { Icon } from "../Icon";
-import { IconButton } from "../IconButton";
+import { Avatar } from '../Avatar';
+import { Heading } from '../Heading';
+import { Icon } from '../Icon';
+import { IconButton } from '../IconButton';
 
-import type { CardListProps } from "./CardList";
-import { CardList } from "./CardList";
+import type { CardListProps } from './CardList';
+import { CardList } from './CardList';
 
 export default {
   component: CardList,
-  title: "UI/CardList",
+  title: 'UI/CardList',
   argTypes: {},
 };
 
@@ -26,14 +26,14 @@ const cardItem = (
 );
 
 export const Usage = (args: CardListProps) => (
-  <CardList {...args} css={{ maxW: "$md" }}>
+  <CardList {...args} css={{ maxW: '$md' }}>
     {cardItem}
     {cardItem}
   </CardList>
 );
 
 export const Active = (args: CardListProps) => (
-  <CardList {...args} css={{ maxW: "$md" }}>
+  <CardList {...args} css={{ maxW: '$md' }}>
     <CardList.Item isActive>
       <Avatar
         {...args}
@@ -49,14 +49,14 @@ export const Active = (args: CardListProps) => (
 );
 
 export const Clickable = (args: CardListProps) => (
-  <CardList {...args} css={{ maxW: "$md" }} isClickable>
+  <CardList {...args} css={{ maxW: '$md' }} isClickable>
     {cardItem}
     {cardItem}
   </CardList>
 );
 
 export const WithAction = (args: CardListProps) => (
-  <CardList {...args} css={{ maxW: "$md" }}>
+  <CardList {...args} css={{ maxW: '$md' }}>
     <CardList.Item
       rightEl={
         <IconButton
@@ -65,7 +65,7 @@ export const WithAction = (args: CardListProps) => (
           color="gray"
           icon={<Icon icon="DotsThreeOutline" color="gray8" />}
           aria-label="Action"
-          css={{ px: "$0", color: "$gray10" }}
+          css={{ px: '$0', color: '$gray10' }}
         />
       }
     >

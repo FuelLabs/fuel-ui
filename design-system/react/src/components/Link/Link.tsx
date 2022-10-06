@@ -1,18 +1,18 @@
-import type { Colors } from "@fuel-ui/css";
-import { allColors, css, cx, styled } from "@fuel-ui/css";
-import { createElement, useRef } from "react";
-import { mergeProps, useLink } from "react-aria";
+import type { Colors } from '@fuel-ui/css';
+import { allColors, css, cx, styled } from '@fuel-ui/css';
+import { createElement, useRef } from 'react';
+import { mergeProps, useLink } from 'react-aria';
 
-import type { HTMLProps } from "../../utils";
-import { createComponent } from "../../utils";
-import { Icon } from "../Icon";
+import type { HTMLProps } from '../../utils';
+import { createComponent } from '../../utils';
+import { Icon } from '../Icon';
 
-export type LinkProps = HTMLProps["a"] & {
+export type LinkProps = HTMLProps['a'] & {
   isExternal?: boolean;
   color?: Colors;
 };
 
-const Root = styled("a");
+const Root = styled('a');
 
 export const Link = createComponent<LinkProps>(
   ({ isExternal, className, children, color, ...props }) => {
@@ -20,9 +20,9 @@ export const Link = createComponent<LinkProps>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { linkProps } = useLink(props as any, ref);
     const customProps = {
-      role: "link",
-      className: cx("fuel_link", className, styles.link({ color })),
-      ...(isExternal && { target: "_blank", rel: "noopener noreferrer" }),
+      role: 'link',
+      className: cx('fuel_link', className, styles.link({ color })),
+      ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
     };
 
     return createElement(
@@ -37,14 +37,14 @@ export const Link = createComponent<LinkProps>(
 
 const styles = {
   link: css({
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "$1",
-    textDecoration: "none",
-    fontWeight: "$medium",
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '$1',
+    textDecoration: 'none',
+    fontWeight: '$medium',
 
-    "&:hover": {
-      textDecoration: "underline",
+    '&:hover': {
+      textDecoration: 'underline',
     },
 
     variants: {
@@ -55,7 +55,7 @@ const styles = {
           ...obj,
           [key]: {
             color: `$${key}`,
-            "&:visited": {
+            '&:visited': {
               color: `$${key}`,
             },
           },
@@ -65,7 +65,7 @@ const styles = {
     },
 
     defaultVariants: {
-      color: "accent11",
+      color: 'accent11',
     },
   }),
 };

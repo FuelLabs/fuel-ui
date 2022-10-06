@@ -1,9 +1,9 @@
-import { testA11y } from "@fuel-ui/test-utils";
+import { testA11y } from '@fuel-ui/test-utils';
 
-import { Accordion } from "./Accordion";
+import { Accordion } from './Accordion';
 
-describe("Accordion", () => {
-  it("a11y", async () => {
+describe('Accordion', () => {
+  it('a11y', async () => {
     await testA11y(
       <Accordion type="single" defaultValue="item-1">
         <Accordion.Item value="item-1">

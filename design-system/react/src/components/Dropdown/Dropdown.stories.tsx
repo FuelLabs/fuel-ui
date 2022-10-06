@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Button } from "../Button";
-import { Icon } from "../Icon";
-import { Stack } from "../Stack";
+import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { Stack } from '../Stack';
 
-import type { DropdownProps } from "./Dropdown";
-import { Dropdown } from "./Dropdown";
+import type { DropdownProps } from './Dropdown';
+import { Dropdown } from './Dropdown';
 
 export default {
   component: Dropdown,
-  title: "Overlay/Dropdown",
+  title: 'Overlay/Dropdown',
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };
 
@@ -21,17 +21,17 @@ const Content = (props: Partial<DropdownProps>) => {
       <Dropdown.Trigger>
         <Button>Click here</Button>
       </Dropdown.Trigger>
-      <Dropdown.Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
+      <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
         <Dropdown.MenuItem key="settings" textValue="Settings">
-          <Icon icon="Gear" css={{ color: "$gray8" }} />
+          <Icon icon="Gear" css={{ color: '$gray8' }} />
           Settings
         </Dropdown.MenuItem>
         <Dropdown.MenuItem key="trash" textValue="Delete">
-          <Icon icon="Trash" css={{ color: "$gray8" }} />
+          <Icon icon="Trash" css={{ color: '$gray8' }} />
           Delete
         </Dropdown.MenuItem>
         <Dropdown.MenuItem key="edit" textValue="Edit">
-          <Icon icon="NotePencil" css={{ color: "$gray8" }} />
+          <Icon icon="NotePencil" css={{ color: '$gray8' }} />
           Edit
         </Dropdown.MenuItem>
       </Dropdown.Menu>
@@ -42,7 +42,7 @@ const Content = (props: Partial<DropdownProps>) => {
 export const Usage = (args: DropdownProps) => <Content {...args} />;
 
 Usage.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };
 
 export const Controlled = (args: DropdownProps) => {
@@ -58,5 +58,5 @@ export const Controlled = (args: DropdownProps) => {
 };
 
 Controlled.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

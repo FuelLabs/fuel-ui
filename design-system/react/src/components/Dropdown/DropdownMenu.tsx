@@ -1,9 +1,9 @@
-import type { MenuProps } from "../Menu";
-import { Menu } from "../Menu";
+import type { MenuProps } from '../Menu';
+import { Menu } from '../Menu';
 
-import { useDropdown } from "./Dropdown";
+import { useDropdown } from './Dropdown';
 
-import { createComponent } from "~/utils";
+import { createComponent } from '~/utils';
 
 export type DropdownMenuProps = MenuProps;
 type ObjProps = {
@@ -19,9 +19,9 @@ export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
         {...props}
         {...(menuProps as MenuProps)}
         css={{
-          py: "$2",
-          px: "$2",
-          boxSizing: "border-box",
+          py: '$2',
+          px: '$2',
+          boxSizing: 'border-box',
           ...props.css,
         }}
       />
@@ -29,4 +29,4 @@ export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
   }
 );
 
-DropdownMenu.id = "DropdownMenu";
+DropdownMenu.id = 'DropdownMenu';

@@ -1,5 +1,5 @@
-import { FocusArrowNavigator } from "./FocusArrowNavigator";
-import { FocusScope } from "./FocusScope";
+import { FocusArrowNavigator } from './FocusArrowNavigator';
+import { FocusScope } from './FocusScope';
 
 export const Focus = {
   Scope: FocusScope,

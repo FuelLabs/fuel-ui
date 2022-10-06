@@ -1,18 +1,18 @@
-import { cx, styled } from "@fuel-ui/css";
-import * as RPopover from "@radix-ui/react-popover";
-import type { ReactNode } from "react";
+import { cx, styled } from '@fuel-ui/css';
+import * as RPopover from '@radix-ui/react-popover';
+import type { ReactNode } from 'react';
 
-import { createComponent } from "../../utils";
-import { IconButton } from "../IconButton";
+import { createComponent } from '../../utils';
+import { IconButton } from '../IconButton';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
 export type PopoverProps = RPopover.PopoverProps & {
   content: ReactNode;
-  side?: RPopover.PopperContentProps["side"];
-  sideOffset?: RPopover.PopoverContentProps["sideOffset"];
-  align?: RPopover.PopperContentProps["align"];
-  alignOffset?: RPopover.PopoverContentProps["sideOffset"];
+  side?: RPopover.PopperContentProps['side'];
+  sideOffset?: RPopover.PopoverContentProps['sideOffset'];
+  align?: RPopover.PopperContentProps['align'];
+  alignOffset?: RPopover.PopoverContentProps['sideOffset'];
   showCloseButton?: boolean;
   className?: string;
   arrowProps?: RPopover.PopoverArrowProps;
@@ -20,7 +20,7 @@ export type PopoverProps = RPopover.PopoverProps & {
   closeButtonClassName?: string;
   contentProps?: Omit<
     RPopover.PopoverContentProps,
-    "sideOffset" | "alignOffset"
+    'sideOffset' | 'alignOffset'
   >;
 };
 
@@ -30,9 +30,9 @@ export const Popover = createComponent<PopoverProps>(
   ({
     children,
     content,
-    side = "bottom",
+    side = 'bottom',
     sideOffset = 5,
-    align = "center",
+    align = 'center',
     alignOffset = 0,
     showCloseButton,
     className,
@@ -81,7 +81,7 @@ export const Popover = createComponent<PopoverProps>(
 );
 
 const CLASSES = {
-  Content: cx("fuel_popover--content", styles.content()),
-  Arrow: cx("fuel_popover--arrow", styles.arrow()),
-  CloseButton: cx("fuel_popover--closeBtn", styles.closeButton()),
+  Content: cx('fuel_popover--content', styles.content()),
+  Arrow: cx('fuel_popover--arrow', styles.arrow()),
+  CloseButton: cx('fuel_popover--closeBtn', styles.closeButton()),
 };

@@ -1,11 +1,11 @@
-import { cx } from "@fuel-ui/css";
+import { cx } from '@fuel-ui/css';
 
-import { createComponent } from "../../utils";
-import type { TextProps } from "../Text";
-import { Text } from "../Text";
+import { createComponent } from '../../utils';
+import type { TextProps } from '../Text';
+import { Text } from '../Text';
 
-import { useFormControlProps } from "./FormControl";
-import * as styles from "./styles";
+import { useFormControlProps } from './FormControl';
+import * as styles from './styles';
 
 export type FormErrorMessageProps = TextProps;
 
@@ -16,10 +16,10 @@ type ObjProps = {
 export const FormErrorMessage = createComponent<
   FormErrorMessageProps,
   ObjProps
->(({ as = "div", color, children, className, ...props }) => {
+>(({ as = 'div', color, children, className, ...props }) => {
   const { id, ...parentProps } = useFormControlProps();
   const classes = cx(
-    "fuel_form--error-message",
+    'fuel_form--error-message',
     className,
     styles.errorMessage({})
   );
@@ -34,7 +34,7 @@ export const FormErrorMessage = createComponent<
     <Text
       as={as}
       {...customProps}
-      color={color || "red9"}
+      color={color || 'red9'}
       aria-hidden={!parentProps?.isInvalid}
     >
       {children}
@@ -42,4 +42,4 @@ export const FormErrorMessage = createComponent<
   );
 });
 
-FormErrorMessage.id = "FormErrorMessage";
+FormErrorMessage.id = 'FormErrorMessage';

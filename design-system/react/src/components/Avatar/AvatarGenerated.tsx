@@ -1,30 +1,30 @@
-import { cx } from "@fuel-ui/css";
+import { cx } from '@fuel-ui/css';
 
-import { createComponent } from "../../utils";
-import type { BoxProps } from "../Box";
-import { Box } from "../Box";
+import { createComponent } from '../../utils';
+import type { BoxProps } from '../Box';
+import { Box } from '../Box';
 
-import { useAvatarGenerated } from "./hooks/useAvatarGenerated";
+import { useAvatarGenerated } from './hooks/useAvatarGenerated';
 
-type OmitProps = "children";
+type OmitProps = 'children';
 export type AvatarGeneratedProps = BoxProps & {
   hash: string;
   fallback?: string;
-  size?: "sm" | "md" | "lg";
-  background?: "fuel" | "random" | string;
+  size?: 'sm' | 'md' | 'lg';
+  background?: 'fuel' | 'random' | string;
 };
 
 export const AvatarGenerated = createComponent<
   AvatarGeneratedProps,
   unknown,
   OmitProps
->(({ hash, size = "md", className, css, as, background, ...props }) => {
+>(({ hash, size = 'md', className, css, as, background, ...props }) => {
   const { svgString, totalSize } = useAvatarGenerated({
     background,
     hash,
     size,
   });
-  const classes = cx(className, "fuel_avatar-generated");
+  const classes = cx(className, 'fuel_avatar-generated');
 
   return (
     <Box
@@ -35,8 +35,8 @@ export const AvatarGenerated = createComponent<
         ...css,
         width: totalSize,
         height: totalSize,
-        borderRadius: "100%",
-        overflow: "hidden",
+        borderRadius: '100%',
+        overflow: 'hidden',
       }}
       dangerouslySetInnerHTML={{
         __html: svgString,

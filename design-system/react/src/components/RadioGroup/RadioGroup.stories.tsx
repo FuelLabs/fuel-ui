@@ -1,11 +1,11 @@
-import { Form } from "../Form";
+import { Form } from '../Form';
 
-import type { RadioGroupProps } from "./RadioGroup";
-import { RadioGroup } from "./RadioGroup";
+import type { RadioGroupProps } from './RadioGroup';
+import { RadioGroup } from './RadioGroup';
 
 export default {
   component: RadioGroup,
-  title: "Form/RadioGroup",
+  title: 'Form/RadioGroup',
   argTypes: {},
 };
 

@@ -1,11 +1,11 @@
-import { cx, styled } from "@fuel-ui/css";
-import type { ReactNode } from "react";
-import { Children, cloneElement, createElement } from "react";
+import { cx, styled } from '@fuel-ui/css';
+import type { ReactNode } from 'react';
+import { Children, cloneElement, createElement } from 'react';
 
-import { createComponent } from "../../utils";
+import { createComponent } from '../../utils';
 
-import { useInputProps } from "./Input";
-import * as styles from "./styles";
+import { useInputProps } from './Input';
+import * as styles from './styles';
 
 export type InputElementProps = {
   element?: ReactNode;
@@ -17,14 +17,14 @@ export const ICON_SIZES = {
   lg: 22,
 };
 
-const Root = styled("div");
+const Root = styled('div');
 
 const InputElement = createComponent<InputElementProps>(
   ({ element, className, children, ...props }) => {
     const { size, ...parentProps } = useInputProps();
     const disabled = parentProps?.isDisabled || parentProps?.isReadOnly;
     const classes = cx(
-      "fuel_input--element",
+      'fuel_input--element',
       className,
       styles.element({ size })
     );
@@ -33,12 +33,12 @@ const InputElement = createComponent<InputElementProps>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (child: any) => {
         const isButton =
-          child?.type?.id === "Button" ||
-          child?.type?.displayName?.toString().includes("button");
+          child?.type?.id === 'Button' ||
+          child?.type?.displayName?.toString().includes('button');
 
         if (isButton) {
           const childProps = child?.props;
-          const defaultSize = size === "sm" ? "xs" : "sm";
+          const defaultSize = size === 'sm' ? 'xs' : 'sm';
           return cloneElement(child, {
             ...childProps,
             disabled,
@@ -47,9 +47,9 @@ const InputElement = createComponent<InputElementProps>(
           });
         }
 
-        if (child?.type?.id === "Icon") {
+        if (child?.type?.id === 'Icon') {
           const childProps = child?.props;
-          const defaultSize = ICON_SIZES[size || "md"];
+          const defaultSize = ICON_SIZES[size || 'md'];
           return cloneElement(child, {
             ...childProps,
             size: childProps.size || defaultSize,
@@ -77,7 +77,7 @@ export const InputElementLeft = createComponent<
 >(({ className, ...props }) => (
   <InputElement
     {...props}
-    className={cx("fuel_input-element--left", className)}
+    className={cx('fuel_input-element--left', className)}
   />
 ));
 
@@ -87,9 +87,9 @@ export const InputElementRight = createComponent<
 >(({ className, ...props }) => (
   <InputElement
     {...props}
-    className={cx("fuel_input-element--right", className)}
+    className={cx('fuel_input-element--right', className)}
   />
 ));
 
-InputElementLeft.id = "InputElement";
-InputElementRight.id = "InputElement";
+InputElementLeft.id = 'InputElement';
+InputElementRight.id = 'InputElement';

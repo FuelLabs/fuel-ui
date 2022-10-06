@@ -1,18 +1,18 @@
-import type { Colors } from "@fuel-ui/css";
-import { cx, styled } from "@fuel-ui/css";
-import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
-import * as PhosphorIcons from "phosphor-react";
-import type { ReactElement, ReactNode } from "react";
-import { useMemo, cloneElement } from "react";
+import type { Colors } from '@fuel-ui/css';
+import { cx, styled } from '@fuel-ui/css';
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
+import * as PhosphorIcons from 'phosphor-react';
+import type { ReactElement, ReactNode } from 'react';
+import { useMemo, cloneElement } from 'react';
 
-import { createComponent } from "../../utils";
-import { omit } from "../../utils/helpers";
-import type { FlexProps } from "../Flex";
-import { Flex } from "../Flex";
+import { createComponent } from '../../utils';
+import { omit } from '../../utils/helpers';
+import type { FlexProps } from '../Flex';
+import { Flex } from '../Flex';
 
-type ToOmit = "Icon" | "IconProps" | "IconWeight" | "IconContext";
+type ToOmit = 'Icon' | 'IconProps' | 'IconWeight' | 'IconContext';
 export type Icons = keyof Omit<typeof PhosphorIcons, ToOmit>;
-type OmitProps = "children";
+type OmitProps = 'children';
 
 export type IconProps = FlexProps &
   PhosphorIcons.IconProps & {
@@ -46,7 +46,7 @@ export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
   }) => {
     const iconElement = useMemo<ReactElement>(
       (() => {
-        if (typeof icon === "string") {
+        if (typeof icon === 'string') {
           const Component = styled(PhosphorIcons[icon]);
           return <Component />;
         }
@@ -55,11 +55,11 @@ export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
       [icon]
     );
 
-    const label = initialLabel || props["aria-label"];
+    const label = initialLabel || props['aria-label'];
     const iconProps = {
       className: cx(`fuel_icon--${icon}`, className),
       focusable: false,
-      "aria-hidden": true,
+      'aria-hidden': true,
       alt,
       size,
       weight,
@@ -69,12 +69,12 @@ export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
     return (
       <Flex
         as="span"
-        {...omit(["aria-label"], props)}
-        className={cx("fuel_icon", wrapperClassName)}
+        {...omit(['aria-label'], props)}
+        className={cx('fuel_icon', wrapperClassName)}
         align="center"
         justify="center"
         css={{
-          display: inline ? "inline-flex" : "flex",
+          display: inline ? 'inline-flex' : 'flex',
           ...(color && { color: `$${color}` }),
           ...css,
         }}
@@ -87,9 +87,9 @@ export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
 );
 
 const iconList = Object.keys(
-  omit(["Icon", "IconProps", "IconWeight", "IconContext"], PhosphorIcons)
+  omit(['Icon', 'IconProps', 'IconWeight', 'IconContext'], PhosphorIcons)
 ) as Icons[];
 
-Icon.id = "Icon";
+Icon.id = 'Icon';
 Icon.iconList = iconList;
 Icon.is = (icon: Icons) => icon;

@@ -21,7 +21,9 @@ function generateComponentFiles(argv) {
   const files = fs.readdirSync(componentDir);
 
   for (const file of files) {
-    const newFileName = file.replace('.template', '.tsx').replace('Component', component);
+    const newFileName = file
+      .replace('.template', '.tsx')
+      .replace('Component', component);
 
     const filePath = path.join(componentDir, file);
     const newFilePath = path.join(componentDir, newFileName);
@@ -32,7 +34,10 @@ function generateComponentFiles(argv) {
       .replaceAll('__COMPONENT__', component)
       .replace('$CLASS$', componentClass);
 
-    fs.outputFile(newFilePath, prettier.format(newRawFile, { parser: 'typescript' }));
+    fs.outputFile(
+      newFilePath,
+      prettier.format(newRawFile, { parser: 'typescript' })
+    );
   }
 }
 
@@ -44,7 +49,10 @@ function generateComponentsIndex() {
     .map((dir) => dir !== 'index.tsx' && `export * from "./${dir}";`)
     .filter(Boolean);
 
-  fs.outputFile(filepath, prettier.format(exportAll.join('\n'), { parser: 'typescript' }));
+  fs.outputFile(
+    filepath,
+    prettier.format(exportAll.join('\n'), { parser: 'typescript' })
+  );
 }
 
 (async function () {

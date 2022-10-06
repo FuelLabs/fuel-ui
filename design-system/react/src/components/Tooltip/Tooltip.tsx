@@ -1,26 +1,26 @@
-import { cx } from "@fuel-ui/css";
-import * as RTooltip from "@radix-ui/react-tooltip";
-import type { ReactNode } from "react";
+import { cx } from '@fuel-ui/css';
+import * as RTooltip from '@radix-ui/react-tooltip';
+import type { ReactNode } from 'react';
 
-import { createComponent } from "../../utils";
+import { createComponent } from '../../utils';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
 export type TooltipProps = RTooltip.TooltipProps & {
   content: ReactNode;
-  side?: RTooltip.PopperContentProps["side"];
-  align?: RTooltip.PopperContentProps["align"];
+  side?: RTooltip.PopperContentProps['side'];
+  align?: RTooltip.PopperContentProps['align'];
   className?: string;
   arrowClassName?: string;
-  sideOffset?: RTooltip.TooltipContentProps["sideOffset"];
-  alignOffset?: RTooltip.TooltipContentProps["alignOffset"];
+  sideOffset?: RTooltip.TooltipContentProps['sideOffset'];
+  alignOffset?: RTooltip.TooltipContentProps['alignOffset'];
 };
 
 export const Tooltip = createComponent<TooltipProps>(
   ({
     children,
     content,
-    side = "top",
+    side = 'top',
     align,
     className,
     arrowClassName,
@@ -52,6 +52,6 @@ export const Tooltip = createComponent<TooltipProps>(
 );
 
 const CLASSES = {
-  Content: cx("fuel_tooltip--content", styles.content()),
-  Arrow: cx("fuel_tooltip--arrow", styles.arrow()),
+  Content: cx('fuel_tooltip--content', styles.content()),
+  Arrow: cx('fuel_tooltip--arrow', styles.arrow()),
 };
