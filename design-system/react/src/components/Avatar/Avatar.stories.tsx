@@ -1,16 +1,16 @@
-import { Box } from "../Box";
+import { Box } from '../Box';
 
-import type { AvatarProps } from "./Avatar";
-import { Avatar } from "./Avatar";
+import type { AvatarProps } from './Avatar';
+import { Avatar } from './Avatar';
 
 export default {
   component: Avatar,
-  title: "UI/Avatar",
+  title: 'UI/Avatar',
   argTypes: {},
 };
 
 export const Sizes = (args: AvatarProps) => (
-  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
+  <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
     <Avatar
       {...args}
       size="sm"
@@ -33,7 +33,7 @@ export const Sizes = (args: AvatarProps) => (
 );
 
 export const Fallback = (args: AvatarProps) => (
-  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
+  <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
     <Avatar
       {...args}
       name="Colm Tuite"
@@ -43,7 +43,7 @@ export const Fallback = (args: AvatarProps) => (
 );
 
 export const Generated = (args: AvatarProps) => (
-  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
+  <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
     <Avatar.Generated
       {...args}
       hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
@@ -52,7 +52,7 @@ export const Generated = (args: AvatarProps) => (
 );
 
 export const GeneratedRandomBackground = (args: AvatarProps) => (
-  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
+  <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
     <Avatar.Generated
       {...args}
       hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
@@ -62,7 +62,7 @@ export const GeneratedRandomBackground = (args: AvatarProps) => (
 );
 
 export const GeneratedFuelBackground = (args: AvatarProps) => (
-  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
+  <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
     <Avatar.Generated
       {...args}
       hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
@@ -72,7 +72,7 @@ export const GeneratedFuelBackground = (args: AvatarProps) => (
 );
 
 export const GeneratedFixedBackground = (args: AvatarProps) => (
-  <Box css={{ display: "flex", alignItems: "center", gap: "$3" }}>
+  <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
     <Avatar.Generated
       {...args}
       hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"

@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { css, cx } from "@fuel-ui/css";
+import { css, cx } from '@fuel-ui/css';
 
-import type { ListContext } from "..";
-import { useListContext } from "..";
-import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
-import { Text } from "../Text";
+import type { ListContext } from '..';
+import { useListContext } from '..';
+import { createComponent } from '../../utils';
+import type { HTMLProps } from '../../utils';
+import { Text } from '../Text';
 
-type BaseProps = HTMLProps["li"];
+type BaseProps = HTMLProps['li'];
 export type ListProps = BaseProps & ListContext;
 
 export const ListItem = createComponent<ListProps>(
@@ -20,7 +20,7 @@ export const ListItem = createComponent<ListProps>(
     className,
     ...props
   }) => {
-    const classes = cx("fuel_list-item", className, style());
+    const classes = cx('fuel_list-item', className, style());
     const ctx = useListContext();
     return (
       <Text
@@ -33,7 +33,7 @@ export const ListItem = createComponent<ListProps>(
           leftIcon: icon || ctx.icon,
           leftIconAriaLabel: iconAriaLabel || ctx.iconAriaLabel,
           css: {
-            display: "flex",
+            display: 'flex',
             ...props.css,
           },
         })}
@@ -45,7 +45,7 @@ export const ListItem = createComponent<ListProps>(
 );
 
 const style = css({
-  "&::marker": {
-    color: "$gray6",
+  '&::marker': {
+    color: '$gray6',
   },
 });

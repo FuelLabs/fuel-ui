@@ -1,36 +1,36 @@
-import { colorKeys } from "@fuel-ui/css";
+import { colorKeys } from '@fuel-ui/css';
 
-import { Box } from "../Box";
-import { Icon } from "../Icon";
+import { Box } from '../Box';
+import { Icon } from '../Icon';
 
-import type { TagProps } from "./Tag";
-import { Tag } from "./Tag";
-import { TagCloseButton } from "./TagCloseButton";
+import type { TagProps } from './Tag';
+import { Tag } from './Tag';
+import { TagCloseButton } from './TagCloseButton';
 
 export default {
   component: Tag,
-  title: "UI/Tag",
+  title: 'UI/Tag',
   argTypes: {
     size: {
-      defaultValue: "sm",
-      control: "select",
+      defaultValue: 'sm',
+      control: 'select',
     },
     color: {
       options: colorKeys,
-      defaultValue: "accent",
-      control: "select",
+      defaultValue: 'accent',
+      control: 'select',
     },
     variant: {
-      defaultValue: "solid",
-      control: "select",
+      defaultValue: 'solid',
+      control: 'select',
     },
     leftIcon: {
       options: Icon.iconList,
-      control: "select",
+      control: 'select',
     },
     rightIcon: {
       options: Icon.iconList,
-      control: "select",
+      control: 'select',
     },
   },
 };
@@ -117,13 +117,13 @@ export const Disabled = (args: TagProps) => (
  */
 const styles = {
   wrapper: {
-    display: "flex",
-    alignItems: "center",
-    gap: "$4",
+    display: 'flex',
+    alignItems: 'center',
+    gap: '$4',
   },
   gridList: {
-    display: "grid",
-    gap: "$4",
-    gridTemplateColumns: "repeat(6, 1fr)",
+    display: 'grid',
+    gap: '$4',
+    gridTemplateColumns: 'repeat(6, 1fr)',
   },
 };

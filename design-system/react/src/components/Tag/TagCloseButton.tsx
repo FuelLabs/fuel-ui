@@ -1,10 +1,10 @@
-import { cx } from "@fuel-ui/css";
+import { cx } from '@fuel-ui/css';
 
-import { createComponent } from "../../utils";
-import type { IconButtonProps } from "../IconButton";
-import { IconButton } from "../IconButton";
+import { createComponent } from '../../utils';
+import type { IconButtonProps } from '../IconButton';
+import { IconButton } from '../IconButton';
 
-export type TagCloseButtonsProp = Omit<IconButtonProps, "icon" | "aria-label">;
+export type TagCloseButtonsProp = Omit<IconButtonProps, 'icon' | 'aria-label'>;
 
 type ObjProps = {
   id: string;
@@ -12,7 +12,7 @@ type ObjProps = {
 
 export const TagCloseButton = createComponent<TagCloseButtonsProp, ObjProps>(
   ({ className, ...props }) => {
-    const classes = cx("fuel_tag--close-btn", className);
+    const classes = cx('fuel_tag--close-btn', className);
     return (
       <IconButton
         {...props}
@@ -26,4 +26,4 @@ export const TagCloseButton = createComponent<TagCloseButtonsProp, ObjProps>(
   }
 );
 
-TagCloseButton.id = "TagCloseButton";
+TagCloseButton.id = 'TagCloseButton';

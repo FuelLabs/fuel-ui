@@ -1,21 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx } from "@fuel-ui/css";
-import { Children, cloneElement, createContext, useContext } from "react";
+import { cx } from '@fuel-ui/css';
+import { Children, cloneElement, createContext, useContext } from 'react';
 
-import { createComponent } from "../../utils";
-import type { BoxProps } from "../Box";
-import { Box } from "../Box";
-import { Flex } from "../Flex";
-import type { Icons } from "../Icon";
-import { Icon } from "../Icon";
+import { createComponent } from '../../utils';
+import type { BoxProps } from '../Box';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+import type { Icons } from '../Icon';
+import { Icon } from '../Icon';
 
-import { AlertActions } from "./AlertActions";
-import { AlertButton } from "./AlertButton";
-import { AlertDescription } from "./AlertDescription";
-import { AlertTitle } from "./AlertTitle";
-import * as styles from "./styles";
+import { AlertActions } from './AlertActions';
+import { AlertButton } from './AlertButton';
+import { AlertDescription } from './AlertDescription';
+import { AlertTitle } from './AlertTitle';
+import * as styles from './styles';
 
-export type AlertStatus = "info" | "warning" | "success" | "error";
+export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 type ContextProps = {
   status?: AlertStatus;
 };
@@ -26,7 +26,7 @@ export function useAlertProps() {
 }
 
 export type AlertProps = BoxProps & {
-  direction?: "row" | "column";
+  direction?: 'row' | 'column';
   status?: AlertStatus;
 };
 
@@ -43,22 +43,22 @@ type IconProps = {
 };
 
 const STATUS_ICONS: Record<string, IconProps> = {
-  info: { icon: "WarningCircle" },
-  warning: { icon: "Warning" },
-  success: { icon: "CheckCircle" },
-  error: { icon: "XCircle" },
+  info: { icon: 'WarningCircle' },
+  warning: { icon: 'Warning' },
+  success: { icon: 'CheckCircle' },
+  error: { icon: 'XCircle' },
 };
 
 export const Alert = createComponent<AlertProps, ObjProps>(
   ({
-    direction = "column",
-    status = "info",
+    direction = 'column',
+    status = 'info',
     children,
     className,
     ...props
   }) => {
     const classes = cx(
-      "fuel_alert",
+      'fuel_alert',
       className,
       styles.root({ status, direction })
     );
@@ -69,7 +69,7 @@ export const Alert = createComponent<AlertProps, ObjProps>(
       className: classes,
     };
     const items = Children.toArray(children).map((child: any) => {
-      if (child?.type?.id === "AlertActions") {
+      if (child?.type?.id === 'AlertActions') {
         return cloneElement(child);
       }
       return child;
@@ -88,7 +88,7 @@ export const Alert = createComponent<AlertProps, ObjProps>(
   }
 );
 
-Alert.id = "Alert";
+Alert.id = 'Alert';
 Alert.Title = AlertTitle;
 Alert.Description = AlertDescription;
 Alert.Actions = AlertActions;

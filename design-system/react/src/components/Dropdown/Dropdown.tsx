@@ -1,25 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx, styled } from "@fuel-ui/css";
+import { cx, styled } from '@fuel-ui/css';
 import {
   Children,
   createContext,
   createElement,
   useContext,
   useRef,
-} from "react";
-import type { AriaButtonProps, AriaMenuOptions } from "react-aria";
-import { useMenuTrigger } from "react-aria";
-import type { MenuTriggerProps, MenuTriggerState } from "react-stately";
-import { useMenuTriggerState } from "react-stately";
-import { useKeyPressEvent } from "react-use";
+} from 'react';
+import type { AriaButtonProps, AriaMenuOptions } from 'react-aria';
+import { useMenuTrigger } from 'react-aria';
+import type { MenuTriggerProps, MenuTriggerState } from 'react-stately';
+import { useMenuTriggerState } from 'react-stately';
+import { useKeyPressEvent } from 'react-use';
 
-import { createComponent } from "../../utils";
-import type { PopoverProps } from "../Popover";
-import { Popover } from "../Popover";
+import { createComponent } from '../../utils';
+import type { PopoverProps } from '../Popover';
+import { Popover } from '../Popover';
 
-import { DropdownMenu } from "./DropdownMenu";
-import { DropdownMenuItem } from "./DropdownMenuItem";
-import { DropdownTrigger } from "./DropdownTrigger";
+import { DropdownMenu } from './DropdownMenu';
+import { DropdownMenuItem } from './DropdownMenuItem';
+import { DropdownTrigger } from './DropdownTrigger';
 
 // ----------------------------------------------------------------------------
 // Context
@@ -28,7 +28,7 @@ import { DropdownTrigger } from "./DropdownTrigger";
 export type DropdownContext = {
   triggerRef: React.MutableRefObject<HTMLButtonElement | null>;
   state: MenuTriggerState;
-  menuTriggerProps: AriaButtonProps<"button">;
+  menuTriggerProps: AriaButtonProps<'button'>;
   menuProps: AriaMenuOptions<unknown>;
 };
 
@@ -48,23 +48,23 @@ type ObjProps = {
   MenuItem: typeof DropdownMenuItem;
 };
 
-export type DropdownProps = Omit<MenuTriggerProps, "direction"> & {
+export type DropdownProps = Omit<MenuTriggerProps, 'direction'> & {
   popoverProps?: {
-    side?: PopoverProps["side"];
-    sideOffset?: PopoverProps["sideOffset"];
-    align?: PopoverProps["align"];
-    alignOffset?: PopoverProps["sideOffset"];
+    side?: PopoverProps['side'];
+    sideOffset?: PopoverProps['sideOffset'];
+    align?: PopoverProps['align'];
+    alignOffset?: PopoverProps['sideOffset'];
   };
 };
 
-const Root = styled("div");
+const Root = styled('div');
 
 export const Dropdown = createComponent<DropdownProps, ObjProps>(
   ({ children, className, css, popoverProps, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
     const state = useMenuTriggerState(props);
     const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref);
-    const classes = cx("fuel_dropdown", className);
+    const classes = cx('fuel_dropdown', className);
 
     const ctxProps = {
       state,
@@ -74,18 +74,18 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
     };
 
     const trigger = Children.toArray(children).find(
-      (child: any) => child?.type.id === "DropdownTrigger"
+      (child: any) => child?.type.id === 'DropdownTrigger'
     );
 
     const menu = Children.toArray(children).find(
-      (child: any) => child?.type.id === "DropdownMenu"
+      (child: any) => child?.type.id === 'DropdownMenu'
     );
 
     const customChildren = (
       <ctx.Provider value={ctxProps}>
         <Popover
           {...popoverProps}
-          css={{ padding: "$0", ...css }}
+          css={{ padding: '$0', ...css }}
           content={menu}
           open={state.isOpen}
           onOpenChange={state.setOpen}
@@ -96,7 +96,7 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
       </ctx.Provider>
     );
 
-    useKeyPressEvent("Esc", () => {
+    useKeyPressEvent('Esc', () => {
       if (state.isOpen) {
         state.setOpen(false);
       }

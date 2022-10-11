@@ -1,9 +1,9 @@
-import { testA11y } from "@fuel-ui/test-utils";
+import { testA11y } from '@fuel-ui/test-utils';
 
-import { IconButton } from "./IconButton";
+import { IconButton } from './IconButton';
 
-describe("IconButton", () => {
-  it("a11y", async () => {
+describe('IconButton', () => {
+  it('a11y', async () => {
     await testA11y(<IconButton aria-label="Calendar Button" icon="Calendar" />);
   });
 });

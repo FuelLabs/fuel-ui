@@ -1,14 +1,14 @@
-import { render, testA11y } from "@fuel-ui/test-utils";
+import { render, testA11y } from '@fuel-ui/test-utils';
 
-import { Text } from "./Text";
+import { Text } from './Text';
 
-describe("Text", () => {
-  it("a11y", async () => {
+describe('Text', () => {
+  it('a11y', async () => {
     await testA11y(<Text>Text</Text>);
   });
 
-  it("should render a basic paragraph", () => {
+  it('should render a basic paragraph', () => {
     const { container } = render(<Text>Click</Text>);
-    expect(container.querySelector("p")).toBeInTheDocument();
+    expect(container.querySelector('p')).toBeInTheDocument();
   });
 });

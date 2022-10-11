@@ -1,21 +1,21 @@
-import { cx, styled } from "@fuel-ui/css";
+import { cx, styled } from '@fuel-ui/css';
 import {
   Children,
   createContext,
   createElement,
   useContext,
   useId,
-} from "react";
+} from 'react';
 
-import { createComponent } from "../../utils";
+import { createComponent } from '../../utils';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
 function getRightDescribedBy(ids: string[], id: string, isInvalid?: boolean) {
-  if (isInvalid && ids.some((i) => i?.includes("FormErrorMessage"))) {
+  if (isInvalid && ids.some((i) => i?.includes('FormErrorMessage'))) {
     return `feedback${id}`;
   }
-  if (ids.some((i) => i?.includes("FormHelperText"))) {
+  if (ids.some((i) => i?.includes('FormHelperText'))) {
     return `helperText${id}`;
   }
   return `label${id}`;
@@ -33,12 +33,12 @@ type Context = FormControlProps & {
   describedBy?: string;
 };
 
-const ctx = createContext<Context>({ id: "" });
+const ctx = createContext<Context>({ id: '' });
 export function useFormControlProps() {
   return useContext(ctx);
 }
 
-const Root = styled("div");
+const Root = styled('div');
 export const FormControl = createComponent<FormControlProps>(
   ({
     children,
@@ -50,7 +50,7 @@ export const FormControl = createComponent<FormControlProps>(
     ...props
   }) => {
     const id = useId();
-    const classes = cx("fuel_form--control", className, styles.control());
+    const classes = cx('fuel_form--control', className, styles.control());
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const childArr = Children.toArray(children) as any[];
@@ -68,7 +68,7 @@ export const FormControl = createComponent<FormControlProps>(
 
     const customProps = {
       ...props,
-      role: "group",
+      role: 'group',
       className: classes,
     };
 

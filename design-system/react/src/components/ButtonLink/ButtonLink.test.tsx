@@ -1,15 +1,15 @@
-import { render, screen, testA11y } from "@fuel-ui/test-utils";
+import { render, screen, testA11y } from '@fuel-ui/test-utils';
 
-import { ButtonLink } from "./ButtonLink";
+import { ButtonLink } from './ButtonLink';
 
-describe("ButtonLink", () => {
-  it("a11y", async () => {
+describe('ButtonLink', () => {
+  it('a11y', async () => {
     await testA11y(<ButtonLink>Click</ButtonLink>);
   });
 
-  it("should render <a> element", () => {
+  it('should render <a> element', () => {
     const { container } = render(<ButtonLink>Click</ButtonLink>);
-    expect(container.querySelector("a")).toBeInTheDocument();
-    expect(screen.getByRole("link")).toBeInTheDocument();
+    expect(container.querySelector('a')).toBeInTheDocument();
+    expect(screen.getByRole('link')).toBeInTheDocument();
   });
 });

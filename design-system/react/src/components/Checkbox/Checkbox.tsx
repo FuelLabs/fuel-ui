@@ -1,14 +1,14 @@
-import { cx, styled } from "@fuel-ui/css";
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { createElement } from "react";
+import { cx, styled } from '@fuel-ui/css';
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import { createElement } from 'react';
 
-import { createComponent } from "../../utils";
-import { useFormControlProps } from "../Form/FormControl";
-import { Icon } from "../Icon";
+import { createComponent } from '../../utils';
+import { useFormControlProps } from '../Form/FormControl';
+import { Icon } from '../Icon';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
-type OmitProps = "children" | "as";
+type OmitProps = 'children' | 'as';
 export type CheckboxProps = CheckboxPrimitive.CheckboxProps & {
   isDisabled?: boolean;
   isReadOnly?: boolean;
@@ -29,14 +29,14 @@ export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
       formControlProps.isReadOnly;
 
     const readonly = isReadOnly || formControlProps.isReadOnly;
-    const classes = cx("fuel_checkbox", className, styles.root({ disabled }));
+    const classes = cx('fuel_checkbox', className, styles.root({ disabled }));
     const indicatorClass = styles.indicator({ disabled });
 
     const customProps = {
       ...props,
       disabled,
-      "aria-disabled": disabled,
-      "aria-readonly": readonly,
+      'aria-disabled': disabled,
+      'aria-readonly': readonly,
       className: classes,
       required: props.required || formControlProps.isRequired,
     };
@@ -51,4 +51,4 @@ export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
   }
 );
 
-Checkbox.id = "Checkbox";
+Checkbox.id = 'Checkbox';

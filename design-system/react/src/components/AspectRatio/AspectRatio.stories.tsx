@@ -1,18 +1,18 @@
-import { css } from "@fuel-ui/css";
+import { css } from '@fuel-ui/css';
 
-import { Box } from "../Box";
+import { Box } from '../Box';
 
-import type { AspectRatioProps } from "./AspectRatio";
-import { AspectRatio } from "./AspectRatio";
+import type { AspectRatioProps } from './AspectRatio';
+import { AspectRatio } from './AspectRatio';
 
 export default {
   component: AspectRatio,
-  title: "UI/AspectRatio",
+  title: 'UI/AspectRatio',
   argTypes: {},
 };
 
 export const Usage = (args: AspectRatioProps) => (
-  <Box css={{ maxW: "$sm", borderRadius: "$xl", overflow: "hidden" }}>
+  <Box css={{ maxW: '$sm', borderRadius: '$xl', overflow: 'hidden' }}>
     <AspectRatio ratio={16 / 9} {...args}>
       <img
         className={styles.img()}
@@ -25,8 +25,8 @@ export const Usage = (args: AspectRatioProps) => (
 
 const styles = {
   img: css({
-    objectFit: "cover",
-    width: "$full",
-    height: "$full",
+    objectFit: 'cover',
+    width: '$full',
+    height: '$full',
   }),
 };

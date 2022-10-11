@@ -1,15 +1,15 @@
-import type { ThemeUtilsCSS } from "@fuel-ui/css";
-import { cx, styled } from "@fuel-ui/css";
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { createElement, useId } from "react";
+import type { ThemeUtilsCSS } from '@fuel-ui/css';
+import { cx, styled } from '@fuel-ui/css';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
+import { createElement, useId } from 'react';
 
-import { createComponent } from "../../utils";
-import { Flex } from "../Flex";
-import { Form } from "../Form";
+import { createComponent } from '../../utils';
+import { Flex } from '../Flex';
+import { Form } from '../Form';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
-type OmitProps = "as" | "children";
+type OmitProps = 'as' | 'children';
 export type RadioGroupItemProps = RadioGroupPrimitive.RadioGroupItemProps & {
   label: string;
   isDisabled?: boolean;
@@ -40,15 +40,15 @@ export const RadioGroupItem = createComponent<
   }) => {
     const disabled = isDisabled || isReadOnly;
     const labelId = label ? `label-${useId()}` : undefined;
-    const classes = cx("fuel_radio-group--item", className, styles.item());
+    const classes = cx('fuel_radio-group--item', className, styles.item());
     const customProps = {
       ...props,
       className: classes,
       disabled,
-      "aria-label": label,
-      "aria-disabled": disabled,
-      "aria-readonly": isReadOnly,
-      ...(label && { "aria-describedby": labelId }),
+      'aria-label': label,
+      'aria-disabled': disabled,
+      'aria-readonly': isReadOnly,
+      ...(label && { 'aria-describedby': labelId }),
     };
 
     const element = createElement(
@@ -61,11 +61,11 @@ export const RadioGroupItem = createComponent<
 
     return (
       <Flex gap="$1">
-        {element}{" "}
+        {element}{' '}
         <Form.Label
           id={labelId}
           htmlFor={props.id}
-          css={{ textSize: "sm", ...labelCSS }}
+          css={{ textSize: 'sm', ...labelCSS }}
           className={cx(labelClassName)}
         >
           {label}
@@ -75,4 +75,4 @@ export const RadioGroupItem = createComponent<
   }
 );
 
-RadioGroupItem.id = "RadioGroupItem";
+RadioGroupItem.id = 'RadioGroupItem';

@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-export { FocusScope } from "react-aria";
+export { FocusScope } from 'react-aria';
 
 export type FocusScopeProps = {
   children: ReactNode;

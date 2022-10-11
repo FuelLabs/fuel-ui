@@ -1,24 +1,24 @@
-import type { ColorKeys } from "@fuel-ui/css";
-import { styled, cx } from "@fuel-ui/css";
-import { createElement } from "react";
+import type { ColorKeys } from '@fuel-ui/css';
+import { styled, cx } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import type { HTMLProps } from "../../utils";
-import { createComponent } from "../../utils";
+import type { HTMLProps } from '../../utils';
+import { createComponent } from '../../utils';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
-export type BadgeVariants = "solid" | "outlined" | "ghost";
-export type BadgeProps = HTMLProps["span"] & {
+export type BadgeVariants = 'solid' | 'outlined' | 'ghost';
+export type BadgeProps = HTMLProps['span'] & {
   color?: ColorKeys;
   variant?: BadgeVariants;
 };
 
-const Root = styled("span");
+const Root = styled('span');
 
 export const Badge = createComponent<BadgeProps>(
   ({ color, variant, className, children, ...props }) => {
     const classes = cx(
-      "fuel_badge",
+      'fuel_badge',
       className,
       styles.badge({ variant, color })
     );

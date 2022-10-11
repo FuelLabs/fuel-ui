@@ -1,11 +1,11 @@
-import { Button } from "../Button";
+import { Button } from '../Button';
 
-import type { ButtonGroupProps } from "./ButtonGroup";
-import { ButtonGroup } from "./ButtonGroup";
+import type { ButtonGroupProps } from './ButtonGroup';
+import { ButtonGroup } from './ButtonGroup';
 
 export default {
   component: ButtonGroup,
-  title: "UI/ButtonGroup",
+  title: 'UI/ButtonGroup',
   argTypes: {},
 };
 

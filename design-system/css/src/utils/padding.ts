@@ -1,6 +1,11 @@
 import { composeUtil } from '../helpers/composeUtil';
 
-export const p = composeUtil(['paddingTop', 'paddingBottom', 'paddingRight', 'paddingLeft']);
+export const p = composeUtil([
+  'paddingTop',
+  'paddingBottom',
+  'paddingRight',
+  'paddingLeft',
+]);
 
 export const pt = composeUtil(['paddingTop']);
 export const pr = composeUtil(['paddingRight']);

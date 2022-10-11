@@ -1,38 +1,38 @@
-import { colorKeys } from "@fuel-ui/css";
+import { colorKeys } from '@fuel-ui/css';
 
-import { Box } from "../Box";
-import { Icon } from "../Icon";
+import { Box } from '../Box';
+import { Icon } from '../Icon';
 
-import type { ButtonProps } from "./Button";
-import { Button } from "./Button";
+import type { ButtonProps } from './Button';
+import { Button } from './Button';
 
 export default {
-  title: "UI/Button",
+  title: 'UI/Button',
   component: Button,
   argTypes: {
     onPress: {
-      action: "pressed",
+      action: 'pressed',
     },
     size: {
-      defaultValue: "md",
-      control: "select",
+      defaultValue: 'md',
+      control: 'select',
     },
     color: {
       options: colorKeys,
-      defaultValue: "accent",
-      control: "select",
+      defaultValue: 'accent',
+      control: 'select',
     },
     variant: {
-      defaultValue: "solid",
-      control: "select",
+      defaultValue: 'solid',
+      control: 'select',
     },
     leftIcon: {
       options: Icon.iconList,
-      control: "select",
+      control: 'select',
     },
     rightIcon: {
       options: Icon.iconList,
-      control: "select",
+      control: 'select',
     },
   },
 };
@@ -139,13 +139,13 @@ export const Disabled = (args: ButtonProps) => (
  */
 const styles = {
   wrapper: {
-    display: "flex",
-    alignItems: "center",
-    gap: "$4",
+    display: 'flex',
+    alignItems: 'center',
+    gap: '$4',
   },
   gridList: {
-    display: "grid",
-    gap: "$4",
-    gridTemplateColumns: "repeat(6, 1fr)",
+    display: 'grid',
+    gap: '$4',
+    gridTemplateColumns: 'repeat(6, 1fr)',
   },
 };

@@ -1,15 +1,15 @@
-import { cx } from "@fuel-ui/css";
+import { cx } from '@fuel-ui/css';
 
-import { createComponent } from "../../utils";
-import type { BoxProps } from "../Box";
-import { Box } from "../Box";
+import { createComponent } from '../../utils';
+import type { BoxProps } from '../Box';
+import { Box } from '../Box';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
 export const AlertDescription = createComponent<BoxProps>(
   ({ children, className, ...props }) => {
     const classes = cx(
-      "fuel_alert--description",
+      'fuel_alert--description',
       className,
       styles.description()
     );

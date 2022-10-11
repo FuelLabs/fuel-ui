@@ -1,19 +1,19 @@
-import { Box } from "../Box";
-import { Button } from "../Button";
-import { Heading } from "../Heading";
-import { Icon } from "../Icon";
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Heading } from '../Heading';
+import { Icon } from '../Icon';
 
-import type { CardProps } from "./Card";
-import { Card } from "./Card";
+import type { CardProps } from './Card';
+import { Card } from './Card';
 
 export default {
   component: Card,
-  title: "UI/Card",
+  title: 'UI/Card',
   argTypes: {},
 };
 
 export const Usage = (args: CardProps) => (
-  <Box css={{ maxW: "400px" }}>
+  <Box css={{ maxW: '400px' }}>
     <Card {...args}>
       <Card.Body>Hello world</Card.Body>
     </Card>
@@ -21,7 +21,7 @@ export const Usage = (args: CardProps) => (
 );
 
 export const WithHeader = (args: CardProps) => (
-  <Box css={{ maxW: "400px" }}>
+  <Box css={{ maxW: '400px' }}>
     <Card {...args}>
       <Card.Header>
         <Heading as="h3">Welcome Fuel</Heading>
@@ -32,10 +32,10 @@ export const WithHeader = (args: CardProps) => (
 );
 
 export const WithFooter = (args: CardProps) => (
-  <Box css={{ maxW: "400px" }}>
+  <Box css={{ maxW: '400px' }}>
     <Card {...args}>
       <Card.Header>
-        <Heading as="h3" leftIcon={Icon.is("Calendar")}>
+        <Heading as="h3" leftIcon={Icon.is('Calendar')}>
           Calendar
         </Heading>
       </Card.Header>

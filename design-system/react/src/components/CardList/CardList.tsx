@@ -1,11 +1,11 @@
-import { cx } from "@fuel-ui/css";
-import { createContext, useContext } from "react";
+import { cx } from '@fuel-ui/css';
+import { createContext, useContext } from 'react';
 
-import type { StackProps } from "..";
-import { Focus, Stack } from "..";
-import { createComponent } from "../../utils";
+import type { StackProps } from '..';
+import { Focus, Stack } from '..';
+import { createComponent } from '../../utils';
 
-import { CardListItem } from "./CardListItem";
+import { CardListItem } from './CardListItem';
 
 type Context = {
   isClickable?: boolean;
@@ -19,7 +19,7 @@ export function useCardListContext() {
   return useContext(ctx);
 }
 
-export type CardListProps = StackProps & Omit<Context, "isFocused">;
+export type CardListProps = StackProps & Omit<Context, 'isFocused'>;
 
 type ObjProps = {
   id: string;
@@ -28,7 +28,7 @@ type ObjProps = {
 
 export const CardList = createComponent<CardListProps, ObjProps>(
   ({ children, className, isClickable, autoFocus, ...props }) => {
-    const classes = cx("fuel_card-list", className);
+    const classes = cx('fuel_card-list', className);
 
     return (
       <ctx.Provider value={{ isClickable, autoFocus }}>

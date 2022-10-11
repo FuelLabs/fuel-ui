@@ -1,16 +1,16 @@
-import { render, screen, testA11y } from "@fuel-ui/test-utils";
-import type { PropsWithChildren } from "react";
+import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import type { PropsWithChildren } from 'react';
 
-import { Input } from "../Input";
+import { Input } from '../Input';
 
-import { Form } from "./Form";
-import type { FormControlProps } from "./FormControl";
+import { Form } from './Form';
+import type { FormControlProps } from './FormControl';
 
 const FIELD_ARGS = {
-  type: "email",
-  name: "email",
-  id: "email",
-  placeholder: "Type your email",
+  type: 'email',
+  name: 'email',
+  id: 'email',
+  placeholder: 'Type your email',
 };
 
 function FormComponent(props: PropsWithChildren<FormControlProps>) {
@@ -25,30 +25,30 @@ function FormComponent(props: PropsWithChildren<FormControlProps>) {
   );
 }
 
-describe("Form", () => {
-  it("a11y", async () => {
+describe('Form', () => {
+  it('a11y', async () => {
     await testA11y(<FormComponent />);
   });
 
-  it("should input have aria-describedby by label first", () => {
+  it('should input have aria-describedby by label first', () => {
     const { container } = render(<FormComponent />);
 
-    const input = container.querySelector("input");
-    expect(input?.getAttribute("aria-describedby")).toContain("label");
+    const input = container.querySelector('input');
+    expect(input?.getAttribute('aria-describedby')).toContain('label');
   });
 
-  it("should input have aria-describedby by helper message if present", () => {
+  it('should input have aria-describedby by helper message if present', () => {
     const { container } = render(
       <FormComponent>
         <Form.HelperText>We will never share your email</Form.HelperText>
       </FormComponent>
     );
 
-    const input = container.querySelector("input");
-    expect(input?.getAttribute("aria-describedby")).toContain("helperText");
+    const input = container.querySelector('input');
+    expect(input?.getAttribute('aria-describedby')).toContain('helperText');
   });
 
-  it("should input have aria-describedby by error message if invalid", () => {
+  it('should input have aria-describedby by error message if invalid', () => {
     const { container } = render(
       <FormComponent isInvalid>
         <Form.HelperText>We will never share your email</Form.HelperText>
@@ -56,24 +56,24 @@ describe("Form", () => {
       </FormComponent>
     );
 
-    const input = container.querySelector("input");
-    expect(input?.getAttribute("aria-describedby")).toContain("feedback");
+    const input = container.querySelector('input');
+    expect(input?.getAttribute('aria-describedby')).toContain('feedback');
   });
 
-  it("should input have props derived from form control state", () => {
+  it('should input have props derived from form control state', () => {
     render(<FormComponent isRequired isInvalid isDisabled />);
-    expect(screen.getByRole("textbox")).toHaveAttribute("aria-invalid", "true");
-    expect(screen.getByRole("textbox")).toHaveAttribute(
-      "aria-required",
-      "true"
+    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-required',
+      'true'
     );
-    expect(screen.getByRole("textbox")).toHaveAttribute(
-      "aria-disabled",
-      "true"
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-disabled',
+      'true'
     );
   });
 
-  it("should helper text be hidden if invalid", () => {
+  it('should helper text be hidden if invalid', () => {
     const { container } = render(
       <FormComponent isInvalid>
         <Form.HelperText>We will never share your email</Form.HelperText>
@@ -81,14 +81,14 @@ describe("Form", () => {
       </FormComponent>
     );
 
-    const helperText = container.querySelector(".fuel_form--helper-text");
-    const errorMessage = container.querySelector(".fuel_form--error-message");
+    const helperText = container.querySelector('.fuel_form--helper-text');
+    const errorMessage = container.querySelector('.fuel_form--error-message');
 
-    expect(helperText).toHaveAttribute("aria-hidden", "true");
+    expect(helperText).toHaveAttribute('aria-hidden', 'true');
     expect(errorMessage).toBeInTheDocument();
   });
 
-  it("should error message be hidden if not invalid", () => {
+  it('should error message be hidden if not invalid', () => {
     const { container } = render(
       <FormComponent>
         <Form.HelperText>We will never share your email</Form.HelperText>
@@ -96,10 +96,10 @@ describe("Form", () => {
       </FormComponent>
     );
 
-    const helperText = container.querySelector(".fuel_form--helper-text");
-    const errorMessage = container.querySelector(".fuel_form--error-message");
+    const helperText = container.querySelector('.fuel_form--helper-text');
+    const errorMessage = container.querySelector('.fuel_form--error-message');
 
     expect(helperText).toBeInTheDocument();
-    expect(errorMessage).toHaveAttribute("aria-hidden", "true");
+    expect(errorMessage).toHaveAttribute('aria-hidden', 'true');
   });
 });

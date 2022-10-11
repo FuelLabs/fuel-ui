@@ -1,12 +1,12 @@
-import { Box } from "../Box";
-import { Stack } from "../Stack";
+import { Box } from '../Box';
+import { Stack } from '../Stack';
 
-import type { IconButtonProps } from "./IconButton";
-import { IconButton } from "./IconButton";
+import type { IconButtonProps } from './IconButton';
+import { IconButton } from './IconButton';
 
 export default {
   component: IconButton,
-  title: "UI/IconButton",
+  title: 'UI/IconButton',
 };
 
 export const Usage = (args: IconButtonProps) => (
@@ -18,7 +18,7 @@ export const Usage = (args: IconButtonProps) => (
 );
 
 export const WithTooltip = (args: IconButtonProps) => (
-  <Box css={{ display: "flex", gap: "$2" }}>
+  <Box css={{ display: 'flex', gap: '$2' }}>
     <IconButton
       {...args}
       aria-label="Button"

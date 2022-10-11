@@ -1,32 +1,32 @@
-import { Stack } from "../Stack";
+import { Stack } from '../Stack';
 
-import type { HeadingProps } from "./Heading";
-import { Heading } from "./Heading";
+import type { HeadingProps } from './Heading';
+import { Heading } from './Heading';
 
 export default {
   component: Heading,
-  title: "Base/Typography/Heading",
+  title: 'Base/Typography/Heading',
   argTypes: {},
 };
 
 export const Usage = (args: HeadingProps) => (
   <Stack gap="$4">
-    <Heading {...args} css={{ m: "0" }} as="h1">
+    <Heading {...args} css={{ m: '0' }} as="h1">
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h2">
+    <Heading {...args} css={{ m: '0' }} as="h2">
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h3">
+    <Heading {...args} css={{ m: '0' }} as="h3">
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h4">
+    <Heading {...args} css={{ m: '0' }} as="h4">
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h5">
+    <Heading {...args} css={{ m: '0' }} as="h5">
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h6">
+    <Heading {...args} css={{ m: '0' }} as="h6">
       Some title
     </Heading>
   </Stack>
@@ -34,28 +34,28 @@ export const Usage = (args: HeadingProps) => (
 
 const iconProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  leftIcon: "Calendar" as any,
-  leftIconAriaLabel: "Calendar",
+  leftIcon: 'Calendar' as any,
+  leftIconAriaLabel: 'Calendar',
 };
 
 export const WithIcon = (args: HeadingProps) => (
   <Stack gap="$4">
-    <Heading {...args} css={{ m: "0" }} as="h1" {...iconProps}>
+    <Heading {...args} css={{ m: '0' }} as="h1" {...iconProps}>
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h2" {...iconProps}>
+    <Heading {...args} css={{ m: '0' }} as="h2" {...iconProps}>
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h3" {...iconProps}>
+    <Heading {...args} css={{ m: '0' }} as="h3" {...iconProps}>
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h4" {...iconProps}>
+    <Heading {...args} css={{ m: '0' }} as="h4" {...iconProps}>
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h5" {...iconProps}>
+    <Heading {...args} css={{ m: '0' }} as="h5" {...iconProps}>
       Some title
     </Heading>
-    <Heading {...args} css={{ m: "0" }} as="h6" {...iconProps}>
+    <Heading {...args} css={{ m: '0' }} as="h6" {...iconProps}>
       Some title
     </Heading>
   </Stack>

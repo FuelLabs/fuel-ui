@@ -1,12 +1,12 @@
-import { styled } from "@fuel-ui/css";
-import * as RDialog from "@radix-ui/react-dialog";
+import { styled } from '@fuel-ui/css';
+import * as RDialog from '@radix-ui/react-dialog';
 
-import { DialogClose } from "./DialogClose";
-import { DialogContent } from "./DialogContent";
-import { DialogDescription } from "./DialogDescription";
-import { DialogFooter } from "./DialogFooter";
-import { DialogHeading } from "./DialogHeading";
-import { DialogTrigger } from "./DialogTrigger";
+import { DialogClose } from './DialogClose';
+import { DialogContent } from './DialogContent';
+import { DialogDescription } from './DialogDescription';
+import { DialogFooter } from './DialogFooter';
+import { DialogHeading } from './DialogHeading';
+import { DialogTrigger } from './DialogTrigger';
 
 const DialogRoot = styled(RDialog.Root);
 

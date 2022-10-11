@@ -15,7 +15,12 @@ async function main() {
   fs.ensureDirSync(storeDir);
 
   const root = process.cwd();
-  const dirs = ['common/config', 'common/test-utils', 'design-system/react', 'design-system/css'];
+  const dirs = [
+    'common/config',
+    'common/test-utils',
+    'design-system/react',
+    'design-system/css',
+  ];
 
   for (const dir of dirs) {
     const project = path.resolve(root, dir);
@@ -26,21 +31,31 @@ async function main() {
       'package.json',
     ];
 
-    const files = fs.readdirSync(project).filter((f) => whitelist.some((i) => i.includes(f)));
-    const dirName = dir.replace('common/', '@fuel-ui/').replace('design-system/', '@fuel-ui/');
+    const files = fs
+      .readdirSync(project)
+      .filter((f) => whitelist.some((i) => i.includes(f)));
+    const dirName = dir
+      .replace('common/', '@fuel-ui/')
+      .replace('design-system/', '@fuel-ui/');
     const storeProjectPath = path.resolve(storeDir, dirName);
     await fs.remove(storeProjectPath);
     await fs.mkdirp(storeProjectPath);
 
     await Promise.all(
       files.map(async (file) => {
-        await fs.copy(path.resolve(project, file), path.resolve(storeProjectPath, file));
+        await fs.copy(
+          path.resolve(project, file),
+          path.resolve(storeProjectPath, file)
+        );
 
         const pkgJSONPath = path.resolve(storeProjectPath, 'package.json');
         const pkgJSON = await fs.readJSON(pkgJSONPath);
         const publishConfig = pkgJSON.publishConfig;
         const formatted = prettier.format(
-          JSON.stringify({ ...omit(['publishConfig'], pkgJSON), ...publishConfig }),
+          JSON.stringify({
+            ...omit(['publishConfig'], pkgJSON),
+            ...publishConfig,
+          }),
           { parser: 'json' }
         );
         fs.outputFileSync(pkgJSONPath, formatted, 'utf-8');
