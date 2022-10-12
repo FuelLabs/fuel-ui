@@ -5,6 +5,7 @@ const SIZES = {
   sm: 30,
   md: 40,
   lg: 50,
+  xl: 100,
 };
 
 function getBackgroundColor(
