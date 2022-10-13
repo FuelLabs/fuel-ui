@@ -91,7 +91,7 @@ export const GeneratedFuelBackground = (args: AvatarProps) => (
       {...args}
       hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
       background="fuel"
-      size="xxl"
+      size="2xl"
     />
   </Box>
 );
