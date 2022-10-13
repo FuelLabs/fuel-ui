@@ -2,10 +2,10 @@ import { lightColors } from '@fuel-ui/css';
 import { toSvg } from 'jdenticon';
 
 const SIZES = {
-  sm: 30,
+  sm: 32,
   md: 40,
-  lg: 50,
-  xl: 100,
+  lg: 56,
+  xl: 104,
 };
 
 function getBackgroundColor(
