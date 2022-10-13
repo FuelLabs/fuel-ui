@@ -10,7 +10,7 @@ type OmitProps = 'children';
 export type AvatarGeneratedProps = BoxProps & {
   hash: string;
   fallback?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   background?: 'fuel' | 'random' | string;
 };
 
