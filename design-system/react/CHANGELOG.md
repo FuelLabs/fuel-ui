@@ -1,5 +1,18 @@
 # @fuel-ui/react
 
+## 0.8.0
+
+### Minor Changes
+
+- ✨ feat(new-avatar-size): adds new avatar size, by [@LFSCamargo](https://github.com/LFSCamargo) (See [#144](https://github.com/FuelLabs/fuel-ui/pull/144))
+- ✨ Feat: add new `<List />` component. See how to use it inside the component story, by [@pedronauck](https://github.com/pedronauck) (See [#142](https://github.com/FuelLabs/fuel-ui/pull/142))
+- ✨ Feat: add `hideCloseButton` prop on `<DialogContent>`, by [@pedronauck](https://github.com/pedronauck) (See [#145](https://github.com/FuelLabs/fuel-ui/pull/145))
+
+### Patch Changes
+
+- 🐞 Fix: Remove FocusScope inside of Menu component and add autoFocus manually, by [@pedronauck](https://github.com/pedronauck) (See [#139](https://github.com/FuelLabs/fuel-ui/pull/139))
+- 🐞 Fix: export MenuItemProps type, by [@pedronauck](https://github.com/pedronauck) (See [#141](https://github.com/FuelLabs/fuel-ui/pull/141))
+
 ## 0.7.0
 
 ### Minor Changes
