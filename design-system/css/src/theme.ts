@@ -6,15 +6,23 @@ import { media } from './media';
 import * as tokens from './tokens';
 import * as utils from './utils';
 
-export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme, config } =
-  createStitches({
-    theme: {
-      ...tokens,
-      colors: darkColors,
-    },
-    media,
-    utils,
-  });
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+  createTheme,
+  config,
+} = createStitches({
+  theme: {
+    ...tokens,
+    colors: darkColors,
+  },
+  media,
+  utils,
+});
 
 export type ThemeUtilsCSS = CSS<typeof config>;
 

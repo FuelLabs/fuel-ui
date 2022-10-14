@@ -1,13 +1,13 @@
-import { useMachine } from "@xstate/react";
-import { IconContext } from "phosphor-react";
-import type { FC, ReactNode } from "react";
-import { useContext, createContext } from "react";
+import { useMachine } from '@xstate/react';
+import { IconContext } from 'phosphor-react';
+import type { FC, ReactNode } from 'react';
+import { useContext, createContext } from 'react';
 
-import { GlobalStyles } from "../../styles/GlobalStyles";
-import { ToastProvider } from "../Toast";
+import { GlobalStyles } from '../../styles/GlobalStyles';
+import { ToastProvider } from '../Toast';
 
-import type { FuelTheme } from "./machine";
-import { getDefaultSystemTheme, themeProviderMachine } from "./machine";
+import type { FuelTheme } from './machine';
+import { getDefaultSystemTheme, themeProviderMachine } from './machine';
 
 type ThemeProviderContext = {
   theme: FuelTheme;
@@ -22,7 +22,7 @@ const context = createContext<ThemeProviderContext>({
 });
 
 export type ThemeProps = {
-  theme?: "dark" | "light";
+  theme?: 'dark' | 'light';
   withFonts?: boolean;
   children: ReactNode;
 };
@@ -39,11 +39,11 @@ export const ThemeProvider: FC<ThemeProps> = ({
   );
 
   function setTheme(value: FuelTheme) {
-    send("SET_THEME", { value });
+    send('SET_THEME', { value });
   }
 
   function toggleTheme() {
-    send("TOGGLE_THEME");
+    send('TOGGLE_THEME');
   }
 
   const contextValue = {

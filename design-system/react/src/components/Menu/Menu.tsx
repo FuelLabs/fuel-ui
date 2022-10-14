@@ -1,48 +1,56 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx, styled } from "@fuel-ui/css";
-import { mergeRefs } from "@react-aria/utils";
-import type { FC, Key } from "react";
-import { createElement, useRef } from "react";
-import type { AriaMenuOptions } from "react-aria";
-import { FocusScope, mergeProps, useMenu } from "react-aria";
-import type { TreeProps, ItemProps } from "react-stately";
-import { Item, useTreeState } from "react-stately";
+import { cx } from '@fuel-ui/css';
+import { mergeRefs } from '@react-aria/utils';
+import type { FC, Key } from 'react';
+import { useRef } from 'react';
+import type { AriaMenuOptions } from 'react-aria';
+import { mergeProps, useMenu } from 'react-aria';
+import type { TreeProps, ItemProps } from 'react-stately';
+import { Item, useTreeState } from 'react-stately';
 
-import type { HTMLProps } from "../../utils";
-import { createComponent } from "../../utils";
-import { omit } from "../../utils/helpers";
+import type { HTMLProps } from '../../utils';
+import { createComponent } from '../../utils';
+import { omit } from '../../utils/helpers';
+import { Box } from '../Box';
 
-import type { MenuItemProps } from "./MenuItem";
-import { MenuItem } from "./MenuItem";
-import * as styles from "./styles";
+import type { MenuItemProps as BaseMenuItemProps } from './MenuItem';
+import { MenuItem } from './MenuItem';
+import * as styles from './styles';
 
-export type MenuProps = HTMLProps["ul"] &
+export type MenuProps = HTMLProps['ul'] &
   TreeProps<any> &
   AriaMenuOptions<unknown> & {
     onAction?: (key: Key) => void;
     autoFocus?: boolean;
   };
 
+export type MenuItemProps = ItemProps<BaseMenuItemProps>;
 type ObjProps = {
-  Item: FC<ItemProps<MenuItemProps>>;
+  Item: FC<MenuItemProps>;
 };
 
-const Root = styled("ul");
-
 export const Menu = createComponent<MenuProps, ObjProps>(
-  ({ className, onAction, autoFocus, selectionMode = "none", ...props }) => {
-    const ref = useRef<HTMLUListElement | null>(null);
+  ({
+    ref,
+    autoFocus,
+    className,
+    onAction,
+    selectionMode = 'none',
+    ...props
+  }) => {
+    const innerRef = useRef<HTMLUListElement | null>(null);
     const state = useTreeState<any>({ ...props, selectionMode });
-    const { menuProps } = useMenu(props, state, ref);
-    const classes = cx("fuel_menu", className, styles.menu());
+    const { menuProps } = useMenu(props, state, innerRef);
+    const classes = cx('fuel_menu', className, styles.menu());
     const customProps = {
-      ...omit(["disabledKeys"], props),
-      ref: mergeRefs(ref, props.ref!),
+      ...omit(['disabledKeys'], props),
+      ref: mergeRefs(innerRef, ref),
       className: classes,
     };
 
-    const children = [...state.collection].map((item) => (
+    const children = [...state.collection].map((item, idx) => (
       <MenuItem
+        {...(autoFocus && idx === 0 && { autoFocus: true })}
         className={item.props.className}
         key={item.key}
         item={item}
@@ -51,13 +59,11 @@ export const Menu = createComponent<MenuProps, ObjProps>(
       />
     ));
 
-    const element = createElement(
-      Root,
-      mergeProps(menuProps, customProps),
-      children
+    return (
+      <Box as="ul" {...mergeProps(menuProps, customProps)}>
+        {children}
+      </Box>
     );
-
-    return <FocusScope autoFocus={autoFocus}>{element}</FocusScope>;
   }
 );
 

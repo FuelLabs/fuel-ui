@@ -1,9 +1,9 @@
-import { testA11y } from "@fuel-ui/test-utils";
+import { testA11y } from '@fuel-ui/test-utils';
 
-import { Tabs } from "./Tabs";
+import { Tabs } from './Tabs';
 
-describe("Tabs", () => {
-  it("a11y", async () => {
+describe('Tabs', () => {
+  it('a11y', async () => {
     await testA11y(
       <Tabs defaultValue="account">
         <Tabs.List aria-label="Manage your account">

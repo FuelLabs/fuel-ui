@@ -1,17 +1,17 @@
-import { cx, styled } from "@fuel-ui/css";
-import * as RAvatar from "@radix-ui/react-avatar";
-import { createElement } from "react";
+import { cx, styled } from '@fuel-ui/css';
+import * as RAvatar from '@radix-ui/react-avatar';
+import { createElement } from 'react';
 
-import { createComponent } from "../../utils";
+import { createComponent } from '../../utils';
 
-import { AvatarGenerated } from "./AvatarGenerated";
-import * as styles from "./styles";
+import { AvatarGenerated } from './AvatarGenerated';
+import * as styles from './styles';
 
-type OmitProps = "children";
+type OmitProps = 'children';
 export type AvatarProps = RAvatar.AvatarImageProps & {
   name: string;
   fallback?: string;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
 };
 
 type ObjProps = {
@@ -22,7 +22,7 @@ const Root = styled(RAvatar.Root);
 
 export const Avatar = createComponent<AvatarProps, ObjProps, OmitProps>(
   ({ name, size, className, css, as, ...props }) => {
-    const classes = cx("fuel_avatar", className, styles.avatar({ size }));
+    const classes = cx('fuel_avatar', className, styles.avatar({ size }));
     const wrapperProps = { as, css, className: classes };
     const children = (
       <>
@@ -33,9 +33,9 @@ export const Avatar = createComponent<AvatarProps, ObjProps, OmitProps>(
         />
         <RAvatar.AvatarFallback className={styles.fallback()}>
           {name
-            .split(" ")
+            .split(' ')
             .map((w) => w.slice(0, 1))
-            .join("")}
+            .join('')}
         </RAvatar.AvatarFallback>
       </>
     );

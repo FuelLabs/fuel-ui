@@ -1,36 +1,36 @@
-import { cx, styled } from "@fuel-ui/css";
-import type { FC } from "react";
-import { useRef } from "react";
-import { mergeProps, useFocusable } from "react-aria";
-import type { NumberFormatProps } from "react-number-format";
-import NumberFormat from "react-number-format";
+import { cx, styled } from '@fuel-ui/css';
+import type { FC } from 'react';
+import { useRef } from 'react';
+import { mergeProps, useFocusable } from 'react-aria';
+import type { NumericFormatProps } from 'react-number-format';
+import { NumericFormat } from 'react-number-format';
 
-import { createComponent } from "../../utils";
-import type { HTMLProps, BaseProps } from "../../utils";
+import { createComponent } from '../../utils';
+import type { HTMLProps, BaseProps } from '../../utils';
 
-import { useInputProps } from "./Input";
-import type { InputFieldProps } from "./InputField";
-import { InputField } from "./InputField";
-import * as styles from "./styles";
+import { useInputProps } from './Input';
+import type { InputFieldProps } from './InputField';
+import { InputField } from './InputField';
+import * as styles from './styles';
 
-type HTMLInputProps = HTMLProps["input"];
-type OmitProps = "as" | "children";
-export type InputNumberProps = Omit<HTMLInputProps, "size"> &
-  NumberFormatProps<Omit<InputFieldProps, "onBlur">> & {
-    htmlSize?: HTMLInputProps["size"];
+type HTMLInputProps = HTMLProps['input'];
+type OmitProps = 'as' | 'children';
+export type InputNumberProps = Omit<HTMLInputProps, 'size'> &
+  NumericFormatProps<Omit<InputFieldProps, 'onBlur'>> & {
+    htmlSize?: HTMLInputProps['size'];
   };
 
 type ObjProps = {
   id: string;
 };
 
-const Root = styled(NumberFormat, {});
+const Root = styled(NumericFormat, {});
 
 export const InputNumber = createComponent<
   InputNumberProps,
   ObjProps,
   OmitProps
->(({ name: nameProp, htmlSize, role = "textbox", className, ...props }) => {
+>(({ name: nameProp, htmlSize, role = 'textbox', className, ...props }) => {
   const parentProps = useInputProps();
   const isRequired = parentProps?.isRequired;
   const isDisabled = parentProps?.isDisabled;
@@ -41,7 +41,7 @@ export const InputNumber = createComponent<
   const name = `${nameProp}`;
   const disabled = isDisabled || isReadOnly;
   const classes = cx(
-    "fuel_input--amount",
+    'fuel_input--amount',
     className,
     styles.field({
       isRequired,
@@ -59,19 +59,19 @@ export const InputNumber = createComponent<
     disabled,
     size: htmlSize,
     required: isRequired,
-    "aria-describedby": describedBy,
-    "aria-required": isRequired,
-    "aria-invalid": isInvalid,
-    "aria-disabled": isDisabled,
-    "aria-readonly": isReadOnly,
-    "aria-placeholder": props.placeholder,
+    'aria-describedby': describedBy,
+    'aria-required': isRequired,
+    'aria-invalid': isInvalid,
+    'aria-disabled': isDisabled,
+    'aria-readonly': isReadOnly,
+    'aria-placeholder': props.placeholder,
   };
 
   const ref = useRef<HTMLInputElement | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { focusableProps } = useFocusable(props as any, ref);
   const customProps = mergeProps(inputProps, focusableProps);
-  const Comp = Root as FC<BaseProps<NumberFormatProps<InputFieldProps>>>;
+  const Comp = Root as FC<BaseProps<NumericFormatProps<InputFieldProps>>>;
 
   return (
     <Comp
@@ -84,4 +84,4 @@ export const InputNumber = createComponent<
   );
 });
 
-InputNumber.id = "InputNumber";
+InputNumber.id = 'InputNumber';

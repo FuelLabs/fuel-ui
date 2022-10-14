@@ -1,16 +1,16 @@
-import { allColors } from "@fuel-ui/css";
+import { allColors } from '@fuel-ui/css';
 
-import type { TextProps } from "./Text";
-import { Text } from "./Text";
+import type { TextProps } from './Text';
+import { Text } from './Text';
 
 export default {
   component: Text,
-  title: "Base/Typography/Text",
+  title: 'Base/Typography/Text',
   argTypes: {
     color: {
       options: allColors,
-      defaultValue: "accent",
-      control: "select",
+      defaultValue: 'accent',
+      control: 'select',
     },
   },
 };

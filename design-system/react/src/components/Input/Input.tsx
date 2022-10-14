@@ -1,16 +1,16 @@
-import { cx, styled } from "@fuel-ui/css";
-import { createElement, createContext, useContext } from "react";
+import { cx, styled } from '@fuel-ui/css';
+import { createElement, createContext, useContext } from 'react';
 
-import { createComponent } from "../../utils";
-import { useFormControlProps } from "../Form/FormControl";
+import { createComponent } from '../../utils';
+import { useFormControlProps } from '../Form/FormControl';
 
-import { InputAddonLeft, InputAddonRight } from "./InputAddon";
-import { InputElementLeft, InputElementRight } from "./InputElement";
-import { InputField } from "./InputField";
-import { InputNumber } from "./InputNumber";
-import * as styles from "./styles";
+import { InputAddonLeft, InputAddonRight } from './InputAddon';
+import { InputElementLeft, InputElementRight } from './InputElement';
+import { InputField } from './InputField';
+import { InputNumber } from './InputNumber';
+import * as styles from './styles';
 
-export type InputSizes = "sm" | "md" | "lg";
+export type InputSizes = 'sm' | 'md' | 'lg';
 export type InputProps = {
   size?: InputSizes;
   isRequired?: boolean;
@@ -36,11 +36,11 @@ export function useInputProps() {
   return useContext(ctx);
 }
 
-const Root = styled("div");
+const Root = styled('div');
 
 export const Input = createComponent<InputProps, ObjProps>(
   ({
-    size = "md",
+    size = 'md',
     isRequired,
     isInvalid,
     isDisabled,
@@ -59,7 +59,7 @@ export const Input = createComponent<InputProps, ObjProps>(
       formControlProps.isReadOnly;
 
     const classes = cx(
-      "fuel_input",
+      'fuel_input',
       className,
       styles.input({
         size,
@@ -93,7 +93,7 @@ export const Input = createComponent<InputProps, ObjProps>(
   }
 );
 
-Input.id = "Input";
+Input.id = 'Input';
 Input.AddonLeft = InputAddonLeft;
 Input.AddonRight = InputAddonRight;
 Input.ElementLeft = InputElementLeft;

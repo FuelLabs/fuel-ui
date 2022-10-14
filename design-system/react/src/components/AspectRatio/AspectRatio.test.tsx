@@ -1,11 +1,11 @@
-import { testA11y } from "@fuel-ui/test-utils";
+import { testA11y } from '@fuel-ui/test-utils';
 
-import { Image } from "../Image";
+import { Image } from '../Image';
 
-import { AspectRatio } from "./AspectRatio";
+import { AspectRatio } from './AspectRatio';
 
-describe("AspectRatio", () => {
-  it("a11y", async () => {
+describe('AspectRatio', () => {
+  it('a11y', async () => {
     await testA11y(
       <AspectRatio ratio={16 / 9}>
         <Image

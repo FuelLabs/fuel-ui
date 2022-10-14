@@ -1,11 +1,11 @@
-import { render, testA11y, screen } from "@fuel-ui/test-utils";
-import React from "react";
+import { render, testA11y, screen } from '@fuel-ui/test-utils';
+import React from 'react';
 
-import type { MenuProps } from "./Menu";
-import { Menu } from "./Menu";
+import type { MenuProps } from './Menu';
+import { Menu } from './Menu';
 
-const TestMenu = (props: Omit<MenuProps, "children">) => (
-  <Menu autoFocus disabledKeys={["edit"]} aria-label="Actions" {...props}>
+const TestMenu = (props: Omit<MenuProps, 'children'>) => (
+  <Menu autoFocus disabledKeys={['edit']} aria-label="Actions" {...props}>
     <Menu.Item key="settings" textValue="Settings" aria-label="settings">
       Settings
     </Menu.Item>
@@ -18,18 +18,18 @@ const TestMenu = (props: Omit<MenuProps, "children">) => (
   </Menu>
 );
 
-describe("Menu", () => {
-  it("a11y", async () => {
+describe('Menu', () => {
+  it('a11y', async () => {
     await testA11y(<TestMenu />);
   });
 
-  it("should be focused when use autoFocus", async () => {
+  it('should be focused when use autoFocus', async () => {
     render(<TestMenu />);
-    expect(screen.getByLabelText("settings")).toHaveFocus();
+    expect(screen.getByLabelText('settings')).toHaveFocus();
   });
 
-  it("should dispatch onAction using keyboard command", async () => {
-    let item: React.Key = "";
+  it('should dispatch onAction using keyboard command', async () => {
+    let item: React.Key = '';
     const { user } = render(
       <TestMenu
         onAction={(key: React.Key) => {
@@ -38,12 +38,12 @@ describe("Menu", () => {
       />
     );
 
-    await user.press("Enter");
-    expect(item).toBe("settings");
+    await user.press('Enter');
+    expect(item).toBe('settings');
   });
 
-  it("should navigate using arrows keys", async () => {
-    let item: React.Key = "";
+  it('should navigate using arrows keys', async () => {
+    let item: React.Key = '';
     const { user } = render(
       <TestMenu
         onAction={(key: React.Key) => {
@@ -52,13 +52,13 @@ describe("Menu", () => {
       />
     );
 
-    await user.press("ArrowDown");
-    await user.press("Enter");
-    expect(item).toBe("trash");
+    await user.press('ArrowDown');
+    await user.press('Enter');
+    expect(item).toBe('trash');
   });
 
-  it("should not be able to trigger action on disabled keys", async () => {
-    let item: React.Key = "";
+  it('should not be able to trigger action on disabled keys', async () => {
+    let item: React.Key = '';
     const { user } = render(
       <TestMenu
         onAction={(key: React.Key) => {
@@ -67,9 +67,9 @@ describe("Menu", () => {
       />
     );
 
-    await user.press("ArrowDown");
-    await user.press("ArrowDown");
-    await user.press("Enter");
-    expect(item).toBe("settings");
+    await user.press('ArrowDown');
+    await user.press('ArrowDown');
+    await user.press('Enter');
+    expect(item).toBe('settings');
   });
 });

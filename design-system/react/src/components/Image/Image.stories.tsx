@@ -1,9 +1,9 @@
-import type { ImageProps } from "./Image";
-import { Image } from "./Image";
+import type { ImageProps } from './Image';
+import { Image } from './Image';
 
 export default {
   component: Image,
-  title: "UI/Image",
+  title: 'UI/Image',
   argTypes: {},
 };
 

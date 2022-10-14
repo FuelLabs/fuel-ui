@@ -1,20 +1,20 @@
-import { cx } from "@fuel-ui/css";
-import type { ReactNode } from "react";
-import { Children } from "react";
+import { cx } from '@fuel-ui/css';
+import type { ReactNode } from 'react';
+import { Children } from 'react';
 
-import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
-import { Box } from "../Box";
-import type { ButtonBaseProps } from "../Button";
-import { SPINNER_SIZE, createIcon } from "../Button";
-import { Spinner } from "../Spinner";
+import { createComponent } from '../../utils';
+import type { HTMLProps } from '../../utils';
+import { Box } from '../Box';
+import type { ButtonBaseProps } from '../Button';
+import { SPINNER_SIZE, createIcon } from '../Button';
+import { Spinner } from '../Spinner';
 
-import { TagCloseButton } from "./TagCloseButton";
-import * as styles from "./styles";
+import { TagCloseButton } from './TagCloseButton';
+import * as styles from './styles';
 
-function getIconSize(size: TagProps["size"], iconSize?: number) {
+function getIconSize(size: TagProps['size'], iconSize?: number) {
   if (iconSize) return iconSize;
-  if (size === "xs") return 14;
+  if (size === 'xs') return 14;
   return 16;
 }
 
@@ -32,7 +32,7 @@ function getChildren({
   if (isLoading) {
     return (
       <>
-        <Spinner color="current" size={SPINNER_SIZE[size || "md"]} />
+        <Spinner color="current" size={SPINNER_SIZE[size || 'md']} />
         {children}
       </>
     );
@@ -40,7 +40,7 @@ function getChildren({
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const hasCloseBtn = Children.toArray(children).some((child: any) =>
-    child.type?.id?.includes("TagCloseButton")
+    child.type?.id?.includes('TagCloseButton')
   );
   return (
     <>
@@ -51,11 +51,11 @@ function getChildren({
   );
 }
 
-export type TagVariants = "solid" | "outlined" | "ghost";
-export type TagSizes = "xs" | "sm" | "md";
+export type TagVariants = 'solid' | 'outlined' | 'ghost';
+export type TagSizes = 'xs' | 'sm' | 'md';
 
-export type TagProps = HTMLProps["div"] &
-  Omit<ButtonBaseProps, "iconAriaLabel"> & {
+export type TagProps = HTMLProps['div'] &
+  Omit<ButtonBaseProps, 'iconAriaLabel'> & {
     size?: TagSizes;
     variant?: TagVariants;
   };
@@ -66,10 +66,10 @@ type ObjProps = {
 
 export const Tag = createComponent<TagProps, ObjProps>(
   ({
-    as = "span",
-    size = "sm",
-    color = "accent",
-    variant = "solid",
+    as = 'span',
+    size = 'sm',
+    color = 'accent',
+    variant = 'solid',
     iconSize: initialIconSize,
     leftIcon,
     rightIcon,
@@ -87,7 +87,7 @@ export const Tag = createComponent<TagProps, ObjProps>(
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
 
     const classes = cx(
-      "fuel_tag",
+      'fuel_tag',
       className,
       styles.tag({
         size,

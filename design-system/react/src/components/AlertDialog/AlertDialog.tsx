@@ -1,13 +1,13 @@
-import { styled } from "@fuel-ui/css";
-import * as RAlertDialog from "@radix-ui/react-alert-dialog";
+import { styled } from '@fuel-ui/css';
+import * as RAlertDialog from '@radix-ui/react-alert-dialog';
 
-import { AlertDialogAction } from "./AlertDialogAction";
-import { AlertDialogCancel } from "./AlertDialogCancel";
-import { AlertDialogContent } from "./AlertDialogContent";
-import { AlertDialogDescription } from "./AlertDialogDescription";
-import { AlertDialogFooter } from "./AlertDialogFooter";
-import { AlertDialogHeading } from "./AlertDialogHeading";
-import { AlertDialogTrigger } from "./AlertDialogTrigger";
+import { AlertDialogAction } from './AlertDialogAction';
+import { AlertDialogCancel } from './AlertDialogCancel';
+import { AlertDialogContent } from './AlertDialogContent';
+import { AlertDialogDescription } from './AlertDialogDescription';
+import { AlertDialogFooter } from './AlertDialogFooter';
+import { AlertDialogHeading } from './AlertDialogHeading';
+import { AlertDialogTrigger } from './AlertDialogTrigger';
 
 const AlertDialogRoot = styled(RAlertDialog.Root);
 

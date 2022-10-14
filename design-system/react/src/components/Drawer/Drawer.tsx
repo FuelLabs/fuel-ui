@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { DOMAttributes, FocusableElement } from "@react-types/shared";
-import { AnimatePresence } from "framer-motion";
-import type { MutableRefObject } from "react";
+import type { DOMAttributes, FocusableElement } from '@react-types/shared';
+import { AnimatePresence } from 'framer-motion';
+import type { MutableRefObject } from 'react';
 import {
   useState,
   useEffect,
@@ -9,25 +9,25 @@ import {
   Children,
   createContext,
   useContext,
-} from "react";
-import type { AriaOverlayProps, OverlayTriggerProps } from "react-aria";
-import { OverlayContainer, useOverlay } from "react-aria";
-import { useOverlayTriggerState } from "react-stately";
-import type { OverlayTriggerState } from "react-stately";
+} from 'react';
+import type { AriaOverlayProps, OverlayTriggerProps } from 'react-aria';
+import { OverlayContainer, useOverlay } from 'react-aria';
+import { useOverlayTriggerState } from 'react-stately';
+import type { OverlayTriggerState } from 'react-stately';
 
-import { createComponent } from "../../utils";
+import { createComponent } from '../../utils';
 
-import { DrawerBody } from "./DrawerBody";
-import { DrawerClose } from "./DrawerClose";
-import { DrawerContent } from "./DrawerContent";
-import { DrawerTrigger } from "./DrawerTrigger";
+import { DrawerBody } from './DrawerBody';
+import { DrawerClose } from './DrawerClose';
+import { DrawerContent } from './DrawerContent';
+import { DrawerTrigger } from './DrawerTrigger';
 
 // ----------------------------------------------------------------------------
 // Context
 // ----------------------------------------------------------------------------
 
-type DrawerSide = "right" | "left";
-type DrawerSize = "sm" | "md" | "lg";
+type DrawerSide = 'right' | 'left';
+type DrawerSize = 'sm' | 'md' | 'lg';
 
 export type DrawerContext = {
   ref: React.MutableRefObject<HTMLDivElement | null>;
@@ -50,15 +50,15 @@ export function useDrawer() {
 // ----------------------------------------------------------------------------
 
 export type DrawerProps = OverlayTriggerProps &
-  Omit<AriaOverlayProps, "shouldCloseOnInteractOutside"> & {
+  Omit<AriaOverlayProps, 'shouldCloseOnInteractOutside'> & {
     containerRef?: MutableRefObject<any>;
     side?: DrawerSide;
     size: DrawerSize | string | number;
     shouldCloseOnClickAway?: boolean;
   };
 
-type OmitProps = "as" | "className" | "css";
-type ElementType = "div";
+type OmitProps = 'as' | 'className' | 'css';
+type ElementType = 'div';
 type ObjProps = {
   Body: typeof DrawerBody;
   CloseButton: typeof DrawerClose;
@@ -73,8 +73,8 @@ export const Drawer = createComponent<
   ElementType
 >(
   ({
-    side = "right",
-    size = "sm",
+    side = 'right',
+    size = 'sm',
     shouldCloseOnClickAway = true,
     containerRef,
     children,
@@ -99,7 +99,7 @@ export const Drawer = createComponent<
     };
 
     const customChildren = Children.toArray(children).map((child: any) => {
-      if (child?.type.id === "DrawerContent") {
+      if (child?.type.id === 'DrawerContent') {
         return (
           <OverlayContainer
             key={child?.type.id}

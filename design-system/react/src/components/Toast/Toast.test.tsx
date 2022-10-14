@@ -1,22 +1,22 @@
-import { render, screen } from "@fuel-ui/test-utils";
+import { render, screen } from '@fuel-ui/test-utils';
 
-import { Button } from "../Button";
-import { ThemeProvider } from "../ThemeProvider";
+import { Button } from '../Button';
+import { ThemeProvider } from '../ThemeProvider';
 
-import { toast } from "./Toast";
+import { toast } from './Toast';
 
-describe("Toast", () => {
-  it("should be visible after call toast() function", async () => {
+describe('Toast', () => {
+  it('should be visible after call toast() function', async () => {
     const { user } = render(
       <ThemeProvider>
-        <Button onPress={() => toast("Hello world")}>Show toast</Button>
+        <Button onPress={() => toast('Hello world')}>Show toast</Button>
       </ThemeProvider>
     );
 
-    const button = screen.getByRole("button");
+    const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
 
-    await user.press("Enter", button);
-    expect(screen.getByText("Hello world")).toBeInTheDocument();
+    await user.press('Enter', button);
+    expect(screen.getByText('Hello world')).toBeInTheDocument();
   });
 });

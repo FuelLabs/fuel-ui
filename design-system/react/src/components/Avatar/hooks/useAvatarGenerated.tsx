@@ -1,18 +1,20 @@
-import { lightColors } from "@fuel-ui/css";
-import { toSvg } from "jdenticon";
+import { lightColors } from '@fuel-ui/css';
+import { toSvg } from 'jdenticon';
 
 const SIZES = {
-  sm: 30,
+  sm: 32,
   md: 40,
-  lg: 50,
+  lg: 56,
+  xl: 80,
+  '2xl': 104,
 };
 
 function getBackgroundColor(
   backgroundColor?: string,
   hash?: string
 ): string | undefined {
-  if (backgroundColor === "fuel") return lightColors.brand;
-  if (backgroundColor !== "random") return backgroundColor;
+  if (backgroundColor === 'fuel') return lightColors.brand;
+  if (backgroundColor !== 'random') return backgroundColor;
   if (!hash) return hash;
 
   const numberHash = [...hash].reduce(
@@ -24,7 +26,7 @@ function getBackgroundColor(
       `${prev}${`00${((numberHash >> (i * 8)) & 0xff).toString(16)}`.slice(
         -2
       )}`,
-    "#"
+    '#'
   );
 }
 

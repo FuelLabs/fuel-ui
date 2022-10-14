@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ForwardedRef, ReactElement } from "react";
-import { forwardRef } from "react";
+import type { ForwardedRef, ReactElement } from 'react';
+import { forwardRef } from 'react';
 
-import type { BaseProps } from "./types";
+import type { BaseProps } from './types';
 
 export function createComponent<
   Props,

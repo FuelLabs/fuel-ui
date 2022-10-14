@@ -1,4 +1,11 @@
-import { lightColors, css, darkColors, darkTheme, keyframes, lightTheme } from '@fuel-ui/css';
+import {
+  lightColors,
+  css,
+  darkColors,
+  darkTheme,
+  keyframes,
+  lightTheme,
+} from '@fuel-ui/css';
 
 const slideDown = keyframes({
   from: { height: 0 },

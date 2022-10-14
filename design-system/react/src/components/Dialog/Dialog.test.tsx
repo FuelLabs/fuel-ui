@@ -1,11 +1,11 @@
-import { testA11y } from "@fuel-ui/test-utils";
+import { testA11y } from '@fuel-ui/test-utils';
 
-import { Button } from "../Button";
+import { Button } from '../Button';
 
-import { Dialog } from "./Dialog";
+import { Dialog } from './Dialog';
 
-describe("Dialog", () => {
-  it("a11y", async () => {
+describe('Dialog', () => {
+  it('a11y', async () => {
     await testA11y(
       <Dialog>
         <Dialog.Trigger>

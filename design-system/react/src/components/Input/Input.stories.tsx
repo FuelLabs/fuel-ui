@@ -1,26 +1,26 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Button } from "../Button";
-import { Icon } from "../Icon";
-import { Stack } from "../Stack";
+import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { Stack } from '../Stack';
 
-import type { InputProps } from "./Input";
-import { Input } from "./Input";
+import type { InputProps } from './Input';
+import { Input } from './Input';
 
 export default {
   component: Input,
-  title: "Form/Input",
+  title: 'Form/Input',
   argTypes: {},
 };
 
 const FIELD_ARGS = {
-  name: "email",
-  type: "email",
-  placeholder: "Your email",
+  name: 'email',
+  type: 'email',
+  placeholder: 'Your email',
 };
 
 export const Sizes = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...FIELD_ARGS} {...args} size="sm">
       <Input.Field {...FIELD_ARGS} type="email" />
     </Input>
@@ -35,7 +35,7 @@ export const Sizes = (args: InputProps) => (
 
 export const TypeNumber = (_args: InputProps) => {
   return (
-    <Stack css={{ maxW: "350px" }} gap="$3">
+    <Stack css={{ maxW: '350px' }} gap="$3">
       <Input>
         <Input.Number name="amount" placeholder="0.0" inputMode="decimal" />
       </Input>
@@ -44,7 +44,7 @@ export const TypeNumber = (_args: InputProps) => {
 };
 
 export const Disabled = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args} isDisabled>
       <Input.Field {...FIELD_ARGS} />
     </Input>
@@ -52,7 +52,7 @@ export const Disabled = (args: InputProps) => (
 );
 
 export const ReadOnly = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args} isReadOnly>
       <Input.Field {...FIELD_ARGS} />
     </Input>
@@ -60,7 +60,7 @@ export const ReadOnly = (args: InputProps) => (
 );
 
 export const Addon = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args}>
       <Input.AddonLeft>http://</Input.AddonLeft>
       <Input.Field type="text" name="website" placeholder="yourwebsite.xyz" />
@@ -73,7 +73,7 @@ export const Addon = (args: InputProps) => (
 );
 
 export const WithIcon = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args}>
       <Input.ElementLeft element={<Icon icon="Envelope" />} />
       <Input.Field {...FIELD_ARGS} />
@@ -93,16 +93,16 @@ export const WithButton = (args: InputProps) => {
   }
 
   return (
-    <Stack css={{ maxW: "350px" }} gap="$3">
+    <Stack css={{ maxW: '350px' }} gap="$3">
       <Input {...args}>
         <Input.ElementLeft element={<Icon icon="Lock" />} />
         <Input.Field
-          type={showing ? "text" : "password"}
+          type={showing ? 'text' : 'password'}
           name="password"
           placeholder="Your password..."
         />
         <Input.ElementRight>
-          <Button variant="outlined" onPress={toggle} css={{ mr: "-8px" }}>
+          <Button variant="outlined" onPress={toggle} css={{ mr: '-8px' }}>
             Show
           </Button>
         </Input.ElementRight>
@@ -112,7 +112,7 @@ export const WithButton = (args: InputProps) => {
 };
 
 export const Invalid = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args} isInvalid>
       <Input.ElementLeft element={<Icon icon="Envelope" />} />
       <Input.Field {...FIELD_ARGS} />

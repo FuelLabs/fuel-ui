@@ -1,13 +1,13 @@
-import { cx } from "@fuel-ui/css";
+import { cx } from '@fuel-ui/css';
 
-import { createComponent } from "../../utils";
-import type { FlexProps } from "../Flex";
-import { Flex } from "../Flex";
+import { createComponent } from '../../utils';
+import type { FlexProps } from '../Flex';
+import { Flex } from '../Flex';
 
-import { CardBody } from "./CardBody";
-import { CardFooter } from "./CardFooter";
-import { CardHeader } from "./CardHeader";
-import * as styles from "./styles";
+import { CardBody } from './CardBody';
+import { CardFooter } from './CardFooter';
+import { CardHeader } from './CardHeader';
+import * as styles from './styles';
 
 export type CardProps = FlexProps;
 
@@ -19,8 +19,8 @@ type ObjProps = {
 };
 
 export const Card = createComponent<CardProps, ObjProps>(
-  ({ direction = "column", children, className, ...props }) => {
-    const classes = cx("fuel_card", className, styles.card());
+  ({ direction = 'column', children, className, ...props }) => {
+    const classes = cx('fuel_card', className, styles.card());
     const customProps = { ...props, direction, className: classes };
 
     return (
@@ -31,7 +31,7 @@ export const Card = createComponent<CardProps, ObjProps>(
   }
 );
 
-Card.id = "Card";
+Card.id = 'Card';
 Card.Header = CardHeader;
 Card.Body = CardBody;
 Card.Footer = CardFooter;

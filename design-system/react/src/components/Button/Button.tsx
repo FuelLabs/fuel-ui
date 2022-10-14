@@ -1,37 +1,47 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ColorKeys } from "@fuel-ui/css";
-import { styled, css, cx } from "@fuel-ui/css";
-import { mergeRefs } from "@react-aria/utils";
-import type { ReactNode } from "react";
-import { useMemo, createElement, useRef, cloneElement } from "react";
-import type { AriaButtonProps } from "react-aria";
-import { mergeProps, useButton } from "react-aria";
+import type { ColorKeys, Colors } from '@fuel-ui/css';
+import { styled, css, cx } from '@fuel-ui/css';
+import { mergeRefs } from '@react-aria/utils';
+import type { ReactNode } from 'react';
+import { useMemo, createElement, useRef, cloneElement } from 'react';
+import type { AriaButtonProps } from 'react-aria';
+import { mergeProps, useButton } from 'react-aria';
 
-import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
-import { omit } from "../../utils/helpers";
-import type { IconProps } from "../Icon";
-import { Icon } from "../Icon";
-import { Spinner } from "../Spinner";
+import { createComponent } from '../../utils';
+import type { HTMLProps } from '../../utils';
+import { omit } from '../../utils/helpers';
+import type { IconProps } from '../Icon';
+import { Icon } from '../Icon';
+import { Spinner } from '../Spinner';
 
-import * as styles from "./styles";
+import * as styles from './styles';
 
 export function createIcon(
   icon: string | ReactNode,
   iconAriaLabel?: string,
-  iconSize?: number
+  iconSize?: number,
+  color?: Colors
 ) {
-  if (typeof icon === "string") {
-    return <Icon icon={icon} label={iconAriaLabel} size={iconSize} />;
+  if (typeof icon === 'string') {
+    return (
+      <Icon icon={icon} label={iconAriaLabel} size={iconSize} color={color} />
+    );
   }
   // TODO: fix any here
-  return icon && cloneElement(icon as any, { label: iconAriaLabel });
+  return (
+    icon &&
+    cloneElement(icon as any, {
+      label: iconAriaLabel,
+      size: iconSize,
+      ...(color && { color }),
+    })
+  );
 }
 
 export function getIconSize(size: ButtonSizes, iconSize?: number) {
   if (iconSize) return iconSize;
-  if (size === "lg") return 20;
-  if (size === "md") return 18;
+  if (size === 'lg') return 20;
+  if (size === 'md') return 18;
   return 16;
 }
 
@@ -41,7 +51,7 @@ type GetChildrenParams = ButtonProps & {
 };
 function getChildren({
   isLoading,
-  size = "md",
+  size = 'md',
   children,
   iconLeft,
   iconRight,
@@ -62,24 +72,24 @@ function getChildren({
   );
 }
 
-export type ButtonVariants = "solid" | "outlined" | "ghost" | "link";
-export type ButtonSizes = "xs" | "sm" | "md" | "lg";
+export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link';
+export type ButtonSizes = 'xs' | 'sm' | 'md' | 'lg';
 
 export type ButtonBaseProps = {
   size?: ButtonSizes;
   color?: ColorKeys;
   variant?: ButtonVariants;
   iconSize?: number;
-  leftIcon?: IconProps["icon"];
+  leftIcon?: IconProps['icon'];
   leftIconAriaLabel?: string;
-  rightIcon?: IconProps["icon"];
+  rightIcon?: IconProps['icon'];
   rightIconAriaLabel?: string;
   isLoading?: boolean;
   isDisabled?: boolean;
 };
 
-export type ButtonProps = Omit<HTMLProps["button"], "onClick"> &
-  AriaButtonProps<"button"> &
+export type ButtonProps = Omit<HTMLProps['button'], 'onClick'> &
+  AriaButtonProps<'button'> &
   ButtonBaseProps & {
     justIcon?: boolean;
     isLink?: boolean;
@@ -87,7 +97,7 @@ export type ButtonProps = Omit<HTMLProps["button"], "onClick"> &
      * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
      * You're able to use just one or another, don't use onClick and onPress together
      */
-    onClick?: HTMLProps["button"]["onClick"];
+    onClick?: HTMLProps['button']['onClick'];
   };
 
 type ObjProps = {
@@ -101,15 +111,15 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
-const Root = styled("button");
+const Root = styled('button');
 
 export const Button = createComponent<ButtonProps, ObjProps>(
   ({
-    as = "button",
+    as = 'button',
     css: customCSS,
-    size = "md",
-    color = "accent",
-    variant = "solid",
+    size = 'md',
+    color = 'accent',
+    variant = 'solid',
     iconSize: initialIconSize,
     leftIcon,
     leftIconAriaLabel,
@@ -131,7 +141,7 @@ export const Button = createComponent<ButtonProps, ObjProps>(
     const customCSSStr = JSON.stringify(customCSS);
     const customStyle = useMemo(() => css(customCSS || {})(), [customCSSStr]);
     const classes = cx([
-      "fuel_button",
+      'fuel_button',
       ...(customCSS ? [customStyle] : []),
       className,
       styles.button({
@@ -147,15 +157,15 @@ export const Button = createComponent<ButtonProps, ObjProps>(
     const innerRef = useRef<HTMLButtonElement | null>(null);
     const { buttonProps, isPressed } = useButton(
       {
-        ...omit(["onClick"], props),
+        ...omit(['onClick'], props),
         isDisabled,
-        ...(isLink && { elementType: "a" }),
+        ...(isLink && { elementType: 'a' }),
         /**
          * Need this because of triggers components on Radix uses asChild props
          * to pass handlers directly with onClick instead of onPress
          */
-        ...(typeof props.onClick !== "undefined" &&
-          typeof props.onPress === "undefined" && {
+        ...(typeof props.onClick !== 'undefined' &&
+          typeof props.onPress === 'undefined' && {
             onPress: props.onClick as any,
           }),
       },
@@ -163,14 +173,14 @@ export const Button = createComponent<ButtonProps, ObjProps>(
     );
 
     const customProps = {
-      ...omit(["onPress", "onClick"], props),
+      ...omit(['onPress', 'onClick'], props),
       as,
       disabled,
       ref: mergeRefs(ref!, innerRef),
       className: classes,
-      "aria-disabled": isDisabled,
-      "aria-busy": isLoading,
-      ...(!isLink && { "aria-pressed": !isDisabled && isPressed }),
+      'aria-disabled': isDisabled,
+      'aria-busy': isLoading,
+      ...(!isLink && { 'aria-pressed': !isDisabled && isPressed }),
     };
 
     return createElement(
@@ -187,4 +197,4 @@ export const Button = createComponent<ButtonProps, ObjProps>(
   }
 );
 
-Button.id = "Button";
+Button.id = 'Button';

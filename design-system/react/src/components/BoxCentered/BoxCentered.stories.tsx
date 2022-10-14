@@ -1,11 +1,11 @@
-import type { BoxCenteredProps } from "./BoxCentered";
-import { BoxCentered } from "./BoxCentered";
+import type { BoxCenteredProps } from './BoxCentered';
+import { BoxCentered } from './BoxCentered';
 
 export default {
   component: BoxCentered,
-  title: "Base/Layout/BoxCentered",
+  title: 'Base/Layout/BoxCentered',
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };
 

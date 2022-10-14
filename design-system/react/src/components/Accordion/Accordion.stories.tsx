@@ -1,16 +1,16 @@
-import { Box } from "../Box";
+import { Box } from '../Box';
 
-import type { AccordionProps } from "./Accordion";
-import { Accordion } from "./Accordion";
+import type { AccordionProps } from './Accordion';
+import { Accordion } from './Accordion';
 
 export default {
   component: Accordion,
-  title: "UI/Accordion",
+  title: 'UI/Accordion',
   argTypes: {},
 };
 
 export const Usage = (args: AccordionProps) => (
-  <Box css={{ maxW: "$lg" }}>
+  <Box css={{ maxW: '$lg' }}>
     <Accordion {...args} type="single" defaultValue="item-1">
       <Accordion.Item value="item-1">
         <Accordion.Trigger>What&apos;s Fuel?</Accordion.Trigger>

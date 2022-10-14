@@ -1,28 +1,28 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Box } from "../Box";
-import { Button } from "../Button";
-import { Heading } from "../Heading";
-import { Stack } from "../Stack";
-import { Text } from "../Text";
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Heading } from '../Heading';
+import { Stack } from '../Stack';
+import { Text } from '../Text';
 
-import type { PopoverProps } from "./Popover";
-import { Popover } from "./Popover";
+import type { PopoverProps } from './Popover';
+import { Popover } from './Popover';
 
 export default {
   component: Popover,
-  title: "Overlay/Popover",
+  title: 'Overlay/Popover',
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };
 
 const popoverContent = (
-  <Box css={{ maxW: "200px" }}>
-    <Heading as="h5" css={{ m: "$0", mb: "$2" }}>
+  <Box css={{ maxW: '200px' }}>
+    <Heading as="h5" css={{ m: '$0', mb: '$2' }}>
       Some title
     </Heading>
-    <Text css={{ m: "$0", color: "$gray10" }} fontSize="sm">
+    <Text css={{ m: '$0', color: '$gray10' }} fontSize="sm">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nemo ullam
       labore libero necessitatibus harum aliquam voluptas at expedita
     </Text>
@@ -36,7 +36,7 @@ export const Usage = (args: PopoverProps) => (
 );
 
 Usage.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };
 
 export const Controlled = (args: PopoverProps) => {
@@ -58,5 +58,5 @@ export const Controlled = (args: PopoverProps) => {
 };
 
 Controlled.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

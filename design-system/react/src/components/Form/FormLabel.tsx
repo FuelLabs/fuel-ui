@@ -1,11 +1,11 @@
-import { cx, styled } from "@fuel-ui/css";
-import * as Label from "@radix-ui/react-label";
-import { createElement } from "react";
+import { cx, styled } from '@fuel-ui/css';
+import * as Label from '@radix-ui/react-label';
+import { createElement } from 'react';
 
-import { createComponent } from "../../utils";
+import { createComponent } from '../../utils';
 
-import { useFormControlProps } from "./FormControl";
-import * as styles from "./styles";
+import { useFormControlProps } from './FormControl';
+import * as styles from './styles';
 
 export type FormLabelProps = Label.LabelProps;
 
@@ -16,10 +16,10 @@ type ObjProps = {
 const Root = styled(Label.Root);
 
 export const FormLabel = createComponent<FormLabelProps, ObjProps>(
-  ({ as = "label", children, className, ...props }) => {
+  ({ as = 'label', children, className, ...props }) => {
     const { id, ...parentProps } = useFormControlProps();
     const classes = cx(
-      "fuel_form--label",
+      'fuel_form--label',
       className,
       styles.label({
         required: parentProps?.isRequired,
@@ -37,4 +37,4 @@ export const FormLabel = createComponent<FormLabelProps, ObjProps>(
   }
 );
 
-FormLabel.id = "FormLabel";
+FormLabel.id = 'FormLabel';

@@ -1,10 +1,10 @@
-import type { KeyboardEvent, ReactElement, ReactNode } from "react";
-import { Children, cloneElement } from "react";
-import { FocusScope, mergeProps, useFocusManager } from "react-aria";
+import type { KeyboardEvent, ReactElement, ReactNode } from 'react';
+import { Children, cloneElement } from 'react';
+import { FocusScope, mergeProps, useFocusManager } from 'react-aria';
 
-import { createComponent } from "../../utils";
+import { createComponent } from '../../utils';
 
-import type { FocusScopeProps } from "./FocusScope";
+import type { FocusScopeProps } from './FocusScope';
 
 type GroupChildrenProps = {
   children: ReactNode;
@@ -29,7 +29,7 @@ const GroupChildren = createComponent<GroupChildrenProps>(({ children }) => {
     );
   }
 
-  throw new Error("Children type not accepted");
+  throw new Error('Children type not accepted');
 });
 
 export type FocusArrowNavigatorProps = FocusScopeProps & {
@@ -50,16 +50,16 @@ export function useFocusNavigator() {
   const onKeyDown = (e: KeyboardEvent) => {
     // eslint-disable-next-line default-case
     switch (e.key) {
-      case "ArrowRight":
+      case 'ArrowRight':
         focusManager.focusPrevious({ wrap: true });
         break;
-      case "ArrowUp":
+      case 'ArrowUp':
         focusManager.focusPrevious({ wrap: true });
         break;
-      case "ArrowLeft":
+      case 'ArrowLeft':
         focusManager.focusNext({ wrap: true });
         break;
-      case "ArrowDown":
+      case 'ArrowDown':
         focusManager.focusNext({ wrap: true });
         break;
     }
@@ -72,9 +72,9 @@ export function useFocusNavigator() {
 
 function isRightChildrenType(children: ReactNode) {
   return (
-    typeof children !== "boolean" &&
-    typeof children !== "string" &&
-    typeof children !== "undefined" &&
-    typeof children !== "number"
+    typeof children !== 'boolean' &&
+    typeof children !== 'string' &&
+    typeof children !== 'undefined' &&
+    typeof children !== 'number'
   );
 }

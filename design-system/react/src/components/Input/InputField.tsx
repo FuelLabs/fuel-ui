@@ -1,28 +1,28 @@
-import { cx, styled } from "@fuel-ui/css";
-import { mergeRefs } from "@react-aria/utils";
-import { createElement, useRef } from "react";
-import { mergeProps, useFocusable } from "react-aria";
+import { cx, styled } from '@fuel-ui/css';
+import { mergeRefs } from '@react-aria/utils';
+import { createElement, useRef } from 'react';
+import { mergeProps, useFocusable } from 'react-aria';
 
-import { createComponent } from "../../utils";
-import type { HTMLProps } from "../../utils";
+import { createComponent } from '../../utils';
+import type { HTMLProps } from '../../utils';
 
-import { useInputProps } from "./Input";
-import * as styles from "./styles";
+import { useInputProps } from './Input';
+import * as styles from './styles';
 
-type HTMLInputProps = HTMLProps["input"];
-type OmitProps = "as" | "children";
-export type InputFieldProps = Omit<HTMLInputProps, "size"> & {
-  htmlSize?: HTMLInputProps["size"];
+type HTMLInputProps = HTMLProps['input'];
+type OmitProps = 'as' | 'children';
+export type InputFieldProps = Omit<HTMLInputProps, 'size'> & {
+  htmlSize?: HTMLInputProps['size'];
 };
 
 type ObjProps = {
   id: string;
 };
 
-const Root = styled("input");
+const Root = styled('input');
 
 export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
-  ({ name: nameProp, htmlSize, role = "textbox", className, ...props }) => {
+  ({ name: nameProp, htmlSize, role = 'textbox', className, ...props }) => {
     const parentProps = useInputProps();
     const isRequired = parentProps?.isRequired;
     const isDisabled = parentProps?.isDisabled;
@@ -33,7 +33,7 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
     const name = `${nameProp}`;
     const disabled = isDisabled || isReadOnly;
     const classes = cx(
-      "fuel_input--field",
+      'fuel_input--field',
       className,
       styles.field({
         isRequired,
@@ -51,12 +51,12 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
       role,
       size: htmlSize,
       required: isRequired,
-      "aria-describedby": describedBy,
-      "aria-required": isRequired,
-      "aria-invalid": isInvalid,
-      "aria-disabled": isDisabled,
-      "aria-readonly": isReadOnly,
-      "aria-placeholder": props.placeholder,
+      'aria-describedby': describedBy,
+      'aria-required': isRequired,
+      'aria-invalid': isInvalid,
+      'aria-disabled': isDisabled,
+      'aria-readonly': isReadOnly,
+      'aria-placeholder': props.placeholder,
     };
 
     const ref = useRef<HTMLInputElement | null>(null);
@@ -72,4 +72,4 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
   }
 );
 
-InputField.id = "InputField";
+InputField.id = 'InputField';

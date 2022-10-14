@@ -1,8 +1,8 @@
-import { cx, styled } from "@fuel-ui/css";
-import * as RAlertDialog from "@radix-ui/react-alert-dialog";
+import { cx, styled } from '@fuel-ui/css';
+import * as RAlertDialog from '@radix-ui/react-alert-dialog';
 
-import { createComponent } from "../../utils";
-import * as styles from "../Dialog/styles";
+import { createComponent } from '../../utils';
+import * as styles from '../Dialog/styles';
 
 export type AlertDialogContentProps = RAlertDialog.AlertDialogContentProps & {
   overlayClassName?: string;
@@ -21,6 +21,6 @@ export const AlertDialogContent = createComponent<AlertDialogContentProps>(
 );
 
 const CLASSES = {
-  Overlay: cx("fuel_alert-dialog--overlay", styles.overlay()),
-  Content: cx("fuel_alert-dialog--content", styles.content()),
+  Overlay: cx('fuel_alert-dialog--overlay', styles.overlay()),
+  Content: cx('fuel_alert-dialog--content', styles.content()),
 };

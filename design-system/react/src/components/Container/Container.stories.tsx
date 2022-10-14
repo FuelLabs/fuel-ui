@@ -1,12 +1,12 @@
-import { Heading } from "../Heading";
-import { Text } from "../Text";
+import { Heading } from '../Heading';
+import { Text } from '../Text';
 
-import type { ContainerProps } from "./Container";
-import { Container } from "./Container";
+import type { ContainerProps } from './Container';
+import { Container } from './Container';
 
 export default {
   component: Container,
-  title: "Base/Layout/Container",
+  title: 'Base/Layout/Container',
 };
 
 export const Usage = (args: ContainerProps) => (

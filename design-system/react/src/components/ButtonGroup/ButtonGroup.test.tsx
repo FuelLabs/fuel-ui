@@ -1,11 +1,11 @@
-import { testA11y } from "@fuel-ui/test-utils";
+import { testA11y } from '@fuel-ui/test-utils';
 
-import { Button } from "../Button";
+import { Button } from '../Button';
 
-import { ButtonGroup } from "./ButtonGroup";
+import { ButtonGroup } from './ButtonGroup';
 
-describe("ButtonGroup", () => {
-  it("a11y", async () => {
+describe('ButtonGroup', () => {
+  it('a11y', async () => {
     await testA11y(
       <ButtonGroup>
         <Button>First</Button>

@@ -1,9 +1,9 @@
-import type { LinkProps } from "./Link";
-import { Link } from "./Link";
+import type { LinkProps } from './Link';
+import { Link } from './Link';
 
 export default {
   component: Link,
-  title: "Base/Typography/Link",
+  title: 'Base/Typography/Link',
 };
 
 export const Usage = (args: LinkProps) => (
