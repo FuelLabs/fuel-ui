@@ -12,14 +12,23 @@ export const avatar = css({
 
   variants: {
     size: {
+      xsm: {
+        boxSize: '24px',
+      },
       sm: {
-        boxSize: '30px',
+        boxSize: '32px',
       },
       md: {
         boxSize: '40px',
       },
       lg: {
-        boxSize: '50px',
+        boxSize: '52px',
+      },
+      xl: {
+        boxSize: '80px',
+      },
+      '2xl': {
+        boxSize: '100px',
       },
     },
   },
