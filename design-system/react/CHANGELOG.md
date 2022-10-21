@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.9.0
+
+### Minor Changes
+
+- Change avatar genereted sizes, by [@luizstacio](https://github.com/luizstacio) (See [#147](https://github.com/FuelLabs/fuel-ui/pull/147))
+
 ## 0.8.0
 
 ### Minor Changes
