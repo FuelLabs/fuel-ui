@@ -11,7 +11,7 @@ type OmitProps = 'children';
 export type AvatarProps = RAvatar.AvatarImageProps & {
   name: string;
   fallback?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xsm' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 };
 
 type ObjProps = {

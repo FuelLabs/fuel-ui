@@ -9,26 +9,19 @@ export default {
   argTypes: {},
 };
 
+const AVATAR_SIZES = ['xsm', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
+
 export const Sizes = (args: AvatarProps) => (
   <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
-    <Avatar
-      {...args}
-      size="sm"
-      name="Colm Tuite"
-      src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-    />
-    <Avatar
-      {...args}
-      size="md"
-      name="Colm Tuite"
-      src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-    />
-    <Avatar
-      {...args}
-      size="lg"
-      name="Colm Tuite"
-      src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-    />
+    {AVATAR_SIZES.map((size) => (
+      <Avatar
+        {...args}
+        size={size}
+        key={size}
+        name="Colm Tuite"
+        src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+      />
+    ))}
   </Box>
 );
 
@@ -63,36 +56,15 @@ export const GeneratedRandomBackground = (args: AvatarProps) => (
 
 export const GeneratedFuelBackground = (args: AvatarProps) => (
   <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
-    <Avatar.Generated
-      {...args}
-      hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
-      background="fuel"
-      size="sm"
-    />
-    <Avatar.Generated
-      {...args}
-      hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
-      background="fuel"
-      size="md"
-    />
-    <Avatar.Generated
-      {...args}
-      hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
-      background="fuel"
-      size="lg"
-    />
-    <Avatar.Generated
-      {...args}
-      hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
-      background="fuel"
-      size="xl"
-    />
-    <Avatar.Generated
-      {...args}
-      hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
-      background="fuel"
-      size="2xl"
-    />
+    {AVATAR_SIZES.map((size) => (
+      <Avatar.Generated
+        {...args}
+        hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
+        background="fuel"
+        key={size}
+        size={size}
+      />
+    ))}
   </Box>
 );
 
