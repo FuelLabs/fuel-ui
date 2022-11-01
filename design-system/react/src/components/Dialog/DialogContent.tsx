@@ -1,52 +1,55 @@
-import { cx, styled } from '@fuel-ui/css';
-import * as RDialog from '@radix-ui/react-dialog';
+// import { cx, styled } from '@fuel-ui/css';
+import { useRef } from 'react';
+import type { ReactNode } from 'react';
+import { FocusScope } from 'react-aria';
 
+import { useDialog } from '..';
 import { createComponent } from '../../utils';
 import { IconButton } from '../IconButton';
 
-import * as styles from './styles';
+// import * as styles from './styles';
 
-export type DialogContentProps = RDialog.DialogContentProps & {
+export type DialogContentProps = {
   overlayClassName?: string;
   closeClassName?: string;
   hideCloseButton?: boolean;
+  children: ReactNode;
+  className?: string;
+  onClose?: () => void;
 };
 
-const Root = styled(RDialog.Content);
+// const Root = styled('div');
+
 export const DialogContent = createComponent<DialogContentProps>(
-  ({
-    children,
-    className,
-    overlayClassName,
-    closeClassName,
-    hideCloseButton,
-    css,
-    ...props
-  }) => (
-    <RDialog.Portal>
-      <RDialog.Overlay className={cx(overlayClassName, CLASSES.Overlay)} />
-      <Root {...props} css={css} className={cx(className, CLASSES.Content)}>
-        {children}
-        {!hideCloseButton && (
-          <RDialog.Close
-            className={cx(closeClassName, styles.closeButton())}
-            asChild
-          >
+  ({ children }) => {
+    const dialogProps = useDialog();
+    const closeButtonRef = useRef<HTMLElement | null>(null);
+    return (
+      <div
+        {...dialogProps.overlayProps}
+        {...dialogProps.dialogProps}
+        {...dialogProps.modalProps}
+        ref={dialogProps.triggerRef}
+      >
+        <FocusScope contain autoFocus>
+          {!dialogProps.isBlocked && (
             <IconButton
               size="xs"
+              ref={closeButtonRef}
               aria-label="Close"
               icon="X"
               color="gray"
               variant="link"
             />
-          </RDialog.Close>
-        )}
-      </Root>
-    </RDialog.Portal>
-  )
+          )}
+          {children}
+        </FocusScope>
+      </div>
+    );
+  }
 );
 
-const CLASSES = {
-  Overlay: cx('fuel_dialog--overlay', styles.overlay()),
-  Content: cx('fuel_dialog--content', styles.content()),
-};
+// const CLASSES = {
+//   verlay: cx('fuel_dialog--overlay', styles.overlay()),
+//   Content: cx('fuel_dialog--content', styles.content()),
+// };
