@@ -1,6 +1,7 @@
 import { Button } from '../Button';
 
 import { Dialog } from './Dialog';
+import type { DialogProps } from './Dialog';
 
 export default {
   component: Dialog,
@@ -10,8 +11,8 @@ export default {
   },
 };
 
-export const Usage = () => (
-  <Dialog>
+export const Usage = (props: DialogProps) => (
+  <Dialog {...props}>
     <Dialog.Trigger>
       <Button>Open</Button>
     </Dialog.Trigger>

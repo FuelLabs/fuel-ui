@@ -1,5 +1,5 @@
-// import { cx, styled } from '@fuel-ui/css';
-import { useRef } from 'react';
+import { cx, styled } from '@fuel-ui/css';
+import { createElement, useRef } from 'react';
 import type { ReactNode } from 'react';
 import { FocusScope } from 'react-aria';
 
@@ -18,33 +18,40 @@ export type DialogContentProps = {
   onClose?: () => void;
 };
 
-// const Root = styled('div');
+const Root = styled('div');
 
 export const DialogContent = createComponent<DialogContentProps>(
-  ({ children }) => {
+  ({ children, className }) => {
     const dialogProps = useDialog();
     const closeButtonRef = useRef<HTMLElement | null>(null);
-    return (
-      <div
-        {...dialogProps.overlayProps}
-        {...dialogProps.dialogProps}
-        {...dialogProps.modalProps}
-        ref={dialogProps.triggerRef}
-      >
-        <FocusScope contain autoFocus>
-          {!dialogProps.isBlocked && (
-            <IconButton
-              size="xs"
-              ref={closeButtonRef}
-              aria-label="Close"
-              icon="X"
-              color="gray"
-              variant="link"
-            />
-          )}
-          {children}
-        </FocusScope>
-      </div>
+    const classes = cx('fuel_dialog_content', className);
+
+    const customChildren = (
+      <FocusScope contain autoFocus>
+        {!dialogProps.isBlocked && (
+          <IconButton
+            size="xs"
+            ref={closeButtonRef}
+            aria-label="Close"
+            icon="X"
+            color="gray"
+            variant="link"
+          />
+        )}
+        {children}
+      </FocusScope>
+    );
+
+    return createElement(
+      Root,
+      {
+        ...dialogProps.overlayProps,
+        ...dialogProps.dialogProps,
+        ...dialogProps.modalProps,
+        ref: dialogProps.triggerRef,
+        className: classes,
+      },
+      customChildren
     );
   }
 );

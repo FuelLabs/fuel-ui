@@ -27,7 +27,7 @@ import { createComponent } from '~/utils';
 
 export type DialogContext = {
   state: OverlayTriggerState;
-  triggerRef?: React.MutableRefObject<HTMLButtonElement | null>;
+  triggerRef?: React.MutableRefObject<HTMLDivElement | null>;
   overlayProps?: React.HTMLAttributes<HTMLElement>;
   modalProps?: ModalAriaProps;
   dialogProps?: React.HTMLAttributes<HTMLElement>;
