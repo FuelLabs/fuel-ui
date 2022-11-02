@@ -7,8 +7,6 @@ import { useDialog } from '..';
 import { createComponent } from '../../utils';
 import { IconButton } from '../IconButton';
 
-// import * as styles from './styles';
-
 export type DialogContentProps = {
   overlayClassName?: string;
   closeClassName?: string;

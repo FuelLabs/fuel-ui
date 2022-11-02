@@ -58,3 +58,5 @@ export const DialogTrigger = createComponent<
     </Button>
   );
 });
+
+DialogTrigger.id = 'DialogTrigger';
