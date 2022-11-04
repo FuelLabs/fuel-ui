@@ -59,7 +59,7 @@ export const InputPassword = createComponent<InputPasswordProps>(
                 )
               }
               aria-label="Toggle Password"
-              css={{ px: '0 !important' }}
+              css={{ px: '0' }}
               onPress={handleToggle}
             />
           }

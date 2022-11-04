@@ -1,14 +1,14 @@
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { Node } from '@react-types/shared';
 import type { Key, ReactNode } from 'react';
-import { createElement, useRef } from 'react';
+import { useRef } from 'react';
 import { mergeProps, useMenuItem, useButton } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
 import type { HTMLProps } from '../../utils';
-import { createComponent } from '../../utils';
+import { createStyledElement, createComponent } from '../../utils';
 import type { ButtonProps } from '../Button';
 
 import * as styles from './styles';
@@ -22,8 +22,6 @@ export type MenuItemProps = HTMLProps['li'] & {
   className?: string;
   autoFocus?: boolean;
 };
-
-const Root = styled('li');
 
 export const MenuItem = createComponent<MenuItemProps>(
   ({ item, state, onAction, className, autoFocus, ...props }) => {
@@ -42,7 +40,7 @@ export const MenuItem = createComponent<MenuItemProps>(
       ref
     );
 
-    const classes = cx('fuel_menu-list-item', className, styles.item());
+    const classes = cx('fuel_menu-list-item', className);
     const customProps = {
       ...props,
       ref: mergeRefs(ref, props.ref!),
@@ -51,8 +49,10 @@ export const MenuItem = createComponent<MenuItemProps>(
       'aria-label': item.props['aria-label'],
     };
 
-    return createElement(
-      Root,
+    return createStyledElement(
+      'link',
+      styles.item,
+      null,
       mergeProps(customProps, buttonProps, menuItemProps),
       item.rendered
     );

@@ -1,4 +1,4 @@
-import { css } from '@fuel-ui/css';
+import { css, cssObj } from '@fuel-ui/css';
 
 export const overlay = css({
   position: 'absolute',
@@ -32,11 +32,11 @@ export const content = css({
   boxShadow: '$lg',
 });
 
-export const close = css({
+export const close = cssObj({
   position: 'absolute',
   top: '$2',
   right: '$2',
-  padding: '$0 !important',
+  padding: '$0',
 });
 
 // ----------------------------------------------------------------------------

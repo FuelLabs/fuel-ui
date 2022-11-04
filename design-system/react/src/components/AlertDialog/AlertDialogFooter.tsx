@@ -1,23 +1,22 @@
-import { cx, styled } from '@fuel-ui/css';
-import { createElement } from 'react';
+import { cx } from '@fuel-ui/css';
 
 import type { HTMLProps } from '../../utils';
-import { createComponent } from '../../utils';
+import { createStyledElement, createComponent } from '../../utils';
 import * as styles from '../Dialog/styles';
 
 export type AlertDialogFooterProps = HTMLProps['footer'] & {
   align?: 'start' | 'end';
 };
 
-const Root = styled('footer');
-
 export const AlertDialogFooter = createComponent<AlertDialogFooterProps>(
   ({ align, className, children, ...props }) => {
-    const classes = cx(
-      'fuel_alert-dialog--footer',
-      className,
-      styles.footer({ align })
+    const classes = cx('fuel_alert-dialog--footer', className);
+    return createStyledElement(
+      'footer',
+      styles.footer,
+      { align },
+      { ...props, className: classes },
+      children
     );
-    return createElement(Root, { ...props, className: classes }, children);
   }
 );

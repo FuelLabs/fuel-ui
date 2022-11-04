@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Colors } from '@fuel-ui/css';
-import { css, allColors, cx, utils, styled } from '@fuel-ui/css';
-import { createElement } from 'react';
+import { css, allColors, cx, utils } from '@fuel-ui/css';
 
 import type { HTMLProps } from '../../utils';
-import { createComponent } from '../../utils';
+import { createStyledElement, createComponent } from '../../utils';
 import { createIcon } from '../Button';
 import type { IconProps } from '../Icon';
 
@@ -18,8 +17,6 @@ export type TextProps = HTMLProps['p'] & {
   leftIconAriaLabel?: string;
   rightIconAriaLabel?: string;
 };
-
-const Root = styled('p');
 
 export const Text = createComponent<TextProps>(
   ({
@@ -48,13 +45,11 @@ export const Text = createComponent<TextProps>(
       iconColor
     );
     const withIcon = Boolean(leftIcon || rightIcon);
-    const classes = cx(
-      'fuel_text',
-      className,
-      styles({ fontSize, color, withIcon })
-    );
-    return createElement(
-      Root,
+    const classes = cx('fuel_text', className);
+    return createStyledElement(
+      'p',
+      styles,
+      { fontSize, color, withIcon },
       { ...props, className: classes },
       <>
         {iconLeft} {children} {iconRight}
