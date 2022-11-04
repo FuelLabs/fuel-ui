@@ -48,19 +48,12 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
       'aria-placeholder': props.placeholder,
     };
 
-    const styleProps = {
-      isRequired,
-      isInvalid,
-      isDisabled,
-      isReadOnly,
-    };
-
     const ref = useRef<HTMLInputElement | null>(null);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { focusableProps } = useFocusable(props as any, ref);
     const customProps = mergeProps(inputProps, focusableProps);
 
-    return createStyledElement('input', styles.field, styleProps, {
+    return createStyledElement('input', styles.field, null, {
       ...customProps,
       className: classes,
       ref: mergeRefs(ref, props.ref!),

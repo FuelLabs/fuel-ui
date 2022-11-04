@@ -50,7 +50,7 @@ export const MenuItem = createComponent<MenuItemProps>(
     };
 
     return createStyledElement(
-      'link',
+      'li',
       styles.item,
       null,
       mergeProps(customProps, buttonProps, menuItemProps),
