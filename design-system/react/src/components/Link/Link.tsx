@@ -1,18 +1,16 @@
 import type { Colors } from '@fuel-ui/css';
-import { allColors, css, cx, styled } from '@fuel-ui/css';
-import { createElement, useRef } from 'react';
+import { allColors, css, cx } from '@fuel-ui/css';
+import { useRef } from 'react';
 import { mergeProps, useLink } from 'react-aria';
 
 import type { HTMLProps } from '../../utils';
-import { createComponent } from '../../utils';
+import { createStyledElement, createComponent } from '../../utils';
 import { Icon } from '../Icon';
 
 export type LinkProps = HTMLProps['a'] & {
   isExternal?: boolean;
   color?: Colors;
 };
-
-const Root = styled('a');
 
 export const Link = createComponent<LinkProps>(
   ({ isExternal, className, children, color, ...props }) => {
@@ -21,12 +19,14 @@ export const Link = createComponent<LinkProps>(
     const { linkProps } = useLink(props as any, ref);
     const customProps = {
       role: 'link',
-      className: cx('fuel_link', className, styles.link({ color })),
+      className: cx('fuel_link', className),
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
     };
 
-    return createElement(
-      Root,
+    return createStyledElement(
+      'a',
+      styles.link,
+      { color },
       mergeProps(props, customProps, linkProps),
       <>
         {children} {isExternal && <Icon icon="LinkSimple" color="gray8" />}

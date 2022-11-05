@@ -1,9 +1,9 @@
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { Children, cloneElement, createElement } from 'react';
+import { Children, cloneElement } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
 
 import { RadioGroupItem } from './RadioGroupItem';
@@ -20,8 +20,6 @@ type ObjProps = {
   id: string;
   Item: typeof RadioGroupItem;
 };
-
-const Root = styled(RadioGroupPrimitive.Root);
 
 export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
   ({
@@ -42,11 +40,7 @@ export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
       formControlProps.isReadOnly;
 
     const readonly = isReadOnly || formControlProps.isReadOnly;
-    const classes = cx(
-      'fuel_radio_group',
-      className,
-      styles.root({ disabled })
-    );
+    const classes = cx('fuel_radio_group', className);
 
     const customProps = {
       ...props,
@@ -71,7 +65,13 @@ export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
       return child;
     });
 
-    return createElement(Root, customProps, customChildren);
+    return createStyledElement(
+      RadioGroupPrimitive.Root,
+      styles.root,
+      { disabled },
+      customProps,
+      customChildren
+    );
   }
 );
 

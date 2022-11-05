@@ -1,8 +1,7 @@
 import { cx, styled } from '@fuel-ui/css';
 import * as AC from '@radix-ui/react-accordion';
-import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import { Icon } from '../Icon';
 
 import * as styles from './styles';
@@ -11,25 +10,23 @@ export type AccordionTriggerProps = AC.AccordionTriggerProps & {
   className?: string;
 };
 
-const Root = styled(AC.AccordionHeader);
+const Trigger = styled(AC.AccordionTrigger, styles.trigger);
 
 export const AccordionTrigger = createComponent<AccordionTriggerProps>(
   ({ className, children, ...props }) => {
-    const classes = cx('fuel_accordion-header', className, styles.header());
+    const classes = cx('fuel_accordion-header', className);
     const iconClass = cx('fuel_accordion-icon', styles.chevron());
-    const triggerClass = cx(
-      'fuel_accordion-trigger',
-      className,
-      styles.trigger()
-    );
+    const triggerClass = cx('fuel_accordion-trigger', className);
 
-    return createElement(
-      Root,
+    return createStyledElement(
+      AC.AccordionHeader,
+      styles.header,
+      null,
       { className: classes },
-      <AC.AccordionTrigger {...props} className={triggerClass}>
+      <Trigger {...props} className={triggerClass}>
         {children}
         <Icon icon="CaretDown" aria-hidden className={iconClass} />
-      </AC.AccordionTrigger>
+      </Trigger>
     );
   }
 );

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ForwardedRef, ReactElement } from 'react';
-import { forwardRef } from 'react';
+import { styled } from '@fuel-ui/css';
+import type { ForwardedRef, ReactElement, ReactNode } from 'react';
+import { useMemo, forwardRef } from 'react';
 
 import type { BaseProps } from './types';
 
@@ -21,4 +22,19 @@ export function createComponent<
     render({ ref, ...props })
   );
   return Component as typeof Component & ObjProps;
+}
+
+export function createStyledElement(
+  type: any,
+  style: any,
+  styleProps: any,
+  props: any,
+  children?: ReactNode
+) {
+  const Component = useMemo(() => styled(type, style), []);
+  return (
+    <Component {...styleProps} {...props}>
+      {children}
+    </Component>
+  );
 }

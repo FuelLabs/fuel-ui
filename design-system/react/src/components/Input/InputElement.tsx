@@ -1,8 +1,8 @@
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
-import { Children, cloneElement, createElement } from 'react';
+import { Children, cloneElement } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 
 import { useInputProps } from './Input';
 import * as styles from './styles';
@@ -17,17 +17,11 @@ export const ICON_SIZES = {
   lg: 22,
 };
 
-const Root = styled('div');
-
 const InputElement = createComponent<InputElementProps>(
   ({ element, className, children, ...props }) => {
     const { size, ...parentProps } = useInputProps();
     const disabled = parentProps?.isDisabled || parentProps?.isReadOnly;
-    const classes = cx(
-      'fuel_input--element',
-      className,
-      styles.element({ size })
-    );
+    const classes = cx('fuel_input--element', className);
 
     const customChildren = Children.toArray(element || children).map(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -59,8 +53,10 @@ const InputElement = createComponent<InputElementProps>(
       }
     );
 
-    return createElement(
-      Root,
+    return createStyledElement(
+      'div',
+      styles.element,
+      { size },
       { ...props, className: classes },
       customChildren
     );

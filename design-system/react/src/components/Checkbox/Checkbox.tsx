@@ -1,8 +1,7 @@
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
 import { Icon } from '../Icon';
 
@@ -18,7 +17,6 @@ type ObjProps = {
   id: string;
 };
 
-const Root = styled(CheckboxPrimitive.Root);
 export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
   ({ isDisabled, isReadOnly, className, ...props }) => {
     const formControlProps = useFormControlProps();
@@ -29,7 +27,7 @@ export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
       formControlProps.isReadOnly;
 
     const readonly = isReadOnly || formControlProps.isReadOnly;
-    const classes = cx('fuel_checkbox', className, styles.root({ disabled }));
+    const classes = cx('fuel_checkbox', className);
     const indicatorClass = styles.indicator({ disabled });
 
     const customProps = {
@@ -41,8 +39,10 @@ export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
       required: props.required || formControlProps.isRequired,
     };
 
-    return createElement(
-      Root,
+    return createStyledElement(
+      CheckboxPrimitive.Root,
+      styles.root,
+      { disabled },
       customProps,
       <CheckboxPrimitive.CheckboxIndicator className={indicatorClass}>
         <Icon icon="Check" />

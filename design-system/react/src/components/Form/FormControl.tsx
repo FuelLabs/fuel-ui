@@ -1,13 +1,7 @@
-import { cx, styled } from '@fuel-ui/css';
-import {
-  Children,
-  createContext,
-  createElement,
-  useContext,
-  useId,
-} from 'react';
+import { cx } from '@fuel-ui/css';
+import { Children, createContext, useContext, useId } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 
 import * as styles from './styles';
 
@@ -38,7 +32,6 @@ export function useFormControlProps() {
   return useContext(ctx);
 }
 
-const Root = styled('div');
 export const FormControl = createComponent<FormControlProps>(
   ({
     children,
@@ -50,7 +43,7 @@ export const FormControl = createComponent<FormControlProps>(
     ...props
   }) => {
     const id = useId();
-    const classes = cx('fuel_form--control', className, styles.control());
+    const classes = cx('fuel_form--control', className);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const childArr = Children.toArray(children) as any[];
@@ -74,7 +67,13 @@ export const FormControl = createComponent<FormControlProps>(
 
     return (
       <ctx.Provider value={inputProps}>
-        {createElement(Root, customProps, children)}
+        {createStyledElement(
+          'div',
+          styles.control,
+          null,
+          customProps,
+          children
+        )}
       </ctx.Provider>
     );
   }

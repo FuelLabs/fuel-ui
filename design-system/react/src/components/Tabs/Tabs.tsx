@@ -1,8 +1,7 @@
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
-import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 
 import { TabsContent } from './TabsContent';
 import { TabsList } from './TabsList';
@@ -18,11 +17,16 @@ type ObjProps = {
   Content: typeof TabsContent;
 };
 
-const Root = styled(TabsPrimitive.Root);
 export const Tabs = createComponent<TabsProps, ObjProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_tabs', className, styles.root());
-    return createElement(Root, { ...props, className: classes }, children);
+    const classes = cx('fuel_tabs', className);
+    return createStyledElement(
+      TabsPrimitive.Root,
+      styles.root,
+      null,
+      { ...props, className: classes },
+      children
+    );
   }
 );
 

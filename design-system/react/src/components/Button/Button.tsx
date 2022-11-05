@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ColorKeys, Colors } from '@fuel-ui/css';
-import { styled, css, cx } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
-import type { ReactNode } from 'react';
-import { useMemo, createElement, useRef, cloneElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
+import { useRef, cloneElement } from 'react';
 import type { AriaButtonProps } from 'react-aria';
 import { mergeProps, useButton } from 'react-aria';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import type { HTMLProps } from '../../utils';
 import { omit } from '../../utils/helpers';
 import type { IconProps } from '../Icon';
@@ -27,10 +27,9 @@ export function createIcon(
       <Icon icon={icon} label={iconAriaLabel} size={iconSize} color={color} />
     );
   }
-  // TODO: fix any here
   return (
     icon &&
-    cloneElement(icon as any, {
+    cloneElement(icon as ReactElement, {
       label: iconAriaLabel,
       size: iconSize,
       ...(color && { color }),
@@ -111,12 +110,9 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
-const Root = styled('button');
-
 export const Button = createComponent<ButtonProps, ObjProps>(
   ({
     as = 'button',
-    css: customCSS,
     size = 'md',
     color = 'accent',
     variant = 'solid',
@@ -138,21 +134,7 @@ export const Button = createComponent<ButtonProps, ObjProps>(
     const iconSize = getIconSize(size, initialIconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const customCSSStr = JSON.stringify(customCSS);
-    const customStyle = useMemo(() => css(customCSS || {})(), [customCSSStr]);
-    const classes = cx([
-      'fuel_button',
-      ...(customCSS ? [customStyle] : []),
-      className,
-      styles.button({
-        size,
-        variant,
-        disabled,
-        justIcon,
-        color,
-        isLink,
-      }),
-    ]);
+    const classes = cx('fuel_button', className);
 
     const innerRef = useRef<HTMLButtonElement | null>(null);
     const { buttonProps, isPressed } = useButton(
@@ -183,8 +165,19 @@ export const Button = createComponent<ButtonProps, ObjProps>(
       ...(!isLink && { 'aria-pressed': !isDisabled && isPressed }),
     };
 
-    return createElement(
-      Root,
+    const styleProps = {
+      size,
+      variant,
+      disabled,
+      justIcon,
+      color,
+      isLink,
+    };
+
+    return createStyledElement(
+      'button',
+      styles.button,
+      styleProps,
       mergeProps(buttonProps, customProps),
       getChildren({
         size,

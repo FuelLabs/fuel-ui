@@ -1,18 +1,21 @@
-import { cx, styled } from '@fuel-ui/css';
-import { createElement } from 'react';
+import { cx } from '@fuel-ui/css';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 
 import { useInputProps } from './Input';
 import * as styles from './styles';
 
-const Root = styled('div');
-
 const InputAddon = createComponent(({ className, children, ...props }) => {
   const { size } = useInputProps();
-  const classes = cx('fuel_input--addon', className, styles.addon({ size }));
+  const classes = cx('fuel_input--addon', className);
   const customProps = { ...props, className: classes };
-  return createElement(Root, customProps, children);
+  return createStyledElement(
+    'div',
+    styles.addon,
+    { size },
+    customProps,
+    children
+  );
 });
 
 type OmitProps = 'left' | 'right';

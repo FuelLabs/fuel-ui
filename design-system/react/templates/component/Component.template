@@ -1,19 +1,22 @@
-import { css, cx, styled } from "@fuel-ui/css"
-import { createElement } from "react"
+import { css, cx } from "@fuel-ui/css"
 
-import { createComponent } from "../../utils"
+import { createComponent, createStyledElement } from "../../utils"
 import type { HTMLProps } from "../../utils";
 
 export type __COMPONENT__Props = HTMLProps["div"] & {
   customProp?: boolean
 }
 
-const Root = styled("div")
-
 export const __COMPONENT__ = createComponent<__COMPONENT__Props>(
   ({ customProp, children, className, ...props }) => {
-    const classes = cx("fuel_$CLASS$", className, styles({ customProp }))
-    return createElement(Root, { ...props, className: classes }, children)
+    const classes = cx("fuel_$CLASS$", className)
+    return createStyledElement(
+      'div',
+      styles,
+      { customProp },
+      { ...props, className: classes },
+      children
+    )
   }
 )
 
