@@ -85,18 +85,14 @@ export const Dialog = createComponent<DialogProps, ObjProps>(
       isBlocked,
     };
 
-    if (!state.isOpen) return null;
     const customChildren = (
       <OverlayContainer>
-        -
         <div {...underlayProps}>
-          <ctx.Provider value={ctxProps}>{children}</ctx.Provider>;
+          <ctx.Provider value={ctxProps}>{children}</ctx.Provider>
         </div>
       </OverlayContainer>
     );
 
-    // What is the difference between return createElement(...)
-    // and just return <DialogRoot>...</>
     return createElement(DialogRoot, { className: classes }, customChildren);
   }
 );

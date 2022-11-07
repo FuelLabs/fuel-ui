@@ -38,9 +38,7 @@ const Content = (props: DialogProps) => {
 };
 
 export const Usage = (args: DialogProps) => {
-  const storyState: OverlayTriggerState = useOverlayTriggerState({
-    isOpen: true,
-  });
+  const storyState: OverlayTriggerState = useOverlayTriggerState({});
   return (
     <Dialog.Provider>
       <Content {...args} state={storyState} />

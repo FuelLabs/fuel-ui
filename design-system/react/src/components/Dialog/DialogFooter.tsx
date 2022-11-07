@@ -10,7 +10,7 @@ export type DialogFooterProps = HTMLProps['footer'] & {
   align?: 'start' | 'end';
 };
 
-const Root = styled('footer');
+const Root = styled('footer', styles.footer);
 
 export const DialogFooter = createComponent<DialogFooterProps>(
   ({ align, className, children, ...props }) => {

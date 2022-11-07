@@ -7,6 +7,8 @@ import { useDialog } from '..';
 import { createComponent } from '../../utils';
 import { IconButton } from '../IconButton';
 
+import * as styles from './styles';
+
 export type DialogContentProps = {
   overlayClassName?: string;
   closeClassName?: string;
@@ -16,7 +18,7 @@ export type DialogContentProps = {
   onClose?: () => void;
 };
 
-const Root = styled('div');
+const Root = styled('div', styles.content);
 
 export const DialogContent = createComponent<DialogContentProps>(
   ({ children, className }) => {
@@ -24,6 +26,7 @@ export const DialogContent = createComponent<DialogContentProps>(
     const closeButtonRef = useRef<HTMLElement | null>(null);
     const classes = cx('fuel_dialog_content', className);
 
+    if (!dialogProps.state.isOpen) return null;
     const customChildren = (
       <FocusScope contain autoFocus>
         {!dialogProps.isBlocked && (
@@ -34,6 +37,8 @@ export const DialogContent = createComponent<DialogContentProps>(
             icon="X"
             color="gray"
             variant="link"
+            css={{ ...styles.closeButton }}
+            onPress={() => dialogProps.state.toggle()}
           />
         )}
         {children}
@@ -55,6 +60,6 @@ export const DialogContent = createComponent<DialogContentProps>(
 );
 
 // const CLASSES = {
-//   verlay: cx('fuel_dialog--overlay', styles.overlay()),
+//   Overlay: cx('fuel_dialog--overlay', styles.overlay()),
 //   Content: cx('fuel_dialog--content', styles.content()),
 // };
