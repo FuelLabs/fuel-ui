@@ -1,3 +1,6 @@
+import { useOverlayTriggerState } from 'react-stately';
+import type { OverlayTriggerState } from 'react-stately';
+
 import { Button } from '../Button';
 
 import { Dialog } from './Dialog';
@@ -11,26 +14,39 @@ export default {
   },
 };
 
-export const Usage = (props: DialogProps) => (
-  <Dialog {...props}>
-    <Dialog.Trigger>
-      <Button>Open</Button>
-    </Dialog.Trigger>
-    <Dialog.Content>
-      <Dialog.Heading>Dialog Title</Dialog.Heading>
-      <Dialog.Description>
-        Just a big text with a nice description here
-      </Dialog.Description>
-      <Dialog.Footer>
-        <Dialog.Close>
-          <Button color="gray" variant="ghost">
-            Close
-          </Button>
-        </Dialog.Close>
-      </Dialog.Footer>
-    </Dialog.Content>
-  </Dialog>
-);
+const Content = (props: DialogProps) => {
+  return (
+    <Dialog {...props}>
+      <Dialog.Trigger>
+        <Button>Open</Button>
+      </Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Heading>Dialog Title</Dialog.Heading>
+        <Dialog.Description>
+          Just a big text with a nice description here
+        </Dialog.Description>
+        <Dialog.Footer>
+          <Dialog.Close>
+            <Button color="gray" variant="ghost">
+              Close
+            </Button>
+          </Dialog.Close>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog>
+  );
+};
+
+export const Usage = (args: DialogProps) => {
+  const storyState: OverlayTriggerState = useOverlayTriggerState({
+    isOpen: true,
+  });
+  return (
+    <Dialog.Provider>
+      <Content {...args} state={storyState} />
+    </Dialog.Provider>
+  );
+};
 
 Usage.parameters = {
   layout: 'centered',

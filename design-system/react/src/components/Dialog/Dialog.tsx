@@ -7,13 +7,10 @@ import {
   useModal,
   usePreventScroll,
   OverlayContainer,
+  OverlayProvider,
   useDialog as useReactAriaDialog,
 } from 'react-aria';
-import type {
-  AriaDialogProps,
-  AriaOverlayProps,
-  OverlayProvider,
-} from 'react-aria';
+import type { AriaDialogProps, AriaOverlayProps } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
 import { DialogClose } from './DialogClose';
@@ -91,6 +88,7 @@ export const Dialog = createComponent<DialogProps, ObjProps>(
     if (!state.isOpen) return null;
     const customChildren = (
       <OverlayContainer>
+        -
         <div {...underlayProps}>
           <ctx.Provider value={ctxProps}>{children}</ctx.Provider>;
         </div>
@@ -103,6 +101,7 @@ export const Dialog = createComponent<DialogProps, ObjProps>(
   }
 );
 
+Dialog.Provider = OverlayProvider;
 Dialog.Content = DialogContent;
 Dialog.Trigger = DialogTrigger;
 Dialog.Heading = DialogHeading;
