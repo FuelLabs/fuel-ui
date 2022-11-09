@@ -1,6 +1,3 @@
-import { useOverlayTriggerState } from 'react-stately';
-import type { OverlayTriggerState } from 'react-stately';
-
 import { Button } from '../Button';
 
 import { Dialog } from './Dialog';
@@ -14,19 +11,20 @@ export default {
   },
 };
 
-const Content = (props: DialogProps) => {
+export const Usage = (args: DialogProps) => {
   return (
-    <Dialog {...props}>
+    <Dialog {...args}>
       <Dialog.Trigger>
         <Button>Open</Button>
       </Dialog.Trigger>
       <Dialog.Content>
+        <Dialog.Close />
         <Dialog.Heading>Dialog Title</Dialog.Heading>
         <Dialog.Description>
           Just a big text with a nice description here
         </Dialog.Description>
         <Dialog.Footer>
-          <Dialog.Close>
+          <Dialog.Close asChild>
             <Button color="gray" variant="ghost">
               Close
             </Button>
@@ -34,14 +32,5 @@ const Content = (props: DialogProps) => {
         </Dialog.Footer>
       </Dialog.Content>
     </Dialog>
-  );
-};
-
-export const Usage = (args: DialogProps) => {
-  const storyState: OverlayTriggerState = useOverlayTriggerState({});
-  return (
-    <Dialog.Provider>
-      <Content {...args} state={storyState} />
-    </Dialog.Provider>
   );
 };

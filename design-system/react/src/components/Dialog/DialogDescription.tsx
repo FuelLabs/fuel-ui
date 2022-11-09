@@ -9,10 +9,10 @@ export type DialogDescriptionProps = {
 };
 
 export const DialogDescription = createComponent<DialogDescriptionProps>(
-  ({ className, children, ...props }) => {
+  ({ as = 'div', className, children, ...props }) => {
     const classes = cx('fuel_dialog--description', className);
     return createStyledElement(
-      'div',
+      as,
       styles.description,
       null,
       { ...props, className: classes },

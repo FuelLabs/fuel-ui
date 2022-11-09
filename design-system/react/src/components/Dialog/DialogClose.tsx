@@ -1,10 +1,12 @@
-import { cx } from '@fuel-ui/css';
+import { css, cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
 
-import { Button, useDialog } from '..';
-import type { ButtonProps } from '..';
+import { Icon, IconButton, useDialog } from '..';
+import type { ButtonProps, IconButtonProps } from '..';
+
+import * as styles from './styles';
 
 import { createComponent } from '~/utils';
 
@@ -23,7 +25,7 @@ export const DialogClose = createComponent<
   ObjProps,
   unknown,
   ElementType
->(({ ref, className, asChild = true, children, ...props }) => {
+>(({ ref, className, asChild, children, ...props }) => {
   const classes = cx('fuel_dialog-close', className);
   const { state, triggerRef } = useDialog();
 
@@ -46,13 +48,16 @@ export const DialogClose = createComponent<
   }
 
   return (
-    <Button
-      {...props}
-      ref={mergeRefs(ref, triggerRef as never)}
+    <IconButton
+      {...(props as IconButtonProps)}
+      css={{ ...styles.close, ...css }}
+      className={classes}
+      icon={Icon.is('X')}
+      aria-label={props['aria-label'] || 'Close'}
+      variant={props.variant || 'link'}
+      color={props.color || 'gray'}
       onPress={handleToggle}
-    >
-      {children}
-    </Button>
+    />
   );
 });
 

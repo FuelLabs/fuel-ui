@@ -5,7 +5,6 @@ import type { ReactElement } from 'react';
 
 import { Button } from '../Button';
 import type { ButtonProps } from '../Button';
-import { Icon } from '../Icon';
 
 import { useDialog } from './Dialog';
 
@@ -52,7 +51,6 @@ export const DialogTrigger = createComponent<
       {...props}
       ref={mergeRefs(ref, triggerRef as never)}
       onPress={handleToggle}
-      rightIcon={state?.isOpen ? Icon.is('CaretUp') : Icon.is('CaretDown')}
     >
       {children}
     </Button>

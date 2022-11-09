@@ -1,17 +1,19 @@
-import { cx, styled } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { cx } from '@fuel-ui/css';
 import type { ModalAriaProps } from '@react-aria/overlays';
-import { createContext, useContext, useRef, createElement } from 'react';
+import { Children, createContext, useContext, useRef } from 'react';
 import type { ReactNode } from 'react';
+import type { AriaDialogProps, AriaOverlayProps } from 'react-aria';
 import {
   useOverlay,
   useModal,
   usePreventScroll,
   OverlayContainer,
-  OverlayProvider,
   useDialog as useReactAriaDialog,
+  OverlayProvider,
 } from 'react-aria';
-import type { AriaDialogProps, AriaOverlayProps } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
+import { useOverlayTriggerState } from 'react-stately';
 
 import { DialogClose } from './DialogClose';
 import { DialogContent } from './DialogContent';
@@ -20,7 +22,7 @@ import { DialogFooter } from './DialogFooter';
 import { DialogHeading } from './DialogHeading';
 import { DialogTrigger } from './DialogTrigger';
 
-import { createComponent } from '~/utils';
+import { createComponent, createStyledElement } from '~/utils';
 
 export type DialogContext = {
   state: OverlayTriggerState;
@@ -38,28 +40,10 @@ export function useDialog() {
   return useContext(ctx);
 }
 
-type ObjProps = {
-  Provider: typeof OverlayProvider;
-  Content: typeof DialogContent;
-  Trigger: typeof DialogTrigger;
-  Heading: typeof DialogHeading;
-  Description: typeof DialogDescription;
-  Footer: typeof DialogFooter;
-  Close: typeof DialogClose;
-};
-
-export type DialogProps = AriaOverlayProps &
-  AriaDialogProps & {
-    children: ReactNode;
-    state: OverlayTriggerState;
-    isBlocked?: boolean;
-  };
-
-const DialogRoot = styled('div');
-
-export const Dialog = createComponent<DialogProps, ObjProps>(
-  ({ children, className, isBlocked, state, ...props }) => {
+const DialogInternal = createComponent<DialogProps, ObjProps>(
+  ({ children, className, isBlocked, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
+    const state = useOverlayTriggerState({});
     const { overlayProps, underlayProps } = useOverlay(
       {
         ...props,
@@ -85,19 +69,52 @@ export const Dialog = createComponent<DialogProps, ObjProps>(
       isBlocked,
     };
 
-    const customChildren = (
-      <OverlayContainer>
-        <div {...underlayProps}>
-          <ctx.Provider value={ctxProps}>{children}</ctx.Provider>
-        </div>
-      </OverlayContainer>
-    );
+    const customChildren = Children.toArray(children).map((child: any) => {
+      if (child?.type.id === 'DialogContent') {
+        return (
+          <OverlayContainer key={child?.type.id}>
+            {state.isOpen && <>{child}</>}
+          </OverlayContainer>
+        );
+      }
+      return child;
+    });
 
-    return createElement(DialogRoot, { className: classes }, customChildren);
+    return createStyledElement(
+      'div',
+      null,
+      null,
+      { className: classes },
+      <div {...underlayProps}>
+        <ctx.Provider value={ctxProps}>{customChildren}</ctx.Provider>
+      </div>
+    );
   }
 );
 
-Dialog.Provider = OverlayProvider;
+type ObjProps = {
+  Content: typeof DialogContent;
+  Trigger: typeof DialogTrigger;
+  Heading: typeof DialogHeading;
+  Description: typeof DialogDescription;
+  Footer: typeof DialogFooter;
+  Close: typeof DialogClose;
+};
+
+export type DialogProps = AriaOverlayProps &
+  AriaDialogProps & {
+    children: ReactNode;
+    isBlocked?: boolean;
+  };
+
+export const Dialog = createComponent<DialogProps, ObjProps>((props) => {
+  return (
+    <OverlayProvider>
+      <DialogInternal {...props} />
+    </OverlayProvider>
+  );
+});
+
 Dialog.Content = DialogContent;
 Dialog.Trigger = DialogTrigger;
 Dialog.Heading = DialogHeading;
