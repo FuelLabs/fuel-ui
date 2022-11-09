@@ -1,9 +1,9 @@
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { createElement, useId } from 'react';
+import { useId } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import { Flex } from '../Flex';
 import { Form } from '../Form';
 
@@ -22,8 +22,6 @@ type ObjProps = {
   id: string;
 };
 
-const Root = styled(RadioGroupPrimitive.Item);
-
 export const RadioGroupItem = createComponent<
   RadioGroupItemProps,
   ObjProps,
@@ -40,7 +38,7 @@ export const RadioGroupItem = createComponent<
   }) => {
     const disabled = isDisabled || isReadOnly;
     const labelId = label ? `label-${useId()}` : undefined;
-    const classes = cx('fuel_radio-group--item', className, styles.item());
+    const classes = cx('fuel_radio-group--item', className);
     const customProps = {
       ...props,
       className: classes,
@@ -51,8 +49,10 @@ export const RadioGroupItem = createComponent<
       ...(label && { 'aria-describedby': labelId }),
     };
 
-    const element = createElement(
-      Root,
+    const element = createStyledElement(
+      RadioGroupPrimitive.Item,
+      styles.item,
+      null,
       customProps,
       <RadioGroupPrimitive.Indicator
         className={styles.indicator({ disabled })}

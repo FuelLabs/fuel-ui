@@ -20,8 +20,8 @@ export const DrawerClose = createComponent<
   unknown,
   OmitProps,
   ElementType
->(({ className, ...props }) => {
-  const classes = cx('fuel_drawer-close', className, styles.close());
+>(({ css, className, ...props }) => {
+  const classes = cx('fuel_drawer-close', className);
   const { state } = useDrawer();
 
   function handleClose() {
@@ -31,6 +31,7 @@ export const DrawerClose = createComponent<
   return (
     <IconButton
       {...props}
+      css={{ ...styles.close, ...css }}
       icon={props.icon || Icon.is('X')}
       aria-label={props['aria-label'] || 'Close'}
       variant={props.variant || 'link'}

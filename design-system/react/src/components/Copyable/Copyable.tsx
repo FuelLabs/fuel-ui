@@ -1,4 +1,4 @@
-import { css, cx } from '@fuel-ui/css';
+import { cssObj, cx } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
 
 import { createComponent } from '../../utils';
@@ -15,21 +15,28 @@ export type CopyableProps = Omit<FlexProps, 'children'> & {
 
 export const Copyable = createComponent<CopyableProps>(
   ({
+    css,
     children,
     className,
     value,
     tooltipMessage = 'Click here to copy to clipboard',
     ...props
   }) => {
-    const classes = cx('fuel_copyable', className, styles.root());
-    const iconClass = cx('fuel_copyable-icon', styles.icon());
+    const classes = cx('fuel_copyable', className);
+    const iconClass = cx('fuel_copyable-icon');
 
     async function handleCopy() {
       await navigator.clipboard.writeText(value);
     }
 
     return (
-      <Flex align="center" gap="$2" {...props} className={classes}>
+      <Flex
+        align="center"
+        gap="$2"
+        {...props}
+        className={classes}
+        css={{ ...styles.root, ...css }}
+      >
         {children}
         <IconButton
           color="gray"
@@ -39,6 +46,7 @@ export const Copyable = createComponent<CopyableProps>(
           icon={<Icon icon="CopySimple" size={16} />}
           aria-label="Copy to clipboard"
           className={iconClass}
+          css={styles.icon}
         />
       </Flex>
     );
@@ -46,13 +54,12 @@ export const Copyable = createComponent<CopyableProps>(
 );
 
 const styles = {
-  root: css({
+  root: cssObj({
     display: 'inline-flex',
   }),
-  icon: css({
-    // TODO: remove important from here
-    px: '$0 !important',
-    height: '$4 !important',
-    color: '$gray8 !important',
+  icon: cssObj({
+    px: '$0',
+    height: '$4',
+    color: '$gray8',
   }),
 };

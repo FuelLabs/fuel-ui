@@ -1,19 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx, styled } from '@fuel-ui/css';
-import {
-  Children,
-  createContext,
-  createElement,
-  useContext,
-  useRef,
-} from 'react';
+import { cx } from '@fuel-ui/css';
+import { Children, createContext, useContext, useRef } from 'react';
 import type { AriaButtonProps, AriaMenuOptions } from 'react-aria';
 import { useMenuTrigger } from 'react-aria';
 import type { MenuTriggerProps, MenuTriggerState } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 import { useKeyPressEvent } from 'react-use';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import type { PopoverProps } from '../Popover';
 import { Popover } from '../Popover';
 
@@ -56,8 +50,6 @@ export type DropdownProps = Omit<MenuTriggerProps, 'direction'> & {
     alignOffset?: PopoverProps['sideOffset'];
   };
 };
-
-const Root = styled('div');
 
 export const Dropdown = createComponent<DropdownProps, ObjProps>(
   ({ children, className, css, popoverProps, ...props }) => {
@@ -102,7 +94,13 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
       }
     });
 
-    return createElement(Root, { className: classes }, customChildren);
+    return createStyledElement(
+      'div',
+      null,
+      null,
+      { className: classes },
+      customChildren
+    );
   }
 );
 

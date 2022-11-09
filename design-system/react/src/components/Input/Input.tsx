@@ -1,7 +1,7 @@
-import { cx, styled } from '@fuel-ui/css';
-import { createElement, createContext, useContext } from 'react';
+import { cx } from '@fuel-ui/css';
+import { createContext, useContext } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
 
 import { InputAddonLeft, InputAddonRight } from './InputAddon';
@@ -36,8 +36,6 @@ export function useInputProps() {
   return useContext(ctx);
 }
 
-const Root = styled('div');
-
 export const Input = createComponent<InputProps, ObjProps>(
   ({
     size = 'md',
@@ -58,17 +56,7 @@ export const Input = createComponent<InputProps, ObjProps>(
       formControlProps.isDisabled ||
       formControlProps.isReadOnly;
 
-    const classes = cx(
-      'fuel_input',
-      className,
-      styles.input({
-        size,
-        disabled,
-        required: isRequired || formControlProps.isRequired,
-        invalid: isInvalid || formControlProps.isInvalid,
-        full: isFullWidth,
-      })
-    );
+    const classes = cx('fuel_input', className);
 
     const providerProps = {
       size,
@@ -85,9 +73,23 @@ export const Input = createComponent<InputProps, ObjProps>(
       className: classes,
     };
 
+    const styleProps = {
+      size,
+      disabled,
+      required: isRequired || formControlProps.isRequired,
+      invalid: isInvalid || formControlProps.isInvalid,
+      full: isFullWidth,
+    };
+
     return (
       <ctx.Provider value={providerProps}>
-        {createElement(Root, inputProps, children)}
+        {createStyledElement(
+          'div',
+          styles.input,
+          styleProps,
+          inputProps,
+          children
+        )}
       </ctx.Provider>
     );
   }

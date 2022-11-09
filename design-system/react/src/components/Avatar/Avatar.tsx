@@ -1,8 +1,7 @@
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import * as RAvatar from '@radix-ui/react-avatar';
-import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 
 import { AvatarGenerated } from './AvatarGenerated';
 import * as styles from './styles';
@@ -18,11 +17,9 @@ type ObjProps = {
   Generated: typeof AvatarGenerated;
 };
 
-const Root = styled(RAvatar.Root);
-
 export const Avatar = createComponent<AvatarProps, ObjProps, OmitProps>(
   ({ name, size, className, css, as, ...props }) => {
-    const classes = cx('fuel_avatar', className, styles.avatar({ size }));
+    const classes = cx('fuel_avatar', className);
     const wrapperProps = { as, css, className: classes };
     const children = (
       <>
@@ -40,7 +37,13 @@ export const Avatar = createComponent<AvatarProps, ObjProps, OmitProps>(
       </>
     );
 
-    return createElement(Root, wrapperProps, children);
+    return createStyledElement(
+      RAvatar.Root,
+      styles.avatar,
+      { size },
+      wrapperProps,
+      children
+    );
   }
 );
 

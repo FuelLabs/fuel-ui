@@ -1,9 +1,9 @@
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import type { ReactElement, ReactNode } from 'react';
-import { createElement, Children, cloneElement } from 'react';
+import { Children, cloneElement } from 'react';
 import { mergeProps } from 'react-aria';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import { pick } from '../../utils/helpers';
 import type { ButtonBaseProps, ButtonProps } from '../Button/Button';
 import { Focus } from '../Focus';
@@ -15,13 +15,12 @@ type GroupChildrenProps = {
   children: ReactNode;
 };
 
-const Root = styled('div');
-
 function GroupChildren({ children, childrenProps }: GroupChildrenProps) {
-  const classes = cx('fuel_button-group', styles.root());
-  return createElement(
-    Root,
-    { className: classes },
+  return createStyledElement(
+    'div',
+    styles.root,
+    null,
+    { className: cx('fuel_button-group') },
     (Children.toArray(children) as ReactElement[]).map((child: ReactElement) =>
       cloneElement(child, mergeProps(child.props, childrenProps))
     )

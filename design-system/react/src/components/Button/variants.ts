@@ -89,7 +89,7 @@ function createLinkVariant(keyColor: ColorKeys, hasHover = true) {
       '&:not([aria-disabled=true]):hover': {
         borderColor: 'transparent',
         boxShadow: 'none',
-        backgroundColor: 'transparent !important',
+        backgroundColor: 'transparent',
         textDecoration: 'underline',
       },
     }),

@@ -1,9 +1,9 @@
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
-import { createElement, useRef } from 'react';
+import { useRef } from 'react';
 import { mergeProps, useFocusable } from 'react-aria';
 
-import { createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import type { HTMLProps } from '../../utils';
 
 import { useInputProps } from './Input';
@@ -19,8 +19,6 @@ type ObjProps = {
   id: string;
 };
 
-const Root = styled('input');
-
 export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
   ({ name: nameProp, htmlSize, role = 'textbox', className, ...props }) => {
     const parentProps = useInputProps();
@@ -32,16 +30,7 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
 
     const name = `${nameProp}`;
     const disabled = isDisabled || isReadOnly;
-    const classes = cx(
-      'fuel_input--field',
-      className,
-      styles.field({
-        isRequired,
-        isInvalid,
-        isDisabled,
-        isReadOnly,
-      })
-    );
+    const classes = cx('fuel_input--field', className);
 
     const inputProps = {
       ...props,
@@ -64,7 +53,7 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
     const { focusableProps } = useFocusable(props as any, ref);
     const customProps = mergeProps(inputProps, focusableProps);
 
-    return createElement(Root, {
+    return createStyledElement('input', styles.field, null, {
       ...customProps,
       className: classes,
       ref: mergeRefs(ref, props.ref!),

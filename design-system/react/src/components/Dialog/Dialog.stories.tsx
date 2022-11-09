@@ -10,7 +10,7 @@ export default {
   component: Dialog,
   title: 'Overlay/Dialog',
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
 };
 
@@ -44,8 +44,4 @@ export const Usage = (args: DialogProps) => {
       <Content {...args} state={storyState} />
     </Dialog.Provider>
   );
-};
-
-Usage.parameters = {
-  layout: 'centered',
 };
