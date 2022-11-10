@@ -58,6 +58,7 @@ const styles = {
     display: 'inline-flex',
   }),
   icon: cssObj({
+    py: '$3',
     px: '$0',
     height: '$4',
     color: '$gray8',
