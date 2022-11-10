@@ -1,21 +1,18 @@
 import { cx } from '@fuel-ui/css';
-import * as RDialog from '@radix-ui/react-dialog';
 
 import { createComponent, createStyledElement } from '../../utils';
 
 import * as styles from './styles';
 
-export type DialogDescriptionProps = RDialog.DialogTitleProps;
+export type DialogDescriptionProps = {
+  className?: string;
+};
 
 export const DialogDescription = createComponent<DialogDescriptionProps>(
-  ({ className, children, ...props }) => {
-    const classes = cx(
-      'fuel_dialog--description',
-      className,
-      styles.description()
-    );
+  ({ as = 'div', className, children, ...props }) => {
+    const classes = cx('fuel_dialog--description', className);
     return createStyledElement(
-      RDialog.Description,
+      as,
       styles.description,
       null,
       { ...props, className: classes },

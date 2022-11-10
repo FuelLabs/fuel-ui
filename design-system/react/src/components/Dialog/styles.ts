@@ -1,4 +1,4 @@
-import { css, keyframes } from '@fuel-ui/css';
+import { css, cssObj, keyframes } from '@fuel-ui/css';
 
 const overlayShow = keyframes({
   '0%': {
@@ -92,8 +92,9 @@ export const footer = css({
   },
 });
 
-export const closeButton = css({
+export const close = cssObj({
   position: 'absolute',
   top: '$2',
   right: '$2',
+  padding: '$1',
 });

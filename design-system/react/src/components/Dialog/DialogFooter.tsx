@@ -10,10 +10,10 @@ export type DialogFooterProps = HTMLProps['footer'] & {
 };
 
 export const DialogFooter = createComponent<DialogFooterProps>(
-  ({ align, className, children, ...props }) => {
+  ({ as = 'footer', align, className, children, ...props }) => {
     const classes = cx('fuel_dialog--footer', className);
     return createStyledElement(
-      'footer',
+      as,
       styles.footer,
       { align },
       { ...props, className: classes },

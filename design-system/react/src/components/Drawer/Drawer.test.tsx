@@ -42,9 +42,11 @@ describe('Drawer', () => {
     const { user } = render(<Content />);
 
     expect(() => screen.getByText('Hello world')).toThrow();
-    const trigger = screen.getByText('Open');
-    await user.click(trigger);
-    expect(await screen.findByText('Hello world')).toBeInTheDocument();
+    await waitFor(async () => {
+      const trigger = screen.getByText('Open');
+      await user.click(trigger);
+      expect(await screen.findByText('Hello world')).toBeInTheDocument();
+    });
 
     const close = screen.getByLabelText('Close');
     await user.click(close);
