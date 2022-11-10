@@ -1,5 +1,11 @@
 # @fuel-ui/css
 
+## 0.9.1
+
+### Patch Changes
+
+- 🐞 Fix: packages export definition, by [@pedronauck](https://github.com/pedronauck) (See [#159](https://github.com/FuelLabs/fuel-ui/pull/159))
+
 ## 0.9.0
 
 ## 0.8.0

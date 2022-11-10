@@ -1,5 +1,13 @@
 # @fuel-ui/react
 
+## 0.9.1
+
+### Patch Changes
+
+- 🐞 Fix: packages export definition, by [@pedronauck](https://github.com/pedronauck) (See [#159](https://github.com/FuelLabs/fuel-ui/pull/159))
+- 🐞 fixed copyable icon padding, by [@josevitordaltoe](https://github.com/josevitordaltoe) (See [#157](https://github.com/FuelLabs/fuel-ui/pull/157))
+- 🐞 Fix: add solution to remove needing of !important, by [@pedronauck](https://github.com/pedronauck) (See [#150](https://github.com/FuelLabs/fuel-ui/pull/150))
+
 ## 0.9.0
 
 ### Minor Changes
