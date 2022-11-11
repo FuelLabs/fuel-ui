@@ -7,7 +7,7 @@ export const base = {
   current: 'currentColor',
   transparent: 'transparent',
   brand: '#58c09b',
-
+  backgroundWeak: '#151a2d',
   ...radixColors.blackA,
   ...radixColors.whiteA,
 };
@@ -134,6 +134,15 @@ export const darkColors = {
   inputColor: '$gray12',
   inputBorder: 'transparent',
   inputPlaceholderColor: '$gray9',
+
+  skeletonBackground: `linear-gradient(
+    90deg,
+    #151a2d00,
+    #151a2d4D,
+    #151a2d66,
+    #151a2d4D,
+    #151a2d00
+  `,
 };
 
 export type ColorKeys =
