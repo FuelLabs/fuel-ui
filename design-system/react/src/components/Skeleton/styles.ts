@@ -1,6 +1,6 @@
 import { keyframes, cssObj, css } from '@fuel-ui/css';
 
-const sizes = [80, 120, 160, 200];
+const sizes = [20, 30, 40, 50, 60, 70, 80];
 
 const randomSize = () => sizes[Math.floor(Math.random() * sizes.length)];
 
@@ -18,9 +18,8 @@ const shiningAnimation = keyframes({
 export const skeletonStyles = {
   column: cssObj({ flexDirection: 'column' }),
   animation: cssObj({
-    backgroundColor: 'rgba(255,255,255,0.4)',
-    backgroundImage:
-      'linear-gradient(90deg, rgba(255, 255,255, 0.1) 0%, #bdbdbd 20%,  #d8d8d8 40%, #d8d8d8 70%, rgba(255, 255,255, 0.1) 100%)',
+    backgroundColor: '$skeletonBackground',
+    backgroundImage: '$skeletonShiningGradient',
     backgroundRepeat: 'no-repeat',
     animation: `${shiningAnimation.name} 0.8s linear infinite`,
     animationDirection: 'alternate',
@@ -66,7 +65,7 @@ export const skeletonStyles = {
   }),
   line: cssObj({
     height: '12px',
-    width: `${randomSize()}px`,
+    width: `${randomSize()}%`,
     borderRadius: '$md',
   }),
   box: cssObj({

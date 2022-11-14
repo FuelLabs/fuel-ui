@@ -135,14 +135,9 @@ export const darkColors = {
   inputBorder: 'transparent',
   inputPlaceholderColor: '$gray9',
 
-  skeletonBackground: `linear-gradient(
-    90deg,
-    #151a2d00,
-    #151a2d4D,
-    #151a2d66,
-    #151a2d4D,
-    #151a2d00
-  `,
+  skeletonBackground: 'rgba(255,255,255,0.4)',
+  skeletonShiningGradient:
+    'linear-gradient(90deg, rgba(255,255,255, 0.1) 0%, #bdbdbd 20%,  #d8d8d8 40%, #d8d8d8 70%, rgba(255,255,255, 0.1) 100%)',
 };
 
 export type ColorKeys =
