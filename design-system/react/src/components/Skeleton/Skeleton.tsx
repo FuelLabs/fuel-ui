@@ -13,15 +13,15 @@ export const variants = {
   avatar: AvatarSkeleton,
 } as const;
 
-type PlaceholderVariant = keyof typeof variants;
+type SkeletonVariant = keyof typeof variants;
 
-type PlaceholderProps = {
-  variant?: PlaceholderVariant;
+export type SkeletonProps = {
+  variant?: SkeletonVariant;
   avatarSize?: AvatarProps['size'];
   linesNumber?: number;
 };
 
-export const Skeleton = createComponent<PlaceholderProps>(
+export const Skeleton = createComponent<SkeletonProps>(
   ({ variant = 'block', avatarSize = 'md', linesNumber, css }) => {
     const Component = variants[variant];
 

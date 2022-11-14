@@ -43,3 +43,4 @@ export * from './Text';
 export * from './ThemeProvider';
 export * from './Toast';
 export * from './Tooltip';
+export * from './Skeleton';
