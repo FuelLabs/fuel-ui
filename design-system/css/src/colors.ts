@@ -7,7 +7,6 @@ export const base = {
   current: 'currentColor',
   transparent: 'transparent',
   brand: '#58c09b',
-  backgroundWeak: '#151a2d',
   ...radixColors.blackA,
   ...radixColors.whiteA,
 };
