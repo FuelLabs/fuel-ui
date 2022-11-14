@@ -1,33 +1,35 @@
-import { cssObj, keyframes } from '@fuel-ui/css';
+import { keyframes, cssObj, css } from '@fuel-ui/css';
 
-const shineAnimation = keyframes({
+const sizes = [80, 120, 160, 200];
+
+const randomSize = () => sizes[Math.floor(Math.random() * sizes.length)];
+
+const shiningAnimation = keyframes({
   from: {
-    left: '-25%',
+    backgroundPosition: '-100vw',
+    backgroundSize: '100vw',
   },
   to: {
-    left: '100%',
+    backgroundPosition: '100vw',
+    backgroundSize: '100vw',
   },
 });
 
 export const skeletonStyles = {
-  wrapper: cssObj({
-    position: 'relative',
-    display: 'block',
-    width: '100%',
-    overflow: 'hidden',
-    cursor: 'progress',
-  }),
-
-  skeleton: cssObj({
-    background: '$skeletonBackground',
-    animation: `${shineAnimation} 1s linear infinite`,
-    opacity: 0.8,
-    'animation-direction': 'alternate',
+  column: cssObj({ flexDirection: 'column' }),
+  animation: cssObj({
+    backgroundColor: 'rgba(255,255,255,0.4)',
+    backgroundImage:
+      'linear-gradient(90deg, rgba(255, 255,255, 0.1) 0%, #bdbdbd 20%,  #d8d8d8 40%, #d8d8d8 70%, rgba(255, 255,255, 0.1) 100%)',
+    backgroundRepeat: 'no-repeat',
+    animation: `${shiningAnimation.name} 0.8s linear infinite`,
+    animationDirection: 'alternate',
+    opacity: 0.2,
     '@media (prefers-reduced-motion: reduce)': {
       animation: 'unset',
     },
   }),
-  avatar: cssObj({
+  avatar: css({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -35,8 +37,6 @@ export const skeletonStyles = {
     overflow: 'hidden',
     userSelect: 'none',
     borderRadius: '100%',
-    background: '$skeletonBackground',
-
     variants: {
       size: {
         xsm: {
@@ -66,14 +66,12 @@ export const skeletonStyles = {
   }),
   line: cssObj({
     height: '12px',
-    width: '100%',
-    maxWidth: '100%',
-    borderRadius: '10px',
-    backgroundColor: '$skeletonBackground',
+    width: `${randomSize()}px`,
+    borderRadius: '$md',
   }),
-  linesWrapper: cssObj({
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '$4',
+  box: cssObj({
+    height: '50px',
+    width: '100%',
+    borderRadius: '$md',
   }),
 };
