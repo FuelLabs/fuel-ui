@@ -22,7 +22,6 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
       const strength = passwordStrengthCalculator(password);
       return (
         <Box css={{ maxW: '211px' }}>
-          r
           <Heading as="h5" css={{ m: '$0', mb: '$2' }}>
             {PasswordDictionary[strength]}
           </Heading>

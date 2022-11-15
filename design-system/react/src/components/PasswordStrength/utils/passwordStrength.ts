@@ -2,10 +2,10 @@ import type { PasswordStrength } from '../types';
 
 /** @description - This is where we make all the rules for the password checking */
 export const passwordChecker = (password: string) => ({
-  digits: /(?=.*[\d])\w+/g.test(password),
-  lowerCase: /(?=.*[a-z])\w+/g.test(password),
-  upperCase: /(?=.*[A-Z])\w+/g.test(password),
-  specialSymbols: /(?=.[@$!%#?&])\w+/g.test(password),
+  digits: /(?=.*[\d])\w+/g.exec(password) !== null,
+  lowerCase: /(?=.*[a-z])\w+/g.exec(password) !== null,
+  upperCase: /(?=.*[A-Z])\w+/g.exec(password) !== null,
+  specialSymbols: /(?=.[@$!%#?&])\w+/g.exec(password) !== null,
   lengthChecker: password.length > 6,
 });
 
@@ -24,7 +24,7 @@ export const passwordStrengthCalculator = (
     matchesLength,
     matchesCasing,
     matchesNumbersAndSymbols,
-  ].filter((e) => e !== true);
+  ].filter((e) => e === true);
 
   if (rulesMatched.length === 3) {
     return 'strong';
