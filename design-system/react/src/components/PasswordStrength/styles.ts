@@ -4,6 +4,9 @@ import { cssObj } from '@fuel-ui/css';
 import type { PasswordStrength } from './types';
 
 export const passwordStrengthStyles = {
+  heading: cssObj({
+    m: '$0',
+  }),
   popover: cssObj({
     px: '$3 !important',
     py: '$2 !important',

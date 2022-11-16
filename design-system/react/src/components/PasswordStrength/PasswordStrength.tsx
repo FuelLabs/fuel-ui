@@ -31,7 +31,7 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
     const popoverContent = (
       <>
         <Flex css={passwordStrengthStyles.popoverContainer}>
-          <Heading as="h5" css={{ m: '$0' }}>
+          <Heading as="h5" css={passwordStrengthStyles.heading}>
             {PasswordDictionary[strength]}
           </Heading>
           <Box css={passwordStrengthStyles.strengthIndicatorContainer}>
