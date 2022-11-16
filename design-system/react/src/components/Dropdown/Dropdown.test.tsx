@@ -40,7 +40,7 @@ describe('Dropdown', () => {
 
     expect(() => screen.getByText('Settings')).toThrow();
     const trigger = screen.getByText('Click here');
-    act(async () => {
+    await act(async () => {
       await user.click(trigger);
     });
 
@@ -51,12 +51,12 @@ describe('Dropdown', () => {
     const { user } = render(<Content />);
 
     const trigger = screen.getByText('Click here');
-    act(async () => {
+    await act(async () => {
       await user.click(trigger);
     });
 
     const menuItem = await screen.findByText(/settings/i);
-    act(async () => {
+    await act(async () => {
       await user.click(menuItem);
     });
 
@@ -72,12 +72,12 @@ describe('Dropdown', () => {
     );
 
     const trigger = screen.getByText('Click here');
-    act(async () => {
+    await act(async () => {
       await user.click(trigger);
     });
 
     const fooBtn = await screen.findByText('Foo');
-    act(async () => {
+    await act(async () => {
       await user.click(fooBtn);
     });
 
@@ -88,7 +88,7 @@ describe('Dropdown', () => {
     const { user } = render(<Content />);
 
     const trigger = screen.getByText('Click here');
-    act(async () => {
+    await act(async () => {
       await user.click(trigger);
     });
     await user.press('Esc');
