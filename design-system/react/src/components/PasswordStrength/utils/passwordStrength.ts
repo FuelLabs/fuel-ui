@@ -2,28 +2,26 @@ import type { PasswordStrength } from '../types';
 
 /** @description - This is where we make all the rules for the password checking */
 export const passwordChecker = (password: string) => ({
-  digits: /(?=.*[\d])\w+/g.exec(password) !== null,
-  lowerCase: /(?=.*[a-z])\w+/g.exec(password) !== null,
-  upperCase: /(?=.*[A-Z])\w+/g.exec(password) !== null,
-  specialSymbols: /(?=.[@$!%#?&])\w+/g.exec(password) !== null,
-  lengthChecker: password.length > 6,
+  symbolsAndDigitsChecker:
+    /(?=.*[\d])\w+/g.exec(password) !== null &&
+    /(?=.[@$!%#?&])\w+/g.exec(password) !== null,
+  casingChecker:
+    /(?=.*[a-z])\w+/g.exec(password) !== null &&
+    /(?=.*[A-Z])\w+/g.exec(password) !== null,
+  lengthChecker: password.length >= 6,
 });
 
 /** @description - This will check if the password is weak | strong | average */
 export const passwordStrengthCalculator = (
   password: string
 ): PasswordStrength => {
-  const { digits, lengthChecker, lowerCase, specialSymbols, upperCase } =
+  const { symbolsAndDigitsChecker, casingChecker, lengthChecker } =
     passwordChecker(password);
 
-  const matchesLength = lengthChecker;
-  const matchesCasing = lowerCase && upperCase;
-  const matchesNumbersAndSymbols = specialSymbols && digits;
-
   const rulesMatched = [
-    matchesLength,
-    matchesCasing,
-    matchesNumbersAndSymbols,
+    lengthChecker,
+    casingChecker,
+    symbolsAndDigitsChecker,
   ].filter((e) => e === true);
 
   if (rulesMatched.length === 3) {
