@@ -45,4 +45,7 @@ export const passwordStrengthStyles = {
           : '$mint9',
     }),
   betterToHaveText: cssObj({ color: '$gray12' }),
+  arrow: cssObj({
+    fill: '$gray2',
+  }),
 };

@@ -92,8 +92,14 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
       <Popover
         content={popoverContent}
         align="start"
+        arrowProps={{
+          offset: -31,
+          width: 15,
+          height: 5,
+        }}
         css={passwordStrengthStyles.popover}
         alignOffset={-30}
+        sideOffset={-2}
         {...props}
       >
         {children}
