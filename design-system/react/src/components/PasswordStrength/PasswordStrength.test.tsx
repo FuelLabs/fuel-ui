@@ -28,6 +28,23 @@ describe('PasswordStrength', () => {
     ).toBeDefined();
   });
 
+  it('should render a weak password if password minimum length is 8', async () => {
+    const { findByText } = render(
+      <PasswordStrength password="123456" open>
+        <Button></Button>
+      </PasswordStrength>
+    );
+
+    expect(PasswordDictionary[passwordStrengthCalculator(weakPassword)]).toBe(
+      'Weak'
+    );
+    expect(
+      await findByText(
+        PasswordDictionary[passwordStrengthCalculator(weakPassword)]
+      )
+    ).toBeDefined();
+  });
+
   it('should render a average password', async () => {
     const { findByText } = render(
       <PasswordStrength password={averagePassword} open>

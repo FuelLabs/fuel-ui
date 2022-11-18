@@ -6,7 +6,7 @@ import {
 const strongPassword = '12345LF@ik&!';
 const averageCharactersAndSymbolsPassword = 'L@w2';
 const averageCharactersAndSixDigitsPassword = 'ThisisaTest';
-const weakPassword = '12345678';
+const weakPassword = '123456';
 
 describe('passwordChecker', () => {
   it('should validate a strong password correctly', () => {
@@ -42,6 +42,15 @@ describe('passwordChecker', () => {
 
     expect(casingChecker).toBeFalsy();
     expect(lengthChecker).toBeTruthy();
+    expect(symbolsAndDigitsChecker).toBeFalsy();
+  });
+
+  it('should be falsy for every rule if minimun length is 8', () => {
+    const { casingChecker, lengthChecker, symbolsAndDigitsChecker } =
+      passwordChecker(weakPassword, 8);
+
+    expect(casingChecker).toBeFalsy();
+    expect(lengthChecker).toBeFalsy();
     expect(symbolsAndDigitsChecker).toBeFalsy();
   });
 });
