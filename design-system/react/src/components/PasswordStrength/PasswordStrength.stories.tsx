@@ -16,7 +16,7 @@ export const Usage = (args: PasswordStrengthProps) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Stack>
+    <Stack css={{ maxW: '350px' }}>
       <PasswordStrength
         {...args}
         onOpenChange={() => setOpen(true)}

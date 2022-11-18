@@ -17,16 +17,17 @@ import { createComponent } from '~/utils';
 
 export type PasswordStrengthProps = {
   password: string;
+  minLength?: number;
 } & Omit<PopoverProps, 'content'>;
 
 export const PasswordStrength = createComponent<PasswordStrengthProps>(
-  ({ password, children, ...props }) => {
+  ({ password, children, minLength = 6, ...props }) => {
     const strength = useMemo(
-      () => passwordStrengthCalculator(password),
-      [password]
+      () => passwordStrengthCalculator(password, minLength),
+      [password, minLength]
     );
     const { lengthChecker, casingChecker, symbolsAndDigitsChecker } =
-      passwordChecker(password);
+      passwordChecker(password, minLength);
 
     const popoverContent = (
       <>
@@ -67,7 +68,7 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
                 color={lengthChecker ? 'mint9' : 'crimson9'}
                 icon={lengthChecker ? <Check /> : <X />}
               />
-              <Text fontSize="xs">Min. 6 characteres</Text>
+              <Text fontSize="xs">Min. {minLength} characteres</Text>
             </Flex>
             <Flex gap="$1">
               <Icon
@@ -93,7 +94,7 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
         content={popoverContent}
         align="start"
         arrowProps={{
-          offset: -31,
+          offset: 31,
           width: 15,
           height: 5,
         }}
@@ -107,3 +108,7 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
     );
   }
 );
+
+PasswordStrength.defaultProps = {
+  minLength: 6,
+};

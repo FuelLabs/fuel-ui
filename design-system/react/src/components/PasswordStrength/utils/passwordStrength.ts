@@ -1,22 +1,23 @@
 import type { PasswordStrength } from '../types';
 
 /** @description - This is where we make all the rules for the password checking */
-export const passwordChecker = (password: string) => ({
+export const passwordChecker = (password: string, minLength: number = 6) => ({
   symbolsAndDigitsChecker:
     /(?=.*[\d])\w+/g.exec(password) !== null &&
     /(?=.[@$!%#?&])\w+/g.exec(password) !== null,
   casingChecker:
     /(?=.*[a-z])\w+/g.exec(password) !== null &&
     /(?=.*[A-Z])\w+/g.exec(password) !== null,
-  lengthChecker: password.length >= 6,
+  lengthChecker: password.length >= minLength,
 });
 
 /** @description - This will check if the password is weak | strong | average */
 export const passwordStrengthCalculator = (
-  password: string
+  password: string,
+  minLength: number = 6
 ): PasswordStrength => {
   const { symbolsAndDigitsChecker, casingChecker, lengthChecker } =
-    passwordChecker(password);
+    passwordChecker(password, minLength);
 
   const rulesMatched = [
     lengthChecker,
