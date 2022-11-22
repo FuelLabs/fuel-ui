@@ -205,6 +205,7 @@ importers:
       '@storybook/theming': ^6.5.13
       '@types/color': ^3.0.3
       '@types/fs-extra': ^9.0.13
+      '@types/lodash': ^4.14.189
       '@types/react': ^18.0.25
       '@types/react-dom': ^18.0.8
       '@xstate/react': ^3.0.1
@@ -249,6 +250,7 @@ importers:
       '@xstate/react': 3.0.1_ayelwdf2pp374qfpsc6eg4e7aa
       framer-motion: 7.6.5_biqbaboplfbrettd7655fr4n2y
       jdenticon: 3.2.0
+      lodash: 4.17.21
       phosphor-react: 1.4.1_react@18.2.0
       react: 18.2.0
       react-aria: 3.20.0_biqbaboplfbrettd7655fr4n2y
@@ -279,11 +281,11 @@ importers:
       '@storybook/theming': 6.5.13_biqbaboplfbrettd7655fr4n2y
       '@types/color': 3.0.3
       '@types/fs-extra': 9.0.13
+      '@types/lodash': 4.14.189
       '@types/react': 18.0.25
       '@types/react-dom': 18.0.8
       babel-loader: 9.1.0_hkczypimj4evef4hfazf6yfxte
       fs-extra: 10.1.0
-      lodash: 4.17.21
       storybook-dark-mode: 1.1.2_biqbaboplfbrettd7655fr4n2y
       tsconfig-paths-webpack-plugin: 4.0.0
       typescript: 4.8.4
@@ -6271,7 +6273,7 @@ packages:
       '@babel/preset-env': 7.17.10_@babel+core@7.20.2
       '@babel/types': 7.20.2
       '@mdx-js/mdx': 1.6.22
-      '@types/lodash': 4.14.182
+      '@types/lodash': 4.14.189
       js-string-escape: 1.0.1
       loader-utils: 2.0.2
       lodash: 4.17.21
@@ -6942,8 +6944,8 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
 
-  /@types/lodash/4.14.182:
-    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
+  /@types/lodash/4.14.189:
+    resolution: {integrity: sha512-kb9/98N6X8gyME9Cf7YaqIMvYGnBSWqEci6tiettE6iJWH1XdJz/PO8LB0GtLCG7x8dU3KWhZT+lA1a35127tA==}
     dev: true
 
   /@types/mdast/3.0.10:
