@@ -61,6 +61,7 @@ jobs:
         id: findPr
 
       - name: Run Jest Tests
+        working-directory: ./design-system/react
         run: |
           pnpm test --outputFile="${{ env.COVERAGE_FILE }}"
 
