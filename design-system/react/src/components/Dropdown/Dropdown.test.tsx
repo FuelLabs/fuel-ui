@@ -1,4 +1,4 @@
-import { render, testA11y, screen, waitFor } from '@fuel-ui/test-utils';
+import { render, testA11y, screen, waitFor, act } from '@fuel-ui/test-utils';
 
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -40,7 +40,10 @@ describe('Dropdown', () => {
 
     expect(() => screen.getByText('Settings')).toThrow();
     const trigger = screen.getByText('Click here');
-    await user.click(trigger);
+    await act(async () => {
+      await user.click(trigger);
+    });
+
     expect(await screen.findByText('Settings')).toBeInTheDocument();
   });
 
@@ -48,10 +51,14 @@ describe('Dropdown', () => {
     const { user } = render(<Content />);
 
     const trigger = screen.getByText('Click here');
-    await user.click(trigger);
+    await act(async () => {
+      await user.click(trigger);
+    });
 
     const menuItem = await screen.findByText(/settings/i);
-    await user.click(menuItem);
+    await act(async () => {
+      await user.click(menuItem);
+    });
 
     await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
   });
@@ -65,10 +72,14 @@ describe('Dropdown', () => {
     );
 
     const trigger = screen.getByText('Click here');
-    await user.click(trigger);
+    await act(async () => {
+      await user.click(trigger);
+    });
 
     const fooBtn = await screen.findByText('Foo');
-    await user.click(fooBtn);
+    await act(async () => {
+      await user.click(fooBtn);
+    });
 
     await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
   });
@@ -77,7 +88,9 @@ describe('Dropdown', () => {
     const { user } = render(<Content />);
 
     const trigger = screen.getByText('Click here');
-    await user.click(trigger);
+    await act(async () => {
+      await user.click(trigger);
+    });
     await user.press('Esc');
     await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
   });
