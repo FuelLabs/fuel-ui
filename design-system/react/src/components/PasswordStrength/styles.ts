@@ -3,7 +3,7 @@ import { cssObj } from '@fuel-ui/css';
 
 import type { PasswordStrength } from './types';
 
-export const passwordStrengthStyles = {
+export const styles = {
   heading: cssObj({
     m: '$0',
   }),
