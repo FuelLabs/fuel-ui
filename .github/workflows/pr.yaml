@@ -63,7 +63,7 @@ jobs:
       - name: Run Jest Tests
         working-directory: ./design-system/react
         run: |
-          pnpm test --outputFile="${{ env.COVERAGE_FILE }}"
+          pnpm run test --outputFile="${{ env.COVERAGE_FILE }}"
 
       - name: Publish coverage
         uses: ArtiomTr/jest-coverage-report-action@v2
