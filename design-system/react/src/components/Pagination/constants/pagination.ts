@@ -1,4 +1,1 @@
-export const Separators = {
-  left: 0,
-  right: -1,
-};
+export const SEPARATOR = -1;
