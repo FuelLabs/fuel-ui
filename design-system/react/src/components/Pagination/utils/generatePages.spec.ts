@@ -1,4 +1,4 @@
-import { generatePages, getFirstItem, getLastItem } from '../generatePages';
+import { generatePages, getFirstItem, getLastItem } from './generatePages';
 
 describe('passwordStrength', () => {
   it('should get the last item of an array', () => {
@@ -10,35 +10,35 @@ describe('passwordStrength', () => {
   });
 
   it('should not render separator when number of pages is smaller than 3', () => {
-    const pages = generatePages({ pagesCount: 3, currentPage: 1 });
+    const pages = generatePages({ totalPagesNumber: 3, currentPage: 1 });
 
     expect(pages.length).toBe(3);
     expect(pages.includes(-1)).toBeFalsy();
   });
 
   it('should render separator when number of pages is bigger than 3', () => {
-    const pages = generatePages({ pagesCount: 12, currentPage: 1 });
+    const pages = generatePages({ totalPagesNumber: 12, currentPage: 1 });
 
     expect(pages.length).toBe(4);
     expect(pages.toString()).toBe('1,2,-1,12');
   });
 
   it('should render separator in even when current page is not the first', () => {
-    const pages = generatePages({ pagesCount: 12, currentPage: 5 });
+    const pages = generatePages({ totalPagesNumber: 12, currentPage: 5 });
 
     expect(pages.length).toBe(4);
     expect(pages.toString()).toBe('4,5,-1,12');
   });
 
   it('should render separator on the other side when current page is one step of the end', () => {
-    const pages = generatePages({ pagesCount: 12, currentPage: 11 });
+    const pages = generatePages({ totalPagesNumber: 12, currentPage: 11 });
 
     expect(pages.length).toBe(4);
     expect(pages.toString()).toBe('1,-1,11,12');
   });
 
   it('should render separator on the other side when current page is the last', () => {
-    const pages = generatePages({ pagesCount: 12, currentPage: 12 });
+    const pages = generatePages({ totalPagesNumber: 12, currentPage: 12 });
 
     expect(pages.length).toBe(4);
     expect(pages.toString()).toBe('1,-1,11,12');

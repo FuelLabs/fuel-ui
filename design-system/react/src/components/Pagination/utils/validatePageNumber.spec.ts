@@ -1,4 +1,4 @@
-import { validatePageNumber } from '../validatePageNumber';
+import { validatePageNumber } from './validatePageNumber';
 
 describe('validatePageNumber', () => {
   it('should return false for a decimal number', () => {

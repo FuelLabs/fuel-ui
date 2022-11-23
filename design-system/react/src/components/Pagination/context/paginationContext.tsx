@@ -1,16 +1,29 @@
 import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
-import { createContext, useCallback, useEffect, useState } from 'react';
+import {
+  useMemo,
+  createContext,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
-import type { PaginationProps } from '../Pagination';
-import { validatePageNumber } from '../utils';
+import type { PaginationProps } from '..';
+import { generatePages, validatePageNumber } from '../utils';
 
 export const paginationContextInitialState = {
   currentPage: 1,
   isDisabled: false,
-  pagesCount: 0,
+  totalPagesNumber: 0,
+  totalResults: 0,
+  pages: [],
 };
 
-export type PaginationContextValues = typeof paginationContextInitialState & {
+export type PaginationContextValues = Omit<
+  typeof paginationContextInitialState,
+  'pages'
+> & {
+  totalResults: number;
+  pages: number[];
   handlers: {
     setCurrentPage: Dispatch<SetStateAction<number>>;
     setIsDisabled: Dispatch<SetStateAction<boolean>>;
@@ -19,9 +32,7 @@ export type PaginationContextValues = typeof paginationContextInitialState & {
 };
 
 export const PaginationContext = createContext<PaginationContextValues>({
-  currentPage: paginationContextInitialState.currentPage,
-  isDisabled: paginationContextInitialState.isDisabled,
-  pagesCount: paginationContextInitialState.pagesCount,
+  ...paginationContextInitialState,
   handlers: {
     changePage: () => null,
     setIsDisabled: () => null,
@@ -38,8 +49,8 @@ export const PaginationProvider = (
   const [isDisabled, setIsDisabled] = useState<boolean>(
     paginationContextInitialState.isDisabled
   );
-  const [pagesCount, setPagesCount] = useState<number>(
-    paginationContextInitialState.pagesCount
+  const [totalPagesNumber, setTotalPagesNumber] = useState<number>(
+    paginationContextInitialState.totalPagesNumber
   );
 
   useEffect(() => {
@@ -49,8 +60,8 @@ export const PaginationProvider = (
   }, [props.isDisabled]);
 
   useEffect(() => {
-    setPagesCount(props.pagesCount);
-  }, [props.pagesCount]);
+    setTotalPagesNumber(props.totalPagesNumber);
+  }, [props.totalPagesNumber]);
 
   useEffect(() => {
     if (!validatePageNumber(props.currentPage)) {
@@ -70,12 +81,23 @@ export const PaginationProvider = (
     [props.onPageChange]
   );
 
+  const pages = useMemo(
+    () =>
+      generatePages({
+        totalPagesNumber,
+        currentPage,
+      }),
+    [currentPage, totalPagesNumber]
+  );
+
   return (
     <PaginationContext.Provider
       value={{
+        totalResults: props.totalResults,
         currentPage,
+        pages,
         isDisabled,
-        pagesCount,
+        totalPagesNumber,
         handlers: {
           changePage,
           setCurrentPage,
