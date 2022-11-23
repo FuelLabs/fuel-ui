@@ -1,4 +1,4 @@
-import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
+import type { Dispatch, FC, PropsWithChildren, SetStateAction } from 'react';
 import {
   useMemo,
   createContext,
@@ -40,9 +40,10 @@ export const PaginationContext = createContext<PaginationContextValues>({
   },
 });
 
-export const PaginationProvider = (
-  props: PropsWithChildren<PaginationProps>
-) => {
+export const PaginationProvider: FC<PropsWithChildren<PaginationProps>> = ({
+  onPageChange = () => {},
+  ...props
+}) => {
   const [currentPage, setCurrentPage] = useState<number>(
     paginationContextInitialState.currentPage
   );
@@ -76,9 +77,9 @@ export const PaginationProvider = (
   const changePage = useCallback(
     (page: number) => {
       setCurrentPage(page);
-      props.onPageChange(page);
+      onPageChange(page);
     },
-    [props.onPageChange]
+    [onPageChange]
   );
 
   const pages = useMemo(
