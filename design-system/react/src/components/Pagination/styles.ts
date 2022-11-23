@@ -25,6 +25,7 @@ export const styles = {
     padding: '0px',
     borderRadius: '$md',
     display: 'flex',
+    color: '$gray2',
     fontSize: '$xs',
     alignItems: 'cemter',
     fontWeight: '700',
@@ -32,6 +33,9 @@ export const styles = {
     bg: '$transparent',
     outline: '0px',
     justifyContent: 'center',
+    ':hover': {
+      color: '$mint9',
+    },
   }),
   separator: cssObj({
     fontWeight: '700',

@@ -70,7 +70,7 @@ export const Footer = () => {
       <Flex css={styles.footerNumbers}>
         <IconButton
           icon="CaretLeft"
-          aria-label="footer-previous-page"
+          aria-label="fuel-pagination-previous-page"
           disabled={isPreviousDisabled}
           onPress={handlePreviousPage}
           css={styles.footerButton}
@@ -99,7 +99,7 @@ export const Footer = () => {
 
         <IconButton
           icon="CaretRight"
-          aria-label="footer-next-page"
+          aria-label="fuel-pagination-next-page"
           disabled={isNextDisabled}
           onPress={handleNextPage}
           css={styles.footerButton}

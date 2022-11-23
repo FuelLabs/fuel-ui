@@ -64,11 +64,11 @@ export const PaginationProvider = (
   }, [props.totalPagesNumber]);
 
   useEffect(() => {
-    if (!validatePageNumber(props.currentPage)) {
+    if (props.currentPage && !validatePageNumber(props.currentPage)) {
       return;
     }
 
-    if (props.currentPage != null && props.currentPage !== currentPage) {
+    if (props.currentPage && props.currentPage !== currentPage) {
       setCurrentPage(props.currentPage);
     }
   }, [props.currentPage, currentPage]);

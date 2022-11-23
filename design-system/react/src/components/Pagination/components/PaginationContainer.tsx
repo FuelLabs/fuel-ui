@@ -25,3 +25,7 @@ export const PaginationContainer = createComponent<PaginationProps, unknown>(
     );
   }
 );
+
+PaginationContainer.defaultProps = {
+  onPageChange: () => {},
+};

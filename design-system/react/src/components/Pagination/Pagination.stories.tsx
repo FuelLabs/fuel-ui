@@ -14,7 +14,17 @@ export default {
   },
 };
 
-export const Usage = (props: PaginationProps) => {
+export const SimpleUsage = () => {
+  return (
+    <Flex css={{ p: '$10', w: '320px' }}>
+      <Pagination.Container totalPagesNumber={10} totalResults={999}>
+        <Footer />
+      </Pagination.Container>
+    </Flex>
+  );
+};
+
+export const AdvancedUsage = (props: PaginationProps) => {
   const { totalPagesNumber, currentPage, setCurrentPage, totalResults } =
     usePagination({
       currentPage: props.currentPage || 0,
