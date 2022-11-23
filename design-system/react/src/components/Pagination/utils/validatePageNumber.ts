@@ -13,7 +13,7 @@ export function validatePageNumber(page: number) {
     return false;
   }
 
-  if (checkUnderFlow(page)) {
+  if (!checkUnderFlow(page)) {
     console.warn(
       'Fuel UI -> Pagination -> currentPage should be an integer number'
     );
