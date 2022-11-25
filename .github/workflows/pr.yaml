@@ -62,16 +62,16 @@ jobs:
 
       - name: Run Jest Tests
         run: |
-          pnpm test -- -- --outputFile="${{ env.COVERAGE_FILE }}"
+          pnpm test:ci -- -- --outputFile="${{ env.COVERAGE_FILE }}"
 
       - name: Publish coverage
-        uses: ArtiomTr/jest-coverage-report-action@v2
+        uses: artiomtr/jest-coverage-report-action@v2.0.5
         if: ${{ steps.findPr.outputs.number }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: pnpm
           annotations: failed-tests
-          test-script: pnpm test
+          test-script: pnpm test:ci
           working-directory: ./design-system/react
           prnumber: ${{ steps.findPr.outputs.number }}
           skip-test: all
