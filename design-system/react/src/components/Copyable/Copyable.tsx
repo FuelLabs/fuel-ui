@@ -9,7 +9,7 @@ import { IconButton } from '../IconButton';
 
 export type CopyableProps = Omit<FlexProps, 'children'> & {
   value: string;
-  children: ReactNode;
+  children?: ReactNode;
   tooltipMessage?: string;
 };
 
