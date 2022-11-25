@@ -13,7 +13,7 @@ export default {
 export const Usage = () => (
   <Copyable value="You copied this text">Standard Icon</Copyable>
 );
-export const UsageIconProps = () => (
+export const IconProps = () => (
   <Copyable
     value="Another text which you copied"
     iconProps={{ icon: Icon.is('Airplane'), 'aria-label': 'An Airplane' }}
