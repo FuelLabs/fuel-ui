@@ -25,3 +25,9 @@ export const UsageIconProps = () => (
 Usage.parameters = {
   layout: 'centered',
 };
+
+export const WithoutChildren = () => <Copyable value="Some value" />;
+
+WithoutChildren.parameters = {
+  layout: 'centered',
+};
