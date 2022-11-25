@@ -62,7 +62,7 @@ jobs:
 
       - name: Run Jest Tests
         run: |
-          pnpm test -- --outputFile="${{ env.COVERAGE_FILE }}"
+          pnpm test -- -- --outputFile="${{ env.COVERAGE_FILE }}"
 
       - name: Publish coverage
         uses: ArtiomTr/jest-coverage-report-action@v2
