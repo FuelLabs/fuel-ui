@@ -50,10 +50,10 @@ export function useDrawer() {
 // ----------------------------------------------------------------------------
 
 export type DrawerProps = OverlayTriggerProps &
-  Omit<AriaOverlayProps, 'shouldCloseOnInteractOutside'> & {
+  Omit<AriaOverlayProps, 'shouldCloseOnInteractOutside' | 'type' | 'side'> & {
     containerRef?: MutableRefObject<any>;
     side?: DrawerSide;
-    size: DrawerSize | string | number;
+    size?: DrawerSize | string | number;
     shouldCloseOnClickAway?: boolean;
   };
 
