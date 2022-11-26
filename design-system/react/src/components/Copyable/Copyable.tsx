@@ -5,12 +5,14 @@ import { createComponent } from '../../utils';
 import type { FlexProps } from '../Flex';
 import { Flex } from '../Flex';
 import { Icon } from '../Icon';
+import type { IconButtonProps } from '../IconButton';
 import { IconButton } from '../IconButton';
 
 export type CopyableProps = Omit<FlexProps, 'children'> & {
   value: string;
   children?: ReactNode;
   tooltipMessage?: string;
+  iconProps?: IconButtonProps;
 };
 
 export const Copyable = createComponent<CopyableProps>(
@@ -20,6 +22,7 @@ export const Copyable = createComponent<CopyableProps>(
     className,
     value,
     tooltipMessage = 'Click here to copy to clipboard',
+    iconProps,
     ...props
   }) => {
     const classes = cx('fuel_copyable', className);
@@ -47,6 +50,7 @@ export const Copyable = createComponent<CopyableProps>(
           aria-label="Copy to clipboard"
           className={iconClass}
           css={styles.icon}
+          {...iconProps}
         />
       </Flex>
     );
