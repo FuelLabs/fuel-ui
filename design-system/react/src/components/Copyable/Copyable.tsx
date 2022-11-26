@@ -12,7 +12,7 @@ export type CopyableProps = Omit<FlexProps, 'children'> & {
   value: string;
   children?: ReactNode;
   tooltipMessage?: string;
-  iconProps?: IconButtonProps;
+  iconProps?: Partial<IconButtonProps>;
 };
 
 export const Copyable = createComponent<CopyableProps>(
