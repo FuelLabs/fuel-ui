@@ -22,6 +22,9 @@ export const IconProps = () => (
   </Copyable>
 );
 
+IconProps.parameters = {
+  layout: 'centered',
+};
 Usage.parameters = {
   layout: 'centered',
 };
