@@ -1,6 +1,3 @@
 {
-  "./**/*.{js,jsx,ts,tsx,html}": [
-    "pnpm prettier --check",
-    "pnpm eslint"
-  ]
+  "./**/*.{js,jsx,ts,tsx,html}": ["pnpm prettier --check", "pnpm eslint"]
 }
