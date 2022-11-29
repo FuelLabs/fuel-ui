@@ -43,7 +43,7 @@ export const item = css({
     transform: 'translate(-2px, -2px)',
   },
 
-  '&:focus-within': {
+  '&:focus-visible': {
     borderColor: '$gray5',
 
     '&:after': {
