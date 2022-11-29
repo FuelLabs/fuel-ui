@@ -18,7 +18,7 @@ export const root = css({
   '& > .fuel_button:not(:first-of-type,:last-of-type)': {
     borderRadius: '$0',
   },
-  '& > .fuel_button:focus-within': {
+  '& > .fuel_button:focus-visible': {
     zIndex: 1,
     position: 'relative',
   },

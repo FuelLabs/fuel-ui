@@ -19,7 +19,10 @@ function createSolidVariant(keyColor: ColorKeys, hasHover = true) {
       },
     }),
 
-    '&:not([aria-disabled=true]):focus': {
+    '&:active, &[aria-pressed=true]': {
+      outline: 'none',
+    },
+    '&:not([aria-disabled=true]):focus-visible': {
       outline: `3px solid ${outlineColor}`,
     },
   };
@@ -65,9 +68,12 @@ function createGhostVariant(keyColor: ColorKeys, hasHover = true) {
       },
     }),
 
-    '&:not([aria-disabled=true]):focus': {
+    '&:not([aria-disabled=true]):focus-visible': {
       outline: `3px solid $${color}2`,
       outlineOffset: '1px',
+    },
+    '&:active, &[aria-pressed=true]': {
+      outline: 'none',
     },
   };
 }
@@ -94,9 +100,12 @@ function createLinkVariant(keyColor: ColorKeys, hasHover = true) {
       },
     }),
 
-    '&:not([aria-disabled=true]):focus': {
+    '&:not([aria-disabled=true]):focus-visible': {
       outline: `2px solid $${color}2`,
       outlineOffset: '1px',
+    },
+    '&:active, &[aria-pressed=true]': {
+      outline: 'none',
     },
   };
 }

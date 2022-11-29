@@ -48,7 +48,7 @@ export const content = css({
     },
   },
 
-  '&:not([aria-disabled=true]):focus': {
+  '&[data-state="open"]:focus-visible': {
     outline: `2px solid $gray10`,
     outlineOffset: '1px',
   },
