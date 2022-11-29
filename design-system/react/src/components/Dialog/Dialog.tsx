@@ -24,6 +24,10 @@ import { DialogTrigger } from './DialogTrigger';
 
 import { createComponent, createStyledElement } from '~/utils';
 
+// ----------------------------------------------------------------------------
+// Context
+// ----------------------------------------------------------------------------
+
 export type DialogContext = {
   state: OverlayTriggerState;
   triggerRef?: React.MutableRefObject<HTMLDivElement | null>;
@@ -34,16 +38,31 @@ export type DialogContext = {
   isBlocked?: boolean;
 };
 
+export type DialogProps = AriaOverlayProps &
+  AriaDialogProps & {
+    children: ReactNode;
+    isBlocked?: boolean;
+    onOpenChange?: (isOpen: boolean) => any;
+  };
+
 const ctx = createContext<DialogContext>({} as DialogContext);
 
 export function useDialog() {
   return useContext(ctx);
 }
 
+// ----------------------------------------------------------------------------
+// DialogInternal
+// ----------------------------------------------------------------------------
+
 const DialogInternal = createComponent<DialogProps, ObjProps>(
-  ({ children, className, isBlocked, ...props }) => {
+  ({ children, className, isBlocked, isOpen, onOpenChange, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
-    const state = useOverlayTriggerState({});
+    const state = useOverlayTriggerState({
+      isOpen: isBlocked || isOpen,
+      onOpenChange,
+    });
+
     const { overlayProps, underlayProps } = useOverlay(
       {
         ...props,
@@ -92,6 +111,10 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
   }
 );
 
+// ----------------------------------------------------------------------------
+// Dialog
+// ----------------------------------------------------------------------------
+
 type ObjProps = {
   Content: typeof DialogContent;
   Trigger: typeof DialogTrigger;
@@ -100,12 +123,6 @@ type ObjProps = {
   Footer: typeof DialogFooter;
   Close: typeof DialogClose;
 };
-
-export type DialogProps = AriaOverlayProps &
-  AriaDialogProps & {
-    children: ReactNode;
-    isBlocked?: boolean;
-  };
 
 export const Dialog = createComponent<DialogProps, ObjProps>((props) => {
   return (

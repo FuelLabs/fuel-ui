@@ -34,3 +34,16 @@ export const Usage = (args: DialogProps) => {
     </Dialog>
   );
 };
+
+export const WithoutTrigger = (args: DialogProps) => {
+  return (
+    <Dialog {...args} isOpen>
+      <Dialog.Content>
+        <Dialog.Heading>Dialog Title</Dialog.Heading>
+        <Dialog.Description>
+          Just a big text with a nice description here
+        </Dialog.Description>
+      </Dialog.Content>
+    </Dialog>
+  );
+};
