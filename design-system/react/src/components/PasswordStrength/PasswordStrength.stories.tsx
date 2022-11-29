@@ -28,6 +28,7 @@ export const Usage = (args: PasswordStrengthProps) => {
           onFocus={() => setOpen(true)}
           onBlur={() => setOpen(false)}
           value={password}
+          placeholder="Type your password"
         />
       </PasswordStrength>
     </Stack>

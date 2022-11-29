@@ -48,7 +48,7 @@ export const content = css({
     animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
   },
 
-  '&:focus': {
+  '&:focus-visible': {
     outline: 'none',
   },
 });
