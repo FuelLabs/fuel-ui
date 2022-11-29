@@ -1,5 +1,14 @@
 # @fuel-ui/react
 
+## 0.9.3
+
+### Patch Changes
+
+- Chore: Make `<Copyable />` iconProps optional, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#173](https://github.com/FuelLabs/fuel-ui/pull/173))
+- 🐞 Fix: Drawer required props and update dependencies, by [@pedronauck](https://github.com/pedronauck) (See [#175](https://github.com/FuelLabs/fuel-ui/pull/175))
+- Chore: Adjust component styles to use `:focus-visible` instead of `:focus`, by [@pedronauck](https://github.com/pedronauck) (See [#175](https://github.com/FuelLabs/fuel-ui/pull/175))
+- 🐞 Fix: Adjust <Dialog /> to work without <Dialog.Trigger />, by [@pedronauck](https://github.com/pedronauck) (See [#174](https://github.com/FuelLabs/fuel-ui/pull/174))
+
 ## 0.9.2
 
 ### Patch Changes
