@@ -1,5 +1,11 @@
 # @fuel-ui/test-utils
 
+## 0.9.3
+
+### Patch Changes
+
+- 🐞 Fix: Drawer required props and update dependencies, by [@pedronauck](https://github.com/pedronauck) (See [#175](https://github.com/FuelLabs/fuel-ui/pull/175))
+
 ## 0.9.2
 
 ### Patch Changes
