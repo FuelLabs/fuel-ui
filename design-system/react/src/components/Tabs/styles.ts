@@ -64,7 +64,7 @@ export const trigger = css({
       background: HIGHLIGHT_COLOR,
     },
   },
-  '&:focus': {
+  '&:focus-visible': {
     borderColor: OUTLINE_COLOR,
   },
 });
@@ -76,7 +76,7 @@ export const content = css({
   outline: 'none',
   border: '2px solid transparent',
 
-  '&:focus': {
+  '&:focus-visible': {
     borderColor: OUTLINE_COLOR,
   },
 });

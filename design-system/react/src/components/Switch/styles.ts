@@ -10,7 +10,7 @@ export const root = css({
   boxShadow: '$sm',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 
-  '&:focus': {
+  '&:focus-visible': {
     outline: '2px solid $gray5',
   },
   '&[data-state="checked"]': {

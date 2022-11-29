@@ -47,6 +47,12 @@ const styles = {
       textDecoration: 'underline',
     },
 
+    '&:focus-visible': {
+      outline: '2px solid $accent11',
+      outlineOffset: '1px',
+      borderRadius: '$md',
+    },
+
     variants: {
       // TODO: adjust typings
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -45,14 +45,14 @@ export const item = css({
   [`.${darkTheme} &`]: {
     backgroundColor: '$gray1',
   },
-  [`.${darkTheme} &:focus-within`]: {
+  [`.${darkTheme} &:has(.fuel_accordion-trigger:focus-visible)`]: {
     outline: `2px solid ${darkColors.gray4}`,
   },
 
   [`.${lightTheme} &`]: {
     backgroundColor: 'white',
   },
-  [`.${lightTheme} &:focus-within`]: {
+  [`.${lightTheme} &:has(.fuel_accordion-trigger:focus-visible)`]: {
     outline: `2px solid ${lightColors.gray7}`,
   },
 });

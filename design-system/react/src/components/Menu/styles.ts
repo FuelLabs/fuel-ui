@@ -6,7 +6,7 @@ export const menu = css({
   m: '$0',
   borderRadius: '$md',
 
-  '&:focus': {
+  '&:focus-visible': {
     outline: '2px solid $gray5',
   },
 });
@@ -27,13 +27,13 @@ export const item = css({
     opacity: 1,
   },
 
-  '&:focus': {
+  '&:focus-visible': {
     color: '$gray12',
     background: '$gray1',
     outline: 'none',
   },
 
-  [`&:focus .fuel_icon`]: {
+  [`&:focus-visible .fuel_icon`]: {
     color: '$accent11',
   },
 });
