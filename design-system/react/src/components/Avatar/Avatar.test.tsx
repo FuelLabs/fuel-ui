@@ -1,4 +1,11 @@
-import { screen, mocks, testA11y, render, waitFor } from '@fuel-ui/test-utils';
+import {
+  screen,
+  mocks,
+  testA11y,
+  render,
+  waitFor,
+  act,
+} from '@fuel-ui/test-utils';
 
 import { Avatar } from './Avatar';
 
@@ -21,11 +28,13 @@ describe('Avatar', () => {
   });
 
   it('a11y', async () => {
-    await testA11y(
-      <Avatar
-        name="Colm Tuite"
-        src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-      />
+    await act(async () =>
+      testA11y(
+        <Avatar
+          name="Colm Tuite"
+          src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+        />
+      )
     );
   });
 
