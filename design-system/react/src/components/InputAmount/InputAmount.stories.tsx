@@ -1,9 +1,11 @@
+import type { BN } from '@fuel-ts/math';
 import { bn } from '@fuel-ts/math';
 import { action } from '@storybook/addon-actions';
 import { useEffect, useState } from 'react';
 
 import { Box } from '../Box';
 import { Button } from '../Button';
+import { Flex } from '../Flex';
 
 import type { InputAmountProps } from './InputAmount';
 import { InputAmount } from './InputAmount';
@@ -24,12 +26,14 @@ export default {
 };
 
 const Template = (args: InputAmountProps) => {
-  const [amount, setAmount] = useState(bn());
+  const [amount, setAmount] = useState<BN | null>(bn());
   const AMOUNT_VALUE = 1_000_000_011;
 
   // Log onChange amount
   useEffect(() => {
-    action('onChange')(amount.formatUnits());
+    if (amount) {
+      action('onChange')(amount.formatUnits());
+    }
   }, [amount]);
 
   return (
@@ -42,16 +46,16 @@ const Template = (args: InputAmountProps) => {
         }}
         value={amount}
       />
-      <Button
-        css={{ marginTop: '$3' }}
-        onPress={() => setAmount(bn(AMOUNT_VALUE))}
-      >
-        Set amount (
-        {bn(AMOUNT_VALUE).format({
-          precision: 9,
-        })}
-        )
-      </Button>
+      <Flex css={{ gap: '$2', marginTop: '$3' }}>
+        <Button onPress={() => setAmount(bn(AMOUNT_VALUE))}>
+          Set (
+          {bn(AMOUNT_VALUE).format({
+            precision: 9,
+          })}
+          )
+        </Button>
+        <Button onPress={() => setAmount(null)}>Clear</Button>
+      </Flex>
     </Box>
   );
 };

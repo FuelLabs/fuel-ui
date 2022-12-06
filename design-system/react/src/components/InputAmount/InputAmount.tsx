@@ -14,10 +14,10 @@ import { createAmount } from './utils';
 
 export type InputAmountProps = {
   name?: string;
-  balance: BN;
-  value: BN;
+  balance?: BN;
+  value?: BN | null;
   units?: number;
-  onChange: (val: BN) => void;
+  onChange?: (val: BN) => void;
   hiddenMaxButton?: boolean;
   hiddenBalance?: boolean;
 };
@@ -36,24 +36,26 @@ export const InputAmount: InputAmountComponent = ({
   onChange,
 }) => {
   const [assetAmount, setAssetAmount] = useState<string>(
-    value.eq(0) ? '' : value.formatUnits(DECIMAL_UNITS)
+    !value || value.eq(0) ? '' : value.formatUnits(DECIMAL_UNITS)
   );
 
   useEffect(() => {
-    handleAmountChange(value.formatUnits(DECIMAL_UNITS));
-  }, [value.toString()]);
+    handleAmountChange(value ? value.formatUnits(DECIMAL_UNITS) : '');
+  }, [value?.toString()]);
 
   const handleAmountChange = (text: string) => {
     const { text: newText, amount } = createAmount(text);
     const { amount: currentAmount } = createAmount(assetAmount);
     if (!currentAmount.eq(amount)) {
-      onChange(amount);
+      onChange?.(amount);
       setAssetAmount(newText);
     }
   };
 
   const handleSetBalance = () => {
-    handleAmountChange(balance.formatUnits(DECIMAL_UNITS));
+    if (balance) {
+      handleAmountChange(balance.formatUnits(DECIMAL_UNITS));
+    }
   };
 
   return (
@@ -72,23 +74,31 @@ export const InputAmount: InputAmountComponent = ({
         decimalScale={units}
       />
       <Input.ElementRight>
-        <Flex direction="column" align="end" css={styles.flexColumn}>
-          <Flex>
-            <Button
-              aria-label="Max"
-              size="xs"
-              variant="ghost"
-              onPress={handleSetBalance}
-              css={styles.maxButton(hiddenMaxButton)}
-            >
-              Max
-            </Button>
-          </Flex>
-          <Flex>
-            <Text css={styles.balance(hiddenBalance)}>
-              Balance: {balance.format({ precision: DECIMAL_UNITS })}
-            </Text>
-          </Flex>
+        <Flex direction="column" align="end" css={styles.balanceActions}>
+          {balance && (
+            <>
+              <Flex css={styles.maxButtonContainer}>
+                {!hiddenMaxButton && (
+                  <Button
+                    aria-label="Max"
+                    size="xs"
+                    variant="ghost"
+                    onPress={handleSetBalance}
+                    css={styles.maxButton}
+                  >
+                    Max
+                  </Button>
+                )}
+              </Flex>
+              {!hiddenBalance && (
+                <Flex>
+                  <Text css={styles.balance}>
+                    Balance: {balance?.format({ precision: DECIMAL_UNITS })}
+                  </Text>
+                </Flex>
+              )}
+            </>
+          )}
         </Flex>
       </Input.ElementRight>
     </Input>
@@ -108,23 +118,23 @@ const styles = {
       fontWeight: '$medium',
     },
   }),
-  maxButton: (hiddenMaxButton?: boolean) =>
-    cssObj({
-      marginTop: '$2',
-      marginBottom: '$1',
-      height: '$5 !important',
-      visibility: hiddenMaxButton ? 'hidden' : 'visible',
-    }),
-  flexColumn: cssObj({
+  balanceActions: cssObj({
     marginRight: '$1',
+    height: '$16',
   }),
-  balance: (hiddenBalance?: boolean) =>
-    cssObj({
-      whiteSpace: 'nowrap',
-      marginBottom: '$2',
-      fontSize: '$xs',
-      fontWeight: '$medium',
-      color: '$gray10',
-      visibility: hiddenBalance ? 'hidden' : 'visible',
-    }),
+  maxButtonContainer: cssObj({
+    height: '$8',
+  }),
+  maxButton: cssObj({
+    marginTop: '$2',
+    marginBottom: '$1',
+    height: '$5 !important',
+  }),
+  balance: cssObj({
+    whiteSpace: 'nowrap',
+    marginBottom: '$2',
+    fontSize: '$xs',
+    fontWeight: '$medium',
+    color: '$gray10',
+  }),
 };
