@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.10.1
+
+### Patch Changes
+
+- Add exports for InputAmount and ContentLoader, by [@luizstacio](https://github.com/luizstacio) (See [#182](https://github.com/FuelLabs/fuel-ui/pull/182))
+
 ## 0.10.0
 
 ### Minor Changes
