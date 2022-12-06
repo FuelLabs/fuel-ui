@@ -8,7 +8,6 @@ export const InputAmountLoader = (props: ContentLoaderProps) => (
   <Card>
     <ContentLoader
       speed={2}
-      width={300}
       height={66}
       backgroundColor={darkColors.gray2}
       foregroundColor={darkColors.gray3}

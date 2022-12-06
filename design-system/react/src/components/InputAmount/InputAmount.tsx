@@ -7,6 +7,7 @@ import type { FC } from 'react';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
 import { Input } from '../Input';
+import type { InputNumberProps } from '../Input/InputNumber';
 import { Text } from '../Text';
 
 import { InputAmountLoader } from './InputAmountLoader';
@@ -20,6 +21,8 @@ export type InputAmountProps = {
   onChange?: (val: BN) => void;
   hiddenMaxButton?: boolean;
   hiddenBalance?: boolean;
+  max?: BN;
+  inputProps?: InputNumberProps;
 };
 
 type InputAmountComponent = FC<InputAmountProps> & {
@@ -34,6 +37,7 @@ export const InputAmount: InputAmountComponent = ({
   hiddenBalance,
   hiddenMaxButton,
   onChange,
+  inputProps,
 }) => {
   const [assetAmount, setAssetAmount] = useState<string>(
     !value || value.eq(0) ? '' : value.formatUnits(DECIMAL_UNITS)
@@ -72,6 +76,7 @@ export const InputAmount: InputAmountComponent = ({
         value={assetAmount}
         onChange={(e) => handleAmountChange(e.target.value)}
         decimalScale={units}
+        {...inputProps}
       />
       <Input.ElementRight>
         <Flex direction="column" align="end" css={styles.balanceActions}>

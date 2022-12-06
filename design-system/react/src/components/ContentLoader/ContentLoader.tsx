@@ -7,11 +7,14 @@ export type ContentLoaderProps = IContentLoaderProps & {
   isFullWidth?: boolean;
 };
 
-export const ContentLoader = (props: ContentLoaderProps) => (
+export const ContentLoader = ({
+  isFullWidth,
+  ...props
+}: ContentLoaderProps) => (
   <RectContentLoader
     speed={2}
-    viewBox="0 0 100% 100%"
-    style={{ width: props.isFullWidth ? '100%' : props.width }}
+    preserveAspectRatio="none"
+    style={{ width: isFullWidth ? '100%' : props.width }}
     {...props}
   >
     {props.children}

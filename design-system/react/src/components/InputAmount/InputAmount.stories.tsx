@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
+import { Text } from '../Text';
 
 import type { InputAmountProps } from './InputAmount';
 import { InputAmount } from './InputAmount';
@@ -46,6 +47,12 @@ const Template = (args: InputAmountProps) => {
         }}
         value={amount}
       />
+      <Text fontSize="lg" css={{ marginTop: '$2' }}>
+        Amount:{' '}
+        {amount?.format({
+          precision: 9,
+        })}
+      </Text>
       <Flex css={{ gap: '$2', marginTop: '$3' }}>
         <Button onPress={() => setAmount(bn(AMOUNT_VALUE))}>
           Set (
