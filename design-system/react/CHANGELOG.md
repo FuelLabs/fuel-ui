@@ -1,5 +1,12 @@
 # @fuel-ui/react
 
+## 0.10.0
+
+### Minor Changes
+
+- Add InputAmount enabling better handling input of asset amounts.
+  Add ContentLoader enabling creation of loading placeholders for components, by [@luizstacio](https://github.com/luizstacio) (See [#181](https://github.com/FuelLabs/fuel-ui/pull/181))
+
 ## 0.9.3
 
 ### Patch Changes
