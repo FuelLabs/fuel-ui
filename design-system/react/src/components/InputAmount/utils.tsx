@@ -1,9 +1,9 @@
 import { bn, DECIMAL_UNITS } from '@fuel-ts/math';
 
 export function formatAmountLeadingZeros(text: string): string {
-  const valueWithoutLeadingZeros = text.replace(/^0\d/, (substring) =>
-    substring.replace(/^0+(?=[\d])/, '')
-  );
+  const valueWithoutLeadingZeros = text
+    .replace(/^0\d/, (substring) => substring.replace(/^0+(?=[\d])/, ''))
+    .replace(/^0+(\d\.)/, '$1');
   const startsWithPoint = valueWithoutLeadingZeros.startsWith('.');
 
   if (!startsWithPoint) {
