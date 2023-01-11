@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { Box } from '../Box';
 import { Button } from '../Button';
-import { Flex } from '../Flex';
+import { Stack } from '../Stack';
 import { Text } from '../Text';
 
 import type { InputAmountProps } from './InputAmount';
@@ -28,7 +28,8 @@ export default {
 
 const Template = (args: InputAmountProps) => {
   const [amount, setAmount] = useState<BN | null>(bn());
-  const AMOUNT_VALUE = 1_000_000_011;
+  const AMOUNT_VALUE_1 = 1_000_000_011;
+  const AMOUNT_VALUE_2 = 1_000_000_000;
 
   // Log onChange amount
   useEffect(() => {
@@ -41,28 +42,24 @@ const Template = (args: InputAmountProps) => {
     <Box css={{ width: 300 }}>
       <InputAmount
         {...args}
-        balance={bn.parseUnits('1.57')}
+        balance={bn.parseUnits('1.570000044')}
         onChange={(e) => {
           setAmount(e);
         }}
         value={amount}
       />
-      <Text fontSize="lg" css={{ marginTop: '$2' }}>
-        Amount:{' '}
-        {amount?.format({
-          precision: 9,
-        })}
-      </Text>
-      <Flex css={{ gap: '$2', marginTop: '$3' }}>
-        <Button onPress={() => setAmount(bn(AMOUNT_VALUE))}>
-          Set (
-          {bn(AMOUNT_VALUE).format({
-            precision: 9,
-          })}
-          )
+      <Stack gap="$3">
+        <Text fontSize="lg" css={{ marginTop: '$2' }}>
+          Amount: {amount?.format({ precision: 9 })}
+        </Text>
+        <Button onPress={() => setAmount(bn(AMOUNT_VALUE_1))}>
+          Set ({bn(AMOUNT_VALUE_1).format({ precision: 9 })})
+        </Button>
+        <Button onPress={() => setAmount(bn(AMOUNT_VALUE_2))}>
+          Set ({bn(AMOUNT_VALUE_2).format({ precision: 3 })})
         </Button>
         <Button onPress={() => setAmount(null)}>Clear</Button>
-      </Flex>
+      </Stack>
     </Box>
   );
 };

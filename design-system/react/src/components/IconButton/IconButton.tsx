@@ -17,7 +17,7 @@ export type IconButtonProps = Omit<ButtonProps, OmitProps> & {
 
 export const IconButton = createComponent<IconButtonProps, unknown, OmitProps>(
   ({ icon, tooltip, className, ...props }) => {
-    const classes = cx('fuel_icon-buton', className);
+    const classes = cx('fuel_icon-button', className);
     const content = (
       <Button {...props} justIcon className={classes} leftIcon={icon} />
     );

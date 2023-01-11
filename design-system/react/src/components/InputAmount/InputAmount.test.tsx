@@ -5,13 +5,15 @@ import { useState } from 'react';
 
 import type { InputAmountProps } from './InputAmount';
 import { InputAmount } from './InputAmount';
+import { formatAmount } from './utils';
 
+const AMOUNT_TEXT = `14.563943834`;
+const BALANCE_TEXT = bn.parseUnits(AMOUNT_TEXT).format({ precision: 3 });
+const FIELD_NAME = 'Input Amount';
 export const MOCK_ASSET = {
   assetId: '0x0000000000000000000000000000000000000000000000000000000000000000',
-  amount: bn(14563943834),
+  amount: bn.parseUnits(AMOUNT_TEXT),
 };
-const AMOUNT_TEXT = `14.563943834`;
-const FIELD_NAME = 'Input Amount';
 
 function Content({ onChange, ...props }: Partial<InputAmountProps>) {
   const [val, setVal] = useState<BN>(bn(0));
@@ -63,6 +65,10 @@ describe('InputAmount', () => {
     fireEvent.input(input, { target: { value: '1.000000001' } });
     expect(input.getAttribute('value')).toBe('1.000000001');
     expect(onChange).toBeCalledWith(bn(1000000001));
+
+    fireEvent.input(input, { target: { value: '1.000' } });
+    expect(input.getAttribute('value')).toBe('1.000');
+    expect(onChange).toBeCalledWith(bn(1000000000));
   });
 
   it('should show placeholder', () => {
@@ -72,7 +78,7 @@ describe('InputAmount', () => {
 
   it('should show balance formatted', () => {
     render(<InputAmount balance={MOCK_ASSET.amount} />);
-    expect(screen.getByText(`Balance: ${AMOUNT_TEXT}`)).toBeInTheDocument();
+    expect(screen.getByText(`Balance: ${BALANCE_TEXT}`)).toBeInTheDocument();
   });
 
   it('should display balance in input when click on max button', async () => {
@@ -108,6 +114,20 @@ describe('InputAmount', () => {
     expect(() => screen.getByLabelText('Max')).toThrow(
       /Unable to find a label with the text/
     );
+  });
+
+  it('should discount fee when hit max button if has fee prop', async () => {
+    const fee = bn.parseUnits('0.100');
+    render(
+      <InputAmount name={FIELD_NAME} balance={MOCK_ASSET.amount} fee={fee} />
+    );
+    const maxBtn = screen.getByLabelText('Max');
+    expect(maxBtn).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
+    act(() => maxBtn.click());
+    const input = screen.getByLabelText(FIELD_NAME);
+    const balanceLessFee = MOCK_ASSET.amount.sub(fee);
+    expect(input.getAttribute('value')).toBe(formatAmount(balanceLessFee));
   });
 
   it('should show actions when balance is 0', async () => {

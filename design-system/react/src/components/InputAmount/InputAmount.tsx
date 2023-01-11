@@ -1,28 +1,31 @@
-import { DECIMAL_UNITS } from '@fuel-ts/math';
 import type { BN } from '@fuel-ts/math';
+import { bn, DECIMAL_UNITS } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import { Button } from '../Button';
 import { Flex } from '../Flex';
+import type { InputProps } from '../Input';
 import { Input } from '../Input';
 import type { InputNumberProps } from '../Input/InputNumber';
 import { Text } from '../Text';
 
 import { InputAmountLoader } from './InputAmountLoader';
-import { createAmount } from './utils';
+import { createAmount, formatAmount } from './utils';
 
-export type InputAmountProps = {
+export type InputAmountProps = InputProps & {
   name?: string;
   balance?: BN;
+  balanceUnits?: number;
   value?: BN | null;
   units?: number;
   onChange?: (val: BN) => void;
   hiddenMaxButton?: boolean;
   hiddenBalance?: boolean;
-  max?: BN;
   inputProps?: InputNumberProps;
+  isDisabled?: boolean;
+  fee?: BN | null;
 };
 
 type InputAmountComponent = FC<InputAmountProps> & {
@@ -32,19 +35,22 @@ type InputAmountComponent = FC<InputAmountProps> & {
 export const InputAmount: InputAmountComponent = ({
   name,
   balance,
+  balanceUnits = 3,
   value,
   units = DECIMAL_UNITS,
   hiddenBalance,
   hiddenMaxButton,
   onChange,
   inputProps,
+  fee,
+  ...props
 }) => {
   const [assetAmount, setAssetAmount] = useState<string>(
-    !value || value.eq(0) ? '' : value.formatUnits(DECIMAL_UNITS)
+    !value || value.eq(0) ? '' : formatAmount(value)
   );
 
   useEffect(() => {
-    handleAmountChange(value ? value.formatUnits(DECIMAL_UNITS) : '');
+    handleAmountChange(value ? formatAmount(value) : '');
   }, [value?.toString()]);
 
   const handleAmountChange = (text: string) => {
@@ -58,12 +64,13 @@ export const InputAmount: InputAmountComponent = ({
 
   const handleSetBalance = () => {
     if (balance) {
-      handleAmountChange(balance.formatUnits(DECIMAL_UNITS));
+      const next = balance.sub(bn(fee));
+      handleAmountChange(formatAmount(next));
     }
   };
 
   return (
-    <Input size="lg" css={styles.input} isFullWidth={true}>
+    <Input size="lg" css={styles.input} {...props}>
       <Input.Number
         autoComplete="off"
         inputMode="decimal"
@@ -98,7 +105,10 @@ export const InputAmount: InputAmountComponent = ({
               {!hiddenBalance && (
                 <Flex>
                   <Text css={styles.balance}>
-                    Balance: {balance?.format({ precision: DECIMAL_UNITS })}
+                    Balance:{' '}
+                    {formatAmount(balance, {
+                      precision: balance.eq(0) ? 1 : balanceUnits,
+                    })}
                   </Text>
                 </Flex>
               )}
