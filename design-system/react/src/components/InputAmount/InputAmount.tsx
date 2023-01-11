@@ -17,7 +17,7 @@ import { createAmount, formatAmount } from './utils';
 export type InputAmountProps = InputProps & {
   name?: string;
   balance?: BN;
-  balanceUnits?: number;
+  balancePrecision?: number;
   value?: BN | null;
   units?: number;
   onChange?: (val: BN) => void;
@@ -35,7 +35,7 @@ type InputAmountComponent = FC<InputAmountProps> & {
 export const InputAmount: InputAmountComponent = ({
   name,
   balance,
-  balanceUnits = 3,
+  balancePrecision = 3,
   value,
   units = DECIMAL_UNITS,
   hiddenBalance,
@@ -107,7 +107,7 @@ export const InputAmount: InputAmountComponent = ({
                   <Text css={styles.balance}>
                     Balance:{' '}
                     {formatAmount(balance, {
-                      precision: balance.eq(0) ? 1 : balanceUnits,
+                      precision: balance.eq(0) ? 1 : balancePrecision,
                     })}
                   </Text>
                 </Flex>
