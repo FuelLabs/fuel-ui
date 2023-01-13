@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Colors } from '@fuel-ui/css';
 import { cx } from '@fuel-ui/css';
 import { Children, cloneElement, createContext, useContext } from 'react';
 
@@ -28,6 +29,7 @@ export function useAlertProps() {
 export type AlertProps = BoxProps & {
   direction?: 'row' | 'column';
   status?: AlertStatus;
+  color?: Colors;
 };
 
 type ObjProps = {
@@ -55,6 +57,7 @@ export const Alert = createComponent<AlertProps, ObjProps>(
     status = 'info',
     children,
     className,
+    color,
     ...props
   }) => {
     const classes = cx(
@@ -79,7 +82,11 @@ export const Alert = createComponent<AlertProps, ObjProps>(
       <ctx.Provider value={{ status }}>
         <Box {...customProps}>
           <Box className="fuel_alert--icon">
-            <Icon {...STATUS_ICONS[status]} />
+            {color ? (
+              <Icon color={color} {...STATUS_ICONS[status]} />
+            ) : (
+              <Icon {...STATUS_ICONS[status]} />
+            )}
           </Box>
           <Flex className="fuel_alert--content">{items}</Flex>
         </Box>
