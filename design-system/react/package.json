@@ -29,7 +29,7 @@
     "ts:check": "tsc --noEmit"
   },
   "dependencies": {
-    "@fuel-ts/math": "^0.28.1",
+    "@fuel-ts/math": "^0.29.0",
     "@fuel-ui/css": "workspace:*",
     "@fuel-ui/test-utils": "workspace:*",
     "@radix-ui/react-accordion": "^1.0.1",
@@ -49,7 +49,7 @@
     "@react-aria/utils": "^3.14.2",
     "@stitches/react": "^1.2.8",
     "@xstate/react": "^3.0.1",
-    "framer-motion": "^8.4.0",
+    "framer-motion": "^8.4.3",
     "jdenticon": "^3.2.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
