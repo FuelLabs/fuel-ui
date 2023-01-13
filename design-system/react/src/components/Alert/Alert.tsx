@@ -67,6 +67,7 @@ export const Alert = createComponent<AlertProps, ObjProps>(
     );
 
     const customProps = {
+      color,
       ...props,
       direction,
       className: classes,
@@ -82,11 +83,7 @@ export const Alert = createComponent<AlertProps, ObjProps>(
       <ctx.Provider value={{ status }}>
         <Box {...customProps}>
           <Box className="fuel_alert--icon">
-            {color ? (
-              <Icon color={color} {...STATUS_ICONS[status]} />
-            ) : (
-              <Icon {...STATUS_ICONS[status]} />
-            )}
+            <Icon {...STATUS_ICONS[status]} />
           </Box>
           <Flex className="fuel_alert--content">{items}</Flex>
         </Box>
