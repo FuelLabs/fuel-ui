@@ -1,19 +1,20 @@
-import { act, render, screen } from '@fuel-ui/test-utils';
+import { act, fireEvent, render, screen } from '@fuel-ui/test-utils';
 
 import { InputPassword } from './InputPassword';
 
 describe('InputPassword', () => {
   it('should toggle between type password and text', async () => {
-    const { user } = render(<InputPassword placeholder="Type your password" />);
+    render(<InputPassword placeholder="Type your password" />);
 
-    const input = screen.getByRole('textbox');
+    let input = screen.getByRole('textbox');
     const button = screen.getByLabelText(/Toggle/);
 
     expect(input).toBeInTheDocument();
     expect(button).toBeInTheDocument();
     expect(input.getAttribute('type')).toBe('password');
 
-    await act(() => user.click(button));
+    await act(() => fireEvent.click(button));
+    input = screen.getByRole('textbox');
     expect(input.getAttribute('type')).toBe('text');
   });
 });
