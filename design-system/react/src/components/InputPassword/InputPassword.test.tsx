@@ -1,4 +1,4 @@
-import { render, screen } from '@fuel-ui/test-utils';
+import { act, render, screen } from '@fuel-ui/test-utils';
 
 import { InputPassword } from './InputPassword';
 
@@ -13,7 +13,7 @@ describe('InputPassword', () => {
     expect(button).toBeInTheDocument();
     expect(input.getAttribute('type')).toBe('password');
 
-    await user.click(button);
+    await act(() => user.click(button));
     expect(input.getAttribute('type')).toBe('text');
   });
 });
