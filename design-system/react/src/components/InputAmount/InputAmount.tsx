@@ -10,7 +10,6 @@ import { Flex } from '../Flex';
 import type { InputProps } from '../Input';
 import { Input } from '../Input';
 import type { InputNumberProps } from '../Input/InputNumber';
-import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
@@ -92,39 +91,34 @@ export const InputAmount: InputAmountComponent = ({
         {...inputProps}
       />
       {initialBalance && (
-        <Input.ElementRight>
-          <Flex direction="column" align="end" css={styles.balanceActions}>
-            <>
-              <Flex css={styles.maxButtonContainer}>
-                {!hiddenMaxButton && (
-                  <Button
-                    aria-label="Max"
-                    size="xs"
-                    variant="ghost"
-                    onPress={handleSetBalance}
-                    css={styles.maxButton}
-                  >
-                    Max
-                  </Button>
-                )}
+        <Input.ElementRight css={styles.elementRight}>
+          <Box css={styles.balanceActions}>
+            {!hiddenMaxButton && (
+              <Flex align="center" justify="end">
+                <Button
+                  aria-label="Max"
+                  size="xs"
+                  variant="ghost"
+                  onPress={handleSetBalance}
+                  css={styles.maxButton}
+                >
+                  Max
+                </Button>
               </Flex>
-              {!hiddenBalance && (
-                <Flex>
-                  <Tooltip content={formatAmount(balance)}>
-                    <Stack
-                      direction="row"
-                      as="div"
-                      css={styles.balance}
-                      aria-label={`Balance: ${formattedBalance}`}
-                    >
-                      <Box as="span">Balance: </Box>
-                      <Box as="span">{formattedBalance}</Box>
-                    </Stack>
-                  </Tooltip>
-                </Flex>
-              )}
-            </>
-          </Flex>
+            )}
+            {!hiddenBalance && (
+              <Flex
+                as="div"
+                css={styles.balance}
+                aria-label={`Balance: ${formattedBalance}`}
+              >
+                <Box as="span">Balance: </Box>
+                <Tooltip content={formatAmount(balance)} sideOffset={-5}>
+                  <Box as="span">{formattedBalance}</Box>
+                </Tooltip>
+              </Flex>
+            )}
+          </Box>
         </Input.ElementRight>
       )}
     </Input>
@@ -153,26 +147,34 @@ const styles = {
       px: '$0',
     },
   }),
-  balanceActions: cssObj({
-    height: '$16',
-  }),
   maxButtonContainer: cssObj({
     height: '$8',
   }),
+  elementRight: cssObj({
+    maxHeight: '100%',
+  }),
+  balanceActions: cssObj({
+    boxSizing: 'border-box',
+    display: 'grid',
+    gridTemplateRows: '1fr 1fr',
+    justifyContent: 'center',
+  }),
   maxButton: cssObj({
-    marginTop: '$2',
-    marginBottom: '$1',
-    height: '$5 !important',
+    mt: '$1',
+    width: '$15',
+    gridArea: '1 / 1 / 3 / 2',
+    height: '$5',
   }),
   balance: cssObj({
+    gridArea: '2 / 1 / 3 / 2',
+    gap: '$2',
     alignItems: 'center',
     whiteSpace: 'nowrap',
-    marginBottom: '$2',
     fontSize: '$xs',
     fontWeight: '$medium',
     color: '$gray10',
 
-    '& > span': {
+    '& > span:first-of-type': {
       color: '$gray8',
     },
   }),
