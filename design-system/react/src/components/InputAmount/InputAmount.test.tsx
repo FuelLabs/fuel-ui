@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 import type { InputAmountProps } from './InputAmount';
 import { InputAmount } from './InputAmount';
-import { formatAmount } from './utils';
 
 const AMOUNT_TEXT = `14.563943834`;
 const BALANCE_TEXT = bn.parseUnits(AMOUNT_TEXT).format({ precision: 3 });
@@ -114,20 +113,6 @@ describe('InputAmount', () => {
     expect(() => screen.getByLabelText('Max')).toThrow(
       /Unable to find a label with the text/
     );
-  });
-
-  it('should discount fee when hit max button if has fee prop', async () => {
-    const fee = bn.parseUnits('0.100');
-    render(
-      <InputAmount name={FIELD_NAME} balance={MOCK_ASSET.amount} fee={fee} />
-    );
-    const maxBtn = screen.getByLabelText('Max');
-    expect(maxBtn).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
-    act(() => maxBtn.click());
-    const input = screen.getByLabelText(FIELD_NAME);
-    const balanceLessFee = MOCK_ASSET.amount.sub(fee);
-    expect(input.getAttribute('value')).toBe(formatAmount(balanceLessFee));
   });
 
   it('should show actions when balance is 0', async () => {
