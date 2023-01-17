@@ -20,7 +20,7 @@ export function createAmount(text: string, units: number = DECIMAL_UNITS) {
   const textAmountFixed = formatAmountLeadingZeros(text);
   return {
     text: textAmountFixed,
-    amount: bn.parseUnits(text, units),
+    amount: bn.parseUnits(text.replaceAll(',', ''), units),
   };
 }
 
