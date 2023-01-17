@@ -1,5 +1,5 @@
 import type { BN } from '@fuel-ts/math';
-import { DECIMAL_UNITS } from '@fuel-ts/math';
+import { bn, DECIMAL_UNITS } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
@@ -10,13 +10,13 @@ import { Flex } from '../Flex';
 import type { InputProps } from '../Input';
 import { Input } from '../Input';
 import type { InputNumberProps } from '../Input/InputNumber';
-import { Text } from '../Text';
+import { Stack } from '../Stack';
 import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
 import { createAmount, formatAmount } from './utils';
 
-export type InputAmountProps = InputProps & {
+export type InputAmountProps = Omit<InputProps, 'size'> & {
   name?: string;
   balance?: BN;
   balancePrecision?: number;
@@ -35,7 +35,7 @@ type InputAmountComponent = FC<InputAmountProps> & {
 
 export const InputAmount: InputAmountComponent = ({
   name,
-  balance,
+  balance: initialBalance,
   balancePrecision = 3,
   value,
   units = DECIMAL_UNITS,
@@ -48,6 +48,11 @@ export const InputAmount: InputAmountComponent = ({
   const [assetAmount, setAssetAmount] = useState<string>(
     !value || value.eq(0) ? '' : formatAmount(value)
   );
+
+  const balance = initialBalance ?? bn(initialBalance);
+  const formattedBalance = formatAmount(balance, {
+    precision: balance.eq(0) ? 1 : balancePrecision,
+  });
 
   useEffect(() => {
     handleAmountChange(value ? formatAmount(value) : '');
@@ -86,9 +91,9 @@ export const InputAmount: InputAmountComponent = ({
         decimalScale={units}
         {...inputProps}
       />
-      <Input.ElementRight>
-        <Flex direction="column" align="end" css={styles.balanceActions}>
-          {balance && (
+      {initialBalance && (
+        <Input.ElementRight>
+          <Flex direction="column" align="end" css={styles.balanceActions}>
             <>
               <Flex css={styles.maxButtonContainer}>
                 {!hiddenMaxButton && (
@@ -106,19 +111,22 @@ export const InputAmount: InputAmountComponent = ({
               {!hiddenBalance && (
                 <Flex>
                   <Tooltip content={formatAmount(balance)}>
-                    <Text as="div" css={styles.balance}>
+                    <Stack
+                      direction="row"
+                      as="div"
+                      css={styles.balance}
+                      aria-label={`Balance: ${formattedBalance}`}
+                    >
                       <Box as="span">Balance: </Box>
-                      {formatAmount(balance, {
-                        precision: balance.eq(0) ? 1 : balancePrecision,
-                      })}
-                    </Text>
+                      <Box as="span">{formattedBalance}</Box>
+                    </Stack>
                   </Tooltip>
                 </Flex>
               )}
             </>
-          )}
-        </Flex>
-      </Input.ElementRight>
+          </Flex>
+        </Input.ElementRight>
+      )}
     </Input>
   );
 };
@@ -129,7 +137,7 @@ const styles = {
   input: cssObj({
     px: '$3',
     boxSizing: 'border-box',
-    height: 'auto',
+    height: '$16',
     display: 'grid',
     gridGap: '$2',
     gridTemplateColumns: '1fr auto',
@@ -157,6 +165,7 @@ const styles = {
     height: '$5 !important',
   }),
   balance: cssObj({
+    alignItems: 'center',
     whiteSpace: 'nowrap',
     marginBottom: '$2',
     fontSize: '$xs',

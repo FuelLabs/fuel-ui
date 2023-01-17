@@ -77,7 +77,9 @@ describe('InputAmount', () => {
 
   it('should show balance formatted', () => {
     render(<InputAmount balance={MOCK_ASSET.amount} />);
-    expect(screen.getByText(`Balance: ${BALANCE_TEXT}`)).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(`Balance: ${BALANCE_TEXT}`)
+    ).toBeInTheDocument();
   });
 
   it('should display balance in input when click on max button', async () => {
@@ -93,31 +95,23 @@ describe('InputAmount', () => {
 
   it('should hidden Balance when prop hiddenBalance is true', async () => {
     render(<InputAmount hiddenBalance={true} balance={MOCK_ASSET.amount} />);
-    expect(() => screen.getByText(`Balance: ${AMOUNT_TEXT}`)).toThrow(
-      /Unable to find an element/
-    );
+    expect(() => screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`)).toThrow();
   });
 
   it('should hidden Max Button when prop hiddenMaxButton is true', async () => {
     render(<InputAmount hiddenMaxButton={true} balance={MOCK_ASSET.amount} />);
-    expect(() => screen.getByLabelText('Max')).toThrow(
-      /Unable to find a label with the text/
-    );
+    expect(() => screen.getByLabelText('Max')).toThrow();
   });
 
   it('should hidden action when balance is undefined', async () => {
     render(<InputAmount />);
-    expect(() => screen.getByText(`Balance: ${AMOUNT_TEXT}`)).toThrow(
-      /Unable to find an element/
-    );
-    expect(() => screen.getByLabelText('Max')).toThrow(
-      /Unable to find a label with the text/
-    );
+    expect(() => screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`)).toThrow();
+    expect(() => screen.getByLabelText('Max')).toThrow();
   });
 
   it('should show actions when balance is 0', async () => {
     render(<InputAmount balance={bn(0)} />);
-    expect(screen.getByText('Balance: 0.0')).toBeInTheDocument();
+    expect(screen.getByLabelText('Balance: 0.0')).toBeInTheDocument();
     expect(screen.getByLabelText('Max')).toBeInTheDocument();
   });
 });
