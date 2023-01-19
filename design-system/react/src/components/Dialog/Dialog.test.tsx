@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { act, render, screen, testA11y } from '@fuel-ui/test-utils';
 
 import { Button } from '../Button';
 
@@ -38,7 +38,7 @@ describe('Dialog', () => {
     const trigger = screen.getByText('Open');
     expect(() => screen.getByText('Dialog Title')).toThrow();
 
-    await user.click(trigger);
+    await act(() => user.click(trigger));
     expect(await screen.findByText('Dialog Title')).toBeInTheDocument();
     expect(onOpen).toBeCalledTimes(1);
 
