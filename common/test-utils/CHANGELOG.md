@@ -1,5 +1,11 @@
 # @fuel-ui/test-utils
 
+## 0.10.2
+
+### Patch Changes
+
+- 🐞 Fix(react): `<InputAmount>` now discount fee when hit max button and also format balance units to don't break layout, by [@pedronauck](https://github.com/pedronauck) (See [#184](https://github.com/FuelLabs/fuel-ui/pull/184))
+
 ## 0.10.1
 
 ## 0.10.0
