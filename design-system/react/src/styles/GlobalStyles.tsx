@@ -7,7 +7,7 @@ const customStyles = {
   body: {
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
-    margin: '0',
+    margin: '0 auto',
     letterSpacing: '0.01em',
     textSize: 'base' as any,
     color: '$textColor',
