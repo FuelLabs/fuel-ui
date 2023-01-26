@@ -19,7 +19,6 @@ import { usePagination } from './usePagination';
 
 type Context = UsePaginationReturn & PaginationBaseProps;
 const ctx = createContext({} as Context);
-
 export function usePaginationContext() {
   return useContext(ctx);
 }
@@ -42,6 +41,19 @@ type ObjProps = {
   Prev: typeof PaginationPrev;
 };
 
+/**
+ * Pagination component.
+ * @param autoFocus Whether to focus on the first item.
+ * @param variant The variant of pagination (same as Button).
+ * @param color The color of pagination (same as Button).
+ * @param size The size of pagination (same as Button).
+ * @example
+ * <Pagination pagesCount={10}>
+ *   <Pagination.Prev />
+ *   <Pagination.Items />
+ *   <Pagination.Next />
+ * </Pagination>
+ */
 export const Pagination = createComponent<PaginationProps, ObjProps>(
   ({
     children,

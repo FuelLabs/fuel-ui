@@ -23,6 +23,14 @@ export type GeneratePagesOpts = {
   pagesToDisplay?: number;
 };
 
+/**
+ * Gets the middle slice of pages.
+ * @param pages The array of pages.
+ * @param opts The options.
+ * @returns The middle slice of pages.
+ * @example
+ * getMiddleSlice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], { pagesCount: 10, currentPage: 5, pagesToDisplay: 5 }) // [3, 4, 5, 6, 7]
+ */
 function getMiddleSlice(pages: number[], opts: GeneratePagesOpts) {
   const { pagesCount, currentPage, pagesToDisplay = 5 } = opts;
   let middleSlice: number[] = [];

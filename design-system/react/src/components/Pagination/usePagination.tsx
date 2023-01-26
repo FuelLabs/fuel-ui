@@ -18,6 +18,30 @@ const selectors = {
   },
 };
 
+/**
+ * Hook to used inside the <Pagiation> component to handle paginatioMachie logic.
+ * @param pagesCount The total number of pages.
+ * @param pagesToDisplay The total number of pages to display.
+ * @param onPageChange The callback to call when the page changes.
+ * @param initialState The initial state.
+ * @returns UsePaginationReturn
+ *  - pages: The pages to display.
+ *  - currentPage: The current page.
+ *  - next: The function to go to the next page.
+ *  - prev: The function to go to the previous page.
+ *  - goTo: The function to go to a specific page.
+ *
+ * @example
+ * const { pages, currentPage, next, prev, goTo } = usePagination({
+ *  pagesCount: 10,
+ *  pagesToDisplay: 5,
+ *  onPageChange: (page) => console.log(page),
+ *    initialState: {
+ *      currentPage: 1,
+ *    },
+ * });
+ * @example
+ */
 export function usePagination(opts: UsePaginationOpts) {
   const service = useInterpret(() =>
     paginationMachine
