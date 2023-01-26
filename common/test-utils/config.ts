@@ -5,7 +5,7 @@ export type Config = JestConfigWithTsJest;
 
 export const config: JestConfigWithTsJest = {
   transform: {
-    '^.+\\.[tj]sx?$': ['ts-jest', { ...tsjPreset[1], useESM: true }],
+    ...tsjPreset.transform,
   },
   testTimeout: 20000,
   testEnvironment: 'jsdom',
