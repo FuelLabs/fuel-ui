@@ -43,16 +43,16 @@ export function useFocusNavigator() {
 
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'ArrowRight') {
-      focusManager.focusNext({ tabbable: true });
+      focusManager.focusNext();
     }
     if (e.key === 'ArrowLeft') {
-      focusManager.focusPrevious({ tabbable: true });
+      focusManager.focusPrevious();
     }
     if (e.key === 'ArrowUp') {
-      focusManager.focusNext({ tabbable: true });
+      focusManager.focusNext();
     }
     if (e.key === 'ArrowDown') {
-      focusManager.focusPrevious({ tabbable: true });
+      focusManager.focusPrevious();
     }
   };
 

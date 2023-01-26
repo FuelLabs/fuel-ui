@@ -17,10 +17,13 @@ export const PaginationItem = createComponent<
 >(({ className, page }) => {
   const classes = cx('fuel_pagination-item', className);
   const pagination = usePaginationContext();
+  const autoFocus = page === 1 && pagination.autoFocus;
   const isSelected = pagination.currentPage === page;
   const isDisabled = page < 0;
   return (
     <Button
+      aria-label={`Page ${page}`}
+      autoFocus={autoFocus}
       className={classes}
       data-selected={isSelected}
       data-variant={pagination.variant}

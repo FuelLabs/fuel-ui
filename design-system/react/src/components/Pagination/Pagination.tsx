@@ -29,9 +29,10 @@ export function usePaginationContext() {
 // ----------------------------------------------------------------------------
 
 export type PaginationBaseProps = UsePaginationOpts & {
-  variant: ButtonProps['variant'];
-  color: ButtonProps['color'];
-  size: ButtonProps['size'];
+  autoFocus?: boolean;
+  variant?: ButtonProps['variant'];
+  color?: ButtonProps['color'];
+  size?: ButtonProps['size'];
 };
 
 export type PaginationProps = StackProps & PaginationBaseProps;
@@ -53,6 +54,7 @@ export const Pagination = createComponent<PaginationProps, ObjProps>(
     pagesToDisplay = 6,
     onPageChange,
     initialState,
+    autoFocus,
     ...props
   }) => {
     const classes = cx('fuel_pagination', className);
@@ -63,7 +65,7 @@ export const Pagination = createComponent<PaginationProps, ObjProps>(
       initialState,
     });
     return (
-      <ctx.Provider value={{ ...pagination, variant, color, size }}>
+      <ctx.Provider value={{ ...pagination, variant, color, size, autoFocus }}>
         <Focus.ArrowNavigator restoreFocus>
           <Stack {...props} direction="row" as={as} className={classes}>
             {children}
