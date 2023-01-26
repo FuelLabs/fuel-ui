@@ -10,7 +10,7 @@ import { Tooltip } from '../Tooltip';
 type OmitProps = 'leftIcon' | 'rightIcon' | 'justIcon';
 export type IconButtonProps = Omit<ButtonProps, OmitProps> & {
   'aria-label': string;
-  size?: 'xs' | 'sm' | 'md';
+  size?: ButtonProps['size'];
   icon: IconProps['icon'];
   tooltip?: ReactNode;
 };

@@ -14,7 +14,7 @@ export default {
 export const ArrowNavigator = () => (
   <Box>
     <Stack gap="$3" direction="row" css={{ mb: '$3' }}>
-      <Focus.ArrowNavigator autoFocus>
+      <Focus.ArrowNavigator contain>
         <Button>First</Button>
         <Button>Second</Button>
         <Button>Third</Button>
