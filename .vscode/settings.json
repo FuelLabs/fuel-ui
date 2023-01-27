@@ -1,12 +1,11 @@
 {
-  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "files.autoSave": "onFocusChange",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
     "source.fixAll.eslint": true
   }
 }
