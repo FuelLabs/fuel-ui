@@ -3,12 +3,11 @@ import { css, cssObj } from '@fuel-ui/css';
 export const overlay = css({
   width: '100%',
   height: '100%',
-  display: 'none',
   position: 'absolute',
   backgroundColor: 'transparent',
-
+  pointerEvents: 'none',
   '&[data-state="open"]': {
-    display: 'block',
+    pointerEvents: 'auto',
   },
 });
 

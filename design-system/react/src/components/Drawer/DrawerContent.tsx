@@ -78,7 +78,7 @@ export const DrawerContent = createComponent<
           transition={transition}
           css={{ ...props.css, ...styles.getSize(size) }}
         >
-          <Box>{children}</Box>
+          {children}
         </MotionBox>
       </FocusScope>
     </Box>
