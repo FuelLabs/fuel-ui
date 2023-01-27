@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 import { assign, createMachine, InterpreterFrom, StateFrom } from 'xstate';
 
-import { generatePages, GeneratePagesOpts } from './helpers';
+import { generatePages } from './helpers';
 
-export type MachineContext = GeneratePagesOpts & {
+export type MachineContext = {
+  pagesCount: number;
+  currentPage?: number;
+  pagesToDisplay?: number;
   pages?: number[];
 };
 
@@ -22,11 +25,6 @@ export const paginationMachine = createMachine(
     },
     id: '(machine)',
     initial: 'generatePages',
-    context: {
-      pages: [],
-      pagesCount: 0,
-      currentPage: 0,
-    },
     states: {
       idle: {
         on: {
@@ -56,17 +54,22 @@ export const paginationMachine = createMachine(
         currentPage: (_context, event) => event.input,
       }),
       nextPage: assign({
-        currentPage: ({ currentPage, pagesCount }) => {
+        currentPage: ({ currentPage = 1, pagesCount }) => {
           return currentPage >= pagesCount ? 1 : currentPage + 1;
         },
       }),
       prevPage: assign({
-        currentPage: ({ currentPage }) => {
+        currentPage: (ctx) => {
+          const currentPage = ctx.currentPage || 1;
           return currentPage === 1 ? 100 : currentPage - 1;
         },
       }),
       generatePages: assign({
-        pages: (context) => generatePages(context),
+        pages: (context) =>
+          generatePages({
+            ...context,
+            currentPage: context.currentPage || 1,
+          }),
       }),
     },
   }

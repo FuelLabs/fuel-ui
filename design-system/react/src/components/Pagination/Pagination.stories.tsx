@@ -47,3 +47,12 @@ PagesToDisplay.args = {
   pagesCount: 28,
   pagesToDisplay: 15,
 };
+
+export const InitialState = Template.bind({});
+InitialState.args = {
+  pagesCount: 28,
+  pagesToDisplay: 8,
+  initialState: {
+    currentPage: 14,
+  },
+};

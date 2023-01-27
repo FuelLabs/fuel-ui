@@ -53,7 +53,7 @@ export function usePagination(opts: UsePaginationOpts) {
       .withConfig({
         actions: {
           onPageChange: (ctx) => {
-            opts.onPageChange?.(ctx.currentPage);
+            opts.onPageChange?.(ctx.currentPage!);
           },
         },
       })
