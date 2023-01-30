@@ -16,15 +16,9 @@ const GroupChildren = createComponent<GroupChildrenProps>(({ children }) => {
   if (isRightChildrenType(children)) {
     return (
       <>
-        {Children.map(children as ReactElement[], (child: ReactElement, idx) =>
-          cloneElement(
-            child,
-            mergeProps(child?.props || {}, {
-              onKeyDown,
-              tabIndex: idx === 0 ? 0 : -1,
-            })
-          )
-        )}
+        {Children.map(children as ReactElement[], (child: ReactElement) => {
+          return cloneElement(child, mergeProps(child.props, { onKeyDown }));
+        })}
       </>
     );
   }
@@ -48,20 +42,17 @@ export function useFocusNavigator() {
   const focusManager = useFocusManager();
 
   const onKeyDown = (e: KeyboardEvent) => {
-    // eslint-disable-next-line default-case
-    switch (e.key) {
-      case 'ArrowRight':
-        focusManager.focusPrevious({ wrap: true });
-        break;
-      case 'ArrowUp':
-        focusManager.focusPrevious({ wrap: true });
-        break;
-      case 'ArrowLeft':
-        focusManager.focusNext({ wrap: true });
-        break;
-      case 'ArrowDown':
-        focusManager.focusNext({ wrap: true });
-        break;
+    if (e.key === 'ArrowRight') {
+      focusManager.focusNext();
+    }
+    if (e.key === 'ArrowLeft') {
+      focusManager.focusPrevious();
+    }
+    if (e.key === 'ArrowUp') {
+      focusManager.focusNext();
+    }
+    if (e.key === 'ArrowDown') {
+      focusManager.focusPrevious();
     }
   };
 

@@ -5,7 +5,7 @@ import type { FC, Key } from 'react';
 import { useRef } from 'react';
 import type { AriaMenuOptions } from 'react-aria';
 import { mergeProps, useMenu } from 'react-aria';
-import type { TreeProps, ItemProps } from 'react-stately';
+import type { ItemProps, TreeProps } from 'react-stately';
 import { Item, useTreeState } from 'react-stately';
 
 import type { HTMLProps } from '../../utils';
