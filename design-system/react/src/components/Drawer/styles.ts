@@ -1,23 +1,11 @@
 import { css, cssObj } from '@fuel-ui/css';
 
-export const overlay = css({
-  width: '100%',
-  height: '100%',
-  position: 'absolute',
-  backgroundColor: 'transparent',
-  pointerEvents: 'none',
-  '&[data-state="open"]': {
-    pointerEvents: 'auto',
-  },
-});
-
 export const underlay = css({
   position: 'absolute',
   zIndex: '$50',
   inset: 0,
   background: 'rgba(0, 0, 0, 0.5)',
   display: 'flex',
-  pointerEvents: 'none',
 
   variants: {
     side: {
@@ -42,7 +30,6 @@ export const content = css({
   maxHeight: '100%',
   background: '$gray1',
   boxShadow: '$lg',
-  pointerEvents: 'auto',
 });
 
 export const close = cssObj({

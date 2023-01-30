@@ -22,7 +22,6 @@ import { DrawerBody } from './DrawerBody';
 import { DrawerClose } from './DrawerClose';
 import { DrawerContent } from './DrawerContent';
 import { DrawerTrigger } from './DrawerTrigger';
-import * as styles from './styles';
 
 // ----------------------------------------------------------------------------
 // Context
@@ -100,7 +99,7 @@ export const Drawer = createComponent<
       shouldCloseOnClickAway,
     };
 
-    const overlayClassNames = cx('fuel_drawer-overlay', styles.overlay());
+    const overlayClassNames = cx('fuel_drawer-overlay');
     const customChildren = Children.toArray(children).map((child: any) => {
       if (child?.type.id === 'DrawerContent') {
         return (
