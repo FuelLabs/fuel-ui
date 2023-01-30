@@ -51,3 +51,4 @@ tsconfig.tsbuildinfo
 
 # storybook
 storybook-static
+*.typegen.ts

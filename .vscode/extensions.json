@@ -2,6 +2,8 @@
   "recommendations": [
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "statelyai.stately-vscode"
+    "FuelLabs.sway-vscode-plugin",
+    "statelyai.stately-vscode",
+    "firsttris.vscode-jest-runner"
   ]
 }

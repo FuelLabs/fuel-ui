@@ -4,11 +4,11 @@ import { mergeRefs } from '@react-aria/utils';
 import type { Node } from '@react-types/shared';
 import type { Key, ReactNode } from 'react';
 import { useRef } from 'react';
-import { mergeProps, useMenuItem, useButton } from 'react-aria';
+import { mergeProps, useButton, useMenuItem } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
 import type { HTMLProps } from '../../utils';
-import { createStyledElement, createComponent } from '../../utils';
+import { createComponent, createStyledElement } from '../../utils';
 import type { ButtonProps } from '../Button';
 
 import * as styles from './styles';

@@ -21,6 +21,10 @@ export const Usage = (args: MenuProps) => (
         <Icon icon="Trash" css={{ color: '$gray8' }} />
         Delete
       </Menu.Item>
+      <Menu.Item key="trash" textValue="Remove">
+        <Icon icon="Trash" css={{ color: '$gray8' }} />
+        Remove
+      </Menu.Item>
       <Menu.Item key="edit" textValue="Edit">
         <Icon icon="NotePencil" css={{ color: '$gray8' }} />
         Edit
