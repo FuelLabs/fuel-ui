@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { cx } from '@fuel-ui/css';
 import type { DOMAttributes, FocusableElement } from '@react-types/shared';
 import { AnimatePresence } from 'framer-motion';
 import type { MutableRefObject } from 'react';
@@ -98,12 +99,15 @@ export const Drawer = createComponent<
       shouldCloseOnClickAway,
     };
 
+    const overlayClassNames = cx('fuel_drawer-overlay');
     const customChildren = Children.toArray(children).map((child: any) => {
       if (child?.type.id === 'DrawerContent') {
         return (
           <OverlayContainer
             key={child?.type.id}
             {...(container && { portalContainer: container })}
+            className={overlayClassNames}
+            data-state={state.isOpen ? 'open' : ''}
           >
             <AnimatePresence key={child.type.id}>
               {state.isOpen && <>{child}</>}
