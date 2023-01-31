@@ -20,8 +20,8 @@
   },
   "scripts": {
     "add:component": "node ./scripts/generateComponent",
-    "build:storybook": "build-storybook",
-    "build": "tsup --dts",
+    "build:storybook": "pnpm ts:check && build-storybook",
+    "build": "pnpm ts:check && tsup --dts",
     "dev": "start-storybook -p 6006",
     "test": "pnpm ts:check && jest --verbose",
     "storybook": "start-storybook -p 6006",
