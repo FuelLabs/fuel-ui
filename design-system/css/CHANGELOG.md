@@ -1,5 +1,11 @@
 # @fuel-ui/css
 
+## 0.11.0
+
+### Minor Changes
+
+- ✨ Feat: add new <Pagination> component. Check inside then `Pagination.stories.tsx` to see how to use it, by [@pedronauck](https://github.com/pedronauck) (See [#189](https://github.com/FuelLabs/fuel-ui/pull/189))
+
 ## 0.10.2
 
 ### Patch Changes
