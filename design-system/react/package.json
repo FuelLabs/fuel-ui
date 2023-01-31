@@ -46,6 +46,7 @@
     "@radix-ui/react-tabs": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.3",
     "@radix-ui/react-visually-hidden": "^1.0.1",
+    "@react-aria/focus": "^3.10.1",
     "@react-aria/overlays": "^3.12.1",
     "@react-aria/utils": "^3.14.2",
     "@stitches/react": "^1.2.8",

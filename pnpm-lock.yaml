@@ -185,6 +185,7 @@ importers:
       '@radix-ui/react-tabs': ^1.0.2
       '@radix-ui/react-tooltip': ^1.0.3
       '@radix-ui/react-visually-hidden': ^1.0.1
+      '@react-aria/focus': ^3.10.1
       '@react-aria/overlays': ^3.12.1
       '@react-aria/utils': ^3.14.2
       '@react-types/button': ^3.7.0
@@ -249,6 +250,7 @@ importers:
       '@radix-ui/react-tabs': 1.0.2_biqbaboplfbrettd7655fr4n2y
       '@radix-ui/react-tooltip': 1.0.3_5ndqzdd6t4rivxsukjv3i3ak2q
       '@radix-ui/react-visually-hidden': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@react-aria/focus': 3.10.1_react@18.2.0
       '@react-aria/overlays': 3.12.1_biqbaboplfbrettd7655fr4n2y
       '@react-aria/utils': 3.14.2_react@18.2.0
       '@stitches/react': 1.2.8_react@18.2.0
