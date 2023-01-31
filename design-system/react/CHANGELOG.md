@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.12.0
+
+### Minor Changes
+
+- 🐞 fix: export typing in Focus components, by [@pedronauck](https://github.com/pedronauck) (See [#194](https://github.com/FuelLabs/fuel-ui/pull/194))
+
 ## 0.11.0
 
 ### Minor Changes
