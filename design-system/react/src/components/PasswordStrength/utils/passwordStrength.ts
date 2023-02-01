@@ -10,7 +10,8 @@ export const passwordChecker = (password: string, minLength: number = 6) => {
     /(?=.*[a-z])\w+/g.exec(password) !== null &&
     /(?=.*[A-Z])\w+/g.exec(password) !== null;
   const lengthChecker = password.length >= minLength;
-  const commonChecker = !InsecurePasswords.includes(password);
+  const commonChecker =
+    password?.trim() && !InsecurePasswords.includes(password);
 
   return {
     lengthChecker,

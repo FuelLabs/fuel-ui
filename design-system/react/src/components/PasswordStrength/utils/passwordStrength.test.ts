@@ -95,6 +95,20 @@ describe('passwordChecker', () => {
   });
 });
 
+it('should be falsy for every rule if empty pass is provided', () => {
+  const {
+    casingChecker,
+    lengthChecker,
+    symbolsAndDigitsChecker,
+    commonChecker,
+  } = passwordChecker(' ', 8);
+
+  expect(casingChecker).toBeFalsy();
+  expect(lengthChecker).toBeFalsy();
+  expect(symbolsAndDigitsChecker).toBeFalsy();
+  expect(commonChecker).toBeFalsy();
+});
+
 describe('passwordStrength tests', () => {
   it('should calculate as strong', () => {
     expect(passwordStrengthCalculator(strongPassword)).toBe('strong');
