@@ -31,9 +31,8 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
         symbolsAndDigitsChecker,
         commonChecker,
       },
-    } = usePasswordStrength({ password, minLength, onChangeStrength });
+    } = usePasswordStrength({ password, minLength });
 
-    // create useEffect to call onChangeStrength
     useEffect(() => {
       onChangeStrength?.(strength);
     }, [strength, onChangeStrength]);
