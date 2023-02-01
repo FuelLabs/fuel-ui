@@ -52,7 +52,7 @@ describe('passwordChecker', () => {
       lengthChecker,
       symbolsAndDigitsChecker,
       commonChecker,
-    } = passwordChecker(commonPassword);
+    } = passwordChecker(commonPassword, 8);
 
     expect(casingChecker).toBeFalsy();
     expect(lengthChecker).toBeFalsy();
