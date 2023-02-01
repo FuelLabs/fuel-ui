@@ -1,4 +1,5 @@
 import { Check, X } from 'phosphor-react';
+import { useEffect } from 'react';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -11,20 +12,27 @@ import { Text } from '../Text';
 import { PasswordDictionary } from './constants';
 import { usePasswordStrength } from './hooks';
 import { styles } from './styles';
+import type { PasswordStrength as PasswordStrengthType } from './types';
 
 import { createComponent } from '~/utils';
 
 export type PasswordStrengthProps = {
   password: string;
   minLength?: number;
+  onChangeStrength?: (strength: PasswordStrengthType) => void;
 } & Omit<PopoverProps, 'content'>;
 
 export const PasswordStrength = createComponent<PasswordStrengthProps>(
-  ({ password, children, minLength = 6, ...props }) => {
+  ({ password, children, minLength = 6, onChangeStrength, ...props }) => {
     const {
       strength,
       checker: { casingChecker, lengthChecker, symbolsAndDigitsChecker },
     } = usePasswordStrength({ password, minLength });
+
+    // create useEffect to call onChangeStrength
+    useEffect(() => {
+      onChangeStrength?.(strength);
+    }, [strength, onChangeStrength]);
 
     const popoverContent = (
       <>
