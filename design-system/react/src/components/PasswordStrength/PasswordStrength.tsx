@@ -12,22 +12,26 @@ import { Text } from '../Text';
 import { PasswordDictionary } from './constants';
 import { usePasswordStrength } from './hooks';
 import { styles } from './styles';
-import type { PasswordStrength as PasswordStrengthType } from './types';
 
 import { createComponent } from '~/utils';
 
 export type PasswordStrengthProps = {
   password: string;
   minLength?: number;
-  onChangeStrength?: (strength: PasswordStrengthType) => void;
+  onChangeStrength?: (strength: keyof typeof PasswordDictionary) => void;
 } & Omit<PopoverProps, 'content'>;
 
 export const PasswordStrength = createComponent<PasswordStrengthProps>(
   ({ password, children, minLength = 6, onChangeStrength, ...props }) => {
     const {
       strength,
-      checker: { casingChecker, lengthChecker, symbolsAndDigitsChecker },
-    } = usePasswordStrength({ password, minLength });
+      checker: {
+        casingChecker,
+        lengthChecker,
+        symbolsAndDigitsChecker,
+        commonChecker,
+      },
+    } = usePasswordStrength({ password, minLength, onChangeStrength });
 
     // create useEffect to call onChangeStrength
     useEffect(() => {
@@ -57,11 +61,8 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
               }
             />
           </Box>
-          <Text fontSize="xs" as="strong">
-            <Text as="strong" fontSize="xs" css={styles.betterToHaveText}>
-              It&apos;s better to have
-            </Text>{' '}
-            <i>(not required):</i>
+          <Text fontSize="xs" as="strong" css={styles.rulesHeader}>
+            A secure password should have:
           </Text>
           <Flex css={styles.popoverContainer}>
             <Flex gap="$1">
@@ -84,6 +85,13 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
                 icon={symbolsAndDigitsChecker ? <Check /> : <X />}
               />
               <Text fontSize="xs">Numbers & Symbols</Text>
+            </Flex>
+            <Flex gap="$1">
+              <Icon
+                color={commonChecker ? 'mint9' : 'crimson9'}
+                icon={commonChecker ? <Check /> : <X />}
+              />
+              <Text fontSize="xs">Not common or insecure</Text>
             </Flex>
           </Flex>
         </Flex>

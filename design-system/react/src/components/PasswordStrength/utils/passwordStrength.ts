@@ -1,3 +1,4 @@
+import { InsecurePasswords } from '../constants';
 import type { PasswordStrength } from '../types';
 
 /** @description - This is where we make all the rules for the password checking */
@@ -9,11 +10,13 @@ export const passwordChecker = (password: string, minLength: number = 6) => {
     /(?=.*[a-z])\w+/g.exec(password) !== null &&
     /(?=.*[A-Z])\w+/g.exec(password) !== null;
   const lengthChecker = password.length >= minLength;
+  const commonChecker = !InsecurePasswords.includes(password);
 
   return {
     lengthChecker,
     casingChecker,
     symbolsAndDigitsChecker,
+    commonChecker,
   };
 };
 
@@ -22,24 +25,27 @@ export const passwordStrengthCalculator = (
   password: string,
   minLength: number = 6
 ): PasswordStrength => {
-  const { symbolsAndDigitsChecker, casingChecker } = passwordChecker(
-    password,
-    minLength
-  );
+  const {
+    symbolsAndDigitsChecker,
+    casingChecker,
+    lengthChecker,
+    commonChecker,
+  } = passwordChecker(password, minLength);
 
   const rulesMatched = [
-    password.length >= minLength,
+    lengthChecker,
     casingChecker,
     symbolsAndDigitsChecker,
+    commonChecker,
   ].filter((e) => e === true);
 
-  if (rulesMatched.length === 3) {
+  if (rulesMatched.length === 4) {
     return 'strong';
   }
 
-  if (rulesMatched.length === 2) {
-    return 'average';
+  if (rulesMatched.length < 2) {
+    return 'weak';
   }
 
-  return 'weak';
+  return 'average';
 };
