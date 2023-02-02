@@ -7,7 +7,7 @@ const strongPassword = '12345LF@ik&!';
 const averageCharactersAndSymbolsPassword = 'L@w2';
 const averageCharactersAndSixDigitsPassword = 'ThisisaTest';
 const weakPassword = '123456';
-const commonPassword = 'qwe123';
+const commonPassword = 'Password1!';
 
 describe('passwordChecker', () => {
   it('should validate a strong password correctly', () => {
@@ -35,7 +35,7 @@ describe('passwordChecker', () => {
     expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeFalsy();
     expect(symbolsAndDigitsChecker).toBeTruthy();
-    expect(commonChecker).toBeTruthy();
+    expect(commonChecker).toBeFalsy();
   });
 
   it('should validate an average password with lowercase/uppercase and 6+ digits correctly', () => {
@@ -49,7 +49,7 @@ describe('passwordChecker', () => {
     expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeTruthy();
     expect(symbolsAndDigitsChecker).toBeFalsy();
-    expect(commonChecker).toBeTruthy();
+    expect(commonChecker).toBeFalsy();
   });
 
   it('should validate a weak password correctly', () => {
@@ -74,9 +74,9 @@ describe('passwordChecker', () => {
       commonChecker,
     } = passwordChecker(commonPassword);
 
-    expect(casingChecker).toBeFalsy();
+    expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeTruthy();
-    expect(symbolsAndDigitsChecker).toBeFalsy();
+    expect(symbolsAndDigitsChecker).toBeTruthy();
     expect(commonChecker).toBeFalsy();
   });
 
