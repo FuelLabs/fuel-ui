@@ -47,7 +47,7 @@ export const styles = {
           ? '$amber9'
           : '$mint9',
     }),
-  betterToHaveText: cssObj({ color: '$gray12' }),
+  rulesHeader: cssObj({ color: '$gray12' }),
   arrow: cssObj({
     fill: '$gray2',
   }),
