@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.12.1
+
+### Patch Changes
+
+- Add pasword security against common passwords, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#199](https://github.com/FuelLabs/fuel-ui/pull/199))
+
 ## 0.12.0
 
 ### Minor Changes
