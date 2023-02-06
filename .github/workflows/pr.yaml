@@ -21,7 +21,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   changesets:
-    name: Validate PR Changeset
+    name: Changeset Checks
     if: ${{ github.head_ref != 'changeset-release/master' && needs.check-packages-changed.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
