@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.12.2
+
+### Patch Changes
+
+- 🐞 fix: avoid Popover from PasswordStrength component to override input focus component, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#202](https://github.com/FuelLabs/fuel-ui/pull/202))
+
 ## 0.12.1
 
 ### Patch Changes
