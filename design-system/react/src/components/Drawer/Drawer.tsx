@@ -83,9 +83,21 @@ export const Drawer = createComponent<
   }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [container, setContainer] = useState<HTMLElement | null>(null);
-    const state = useOverlayTriggerState(opts);
+    const state = useOverlayTriggerState({
+      ...opts,
+      onOpenChange: (isOpen) => {
+        if (!isOpen) opts.onClose?.();
+      },
+    });
     const { overlayProps, underlayProps } = useOverlay(
-      { ...opts, isOpen: state.isOpen, onClose: state.close },
+      {
+        ...opts,
+        isOpen: state.isOpen,
+        onClose: () => {
+          opts.onClose?.();
+          state.close();
+        },
+      },
       ref
     );
 
