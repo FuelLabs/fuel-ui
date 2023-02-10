@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ThemeUtilsCSS } from '@fuel-ui/css';
 import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { FC, Key } from 'react';
@@ -22,9 +23,13 @@ export type MenuProps = HTMLProps['ul'] &
   AriaMenuOptions<unknown> & {
     onAction?: (key: Key) => void;
     autoFocus?: boolean;
+    autoFocusKey?: string;
   };
 
-export type MenuItemProps = ItemProps<BaseMenuItemProps>;
+export type MenuItemProps = ItemProps<BaseMenuItemProps> & {
+  css?: ThemeUtilsCSS;
+  className?: string;
+};
 type ObjProps = {
   Item: FC<MenuItemProps>;
 };
@@ -33,6 +38,7 @@ export const Menu = createComponent<MenuProps, ObjProps>(
   ({
     ref,
     autoFocus,
+    autoFocusKey,
     className,
     onAction,
     selectionMode = 'none',
@@ -50,7 +56,10 @@ export const Menu = createComponent<MenuProps, ObjProps>(
 
     const children = [...state.collection].map((item, idx) => (
       <MenuItem
-        {...(autoFocus && idx === 0 && { autoFocus: true })}
+        {...(autoFocus && {
+          autoFocus: autoFocusKey ? autoFocusKey === item.key : idx === 0,
+        })}
+        css={item.props.css}
         className={item.props.className}
         key={item.key}
         item={item}
