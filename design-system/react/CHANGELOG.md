@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.12.3
+
+### Patch Changes
+
+- Trigger onClose when isOpen is controlled from a upper state, by [@luizstacio](https://github.com/luizstacio) (See [#207](https://github.com/FuelLabs/fuel-ui/pull/207))
+
 ## 0.12.2
 
 ### Patch Changes
