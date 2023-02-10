@@ -28,6 +28,11 @@ describe('Menu', () => {
     expect(screen.getByLabelText('settings')).toHaveFocus();
   });
 
+  it('should be focused when use autoFocus and autoFocusKey', async () => {
+    render(<TestMenu autoFocusKey="trash" />);
+    expect(screen.getByLabelText('trash')).toHaveFocus();
+  });
+
   it('should dispatch onAction using keyboard command', async () => {
     let item: React.Key = '';
     const { user } = render(
