@@ -1,3 +1,5 @@
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 
@@ -7,19 +9,28 @@ import { Menu } from './Menu';
 export default {
   component: Menu,
   title: 'UI/Menu',
-  argTypes: {},
-};
+  argTypes: {
+    autoFocus: {
+      defaultValue: true,
+      control: 'boolean',
+    },
+    autoFocusKey: {
+      defaultValue: undefined,
+      control: 'text',
+    },
+  },
+} as ComponentMeta<typeof Menu>;
 
-export const Usage = (args: MenuProps) => (
+const Template: ComponentStory<typeof Menu> = (args: MenuProps) => (
   <Box css={{ width: '200px' }}>
-    <Menu {...args} autoFocus disabledKeys={['edit']} aria-label="Actions">
+    <Menu {...args} disabledKeys={['edit']} aria-label="Actions">
       <Menu.Item key="settings" textValue="Settings">
         <Icon icon="Gear" css={{ color: '$gray8' }} />
         Settings
       </Menu.Item>
-      <Menu.Item key="trash" textValue="Delete">
-        <Icon icon="Trash" css={{ color: '$gray8' }} />
-        Delete
+      <Menu.Item key="profile" textValue="Profile">
+        <Icon icon="User" css={{ color: '$gray8' }} />
+        Profile
       </Menu.Item>
       <Menu.Item key="trash" textValue="Remove">
         <Icon icon="Trash" css={{ color: '$gray8' }} />
@@ -32,3 +43,11 @@ export const Usage = (args: MenuProps) => (
     </Menu>
   </Box>
 );
+
+export const Usage = Template.bind({});
+Usage.args = {};
+
+export const AutoFocusItem = Template.bind({});
+AutoFocusItem.args = {
+  autoFocusKey: 'profile',
+};
