@@ -1,6 +1,6 @@
 import { css, cssObj } from '@fuel-ui/css';
 
-export const overlay = css({
+export const underlay = css({
   position: 'absolute',
   zIndex: '$50',
   inset: 0,

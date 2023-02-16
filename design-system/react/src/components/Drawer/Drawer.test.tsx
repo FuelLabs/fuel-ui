@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@fuel-ui/test-utils';
+import { act, fireEvent, render, screen, waitFor } from '@fuel-ui/test-utils';
 import { useRef } from 'react';
 
 import { Box } from '../Box';
@@ -30,26 +30,26 @@ const CustomRef = () => {
 
 describe('Drawer', () => {
   it('should be able to trigger drawer', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
     expect(() => screen.getByText('Hello world')).toThrow();
     const trigger = screen.getByText('Open');
-    await user.click(trigger);
+    await act(() => fireEvent.click(trigger));
     expect(await screen.findByText('Hello world')).toBeInTheDocument();
   });
 
   it('should be able to close when click on close', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
     expect(() => screen.getByText('Hello world')).toThrow();
     await waitFor(async () => {
       const trigger = screen.getByText('Open');
-      await user.click(trigger);
+      await act(() => fireEvent.click(trigger));
       expect(await screen.findByText('Hello world')).toBeInTheDocument();
     });
 
     const close = screen.getByLabelText('Close');
-    await user.click(close);
+    await act(() => fireEvent.click(close));
     await waitFor(() => {
       expect(() => screen.getByText('Hello world')).toThrow();
     });
@@ -59,11 +59,13 @@ describe('Drawer', () => {
     const { user } = render(<Content />);
 
     const trigger = screen.getByText('Open');
-    await user.click(trigger);
-    expect(await screen.findByText('Hello world')).toBeInTheDocument();
+    await act(() => user.click(trigger));
+    await waitFor(() => {
+      expect(screen.getByText('Hello world')).toBeInTheDocument();
+    });
 
     const container = document.querySelector('[data-overlay-container="true"]');
-    await user.click(container as never);
+    await act(() => user.click(container as never));
     await waitFor(() => {
       expect(() => screen.getByText('Hello world')).toThrow();
     });
@@ -73,8 +75,10 @@ describe('Drawer', () => {
     const { user } = render(<Content />);
 
     const trigger = screen.getByText('Open');
-    await user.click(trigger);
-    expect(await screen.findByText('Hello world')).toBeInTheDocument();
+    await act(() => user.click(trigger));
+    await waitFor(() => {
+      expect(screen.getByText('Hello world')).toBeInTheDocument();
+    });
 
     await user.press('Esc');
     await waitFor(() => {
@@ -83,10 +87,10 @@ describe('Drawer', () => {
   });
 
   it('should be able to render inside a custom container', async () => {
-    const { user, container, getByText, findByText } = render(<CustomRef />);
+    const { container, getByText, findByText } = render(<CustomRef />);
     expect(() => getByText('Hello world')).toThrow();
     const trigger = getByText('Open');
-    await user.click(trigger);
+    await act(() => fireEvent.click(trigger));
     expect(await findByText('Hello world')).toBeInTheDocument();
 
     const overlay = container.querySelector('[data-overlay-container="true"]');

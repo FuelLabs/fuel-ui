@@ -1,4 +1,5 @@
 import { Check, X } from 'phosphor-react';
+import { useEffect } from 'react';
 
 import { Box } from '../Box';
 import { Flex } from '../Flex';
@@ -17,14 +18,24 @@ import { createComponent } from '~/utils';
 export type PasswordStrengthProps = {
   password: string;
   minLength?: number;
+  onChangeStrength?: (strength: keyof typeof PasswordDictionary) => void;
 } & Omit<PopoverProps, 'content'>;
 
 export const PasswordStrength = createComponent<PasswordStrengthProps>(
-  ({ password, children, minLength = 6, ...props }) => {
+  ({ password, children, minLength = 6, onChangeStrength, ...props }) => {
     const {
       strength,
-      checker: { casingChecker, lengthChecker, symbolsAndDigitsChecker },
+      checker: {
+        casingChecker,
+        lengthChecker,
+        symbolsAndDigitsChecker,
+        commonChecker,
+      },
     } = usePasswordStrength({ password, minLength });
+
+    useEffect(() => {
+      onChangeStrength?.(strength);
+    }, [strength, onChangeStrength]);
 
     const popoverContent = (
       <>
@@ -49,11 +60,8 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
               }
             />
           </Box>
-          <Text fontSize="xs" as="strong">
-            <Text as="strong" fontSize="xs" css={styles.betterToHaveText}>
-              It&apos;s better to have
-            </Text>{' '}
-            <i>(not required):</i>
+          <Text fontSize="xs" as="strong" css={styles.rulesHeader}>
+            A secure password should have:
           </Text>
           <Flex css={styles.popoverContainer}>
             <Flex gap="$1">
@@ -77,6 +85,13 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
               />
               <Text fontSize="xs">Numbers & Symbols</Text>
             </Flex>
+            <Flex gap="$1">
+              <Icon
+                color={commonChecker ? 'mint9' : 'crimson9'}
+                icon={commonChecker ? <Check /> : <X />}
+              />
+              <Text fontSize="xs">Not common or insecure</Text>
+            </Flex>
           </Flex>
         </Flex>
       </>
@@ -94,6 +109,11 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
         css={styles.popover}
         alignOffset={-30}
         sideOffset={-2}
+        contentProps={{
+          // this is needed to prevent the input from losing focus
+          onOpenAutoFocus: (e) => e.preventDefault(),
+          onCloseAutoFocus: (e) => e.preventDefault(),
+        }}
         {...props}
       >
         {children}

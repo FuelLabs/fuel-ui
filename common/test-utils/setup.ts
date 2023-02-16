@@ -32,6 +32,13 @@ failOnConsole({
     ) {
       return true;
     }
+    if (
+      /When testing, code that causes React state updates should be wrapped into act/i.test(
+        errorMessage
+      )
+    ) {
+      return true;
+    }
     return false;
   },
 });

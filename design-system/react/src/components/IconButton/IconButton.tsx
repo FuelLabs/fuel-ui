@@ -10,14 +10,14 @@ import { Tooltip } from '../Tooltip';
 type OmitProps = 'leftIcon' | 'rightIcon' | 'justIcon';
 export type IconButtonProps = Omit<ButtonProps, OmitProps> & {
   'aria-label': string;
-  size?: 'xs' | 'sm' | 'md';
+  size?: ButtonProps['size'];
   icon: IconProps['icon'];
   tooltip?: ReactNode;
 };
 
 export const IconButton = createComponent<IconButtonProps, unknown, OmitProps>(
   ({ icon, tooltip, className, ...props }) => {
-    const classes = cx('fuel_icon-buton', className);
+    const classes = cx('fuel_icon-button', className);
     const content = (
       <Button {...props} justIcon className={classes} leftIcon={icon} />
     );

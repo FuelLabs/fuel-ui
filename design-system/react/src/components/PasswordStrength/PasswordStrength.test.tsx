@@ -1,6 +1,9 @@
 import { render } from '@fuel-ui/test-utils';
+import { useState } from 'react';
 
 import { Button } from '../Button';
+import { InputPassword } from '../InputPassword';
+import { Stack } from '../Stack';
 
 import { PasswordStrength } from './PasswordStrength';
 import { PasswordDictionary } from './constants';
@@ -77,5 +80,37 @@ describe('PasswordStrength', () => {
         PasswordDictionary[passwordStrengthCalculator(strongPassword)]
       )
     ).toBeDefined();
+  });
+
+  it('should focus input when user press tab', async () => {
+    const WithInput = () => {
+      const [password, setPassword] = useState('');
+      const [open, setOpen] = useState(false);
+
+      return (
+        <Stack css={{ maxW: '350px' }}>
+          <PasswordStrength
+            onOpenChange={() => setOpen(true)}
+            password={password}
+            open={open}
+          >
+            <InputPassword
+              onChange={(e) => setPassword(e.target.value)}
+              onFocus={() => setOpen(true)}
+              onBlur={() => setOpen(false)}
+              value={password}
+              placeholder="Type your password"
+            />
+          </PasswordStrength>
+        </Stack>
+      );
+    };
+
+    const { user, findByPlaceholderText } = render(<WithInput />);
+
+    // create test to make sure when user press tab, input is focused
+    await user.tab();
+    const input = await findByPlaceholderText('Type your password');
+    expect(input).toHaveFocus();
   });
 });

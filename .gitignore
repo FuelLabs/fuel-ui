@@ -10,6 +10,7 @@ lerna-debug.log*
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/launch.json
 .idea
 .DS_Store
 *.suo
@@ -50,3 +51,4 @@ tsconfig.tsbuildinfo
 
 # storybook
 storybook-static
+*.typegen.ts

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import { Button } from '../Button';
 import { Card } from '../Card';
@@ -24,7 +24,7 @@ const content = (
 
 export const Usage = (args: DrawerProps) => {
   return (
-    <Drawer {...args}>
+    <Drawer {...args} isDismissable={true}>
       <Drawer.Trigger>
         <Button>Open</Button>
       </Drawer.Trigger>
@@ -107,5 +107,42 @@ export const CustomContainer = (args: DrawerProps) => {
 };
 
 CustomContainer.parameters = {
+  layout: 'centered',
+};
+
+export const StateControlled = (args: DrawerProps) => {
+  const ref = useRef<HTMLDivElement>();
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Card
+      ref={ref}
+      css={{
+        overflow: 'hidden',
+        position: 'relative',
+        width: '500px',
+        height: '500px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Button onPress={() => setOpen(true)}>Open</Button>
+      <Drawer
+        {...args}
+        side="right"
+        containerRef={ref}
+        size={300}
+        isOpen={open}
+        isDismissable={true}
+        onClose={() => setOpen(false)}
+      >
+        {content}
+      </Drawer>
+    </Card>
+  );
+};
+
+StateControlled.parameters = {
   layout: 'centered',
 };

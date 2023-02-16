@@ -93,6 +93,8 @@ export const field = css({
   p: '$0',
   flex: 1,
   color: INPUT_COLOR,
+  fontFamily: '$sans',
+  fontWeight: '$medium',
 
   '&::placeholder': {
     color: PLACEHOLDER_COLOR,

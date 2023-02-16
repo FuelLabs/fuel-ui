@@ -65,7 +65,7 @@ $ pnpm install @fuel-ui/react
 First wrap your entire application using our `ThemeProvider` component
 
 ```jsx
-import { ThemeProvider } from "@fuel-ui/react";
+import { ThemeProvider } from '@fuel-ui/react';
 
 const Main = () => (
   <ThemeProvider>
@@ -77,7 +77,7 @@ const Main = () => (
 Then inside your app you can use as you want our component
 
 ```jsx
-import { Button, Form, Icon, Input, Stack } from "@fuel-ui/react";
+import { Button, Form, Icon, Input, Stack } from '@fuel-ui/react';
 
 const App = () => {
   const [showing, setShowing] = useState(false);
@@ -87,18 +87,18 @@ const App = () => {
   }
 
   return (
-    <Stack css={{ maxW: "400px" }}>
+    <Stack css={{ maxW: '400px' }}>
       <Form.Control isRequired>
         <Form.Label htmlFor="email">Email</Form.Label>
         <Input isFullWidth>
           <Input.ElementLeft element={<Icon icon="LockClosedIcon" />} />
           <Input.Field
-            type={showing ? "text" : "password"}
+            type={showing ? 'text' : 'password'}
             name="password"
             placeholder="Your password..."
           />
           <Input.ElementRight>
-            <Button variant="outlined" onPress={toggle} css={{ mr: "-8px" }}>
+            <Button variant="outlined" onPress={toggle} css={{ mr: '-8px' }}>
               Show
             </Button>
           </Input.ElementRight>
@@ -118,21 +118,21 @@ The best approach to style our component is by using `@fuel-ui/css` package. It'
 You can simply create a `className` with it or use the `css` prop of our components:
 
 ```jsx
-import { css } from "@fuel-ui/css";
-import { Box } from "@fuel-ui/react";
+import { css } from '@fuel-ui/css';
+import { Box } from '@fuel-ui/react';
 
 const App = () => {
-  <Box className={customStyle()} css={{ display: "flex" }}>
+  <Box className={customStyle()} css={{ display: 'flex' }}>
     Hello world
   </Box>;
 };
 
 const customStyle = css({
-  alignItems: "center",
-  justifyContent: "center",
-  bg: "$accent11",
-  px: "$4",
-  textSize: "base",
+  alignItems: 'center',
+  justifyContent: 'center',
+  bg: '$accent11',
+  px: '$4',
+  textSize: 'base',
 });
 ```
 
@@ -159,18 +159,18 @@ To make this available in some component inside our design system, we created a 
 Check this example of our `Box` component:
 
 ```tsx
-import { cx, styled } from "@fuel-ui/css";
-import { createElement } from "react";
+import { cx, styled } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import type { HTMLProps } from "../../utils";
-import { createComponent } from "../../utils";
+import type { HTMLProps } from '../../utils';
+import { createComponent } from '../../utils';
 
-export type BoxProps = HTMLProps["div"];
+export type BoxProps = HTMLProps['div'];
 
-const Root = styled("div");
+const Root = styled('div');
 export const Box = createComponent<BoxProps>(
   ({ className, children, ...props }) => {
-    const classes = cx("fuel_box", className);
+    const classes = cx('fuel_box', className);
     return createElement(Root, { ...props, className: classes }, children);
   }
 );
@@ -191,11 +191,11 @@ It's extremelly important that all components that has custom behaviors and sett
 A base test of some component always include `a11y` test as first case:
 
 ```jsx
-import { testA11y } from "@fuel-ui/test-utils";
-import { MyComponent } from "./MyComponent";
+import { testA11y } from '@fuel-ui/test-utils';
+import { MyComponent } from './MyComponent';
 
-describe("MyComponent", () => {
-  it("a11y", async () => {
+describe('MyComponent', () => {
+  it('a11y', async () => {
     await testA11y(<MyComponent>Hello world</MyComponent>);
   });
 });
@@ -204,19 +204,19 @@ describe("MyComponent", () => {
 With test utils package you can run some triggers in order to test accessibility as well. Keyboard commands like `Tab` and `ArrowDown` is very easy by using `press` helper:
 
 ```jsx
-import { press, render, screen } from "@fuel-ui/test-utils";
-import { RadioGroup } from "./RadioGroup";
+import { press, render, screen } from '@fuel-ui/test-utils';
+import { RadioGroup } from './RadioGroup';
 
-describe("RadioGroup", () => {
-  it("should focus correctly", async () => {
+describe('RadioGroup', () => {
+  it('should focus correctly', async () => {
     render(content);
 
     await press.Tab();
-    expect(screen.getByLabelText("Default")).toHaveFocus();
+    expect(screen.getByLabelText('Default')).toHaveFocus();
     await press.ArrowDown();
-    expect(screen.getByLabelText("Comfortable")).toHaveFocus();
+    expect(screen.getByLabelText('Comfortable')).toHaveFocus();
     await press.ArrowDown();
-    expect(screen.getByLabelText("Compact")).toHaveFocus();
+    expect(screen.getByLabelText('Compact')).toHaveFocus();
   });
 });
 ```

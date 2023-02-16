@@ -52,10 +52,10 @@ export const DrawerContent = createComponent<
   const finalProps = mergeProps(props, overlayProps, dialogProps, modalProps);
 
   const contentClasses = cx('fuel_drawer-content', className, styles.content());
-  const overlayClasses = cx(
-    'fuel_drawer-overlay',
+  const underlayClasses = cx(
+    'fuel_drawer-underlay',
     className,
-    styles.overlay({ side })
+    styles.underlay({ side })
   );
 
   usePreventScroll();
@@ -66,7 +66,7 @@ export const DrawerContent = createComponent<
   });
 
   return (
-    <Box {...(underlayProps as any)} className={overlayClasses}>
+    <Box {...(underlayProps as any)} className={underlayClasses}>
       <FocusScope contain restoreFocus autoFocus>
         <MotionBox
           {...finalProps}
@@ -78,7 +78,7 @@ export const DrawerContent = createComponent<
           transition={transition}
           css={{ ...props.css, ...styles.getSize(size) }}
         >
-          <Box>{children}</Box>
+          {children}
         </MotionBox>
       </FocusScope>
     </Box>

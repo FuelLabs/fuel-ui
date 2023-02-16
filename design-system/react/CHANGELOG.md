@@ -1,5 +1,46 @@
 # @fuel-ui/react
 
+## 0.12.3
+
+### Patch Changes
+
+- Trigger onClose when isOpen is controlled from a upper state, by [@luizstacio](https://github.com/luizstacio) (See [#207](https://github.com/FuelLabs/fuel-ui/pull/207))
+
+## 0.12.2
+
+### Patch Changes
+
+- 🐞 fix: avoid Popover from PasswordStrength component to override input focus component, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#202](https://github.com/FuelLabs/fuel-ui/pull/202))
+
+## 0.12.1
+
+### Patch Changes
+
+- Add pasword security against common passwords, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#199](https://github.com/FuelLabs/fuel-ui/pull/199))
+
+## 0.12.0
+
+### Minor Changes
+
+- 🐞 fix: export typing in Focus components, by [@pedronauck](https://github.com/pedronauck) (See [#194](https://github.com/FuelLabs/fuel-ui/pull/194))
+
+## 0.11.0
+
+### Minor Changes
+
+- refact(Drawer): naming change from overlay to underlay. remove unnecessary <Box> wrapping children, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#190](https://github.com/FuelLabs/fuel-ui/pull/190))
+- ✨ Feat: add new <Pagination> component. Check inside then `Pagination.stories.tsx` to see how to use it, by [@pedronauck](https://github.com/pedronauck) (See [#189](https://github.com/FuelLabs/fuel-ui/pull/189))
+
+### Patch Changes
+
+- 🐞 Fix: add a typescript typing reference for FocusScope using @react-aria/focus, by [@pedronauck](https://github.com/pedronauck) (See [#191](https://github.com/FuelLabs/fuel-ui/pull/191))
+
+## 0.10.2
+
+### Patch Changes
+
+- 🐞 Fix(react): `<InputAmount>` now discount fee when hit max button and also format balance units to don't break layout, by [@pedronauck](https://github.com/pedronauck) (See [#184](https://github.com/FuelLabs/fuel-ui/pull/184))
+
 ## 0.10.1
 
 ### Patch Changes
@@ -114,7 +155,7 @@
 
 - ✨ Feat: add new `<CardList>` component, basically a list of cards that can be clickable and have right elements as actions.
   ```jsx
-  <CardList {...args} css={{ maxW: "$md" }}>
+  <CardList {...args} css={{ maxW: '$md' }}>
     <CardList.Item isActive>
       <Avatar
         {...args}
@@ -165,7 +206,7 @@
 
 - ✨ Feat: add `<Menu />` component using React Aria [useMenu()](https://react-spectrum.adobe.com/react-aria/useMenu.html) as base to create it
   ```jsx
-  <Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
+  <Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
     <Menu.Item key="settings" textValue="Settings">
       Settings
     </Menu.Item>
@@ -228,9 +269,9 @@
   ```
 - ✨ Feat: add new `toast()` function that shows a toast using [react-hot-toast](https://react-hot-toast.com/) behind the scenes. It also includes `<ToastProvider />` in our `<ThemeProvider />` by default.
   ```jsx
-  import { Button, toast } from "@fuel-ui/react";
+  import { Button, toast } from '@fuel-ui/react';
   function App() {
-    return <Button onPress={() => toast("Hello world!")}>Show toast</Button>;
+    return <Button onPress={() => toast('Hello world!')}>Show toast</Button>;
   }
   ```
 
