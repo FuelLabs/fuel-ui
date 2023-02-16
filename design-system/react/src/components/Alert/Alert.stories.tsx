@@ -68,7 +68,7 @@ export const WithActions = (args: AlertProps) => (
 );
 
 export const CustomColor = (args: AlertProps) => (
-  <Alert status="info" {...args} color="accent12" css={{ maxW: '700px' }}>
+  <Alert status="info" {...args} color="yellow10" css={{ maxW: '700px' }}>
     <Alert.Title>Order Completed</Alert.Title>
     <Alert.Description>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate

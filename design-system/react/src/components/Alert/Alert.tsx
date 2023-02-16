@@ -63,7 +63,7 @@ export const Alert = createComponent<AlertProps, ObjProps>(
     const classes = cx(
       'fuel_alert',
       className,
-      styles.root({ status, direction })
+      styles.root({ status, direction, color })
     );
 
     const customProps = {

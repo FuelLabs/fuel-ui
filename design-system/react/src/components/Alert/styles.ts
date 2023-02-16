@@ -38,13 +38,12 @@ export const root = css({
     status: {
       info: {
         '& .fuel_heading, & .fuel_icon': {
-          color: ({ color = 'blue11' }: { color?: Colors }) =>
-            color || '$blue11',
+          color: `${({ color = 'blue11' }: { color?: Colors }) => color})`,
         },
 
         '& .fuel_button': {
           p: 0,
-          color: ({ color }: { color?: Colors }) => color || '$blue10',
+          color: `${({ color = 'yellow10' }: { color?: Colors }) => color})`,
           fontWeight: '$semibold',
         },
 
