@@ -1,22 +1,27 @@
-import { lightTheme, darkTheme } from '@fuel-ui/css';
+import type { createTheme } from '@fuel-ui/css';
 import { assign, createMachine } from 'xstate';
 
-export type FuelTheme = 'light' | 'dark' | typeof lightTheme;
+export type FuelTheme = ReturnType<typeof createTheme>;
+export type ThemesObj = Record<string, FuelTheme>;
 
-const LOCALSTORAGE_KEY = 'fuel-theme';
-const DEFAULT_THEME = 'dark';
-
-export function getDefaultSystemTheme(): FuelTheme {
-  return DEFAULT_THEME;
+const STORAGE_KEY = 'fuel-ui-theme';
+export function getInitialTheme() {
+  if (typeof window === 'undefined') return 'dark';
+  const theme = localStorage.getItem(STORAGE_KEY);
+  if (theme) return theme;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  return prefersDark ? 'dark' : 'light';
 }
 
 type MachineContext = {
-  theme: FuelTheme;
+  themes: ThemesObj;
+  current: string;
 };
 
-type MachineEvents =
-  | { type: 'SET_THEME'; value: FuelTheme }
-  | { type: 'TOGGLE' };
+type MachineEvents = {
+  type: 'SET_THEME';
+  value: string;
+};
 
 const machine = createMachine<MachineContext>({
   predictableActionArguments: true,
@@ -26,15 +31,12 @@ const machine = createMachine<MachineContext>({
   },
   id: 'themeProvider',
   initial: 'idle',
+  entry: ['saveOnLocalStorage', 'addDocumentClass'],
   states: {
     idle: {
-      entry: ['setDefaultTheme', 'addDocumentClass'],
       on: {
         SET_THEME: {
           actions: ['setTheme', 'addDocumentClass'],
-        },
-        TOGGLE_THEME: {
-          actions: ['toggleTheme', 'addDocumentClass'],
         },
       },
     },
@@ -43,36 +45,19 @@ const machine = createMachine<MachineContext>({
 
 export const themeProviderMachine = machine.withConfig({
   actions: {
-    setDefaultTheme: assign({
-      theme: (ctx) => {
-        if (typeof window === 'undefined') return DEFAULT_THEME;
-        const theme = localStorage.getItem(LOCALSTORAGE_KEY) as FuelTheme;
-        return ctx.theme || theme || getDefaultSystemTheme();
-      },
-    }),
+    saveOnLocalStorage: ({ current }) => {
+      localStorage.setItem(STORAGE_KEY, current);
+    },
     setTheme: assign({
-      theme: (_, ev) => ev.value,
-    }),
-    toggleTheme: assign({
-      theme: (ctx) => {
-        if (ctx.theme !== 'dark' && ctx.theme !== 'light') return ctx.theme;
-        return ctx.theme === 'dark' ? 'light' : 'dark';
+      current: (_, ev) => {
+        localStorage.setItem(STORAGE_KEY, ev.value);
+        return ev.value;
       },
     }),
-    addDocumentClass: ({ theme }) => {
+    addDocumentClass: ({ themes, current }) => {
+      const selected = themes[current];
       const html = document.documentElement;
-
-      if (theme !== 'dark' && theme !== 'light') {
-        html.classList.add(theme.className);
-        return;
-      }
-
-      html.classList.remove(
-        theme === 'light' ? darkTheme.className : lightTheme.className
-      );
-      html.classList.add(
-        theme === 'dark' ? darkTheme.className : lightTheme.className
-      );
+      html.classList.toggle(selected.className, true);
     },
   },
 });

@@ -5,3 +5,4 @@
 dist
 CHANGELOG.md
 *.typegen.ts
+*.html

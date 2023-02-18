@@ -1,0 +1,25 @@
+{
+  "name": "custom-theme",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fuel-ui/css": "workspace:*",
+    "@fuel-ui/react": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react-swc": "^3.1.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.2",
+    "vite-tsconfig-paths": "^4.0.5"
+  }
+}

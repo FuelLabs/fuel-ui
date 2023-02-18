@@ -1,3 +1,4 @@
+import { lightTheme, darkTheme } from '@fuel-ui/css';
 import { useMachine } from '@xstate/react';
 import { IconContext } from 'phosphor-react';
 import type { FC, ReactNode } from 'react';
@@ -7,54 +8,50 @@ import { GlobalStyles } from '../../styles/GlobalStyles';
 import { ToastProvider } from '../Toast';
 
 import type { FuelTheme } from './machine';
-import { getDefaultSystemTheme, themeProviderMachine } from './machine';
+import { getInitialTheme, themeProviderMachine } from './machine';
 
-type ThemeProviderContext = {
-  theme: FuelTheme;
+type Context = {
   setTheme: (theme: FuelTheme) => void;
-  toggleTheme: () => void;
+  themes: Record<string, FuelTheme>;
+  current: string;
 };
 
-const context = createContext<ThemeProviderContext>({
-  theme: getDefaultSystemTheme(),
+const DEFAULT_THEMES = {
+  dark: darkTheme,
+  light: lightTheme,
+};
+
+const context = createContext<Context>({
   setTheme: () => null,
-  toggleTheme: () => null,
-});
+  themes: DEFAULT_THEMES,
+  current: getInitialTheme(),
+} as Context);
 
 export type ThemeProps = {
-  theme?: 'dark' | 'light';
   withFonts?: boolean;
   children: ReactNode;
+  themes?: Record<string, FuelTheme>;
+  initialTheme?: string;
 };
 
 export const ThemeProvider: FC<ThemeProps> = ({
   children,
   withFonts = true,
-  theme: defaultTheme,
+  themes = DEFAULT_THEMES,
+  initialTheme: current = getInitialTheme(),
 }) => {
+  const curr = themes[current] ? current : Object.keys(themes)[0];
   const [state, send] = useMachine(() =>
-    defaultTheme
-      ? themeProviderMachine.withContext({ theme: defaultTheme })
-      : themeProviderMachine
+    themeProviderMachine.withContext({ themes, current: curr })
   );
 
-  function setTheme(value: FuelTheme) {
+  function setTheme(value: string) {
     send('SET_THEME', { value });
   }
 
-  function toggleTheme() {
-    send('TOGGLE_THEME');
-  }
-
-  const contextValue = {
-    setTheme,
-    toggleTheme,
-    theme: state.context.theme,
-  };
-
   return (
     <IconContext.Provider value={{ size: 16 }}>
-      <context.Provider value={contextValue}>
+      <context.Provider value={{ ...state.context, setTheme }}>
         <ToastProvider />
         <GlobalStyles withFonts={withFonts} />
         {children}
