@@ -76,7 +76,7 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
     usePreventScroll({ isDisabled: !state.isOpen });
     const { modalProps } = useModal();
     const { dialogProps, titleProps } = useReactAriaDialog(props, ref);
-    const classes = cx('fuel_dialog', className);
+    const classes = cx('fuel_Dialog', className);
 
     const ctxProps = {
       ref,

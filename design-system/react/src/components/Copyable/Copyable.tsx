@@ -25,8 +25,8 @@ export const Copyable = createComponent<CopyableProps>(
     iconProps,
     ...props
   }) => {
-    const classes = cx('fuel_copyable', className);
-    const iconClass = cx('fuel_copyable-icon');
+    const classes = cx('fuel_Copyable', className);
+    const iconClass = cx('fuel_CopyableIcon');
 
     async function handleCopy() {
       await navigator.clipboard.writeText(value);

@@ -143,7 +143,7 @@ const styles = {
       fontWeight: '$medium',
     },
 
-    'input, .fuel_input-element--right': {
+    'input, .fuel_InputElementRight': {
       px: '$0',
     },
   }),

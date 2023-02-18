@@ -69,7 +69,7 @@ export const Pagination = createComponent<PaginationProps, ObjProps>(
     autoFocus,
     ...props
   }) => {
-    const classes = cx('fuel_pagination', className);
+    const classes = cx('fuel_Pagination', className);
     const pagination = usePagination({
       pagesCount,
       pagesToDisplay,

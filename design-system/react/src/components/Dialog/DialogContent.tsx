@@ -23,7 +23,7 @@ type ObjProps = {
 export const DialogContent = createComponent<DialogContentProps, ObjProps>(
   ({ as = 'div', children, className, ...props }) => {
     const dialogProps = useDialog();
-    const classes = cx('fuel_dialog_content', className);
+    const classes = cx('fuel_Dialog_content', className);
 
     const nextProps = {
       ...mergeProps(

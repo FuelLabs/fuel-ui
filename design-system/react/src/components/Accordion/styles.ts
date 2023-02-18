@@ -45,14 +45,14 @@ export const item = css({
   [`.${darkTheme} &`]: {
     backgroundColor: '$gray1',
   },
-  [`.${darkTheme} &:has(.fuel_accordion-trigger:focus-visible)`]: {
+  [`.${darkTheme} &:has(.fuel_AccordionTrigger:focus-visible)`]: {
     outline: `2px solid ${darkColors.gray4}`,
   },
 
   [`.${lightTheme} &`]: {
     backgroundColor: 'white',
   },
-  [`.${lightTheme} &:has(.fuel_accordion-trigger:focus-visible)`]: {
+  [`.${lightTheme} &:has(.fuel_AccordionTrigger:focus-visible)`]: {
     outline: `2px solid ${lightColors.gray7}`,
   },
 });
@@ -90,6 +90,7 @@ export const trigger = css({
 export const content = css({
   overflow: 'hidden',
   background: 'transparent',
+  padding: '$4',
 
   '&[data-state="open"]': {
     animation: `${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards`,

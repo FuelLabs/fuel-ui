@@ -52,6 +52,6 @@ export const Tooltip = createComponent<TooltipProps>(
 );
 
 const CLASSES = {
-  Content: cx('fuel_tooltip--content', styles.content()),
-  Arrow: cx('fuel_tooltip--arrow', styles.arrow()),
+  Content: cx('fuel_TooltipContent', styles.content()),
+  Arrow: cx('fuel_TooltipArrow', styles.arrow()),
 };

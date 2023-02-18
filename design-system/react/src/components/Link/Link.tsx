@@ -19,7 +19,7 @@ export const Link = createComponent<LinkProps>(
     const { linkProps } = useLink(props as any, ref);
     const customProps = {
       role: 'link',
-      className: cx('fuel_link', className),
+      className: cx('fuel_Link', className),
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
     };
 

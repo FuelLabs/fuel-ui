@@ -12,7 +12,7 @@ type ObjProps = {
 
 export const TagCloseButton = createComponent<TagCloseButtonsProp, ObjProps>(
   ({ className, ...props }) => {
-    const classes = cx('fuel_tag--close-btn', className);
+    const classes = cx('fuel_TagCloseBtn', className);
     return (
       <IconButton
         {...props}

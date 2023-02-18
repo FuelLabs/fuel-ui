@@ -56,7 +56,7 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
     const ref = useRef<HTMLButtonElement>(null);
     const state = useMenuTriggerState(props);
     const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref);
-    const classes = cx('fuel_dropdown', className);
+    const classes = cx('fuel_Dropdown', className);
 
     const ctxProps = {
       state,

@@ -22,7 +22,7 @@ export const InputPassword = createComponent<InputPasswordProps>(
     describedBy,
     ...props
   }) => {
-    const classes = cx('fuel_input-password', className);
+    const classes = cx('fuel_InputPassword', className);
     const [showing, setShowing] = useState(() => false);
     const inputProps = {
       size,

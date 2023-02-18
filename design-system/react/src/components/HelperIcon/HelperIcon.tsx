@@ -13,7 +13,7 @@ export type HelperIconProps = FlexProps & {
 
 export const HelperIcon = createComponent<HelperIconProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_helper-icon', className, styles());
+    const classes = cx('fuel_HelperIcon', className, styles());
     return (
       <Flex align="center" gap="$2" {...props} className={classes}>
         {children}
@@ -28,7 +28,7 @@ export const HelperIcon = createComponent<HelperIconProps>(
 const styles = css({
   display: 'inline-flex',
 
-  '& .fuel_icon': {
+  '& .fuel_Icon': {
     color: '$gray8',
   },
 });

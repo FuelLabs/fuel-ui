@@ -62,7 +62,7 @@ export const Flex = createComponent<FlexProps>(
     className,
     ...props
   }) => {
-    const classes = cx('fuel_box--flex', className);
+    const classes = cx('fuel_BoxFlex', className);
     return (
       <Box
         {...props}

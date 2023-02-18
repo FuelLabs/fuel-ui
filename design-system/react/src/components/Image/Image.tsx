@@ -7,7 +7,7 @@ export type ImageProps = HTMLProps['img'];
 
 export const Image = createComponent<ImageProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_image', className);
+    const classes = cx('fuel_Image', className);
     return createStyledElement(
       'img',
       null,

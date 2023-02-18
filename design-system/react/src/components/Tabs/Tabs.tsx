@@ -19,7 +19,7 @@ type ObjProps = {
 
 export const Tabs = createComponent<TabsProps, ObjProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_tabs', className);
+    const classes = cx('fuel_Tabs', className);
     return createStyledElement(
       TabsPrimitive.Root,
       styles.root,

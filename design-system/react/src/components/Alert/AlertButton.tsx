@@ -10,7 +10,7 @@ type ObjProps = {
 
 export const AlertButton = createComponent<ButtonProps, ObjProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_alert--button', className);
+    const classes = cx('fuel_AlertButton', className);
     const customProps = { ...props, className: classes };
     return (
       <Button {...customProps} variant="link">

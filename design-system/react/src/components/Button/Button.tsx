@@ -112,6 +112,7 @@ export const SPINNER_SIZE = {
 
 export const Button = createComponent<ButtonProps, ObjProps>(
   ({
+    css,
     as = 'button',
     size = 'md',
     color = 'accent',
@@ -134,7 +135,7 @@ export const Button = createComponent<ButtonProps, ObjProps>(
     const iconSize = getIconSize(size, initialIconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const classes = cx('fuel_button', className);
+    const classes = cx('fuel_Button', className);
 
     const innerRef = useRef<HTMLButtonElement | null>(null);
     const { buttonProps, isPressed } = useButton(
@@ -165,19 +166,10 @@ export const Button = createComponent<ButtonProps, ObjProps>(
       ...(!isLink && { 'aria-pressed': !isDisabled && isPressed }),
     };
 
-    const styleProps = {
-      size,
-      variant,
-      disabled,
-      justIcon,
-      color,
-      isLink,
-    };
-
     return createStyledElement(
-      'button',
+      as,
       styles.button,
-      styleProps,
+      { size, variant, disabled, justIcon, color, isLink, css },
       mergeProps(buttonProps, customProps),
       getChildren({
         size,

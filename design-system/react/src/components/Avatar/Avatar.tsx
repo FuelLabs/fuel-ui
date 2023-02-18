@@ -19,7 +19,7 @@ type ObjProps = {
 
 export const Avatar = createComponent<AvatarProps, ObjProps, OmitProps>(
   ({ name, size, className, css, as, ...props }) => {
-    const classes = cx('fuel_avatar', className);
+    const classes = cx('fuel_Avatar', className);
     const wrapperProps = { as, css, className: classes };
     const children = (
       <>

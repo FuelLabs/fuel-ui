@@ -10,12 +10,12 @@ export const root = css({
   gap: '$4',
   background: '$gray1',
 
-  '.fuel_alert--content': {
+  '.fuel_AlertContent': {
     flex: 1,
     gap: '$3',
   },
 
-  '& .fuel_heading': {
+  '& .fuel_Heading': {
     fontWeight: '$bold',
     textSize: 'lg',
     margin: 0,
@@ -36,11 +36,11 @@ export const root = css({
   variants: {
     status: {
       info: {
-        '& .fuel_heading, & .fuel_icon': {
+        '& .fuel_Heading, & .fuel_Icon': {
           color: '$blue11',
         },
 
-        '& .fuel_button': {
+        '& .fuel_Button': {
           p: 0,
           color: '$blue10',
           fontWeight: '$semibold',
@@ -51,11 +51,11 @@ export const root = css({
         },
       },
       warning: {
-        '& .fuel_heading, & .fuel_icon': {
+        '& .fuel_Heading, & .fuel_Icon': {
           color: '$amber11',
         },
 
-        '& .fuel_button': {
+        '& .fuel_Button': {
           p: 0,
           color: '$amber10',
           fontWeight: '$semibold',
@@ -66,11 +66,11 @@ export const root = css({
         },
       },
       success: {
-        '& .fuel_heading, & .fuel_icon': {
+        '& .fuel_Heading, & .fuel_Icon': {
           color: '$green11',
         },
 
-        '& .fuel_button': {
+        '& .fuel_Button': {
           p: 0,
           color: '$green10',
           fontWeight: '$semibold',
@@ -81,11 +81,11 @@ export const root = css({
         },
       },
       error: {
-        '& .fuel_heading, & .fuel_icon': {
+        '& .fuel_Heading, & .fuel_Icon': {
           color: '$red11',
         },
 
-        '& .fuel_button': {
+        '& .fuel_Button': {
           p: 0,
           color: '$red10',
           fontWeight: '$semibold',
@@ -99,19 +99,19 @@ export const root = css({
 
     direction: {
       column: {
-        '.fuel_alert--content': {
+        '.fuel_AlertContent': {
           flexDirection: 'column',
         },
-        '.fuel_alert--icon': {
+        '.fuel_AlertIcon': {
           pt: '5px',
           alignSelf: 'stretch',
         },
       },
       row: {
-        '.fuel_alert--content': {
+        '.fuel_AlertContent': {
           flexDirection: 'row',
         },
-        '.fuel_alert--icon': {
+        '.fuel_AlertIcon': {
           display: 'flex',
           alignSelf: 'stretch',
           alignItems: 'center',
@@ -127,6 +127,8 @@ export const root = css({
 });
 
 export const title = css({
+  display: 'flex',
+
   '& h3': {
     m: 0,
     fontSize: '$base',
@@ -138,5 +140,6 @@ export const description = css({
 });
 
 export const actions = css({
+  display: 'flex',
   gap: '$4',
 });

@@ -23,7 +23,7 @@ const BUTTON_COLORS = {
 
 export const AlertActions = createComponent<AlertActionsProps, ObjProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_alert--actions', className, styles.actions());
+    const classes = cx('fuel_AlertActions', className, styles.actions());
     const customProps = { ...props, className: classes };
 
     const parentProps = useAlertProps();

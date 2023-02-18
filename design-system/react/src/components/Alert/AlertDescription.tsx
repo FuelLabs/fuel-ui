@@ -9,7 +9,7 @@ import * as styles from './styles';
 export const AlertDescription = createComponent<BoxProps>(
   ({ children, className, ...props }) => {
     const classes = cx(
-      'fuel_alert--description',
+      'fuel_AlertDescription',
       className,
       styles.description()
     );

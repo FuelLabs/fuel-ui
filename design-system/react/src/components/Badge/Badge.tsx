@@ -14,7 +14,7 @@ export type BadgeProps = HTMLProps['span'] & {
 
 export const Badge = createComponent<BadgeProps>(
   ({ color, variant, className, children, ...props }) => {
-    const classes = cx('fuel_badge', className);
+    const classes = cx('fuel_Badge', className);
     return createStyledElement(
       'span',
       styles.badge,

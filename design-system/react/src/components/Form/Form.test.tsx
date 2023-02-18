@@ -81,8 +81,8 @@ describe('Form', () => {
       </FormComponent>
     );
 
-    const helperText = container.querySelector('.fuel_form--helper-text');
-    const errorMessage = container.querySelector('.fuel_form--error-message');
+    const helperText = container.querySelector('.fuel_FormHelperText');
+    const errorMessage = container.querySelector('.fuel_FormErrorMessage');
 
     expect(helperText).toHaveAttribute('aria-hidden', 'true');
     expect(errorMessage).toBeInTheDocument();
@@ -96,8 +96,8 @@ describe('Form', () => {
       </FormComponent>
     );
 
-    const helperText = container.querySelector('.fuel_form--helper-text');
-    const errorMessage = container.querySelector('.fuel_form--error-message');
+    const helperText = container.querySelector('.fuel_FormHelperText');
+    const errorMessage = container.querySelector('.fuel_FormErrorMessage');
 
     expect(helperText).toBeInTheDocument();
     expect(errorMessage).toHaveAttribute('aria-hidden', 'true');

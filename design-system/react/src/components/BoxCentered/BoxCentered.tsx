@@ -17,11 +17,7 @@ export type BoxCenteredProps = FlexProps & {
 
 export const BoxCentered = createComponent<BoxCenteredProps>(
   ({ minWS, minHS, className, ...props }) => {
-    const classes = cx(
-      'fuel_box-centered',
-      className,
-      styles({ minWS, minHS })
-    );
+    const classes = cx('fuel_BoxCentered', className, styles({ minWS, minHS }));
     return <Flex {...props} className={classes} />;
   }
 );

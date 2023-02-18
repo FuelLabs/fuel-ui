@@ -17,7 +17,7 @@ export const PaginationNav = createComponent<
   unknown,
   OmitProps
 >(({ direction, className, ...props }) => {
-  const classes = cx(`fuel_pagination-${direction}`, className);
+  const classes = cx(`fuel_Pagination-${direction}`, className);
   const pagination = usePaginationContext();
   const { currentPage, pagesCount } = pagination;
   const isDisabled =

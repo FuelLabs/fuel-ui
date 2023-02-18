@@ -45,7 +45,7 @@ export const Text = createComponent<TextProps>(
       iconColor
     );
     const withIcon = Boolean(leftIcon || rightIcon);
-    const classes = cx('fuel_text', className);
+    const classes = cx('fuel_Text', className);
     return createStyledElement(
       'p',
       styles,

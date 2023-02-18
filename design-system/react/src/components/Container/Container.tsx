@@ -11,7 +11,7 @@ export type ContainerProps = HTMLProps['div'] & {
 
 export const Container = createComponent<ContainerProps>(
   ({ className, size, ...props }) => {
-    const classes = cx('fuel_container', className, styles({ size }));
+    const classes = cx('fuel_Container', className, styles({ size }));
     return <Box {...props} className={classes} />;
   }
 );

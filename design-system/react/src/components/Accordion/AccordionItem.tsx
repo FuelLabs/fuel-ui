@@ -11,7 +11,7 @@ export type AccordionItemProps = AC.AccordionItemProps & {
 
 export const AccordionItem = createComponent<AccordionItemProps>(
   ({ className, children, ...props }) => {
-    const classes = cx('fuel_accordion-item', className);
+    const classes = cx('fuel_AccordionItem', className);
     return createStyledElement(
       AC.AccordionItem,
       styles.item,

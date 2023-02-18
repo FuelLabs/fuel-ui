@@ -47,7 +47,7 @@ export const Menu = createComponent<MenuProps, ObjProps>(
     const innerRef = useRef<HTMLUListElement | null>(null);
     const state = useTreeState<any>({ ...props, selectionMode });
     const { menuProps } = useMenu(props, state, innerRef);
-    const classes = cx('fuel_menu', className, styles.menu());
+    const classes = cx('fuel_Menu', className, styles.menu());
     const customProps = {
       ...omit(['disabledKeys'], props),
       ref: mergeRefs(innerRef, ref),

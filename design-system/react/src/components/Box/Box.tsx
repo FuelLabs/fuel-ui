@@ -6,10 +6,10 @@ import { createStyledElement, createComponent } from '../../utils';
 export type BoxProps = HTMLProps['div'];
 
 export const Box = createComponent<BoxProps>(
-  ({ className, children, ...props }) => {
-    const classes = cx('fuel_box', className);
+  ({ as = 'div', className, children, ...props }) => {
+    const classes = cx('fuel_Box', className);
     return createStyledElement(
-      'div',
+      as,
       styles.root,
       null,
       { ...props, className: classes },

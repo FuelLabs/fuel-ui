@@ -30,7 +30,7 @@ export const Accordion = createComponent<AccordionProps, ObjProps>(
        * TODO: Need to dig deep into this to resolve
        */
       {...(props as any)}
-      className={cx('fuel_accordion-root', className, styles.root())}
+      className={cx('fuel_AccordionRoot', className, styles.root())}
     />
   )
 );

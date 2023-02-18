@@ -15,7 +15,7 @@ export const FuelLogo = createComponent<FuelLogoProps>(
         {...props}
         viewBox="0 0 852 852"
         css={{ ...props.css, width: size, height: size }}
-        className={cx('fuel_logo', className)}
+        className={cx('fuel_Logo', className)}
       >
         <path
           fill="#58c09b"

@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import type { ReactNode } from 'react';
+import type { FunctionComponent, ReactNode } from 'react';
 
 type Children = ReactNode;
+export type As = keyof JSX.IntrinsicElements | FunctionComponent<any>;
 
 export type BaseProps<O> = {
-  as?: string | Element;
+  as?: As;
   css?: ThemeUtilsCSS;
   className?: string;
   children?: Children;

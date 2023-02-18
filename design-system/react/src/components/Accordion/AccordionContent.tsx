@@ -12,7 +12,7 @@ export type AccordionContentProps = AC.AccordionContentProps & {
 
 export const AccordionContent = createComponent<AccordionContentProps>(
   ({ className, children, ...props }) => {
-    const classes = cx('fuel_accordion-content', className);
+    const classes = cx('fuel_AccordionContent', className);
     return createStyledElement(
       AC.AccordionContent,
       styles.content,

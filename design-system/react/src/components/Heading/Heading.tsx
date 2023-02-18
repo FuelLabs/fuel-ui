@@ -45,7 +45,7 @@ export const Heading = createComponent<HeadingProps>(
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
     const withIcon = Boolean(leftIcon || rightIcon);
     const classes = cx(
-      'fuel_heading',
+      'fuel_Heading',
       className,
       styles({ fontSize, fontColor, as, withIcon })
     );
@@ -65,7 +65,7 @@ const styles = css({
   fontFamily: '$heading',
   fontWeight: '$semibold',
 
-  '& .fuel_icon': {
+  '& .fuel_Icon': {
     color: '$gray8',
   },
 

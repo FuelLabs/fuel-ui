@@ -24,7 +24,7 @@ export const AvatarGenerated = createComponent<
     hash,
     size,
   });
-  const classes = cx(className, 'fuel_avatar-generated');
+  const classes = cx(className, 'fuel_AvatarGenerated');
 
   return (
     <Box

@@ -20,7 +20,7 @@ type ObjProps = {
 
 export const Card = createComponent<CardProps, ObjProps>(
   ({ direction = 'column', children, className, ...props }) => {
-    const classes = cx('fuel_card', className, styles.card());
+    const classes = cx('fuel_Card', className, styles.card());
     const customProps = { ...props, direction, className: classes };
 
     return (

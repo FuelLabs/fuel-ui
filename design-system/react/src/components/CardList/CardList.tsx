@@ -28,7 +28,7 @@ type ObjProps = {
 
 export const CardList = createComponent<CardListProps, ObjProps>(
   ({ children, className, isClickable, autoFocus, ...props }) => {
-    const classes = cx('fuel_card-list', className);
+    const classes = cx('fuel_CardList', className);
 
     return (
       <ctx.Provider value={{ isClickable, autoFocus }}>

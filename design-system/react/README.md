@@ -170,7 +170,7 @@ export type BoxProps = HTMLProps['div'];
 const Root = styled('div');
 export const Box = createComponent<BoxProps>(
   ({ className, children, ...props }) => {
-    const classes = cx('fuel_box', className);
+    const classes = cx('fuel_Box', className);
     return createElement(Root, { ...props, className: classes }, children);
   }
 );

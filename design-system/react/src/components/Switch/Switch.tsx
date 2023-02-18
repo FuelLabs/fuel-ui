@@ -11,7 +11,7 @@ export type SwitchProps = SwitchPrimitive.SwitchProps & {
 
 export const Switch = createComponent<SwitchProps>(
   ({ size = 'md', className, ...props }) => {
-    const classes = cx('fuel_switch', className);
+    const classes = cx('fuel_Switch', className);
     return createStyledElement(
       SwitchPrimitive.Root,
       styles.root,

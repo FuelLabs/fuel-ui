@@ -57,7 +57,7 @@ export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
 
     const label = initialLabel || props['aria-label'];
     const iconProps = {
-      className: cx(`fuel_icon--${icon}`, className),
+      className: cx(`fuel_Icon-${icon}`, className),
       focusable: false,
       'aria-hidden': true,
       alt,
@@ -70,7 +70,7 @@ export const Icon = createComponent<IconProps, ObjProps, OmitProps>(
       <Flex
         as="span"
         {...omit(['aria-label'], props)}
-        className={cx('fuel_icon', wrapperClassName)}
+        className={cx('fuel_Icon', wrapperClassName)}
         align="center"
         justify="center"
         css={{

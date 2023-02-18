@@ -8,11 +8,11 @@ import { Heading } from '../Heading';
 import * as styles from './styles';
 
 export const AlertTitle = createComponent<FlexProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_alert--title', className, styles.title());
+  ({ as = 'header', css, children, className, ...props }) => {
+    const classes = cx('fuel_AlertTitle', className, styles.title({ css }));
     const customProps = { ...props, className: classes };
     return (
-      <Flex as="header" {...customProps}>
+      <Flex as={as} {...customProps}>
         <Heading as="h2">{children}</Heading>
       </Flex>
     );

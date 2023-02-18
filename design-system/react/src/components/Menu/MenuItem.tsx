@@ -40,7 +40,7 @@ export const MenuItem = createComponent<MenuItemProps>(
       ref
     );
 
-    const classes = cx('fuel_menu-list-item', className);
+    const classes = cx('fuel_MenuListItem', className);
     const customProps = {
       ...props,
       ref: mergeRefs(ref, props.ref!),
