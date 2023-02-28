@@ -1,5 +1,4 @@
 import { css } from '@fuel-ui/css';
-import type { Colors } from '@fuel-ui/css';
 
 export const root = css({
   padding: '$4',
@@ -38,22 +37,22 @@ export const root = css({
     status: {
       info: {
         '& .fuel_heading, & .fuel_icon': {
-          color: `${({ color = 'blue11' }: { color?: Colors }) => color})`,
+          color: '$blue11',
         },
 
         '& .fuel_button': {
           p: 0,
-          color: `${({ color = 'yellow10' }: { color?: Colors }) => color})`,
+          color: '$blue10',
           fontWeight: '$semibold',
         },
 
         '&:after': {
-          background: ({ color = 'blue11' }: { color?: Colors }) => color,
+          background: '$blue11',
         },
       },
       warning: {
         '& .fuel_heading, & .fuel_icon': {
-          color: ({ color }: { color?: Colors }) => color || '$amber11',
+          color: '$amber11',
         },
 
         '& .fuel_button': {
@@ -68,17 +67,17 @@ export const root = css({
       },
       success: {
         '& .fuel_heading, & .fuel_icon': {
-          color: ({ color = 'green11' }: { color?: Colors }) => color,
+          color: '$green11',
         },
 
         '& .fuel_button': {
           p: 0,
-          color: ({ color = 'green10' }: { color?: Colors }) => color,
+          color: '$green10',
           fontWeight: '$semibold',
         },
 
         '&:after': {
-          background: ({ color = 'green11' }: { color?: Colors }) => color,
+          background: '$green11',
         },
       },
       error: {

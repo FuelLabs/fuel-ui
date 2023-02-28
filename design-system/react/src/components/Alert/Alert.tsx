@@ -19,6 +19,7 @@ import * as styles from './styles';
 export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 type ContextProps = {
   status?: AlertStatus;
+  color?: Colors;
 };
 
 const ctx = createContext<ContextProps>({});
@@ -63,14 +64,14 @@ export const Alert = createComponent<AlertProps, ObjProps>(
     const classes = cx(
       'fuel_alert',
       className,
-      styles.root({ status, direction, color })
+      styles.root({ status, direction })
     );
 
     const customProps = {
-      color,
       ...props,
       direction,
       className: classes,
+      color,
     };
     const items = Children.toArray(children).map((child: any) => {
       if (child?.type?.id === 'AlertActions') {
@@ -80,10 +81,15 @@ export const Alert = createComponent<AlertProps, ObjProps>(
     });
 
     return (
-      <ctx.Provider value={{ status }}>
+      <ctx.Provider value={{ status, color }}>
         <Box {...customProps}>
           <Box className="fuel_alert--icon">
-            <Icon {...STATUS_ICONS[status]} />
+            <Icon
+              css={{
+                color: color ? `$${color}!important` : undefined,
+              }}
+              {...STATUS_ICONS[status]}
+            />
           </Box>
           <Flex className="fuel_alert--content">{items}</Flex>
         </Box>
