@@ -6,8 +6,6 @@ export const passwordChecker = (password: string, minLength: number = 6) => {
   const symbolsAndDigitsChecker =
     /(?=.*[\d])\w+/g.exec(password) !== null &&
     /(?=.*[@$!%#?&*+\\\-/_^()=[\]{}|'";:<>,.])\w+/g.exec(password) !== null;
-
-  // ^() _ =[]{}\|<>;:,.
   const casingChecker =
     /(?=.*[a-z])\w+/g.exec(password) !== null &&
     /(?=.*[A-Z])\w+/g.exec(password) !== null;
