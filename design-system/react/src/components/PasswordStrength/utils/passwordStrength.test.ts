@@ -8,6 +8,38 @@ const averageCharactersAndSymbolsPassword = 'L@w2';
 const averageCharactersAndSixDigitsPassword = 'ThisisaTest';
 const weakPassword = '123456';
 const commonPassword = 'Password1!';
+const possibleSymbols = [
+  'Qwe!',
+  'Qwe@',
+  'Qwe#',
+  'Qwe$',
+  'Qwe%',
+  'Qwe^',
+  'Qwe&',
+  'Qwe*',
+  'Qwe(',
+  'Qwe)',
+  'Qwe-',
+  'Qwe_',
+  'Qwe+',
+  'Qwe=',
+  'Qwe[',
+  'Qwe]',
+  'Qwe{',
+  'Qwe}',
+  'Qwe|',
+  'Qwe\\',
+  'Qwe;',
+  'Qwe:',
+  "Qwe'",
+  'Qwe"',
+  'Qwe/',
+  'Qwe?',
+  'Qwe.',
+  'Qwe,',
+  'Qwe<',
+  'Qwe>',
+];
 
 describe('passwordChecker', () => {
   it('should validate a strong password correctly', () => {
@@ -108,6 +140,15 @@ it('should be falsy for every rule if empty pass is provided', () => {
   expect(symbolsAndDigitsChecker).toBeFalsy();
   expect(commonChecker).toBeFalsy();
 });
+
+it.each(possibleSymbols)(
+  'should symbol checker be true for every possible symbol',
+  (passSymbol) => {
+    const { symbolsAndDigitsChecker } = passwordChecker(passSymbol);
+
+    expect(symbolsAndDigitsChecker).toBeTruthy();
+  }
+);
 
 describe('passwordStrength tests', () => {
   it('should calculate as strong', () => {
