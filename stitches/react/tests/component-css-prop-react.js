@@ -39,12 +39,12 @@ describe('React Component with CSS prop', () => {
 
     expect(RenderOf(StyledText, null, 'Radix UI test suite')).toEqual({
       type: 'span',
-      props: { className: 'c-bMUtqP' },
+      props: { className: 'fuel_bMUtqP' },
       children: ['Radix UI test suite'],
     });
 
     expect(toString()).toBe(
-      '--sxs{--sxs:2 c-bMUtqP}@media{.c-bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}}'
+      '--sxs{--sxs:2 fuel_bMUtqP}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}}'
     );
 
     const Title = React.forwardRef((props, forwardedRef) =>
@@ -82,13 +82,13 @@ describe('React Component with CSS prop', () => {
     ).toEqual({
       type: 'span',
       props: {
-        className: 'c-bMUtqP c-bMUtqP-ieTXEfC-css',
+        className: 'fuel_bMUtqP fuel_bMUtqP-ieTXEfC-css',
       },
       children: ['Radix UI test suite'],
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 c-bMUtqP}@media{.c-bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}}--sxs{--sxs:6 c-bMUtqP-ieTXEfC-css}@media{.c-bMUtqP-ieTXEfC-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px;text-align:center;margin-bottom:var(--space-3)}@media (min-width: 900px){.c-bMUtqP-ieTXEfC-css{line-height:55px;color:red}}}`
+      `--sxs{--sxs:2 fuel_bMUtqP}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}}--sxs{--sxs:6 fuel_bMUtqP-ieTXEfC-css}@media{.fuel_bMUtqP-ieTXEfC-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px;text-align:center;margin-bottom:var(--space-3)}@media (min-width: 900px){.fuel_bMUtqP-ieTXEfC-css{line-height:55px;color:red}}}`
     );
 
     // ...
@@ -101,13 +101,13 @@ describe('React Component with CSS prop', () => {
     expect(RenderOf(Link, null, 'Radix UI test suite')).toEqual({
       type: 'a',
       props: {
-        className: 'c-dnnagC',
+        className: 'fuel_dnnagC',
       },
       children: ['Radix UI test suite'],
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 c-bMUtqP c-dnnagC}@media{.c-bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}.c-dnnagC .c-bMUtqP{color:inherit}}--sxs{--sxs:6 c-bMUtqP-ieTXEfC-css}@media{.c-bMUtqP-ieTXEfC-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px;text-align:center;margin-bottom:var(--space-3)}@media (min-width: 900px){.c-bMUtqP-ieTXEfC-css{line-height:55px;color:red}}}`
+      `--sxs{--sxs:2 fuel_bMUtqP fuel_dnnagC}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}.fuel_dnnagC .fuel_bMUtqP{color:inherit}}--sxs{--sxs:6 fuel_bMUtqP-ieTXEfC-css}@media{.fuel_bMUtqP-ieTXEfC-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px;text-align:center;margin-bottom:var(--space-3)}@media (min-width: 900px){.fuel_bMUtqP-ieTXEfC-css{line-height:55px;color:red}}}`
     );
   });
 });

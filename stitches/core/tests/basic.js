@@ -33,9 +33,9 @@ describe('Basic', () => {
     const cssString2of2 = getCssText();
 
     expect(component2of2).toBeInstanceOf(Function);
-    expect(className2of2).toBe('c-dataoT');
+    expect(className2of2).toBe('fuel_dataoT');
     expect(cssString2of2).toBe(
-      `--sxs{--sxs:2 PJLV c-dataoT}@media{.c-dataoT{color:DodgerBlue}}`
+      `--sxs{--sxs:2 PJLV fuel_dataoT}@media{.fuel_dataoT{color:DodgerBlue}}`
     );
   });
 
@@ -120,13 +120,13 @@ describe('Basic', () => {
     const cssString1of1 = getCssText();
 
     expect(component1of1).toBeInstanceOf(Function);
-    expect(className1of1).toBe('c-dataoT c-dataoT-icaIZdx-css');
+    expect(className1of1).toBe('fuel_dataoT fuel_dataoT-icaIZdx-css');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 c-dataoT}@media{` +
-        `.c-dataoT{color:DodgerBlue}` +
+      `--sxs{--sxs:2 fuel_dataoT}@media{` +
+        `.fuel_dataoT{color:DodgerBlue}` +
         `}` +
-        `--sxs{--sxs:6 c-dataoT-icaIZdx-css}@media{` +
-        `.c-dataoT-icaIZdx-css{color:Crimson}` +
+        `--sxs{--sxs:6 fuel_dataoT-icaIZdx-css}@media{` +
+        `.fuel_dataoT-icaIZdx-css{color:Crimson}` +
         `}`
     );
   });
@@ -151,9 +151,9 @@ describe('Basic', () => {
     const cssString1of1 = getCssText();
 
     expect(component1of1).toBeInstanceOf(Function);
-    expect(className1of1).toBe('c-imTdEZ c-imTdEZ-caIZdx-shade-red');
+    expect(className1of1).toBe('fuel_imTdEZ fuel_imTdEZ-caIZdx-shade-red');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 c-imTdEZ}@media{.c-imTdEZ{font-size:100%}}--sxs{--sxs:3 c-imTdEZ-caIZdx-shade-red}@media{.c-imTdEZ-caIZdx-shade-red{color:Crimson}}`
+      `--sxs{--sxs:2 fuel_imTdEZ}@media{.fuel_imTdEZ{font-size:100%}}--sxs{--sxs:3 fuel_imTdEZ-caIZdx-shade-red}@media{.fuel_imTdEZ-caIZdx-shade-red{color:Crimson}}`
     );
   });
 
@@ -173,9 +173,9 @@ describe('Basic', () => {
     const className1of1 = `${component1of1()}`;
     const cssString1of1 = getCssText();
 
-    expect(className1of1).toBe('c-bStdfw');
+    expect(className1of1).toBe('fuel_bStdfw');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 c-bStdfw}@media{.c-bStdfw{-webkit-user-selector:none;user-select:none}}`
+      `--sxs{--sxs:2 fuel_bStdfw}@media{.fuel_bStdfw{-webkit-user-selector:none;user-select:none}}`
     );
   });
 
@@ -188,9 +188,9 @@ describe('Basic', () => {
     const className1of1 = `${component1of1()}`;
     const cssString1of1 = getCssText();
 
-    expect(className1of1).toBe('c-eBcQxc');
+    expect(className1of1).toBe('fuel_eBcQxc');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 c-eBcQxc}@media{.c-eBcQxc{width:100px}}`
+      `--sxs{--sxs:2 fuel_eBcQxc}@media{.fuel_eBcQxc{width:100px}}`
     );
   });
 
@@ -204,9 +204,9 @@ describe('Basic', () => {
     const className1of1 = `${component1of1()}`;
     const cssString1of1 = getCssText();
 
-    expect(className1of1).toBe('c-lpaZZu');
+    expect(className1of1).toBe('fuel_lpaZZu');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 c-lpaZZu}@media{.c-lpaZZu{width:var(--sizes-brand)}}`
+      `--sxs{--sxs:2 fuel_lpaZZu}@media{.fuel_lpaZZu{width:var(--sizes-brand)}}`
     );
   });
 
@@ -221,9 +221,9 @@ describe('Basic', () => {
     const className1of1 = `${component1of1()}`;
     const cssString1of1 = getCssText();
 
-    expect(className1of1).toBe('c-elRGCe');
+    expect(className1of1).toBe('fuel_elRGCe');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 c-elRGCe}@media{.c-elRGCe{---brand:500px;width:var(---brand)}}`
+      `--sxs{--sxs:2 fuel_elRGCe}@media{.fuel_elRGCe{---brand:500px;width:var(---brand)}}`
     );
   });
 
@@ -240,9 +240,9 @@ describe('Basic', () => {
     const className1of1 = `${component1of1()}`;
     const cssString1of1 = getCssText();
 
-    expect(className1of1).toBe('fusion-c-elRGCe');
+    expect(className1of1).toBe('fusion-fuel_elRGCe');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 fusion-c-elRGCe}@media{.fusion-c-elRGCe{--fusion--brand:500px;width:var(--fusion--brand)}}`
+      `--sxs{--sxs:2 fusion-fuel_elRGCe}@media{.fusion-fuel_elRGCe{--fusion--brand:500px;width:var(--fusion--brand)}}`
     );
   });
 
@@ -264,9 +264,9 @@ describe('Basic', () => {
     const className1of1 = `${component1of1()}`;
     const cssString1of1 = getCssText();
 
-    expect(className1of1).toBe('c-brAtkJ');
+    expect(className1of1).toBe('fuel_brAtkJ');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 c-brAtkJ}@media{.c-brAtkJ{---blur:test;-webkit-backdrop-filter:var(---blur);backdrop-filter:var(---blur)}}`
+      `--sxs{--sxs:2 fuel_brAtkJ}@media{.fuel_brAtkJ{---blur:test;-webkit-backdrop-filter:var(---blur);backdrop-filter:var(---blur)}}`
     );
   });
 

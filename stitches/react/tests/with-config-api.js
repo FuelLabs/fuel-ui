@@ -13,9 +13,9 @@ describe('styled.withConfig', () => {
 
     const cssString = getCssText();
 
-    expect(className).toBe('c-dataoT');
+    expect(className).toBe('fuel_dataoT');
     expect(cssString).toBe(
-      `--sxs{--sxs:2 c-dataoT}@media{.c-dataoT{color:DodgerBlue}}`
+      `--sxs{--sxs:2 fuel_dataoT}@media{.fuel_dataoT{color:DodgerBlue}}`
     );
   });
 
@@ -32,9 +32,9 @@ describe('styled.withConfig', () => {
 
     const cssString = getCssText();
 
-    expect(className).toBe('c-cool-id');
+    expect(className).toBe('fuel_cool-id');
     expect(cssString).toBe(
-      `--sxs{--sxs:2 c-cool-id}@media{.c-cool-id{color:red}}`
+      `--sxs{--sxs:2 fuel_cool-id}@media{.fuel_cool-id{color:red}}`
     );
   });
 
@@ -51,9 +51,9 @@ describe('styled.withConfig', () => {
 
     const cssString = getCssText();
 
-    expect(className).toBe('c-my-cool-display-name-gmqXFB');
+    expect(className).toBe('fuel_my-cool-display-name-gmqXFB');
     expect(cssString).toBe(
-      `--sxs{--sxs:2 c-my-cool-display-name-gmqXFB}@media{.c-my-cool-display-name-gmqXFB{color:red}}`
+      `--sxs{--sxs:2 fuel_my-cool-display-name-gmqXFB}@media{.fuel_my-cool-display-name-gmqXFB{color:red}}`
     );
   });
 
@@ -71,9 +71,9 @@ describe('styled.withConfig', () => {
 
     const cssString = getCssText();
 
-    expect(className).toBe('c-my-cool-display-name-cool-id');
+    expect(className).toBe('fuel_my-cool-display-name-cool-id');
     expect(cssString).toBe(
-      `--sxs{--sxs:2 c-my-cool-display-name-cool-id}@media{.c-my-cool-display-name-cool-id{color:red}}`
+      `--sxs{--sxs:2 fuel_my-cool-display-name-cool-id}@media{.fuel_my-cool-display-name-cool-id{color:red}}`
     );
   });
 
@@ -104,9 +104,11 @@ describe('styled.withConfig', () => {
 
     const cssString = getCssText();
 
-    expect(className).toBe('c-component-to-extend-id c-cool-component-id');
+    expect(className).toBe(
+      'fuel_component-to-extend-id fuel_cool-component-id'
+    );
     expect(cssString).toBe(
-      `--sxs{--sxs:2 c-component-to-extend-id c-cool-component-id}@media{.c-component-to-extend-id{color:red}.c-cool-component-id{color:blue}}`
+      `--sxs{--sxs:2 fuel_component-to-extend-id fuel_cool-component-id}@media{.fuel_component-to-extend-id{color:red}.fuel_cool-component-id{color:blue}}`
     );
   });
 });

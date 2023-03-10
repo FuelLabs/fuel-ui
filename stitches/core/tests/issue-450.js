@@ -55,27 +55,27 @@ describe('Issue #450', () => {
     test('Render component1() as red, inherited from defaultVariants', () => {
       const { component1, getCssText } = getFreshComponents();
       const render = component1();
-      expect(render.className).toBe(`c-PJLV c-PJLV-gmqXFB-color-red`);
+      expect(render.className).toBe(`fuel_PJLV fuel_PJLV-gmqXFB-color-red`);
       expect(getCssText()).toBe(
-        `--sxs{--sxs:3 c-PJLV-gmqXFB-color-red}@media{.c-PJLV-gmqXFB-color-red{color:red}}`
+        `--sxs{--sxs:3 fuel_PJLV-gmqXFB-color-red}@media{.fuel_PJLV-gmqXFB-color-red{color:red}}`
       );
     });
 
     test('Render component1({ color: "blue" }) as blue, assigned from props', () => {
       const { component1, getCssText } = getFreshComponents();
       const render = component1({ color: 'blue' });
-      expect(render.className).toBe(`c-PJLV c-PJLV-kydkiA-color-blue`);
+      expect(render.className).toBe(`fuel_PJLV fuel_PJLV-kydkiA-color-blue`);
       expect(getCssText()).toBe(
-        `--sxs{--sxs:3 c-PJLV-kydkiA-color-blue}@media{.c-PJLV-kydkiA-color-blue{color:blue}}`
+        `--sxs{--sxs:3 fuel_PJLV-kydkiA-color-blue}@media{.fuel_PJLV-kydkiA-color-blue{color:blue}}`
       );
     });
 
     test('Render component1({ color: "red" }) as red, assigned from props', () => {
       const { component1, getCssText } = getFreshComponents();
       const render = component1({ color: 'red' });
-      expect(render.className).toBe(`c-PJLV c-PJLV-gmqXFB-color-red`);
+      expect(render.className).toBe(`fuel_PJLV fuel_PJLV-gmqXFB-color-red`);
       expect(getCssText()).toBe(
-        `--sxs{--sxs:3 c-PJLV-gmqXFB-color-red}@media{.c-PJLV-gmqXFB-color-red{color:red}}`
+        `--sxs{--sxs:3 fuel_PJLV-gmqXFB-color-red}@media{.fuel_PJLV-gmqXFB-color-red{color:red}}`
       );
     });
 
@@ -85,10 +85,10 @@ describe('Issue #450', () => {
         color: { '@media (min-width: 640px)': 'blue' },
       });
       expect(render.className).toBe(
-        `c-PJLV c-PJLV-gmqXFB-color-red c-PJLV-bBevdw-color-blue`
+        `fuel_PJLV fuel_PJLV-gmqXFB-color-red fuel_PJLV-bBevdw-color-blue`
       );
       expect(getCssText()).toBe(
-        `--sxs{--sxs:3 c-PJLV-gmqXFB-color-red}@media{.c-PJLV-gmqXFB-color-red{color:red}}--sxs{--sxs:4 c-PJLV-bBevdw-color-blue}@media{@media (min-width: 640px){.c-PJLV-bBevdw-color-blue{color:blue}}}`
+        `--sxs{--sxs:3 fuel_PJLV-gmqXFB-color-red}@media{.fuel_PJLV-gmqXFB-color-red{color:red}}--sxs{--sxs:4 fuel_PJLV-bBevdw-color-blue}@media{@media (min-width: 640px){.fuel_PJLV-bBevdw-color-blue{color:blue}}}`
       );
     });
 
@@ -96,9 +96,9 @@ describe('Issue #450', () => {
       const { component2, getCssText } = getFreshComponents();
       const render = component2();
 
-      expect(render.className).toBe(`c-PJLV c-PJLV-vMTTG-color-orange`);
+      expect(render.className).toBe(`fuel_PJLV fuel_PJLV-vMTTG-color-orange`);
       expect(getCssText()).toBe(
-        `--sxs{--sxs:3 c-PJLV-vMTTG-color-orange}@media{.c-PJLV-vMTTG-color-orange{color:orange}}`
+        `--sxs{--sxs:3 fuel_PJLV-vMTTG-color-orange}@media{.fuel_PJLV-vMTTG-color-orange{color:orange}}`
       );
     });
 
@@ -108,13 +108,13 @@ describe('Issue #450', () => {
         color: { '@media (min-width: 640px)': 'blue' },
       });
       expect(render.className).toBe(
-        `c-PJLV c-PJLV-bBevdw-color-blue c-PJLV-vMTTG-color-orange`
+        `fuel_PJLV fuel_PJLV-bBevdw-color-blue fuel_PJLV-vMTTG-color-orange`
       );
       expect(getCssText()).toBe(
-        `--sxs{--sxs:3 c-PJLV-vMTTG-color-orange}` +
-          `@media{.c-PJLV-vMTTG-color-orange{color:orange}}` +
-          `--sxs{--sxs:4 c-PJLV-bBevdw-color-blue}@media{` +
-          `@media (min-width: 640px){.c-PJLV-bBevdw-color-blue{color:blue}}` +
+        `--sxs{--sxs:3 fuel_PJLV-vMTTG-color-orange}` +
+          `@media{.fuel_PJLV-vMTTG-color-orange{color:orange}}` +
+          `--sxs{--sxs:4 fuel_PJLV-bBevdw-color-blue}@media{` +
+          `@media (min-width: 640px){.fuel_PJLV-bBevdw-color-blue{color:blue}}` +
           `}`
       );
     });
@@ -170,22 +170,24 @@ describe('Issue #450', () => {
     test('Render component1()', () => {
       const { component1, getCssText } = getFreshComponents();
       const render = component1();
-      expect(render.className).toBe(`c-jyxqjt`);
+      expect(render.className).toBe(`fuel_jyxqjt`);
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 c-jyxqjt}@media{.c-jyxqjt{--component:1}}`
+        `--sxs{--sxs:2 fuel_jyxqjt}@media{.fuel_jyxqjt{--component:1}}`
       );
     });
 
     test('Render component1({ color: "lightBlue" })', () => {
       const { component1, getCssText } = getFreshComponents();
       const render = component1({ color: 'lightBlue' });
-      expect(render.className).toBe(`c-jyxqjt c-jyxqjt-ilDyRi-color-lightBlue`);
+      expect(render.className).toBe(
+        `fuel_jyxqjt fuel_jyxqjt-ilDyRi-color-lightBlue`
+      );
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 c-jyxqjt}@media{` +
-          `.c-jyxqjt{--component:1}` +
+        `--sxs{--sxs:2 fuel_jyxqjt}@media{` +
+          `.fuel_jyxqjt{--component:1}` +
           `}` +
-          `--sxs{--sxs:3 c-jyxqjt-ilDyRi-color-lightBlue}@media{` +
-          `.c-jyxqjt-ilDyRi-color-lightBlue{--color:lightBlue}` +
+          `--sxs{--sxs:3 fuel_jyxqjt-ilDyRi-color-lightBlue}@media{` +
+          `.fuel_jyxqjt-ilDyRi-color-lightBlue{--color:lightBlue}` +
           `}`
       );
     });
@@ -194,14 +196,14 @@ describe('Issue #450', () => {
       const { component1, getCssText } = getFreshComponents();
       const render = component1({ appearance: 'secondary' });
       expect(render.className).toBe(
-        `c-jyxqjt c-jyxqjt-cOChOn-appearance-secondary`
+        `fuel_jyxqjt fuel_jyxqjt-cOChOn-appearance-secondary`
       );
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 c-jyxqjt}@media{` +
-          `.c-jyxqjt{--component:1}` +
+        `--sxs{--sxs:2 fuel_jyxqjt}@media{` +
+          `.fuel_jyxqjt{--component:1}` +
           `}` +
-          `--sxs{--sxs:3 c-jyxqjt-cOChOn-appearance-secondary}@media{` +
-          `.c-jyxqjt-cOChOn-appearance-secondary{--appearance:secondary}` +
+          `--sxs{--sxs:3 fuel_jyxqjt-cOChOn-appearance-secondary}@media{` +
+          `.fuel_jyxqjt-cOChOn-appearance-secondary{--appearance:secondary}` +
           `}`
       );
     });
@@ -213,18 +215,18 @@ describe('Issue #450', () => {
         color: 'lightBlue',
       });
       expect(render.className).toBe(
-        `c-jyxqjt c-jyxqjt-cOChOn-appearance-secondary c-jyxqjt-ilDyRi-color-lightBlue c-jyxqjt-gYqlvA-cv`
+        `fuel_jyxqjt fuel_jyxqjt-cOChOn-appearance-secondary fuel_jyxqjt-ilDyRi-color-lightBlue fuel_jyxqjt-gYqlvA-cv`
       );
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 c-jyxqjt}@media{` +
-          `.c-jyxqjt{--component:1}` +
+        `--sxs{--sxs:2 fuel_jyxqjt}@media{` +
+          `.fuel_jyxqjt{--component:1}` +
           `}` +
-          `--sxs{--sxs:3 c-jyxqjt-cOChOn-appearance-secondary c-jyxqjt-ilDyRi-color-lightBlue}@media{` +
-          `.c-jyxqjt-cOChOn-appearance-secondary{--appearance:secondary}` +
-          `.c-jyxqjt-ilDyRi-color-lightBlue{--color:lightBlue}` +
+          `--sxs{--sxs:3 fuel_jyxqjt-cOChOn-appearance-secondary fuel_jyxqjt-ilDyRi-color-lightBlue}@media{` +
+          `.fuel_jyxqjt-cOChOn-appearance-secondary{--appearance:secondary}` +
+          `.fuel_jyxqjt-ilDyRi-color-lightBlue{--color:lightBlue}` +
           `}` +
-          `--sxs{--sxs:5 c-jyxqjt-gYqlvA-cv}@media{` +
-          `.c-jyxqjt-gYqlvA-cv{--compound:appearance secondary / color lightBlue}` +
+          `--sxs{--sxs:5 fuel_jyxqjt-gYqlvA-cv}@media{` +
+          `.fuel_jyxqjt-gYqlvA-cv{--compound:appearance secondary / color lightBlue}` +
           `}`
       );
     });
@@ -233,19 +235,19 @@ describe('Issue #450', () => {
       const { component2, getCssText } = getFreshComponents();
       const render = component2();
       expect(render.className).toBe(
-        `c-jyxqjt c-dkRcuu c-jyxqjt-cOChOn-appearance-secondary c-jyxqjt-ilDyRi-color-lightBlue c-jyxqjt-gYqlvA-cv`
+        `fuel_jyxqjt fuel_dkRcuu fuel_jyxqjt-cOChOn-appearance-secondary fuel_jyxqjt-ilDyRi-color-lightBlue fuel_jyxqjt-gYqlvA-cv`
       );
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 c-jyxqjt c-dkRcuu}@media{` +
-          `.c-jyxqjt{--component:1}` +
-          `.c-dkRcuu{--component:2}` +
+        `--sxs{--sxs:2 fuel_jyxqjt fuel_dkRcuu}@media{` +
+          `.fuel_jyxqjt{--component:1}` +
+          `.fuel_dkRcuu{--component:2}` +
           `}` +
-          `--sxs{--sxs:3 c-jyxqjt-cOChOn-appearance-secondary c-jyxqjt-ilDyRi-color-lightBlue}@media{` +
-          `.c-jyxqjt-cOChOn-appearance-secondary{--appearance:secondary}` +
-          `.c-jyxqjt-ilDyRi-color-lightBlue{--color:lightBlue}` +
+          `--sxs{--sxs:3 fuel_jyxqjt-cOChOn-appearance-secondary fuel_jyxqjt-ilDyRi-color-lightBlue}@media{` +
+          `.fuel_jyxqjt-cOChOn-appearance-secondary{--appearance:secondary}` +
+          `.fuel_jyxqjt-ilDyRi-color-lightBlue{--color:lightBlue}` +
           `}` +
-          `--sxs{--sxs:5 c-jyxqjt-gYqlvA-cv}@media{` +
-          `.c-jyxqjt-gYqlvA-cv{--compound:appearance secondary / color lightBlue}` +
+          `--sxs{--sxs:5 fuel_jyxqjt-gYqlvA-cv}@media{` +
+          `.fuel_jyxqjt-gYqlvA-cv{--compound:appearance secondary / color lightBlue}` +
           `}`
       );
     });
@@ -257,19 +259,19 @@ describe('Issue #450', () => {
         color: 'lightBlue',
       });
       expect(render.className).toBe(
-        `c-jyxqjt c-dkRcuu c-jyxqjt-cOChOn-appearance-secondary c-jyxqjt-ilDyRi-color-lightBlue c-jyxqjt-gYqlvA-cv`
+        `fuel_jyxqjt fuel_dkRcuu fuel_jyxqjt-cOChOn-appearance-secondary fuel_jyxqjt-ilDyRi-color-lightBlue fuel_jyxqjt-gYqlvA-cv`
       );
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 c-jyxqjt c-dkRcuu}@media{` +
-          `.c-jyxqjt{--component:1}` +
-          `.c-dkRcuu{--component:2}` +
+        `--sxs{--sxs:2 fuel_jyxqjt fuel_dkRcuu}@media{` +
+          `.fuel_jyxqjt{--component:1}` +
+          `.fuel_dkRcuu{--component:2}` +
           `}` +
-          `--sxs{--sxs:3 c-jyxqjt-cOChOn-appearance-secondary c-jyxqjt-ilDyRi-color-lightBlue}@media{` +
-          `.c-jyxqjt-cOChOn-appearance-secondary{--appearance:secondary}` +
-          `.c-jyxqjt-ilDyRi-color-lightBlue{--color:lightBlue}` +
+          `--sxs{--sxs:3 fuel_jyxqjt-cOChOn-appearance-secondary fuel_jyxqjt-ilDyRi-color-lightBlue}@media{` +
+          `.fuel_jyxqjt-cOChOn-appearance-secondary{--appearance:secondary}` +
+          `.fuel_jyxqjt-ilDyRi-color-lightBlue{--color:lightBlue}` +
           `}` +
-          `--sxs{--sxs:5 c-jyxqjt-gYqlvA-cv}@media{` +
-          `.c-jyxqjt-gYqlvA-cv{--compound:appearance secondary / color lightBlue}` +
+          `--sxs{--sxs:5 fuel_jyxqjt-gYqlvA-cv}@media{` +
+          `.fuel_jyxqjt-gYqlvA-cv{--compound:appearance secondary / color lightBlue}` +
           `}`
       );
     });

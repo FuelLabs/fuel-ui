@@ -19,11 +19,11 @@ describe('Component with CSS prop', () => {
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 c-hhyRYU}@media{` +
-        `.c-hhyRYU{order:1}` +
+      `--sxs{--sxs:2 fuel_hhyRYU}@media{` +
+        `.fuel_hhyRYU{order:1}` +
         `}` +
-        `--sxs{--sxs:6 c-hhyRYU-ilhKMMn-css}@media{` +
-        `.c-hhyRYU-ilhKMMn-css{order:2}` +
+        `--sxs{--sxs:6 fuel_hhyRYU-ilhKMMn-css}@media{` +
+        `.fuel_hhyRYU-ilhKMMn-css{order:2}` +
         `}`
     );
   });

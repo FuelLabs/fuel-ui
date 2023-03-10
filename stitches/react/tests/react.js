@@ -38,14 +38,14 @@ describe('React', () => {
     expect(wrapper.toJSON()).toEqual({
       type: 'button',
       props: {
-        className: 'c-iSEgvG',
+        className: 'fuel_iSEgvG',
       },
       children: null,
     });
 
     expect(sheet.toString()).toEqual(
-      `--sxs{--sxs:2 c-iSEgvG}@media{` +
-        `.c-iSEgvG{` +
+      `--sxs{--sxs:2 fuel_iSEgvG}@media{` +
+        `.fuel_iSEgvG{` +
         `background-color:gainsboro;` +
         `border-radius:9999px;` +
         `font-weight:500;` +
@@ -53,7 +53,7 @@ describe('React', () => {
         `border:0;` +
         `transition:all 200ms ease` +
         `}` +
-        `.c-iSEgvG:hover{` +
+        `.fuel_iSEgvG:hover{` +
         `transform:translateY(-2px);` +
         `box-shadow:0 10px 25px rgba(0, 0, 0, .3)` +
         `}` +

@@ -13,10 +13,10 @@ describe('Issue #519', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 fusion-c-fjkySu}` +
+      `--sxs{--sxs:2 fusion-fuel_fjkySu}` +
         `@media{` +
-        `.fusion-c-fjkySu{--fusion--syntax:red}` +
-        `.fusion-c-fjkySu h1{color:var(--fusion--syntax)}` +
+        `.fusion-fuel_fjkySu{--fusion--syntax:red}` +
+        `.fusion-fuel_fjkySu h1{color:var(--fusion--syntax)}` +
         `}`
     );
   });
@@ -33,10 +33,10 @@ describe('Issue #519', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-fjkySu}` +
+      `--sxs{--sxs:2 fuel_fjkySu}` +
         `@media{` +
-        `.c-fjkySu{---syntax:red}` +
-        `.c-fjkySu h1{color:var(---syntax)}` +
+        `.fuel_fjkySu{---syntax:red}` +
+        `.fuel_fjkySu h1{color:var(---syntax)}` +
         `}`
     );
   });
@@ -57,11 +57,11 @@ describe('Issue #519', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 fusion-c-lkpaIy}` +
+      `--sxs{--sxs:2 fusion-fuel_lkpaIy}` +
         `@media{` +
-        `.fusion-c-lkpaIy{--fusion--syntax:red}` +
-        `.fusion-c-lkpaIy h1{color:var(--fusion--syntax)}` +
-        `.fusion-c-lkpaIy h2{color:var(--fusion--syntax)}` +
+        `.fusion-fuel_lkpaIy{--fusion--syntax:red}` +
+        `.fusion-fuel_lkpaIy h1{color:var(--fusion--syntax)}` +
+        `.fusion-fuel_lkpaIy h2{color:var(--fusion--syntax)}` +
         `}`
     );
   });
@@ -82,11 +82,11 @@ describe('Issue #519', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-lkpaIy}` +
+      `--sxs{--sxs:2 fuel_lkpaIy}` +
         `@media{` +
-        `.c-lkpaIy{---syntax:red}` +
-        `.c-lkpaIy h1{color:var(---syntax)}` +
-        `.c-lkpaIy h2{color:var(---syntax)}` +
+        `.fuel_lkpaIy{---syntax:red}` +
+        `.fuel_lkpaIy h1{color:var(---syntax)}` +
+        `.fuel_lkpaIy h2{color:var(---syntax)}` +
         `}`
     );
   });
@@ -111,12 +111,12 @@ describe('Issue #519', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 fusion-c-kbkiiL}` +
+      `--sxs{--sxs:2 fusion-fuel_kbkiiL}` +
         `@media{` +
-        `.fusion-c-kbkiiL{--fusion--syntax:red}` +
-        `.fusion-c-kbkiiL h1{color:var(--fusion--syntax)}` +
-        `.fusion-c-kbkiiL h2{color:var(--fusion--syntax)}` +
-        `.fusion-c-kbkiiL h3{color:var(--fusion--syntax)}` +
+        `.fusion-fuel_kbkiiL{--fusion--syntax:red}` +
+        `.fusion-fuel_kbkiiL h1{color:var(--fusion--syntax)}` +
+        `.fusion-fuel_kbkiiL h2{color:var(--fusion--syntax)}` +
+        `.fusion-fuel_kbkiiL h3{color:var(--fusion--syntax)}` +
         `}`
     );
   });
@@ -141,12 +141,12 @@ describe('Issue #519', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-kbkiiL}` +
+      `--sxs{--sxs:2 fuel_kbkiiL}` +
         `@media{` +
-        `.c-kbkiiL{---syntax:red}` +
-        `.c-kbkiiL h1{color:var(---syntax)}` +
-        `.c-kbkiiL h2{color:var(---syntax)}` +
-        `.c-kbkiiL h3{color:var(---syntax)}` +
+        `.fuel_kbkiiL{---syntax:red}` +
+        `.fuel_kbkiiL h1{color:var(---syntax)}` +
+        `.fuel_kbkiiL h2{color:var(---syntax)}` +
+        `.fuel_kbkiiL h3{color:var(---syntax)}` +
         `}`
     );
   });

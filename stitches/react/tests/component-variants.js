@@ -46,7 +46,7 @@ describe('Variants', () => {
     const component = styled('div', componentConfig);
     const expression = component.render();
 
-    expect(expression.props.className).toBe('c-PJLV');
+    expect(expression.props.className).toBe('fuel_PJLV');
     expect(toString()).toBe('');
   });
 
@@ -55,21 +55,25 @@ describe('Variants', () => {
     const component = styled('div', componentConfig);
     const expression1 = component.render({ size: 'small' });
 
-    const expression1CssText = '.c-PJLV-Gaggi-size-small{font-size:16px}';
+    const expression1CssText = '.fuel_PJLV-Gaggi-size-small{font-size:16px}';
 
-    expect(expression1.props.className).toBe('c-PJLV c-PJLV-Gaggi-size-small');
+    expect(expression1.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small'
+    );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{${expression1CssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${expression1CssText}}`
     );
 
     const expression2 = component.render({ color: 'blue' });
 
     const expression2CssText =
-      '.c-PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
+      '.fuel_PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
 
-    expect(expression2.props.className).toBe('c-PJLV c-PJLV-kaCQqN-color-blue');
+    expect(expression2.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue'
+    );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small c-PJLV-kaCQqN-color-blue}@media{${expression1CssText}${expression2CssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-kaCQqN-color-blue}@media{${expression1CssText}${expression2CssText}}`
     );
   });
 
@@ -79,15 +83,15 @@ describe('Variants', () => {
     const expression = component.render({ size: 'small', level: 1 });
 
     expect(expression.props.className).toBe(
-      'c-PJLV c-PJLV-Gaggi-size-small c-PJLV-iRwLiB-level-1'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1'
     );
 
     const expressionSizeSmallCssText =
-      '.c-PJLV-Gaggi-size-small{font-size:16px}';
-    const expressionLevel1CssText = '.c-PJLV-iRwLiB-level-1{padding:0.5em}';
+      '.fuel_PJLV-Gaggi-size-small{font-size:16px}';
+    const expressionLevel1CssText = '.fuel_PJLV-iRwLiB-level-1{padding:0.5em}';
 
     expect(toString()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small c-PJLV-iRwLiB-level-1}@media{${expressionSizeSmallCssText}${expressionLevel1CssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{${expressionSizeSmallCssText}${expressionLevel1CssText}}`
     );
   });
 
@@ -97,19 +101,20 @@ describe('Variants', () => {
     const expression = component.render({ size: 'small', color: 'blue' });
 
     const expressionSizeSmallCssText =
-      '.c-PJLV-Gaggi-size-small{font-size:16px}';
+      '.fuel_PJLV-Gaggi-size-small{font-size:16px}';
     const expressionColorBlueCssText =
-      '.c-PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
-    const expressionCompoundCssText = '.c-PJLV-cChFtv-cv{transform:scale(1.2)}';
+      '.fuel_PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
+    const expressionCompoundCssText =
+      '.fuel_PJLV-cChFtv-cv{transform:scale(1.2)}';
 
     expect(expression.props.className).toBe(
-      'c-PJLV c-PJLV-kaCQqN-color-blue c-PJLV-Gaggi-size-small c-PJLV-cChFtv-cv'
+      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv'
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 c-PJLV-kaCQqN-color-blue c-PJLV-Gaggi-size-small}@media{` +
+      `--sxs{--sxs:3 fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small}@media{` +
         expressionColorBlueCssText +
         expressionSizeSmallCssText +
-        `}--sxs{--sxs:5 c-PJLV-cChFtv-cv}@media{` +
+        `}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{` +
         expressionCompoundCssText +
         `}`
     );
@@ -165,9 +170,11 @@ describe('Variants with defaults', () => {
     const component = styled('div', componentConfig);
     const expression = component.render();
 
-    expect(expression.props.className).toBe('c-PJLV c-PJLV-Gaggi-size-small');
+    expect(expression.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small'
+    );
     expect(toString()).toBe(
-      '--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{.c-PJLV-Gaggi-size-small{font-size:16px}}'
+      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}'
     );
   });
 
@@ -176,9 +183,11 @@ describe('Variants with defaults', () => {
     const component = styled('div', componentConfig);
     const expression = component.render({ size: 'small' });
 
-    expect(expression.props.className).toBe('c-PJLV c-PJLV-Gaggi-size-small');
+    expect(expression.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small'
+    );
     expect(toString()).toBe(
-      '--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{.c-PJLV-Gaggi-size-small{font-size:16px}}'
+      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}'
     );
   });
 
@@ -187,9 +196,11 @@ describe('Variants with defaults', () => {
     const component = styled('div', componentConfig);
     const expression = component.render({ size: 'large' });
 
-    expect(expression.props.className).toBe('c-PJLV c-PJLV-hsYHIj-size-large');
+    expect(expression.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-hsYHIj-size-large'
+    );
     expect(toString()).toBe(
-      '--sxs{--sxs:3 c-PJLV-hsYHIj-size-large}@media{.c-PJLV-hsYHIj-size-large{font-size:24px}}'
+      '--sxs{--sxs:3 fuel_PJLV-hsYHIj-size-large}@media{.fuel_PJLV-hsYHIj-size-large{font-size:24px}}'
     );
   });
 
@@ -199,14 +210,14 @@ describe('Variants with defaults', () => {
     const expression = component.render({ level: 1 });
 
     expect(expression.props.className).toBe(
-      'c-PJLV c-PJLV-Gaggi-size-small c-PJLV-iRwLiB-level-1'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1'
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small c-PJLV-iRwLiB-level-1}@media{` +
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{` +
         // implicit size:small
-        `.c-PJLV-Gaggi-size-small{font-size:16px}` +
+        `.fuel_PJLV-Gaggi-size-small{font-size:16px}` +
         // explicit level:1
-        `.c-PJLV-iRwLiB-level-1{padding:0.5em}` +
+        `.fuel_PJLV-iRwLiB-level-1{padding:0.5em}` +
         `}`
     );
   });
@@ -217,17 +228,17 @@ describe('Variants with defaults', () => {
     const expression = component.render({ color: 'blue' });
 
     expect(expression.props.className).toBe(
-      'c-PJLV c-PJLV-kaCQqN-color-blue c-PJLV-Gaggi-size-small c-PJLV-cChFtv-cv'
+      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv'
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 c-PJLV-kaCQqN-color-blue c-PJLV-Gaggi-size-small}@media{` +
+      `--sxs{--sxs:3 fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small}@media{` +
         // explicit color:blue
-        `.c-PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}` +
+        `.fuel_PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}` +
         // implicit size:small
-        `.c-PJLV-Gaggi-size-small{font-size:16px}` +
-        `}--sxs{--sxs:5 c-PJLV-cChFtv-cv}@media{` +
+        `.fuel_PJLV-Gaggi-size-small{font-size:16px}` +
+        `}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{` +
         // compound color:blue + size:small
-        `.c-PJLV-cChFtv-cv{transform:scale(1.2)}` +
+        `.fuel_PJLV-cChFtv-cv{transform:scale(1.2)}` +
         `}`
     );
   });
@@ -237,7 +248,7 @@ describe('Variants with defaults', () => {
     const component = styled('div', componentConfig);
     const selector = component.toString();
 
-    expect(selector).toBe('.c-PJLV');
+    expect(selector).toBe('.fuel_PJLV');
     expect(toString()).toBe('');
   });
 });
@@ -294,7 +305,7 @@ describe('Conditional variants', () => {
   test('Renders a component with no variant applied', () => {
     const { styled, toString } = createStitches(config);
     const component = styled('div', componentConfig);
-    const componentClassName = 'c-PJLV';
+    const componentClassName = 'fuel_PJLV';
 
     expect(component.render().props.className).toBe(componentClassName);
     expect(toString()).toBe('');
@@ -303,7 +314,7 @@ describe('Conditional variants', () => {
   test('Renders a component with one variant applied', () => {
     const { styled, toString } = createStitches(config);
     const component = styled('div', componentConfig);
-    const componentClassName = `c-PJLV`;
+    const componentClassName = `fuel_PJLV`;
     const componentSmallClassName = `${componentClassName}-Gaggi-size-small`;
     const componentSmallCssText = `.${componentSmallClassName}{font-size:16px}`;
 
@@ -311,14 +322,14 @@ describe('Conditional variants', () => {
       [componentClassName, componentSmallClassName].join(' ')
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{${componentSmallCssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${componentSmallCssText}}`
     );
   });
 
   test('Renders a component with one conditional variant on one breakpoint applied', () => {
     const { styled, toString } = createStitches(config);
     const component = styled('div', componentConfig);
-    const componentClassName = `c-PJLV`;
+    const componentClassName = `fuel_PJLV`;
     const componentSmallBp1ClassName = `${componentClassName}-fHtTAQ-size-small`;
     const componentSmallBp1CssText = `@media (max-width: 767px){.${componentSmallBp1ClassName}{font-size:16px}}`;
 
@@ -326,7 +337,7 @@ describe('Conditional variants', () => {
       component.render({ size: { '@bp1': 'small' } }).props.className
     ).toBe([componentClassName, componentSmallBp1ClassName].join(' '));
     expect(toString()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small}@media{` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small}@media{` +
         componentSmallBp1CssText +
         `}`
     );
@@ -335,7 +346,7 @@ describe('Conditional variants', () => {
   test('Renders a component with one conditional variant on two breakpoints applied', () => {
     const { styled, toString } = createStitches(config);
     const component = styled('div', componentConfig);
-    const componentClassName = `c-PJLV`;
+    const componentClassName = `fuel_PJLV`;
     const componentSmallBp1ClassName = `${componentClassName}-fHtTAQ-size-small`;
     const componentLargeBp2ClassName = `${componentClassName}-XwbVw-size-large`;
     const componentSmallBp1CssText = `@media (max-width: 767px){.${componentSmallBp1ClassName}{font-size:16px}}`;
@@ -352,7 +363,7 @@ describe('Conditional variants', () => {
       ].join(' ')
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large}@media{` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         componentSmallBp1CssText +
         componentLargeBp2CssText +
         `}`
@@ -362,11 +373,11 @@ describe('Conditional variants', () => {
   test('Renders a component with a conditional variant repeatedly', () => {
     const { styled, toString } = createStitches(config);
     const component = styled('div', componentConfig);
-    const componentClassName = `c-PJLV`;
+    const componentClassName = `fuel_PJLV`;
     const componentSmallBp1ClassName = `${componentClassName}-fHtTAQ-size-small`;
     const componentLargeBp2ClassName = `${componentClassName}-XwbVw-size-large`;
     const componentSmallBp1CssText = `@media (max-width: 767px){.${componentSmallBp1ClassName}{font-size:16px}}`;
-    const componentLargeBp2CssText = `@media (min-width: 768px){.c-PJLV-XwbVw-size-large{font-size:24px}}`;
+    const componentLargeBp2CssText = `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}`;
 
     expect(
       component.render({ size: { '@bp1': 'small', '@bp2': 'large' } }).props
@@ -379,7 +390,7 @@ describe('Conditional variants', () => {
       ].join(' ')
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large}@media{` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         componentSmallBp1CssText +
         componentLargeBp2CssText +
         `}`
@@ -396,20 +407,20 @@ describe('Conditional variants', () => {
       ].join(' ')
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large}@media{` +
-        `@media (max-width: 767px){.c-PJLV-fHtTAQ-size-small{font-size:16px}}` +
-        `@media (min-width: 768px){.c-PJLV-XwbVw-size-large{font-size:24px}}` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
+        `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
+        `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
         `}`
     );
 
     expect(
       component.render({ size: { '@bp1': 'small', '@bp2': 'large' } }).props
         .className
-    ).toBe(`c-PJLV c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large`);
+    ).toBe(`fuel_PJLV fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large`);
     expect(toString()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large}@media{` +
-        `@media (max-width: 767px){.c-PJLV-fHtTAQ-size-small{font-size:16px}}` +
-        `@media (min-width: 768px){.c-PJLV-XwbVw-size-large{font-size:24px}}` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
+        `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
+        `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
         `}`
     );
   });

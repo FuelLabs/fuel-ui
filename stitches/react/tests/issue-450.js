@@ -41,18 +41,18 @@ describe('Issue #450', () => {
     });
 
     expect(RenderOf(Happy, null).props.className).toBe(
-      `c-fEpFmO c-fEpFmO-cfZmSQ-fulfilled-positively c-fEpFmO-FgYNE-satisfied-definitely`
+      `fuel_fEpFmO fuel_fEpFmO-cfZmSQ-fulfilled-positively fuel_fEpFmO-FgYNE-satisfied-definitely`
     );
 
     expect(getCssText()).toBe(
       // composition styles
-      `--sxs{--sxs:2 c-fEpFmO}@media{` +
-        `.c-fEpFmO{--is-happy:true}` +
+      `--sxs{--sxs:2 fuel_fEpFmO}@media{` +
+        `.fuel_fEpFmO{--is-happy:true}` +
         `}` +
         // variant styles
-        `--sxs{--sxs:3 c-fEpFmO-cfZmSQ-fulfilled-positively c-fEpFmO-FgYNE-satisfied-definitely}@media{` +
-        `.c-fEpFmO-cfZmSQ-fulfilled-positively{--is-fulfilled-positively:true}` +
-        `.c-fEpFmO-FgYNE-satisfied-definitely{--is-satisfied-definitely:true}` +
+        `--sxs{--sxs:3 fuel_fEpFmO-cfZmSQ-fulfilled-positively fuel_fEpFmO-FgYNE-satisfied-definitely}@media{` +
+        `.fuel_fEpFmO-cfZmSQ-fulfilled-positively{--is-fulfilled-positively:true}` +
+        `.fuel_fEpFmO-FgYNE-satisfied-definitely{--is-satisfied-definitely:true}` +
         `}`
     );
   });
@@ -112,12 +112,12 @@ describe('Issue #450', () => {
       return Rendered.toJSON();
     };
 
-    const tileComponentClass = `c-kTjQBa`;
-    const roundedTileComponentClass = `c-gLsErE`;
+    const tileComponentClass = `fuel_kTjQBa`;
+    const roundedTileComponentClass = `fuel_gLsErE`;
 
-    const variantLightBlueClass = `c-kTjQBa-ilDyRi-color-lightBlue`;
-    const variantAppearanceSecondaryClass = `c-kTjQBa-cOChOn-appearance-secondary`;
-    const variantCompoundClass = `c-kTjQBa-gYqlvA-cv`;
+    const variantLightBlueClass = `fuel_kTjQBa-ilDyRi-color-lightBlue`;
+    const variantAppearanceSecondaryClass = `fuel_kTjQBa-cOChOn-appearance-secondary`;
+    const variantCompoundClass = `fuel_kTjQBa-gYqlvA-cv`;
 
     // Normal variants
 

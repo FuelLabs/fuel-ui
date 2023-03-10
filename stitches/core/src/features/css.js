@@ -77,9 +77,9 @@ const createComposer = (
   config,
   { componentId, displayName }
 ) => {
-  /** @type {string} Composer Unique Identifier. @see `{CONFIG_PREFIX}-?c-{STYLE_HASH}` */
+  /** @type {string} Composer Unique Identifier. @see `{CONFIG_PREFIX}-?fuel_{STYLE_HASH}` */
   const hash = componentId || toHash(style);
-  const componentNamePrefix = displayName ? 'c-' + displayName + '' : 'c';
+  const componentNamePrefix = displayName ? 'fuel_' + displayName + '' : 'fuel';
   const className = `${toTailDashed(
     config.prefix
   )}${componentNamePrefix}-${hash}`;
@@ -96,20 +96,17 @@ const createComposer = (
   // add singular variants
   if (typeof initSingularVariants === 'object' && initSingularVariants) {
     for (const name in initSingularVariants) {
-      if (!hasOwn(prefilledVariants, name))
+      if (!hasOwn(prefilledVariants, name)) {
         prefilledVariants[name] = 'undefined';
+      }
 
       const variantPairs = initSingularVariants[name];
 
       for (const pair in variantPairs) {
         const vMatch = { [name]: String(pair) };
-
         if (String(pair) === 'undefined') undefinedVariants.push(name);
-
         const vStyle = variantPairs[pair];
-
         const variant = [vMatch, vStyle, !hasNames(vStyle)];
-
         singularVariants.push(variant);
       }
     }
@@ -119,14 +116,10 @@ const createComposer = (
   if (typeof initCompoundVariants === 'object' && initCompoundVariants) {
     for (const compoundVariant of initCompoundVariants) {
       let { css: vStyle, ...vMatch } = compoundVariant;
-
       vStyle = (typeof vStyle === 'object' && vStyle) || {};
-
       // serialize all compound variant pairs
       for (const name in vMatch) vMatch[name] = String(vMatch[name]);
-
       const variant = [vMatch, vStyle, !hasNames(vStyle)];
-
       compoundVariants.push(variant);
     }
   }
@@ -140,6 +133,10 @@ const createComposer = (
     undefinedVariants,
   ];
 };
+
+function getVariantClassName(baseClass, vStyle, vClass) {
+  return `${baseClass}--${vClass}--${toHash(vStyle)}`;
+}
 
 const createRenderer = (
   config,
@@ -170,7 +167,6 @@ const createRenderer = (
     // 3. we delete `css` prop
     // therefore: we must create a new props & css variables
     const { ...forwardProps } = props;
-
     const variantProps = {};
 
     for (const name in prefilledVariants) {
@@ -241,9 +237,11 @@ const createRenderer = (
         if (variantToAdd === undefined) continue;
 
         for (const [vClass, vStyle, isResponsive] of variantToAdd) {
-          const variantClassName = `${composerBaseClass}-${toHash(
-            vStyle
-          )}-${vClass}`;
+          const variantClassName = getVariantClassName(
+            composerBaseClass,
+            vStyle,
+            vClass
+          );
 
           classSet.add(variantClassName);
 
@@ -277,9 +275,11 @@ const createRenderer = (
         if (variantToAdd === undefined) continue;
 
         for (const [vClass, vStyle] of variantToAdd) {
-          const variantClassName = `${composerBaseClass}-${toHash(
-            vStyle
-          )}-${vClass}`;
+          const variantClassName = getVariantClassName(
+            composerBaseClass,
+            vStyle,
+            vClass
+          );
 
           classSet.add(variantClassName);
 

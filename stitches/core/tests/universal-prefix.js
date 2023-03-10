@@ -47,7 +47,7 @@ describe('Prefix', () => {
     component.toString();
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 fusion-c-gmqXFB}@media{.fusion-c-gmqXFB{color:red}}`
+      `--sxs{--sxs:2 fusion-fuel_gmqXFB}@media{.fusion-fuel_gmqXFB{color:red}}`
     );
   });
 });

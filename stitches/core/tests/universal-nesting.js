@@ -27,7 +27,7 @@ describe('Nesting', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-dweUti}@media{.c-dweUti:not(:hover){text-decoration:none}}`
+      `--sxs{--sxs:2 fuel_dweUti}@media{.fuel_dweUti:not(:hover){text-decoration:none}}`
     );
   });
 
@@ -59,7 +59,7 @@ describe('Nesting', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-fuGzNQ}@media{.c-fuGzNQ{margin:0}.c-fuGzNQ ~ .c-fuGzNQ{margin-top:0}}`
+      `--sxs{--sxs:2 fuel_fuGzNQ}@media{.fuel_fuGzNQ{margin:0}.fuel_fuGzNQ ~ .fuel_fuGzNQ{margin-top:0}}`
     );
   });
 
@@ -95,11 +95,11 @@ describe('Nesting', () => {
       },
     })();
 
-    const parentCssRule = `.c-iJLHRt > p,.c-iJLHRt > ul{margin:0}`;
-    const nestingCssRule = `:is(.c-iJLHRt > p) ~ :is(.c-iJLHRt > p),:is(.c-iJLHRt > ul) ~ :is(.c-iJLHRt > ul){margin-top:0}`;
+    const parentCssRule = `.fuel_iJLHRt > p,.fuel_iJLHRt > ul{margin:0}`;
+    const nestingCssRule = `:is(.fuel_iJLHRt > p) ~ :is(.fuel_iJLHRt > p),:is(.fuel_iJLHRt > ul) ~ :is(.fuel_iJLHRt > ul){margin-top:0}`;
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-iJLHRt}@media{${parentCssRule + nestingCssRule}}`
+      `--sxs{--sxs:2 fuel_iJLHRt}@media{${parentCssRule + nestingCssRule}}`
     );
   });
 });

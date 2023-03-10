@@ -20,10 +20,14 @@ describe('Variants', () => {
     });
 
     const expression1 = component.render();
-    expect(expression1.props.className).toBe('c-PJLV c-PJLV-kydkiA-color-blue');
+    expect(expression1.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-kydkiA-color-blue'
+    );
 
     const expression3 = component.render({ color: undefined });
-    expect(expression3.props.className).toBe('c-PJLV c-PJLV-kydkiA-color-blue');
+    expect(expression3.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-kydkiA-color-blue'
+    );
   });
 
   test('Variant with an explicit undefined will not use default variant', () => {
@@ -48,14 +52,18 @@ describe('Variants', () => {
     });
 
     const expression1 = component.render();
-    expect(expression1.props.className).toBe('c-PJLV c-PJLV-kydkiA-color-blue');
+    expect(expression1.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-kydkiA-color-blue'
+    );
 
     const expression2 = component.render({ color: 'red' });
-    expect(expression2.props.className).toBe('c-PJLV c-PJLV-gmqXFB-color-red');
+    expect(expression2.props.className).toBe(
+      'fuel_PJLV fuel_PJLV-gmqXFB-color-red'
+    );
 
     const expression3 = component.render({ color: undefined });
     expect(expression3.props.className).toBe(
-      'c-PJLV c-PJLV-hzqlOY-color-undefined'
+      'fuel_PJLV fuel_PJLV-hzqlOY-color-undefined'
     );
   });
 });

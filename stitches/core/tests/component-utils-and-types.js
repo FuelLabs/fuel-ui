@@ -16,7 +16,7 @@ describe('Component: Utilities & Tokens', () => {
     })();
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 c-ccgTVz}@media{.c-ccgTVz{padding-left:15px;padding-right:15px}}`
+      `--sxs{--sxs:2 fuel_ccgTVz}@media{.fuel_ccgTVz{padding-left:15px;padding-right:15px}}`
     );
   });
 
@@ -36,7 +36,7 @@ describe('Component: Utilities & Tokens', () => {
     })();
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 c-ilqzId}@media{.c-ilqzId{color:var(--colors-sp);padding-left:var(--space-sp);padding-right:var(--space-sp)}}`
+      `--sxs{--sxs:2 fuel_ilqzId}@media{.fuel_ilqzId{color:var(--colors-sp);padding-left:var(--space-sp);padding-right:var(--space-sp)}}`
     );
   });
 });

@@ -61,10 +61,10 @@ describe('Issue #416: Composition versus Descendancy', () => {
 
     const [boxA, boxB, genY, boxZ] = wrapper.toJSON().children;
 
-    const baselineClass = `c-PJLV`;
-    const variantAClass = `c-PJLV-kgptgY-foo-bar`;
-    const variantBClass = `c-PJLV-cHNUhn-foo-bar`;
-    const variantZClass = `c-PJLV-vFFMz-foo-bar`;
+    const baselineClass = `fuel_PJLV`;
+    const variantAClass = `fuel_PJLV-kgptgY-foo-bar`;
+    const variantBClass = `fuel_PJLV-cHNUhn-foo-bar`;
+    const variantZClass = `fuel_PJLV-vFFMz-foo-bar`;
 
     test('Box A has an active variant', () =>
       expect(boxA.props.className).toBe(`${baselineClass} ${variantAClass}`));
@@ -84,10 +84,10 @@ describe('Issue #416: Composition versus Descendancy', () => {
 
     test('All variant CSS is generated', () =>
       expect(getCssText()).toBe(
-        `--sxs{--sxs:3 c-PJLV-kgptgY-foo-bar c-PJLV-cHNUhn-foo-bar c-PJLV-vFFMz-foo-bar}@media{` +
-          `.c-PJLV-kgptgY-foo-bar{--box-a:foo-bar}` +
-          `.c-PJLV-cHNUhn-foo-bar{--box-b:foo-bar}` +
-          `.c-PJLV-vFFMz-foo-bar{--box-z:foo-bar}` +
+        `--sxs{--sxs:3 fuel_PJLV-kgptgY-foo-bar fuel_PJLV-cHNUhn-foo-bar fuel_PJLV-vFFMz-foo-bar}@media{` +
+          `.fuel_PJLV-kgptgY-foo-bar{--box-a:foo-bar}` +
+          `.fuel_PJLV-cHNUhn-foo-bar{--box-b:foo-bar}` +
+          `.fuel_PJLV-vFFMz-foo-bar{--box-z:foo-bar}` +
           `}`
       ));
   }

@@ -32,7 +32,7 @@ describe('Issue #671 - forwardRef', () => {
 
     test('a stitches component extending a forwardRef react component will inject the styles in the correct order', () => {
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 c-fjEkWJ c-bjcmt}@media{.c-bjcmt{color:black}.c-fjEkWJ{color:white}}`
+        `--sxs{--sxs:2 fuel_fjEkWJ fuel_bjcmt}@media{.fuel_bjcmt{color:black}.fuel_fjEkWJ{color:white}}`
       );
     });
   }

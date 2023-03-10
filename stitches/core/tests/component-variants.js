@@ -46,7 +46,7 @@ describe('Variants', () => {
     const component = css(componentConfig);
     const expression = component();
 
-    expect(expression.className).toBe('c-PJLV');
+    expect(expression.className).toBe('fuel_PJLV');
     expect(getCssText()).toBe('');
   });
 
@@ -55,21 +55,21 @@ describe('Variants', () => {
     const component = css(componentConfig);
     const expression1 = component({ size: 'small' });
 
-    const expression1CssText = '.c-PJLV-Gaggi-size-small{font-size:16px}';
+    const expression1CssText = '.fuel_PJLV-Gaggi-size-small{font-size:16px}';
 
-    expect(expression1.className).toBe('c-PJLV c-PJLV-Gaggi-size-small');
+    expect(expression1.className).toBe('fuel_PJLV fuel_PJLV-Gaggi-size-small');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{${expression1CssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${expression1CssText}}`
     );
 
     const expression2 = component({ color: 'blue' });
 
     const expression2CssText =
-      '.c-PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
+      '.fuel_PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
 
-    expect(expression2.className).toBe('c-PJLV c-PJLV-kaCQqN-color-blue');
+    expect(expression2.className).toBe('fuel_PJLV fuel_PJLV-kaCQqN-color-blue');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small c-PJLV-kaCQqN-color-blue}@media{${
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-kaCQqN-color-blue}@media{${
         expression1CssText + expression2CssText
       }}`
     );
@@ -100,15 +100,15 @@ describe('Variants', () => {
     const expression = component({ size: 'small', level: 1 });
 
     expect(expression.className).toBe(
-      'c-PJLV c-PJLV-Gaggi-size-small c-PJLV-iRwLiB-level-1'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1'
     );
 
     const expressionSizeSmallCssText =
-      '.c-PJLV-Gaggi-size-small{font-size:16px}';
-    const expressionLevel1CssText = '.c-PJLV-iRwLiB-level-1{padding:0.5em}';
+      '.fuel_PJLV-Gaggi-size-small{font-size:16px}';
+    const expressionLevel1CssText = '.fuel_PJLV-iRwLiB-level-1{padding:0.5em}';
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small c-PJLV-iRwLiB-level-1}@media{${
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{${
         expressionSizeSmallCssText + expressionLevel1CssText
       }}`
     );
@@ -120,18 +120,19 @@ describe('Variants', () => {
     const expression = component({ size: 'small', color: 'blue' });
 
     const expressionColorBlueCssText =
-      '.c-PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
+      '.fuel_PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
     const expressionSizeSmallCssText =
-      '.c-PJLV-Gaggi-size-small{font-size:16px}';
-    const expressionCompoundCssText = '.c-PJLV-cChFtv-cv{transform:scale(1.2)}';
+      '.fuel_PJLV-Gaggi-size-small{font-size:16px}';
+    const expressionCompoundCssText =
+      '.fuel_PJLV-cChFtv-cv{transform:scale(1.2)}';
 
     expect(expression.className).toBe(
-      `c-PJLV c-PJLV-kaCQqN-color-blue c-PJLV-Gaggi-size-small c-PJLV-cChFtv-cv`
+      `fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv`
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-kaCQqN-color-blue c-PJLV-Gaggi-size-small}@media{${
+      `--sxs{--sxs:3 fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small}@media{${
         expressionColorBlueCssText + expressionSizeSmallCssText
-      }}--sxs{--sxs:5 c-PJLV-cChFtv-cv}@media{${expressionCompoundCssText}}`
+      }}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{${expressionCompoundCssText}}`
     );
   });
 });
@@ -185,9 +186,9 @@ describe('Variants with defaults', () => {
     const component = css(componentConfig);
     const expression = component();
 
-    expect(expression.className).toBe('c-PJLV c-PJLV-Gaggi-size-small');
+    expect(expression.className).toBe('fuel_PJLV fuel_PJLV-Gaggi-size-small');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{.c-PJLV-Gaggi-size-small{font-size:16px}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}`
     );
   });
 
@@ -196,9 +197,9 @@ describe('Variants with defaults', () => {
     const component = css(componentConfig);
     const expression = component({ size: 'small' });
 
-    expect(expression.className).toBe('c-PJLV c-PJLV-Gaggi-size-small');
+    expect(expression.className).toBe('fuel_PJLV fuel_PJLV-Gaggi-size-small');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{.c-PJLV-Gaggi-size-small{font-size:16px}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}`
     );
   });
 
@@ -207,9 +208,9 @@ describe('Variants with defaults', () => {
     const component = css(componentConfig);
     const expression = component({ size: 'large' });
 
-    expect(expression.className).toBe('c-PJLV c-PJLV-hsYHIj-size-large');
+    expect(expression.className).toBe('fuel_PJLV fuel_PJLV-hsYHIj-size-large');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-hsYHIj-size-large}@media{.c-PJLV-hsYHIj-size-large{font-size:24px}}`
+      `--sxs{--sxs:3 fuel_PJLV-hsYHIj-size-large}@media{.fuel_PJLV-hsYHIj-size-large{font-size:24px}}`
     );
   });
 
@@ -219,14 +220,14 @@ describe('Variants with defaults', () => {
     const expression = component({ level: 1 });
 
     expect(expression.className).toBe(
-      'c-PJLV c-PJLV-Gaggi-size-small c-PJLV-iRwLiB-level-1'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1'
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small c-PJLV-iRwLiB-level-1}@media{` +
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{` +
         // implicit size:small
-        `.c-PJLV-Gaggi-size-small{font-size:16px}` +
+        `.fuel_PJLV-Gaggi-size-small{font-size:16px}` +
         // explicit level:1
-        `.c-PJLV-iRwLiB-level-1{padding:0.5em}` +
+        `.fuel_PJLV-iRwLiB-level-1{padding:0.5em}` +
         `}`
     );
   });
@@ -237,17 +238,17 @@ describe('Variants with defaults', () => {
     const expression = component({ color: 'blue' });
 
     expect(expression.className).toBe(
-      'c-PJLV c-PJLV-kaCQqN-color-blue c-PJLV-Gaggi-size-small c-PJLV-cChFtv-cv'
+      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv'
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-kaCQqN-color-blue c-PJLV-Gaggi-size-small}@media{` +
+      `--sxs{--sxs:3 fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small}@media{` +
         // explicit color:blue
-        `.c-PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}` +
+        `.fuel_PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}` +
         // implicit size:small
-        `.c-PJLV-Gaggi-size-small{font-size:16px}` +
-        `}--sxs{--sxs:5 c-PJLV-cChFtv-cv}@media{` +
+        `.fuel_PJLV-Gaggi-size-small{font-size:16px}` +
+        `}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{` +
         // compound color:blue + size:small
-        `.c-PJLV-cChFtv-cv{transform:scale(1.2)}` +
+        `.fuel_PJLV-cChFtv-cv{transform:scale(1.2)}` +
         `}`
     );
   });
@@ -257,9 +258,9 @@ describe('Variants with defaults', () => {
     const component = css(componentConfig);
     const className = `${component}`;
 
-    expect(className).toBe('c-PJLV');
+    expect(className).toBe('fuel_PJLV');
     expect(getCssText()).toBe(
-      '--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{.c-PJLV-Gaggi-size-small{font-size:16px}}'
+      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}'
     );
   });
 });
@@ -316,7 +317,7 @@ describe('Conditional variants', () => {
   test('Renders a component with no variant applied', () => {
     const { css, getCssText } = createStitches(config);
     const component = css(componentConfig);
-    const componentClassName = 'c-PJLV';
+    const componentClassName = 'fuel_PJLV';
 
     expect(component().className).toBe(componentClassName);
     expect(getCssText()).toBe('');
@@ -325,7 +326,7 @@ describe('Conditional variants', () => {
   test('Renders a component with one variant applied', () => {
     const { css, getCssText } = createStitches(config);
     const component = css(componentConfig);
-    const componentClassName = `c-PJLV`;
+    const componentClassName = `fuel_PJLV`;
     const componentSmallClassName = `${componentClassName}-Gaggi-size-small`;
     const componentSmallCssText = `.${componentSmallClassName}{font-size:16px}`;
 
@@ -333,7 +334,7 @@ describe('Conditional variants', () => {
       [componentClassName, componentSmallClassName].join(' ')
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 c-PJLV-Gaggi-size-small}@media{${componentSmallCssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${componentSmallCssText}}`
     );
   });
 
@@ -342,11 +343,11 @@ describe('Conditional variants', () => {
     const component = css(componentConfig);
 
     expect(component({ size: { '@bp1': 'small' } }).className).toBe(
-      `c-PJLV c-PJLV-fHtTAQ-size-small`
+      `fuel_PJLV fuel_PJLV-fHtTAQ-size-small`
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small}@media{` +
-        `@media (max-width: 767px){.c-PJLV-fHtTAQ-size-small{font-size:16px}}` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small}@media{` +
+        `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
         `}`
     );
   });
@@ -354,7 +355,7 @@ describe('Conditional variants', () => {
   test('Renders a component with one conditional variant on two breakpoints applied', () => {
     const { css, getCssText } = createStitches(config);
     const component = css(componentConfig);
-    const componentClassName = `c-PJLV`;
+    const componentClassName = `fuel_PJLV`;
     const componentSmallBp1ClassName = `${componentClassName}-fHtTAQ-size-small`;
     const componentLargeBp2ClassName = `${componentClassName}-XwbVw-size-large`;
     const componentSmallBp1CssText = `@media (max-width: 767px){.${componentSmallBp1ClassName}{font-size:16px}}`;
@@ -370,7 +371,7 @@ describe('Conditional variants', () => {
       ].join(' ')
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large}@media{` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         componentSmallBp1CssText +
         componentLargeBp2CssText +
         `}`
@@ -383,31 +384,31 @@ describe('Conditional variants', () => {
 
     expect(
       component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className
-    ).toBe(`c-PJLV c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large`);
+    ).toBe(`fuel_PJLV fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large`);
     expect(getCssText()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large}@media{` +
-        `@media (max-width: 767px){.c-PJLV-fHtTAQ-size-small{font-size:16px}}` +
-        `@media (min-width: 768px){.c-PJLV-XwbVw-size-large{font-size:24px}}` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
+        `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
+        `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
         `}`
     );
 
     expect(
       component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className
-    ).toBe(`c-PJLV c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large`);
+    ).toBe(`fuel_PJLV fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large`);
     expect(getCssText()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large}@media{` +
-        `@media (max-width: 767px){.c-PJLV-fHtTAQ-size-small{font-size:16px}}` +
-        `@media (min-width: 768px){.c-PJLV-XwbVw-size-large{font-size:24px}}` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
+        `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
+        `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
         `}`
     );
 
     expect(
       component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className
-    ).toBe(`c-PJLV c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large`);
+    ).toBe(`fuel_PJLV fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large`);
     expect(getCssText()).toBe(
-      `--sxs{--sxs:4 c-PJLV-fHtTAQ-size-small c-PJLV-XwbVw-size-large}@media{` +
-        `@media (max-width: 767px){.c-PJLV-fHtTAQ-size-small{font-size:16px}}` +
-        `@media (min-width: 768px){.c-PJLV-XwbVw-size-large{font-size:24px}}` +
+      `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
+        `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
+        `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
         `}`
     );
   });
@@ -435,12 +436,14 @@ describe('Conditional variants', () => {
             '@media (width >= 768px)': 'large',
           },
         }).className
-      ).toBe('c-PJLV c-PJLV-gjWYHE-size-small c-PJLV-fzmUzy-size-large');
+      ).toBe(
+        'fuel_PJLV fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large'
+      );
 
       expect(getCssText()).toBe(
-        `--sxs{--sxs:4 c-PJLV-gjWYHE-size-small c-PJLV-fzmUzy-size-large}@media{` +
-          `@media (max-width:767.9375px){.c-PJLV-gjWYHE-size-small{font-size:16px}}` +
-          `@media (min-width:768px){.c-PJLV-fzmUzy-size-large{font-size:24px}}` +
+        `--sxs{--sxs:4 fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large}@media{` +
+          `@media (max-width:767.9375px){.fuel_PJLV-gjWYHE-size-small{font-size:16px}}` +
+          `@media (min-width:768px){.fuel_PJLV-fzmUzy-size-large{font-size:24px}}` +
           `}`
       );
     }
@@ -467,12 +470,14 @@ describe('Conditional variants', () => {
             '@media (width >= 768px)': 'large',
           },
         }).className
-      ).toBe('c-PJLV c-PJLV-gjWYHE-size-small c-PJLV-fzmUzy-size-large');
+      ).toBe(
+        'fuel_PJLV fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large'
+      );
 
       expect(getCssText()).toBe(
-        `--sxs{--sxs:4 c-PJLV-gjWYHE-size-small c-PJLV-fzmUzy-size-large}@media{` +
-          `@media (max-width:767.9375px){.c-PJLV-gjWYHE-size-small{font-size:16px}}` +
-          `@media (min-width:768px){.c-PJLV-fzmUzy-size-large{font-size:24px}}` +
+        `--sxs{--sxs:4 fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large}@media{` +
+          `@media (max-width:767.9375px){.fuel_PJLV-gjWYHE-size-small{font-size:16px}}` +
+          `@media (min-width:768px){.fuel_PJLV-fzmUzy-size-large{font-size:24px}}` +
           `}`
       );
     }
@@ -499,9 +504,11 @@ describe('Variant pairing types', () => {
     const component = css(componentConfigForBooleanVariant);
     const rendering = component();
 
-    expect(rendering.className).toBe('c-foEXqW');
+    expect(rendering.className).toBe('fuel_foEXqW');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-foEXqW}@media{` + `.c-foEXqW{--component:true}` + `}`
+      `--sxs{--sxs:2 fuel_foEXqW}@media{` +
+        `.fuel_foEXqW{--component:true}` +
+        `}`
     );
   });
 
@@ -511,14 +518,14 @@ describe('Variant pairing types', () => {
     const rendering = component({ testBoolean: 'true' });
 
     expect(rendering.className).toBe(
-      'c-foEXqW c-foEXqW-iloXEi-testBoolean-true'
+      'fuel_foEXqW fuel_foEXqW-iloXEi-testBoolean-true'
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-foEXqW}@media{` +
-        `.c-foEXqW{--component:true}` +
+      `--sxs{--sxs:2 fuel_foEXqW}@media{` +
+        `.fuel_foEXqW{--component:true}` +
         `}` +
-        `--sxs{--sxs:3 c-foEXqW-iloXEi-testBoolean-true}@media{` +
-        `.c-foEXqW-iloXEi-testBoolean-true{--test-boolean:true}` +
+        `--sxs{--sxs:3 fuel_foEXqW-iloXEi-testBoolean-true}@media{` +
+        `.fuel_foEXqW-iloXEi-testBoolean-true{--test-boolean:true}` +
         `}`
     );
   });
@@ -529,14 +536,14 @@ describe('Variant pairing types', () => {
     const rendering = component({ testBoolean: true });
 
     expect(rendering.className).toBe(
-      'c-foEXqW c-foEXqW-iloXEi-testBoolean-true'
+      'fuel_foEXqW fuel_foEXqW-iloXEi-testBoolean-true'
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-foEXqW}@media{` +
-        `.c-foEXqW{--component:true}` +
+      `--sxs{--sxs:2 fuel_foEXqW}@media{` +
+        `.fuel_foEXqW{--component:true}` +
         `}` +
-        `--sxs{--sxs:3 c-foEXqW-iloXEi-testBoolean-true}@media{` +
-        `.c-foEXqW-iloXEi-testBoolean-true{--test-boolean:true}` +
+        `--sxs{--sxs:3 fuel_foEXqW-iloXEi-testBoolean-true}@media{` +
+        `.fuel_foEXqW-iloXEi-testBoolean-true{--test-boolean:true}` +
         `}`
     );
   });
@@ -549,15 +556,15 @@ describe('Variant pairing types', () => {
     });
 
     expect(rendering.className).toBe(
-      'c-foEXqW c-foEXqW-brOaTK-testBoolean-true'
+      'fuel_foEXqW fuel_foEXqW-brOaTK-testBoolean-true'
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-foEXqW}@media{` +
-        `.c-foEXqW{--component:true}` +
+      `--sxs{--sxs:2 fuel_foEXqW}@media{` +
+        `.fuel_foEXqW{--component:true}` +
         `}` +
-        `--sxs{--sxs:4 c-foEXqW-brOaTK-testBoolean-true}@media{` +
+        `--sxs{--sxs:4 fuel_foEXqW-brOaTK-testBoolean-true}@media{` +
         `@media (min-width: 640px){` +
-        `.c-foEXqW-brOaTK-testBoolean-true{--test-boolean:true}` +
+        `.fuel_foEXqW-brOaTK-testBoolean-true{--test-boolean:true}` +
         `}` +
         `}`
     );
@@ -571,15 +578,15 @@ describe('Variant pairing types', () => {
     });
 
     expect(rendering.className).toBe(
-      'c-foEXqW c-foEXqW-brOaTK-testBoolean-true'
+      'fuel_foEXqW fuel_foEXqW-brOaTK-testBoolean-true'
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-foEXqW}@media{` +
-        `.c-foEXqW{--component:true}` +
+      `--sxs{--sxs:2 fuel_foEXqW}@media{` +
+        `.fuel_foEXqW{--component:true}` +
         `}` +
-        `--sxs{--sxs:4 c-foEXqW-brOaTK-testBoolean-true}@media{` +
+        `--sxs{--sxs:4 fuel_foEXqW-brOaTK-testBoolean-true}@media{` +
         `@media (min-width: 640px){` +
-        `.c-foEXqW-brOaTK-testBoolean-true{--test-boolean:true}` +
+        `.fuel_foEXqW-brOaTK-testBoolean-true{--test-boolean:true}` +
         `}` +
         `}`
     );

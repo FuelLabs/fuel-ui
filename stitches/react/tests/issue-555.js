@@ -33,13 +33,13 @@ describe('Issue #555', () => {
     expect(RenderOf('div', { className: el() })).toEqual({
       type: 'div',
       props: {
-        className: 'c-jEKtXH',
+        className: 'fuel_jEKtXH',
       },
       children: null,
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 c-jEKtXH}@media{.c-jEKtXH{color:dodgerblue}}`
+      `--sxs{--sxs:2 fuel_jEKtXH}@media{.fuel_jEKtXH{color:dodgerblue}}`
     );
   });
 
@@ -52,13 +52,13 @@ describe('Issue #555', () => {
     expect(RenderOf(Box, { className: el() })).toEqual({
       type: 'div',
       props: {
-        className: 'c-PJLV c-jEKtXH',
+        className: 'fuel_PJLV fuel_jEKtXH',
       },
       children: null,
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 c-jEKtXH c-PJLV}@media{.c-jEKtXH{color:dodgerblue}}`
+      `--sxs{--sxs:2 fuel_jEKtXH fuel_PJLV}@media{.fuel_jEKtXH{color:dodgerblue}}`
     );
   });
 });

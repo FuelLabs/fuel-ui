@@ -30,7 +30,7 @@ describe('Issue #652', () => {
     const expression2 = component2();
 
     expect(expression2.className).toBe(
-      `c-PJLV c-PJLV-gmqXFB-hue-primary c-PJLV-kydkiA-hue-primary`
+      `fuel_PJLV fuel_PJLV-gmqXFB-hue-primary fuel_PJLV-kydkiA-hue-primary`
     );
   });
 });

@@ -41,8 +41,8 @@ describe('Issue #788', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 c-csWWxC}` +
-        `@media{.c-csWWxC{` +
+      `--sxs{--sxs:2 fuel_csWWxC}` +
+        `@media{.fuel_csWWxC{` +
         `padding-top:10px;` +
         `padding-bottom:10px;` +
         `padding-left:10px;` +
