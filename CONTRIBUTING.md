@@ -64,17 +64,17 @@ uses a monorepo structure as mentioned in our [README](./README#tools).
 
 ### ⌨️&nbsp; Global Commands
 
-| Command               | Description                                     |
-| --------------------- | ----------------------------------------------- |
-| `pnpm build`          | Exec `build` in all packages                    |
-| `pnpm build:watch`    | Exec `build` in watch mode                      |
-| `pnpm dev`            | Exec `dev` in all packages                      |
-| `pnpm lint`           | Run ESLint and Prettier check against all files |
-| `pnpm lint:check`     | Run ESLint check against all files              |
-| `pnpm lint:fix`       | Run ESLint with `--fix` agains all files        |
-| `pnpm prettier:check` | Run Prettier check agains all files             |
-| `pnpm prettier:fix`   | Run Prettiere with `--write` against all files  |
-| `pnpm test`           | Exec `test` in all packages                     |
+| Command                | Description                                     |
+| ---------------------- | ----------------------------------------------- |
+| `pnpm build`           | Exec `build` in all packages                    |
+| `pnpm build:watch`     | Exec `build` in watch mode                      |
+| `pnpm dev`             | Exec `dev` in all packages                      |
+| `pnpm lint`            | Run ESLint and Prettier check against all files |
+| `pnpm lint:check`      | Run ESLint check against all files              |
+| `pnpm lint:fix`        | Run ESLint with `--fix` against all files       |
+| `pnpm prettier:check`  | Run Prettier check against all files            |
+| `pnpm prettier:format` | Run Prettier with `--write` against all files   |
+| `pnpm test`            | Exec `test` in all packages                     |
 
 ## 🐞&nbsp; Think you found a bug?
 

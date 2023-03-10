@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.12.4
+
+### Patch Changes
+
+- ✨ feat: add more symbols to passwordStrength logic, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#214](https://github.com/FuelLabs/fuel-ui/pull/214))
+
 ## 0.12.3
 
 ### Patch Changes
