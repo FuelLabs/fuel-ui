@@ -3,18 +3,22 @@ import type { ColorKeys, Colors } from '@fuel-ui/css';
 import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
-import { useRef, cloneElement } from 'react';
+import { createElement, useRef, cloneElement } from 'react';
 import type { AriaButtonProps } from 'react-aria';
 import { mergeProps, useButton } from 'react-aria';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent } from '../../utils';
 import type { HTMLProps } from '../../utils';
 import { omit } from '../../utils/helpers';
 import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
 
-import * as styles from './styles';
+import { styles } from './styles';
+
+import { useComponentProps, useClasses } from '~/hooks/useStore';
+import { Components } from '~/types';
+import { fClass } from '~/utils/css';
 
 export function createIcon(
   icon: string | ReactNode,
@@ -132,11 +136,6 @@ export const Button = createComponent<ButtonProps, ObjProps>(
     ...props
   }) => {
     const disabled = isLoading || isDisabled;
-    const iconSize = getIconSize(size, initialIconSize);
-    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
-    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const classes = cx('fuel_Button', className);
-
     const innerRef = useRef<HTMLButtonElement | null>(null);
     const { buttonProps, isPressed } = useButton(
       {
@@ -160,17 +159,31 @@ export const Button = createComponent<ButtonProps, ObjProps>(
       as,
       disabled,
       ref: mergeRefs(ref!, innerRef),
-      className: classes,
       'aria-disabled': isDisabled,
       'aria-busy': isLoading,
       ...(!isLink && { 'aria-pressed': !isDisabled && isPressed }),
     };
 
-    return createStyledElement(
+    const styleProps = useComponentProps(Components.Button, {
+      size,
+      variant,
+      disabled,
+      justIcon,
+      color,
+      isLink,
+      css,
+    });
+
+    const finalProps = mergeProps(buttonProps, customProps);
+    const classes = useClasses(styles, { ...styleProps });
+    const finalClass = cx(fClass(Components.Button), classes.root, className);
+    const iconSize = getIconSize(size, initialIconSize);
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
+
+    return createElement(
       as,
-      styles.button,
-      { size, variant, disabled, justIcon, color, isLink, css },
-      mergeProps(buttonProps, customProps),
+      { ...finalProps, className: finalClass },
       getChildren({
         size,
         isLoading,

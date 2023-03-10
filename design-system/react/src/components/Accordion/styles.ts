@@ -1,11 +1,6 @@
-import {
-  lightColors,
-  css,
-  darkColors,
-  darkTheme,
-  keyframes,
-  lightTheme,
-} from '@fuel-ui/css';
+import { lightColors, css, darkColors, keyframes } from '@fuel-ui/css';
+
+import { darkTheme, lightTheme } from '~/hooks';
 
 const slideDown = keyframes({
   from: { height: 0 },

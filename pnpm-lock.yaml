@@ -154,21 +154,24 @@ importers:
 
   design-system/css:
     specifiers:
+      '@fuel-stitches/react': workspace:*
       '@radix-ui/colors': ^0.1.8
-      '@stitches/react': ^1.2.8
       classnames: ^2.3.2
       react: ^18.2.0
       react-dom: ^18.2.0
+      valtio: ^1.10.3
     dependencies:
+      '@fuel-stitches/react': link:../../stitches/react
       '@radix-ui/colors': 0.1.8
-      '@stitches/react': 1.2.8_react@18.2.0
       classnames: 2.3.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      valtio: 1.10.3_react@18.2.0
 
   design-system/react:
     specifiers:
       '@babel/core': ^7.21.0
+      '@fuel-stitches/react': workspace:*
       '@fuel-ts/math': ^0.35.0
       '@fuel-ui/css': workspace:*
       '@fuel-ui/test-utils': workspace:*
@@ -190,7 +193,6 @@ importers:
       '@react-aria/utils': ^3.15.0
       '@react-types/button': ^3.7.1
       '@react-types/shared': ^3.17.0
-      '@stitches/react': ^1.2.8
       '@storybook/addon-a11y': ^6.5.16
       '@storybook/addon-actions': ^6.5.16
       '@storybook/addon-essentials': ^6.5.16
@@ -234,6 +236,7 @@ importers:
       xstate: ^4.37.0
       yargs: ^17.7.1
     dependencies:
+      '@fuel-stitches/react': link:../../stitches/react
       '@fuel-ts/math': 0.35.0
       '@fuel-ui/css': link:../css
       '@fuel-ui/test-utils': link:../../common/test-utils
@@ -253,7 +256,6 @@ importers:
       '@react-aria/focus': 3.11.0_react@18.2.0
       '@react-aria/overlays': 3.13.0_biqbaboplfbrettd7655fr4n2y
       '@react-aria/utils': 3.15.0_react@18.2.0
-      '@stitches/react': 1.2.8_react@18.2.0
       '@xstate/react': 3.2.1_o53l3h553defh3ruq4yellezcm
       framer-motion: 10.2.3_biqbaboplfbrettd7655fr4n2y
       jdenticon: 3.2.0
@@ -325,6 +327,15 @@ importers:
       typescript: 4.9.5
       vite: 4.1.4
       vite-tsconfig-paths: 4.0.5_typescript@4.9.5
+
+  stitches/core:
+    specifiers: {}
+
+  stitches/react:
+    specifiers:
+      react: 17.0.2
+    devDependencies:
+      react: 17.0.2
 
 packages:
 
@@ -5430,17 +5441,6 @@ packages:
     resolution: {integrity: sha512-SwUDyjWnah1AaNl7kxsa7cfLhlTYoiyhDAIgyh+El30YvXs/o7OLXpYH88Zdhyx9JExKrmHDJ+10bwIcY80Jmw==}
     dependencies:
       '@sinonjs/commons': 2.0.0
-
-  /@stitches/react/1.2.8_react@18.2.0:
-    resolution: {integrity: sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==}
-    peerDependencies:
-      react: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /@storybook/addon-a11y/6.5.16_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-/e9s34o+TmEhy+Q3/YzbRJ5AJ/Sy0gjZXlvsCrcRpiQLdt5JRbN8s+Lbn/FWxy8U1Tb1wlLYlqjJ+fYi5RrS3A==}
@@ -15929,6 +15929,10 @@ packages:
       ipaddr.js: 1.9.1
     dev: true
 
+  /proxy-compare/2.5.0:
+    resolution: {integrity: sha512-f1us0OsVAJ3tdIMXGQx2lmseYS4YXe4W+sKF5g5ww/jV+5ogMadPt+sIZ+88Ga9kvMJsrRNWzCrKPpr6pMWYbA==}
+    dev: false
+
   /prr/1.0.1:
     resolution: {integrity: sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw==}
     dev: true
@@ -16426,6 +16430,14 @@ packages:
       ts-easing: 0.2.0
       tslib: 2.4.0
     dev: false
+
+  /react/17.0.2:
+    resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+    dev: true
 
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
@@ -18705,6 +18717,17 @@ packages:
       react: 18.2.0
     dev: false
 
+  /use-sync-external-store/1.2.0_react@18.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}
     engines: {node: '>=0.10.0'}
@@ -18770,6 +18793,20 @@ packages:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
     dev: true
+
+  /valtio/1.10.3_react@18.2.0:
+    resolution: {integrity: sha512-t3Ez/+baJ+Z5tIyeaI6nCAbW/hrmcq2jditwg/X++o5IvCdiGirQKTOv1kJq0glgUo13v5oABCVGcinggBfiKw==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      proxy-compare: 2.5.0
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}

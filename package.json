@@ -20,7 +20,8 @@
   "workspaces": [
     "./common/*",
     "./examples/*",
-    "./design-system/*"
+    "./design-system/*",
+    "./stitches/*"
   ],
   "scripts": {
     "build": "turbo run build",

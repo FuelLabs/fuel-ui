@@ -1,17 +1,9 @@
-import type { createTheme } from '@fuel-ui/css';
 import { assign, createMachine } from 'xstate';
 
-export type FuelTheme = ReturnType<typeof createTheme>;
-export type ThemesObj = Record<string, FuelTheme>;
-
-const STORAGE_KEY = 'fuel-ui-theme';
-export function getInitialTheme() {
-  if (typeof window === 'undefined') return 'dark';
-  const theme = localStorage.getItem(STORAGE_KEY);
-  if (theme) return theme;
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  return prefersDark ? 'dark' : 'light';
-}
+import { store } from '~/hooks/useStore';
+import type { ThemesObj } from '~/hooks/useTheme';
+import { THEME_STORAGE_KEY } from '~/hooks/useTheme';
+import { mergeDeep } from '~/utils/helpers';
 
 type MachineContext = {
   themes: ThemesObj;
@@ -23,8 +15,10 @@ type MachineEvents = {
   value: string;
 };
 
-const machine = createMachine<MachineContext>({
+const machine = createMachine({
   predictableActionArguments: true,
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
+  tsTypes: {} as import('./machine.typegen').Typegen0,
   schema: {
     context: {} as MachineContext,
     events: {} as MachineEvents,
@@ -45,19 +39,24 @@ const machine = createMachine<MachineContext>({
 
 export const themeProviderMachine = machine.withConfig({
   actions: {
-    saveOnLocalStorage: ({ current }) => {
-      localStorage.setItem(STORAGE_KEY, current);
+    saveOnLocalStorage: ({ current, themes }) => {
+      localStorage.setItem(THEME_STORAGE_KEY, current);
+      const components = themes[current]?.components || {};
+      Object.entries(components ?? {}).forEach(([key, value]) => {
+        const curr = store.getState()[key];
+        store.state[key] = mergeDeep(curr, value);
+      });
     },
     setTheme: assign({
       current: (_, ev) => {
-        localStorage.setItem(STORAGE_KEY, ev.value);
+        localStorage.setItem(THEME_STORAGE_KEY, ev.value);
         return ev.value;
       },
     }),
     addDocumentClass: ({ themes, current }) => {
       const selected = themes[current];
       const html = document.documentElement;
-      html.classList.toggle(selected.className, true);
+      html.classList.toggle(selected.theme, true);
     },
   },
 });

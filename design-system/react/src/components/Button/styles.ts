@@ -1,90 +1,100 @@
-import { css } from '@fuel-ui/css';
+import { createStyle } from '../../hooks/useStore';
 
 import * as variants from './variants';
 
-export const button = css({
-  appearance: 'none',
-  cursor: 'pointer',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: '1px solid transparent',
-  borderRadius: '$lg',
-  transition: 'all',
-  textDecoration: 'none',
-  fontFamily: '$sans',
+import { Components } from '~/types';
 
-  '&:not([aria-disabled=true]):active, &:not([aria-disabled=true])[aria-pressed=true]':
-    {
-      transform: 'scale(0.96)',
-    },
+export const styles = createStyle(Components.Button, {
+  root: {
+    appearance: 'none',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '1px solid transparent',
+    borderRadius: '$lg',
+    transition: 'all',
+    textDecoration: 'none',
+    fontFamily: '$sans',
 
-  variants: {
-    size: variants.size,
-    color: variants.colors.solid,
+    '&:not([aria-disabled=true]):active, &:not([aria-disabled=true])[aria-pressed=true]':
+      {
+        transform: 'scale(0.96)',
+      },
 
-    variant: {
-      solid: {},
-      outlined: {},
-      ghost: {},
-      link: {},
-    },
+    variants: {
+      size: variants.size,
+      color: variants.colors.solid,
 
-    disabled: {
-      true: {
-        opacity: '0.6',
-        cursor: 'default',
+      variant: {
+        solid: {},
+        outlined: {},
+        ghost: {},
+        link: {},
+      },
+
+      disabled: {
+        true: {
+          opacity: '0.6',
+          cursor: 'default',
+        },
+      },
+
+      justIcon: {
+        true: {
+          minW: 'auto',
+        },
+      },
+
+      isLink: {
+        true: {
+          textDecoration: 'none',
+          background: 'red',
+        },
       },
     },
 
-    justIcon: {
-      true: {
-        minW: 'auto',
-      },
-    },
+    compoundVariants: [
+      ...variants.colors.outlined,
+      ...variants.colors.ghost,
+      ...variants.colors.link,
 
-    isLink: {
-      true: {
-        textDecoration: 'none',
-        background: 'red',
+      /**
+       * Sizes when with just icon prop
+       */
+      {
+        size: 'xs',
+        justIcon: true,
+        css: { px: '$1' },
       },
+      {
+        size: 'sm',
+        justIcon: true,
+        css: { px: '$2' },
+      },
+      {
+        size: 'md',
+        justIcon: true,
+        css: { px: '$3' },
+      },
+      {
+        size: 'lg',
+        justIcon: true,
+        css: { px: '$4' },
+      },
+    ],
+
+    defaultVariants: {
+      size: 'md',
+      color: 'accent',
+      variant: 'solid',
+      isLink: false,
     },
   },
-
-  compoundVariants: [
-    ...variants.colors.outlined,
-    ...variants.colors.ghost,
-    ...variants.colors.link,
-
-    /**
-     * Sizes when with just icon prop
-     */
-    {
-      size: 'xs',
-      justIcon: true,
-      css: { px: '$1' },
-    },
-    {
-      size: 'sm',
-      justIcon: true,
-      css: { px: '$2' },
-    },
-    {
-      size: 'md',
-      justIcon: true,
-      css: { px: '$3' },
-    },
-    {
-      size: 'lg',
-      justIcon: true,
-      css: { px: '$4' },
-    },
-  ],
-
-  defaultVariants: {
-    size: 'md',
-    color: 'accent',
-    variant: 'solid',
-    isLink: false,
+  iconLeft: {
+    //
+  },
+  iconRight: {
+    //
   },
 });

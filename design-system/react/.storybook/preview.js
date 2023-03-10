@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { themes } from '@storybook/theming';
-import { darkTheme, lightTheme } from '@fuel-ui/css';
+import { darkTheme, lightTheme } from '@fuel-ui/react';
 
 import { ThemeProvider, useFuelTheme } from '../src';
 import theme from './theme';
