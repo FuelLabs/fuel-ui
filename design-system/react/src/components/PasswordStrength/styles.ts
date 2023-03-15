@@ -10,7 +10,7 @@ export const styles = {
   popover: cssObj({
     px: '$3 !important',
     py: '$2 !important',
-    border: '1px solid $gray3',
+    border: '1px solid transparent',
     outlineColor: 'transparent',
     outline: 'none !important',
   }),
@@ -19,7 +19,7 @@ export const styles = {
     width: '$full',
     flex: 1,
     flexDirection: 'column',
-    background: '$gray2',
+    background: '$overlayBg',
     gap: '$1',
   }),
   strengthIndicatorContainer: cssObj({
@@ -49,6 +49,6 @@ export const styles = {
     }),
   rulesHeader: cssObj({ color: '$gray12' }),
   arrow: cssObj({
-    fill: '$gray2',
+    fill: '$overlayBg',
   }),
 };

@@ -28,7 +28,7 @@ export const content = css({
   position: 'relative',
   minHeight: '100%',
   maxHeight: '100%',
-  background: '$gray1',
+  background: '$inuptBg',
   boxShadow: '$lg',
 });
 

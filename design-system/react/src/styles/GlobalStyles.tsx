@@ -15,34 +15,50 @@ const customStyles = {
   },
 };
 
+function fontSource(fontName: string) {
+  return `url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/${fontName}.woff2') format('woff2'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/${fontName}.woff') format('woff'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/${fontName}.eot') format('embedded-opentype')`;
+}
+
 const fontStyles = {
   body: {
     fontFamily: '$sans',
   },
   '@font-face': [
     {
-      fontFamily: 'Satoshi',
-      src: "url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/Satoshi-Variable.woff2') format('woff2'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/Satoshi-Variable.woff') format('woff'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/Satoshi-Variable.ttf') format('truetype')",
+      fontFamily: 'Inter',
+      src: "url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap')",
       fontWeight: '300 900',
       fontStyle: 'normal',
     },
     {
-      fontFamily: 'Satoshi',
-      src: "url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/Satoshi-VariableItalic.woff2') format('woff2'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/Satoshi-VariableItalic.woff') format('woff'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/Satoshi-VariableItalic.ttf') format('truetype')",
-      fontWeight: '300 900',
-      fontStyle: 'italic',
-    },
-    {
-      fontFamily: 'GeneralSans',
-      src: "url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/GeneralSans-Variable.woff2') format('woff2'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/GeneralSans-Variable.woff') format('woff'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/GeneralSans-Variable.ttf') format('truetype')",
-      fontWeight: '300 900',
+      fontFamily: 'PxGrotesk',
+      src: fontSource('Px-Grotesk-Light'),
+      fontWeight: '100',
       fontStyle: 'normal',
     },
     {
-      fontFamily: 'GeneralSans',
-      src: "url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/GeneralSans-VariableItalic.woff2') format('woff2'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/GeneralSans-VariableItalic.woff') format('woff'), url('https://pedronauck-strapi.sfo3.digitaloceanspaces.com/fonts/GeneralSans-VariableItalic.ttf') format('truetype')",
-      fontWeight: '300 900',
+      fontFamily: 'PxGrotesk',
+      src: fontSource('Px-Grotesk-Regular'),
+      fontWeight: '400',
+      fontStyle: 'normal',
+    },
+    {
+      fontFamily: 'PxGrotesk',
+      src: fontSource('Px-Grotesk-Italic'),
+      fontWeight: '400',
       fontStyle: 'italic',
+    },
+    {
+      fontFamily: 'PxGrotesk',
+      src: fontSource('Px-Grotesk-Bold'),
+      fontWeight: '600',
+      fontStyle: 'normal',
+    },
+    {
+      fontFamily: 'PxGrotesk-Mono',
+      src: fontSource('Px-Grotesk-Mono-Regular'),
+      fontWeight: '400',
+      fontStyle: 'normal',
     },
   ],
 };

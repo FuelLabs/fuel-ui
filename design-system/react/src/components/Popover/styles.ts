@@ -21,18 +21,18 @@ const slideLeftAndFade = keyframes({
 });
 
 export const arrow = css({
-  fill: '$gray2',
+  fill: '$overlayBg',
 });
 
 export const content = css({
-  borderRadius: '$md',
+  borderRadius: '$default',
   py: '$4',
   px: '$5',
   pr: '$7',
   fontSize: '$sm',
   lineHeight: 1,
   color: '$gray10',
-  backgroundColor: '$gray2',
+  backgroundColor: '$overlayBg',
   boxShadow: '$sm',
 
   '@media (prefers-reduced-motion: no-preference)': {

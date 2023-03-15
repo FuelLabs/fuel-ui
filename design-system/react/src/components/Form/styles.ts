@@ -1,6 +1,7 @@
 import { css } from '@fuel-ui/css';
 
 export const control = css({
+  is: ['display'],
   display: 'flex',
   flexDirection: 'column',
   gap: '$2',

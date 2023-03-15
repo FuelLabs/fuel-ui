@@ -50,7 +50,7 @@ const styles = {
     '&:focus-visible': {
       outline: '2px solid $accent11',
       outlineOffset: '1px',
-      borderRadius: '$md',
+      borderRadius: '$default',
     },
 
     variants: {

@@ -3,13 +3,13 @@ import { css } from '@fuel-ui/css';
 import * as variants from './variants';
 
 export const tag = css({
+  is: ['display'],
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
   border: '1px solid transparent',
   transition: 'all',
   textDecoration: 'none',
-  fontFamily: '$sans',
 
   '& button': {
     px: '$0',

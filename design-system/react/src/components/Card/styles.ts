@@ -1,8 +1,8 @@
 import { css } from '@fuel-ui/css';
 
 export const card = css({
-  background: '$gray1',
-  borderRadius: '$md',
+  background: '$cardBg',
+  borderRadius: '$default',
   border: '1px solid transparent',
   boxShadow: '$sm',
 });

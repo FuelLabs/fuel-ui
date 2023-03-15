@@ -3,3 +3,8 @@ export const truncate = {
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
 };
+
+export const display = {
+  fontFamily: '$display',
+  letterSpacing: '$tight',
+};

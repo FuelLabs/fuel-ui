@@ -137,10 +137,9 @@ const styles = {
     gridTemplateColumns: '1fr auto',
 
     input: {
+      is: ['display'],
       width: '100%',
       boxSizing: 'border-box',
-      fontFamily: '$sans',
-      fontWeight: '$medium',
     },
 
     'input, .fuel_input-element--right': {

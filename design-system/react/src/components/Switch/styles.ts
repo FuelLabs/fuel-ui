@@ -5,16 +5,13 @@ export const root = css({
   position: 'relative',
   width: 42,
   height: 25,
-  backgroundColor: '$gray2',
+  backgroundColor: '$inputBg',
   borderRadius: '$full',
   boxShadow: '$sm',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 
   '&:focus-visible': {
     outline: '2px solid $gray5',
-  },
-  '&[data-state="checked"]': {
-    backgroundColor: '$gray2',
   },
 
   variants: {

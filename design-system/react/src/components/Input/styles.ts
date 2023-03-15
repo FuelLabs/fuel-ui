@@ -7,13 +7,13 @@ const PLACEHOLDER_COLOR = '$inputPlaceholderColor';
 const ADDON_COLOR = '$gray7';
 
 export const input = css({
+  is: ['display'],
   display: 'inline-flex',
   background: BG_COLOR,
   border: `1px solid ${BORDER_COLOR}`,
-  fontFamily: '$sans',
   color: ADDON_COLOR,
   boxSizing: 'content-box',
-  borderRadius: '$md',
+  borderRadius: '$default',
   overflow: 'hidden',
 
   [`&:focus-within`]: {
@@ -30,32 +30,32 @@ export const input = css({
   variants: {
     size: {
       sm: {
-        textSize: 'sm',
+        textSize: 'base',
         height: '$9',
 
         '& > input': {
           px: '$2',
-          textSize: 'sm',
-          height: '100%',
-        },
-      },
-      md: {
-        textSize: 'base',
-        height: '$11',
-
-        '& > input': {
-          px: '$3',
           textSize: 'base',
           height: '100%',
         },
       },
-      lg: {
+      md: {
         textSize: 'lg',
-        height: '$12',
+        height: '$11',
 
         '& > input': {
           px: '$3',
           textSize: 'lg',
+          height: '100%',
+        },
+      },
+      lg: {
+        textSize: 'xl',
+        height: '$12',
+
+        '& > input': {
+          px: '$3',
+          textSize: 'xl',
           height: '100%',
         },
       },
@@ -88,13 +88,12 @@ export const input = css({
 });
 
 export const field = css({
-  is: ['noAppearance'],
+  is: ['noAppearance', 'display'],
   outline: 'none',
   p: '$0',
   flex: 1,
   color: INPUT_COLOR,
-  fontFamily: '$sans',
-  fontWeight: '$medium',
+  fontWeight: '$normal',
 
   '&::placeholder': {
     color: PLACEHOLDER_COLOR,
