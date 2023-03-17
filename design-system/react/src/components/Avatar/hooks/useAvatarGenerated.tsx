@@ -1,5 +1,6 @@
-import { lightColors } from '@fuel-ui/css';
+import { css, lightColors } from '@fuel-ui/css';
 import { toSvg } from 'jdenticon';
+import { useMemo } from 'react';
 
 const SIZES = {
   xsm: 24,
@@ -44,12 +45,17 @@ export function useAvatarGenerated({
 }: UseAvatarGeneratedProps) {
   const totalSize = SIZES[size];
   const backColor = getBackgroundColor(background, hash);
+  const className = useMemo(
+    () => css({ background: backColor })(),
+    [backColor]
+  );
+  const svgString = toSvg(hash, totalSize, {
+    backColor: 'transparent',
+    padding: 0.15,
+  }).replace('<svg', `<svg class="${className}"`);
 
   return {
-    svgString: toSvg(hash, totalSize, {
-      backColor,
-      padding: 0.15,
-    }),
+    svgString,
     totalSize,
   };
 }

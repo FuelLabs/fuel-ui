@@ -19,6 +19,7 @@ const customStyles = {
 const fontStyles = {
   body: {
     fontFamily: '$sans',
+    letterSpacing: '$tight',
   },
   '@font-face': fontFaces,
 };

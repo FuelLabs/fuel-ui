@@ -23,7 +23,7 @@ function createSolidVariant(keyColor: ColorKeys, hasHover = true) {
       outline: 'none',
     },
     '&:not([aria-disabled=true]):focus-visible': {
-      outline: `3px solid ${outlineColor}`,
+      outline: `2px solid ${outlineColor}`,
     },
   };
 }
@@ -69,7 +69,7 @@ function createGhostVariant(keyColor: ColorKeys, hasHover = true) {
     }),
 
     '&:not([aria-disabled=true]):focus-visible': {
-      outline: `3px solid $${color}2`,
+      outline: `2px solid $${color}2`,
       outlineOffset: '1px',
     },
     '&:active, &[aria-pressed=true]': {
@@ -114,28 +114,28 @@ export const size = {
   xs: {
     gap: '5px',
     px: '$2',
-    fontSize: '$sm',
+    fontSize: '$xs',
     fontWeight: '$bold',
     height: '$7',
   },
   sm: {
     gap: '$2',
     px: '$3',
-    fontSize: '$md',
+    fontSize: '$sm',
     fontWeight: '$medium',
     height: '$8',
   },
   md: {
     gap: '$2',
     px: '$4',
-    fontSize: '$lg',
+    fontSize: '$md',
     fontWeight: '$medium',
     height: '$10',
   },
   lg: {
     gap: '$3',
     px: '$5',
-    fontSize: '$xl',
+    fontSize: '$lg',
     fontWeight: '$medium',
     height: '$12',
   },

@@ -30,32 +30,32 @@ export const input = css({
   variants: {
     size: {
       sm: {
-        textSize: 'base',
+        textSize: 'sm',
         height: '$9',
 
         '& > input': {
           px: '$2',
-          textSize: 'base',
+          textSize: 'sm',
           height: '100%',
         },
       },
       md: {
-        textSize: 'lg',
+        textSize: 'base',
         height: '$11',
 
         '& > input': {
           px: '$3',
-          textSize: 'lg',
+          textSize: 'base',
           height: '100%',
         },
       },
       lg: {
-        textSize: 'xl',
+        textSize: 'lg',
         height: '$12',
 
         '& > input': {
           px: '$3',
-          textSize: 'xl',
+          textSize: 'lg',
           height: '100%',
         },
       },
@@ -148,12 +148,10 @@ export const addon = css({
   fontWeight: '$semibold',
 
   '&[class*="left"]': {
-    borderRight: `1px solid ${BORDER_COLOR}`,
     pr: '$0',
   },
 
   '&[class*="right"]': {
-    borderLeft: `1px solid ${BORDER_COLOR}`,
     pl: '$0',
   },
 });

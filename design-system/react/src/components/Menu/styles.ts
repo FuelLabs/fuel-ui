@@ -5,6 +5,7 @@ export const menu = css({
   py: '$2',
   m: '$0',
   borderRadius: '$default',
+  minWidth: '160px',
 
   '&:focus-visible': {
     outline: '2px solid $gray5',
@@ -17,11 +18,10 @@ export const item = css({
   alignItems: 'center',
   gap: '$2',
   height: '$9',
-  px: '$4',
+  px: '$3',
   opacity: 0.4,
   borderRadius: '$default',
   color: '$gray10',
-  fontWeight: '$medium',
 
   '&:not([aria-disabled="true"])': {
     cursor: 'pointer',

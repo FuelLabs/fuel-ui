@@ -35,7 +35,7 @@ export const AvatarGenerated = createComponent<
         ...css,
         width: totalSize,
         height: totalSize,
-        borderRadius: '100%',
+        borderRadius: '$full',
         overflow: 'hidden',
       }}
       dangerouslySetInnerHTML={{

@@ -76,7 +76,8 @@ export const lightColors = {
   inputPlaceholderColor: '$gray9',
 
   cardBg: '$gray1',
-  overlayBg: '$gray2',
+  cardListItemBg: '$blackA3',
+  overlayBg: '$gray1',
 };
 
 export const darkColors = {
@@ -137,11 +138,12 @@ export const darkColors = {
 
   inputBg: '$gray1',
   inputColor: '$gray12',
-  inputBorder: 'transparent',
+  inputBorder: '$gray5',
   inputPlaceholderColor: '$gray9',
 
-  cardBg: '#101112',
-  overlayBg: '$gray2',
+  cardBg: '$gray1',
+  cardListItemBg: '$whiteA3',
+  overlayBg: '$gray1',
 };
 
 export type ColorKeys =
