@@ -14,7 +14,7 @@ export const button = css({
 
   '&:not([aria-disabled=true]):active, &:not([aria-disabled=true])[aria-pressed=true]':
     {
-      transform: 'scale(0.96)',
+      transform: 'scale(0.97)',
     },
 
   variants: {

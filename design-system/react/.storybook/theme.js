@@ -1,6 +1,6 @@
-const PRIMARY_COLOR = '#58C09B';
+const PRIMARY_COLOR = '#00E182';
 const LOGO =
-  'https://raw.githubusercontent.com/pedronauck/fuel-design-system/gh-pages/logo.png';
+  'https://assets-global.website-files.com/62e273f312d561347ce33306/6400d0b82c501d62b75963ff_Fuel%20New.png';
 
 export default {
   brandTitle: 'Fuel',
