@@ -26,6 +26,8 @@ export const parameters = {
     dark: {
       ...themes.dark,
       ...theme,
+      appBg: '#101010',
+      barBg: '#151515',
     },
     light: {
       ...themes.light,

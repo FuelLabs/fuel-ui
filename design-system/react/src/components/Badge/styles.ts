@@ -3,15 +3,14 @@ import { css } from '@fuel-ui/css';
 import * as variants from './variants';
 
 export const badge = css({
+  is: ['display'],
   border: 'none',
   transition: 'all',
   textDecoration: 'none',
   py: '2px',
   px: '$2',
-  borderRadius: '$md',
+  borderRadius: '$default',
   textTransform: 'uppercase',
-  fontFamily: '$sans',
-  fontWeight: '$extrabold',
 
   variants: {
     color: variants.colors.solid,

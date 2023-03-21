@@ -4,7 +4,7 @@ export const underlay = css({
   position: 'absolute',
   zIndex: '$50',
   inset: 0,
-  background: 'rgba(0, 0, 0, 0.5)',
+  background: '$blackA10',
   display: 'flex',
 
   variants: {
@@ -28,7 +28,7 @@ export const content = css({
   position: 'relative',
   minHeight: '100%',
   maxHeight: '100%',
-  background: '$gray1',
+  background: '$overlayBg',
   boxShadow: '$lg',
 });
 

@@ -7,13 +7,13 @@ const PLACEHOLDER_COLOR = '$inputPlaceholderColor';
 const ADDON_COLOR = '$gray7';
 
 export const input = css({
+  is: ['display'],
   display: 'inline-flex',
   background: BG_COLOR,
   border: `1px solid ${BORDER_COLOR}`,
-  fontFamily: '$sans',
   color: ADDON_COLOR,
   boxSizing: 'content-box',
-  borderRadius: '$md',
+  borderRadius: '$default',
   overflow: 'hidden',
 
   [`&:focus-within`]: {
@@ -88,13 +88,12 @@ export const input = css({
 });
 
 export const field = css({
-  is: ['noAppearance'],
+  is: ['noAppearance', 'display'],
   outline: 'none',
   p: '$0',
   flex: 1,
   color: INPUT_COLOR,
-  fontFamily: '$sans',
-  fontWeight: '$medium',
+  fontWeight: '$normal',
 
   '&::placeholder': {
     color: PLACEHOLDER_COLOR,
@@ -149,12 +148,10 @@ export const addon = css({
   fontWeight: '$semibold',
 
   '&[class*="left"]': {
-    borderRight: `1px solid ${BORDER_COLOR}`,
     pr: '$0',
   },
 
   '&[class*="right"]': {
-    borderLeft: `1px solid ${BORDER_COLOR}`,
     pl: '$0',
   },
 });

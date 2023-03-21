@@ -58,7 +58,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '$4',
-    backgroundColor: '$gray1',
+    backgroundColor: '$overlayBg',
     borderRadius: '$xl',
     color: '$gray10',
     boxShadow: '$none',
