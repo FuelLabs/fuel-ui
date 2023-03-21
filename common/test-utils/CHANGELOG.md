@@ -1,5 +1,11 @@
 # @fuel-ui/test-utils
 
+## 0.13.0
+
+### Minor Changes
+
+- ✨ Feat: minimal set of adjustments to have a new brand look, by [@pedronauck](https://github.com/pedronauck) (See [#219](https://github.com/FuelLabs/fuel-ui/pull/219))
+
 ## 0.12.4
 
 ## 0.12.3
