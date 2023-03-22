@@ -1,7 +1,7 @@
 import { Box } from '../Box';
 
-import type { AccordionProps } from './Accordion';
 import { Accordion } from './Accordion';
+import type { AccordionProps } from './types';
 
 export default {
   component: Accordion,

@@ -1,32 +1,27 @@
-import { cx, styled } from '@fuel-ui/css';
 import * as AC from '@radix-ui/react-accordion';
+import { createElement } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent } from '../../utils';
 import { Icon } from '../Icon';
 
 import * as styles from './styles';
+import type * as t from './types';
 
-export type AccordionTriggerProps = AC.AccordionTriggerProps & {
-  className?: string;
-};
+import { useComponentProps, useStyles } from '~/hooks';
+import { Components } from '~/types';
 
-const Trigger = styled(AC.AccordionTrigger, styles.trigger);
+export const AccordionTrigger = createComponent<t.AccordionTriggerProps>(
+  ({ children, ...initProps }) => {
+    const props = useComponentProps(Components.AccordionTrigger, initProps);
+    const classes = useStyles(styles.triggerStyles, props);
 
-export const AccordionTrigger = createComponent<AccordionTriggerProps>(
-  ({ className, children, ...props }) => {
-    const classes = cx('fuel_AccordionHeader', className);
-    const iconClass = cx('fuel_AccordionIcon', styles.chevron());
-    const triggerClass = cx('fuel_AccordionTrigger', className);
-
-    return createStyledElement(
+    return createElement(
       AC.AccordionHeader,
-      styles.header,
-      null,
-      { className: classes },
-      <Trigger {...props} className={triggerClass}>
+      { className: classes.header },
+      <AC.AccordionTrigger {...props} className={classes.trigger}>
         {children}
-        <Icon icon="CaretDown" aria-hidden className={iconClass} />
-      </Trigger>
+        <Icon icon="CaretDown" aria-hidden className={classes.icon} />
+      </AC.AccordionTrigger>
     );
   }
 );
