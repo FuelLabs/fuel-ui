@@ -16,7 +16,7 @@ export const root = css({
   boxShadow: '$sm',
   fontSize: '$base',
 
-  [`.${darkTheme} &`]: {
+  [`.${darkTheme.theme} &`]: {
     background: '$inputBg',
   },
 

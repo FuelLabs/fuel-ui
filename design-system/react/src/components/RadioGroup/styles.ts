@@ -28,7 +28,7 @@ export const item = css({
   borderRadius: '100%',
   boxShadow: '$sm',
 
-  [`.${darkTheme} &`]: {
+  [`.${darkTheme.theme} &`]: {
     background: '$inputBg',
   },
 

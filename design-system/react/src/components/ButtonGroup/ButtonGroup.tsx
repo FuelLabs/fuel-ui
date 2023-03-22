@@ -5,7 +5,7 @@ import { mergeProps } from 'react-aria';
 
 import { createComponent, createStyledElement } from '../../utils';
 import { pick } from '../../utils/helpers';
-import type { ButtonBaseProps, ButtonProps } from '../Button/Button';
+import type { ButtonBaseProps, ButtonProps } from '../Button/types';
 import { Focus } from '../Focus';
 
 import * as styles from './styles';

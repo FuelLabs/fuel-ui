@@ -31,3 +31,12 @@ export type ButtonProps = Omit<HTMLProps['button'], 'onClick'> &
      */
     onClick?: HTMLProps['button']['onClick'];
   };
+
+export type ButtonNS = {
+  id: string;
+};
+
+export type ButtonDef = {
+  props: ButtonProps;
+  styles: 'root' | 'iconLeft' | 'iconRight';
+};

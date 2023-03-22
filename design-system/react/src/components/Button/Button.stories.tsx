@@ -3,8 +3,8 @@ import { colorKeys } from '@fuel-ui/css';
 import { Box } from '../Box';
 import { Icon } from '../Icon';
 
-import type { ButtonProps } from './Button';
 import { Button } from './Button';
+import type { ButtonProps } from './types';
 
 export default {
   title: 'UI/Button',
@@ -37,22 +37,25 @@ export default {
   },
 };
 
-export const Sizes = (args: ButtonProps) => (
-  <Box css={styles.wrapper}>
-    <Button {...args} size="xs">
-      Button
-    </Button>
-    <Button {...args} size="sm">
-      Button
-    </Button>
-    <Button {...args} size="md">
-      Button
-    </Button>
-    <Button {...args} size="lg">
-      Button
-    </Button>
-  </Box>
-);
+export const Sizes = (args: ButtonProps) => {
+  console.log('storybook variant', args.variant);
+  return (
+    <Box css={styles.wrapper}>
+      <Button {...args} size="xs">
+        Button
+      </Button>
+      <Button {...args} size="sm">
+        Button
+      </Button>
+      <Button {...args} size="md">
+        Button
+      </Button>
+      <Button {...args} size="lg">
+        Button
+      </Button>
+    </Box>
+  );
+};
 
 export const Variants = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
