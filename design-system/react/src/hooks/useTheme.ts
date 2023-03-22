@@ -1,4 +1,4 @@
-import type { ThemeUtilsCSS } from '@fuel-ui/css';
+import type { CSSFnParams } from '@fuel-ui/css';
 import { _createTheme, darkColors, lightColors } from '@fuel-ui/css';
 import { createContext, useContext } from 'react';
 
@@ -8,7 +8,7 @@ type ComponentsKeys = keyof StoreDefs;
 type ComponentProps<K extends ComponentsKeys> = {
   defaultProps?: StoreDefs[K]['props'];
   styles?: {
-    [P in StoreDefs[K]['styles']]?: ThemeUtilsCSS;
+    [P in StoreDefs[K]['styles']]?: CSSFnParams;
   };
 };
 

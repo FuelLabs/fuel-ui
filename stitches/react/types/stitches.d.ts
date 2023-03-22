@@ -12,6 +12,35 @@ export type RemoveIndex<T> = {
     : k]: T[k];
 };
 
+// Type for composer variants
+export type ComposerVariants<Composer, CSS> = {
+  [Name in string]: {
+    [Pair in number | string]: CSS;
+  };
+};
+
+// Type for compound variants
+export type CompoundVariants<Composer, CSS> = (
+  | ('variants' extends keyof Composer
+      ? {
+          [Name in keyof Composer['variants']]?:
+            | Util.Widen<keyof Composer['variants'][Name]>
+            | Util.String;
+        }
+      : Util.WideObject) & {
+      css: CSS;
+    }
+)[];
+
+// Type for default variants
+export type DefaultVariants<Composer> = 'variants' extends keyof Composer
+  ? {
+      [Name in keyof Composer['variants']]?:
+        | Util.Widen<keyof Composer['variants'][Name]>
+        | Util.String;
+    }
+  : Util.WideObject;
+
 export interface CssFunctionType<
   Media extends {} = {},
   Theme extends {} = {},
@@ -38,35 +67,17 @@ export interface CssFunctionType<
              *
              * [Read Documentation](https://stitches.dev/docs/variants)
              */
-            variants?: {
-              [Name in string]: {
-                [Pair in number | string]: CSS;
-              };
-            };
+            variants?: ComposerVariants<Composers[K], CSS>;
             /** The **compoundVariants** property lets you to set a subclass of styles based on a combination of active variants.
              *
              * [Read Documentation](https://stitches.dev/docs/variants#compound-variants)
              */
-            compoundVariants?: (('variants' extends keyof Composers[K]
-              ? {
-                  [Name in keyof Composers[K]['variants']]?:
-                    | Util.Widen<keyof Composers[K]['variants'][Name]>
-                    | Util.String;
-                }
-              : Util.WideObject) & {
-              css: CSS;
-            })[];
+            compoundVariants?: CompoundVariants<Composers[K], CSS>;
             /** The **defaultVariants** property allows you to predefine the active key-value pairs of variants.
              *
              * [Read Documentation](https://stitches.dev/docs/variants#default-variants)
              */
-            defaultVariants?: 'variants' extends keyof Composers[K]
-              ? {
-                  [Name in keyof Composers[K]['variants']]?:
-                    | Util.Widen<keyof Composers[K]['variants'][Name]>
-                    | Util.String;
-                }
-              : Util.WideObject;
+            defaultVariants?: DefaultVariants<Composers[K]>;
           } & CSS & {
               [K2 in keyof Composers[K]]: K2 extends
                 | 'compoundVariants'
@@ -99,7 +110,6 @@ export interface StyledFunctionType<
       | Util.Function,
     Composers extends (
       | string
-      | React.ComponentType<any>
       | Util.Function
       | {
           [name: string]: unknown;
@@ -109,44 +119,26 @@ export interface StyledFunctionType<
   >(
     type: Type,
     ...composers: {
-      [K in keyof Composers]: string extends Composers[K] // Strings, React Components, and Functions can be skipped over
+      [K in keyof Composers]: string extends Composers[K] // Strings and Functions can be skipped over
         ? Composers[K]
-        : Composers[K] extends string | React.ComponentType<any> | Util.Function
+        : Composers[K] extends string | Util.Function
         ? Composers[K]
         : RemoveIndex<CSS> & {
             /** The **variants** property lets you set a subclass of styles based on a key-value pair.
              *
              * [Read Documentation](https://stitches.dev/docs/variants)
              */
-            variants?: {
-              [Name in string]: {
-                [Pair in number | string]: CSS;
-              };
-            };
+            variants?: ComposerVariants<Composers[K], CSS>;
             /** The **compoundVariants** property lets you to set a subclass of styles based on a combination of active variants.
              *
              * [Read Documentation](https://stitches.dev/docs/variants#compound-variants)
              */
-            compoundVariants?: (('variants' extends keyof Composers[K]
-              ? {
-                  [Name in keyof Composers[K]['variants']]?:
-                    | Util.Widen<keyof Composers[K]['variants'][Name]>
-                    | Util.String;
-                }
-              : Util.WideObject) & {
-              css: CSS;
-            })[];
+            compoundVariants?: CompoundVariants<Composers[K], CSS>;
             /** The **defaultVariants** property allows you to predefine the active key-value pairs of variants.
              *
              * [Read Documentation](https://stitches.dev/docs/variants#default-variants)
              */
-            defaultVariants?: 'variants' extends keyof Composers[K]
-              ? {
-                  [Name in keyof Composers[K]['variants']]?:
-                    | Util.Widen<keyof Composers[K]['variants'][Name]>
-                    | Util.String;
-                }
-              : Util.WideObject;
+            defaultVariants?: DefaultVariants<Composers[K]>;
           } & CSS & {
               [K2 in keyof Composers[K]]: K2 extends
                 | 'compoundVariants'

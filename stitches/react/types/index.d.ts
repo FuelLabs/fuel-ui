@@ -3,6 +3,11 @@ import type Stitches from './stitches.js';
 import type * as Config from './config.js';
 import type * as CSSUtil from './css-util.js';
 import type * as StyledComponent from './styled-component.js';
+import {
+  ComposerVariants,
+  CompoundVariants,
+  DefaultVariants,
+} from './stitches.js';
 
 export { $$PropertyValue, $$ScaleValue, $$ThemeValue } from './css-util.js';
 export type CreateStitches = Config.CreateStitches;
@@ -29,6 +34,30 @@ export type CSS<
   Config['themeMap'],
   Config['utils']
 >;
+
+export type CSSFull<
+  Config extends {
+    media?: {};
+    theme?: {};
+    themeMap?: {};
+    utils?: {};
+  } = {
+    media: {};
+    theme: {};
+    themeMap: {};
+    utils: {};
+  },
+  CSSDefs = CSSUtil.CSS<
+    Config['media'],
+    Config['theme'],
+    Config['themeMap'],
+    Config['utils']
+  >
+> = CSSDefs & {
+  variants?: ComposerVariants<{}, CSSDefs>;
+  compoundVariants?: CompoundVariants<{}, CSSDefs>;
+  defaultVariants?: DefaultVariants<{}>;
+};
 
 /** Returns the properties, attributes, and children expected by a component. */
 export type ComponentProps<Component> = Component extends (

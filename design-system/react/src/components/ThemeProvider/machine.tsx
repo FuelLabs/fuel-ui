@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { assign, createMachine } from 'xstate';
 
-import { store } from '~/hooks/useStore';
+import { useStore } from '~/hooks/useStore';
 import type { ThemesObj } from '~/hooks/useTheme';
 import { THEME_STORAGE_KEY } from '~/hooks/useTheme';
 import { mergeDeep } from '~/utils/helpers';
@@ -42,9 +43,11 @@ export const themeProviderMachine = machine.withConfig({
     saveOnLocalStorage: ({ current, themes }) => {
       localStorage.setItem(THEME_STORAGE_KEY, current);
       const components = themes[current]?.components || {};
+      const store = useStore.getState();
       Object.entries(components ?? {}).forEach(([key, value]) => {
-        const curr = store.getState()[key];
-        store.state[key] = mergeDeep(curr, value);
+        const curr = store.defs[key];
+        const next = mergeDeep(curr, value);
+        store.addDef(key as any, next);
       });
     },
     setTheme: assign({
