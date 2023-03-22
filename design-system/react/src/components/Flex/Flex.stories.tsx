@@ -1,7 +1,7 @@
 import { Box } from '../Box';
 
-import type { FlexProps } from './Flex';
 import { Flex } from './Flex';
+import type { FlexProps } from './types';
 
 export default {
   component: Flex,

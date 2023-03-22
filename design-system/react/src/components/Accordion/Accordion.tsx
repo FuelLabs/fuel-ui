@@ -10,17 +10,17 @@ import { AccordionTrigger } from './AccordionTrigger';
 import { rootStyles } from './styles';
 import type * as t from './types';
 
-import { useStyles, useComponentProps } from '~/hooks';
+import { useStyles, useComponentProps, useElementProps } from '~/hooks';
 import { Components } from '~/types';
 
 export const Accordion = createComponent<t.AccordionProps, t.AccordionNS>(
   ({ as = AC.Root, ...initProps }) => {
     const props = useComponentProps(Components.Accordion, initProps);
     const classes = useStyles(rootStyles, props);
-    return createElement(as, {
-      ...props,
+    const elementProps = useElementProps(props, {
       className: cx(props.className, classes.root),
     });
+    return createElement(as, elementProps);
   }
 );
 
