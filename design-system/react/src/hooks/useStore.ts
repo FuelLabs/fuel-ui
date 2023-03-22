@@ -1,14 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { css } from '@fuel-ui/css';
 import type { ThemeUtilsCSS, CSSFnParams } from '@fuel-ui/css';
 import { deepEqual } from 'fast-equals';
 import { useMemo, useRef } from 'react';
+import { mergeProps } from 'react-aria';
 import { create } from 'zustand';
 
 import { useFuelTheme } from './useTheme';
 
 import type { StoreDefs } from '~/types';
 import { fClass } from '~/utils/css';
-import { mergeDeep } from '~/utils/helpers';
+import { mergeDeep, omit } from '~/utils/helpers';
 
 type DefKeys = keyof StoreDefs;
 type CSSFnReturn = ReturnType<typeof css>;
@@ -118,4 +120,26 @@ export function useStyles<K extends DefKeys>(
   }
 
   return useMemo(() => generateClasses(), [props]);
+}
+
+const OMIT_FOR_DOM = [
+  'as',
+  'variant',
+  'color',
+  'size',
+  'css',
+  'onClick',
+  'isDisabled',
+  'onPress',
+  'isLoading',
+  'isDisabled',
+  'isLink',
+  'leftIcon',
+  'leftIconAriaLabel',
+  'rightIcon',
+  'rightIconAriaLabel',
+];
+
+export function useElementProps<P extends any[]>(...props: P): P[0] {
+  return omit(OMIT_FOR_DOM, mergeProps<P>(...props) as any) as P[0];
 }

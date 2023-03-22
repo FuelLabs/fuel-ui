@@ -38,7 +38,6 @@ export default {
 };
 
 export const Sizes = (args: ButtonProps) => {
-  console.log('storybook variant', args.variant);
   return (
     <Box css={styles.wrapper}>
       <Button {...args} size="xs">

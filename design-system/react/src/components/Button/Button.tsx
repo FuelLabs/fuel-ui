@@ -14,7 +14,11 @@ import { Spinner } from '../Spinner';
 import { styles } from './styles';
 import type * as t from './types';
 
-import { useComponentProps, useStyles } from '~/hooks/useStore';
+import {
+  useComponentProps,
+  useElementProps,
+  useStyles,
+} from '~/hooks/useStore';
 import { Components } from '~/types';
 
 export function createIcon(
@@ -72,19 +76,6 @@ function getChildren({
   );
 }
 
-const OMIT_FOR_DOM = [
-  'onClick',
-  'isDisabled',
-  'onPress',
-  'isLoading',
-  'isDisabled',
-  'isLink',
-  'leftIcon',
-  'leftIconAriaLabel',
-  'rightIcon',
-  'rightIconAriaLabel',
-];
-
 export const SPINNER_SIZE = {
   xs: 12,
   sm: 14,
@@ -140,11 +131,11 @@ export const Button = createComponent<t.ButtonProps, t.ButtonNS>(
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const finalProps = mergeProps(omit(OMIT_FOR_DOM, allProps), { className });
+    const elementProps = useElementProps(allProps, { className });
 
     return createElement(
       as,
-      finalProps,
+      elementProps,
       getChildren({
         size,
         isLoading,
