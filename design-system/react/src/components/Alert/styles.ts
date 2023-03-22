@@ -3,12 +3,12 @@ import { css } from '@fuel-ui/css';
 export const root = css({
   padding: '$4',
   position: 'relative',
-  borderRadius: '$md',
+  borderRadius: '$default',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   gap: '$4',
-  background: '$gray1',
+  background: '$cardBg',
 
   '.fuel_AlertContent': {
     flex: 1,

@@ -97,7 +97,7 @@ export const InputAmount: InputAmountComponent = ({
               <Flex align="center" justify="end">
                 <Button
                   aria-label="Max"
-                  size="xs"
+                  size="sm"
                   variant="ghost"
                   onPress={handleSetBalance}
                   css={styles.maxButton}
@@ -137,10 +137,9 @@ const styles = {
     gridTemplateColumns: '1fr auto',
 
     input: {
+      is: ['display'],
       width: '100%',
       boxSizing: 'border-box',
-      fontFamily: '$sans',
-      fontWeight: '$medium',
     },
 
     'input, .fuel_InputElementRight': {
@@ -161,6 +160,7 @@ const styles = {
   }),
   maxButton: cssObj({
     mt: '$1',
+    px: '$1',
     width: '$15',
     gridArea: '1 / 1 / 3 / 2',
     height: '$5',
@@ -170,7 +170,7 @@ const styles = {
     gap: '$2',
     alignItems: 'center',
     whiteSpace: 'nowrap',
-    fontSize: '$xs',
+    fontSize: '$sm',
     fontWeight: '$medium',
     color: '$gray10',
 

@@ -56,11 +56,12 @@ export const sizes = {
 };
 
 export const fonts = {
-  sans: '"Satoshi", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+  sans: '"Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
   display:
-    '"Satoshi", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+    '"Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
   heading:
-    '"General Sans", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+    '"Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+  mono: '"Space Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 };
 
 export const fontSizes = {
@@ -126,8 +127,9 @@ export const lineHeights = {
 
 export const radii = {
   none: '0px',
-  sm: '0.125rem',
-  DEFAULT: '0.25rem',
+  xs: '0.125rem',
+  sm: '0.25rem',
+  default: '$sm',
   md: '0.375rem',
   lg: '0.5rem',
   xl: '0.75rem',

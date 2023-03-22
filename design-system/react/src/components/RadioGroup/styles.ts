@@ -29,7 +29,7 @@ export const item = css({
   boxShadow: '$sm',
 
   [`.${darkTheme} &`]: {
-    background: '$gray2',
+    background: '$inputBg',
   },
 
   '&:after': {

@@ -42,6 +42,7 @@ export const PaginationNav = createComponent<
 
 const styles = {
   base: cssObj({
+    is: ['display'],
     px: '$1',
     color: '$gray7',
     background: 'transparent !important',

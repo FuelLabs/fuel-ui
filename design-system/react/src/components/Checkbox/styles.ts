@@ -9,7 +9,7 @@ export const root = css({
   backgroundColor: '$inputBg',
   width: '$6',
   height: '$6',
-  borderRadius: '$md',
+  borderRadius: '$default',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -17,7 +17,7 @@ export const root = css({
   fontSize: '$base',
 
   [`.${darkTheme} &`]: {
-    background: '$gray2',
+    background: '$inputBg',
   },
 
   '&:after': {

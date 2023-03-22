@@ -6,20 +6,18 @@ import { Components } from '~/types';
 
 export const styles = createStyle(Components.Button, {
   root: {
+    is: ['display', 'centered'],
     appearance: 'none',
     cursor: 'pointer',
     display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     border: '1px solid transparent',
-    borderRadius: '$lg',
+    borderRadius: '$xs',
     transition: 'all',
     textDecoration: 'none',
-    fontFamily: '$sans',
 
     '&:not([aria-disabled=true]):active, &:not([aria-disabled=true])[aria-pressed=true]':
       {
-        transform: 'scale(0.96)',
+        transform: 'scale(0.97)',
       },
 
     variants: {

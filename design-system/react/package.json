@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/react",
-  "version": "0.12.4",
+  "version": "0.13.0",
   "main": "./src/index.tsx",
   "publishConfig": {
     "access": "public",
@@ -51,12 +51,12 @@
     "@react-aria/utils": "^3.15.0",
     "@fuel-stitches/react": "workspace:*",
     "@xstate/react": "^3.2.1",
-    "framer-motion": "^10.2.3",
+    "framer-motion": "^10.3.2",
     "jdenticon": "^3.2.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-aria": "^3.23.1",
-    "react-content-loader": "^6.2.0",
+    "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-number-format": "^5.1.4",
@@ -65,7 +65,7 @@
     "xstate": "^4.37.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.0",
+    "@babel/core": "^7.21.3",
     "@react-types/button": "^3.7.1",
     "@react-types/shared": "^3.17.0",
     "@storybook/addon-a11y": "^6.5.16",
@@ -95,7 +95,7 @@
     "ts-jest": "^29.0.5",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^4.9.5",
-    "webpack": "5.76.0",
+    "webpack": "5.76.2",
     "yargs": "^17.7.1"
   },
   "pnpm": {
