@@ -1,25 +1,24 @@
-import { css, cx } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import type { HTMLProps } from '../../utils';
-import { createStyledElement, createComponent } from '../../utils';
+import { createComponent } from '../../utils';
 
-export type BoxProps = HTMLProps['div'];
+import type { BoxProps } from './types';
 
-export const Box = createComponent<BoxProps>(
-  ({ as = 'div', className, children, ...props }) => {
-    const classes = cx('fuel_Box', className);
-    return createStyledElement(
-      as,
-      styles.root,
-      null,
-      { ...props, className: classes },
-      children
-    );
-  }
-);
+import { createStyle, useComponentProps, useStyles } from '~/hooks';
+import { Components } from '~/types';
 
-const styles = {
-  root: css({
+export const Box = createComponent<BoxProps>(({ as = 'div', ...initProps }) => {
+  const props = useComponentProps(Components.Box, initProps);
+  const classes = useStyles(styles, props);
+  return createElement(as, {
+    ...props,
+    className: cx(props.className, classes.root),
+  });
+});
+
+const styles = createStyle(Components.Box, {
+  root: {
     fontFamily: '$sans',
-  }),
-};
+  },
+});

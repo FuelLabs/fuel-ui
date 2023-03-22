@@ -15,8 +15,11 @@ type CSSFnReturn = ReturnType<typeof css>;
 type CompStyles<K extends DefKeys> = {
   [P in StoreDefs[K]['styles'] as string]: CSSFnParams;
 };
-type CompClasses<K extends DefKeys> = {
-  [P in StoreDefs[K]['styles'] as string]: string;
+type CompClasses<
+  K extends DefKeys,
+  Styles extends string | number | symbol = StoreDefs[K]['styles']
+> = {
+  [P in Styles]: string;
 };
 
 type ComponentDef<K extends DefKeys> = {
@@ -102,7 +105,7 @@ export function useStyles<K extends DefKeys>(
   props: Partial<Props<K>>
 ) {
   const store = useStore();
-  function generateClasses() {
+  function generateClasses(): CompClasses<K> {
     const styles = store.styles[style.name];
     return Object.entries(styles).reduce((obj, [def, fn]) => {
       const comp = fn(props);

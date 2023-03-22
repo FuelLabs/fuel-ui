@@ -1,5 +1,5 @@
-import type { BoxProps } from './Box';
 import { Box } from './Box';
+import type { BoxProps } from './types';
 
 export default {
   component: Box,
