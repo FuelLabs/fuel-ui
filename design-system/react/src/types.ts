@@ -1,5 +1,6 @@
 /// <reference types="@fuel-stitches/react" />
 
+import type { BadgeDef } from './components';
 import type {
   AccordionContentDef,
   AccordionDef,
@@ -125,6 +126,7 @@ export type StoreDefs = {
   AccordionItem: AccordionItemDef;
   AccordionTrigger: AccordionTriggerDef;
   AspectRatio: AspectRatioDef;
+  Badge: BadgeDef;
   Button: ButtonDef;
   Box: BoxDef;
   Flex: FlexDef;
