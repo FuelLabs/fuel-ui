@@ -75,6 +75,14 @@ NoAction.args = {
   hiddenMaxButton: true,
 };
 
+export const WithAsset = Template.bind({});
+WithAsset.args = {
+  balance: BALANCE,
+  assetId:
+    '0x0000000000000000000000000000000000000000000000000000000000000000 ',
+  name: 'Ether',
+};
+
 export const Loader = () => (
   <Box css={{ width: 300 }}>
     <InputAmount.Loader isFullWidth={true} />

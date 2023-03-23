@@ -16,8 +16,9 @@ export const InputAmountLoader = (props: ContentLoaderProps) => (
       <ContentLoader.Rect x="12" y="21" width="100" height="24" rx="4" />
       <ContentLoader.Rect
         stickX="right"
+        stickY="bottom"
         x="12"
-        y="8"
+        y="10"
         width="41"
         height="18"
         rx="4"
@@ -25,10 +26,19 @@ export const InputAmountLoader = (props: ContentLoaderProps) => (
       <ContentLoader.Rect
         stickX="right"
         stickY="bottom"
-        x="12"
-        y="12"
+        x="58"
+        y="11"
         width="72"
         height="16"
+        rx="4"
+      />
+      <ContentLoader.Rect
+        stickX="right"
+        stickY="top"
+        x="12"
+        y="4"
+        width="60"
+        height="28"
         rx="4"
       />
     </ContentLoader>

@@ -26,6 +26,8 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
   isDisabled?: boolean;
+  assetId?: string;
+  onClickAsset?: (val: Element) => void;
 };
 
 type InputAmountComponent = FC<InputAmountProps> & {
@@ -42,6 +44,8 @@ export const InputAmount: InputAmountComponent = ({
   hiddenMaxButton,
   onChange,
   inputProps,
+  assetId,
+  onClickAsset,
   ...props
 }) => {
   const [assetAmount, setAssetAmount] = useState<string>(
@@ -93,31 +97,47 @@ export const InputAmount: InputAmountComponent = ({
       {initialBalance && (
         <Input.ElementRight css={styles.elementRight}>
           <Box css={styles.balanceActions}>
-            {!hiddenMaxButton && (
-              <Flex align="center" justify="end">
-                <Button
-                  aria-label="Max"
-                  size="sm"
-                  variant="ghost"
-                  onPress={handleSetBalance}
-                  css={styles.maxButton}
-                >
-                  Max
-                </Button>
+            <Flex align="end" direction="column">
+              {assetId && onClickAsset && (
+                <Flex>
+                  <Button
+                    size="xs"
+                    aria-label="Coin Selector"
+                    color="gray"
+                    onPress={(e) => onClickAsset(e.target)}
+                  >
+                    {name || 'Unknown Asset'}
+                  </Button>
+                </Flex>
+              )}
+              <Flex gap="$2" align="center">
+                {!hiddenBalance && (
+                  <Flex
+                    as="div"
+                    css={styles.balance}
+                    aria-label={`Balance: ${formattedBalance}`}
+                  >
+                    <Box as="span">Balance: </Box>
+                    <Tooltip content={formatAmount(balance)} sideOffset={-5}>
+                      <Box as="span">{formattedBalance}</Box>
+                    </Tooltip>
+                  </Flex>
+                )}
+                {!hiddenMaxButton && (
+                  <Flex align="center">
+                    <Button
+                      aria-label="Max"
+                      size="sm"
+                      variant="ghost"
+                      onPress={handleSetBalance}
+                      css={styles.maxButton}
+                    >
+                      Max
+                    </Button>
+                  </Flex>
+                )}
               </Flex>
-            )}
-            {!hiddenBalance && (
-              <Flex
-                as="div"
-                css={styles.balance}
-                aria-label={`Balance: ${formattedBalance}`}
-              >
-                <Box as="span">Balance: </Box>
-                <Tooltip content={formatAmount(balance)} sideOffset={-5}>
-                  <Box as="span">{formattedBalance}</Box>
-                </Tooltip>
-              </Flex>
-            )}
+            </Flex>
           </Box>
         </Input.ElementRight>
       )}
@@ -155,7 +175,6 @@ const styles = {
   balanceActions: cssObj({
     boxSizing: 'border-box',
     display: 'grid',
-    gridTemplateRows: '1fr 1fr',
     justifyContent: 'center',
   }),
   maxButton: cssObj({
