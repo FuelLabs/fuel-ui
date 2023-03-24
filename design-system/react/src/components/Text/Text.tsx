@@ -17,7 +17,7 @@ const _Text = createComponent2<t.TextDef>(
     as = 'p',
     children,
     iconSize = 16,
-    iconColor = 'gray8',
+    iconColor = 'iconColor',
     leftIcon,
     rightIcon,
     leftIconAriaLabel,

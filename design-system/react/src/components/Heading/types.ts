@@ -10,6 +10,7 @@ export type HeadingProps = HTMLProps['h1'] & {
   fontSize?: utils.TextSizes;
   fontColor?: Colors;
   iconSize?: number;
+  iconColor?: Colors;
   leftIcon?: IconProps['icon'];
   rightIcon?: IconProps['icon'];
   leftIconAriaLabel?: string;

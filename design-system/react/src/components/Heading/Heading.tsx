@@ -24,6 +24,7 @@ const _Heading = createComponent2<t.HeadingDef>(
     as = 'h2',
     fontSize,
     fontColor,
+    iconColor = 'iconColor',
     iconSize: initialIconSize,
     leftIcon,
     rightIcon,
@@ -33,8 +34,18 @@ const _Heading = createComponent2<t.HeadingDef>(
     ...props
   }) => {
     const iconSize = getIconSize(as, initialIconSize);
-    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
-    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
+    const iconLeft = createIcon(
+      leftIcon,
+      leftIconAriaLabel,
+      iconSize,
+      iconColor
+    );
+    const iconRight = createIcon(
+      rightIcon,
+      rightIconAriaLabel,
+      iconSize,
+      iconColor
+    );
     const withIcon = Boolean(leftIcon || rightIcon);
     const classes = useStyles(styles, {
       ...props,

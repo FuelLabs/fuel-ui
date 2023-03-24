@@ -20,7 +20,7 @@ export const HelperIcon = createComponent2<t.HelperIconDef>(
       <>
         {children}
         <Tooltip content={props.message}>
-          <Icon icon="Question" aria-label="Helper Icon" />
+          <Icon icon="Question" aria-label="Helper Icon" color="iconColor" />
         </Tooltip>
       </>
     );
