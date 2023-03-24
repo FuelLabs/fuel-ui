@@ -1,8 +1,14 @@
 import type * as AspectRatioPrimitive from '@radix-ui/react-aspect-ratio';
 
-export type AspectRatioProps = AspectRatioPrimitive.AspectRatioProps;
+import type { Components } from '~/types';
+import type { CreateComponent } from '~/utils';
 
-export type AspectRatioDef = {
+export type AspectRatioProps = AspectRatioPrimitive.AspectRatioProps;
+export type AspectRatioDef = CreateComponent<{
+  type: 'div';
+  component: Components.AspectRatio;
+  element: HTMLDivElement;
   props: AspectRatioProps;
-  styles: '';
-};
+  styles: 'root';
+  omit: 'as';
+}>;

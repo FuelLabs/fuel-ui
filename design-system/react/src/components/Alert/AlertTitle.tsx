@@ -1,20 +1,27 @@
-import { cx } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Flex';
-import { Flex } from '../Flex';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 import { Heading } from '../Heading';
 
-import * as styles from './styles';
+import { styles } from './styles';
+import type * as t from './types';
 
-export const AlertTitle = createComponent<FlexProps>(
-  ({ as = 'header', css, children, className, ...props }) => {
-    const classes = cx('fuel_AlertTitle', className, styles.title({ css }));
-    const customProps = { ...props, className: classes };
-    return (
-      <Flex as={as} {...customProps}>
-        <Heading as="h2">{children}</Heading>
-      </Flex>
+import { useStyles, useElementProps } from '~/hooks';
+import { Components } from '~/types';
+
+const _AlertTitle = createComponent2<t.AlertTitleDef>(
+  Components.AlertTitle,
+  ({ as = 'header', children, ...props }) => {
+    const classes = useStyles(styles);
+    const elementProps = useElementProps(props, classes.title);
+    return createElement(
+      as,
+      elementProps,
+      <Heading as="h2">{children}</Heading>
     );
   }
 );
+
+export const AlertTitle =
+  createPolymorphicComponent<t.AlertTitleDef>(_AlertTitle);

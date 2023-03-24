@@ -4,6 +4,9 @@ import type { AccordionContent } from './AccordionContent';
 import type { AccordionItem } from './AccordionItem';
 import type { AccordionTrigger } from './AccordionTrigger';
 
+import type { Components } from '~/types';
+import type { CreateComponent } from '~/utils';
+
 export type AccordionBaseProps =
   | AC.AccordionSingleProps
   | AC.AccordionMultipleProps;
@@ -31,22 +34,36 @@ export type AccordionTriggerProps = AC.AccordionTriggerProps & {
   className?: string;
 };
 
-export type AccordionDef = {
+export type AccordionDef = CreateComponent<{
+  type: 'div';
+  component: Components.Accordion;
+  element: HTMLDivElement;
   props: AccordionProps;
-  styles: 'root';
-};
+  styles: 'root' | 'content' | 'item' | 'trigger' | 'header' | 'icon';
+  namespace: AccordionNS;
+  omit: 'as';
+}>;
 
-export type AccordionContentDef = {
+export type AccordionContentDef = CreateComponent<{
+  type: 'div';
+  component: Components.AccordionContent;
+  element: HTMLDivElement;
   props: AccordionContentProps;
-  styles: 'content';
-};
+  omit: 'as';
+}>;
 
-export type AccordionItemDef = {
+export type AccordionItemDef = CreateComponent<{
+  type: 'div';
+  component: Components.AccordionItem;
+  element: HTMLDivElement;
   props: AccordionItemProps;
-  styles: 'item';
-};
+  omit: 'as';
+}>;
 
-export type AccordionTriggerDef = {
+export type AccordionTriggerDef = CreateComponent<{
+  type: 'button';
+  component: Components.AccordionTrigger;
+  element: HTMLButtonElement;
   props: AccordionTriggerProps;
-  styles: 'trigger' | 'header' | 'icon';
-};
+  omit: 'as';
+}>;

@@ -10,7 +10,7 @@ export default {
 };
 
 export const Usage = (args: FlexProps) => (
-  <Flex {...args} gap="$2">
+  <Flex {...args} gap="$2" direction="column">
     <Box css={{ background: '$gray7' }}>&nbsp;</Box>
     <Box css={{ background: '$gray7' }}>&nbsp;</Box>
   </Flex>

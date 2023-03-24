@@ -1,18 +1,19 @@
-import { createComponent } from '../../utils';
-import { Box } from '../Box';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { createElement } from 'react';
 
-import type { FlexProps } from './types';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 
-import { useComponentProps } from '~/hooks';
+import type * as t from './types';
+
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 import { Components } from '~/types';
 
-export const Flex = createComponent<FlexProps>(({ css, ...initProps }) => {
-  const props = useComponentProps(Components.Flex, initProps);
-  const { direction, align, justify, wrap, basis, grow, shrink, gap } = props;
-  return (
-    <Box
-      {...props}
-      css={{
+const _Flex = createComponent2<t.FlexDef>(
+  Components.Flex,
+  ({ as = 'div', css, ...props }) => {
+    const { direction, align, justify, wrap, basis, grow, shrink, gap } = props;
+    const classes = useStyles(styles, {
+      css: {
         gap,
         flexDirection: direction,
         alignItems: align,
@@ -23,7 +24,18 @@ export const Flex = createComponent<FlexProps>(({ css, ...initProps }) => {
         flexShrink: shrink,
         display: 'flex',
         ...css,
-      }}
-    />
-  );
+      },
+    });
+
+    const elementProps = useElementProps(props, classes.root);
+    return createElement(as, elementProps);
+  }
+);
+
+export const Flex = createPolymorphicComponent<t.FlexDef>(_Flex);
+
+const styles = createStyle(Components.Flex, {
+  root: {
+    display: 'flex',
+  },
 });

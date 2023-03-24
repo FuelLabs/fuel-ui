@@ -1,6 +1,7 @@
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
 
-import type { HTMLProps } from '~/utils';
+import type { Components } from '~/types';
+import type { CreateComponent, HTMLProps } from '~/utils';
 
 export type FlexProps = HTMLProps['div'] & {
   /**
@@ -45,7 +46,10 @@ export type FlexProps = HTMLProps['div'] & {
   wrap?: ThemeUtilsCSS['flexWrap'];
 };
 
-export type FlexDef = {
+export type FlexDef = CreateComponent<{
+  type: 'div';
+  component: Components.Flex;
+  element: HTMLDivElement;
   props: FlexProps;
   styles: 'root';
-};
+}>;

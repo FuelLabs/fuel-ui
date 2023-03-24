@@ -4,6 +4,9 @@ import type { AriaButtonProps } from 'react-aria';
 import type { HTMLProps } from '../../utils/types';
 import type { IconProps } from '../Icon';
 
+import type { Components } from '~/types';
+import type { CreateComponent } from '~/utils';
+
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link';
 export type ButtonSizes = 'xs' | 'sm' | 'md' | 'lg';
 
@@ -36,7 +39,11 @@ export type ButtonNS = {
   id: string;
 };
 
-export type ButtonDef = {
+export type ButtonDef = CreateComponent<{
+  type: 'button';
+  element: HTMLButtonElement;
+  component: Components.Button;
   props: ButtonProps;
   styles: 'root' | 'iconLeft' | 'iconRight';
-};
+  namespace: ButtonNS;
+}>;

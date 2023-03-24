@@ -1,7 +1,7 @@
 import { Stack } from '../Stack';
 
-import type { AlertProps } from './Alert';
 import { Alert } from './Alert';
+import type { AlertProps } from './types';
 
 export default {
   component: Alert,

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { css } from '@fuel-ui/css';
+import { css, cx } from '@fuel-ui/css';
 import type { ThemeUtilsCSS, CSSFnParams } from '@fuel-ui/css';
 import { deepEqual } from 'fast-equals';
 import { useMemo, useRef } from 'react';
@@ -14,20 +14,13 @@ import { mergeDeep, omit } from '~/utils/helpers';
 
 type DefKeys = keyof StoreDefs;
 type CSSFnReturn = ReturnType<typeof css>;
-type CompStyles<K extends DefKeys> = {
-  [P in StoreDefs[K]['styles'] as string]: CSSFnParams;
-};
-type CompClasses<
-  K extends DefKeys,
-  Styles extends string | number | symbol = StoreDefs[K]['styles']
-> = {
-  [P in Styles]: string;
-};
 
 type ComponentDef<K extends DefKeys> = {
   name: K;
-  defaultProps: StoreDefs[K]['props'];
-  styles: CompStyles<K>;
+  defaultProps?: StoreDefs[K]['props'];
+  styles: StoreDefs[K]['styles'] extends string
+    ? Record<StoreDefs[K]['styles'], CSSFnParams>
+    : never;
 };
 
 type StoreDefitions = {
@@ -35,9 +28,9 @@ type StoreDefitions = {
 };
 
 type StoreStyles = {
-  [K in DefKeys]: {
-    [P in StoreDefs[K]['styles'] as string]: CSSFnReturn;
-  };
+  [K in DefKeys]: StoreDefs[K]['styles'] extends string
+    ? Record<StoreDefs[K]['styles'], CSSFnReturn>
+    : never;
 };
 
 type Store = {
@@ -65,7 +58,7 @@ export const useStore = create<Store>((set) => ({
           ...state.styles,
           [name]: {
             ...state.styles[name],
-            [def]: fn(val),
+            [def]: fn(val as any),
           },
         },
       }));
@@ -77,13 +70,6 @@ type Style<K extends DefKeys> = ReturnType<typeof createStyle<K>>;
 type Props<K extends DefKeys> = StoreDefs[K]['props'] & {
   css?: ThemeUtilsCSS;
 };
-
-export function createStyle<K extends DefKeys>(name: K, styles: CompStyles<K>) {
-  const state = useStore.getState();
-  const newItem = { defaultProps: {}, name, styles };
-  state.addDef(name, newItem);
-  return newItem;
-}
 
 function useMemoizedValue<P>(value: P) {
   const ref = useRef(value);
@@ -102,28 +88,46 @@ export function useComponentProps<K extends DefKeys>(name: K, props: Props<K>) {
   );
 }
 
-export function useStyles<K extends DefKeys>(
-  style: Style<K>,
-  props: Partial<Props<K>>
+export function createStyle<K extends DefKeys>(
+  name: K,
+  styles: StoreDefs[K]['styles'] extends string
+    ? Record<StoreDefs[K]['styles'], CSSFnParams>
+    : never
 ) {
+  const state = useStore.getState();
+  const newItem = { name, styles };
+  state.addDef(name, newItem);
+  return newItem;
+}
+
+export function useStyles<K extends DefKeys, F>(
+  style: Style<K>,
+  props: Partial<Props<K>> = {},
+  filter?: F extends string[] ? F : any[]
+) {
+  type Classes = StoreDefs[K]['styles'] extends string
+    ? Record<StoreDefs[K]['styles'], { className: string }>
+    : never;
   const store = useStore();
-  function generateClasses(): CompClasses<K> {
+  function generateClasses() {
     const styles = store.styles[style.name];
-    return Object.entries(styles).reduce((obj, [def, fn]) => {
+    return Object.entries(styles).reduce((obj, [def, fn]: [string, any]) => {
+      if (filter?.length && filter?.includes(def)) return obj;
       const comp = fn(props);
       comp.selector = fClass(style.name, def);
       return {
         ...obj,
-        [def]: comp,
+        [def]: { className: comp.className },
       };
-    }, {} as CompClasses<K>);
+    }, {} as Classes);
   }
-
   return useMemo(() => generateClasses(), [props]);
 }
 
 const OMIT_FOR_DOM = [
   'as',
+  'status',
+  'direction',
   'variant',
   'color',
   'size',
@@ -141,5 +145,12 @@ const OMIT_FOR_DOM = [
 ];
 
 export function useElementProps<P extends any[]>(...props: P): P[0] {
-  return omit(OMIT_FOR_DOM, mergeProps<P>(...props) as any) as P[0];
+  const allClasses = cx(props.map((p) => p.className));
+  const res = omit(OMIT_FOR_DOM, mergeProps<P>(...props) as any) as P[0];
+  const classNameArr = allClasses?.split(' ') ?? [];
+  const className = Array.from(new Set(classNameArr)).join(' ');
+  return {
+    ...res,
+    className,
+  };
 }

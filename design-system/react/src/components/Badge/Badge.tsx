@@ -1,21 +1,21 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 
 import { styles } from './styles';
-import type { BadgeProps } from './types';
+import type * as t from './types';
 
-import { useComponentProps, useElementProps, useStyles } from '~/hooks';
+import { useElementProps, useStyles } from '~/hooks';
 import { Components } from '~/types';
 
-export const Badge = createComponent<BadgeProps>(
-  ({ as = 'span', ...initProps }) => {
-    const props = useComponentProps(Components.Badge, initProps);
+const _Badge = createComponent2<t.BadgeDef>(
+  Components.Badge,
+  ({ as = 'span', ...props }) => {
     const classes = useStyles(styles, props);
-    const elementProps = useElementProps(props, {
-      className: classes.root,
-    });
-
+    const elementProps = useElementProps(props, classes.root);
     return createElement(as, elementProps);
   }
 );
+
+export const Badge = createPolymorphicComponent<t.BadgeDef>(_Badge);

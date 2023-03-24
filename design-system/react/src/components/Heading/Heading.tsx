@@ -9,7 +9,7 @@ import { createIcon } from '../Button';
 import type { IconProps } from '../Icon';
 
 export type HeadingProps = HTMLProps['h1'] & {
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | string;
   fontSize?: utils.TextSizes;
   fontColor?: Colors;
   iconSize?: number;

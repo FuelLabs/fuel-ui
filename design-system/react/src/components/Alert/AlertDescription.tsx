@@ -1,19 +1,22 @@
-import { cx } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
-import type { BoxProps } from '../Box';
-import { Box } from '../Box';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 
-import * as styles from './styles';
+import { styles } from './styles';
+import type * as t from './types';
 
-export const AlertDescription = createComponent<BoxProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx(
-      'fuel_AlertDescription',
-      className,
-      styles.description()
-    );
-    const customProps = { ...props, className: classes };
-    return <Box {...customProps}>{children}</Box>;
+import { useElementProps, useStyles } from '~/hooks';
+import { Components } from '~/types';
+
+const _AlertDescription = createComponent2<t.AlertDescriptionDef>(
+  Components.AlertDescription,
+  ({ as = 'p', ...props }) => {
+    const classes = useStyles(styles);
+    const elementProps = useElementProps(props, classes.description);
+    return createElement(as, elementProps);
   }
 );
+
+export const AlertDescription =
+  createPolymorphicComponent<t.AlertDescriptionDef>(_AlertDescription);

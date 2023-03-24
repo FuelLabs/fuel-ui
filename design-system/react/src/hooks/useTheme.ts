@@ -4,19 +4,21 @@ import { createContext, useContext } from 'react';
 
 import type { StoreDefs } from '../types';
 
-type ComponentsKeys = keyof StoreDefs;
-type ComponentProps<K extends ComponentsKeys> = {
-  defaultProps?: StoreDefs[K]['props'];
-  styles?: {
-    [P in StoreDefs[K]['styles']]?: CSSFnParams;
-  };
+type DefKeys = keyof StoreDefs;
+type ComponentProps<K extends DefKeys> = {
+  defaultProps?: Partial<StoreDefs[K]['props']>;
+  styles?: Partial<
+    StoreDefs[K]['styles'] extends string
+      ? Record<StoreDefs[K]['styles'], CSSFnParams>
+      : never
+  >;
 };
 
 type Tokens = Parameters<typeof _createTheme>[1];
 export type ThemeOverride = {
   tokens: Tokens;
   components?: {
-    [K in ComponentsKeys]?: ComponentProps<K>;
+    [K in DefKeys]?: ComponentProps<K>;
   };
 };
 

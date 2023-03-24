@@ -13,14 +13,11 @@ const slideUp = keyframes({
   to: { height: 0 },
 });
 
-export const rootStyles = createStyle(Components.Accordion, {
+export const styles = createStyle(Components.Accordion, {
   root: {
     borderRadius: '$default',
     maxW: '$full',
   },
-});
-
-export const contentStyles = createStyle(Components.AccordionContent, {
   content: {
     overflow: 'hidden',
     background: 'transparent',
@@ -33,9 +30,6 @@ export const contentStyles = createStyle(Components.AccordionContent, {
       animation: `${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards`,
     },
   },
-});
-
-export const itemStyles = createStyle(Components.AccordionItem, {
   item: {
     overflow: 'hidden',
     borderTop: '1px solid $bodyColor',
@@ -59,23 +53,16 @@ export const itemStyles = createStyle(Components.AccordionItem, {
     [`.${darkTheme.theme} &`]: {
       backgroundColor: '$cardBg',
     },
-    [`.${darkTheme.theme} &:has(.fuel_AccordionTrigger:focus-visible)`]: {
+    [`.${darkTheme.theme} &:has(.fuel_Accordion-trigger:focus-visible)`]: {
       outline: `2px solid ${darkColors.gray4}`,
     },
 
     [`.${lightTheme.theme} &`]: {
       backgroundColor: 'white',
     },
-    [`.${lightTheme.theme} &:has(.fuel_AccordionTrigger:focus-visible)`]: {
+    [`.${lightTheme.theme} &:has(.fuel_Accordion-trigger:focus-visible)`]: {
       outline: `2px solid ${lightColors.gray7}`,
     },
-  },
-});
-
-export const triggerStyles = createStyle(Components.AccordionTrigger, {
-  header: {
-    all: 'unset',
-    display: 'flex',
   },
   trigger: {
     all: 'unset',
@@ -100,6 +87,10 @@ export const triggerStyles = createStyle(Components.AccordionTrigger, {
     '&:hover': {
       color: '$accent11',
     },
+  },
+  header: {
+    all: 'unset',
+    display: 'flex',
   },
   icon: {
     transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',

@@ -1,26 +1,23 @@
-import { cx } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/naming-convention */
 import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 
-import type { BoxProps } from './types';
+import type * as t from './types';
 
-import {
-  createStyle,
-  useComponentProps,
-  useElementProps,
-  useStyles,
-} from '~/hooks';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 import { Components } from '~/types';
 
-export const Box = createComponent<BoxProps>(({ as = 'div', ...initProps }) => {
-  const props = useComponentProps(Components.Box, initProps);
-  const classes = useStyles(styles, props);
-  const elementProps = useElementProps(props, {
-    className: cx(props.className, classes.root),
-  });
-  return createElement(as, elementProps);
-});
+export const _Box = createComponent2<t.BoxDef>(
+  Components.Box,
+  ({ as = 'div', ...props }) => {
+    const classes = useStyles(styles, props);
+    const elementProps = useElementProps(props, classes.root);
+    return createElement(as, elementProps);
+  }
+);
+
+export const Box = createPolymorphicComponent<t.BoxDef>(_Box);
 
 const styles = createStyle(Components.Box, {
   root: {

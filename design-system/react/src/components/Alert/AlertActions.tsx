@@ -1,18 +1,14 @@
-import { cx } from '@fuel-ui/css';
-import { Children, cloneElement } from 'react';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { Children, cloneElement, createElement } from 'react';
 
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Flex';
-import { Flex } from '../Flex';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 
 import { useAlertProps } from './Alert';
-import * as styles from './styles';
+import { styles } from './styles';
+import type * as t from './types';
 
-export type AlertActionsProps = FlexProps;
-
-type ObjProps = {
-  id: string;
-};
+import { useElementProps, useStyles } from '~/hooks';
+import { Components } from '~/types';
 
 const BUTTON_COLORS = {
   info: 'blue',
@@ -21,28 +17,26 @@ const BUTTON_COLORS = {
   error: 'red',
 };
 
-export const AlertActions = createComponent<AlertActionsProps, ObjProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_AlertActions', className, styles.actions());
-    const customProps = { ...props, className: classes };
-
-    const parentProps = useAlertProps();
-    const defaultStatus = parentProps?.status || 'info';
+const _AlertActions = createComponent2<t.AlertActionsDef>(
+  Components.AlertActions,
+  ({ as = 'footer', children, ...props }) => {
+    const classes = useStyles(styles);
+    const elementProps = useElementProps(props, classes.actions);
+    const { status = 'info' } = useAlertProps();
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const customChildren = Children.toArray(children).map((child: any) => {
       if (child?.type?.id === 'AlertButton') {
-        return cloneElement(child, { color: BUTTON_COLORS[defaultStatus] });
+        return cloneElement(child, { color: BUTTON_COLORS[status] });
       }
       return child;
     });
 
-    return (
-      <Flex as="footer" {...customProps}>
-        {customChildren}
-      </Flex>
-    );
+    return createElement(as, elementProps, <>{customChildren}</>);
   }
 );
+
+export const AlertActions =
+  createPolymorphicComponent<t.AlertActionsDef>(_AlertActions);
 
 AlertActions.id = 'AlertActions';

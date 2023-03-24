@@ -1,25 +1,21 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Colors } from '@fuel-ui/css';
-import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
 import { createElement, useRef, cloneElement } from 'react';
 import { mergeProps, useButton } from 'react-aria';
 
-import { createComponent } from '../../utils';
-import { omit } from '../../utils/helpers';
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
 
 import { styles } from './styles';
 import type * as t from './types';
 
-import {
-  useComponentProps,
-  useElementProps,
-  useStyles,
-} from '~/hooks/useStore';
+import { useElementProps, useStyles } from '~/hooks/useStore';
 import { Components } from '~/types';
+import { createComponent2, createPolymorphicComponent } from '~/utils';
+import { omit } from '~/utils/helpers';
 
 export function createIcon(
   icon: string | ReactNode,
@@ -83,9 +79,9 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
-export const Button = createComponent<t.ButtonProps, t.ButtonNS>(
-  ({ as = 'button', children, ref, ...initProps }) => {
-    const props = useComponentProps(Components.Button, initProps);
+const _Button = createComponent2<t.ButtonDef>(
+  Components.Button,
+  ({ as = 'button', children, ref, ...props }) => {
     const {
       size = 'md',
       isLoading,
@@ -127,11 +123,10 @@ export const Button = createComponent<t.ButtonProps, t.ButtonNS>(
 
     const allProps = mergeProps(props, buttonProps, customProps);
     const classes = useStyles(styles, allProps);
-    const className = cx(allProps.className, classes.root);
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const elementProps = useElementProps(allProps, { className });
+    const elementProps = useElementProps(allProps, classes.root);
 
     return createElement(
       as,
@@ -147,4 +142,5 @@ export const Button = createComponent<t.ButtonProps, t.ButtonNS>(
   }
 );
 
+export const Button = createPolymorphicComponent<t.ButtonDef>(_Button);
 Button.id = 'Button';

@@ -7,6 +7,13 @@ import type {
   AccordionItemDef,
   AccordionTriggerDef,
 } from './components/Accordion/types';
+import type {
+  AlertActionsDef,
+  AlertButtonDef,
+  AlertDef,
+  AlertDescriptionDef,
+  AlertTitleDef,
+} from './components/Alert/types';
 import type { AspectRatioDef } from './components/AspectRatio/types';
 import type { BoxDef } from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
@@ -18,10 +25,10 @@ export enum Components {
   AccordionItem = 'AccordionItem',
   AccordionTrigger = 'AccordionTrigger',
   Alert = 'Alert',
+  AlertTitle = 'AlertTitle',
   AlertActions = 'AlertActions',
   AlertButton = 'AlertButton',
   AlertDescription = 'AlertDescription',
-  AlertTitle = 'AlertTitle',
   AlertDialog = 'AlertDialog',
   AlertDialogAction = 'AlertDialogAction',
   AlertDialogCancel = 'AlertDialogCancel',
@@ -126,6 +133,11 @@ export type StoreDefs = {
   AccordionItem: AccordionItemDef;
   AccordionTrigger: AccordionTriggerDef;
   AspectRatio: AspectRatioDef;
+  Alert: AlertDef;
+  AlertTitle: AlertTitleDef;
+  AlertActions: AlertActionsDef;
+  AlertButton: AlertButtonDef;
+  AlertDescription: AlertDescriptionDef;
   Badge: BadgeDef;
   Button: ButtonDef;
   Box: BoxDef;
