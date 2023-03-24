@@ -78,9 +78,26 @@ NoAction.args = {
 export const WithAsset = Template.bind({});
 WithAsset.args = {
   balance: BALANCE,
-  assetId:
-    '0x0000000000000000000000000000000000000000000000000000000000000000 ',
-  name: 'Ether',
+  assetInfo: [
+    {
+      assetId:
+        '0x0000000000000000000000000000000000000000000000000000000000000000',
+      assetName: 'Ether',
+      imageUrl: 'assets/eth.svg',
+    },
+    {
+      assetId:
+        '0x0000000000000000000000000000000000000000000000000000000000000001',
+      assetName: 'Dai',
+      imageUrl: 'assets/dai.svg',
+    },
+    {
+      assetId:
+        '0x0000000000000000000000000000000000000000000000000000000000000002',
+      assetName: 'Btc',
+      imageUrl: 'assets/btc.svg',
+    },
+  ],
 };
 
 export const Loader = () => (

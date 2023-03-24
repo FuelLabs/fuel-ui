@@ -6,7 +6,9 @@ import type { FC } from 'react';
 
 import { Box } from '../Box';
 import { Button } from '../Button';
+import { Dropdown } from '../Dropdown';
 import { Flex } from '../Flex';
+import { Image } from '../Image';
 import type { InputProps } from '../Input';
 import { Input } from '../Input';
 import type { InputNumberProps } from '../Input/InputNumber';
@@ -14,6 +16,12 @@ import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
 import { createAmount, formatAmount } from './utils';
+
+export type AssetInfo = {
+  assetName?: string;
+  assetId?: string;
+  imageUrl?: string;
+};
 
 export type InputAmountProps = Omit<InputProps, 'size'> & {
   name?: string;
@@ -26,8 +34,8 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
   isDisabled?: boolean;
-  assetId?: string;
-  onClickAsset?: (val: Element) => void;
+  assetInfo?: AssetInfo[];
+  onClickAsset?: (val: string) => void;
 };
 
 type InputAmountComponent = FC<InputAmountProps> & {
@@ -44,12 +52,20 @@ export const InputAmount: InputAmountComponent = ({
   hiddenMaxButton,
   onChange,
   inputProps,
-  assetId,
+  assetInfo,
   onClickAsset,
   ...props
 }) => {
   const [assetAmount, setAssetAmount] = useState<string>(
     !value || value.eq(0) ? '' : formatAmount(value)
+  );
+
+  const [assetText] = useState(
+    assetInfo && assetInfo.length > 0 ? assetInfo[0].assetName : 'Unknown Asset'
+  );
+
+  const [assetImageUrl] = useState(
+    assetInfo && assetInfo.length > 0 ? assetInfo[0].imageUrl : undefined
   );
 
   const balance = initialBalance ?? bn(initialBalance);
@@ -76,6 +92,22 @@ export const InputAmount: InputAmountComponent = ({
     }
   };
 
+  const tokenImage = (name?: string, imageUrl?: string) => {
+    return <Image alt={name} src={imageUrl} width={20} height={20} />;
+  };
+
+  const dropdownItems =
+    assetInfo?.map((asset) => {
+      return (
+        <Dropdown.MenuItem key={asset.assetId}>
+          <>
+            {tokenImage(asset.assetName, asset.imageUrl)}
+            {asset.assetName}
+          </>
+        </Dropdown.MenuItem>
+      );
+    }) || [];
+
   return (
     <Input size="lg" css={styles.input} {...props}>
       <Input.Number
@@ -98,16 +130,26 @@ export const InputAmount: InputAmountComponent = ({
         <Input.ElementRight css={styles.elementRight}>
           <Box css={styles.balanceActions}>
             <Flex align="end" direction="column">
-              {assetId && onClickAsset && (
+              {assetInfo && assetInfo.length > 0 && onClickAsset && (
                 <Flex>
-                  <Button
-                    size="xs"
-                    aria-label="Coin Selector"
-                    color="gray"
-                    onPress={(e) => onClickAsset(e.target)}
-                  >
-                    {name || 'Unknown Asset'}
-                  </Button>
+                  <Dropdown>
+                    <Dropdown.Trigger>
+                      <Button
+                        size="xs"
+                        aria-label="Coin Selector"
+                        css={{
+                          background: '$blackA12',
+                          color: '$gray9',
+                        }}
+                      >
+                        {tokenImage(assetText, assetImageUrl)}
+                        {assetInfo[0].assetName || 'Unknown Asset'}
+                      </Button>
+                    </Dropdown.Trigger>
+                    <Dropdown.Menu onAction={(e) => onClickAsset(e.toString())}>
+                      {dropdownItems}
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </Flex>
               )}
               <Flex gap="$2" align="center">
