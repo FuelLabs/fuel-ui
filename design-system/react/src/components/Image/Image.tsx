@@ -10,7 +10,7 @@ import { Components } from '~/types';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const _Image = createComponent2<t.ImageDef>(
   Components.Image,
-  ({ as, ...props }) => {
+  ({ as = 'img', ...props }) => {
     const classes = useStyles(styles, props);
     const elementProps = useElementProps(props, classes.root);
     return createElement(as, elementProps);
