@@ -1,7 +1,7 @@
 import { Box } from '../Box';
 
-import type { StackProps } from './Stack';
 import { Stack } from './Stack';
+import type { StackProps } from './types';
 
 export default {
   component: Stack,

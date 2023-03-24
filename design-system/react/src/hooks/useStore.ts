@@ -126,8 +126,15 @@ export function useStyles<K extends DefKeys, F>(
 
 const OMIT_FOR_DOM = [
   'as',
-  'status',
   'direction',
+  'align',
+  'justify',
+  'wrap',
+  'basis',
+  'grow',
+  'shrink',
+  'gap',
+  'status',
   'variant',
   'color',
   'size',
