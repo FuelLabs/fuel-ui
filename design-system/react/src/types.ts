@@ -18,6 +18,7 @@ import type { AspectRatioDef } from './components/AspectRatio/types';
 import type { BoxDef } from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
 import type { FlexDef } from './components/Flex/types';
+import type { TextDef } from './components/Text/types';
 
 export enum Components {
   Accordion = 'Accordion',
@@ -142,4 +143,5 @@ export type StoreDefs = {
   Button: ButtonDef;
   Box: BoxDef;
   Flex: FlexDef;
+  Text: TextDef;
 };
