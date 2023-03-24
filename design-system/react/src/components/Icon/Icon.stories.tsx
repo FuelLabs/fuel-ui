@@ -2,8 +2,8 @@ import { Flex } from '../Flex';
 import { Link } from '../Link';
 import { Text } from '../Text';
 
-import type { IconProps } from './Icon';
 import { Icon } from './Icon';
+import type { IconProps } from './types';
 
 export default {
   component: Icon,
