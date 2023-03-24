@@ -1,46 +1,33 @@
-import { cx } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
-import type { BoxProps } from '../Box';
-import { Box } from '../Box';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 
 import { useAvatarGenerated } from './hooks/useAvatarGenerated';
+import { styles } from './styles';
+import type * as t from './types';
 
-type OmitProps = 'children';
-export type AvatarGeneratedProps = BoxProps & {
-  hash: string;
-  fallback?: string;
-  size?: 'xsm' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-  background?: 'fuel' | 'random' | string;
-};
+import { useElementProps, useStyles } from '~/hooks';
+import { Components } from '~/types';
 
-export const AvatarGenerated = createComponent<
-  AvatarGeneratedProps,
-  unknown,
-  OmitProps
->(({ hash, size = 'md', className, css, as, background, ...props }) => {
-  const { svgString, totalSize } = useAvatarGenerated({
-    background,
-    hash,
-    size,
-  });
-  const classes = cx(className, 'fuel_AvatarGenerated');
-
-  return (
-    <Box
-      {...props}
-      className={classes}
-      as={as}
-      css={{
-        ...css,
-        width: totalSize,
-        height: totalSize,
-        borderRadius: '$full',
-        overflow: 'hidden',
-      }}
-      dangerouslySetInnerHTML={{
+const _AvatarGenerated = createComponent2<t.AvatarGeneratedDef>(
+  Components.AvatarGenerated,
+  ({ as = 'div', size = 'md', css, ...props }) => {
+    const { svgString, totalSize } = useAvatarGenerated({ ...props, size });
+    const classes = useStyles(
+      styles,
+      { css: { ...css, width: totalSize, height: totalSize } },
+      ['generated']
+    );
+    const elementProps = useElementProps(props, classes.root, {
+      dangerouslySetInnerHTML: {
         __html: svgString,
-      }}
-    />
-  );
-});
+      },
+    });
+
+    return createElement(as, elementProps);
+  }
+);
+
+export const AvatarGenerated =
+  createPolymorphicComponent<t.AvatarGeneratedDef>(_AvatarGenerated);

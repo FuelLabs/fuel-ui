@@ -1,4 +1,4 @@
-import { cx, styled } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import * as PhosphorIcons from 'phosphor-react';
 import type { ReactElement } from 'react';
@@ -29,10 +29,20 @@ export const Icon = createComponent2<t.IconDef>(
     mirrored,
     ...props
   }) => {
+    const iconProps = {
+      className: cx(`fuel_Icon-${icon}`, className),
+      focusable: false,
+      'aria-hidden': true,
+      alt,
+      size,
+      weight,
+      mirrored,
+    };
+
     const iconElement = useMemo<ReactElement>(
       (() => {
         if (typeof icon === 'string') {
-          const Component = styled(PhosphorIcons[icon]);
+          const Component = PhosphorIcons[icon];
           return <Component />;
         }
         return icon;
@@ -45,25 +55,18 @@ export const Icon = createComponent2<t.IconDef>(
         ? `Icon ${icon}`
         : '';
 
-    const iconProps = {
-      className: cx(`fuel_Icon-${icon}`, className),
-      focusable: false,
-      'aria-hidden': true,
-      alt,
-      size,
-      weight,
-      mirrored,
-    };
-
-    const classes = useStyles(styles, props);
-    const elementProps = useElementProps(props, classes.root, {
-      'aria-label': label,
-      className: wrapperClassName,
+    const classes = useStyles(styles, {
+      ...props,
       css: {
         display: inline ? 'inline-flex' : 'flex',
         ...(color && { color: `$${color}` }),
         ...css,
       },
+    });
+
+    const elementProps = useElementProps(props, classes.root, {
+      'aria-label': label,
+      className: wrapperClassName,
     });
 
     return createElement(

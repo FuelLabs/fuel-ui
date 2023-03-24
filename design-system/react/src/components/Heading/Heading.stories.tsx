@@ -1,3 +1,4 @@
+import { Icon } from '../Icon';
 import { Stack } from '../Stack';
 
 import { Heading } from './Heading';
@@ -33,9 +34,9 @@ export const Usage = (args: HeadingProps) => (
 );
 
 const iconProps = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  leftIcon: 'Calendar' as any,
+  leftIcon: <Icon icon="Calendar" />,
   leftIconAriaLabel: 'Calendar',
+  iconSize: 22,
 };
 
 export const WithIcon = (args: HeadingProps) => (

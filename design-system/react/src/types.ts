@@ -15,6 +15,7 @@ import type {
   AlertTitleDef,
 } from './components/Alert/types';
 import type { AspectRatioDef } from './components/AspectRatio/types';
+import type { AvatarDef, AvatarGeneratedDef } from './components/Avatar/types';
 import type { BoxDef } from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
 import type { FlexDef } from './components/Flex/types';
@@ -146,6 +147,8 @@ export type StoreDefs = {
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
   AspectRatio: AspectRatioDef;
+  Avatar: AvatarDef;
+  AvatarGenerated: AvatarGeneratedDef;
   Badge: BadgeDef;
   Box: BoxDef;
   Button: ButtonDef;

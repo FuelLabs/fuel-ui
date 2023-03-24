@@ -1,7 +1,7 @@
 import { Box } from '../Box';
 
-import type { AvatarProps } from './Avatar';
 import { Avatar } from './Avatar';
+import type { AvatarProps } from './types';
 
 export default {
   component: Avatar,
