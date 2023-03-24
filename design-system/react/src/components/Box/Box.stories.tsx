@@ -1,7 +1,11 @@
+import { Heading } from '../Heading';
+import { Text } from '../Text';
+
 import { Box } from './Box';
 import type {
   BoxCenteredProps,
   BoxProps,
+  ContainerProps,
   FlexProps,
   StackProps,
 } from './types';
@@ -39,3 +43,18 @@ Centered.args = {
   minHS: true,
   minWS: true,
 };
+
+export const Container = (args: ContainerProps) => (
+  <Box.Container {...args}>
+    <Heading>Some Title</Heading>
+    <Text>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nemo ullam
+      labore libero necessitatibus harum aliquam voluptas at expedita, modi
+      laborum dignissimos facere ipsum sed autem pariatur! Repellat, placeat
+      illum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nemo
+      ullam labore libero necessitatibus harum aliquam voluptas at expedita,
+      modi laborum dignissimos facere ipsum sed autem pariatur! Repellat,
+      placeat illum.
+    </Text>
+  </Box.Container>
+);

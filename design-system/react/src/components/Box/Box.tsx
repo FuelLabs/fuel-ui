@@ -4,6 +4,7 @@ import { createElement } from 'react';
 import { createComponent2, createPolymorphicComponent } from '../../utils';
 
 import { BoxCentered } from './BoxCentered';
+import { Container } from './Container';
 import { Flex } from './Flex';
 import { Stack } from './Stack';
 import { styles } from './styles';
@@ -25,3 +26,4 @@ export const Box = createPolymorphicComponent<t.BoxDef>(_Box);
 Box.Centered = BoxCentered;
 Box.Flex = Flex;
 Box.Stack = Stack;
+Box.Container = Container;

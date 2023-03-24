@@ -1,6 +1,7 @@
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
 
 import type { BoxCentered } from './BoxCentered';
+import type { Container } from './Container';
 import type { Flex } from './Flex';
 import type { Stack } from './Stack';
 
@@ -14,11 +15,12 @@ export type BoxDef = CreateComponent<{
   type: 'div';
   props: BoxProps;
   element: HTMLDivElement;
-  styles: 'root' | 'flex' | 'centered' | 'stack';
+  styles: 'root' | 'flex' | 'centered' | 'stack' | 'container';
   namespace: {
     Centered: typeof BoxCentered;
     Flex: typeof Flex;
     Stack: typeof Stack;
+    Container: typeof Container;
   };
 }>;
 
@@ -99,4 +101,16 @@ export type StackDef = CreateComponent<{
   element: HTMLDivElement;
   component: Components.Stack;
   styles: 'root';
+}>;
+
+export type ContainerSizes = 'sm' | 'md' | 'lg' | 'xl';
+export type ContainerProps = HTMLProps['div'] & {
+  size?: ContainerSizes;
+};
+
+export type ContainerDef = CreateComponent<{
+  type: 'div';
+  props: ContainerProps;
+  element: HTMLDivElement;
+  component: Components.Container;
 }>;

@@ -21,6 +21,7 @@ import type {
   FlexDef,
   BoxCenteredDef,
   BoxDef,
+  ContainerDef,
 } from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
 import type { HeadingDef } from './components/Heading/types';
@@ -156,6 +157,7 @@ export type StoreDefs = {
   Box: BoxDef;
   BoxCentered: BoxCenteredDef;
   Button: ButtonDef;
+  Container: ContainerDef;
   Image: ImageDef;
   Flex: FlexDef;
   Heading: HeadingDef;

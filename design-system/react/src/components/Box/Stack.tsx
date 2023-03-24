@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { createComponent2, createPolymorphicComponent } from '../../utils';
-import { Flex } from '../Flex';
 
+import { Flex } from './Flex';
 import { styles } from './styles';
 import type * as t from './types';
 
