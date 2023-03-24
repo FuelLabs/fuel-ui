@@ -80,9 +80,9 @@ const createComposer = (
   /** @type {string} Composer Unique Identifier. @see `{CONFIG_PREFIX}-?fuel_{STYLE_HASH}` */
   const hash = componentId || toHash(style);
   const componentNamePrefix = displayName ? 'fuel_' + displayName + '' : 'fuel';
-  const className = `${toTailDashed(
-    config.prefix
-  )}${componentNamePrefix}-${hash}`;
+  const className = `${toTailDashed(config.prefix)}${componentNamePrefix}${
+    hash === 'root' ? '' : `-${hash}`
+  }`;
 
   const singularVariants = [];
   const compoundVariants = [];
@@ -135,7 +135,7 @@ const createComposer = (
 };
 
 function getVariantClassName(baseClass, vStyle, vClass) {
-  return `${baseClass}--${vClass}--${toHash(vStyle)}`;
+  return `${baseClass}__${vClass}__${toHash(vStyle)}`;
 }
 
 const createRenderer = (
