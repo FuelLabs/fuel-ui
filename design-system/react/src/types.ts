@@ -18,6 +18,7 @@ import type { AspectRatioDef } from './components/AspectRatio/types';
 import type { BoxDef } from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
 import type { FlexDef } from './components/Flex/types';
+import type { LinkDef } from './components/Link/types';
 import type { TextDef } from './components/Text/types';
 
 export enum Components {
@@ -133,15 +134,16 @@ export type StoreDefs = {
   AccordionContent: AccordionContentDef;
   AccordionItem: AccordionItemDef;
   AccordionTrigger: AccordionTriggerDef;
-  AspectRatio: AspectRatioDef;
   Alert: AlertDef;
-  AlertTitle: AlertTitleDef;
   AlertActions: AlertActionsDef;
   AlertButton: AlertButtonDef;
   AlertDescription: AlertDescriptionDef;
+  AlertTitle: AlertTitleDef;
+  AspectRatio: AspectRatioDef;
   Badge: BadgeDef;
-  Button: ButtonDef;
   Box: BoxDef;
+  Button: ButtonDef;
   Flex: FlexDef;
   Text: TextDef;
+  Link: LinkDef;
 };
