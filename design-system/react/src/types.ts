@@ -18,6 +18,7 @@ import type { AspectRatioDef } from './components/AspectRatio/types';
 import type { BoxDef } from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
 import type { FlexDef } from './components/Flex/types';
+import type { HeadingDef } from './components/Heading/types';
 import type { LinkDef } from './components/Link/types';
 import type { TextDef } from './components/Text/types';
 
@@ -144,6 +145,7 @@ export type StoreDefs = {
   Box: BoxDef;
   Button: ButtonDef;
   Flex: FlexDef;
+  Heading: HeadingDef;
   Text: TextDef;
   Link: LinkDef;
 };

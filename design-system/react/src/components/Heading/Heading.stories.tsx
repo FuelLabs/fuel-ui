@@ -1,7 +1,7 @@
 import { Stack } from '../Stack';
 
-import type { HeadingProps } from './Heading';
 import { Heading } from './Heading';
+import type { HeadingProps } from './types';
 
 export default {
   component: Heading,
