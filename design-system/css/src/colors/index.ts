@@ -69,6 +69,8 @@ export const lightColors = {
   textColor: '$gray11',
   borderColor: '$gray5',
   borderHover: '$gray7',
+  muted: '$gray8',
+  iconColor: '$muted',
 
   inputBg: '$gray1',
   inputColor: '$gray11',
@@ -135,6 +137,8 @@ export const darkColors = {
   textColor: '$gray11',
   borderColor: '$bodyColor',
   borderHover: '$gray5',
+  muted: '$gray8',
+  iconColor: '$muted',
 
   inputBg: '$gray1',
   inputColor: '$gray12',

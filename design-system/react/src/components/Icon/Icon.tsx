@@ -88,5 +88,6 @@ Icon.is = (icon: t.Icons) => icon;
 const styles = createStyle(Components.Icon, {
   root: {
     is: ['centered'],
+    color: '$iconColor',
   },
 });

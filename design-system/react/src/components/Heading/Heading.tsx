@@ -69,10 +69,6 @@ const styles = createStyle(Components.Heading, {
     fontFamily: '$heading',
     fontWeight: '$semibold',
 
-    '& .fuel_Icon': {
-      color: '$gray8',
-    },
-
     variants: {
       // FIX: adjust type type
       fontSize: (utils.textSize.__keys as any[]).reduce(

@@ -65,6 +65,6 @@ const styles = {
     py: '$3',
     px: '$0',
     height: '$4',
-    color: '$gray8',
+    color: '$iconColor',
   }),
 };

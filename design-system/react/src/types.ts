@@ -19,6 +19,7 @@ import type { BoxDef } from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
 import type { FlexDef } from './components/Flex/types';
 import type { HeadingDef } from './components/Heading/types';
+import type { HelperIconDef } from './components/HelperIcon/types';
 import type { IconDef } from './components/Icon/types';
 import type { ImageDef } from './components/Image/types';
 import type { LinkDef } from './components/Link/types';
@@ -156,4 +157,5 @@ export type StoreDefs = {
   Spinner: SpinnerDef;
   Stack: StackDef;
   Icon: IconDef;
+  HelperIcon: HelperIconDef;
 };
