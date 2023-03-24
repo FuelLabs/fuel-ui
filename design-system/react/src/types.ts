@@ -19,6 +19,7 @@ import type { BoxDef } from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
 import type { FlexDef } from './components/Flex/types';
 import type { HeadingDef } from './components/Heading/types';
+import type { ImageDef } from './components/Image/types';
 import type { LinkDef } from './components/Link/types';
 import type { SpinnerDef } from './components/Spinner/types';
 import type { StackDef } from './components/Stack/types';
@@ -146,6 +147,7 @@ export type StoreDefs = {
   Badge: BadgeDef;
   Box: BoxDef;
   Button: ButtonDef;
+  Image: ImageDef;
   Flex: FlexDef;
   Heading: HeadingDef;
   Text: TextDef;

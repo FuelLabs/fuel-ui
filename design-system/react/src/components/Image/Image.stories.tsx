@@ -1,5 +1,5 @@
-import type { ImageProps } from './Image';
 import { Image } from './Image';
+import type { ImageProps } from './types';
 
 export default {
   component: Image,
