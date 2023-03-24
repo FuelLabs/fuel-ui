@@ -108,11 +108,12 @@ export function useStyles<K extends DefKeys, F>(
   type Classes = StoreDefs[K]['styles'] extends string
     ? Record<StoreDefs[K]['styles'], { className: string }>
     : never;
+
   const store = useStore();
   function generateClasses() {
     const styles = store.styles[style.name];
     return Object.entries(styles).reduce((obj, [def, fn]: [string, any]) => {
-      if (filter?.length && filter?.includes(def)) return obj;
+      if (filter?.length && !filter?.includes(def)) return obj;
       const comp = fn(props);
       comp.selector = fClass(style.name, def);
       return {
@@ -149,10 +150,12 @@ const OMIT_FOR_DOM = [
   'leftIconAriaLabel',
   'rightIcon',
   'rightIconAriaLabel',
+  'minWS',
+  'minHS',
 ];
 
 export function useElementProps<P extends any[]>(...props: P): P[0] {
-  const allClasses = cx(props.map((p) => p.className));
+  const allClasses = cx(props.map((p) => p?.className ?? {}));
   const res = omit(OMIT_FOR_DOM, mergeProps<P>(...props) as any) as P[0];
   const classNameArr = allClasses?.split(' ') ?? [];
   const className = Array.from(new Set(classNameArr)).join(' ');

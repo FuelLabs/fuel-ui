@@ -16,16 +16,19 @@ import type {
 } from './components/Alert/types';
 import type { AspectRatioDef } from './components/AspectRatio/types';
 import type { AvatarDef, AvatarGeneratedDef } from './components/Avatar/types';
-import type { BoxDef } from './components/Box/types';
+import type {
+  StackDef,
+  FlexDef,
+  BoxCenteredDef,
+  BoxDef,
+} from './components/Box/types';
 import type { ButtonDef } from './components/Button/types';
-import type { FlexDef } from './components/Flex/types';
 import type { HeadingDef } from './components/Heading/types';
 import type { HelperIconDef } from './components/HelperIcon/types';
 import type { IconDef } from './components/Icon/types';
 import type { ImageDef } from './components/Image/types';
 import type { LinkDef } from './components/Link/types';
 import type { SpinnerDef } from './components/Spinner/types';
-import type { StackDef } from './components/Stack/types';
 import type { TextDef } from './components/Text/types';
 
 export enum Components {
@@ -151,6 +154,7 @@ export type StoreDefs = {
   AvatarGenerated: AvatarGeneratedDef;
   Badge: BadgeDef;
   Box: BoxDef;
+  BoxCentered: BoxCenteredDef;
   Button: ButtonDef;
   Image: ImageDef;
   Flex: FlexDef;

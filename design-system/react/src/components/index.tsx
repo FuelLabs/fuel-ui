@@ -5,7 +5,6 @@ export * from './AspectRatio';
 export * from './Avatar';
 export * from './Badge';
 export * from './Box';
-export * from './BoxCentered';
 export * from './Button';
 export * from './ButtonGroup';
 export * from './ButtonLink';

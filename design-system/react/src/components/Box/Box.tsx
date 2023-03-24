@@ -3,9 +3,13 @@ import { createElement } from 'react';
 
 import { createComponent2, createPolymorphicComponent } from '../../utils';
 
+import { BoxCentered } from './BoxCentered';
+import { Flex } from './Flex';
+import { Stack } from './Stack';
+import { styles } from './styles';
 import type * as t from './types';
 
-import { createStyle, useElementProps, useStyles } from '~/hooks';
+import { useElementProps, useStyles } from '~/hooks';
 import { Components } from '~/types';
 
 export const _Box = createComponent2<t.BoxDef>(
@@ -18,9 +22,6 @@ export const _Box = createComponent2<t.BoxDef>(
 );
 
 export const Box = createPolymorphicComponent<t.BoxDef>(_Box);
-
-const styles = createStyle(Components.Box, {
-  root: {
-    fontFamily: '$sans',
-  },
-});
+Box.Centered = BoxCentered;
+Box.Flex = Flex;
+Box.Stack = Stack;

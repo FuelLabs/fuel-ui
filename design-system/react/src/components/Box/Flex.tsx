@@ -3,9 +3,10 @@ import { createElement } from 'react';
 
 import { createComponent2, createPolymorphicComponent } from '../../utils';
 
+import { styles } from './styles';
 import type * as t from './types';
 
-import { createStyle, useElementProps, useStyles } from '~/hooks';
+import { useElementProps, useStyles } from '~/hooks';
 import { Components } from '~/types';
 
 const _Flex = createComponent2<t.FlexDef>(
@@ -26,16 +27,9 @@ const _Flex = createComponent2<t.FlexDef>(
         ...css,
       },
     });
-
-    const elementProps = useElementProps(props, classes.root);
+    const elementProps = useElementProps(props, classes.flex);
     return createElement(as, elementProps);
   }
 );
 
 export const Flex = createPolymorphicComponent<t.FlexDef>(_Flex);
-
-const styles = createStyle(Components.Flex, {
-  root: {
-    display: 'flex',
-  },
-});

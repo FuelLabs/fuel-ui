@@ -1,2 +1,2 @@
-export * from './Flex';
-export * from './types';
+export { Flex } from '../Box/Flex';
+export * from '../Box/types';

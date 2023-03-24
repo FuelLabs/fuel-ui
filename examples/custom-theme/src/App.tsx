@@ -1,9 +1,9 @@
-import { BoxCentered, Button } from '@fuel-ui/react';
+import { Box, Button } from '@fuel-ui/react';
 
 export function App() {
   return (
-    <BoxCentered minWS minHS>
+    <Box.Centered minWS minHS>
       <Button>Click</Button>
-    </BoxCentered>
+    </Box.Centered>
   );
 }

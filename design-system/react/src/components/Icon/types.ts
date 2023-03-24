@@ -2,7 +2,7 @@ import type { Colors } from '@fuel-ui/css';
 import type * as PhosphorIcons from 'phosphor-react';
 import type { ReactNode } from 'react';
 
-import type { FlexProps } from '../Flex/types';
+import type { FlexProps } from '../Box/types';
 
 import type { Components } from '~/types';
 import type { CreateComponent } from '~/utils';
