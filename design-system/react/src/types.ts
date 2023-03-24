@@ -20,6 +20,7 @@ import type { ButtonDef } from './components/Button/types';
 import type { FlexDef } from './components/Flex/types';
 import type { HeadingDef } from './components/Heading/types';
 import type { LinkDef } from './components/Link/types';
+import type { SpinnerDef } from './components/Spinner/types';
 import type { StackDef } from './components/Stack/types';
 import type { TextDef } from './components/Text/types';
 
@@ -149,5 +150,6 @@ export type StoreDefs = {
   Heading: HeadingDef;
   Text: TextDef;
   Link: LinkDef;
+  Spinner: SpinnerDef;
   Stack: StackDef;
 };
