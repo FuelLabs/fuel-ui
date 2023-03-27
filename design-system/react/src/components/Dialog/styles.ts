@@ -40,7 +40,7 @@ export const content = css({
   maxWidth: '450px',
   maxHeight: '85vh',
   br: '$md',
-  backgroundColor: '$gray1',
+  backgroundColor: '$overlayBg',
   boxShadow: '$sm',
   transform: 'translate(-50%, -50%)',
 

@@ -1,12 +1,14 @@
 import * as radixColors from '@radix-ui/colors';
 
+import { customColors } from './custom';
+
 export type Colors = keyof typeof lightColors;
 
 export const base = {
   inherit: 'inherit',
   current: 'currentColor',
   transparent: 'transparent',
-  brand: '#58c09b',
+  brand: '#00E182',
 
   ...radixColors.blackA,
   ...radixColors.whiteA,
@@ -14,6 +16,7 @@ export const base = {
 
 export const lightColors = {
   ...base,
+  ...customColors.green,
   ...radixColors.tomato,
   ...radixColors.red,
   ...radixColors.crimson,
@@ -25,7 +28,6 @@ export const lightColors = {
   ...radixColors.blue,
   ...radixColors.cyan,
   ...radixColors.teal,
-  ...radixColors.green,
   ...radixColors.grass,
   ...radixColors.orange,
   ...radixColors.brown,
@@ -50,20 +52,20 @@ export const lightColors = {
   gray11: radixColors.slate.slate11,
   gray12: radixColors.slate.slate12,
 
-  accent1: radixColors.mint.mint1,
-  accent2: radixColors.mint.mint2,
-  accent3: radixColors.mint.mint3,
-  accent4: radixColors.mint.mint4,
-  accent5: radixColors.mint.mint5,
-  accent6: radixColors.mint.mint6,
-  accent7: radixColors.mint.mint7,
-  accent8: radixColors.mint.mint8,
-  accent9: radixColors.mint.mint9,
-  accent10: radixColors.mint.mint10,
-  accent11: radixColors.mint.mint11,
-  accent12: radixColors.mint.mint12,
+  accent1: customColors.green.green1,
+  accent2: customColors.green.green2,
+  accent3: customColors.green.green3,
+  accent4: customColors.green.green4,
+  accent5: customColors.green.green5,
+  accent6: customColors.green.green6,
+  accent7: customColors.green.green7,
+  accent8: customColors.green.green8,
+  accent9: customColors.green.green9,
+  accent10: customColors.green.green10,
+  accent11: customColors.green.green11,
+  accent12: customColors.green.green12,
 
-  bodyColor: '#F5F6F7',
+  bodyColor: '#FFFFFF',
   textColor: '$gray11',
   borderColor: '$gray5',
   borderHover: '$gray7',
@@ -72,10 +74,15 @@ export const lightColors = {
   inputColor: '$gray11',
   inputBorder: '$gray6',
   inputPlaceholderColor: '$gray9',
+
+  cardBg: '$gray1',
+  cardListItemBg: '$blackA3',
+  overlayBg: '$gray1',
 };
 
 export const darkColors = {
   ...base,
+  ...customColors.greenDark,
   ...radixColors.tomatoDark,
   ...radixColors.redDark,
   ...radixColors.crimsonDark,
@@ -87,7 +94,6 @@ export const darkColors = {
   ...radixColors.blueDark,
   ...radixColors.cyanDark,
   ...radixColors.tealDark,
-  ...radixColors.greenDark,
   ...radixColors.grassDark,
   ...radixColors.orangeDark,
   ...radixColors.brownDark,
@@ -112,28 +118,32 @@ export const darkColors = {
   gray11: radixColors.slateDark.slate11,
   gray12: radixColors.slateDark.slate12,
 
-  accent1: radixColors.mintDark.mint1,
-  accent2: radixColors.mintDark.mint2,
-  accent3: radixColors.mintDark.mint3,
-  accent4: radixColors.mintDark.mint4,
-  accent5: radixColors.mintDark.mint5,
-  accent6: radixColors.mintDark.mint6,
-  accent7: radixColors.mintDark.mint7,
-  accent8: radixColors.mintDark.mint8,
-  accent9: radixColors.mintDark.mint9,
-  accent10: radixColors.mintDark.mint10,
-  accent11: radixColors.mintDark.mint11,
-  accent12: radixColors.mintDark.mint12,
+  accent1: customColors.greenDark.green1,
+  accent2: customColors.greenDark.green2,
+  accent3: customColors.greenDark.green3,
+  accent4: customColors.greenDark.green4,
+  accent5: customColors.greenDark.green5,
+  accent6: customColors.greenDark.green6,
+  accent7: customColors.greenDark.green7,
+  accent8: customColors.greenDark.green8,
+  accent9: customColors.greenDark.green9,
+  accent10: customColors.greenDark.green10,
+  accent11: customColors.greenDark.green11,
+  accent12: customColors.greenDark.green12,
 
-  bodyColor: '#101112',
+  bodyColor: '#000000',
   textColor: '$gray11',
   borderColor: '$bodyColor',
   borderHover: '$gray5',
 
-  inputBg: '$gray2',
+  inputBg: '$gray1',
   inputColor: '$gray12',
-  inputBorder: 'transparent',
+  inputBorder: '$gray5',
   inputPlaceholderColor: '$gray9',
+
+  cardBg: '$gray1',
+  cardListItemBg: '$whiteA3',
+  overlayBg: '$gray1',
 };
 
 export type ColorKeys =

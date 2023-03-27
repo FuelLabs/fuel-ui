@@ -9,7 +9,7 @@ export const root = css({
   flexDirection: 'column',
   boxShadow: '$sm',
   borderRadius: BORDER_RADIUS,
-  background: '$gray1',
+  background: '$cardBg',
 });
 
 export const list = css({
@@ -19,10 +19,9 @@ export const list = css({
 });
 
 export const trigger = css({
+  is: ['display'],
   all: 'unset',
   position: 'relative',
-  fontFamily: '$sans',
-  fontWeight: '$bold',
   px: '$5',
   height: '$12',
   flex: 1,

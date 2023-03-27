@@ -7,7 +7,7 @@ export const avatar = css({
   verticalAlign: 'middle',
   overflow: 'hidden',
   userSelect: 'none',
-  borderRadius: '100%',
+  borderRadius: '$lg',
   background: '$gray6',
 
   variants: {

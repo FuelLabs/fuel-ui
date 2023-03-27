@@ -42,6 +42,7 @@ export const PaginationItem = createComponent<
 
 const styles = {
   base: cssObj({
+    is: ['display'],
     '&:not([data-selected="true"])': {
       color: '$gray10',
     },

@@ -18,7 +18,7 @@ const slideUp = keyframes({
 });
 
 export const root = css({
-  borderRadius: '$md',
+  borderRadius: '$default',
   maxW: '$full',
 });
 
@@ -43,7 +43,7 @@ export const item = css({
   },
 
   [`.${darkTheme} &`]: {
-    backgroundColor: '$gray1',
+    backgroundColor: '$cardBg',
   },
   [`.${darkTheme} &:has(.fuel_accordion-trigger:focus-visible)`]: {
     outline: `2px solid ${darkColors.gray4}`,
