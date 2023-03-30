@@ -60,11 +60,11 @@ export const InputAmount: InputAmountComponent = ({
     !value || value.eq(0) ? '' : formatAmount(value)
   );
 
-  const [assetText] = useState(
+  const [assetText, setAssetText] = useState(
     assetInfo && assetInfo.length > 0 ? assetInfo[0].assetName : 'Unknown Asset'
   );
 
-  const [assetImageUrl] = useState(
+  const [assetImageUrl, setAssetImageUrl] = useState(
     assetInfo && assetInfo.length > 0 ? assetInfo[0].imageUrl : undefined
   );
 
@@ -76,6 +76,12 @@ export const InputAmount: InputAmountComponent = ({
   useEffect(() => {
     handleAmountChange(value ? formatAmount(value) : '');
   }, [value?.toString()]);
+
+  const handleSelectAsset = (assetIndex: string) => {
+    const asset = assetInfo![assetIndex];
+    setAssetText(asset.assetName);
+    setAssetImageUrl(asset.imageUrl);
+  };
 
   const handleAmountChange = (text: string) => {
     const { text: newText, amount } = createAmount(text);
@@ -97,9 +103,9 @@ export const InputAmount: InputAmountComponent = ({
   };
 
   const dropdownItems =
-    assetInfo?.map((asset) => {
+    assetInfo?.map((asset, index) => {
       return (
-        <Dropdown.MenuItem key={asset.assetId}>
+        <Dropdown.MenuItem key={index}>
           <>
             {tokenImage(asset.assetName, asset.imageUrl)}
             {asset.assetName}
@@ -143,10 +149,12 @@ export const InputAmount: InputAmountComponent = ({
                         }}
                       >
                         {tokenImage(assetText, assetImageUrl)}
-                        {assetInfo[0].assetName || 'Unknown Asset'}
+                        {assetText}
                       </Button>
                     </Dropdown.Trigger>
-                    <Dropdown.Menu onAction={(e) => onClickAsset(e.toString())}>
+                    <Dropdown.Menu
+                      onAction={(e) => handleSelectAsset(e.toString())}
+                    >
                       {dropdownItems}
                     </Dropdown.Menu>
                   </Dropdown>
