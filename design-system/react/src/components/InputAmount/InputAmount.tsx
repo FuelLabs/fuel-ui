@@ -81,6 +81,7 @@ export const InputAmount: InputAmountComponent = ({
     const asset = assetInfo![assetIndex];
     setAssetText(asset.assetName);
     setAssetImageUrl(asset.imageUrl);
+    onClickAsset!(assetIndex);
   };
 
   const handleAmountChange = (text: string) => {
