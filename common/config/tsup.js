@@ -9,4 +9,5 @@ module.exports = (_options, { withReact } = {}) => ({
   clean: false,
   minify: process.env.NODE_ENV === 'production',
   ...(withReact && { inject: [path.resolve(__dirname, './react-imports.js')] }),
+  onSuccess: 'tsc --emitDeclarationOnly --declaration',
 });
