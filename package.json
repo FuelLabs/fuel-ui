@@ -41,7 +41,7 @@
     "test:watch": "turbo run test -- --watch",
     "test:coverage": "turbo run test -- --coverage",
     "test:clear": "turbo run test -- --clearCache",
-    "test:ci": "turbo run test -- --ci --testLocationInResults --json --coverage",
+    "test:ci": "pnpm build && turbo run test -- --ci --testLocationInResults --json --coverage",
     "ts:check": "pnpm -r run ts:check",
     "prepare": "husky install"
   },
