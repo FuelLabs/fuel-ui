@@ -44,8 +44,9 @@ export const InputAmount: InputAmountComponent = ({
   inputProps,
   ...props
 }) => {
+  const formatOpts = { units };
   const [assetAmount, setAssetAmount] = useState<string>(
-    !value || value.eq(0) ? '' : formatAmount(value)
+    !value || value.eq(0) ? '' : formatAmount(value, formatOpts)
   );
 
   const balance = initialBalance ?? bn(initialBalance);
@@ -54,7 +55,7 @@ export const InputAmount: InputAmountComponent = ({
   });
 
   useEffect(() => {
-    handleAmountChange(value ? formatAmount(value) : '');
+    handleAmountChange(value ? formatAmount(value, formatOpts) : '');
   }, [value?.toString()]);
 
   const handleAmountChange = (text: string) => {
@@ -68,7 +69,7 @@ export const InputAmount: InputAmountComponent = ({
 
   const handleSetBalance = () => {
     if (balance) {
-      handleAmountChange(formatAmount(balance));
+      handleAmountChange(formatAmount(balance, formatOpts));
     }
   };
 
@@ -113,7 +114,10 @@ export const InputAmount: InputAmountComponent = ({
                 aria-label={`Balance: ${formattedBalance}`}
               >
                 <Box as="span">Balance: </Box>
-                <Tooltip content={formatAmount(balance)} sideOffset={-5}>
+                <Tooltip
+                  content={formatAmount(balance, formatOpts)}
+                  sideOffset={-5}
+                >
                   <Box as="span">{formattedBalance}</Box>
                 </Tooltip>
               </Flex>
