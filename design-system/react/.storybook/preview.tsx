@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { themes } from '@storybook/theming';
 import { darkTheme, lightTheme } from '@fuel-ui/css';
@@ -38,7 +38,7 @@ export const parameters = {
   },
 };
 
-function ThemeWrapper(props) {
+function ThemeWrapper(props: any) {
   const isDark = useDarkMode();
   const { setTheme } = useFuelTheme();
 
@@ -50,7 +50,7 @@ function ThemeWrapper(props) {
 }
 
 export const decorators = [
-  (Story) => (
+  (Story: any) => (
     <ThemeWrapper>
       <Story />
     </ThemeWrapper>

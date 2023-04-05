@@ -1,5 +1,5 @@
 import type { BN } from '@fuel-ts/math';
-import { bn, DECIMAL_UNITS } from '@fuel-ts/math';
+import { bn } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
@@ -13,7 +13,7 @@ import type { InputNumberProps } from '../Input/InputNumber';
 import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
-import { createAmount, formatAmount } from './utils';
+import { DECIMAL_UNITS, createAmount, formatAmount } from './utils';
 
 export type InputAmountProps = Omit<InputProps, 'size'> & {
   name?: string;
