@@ -1,0 +1,91 @@
+{
+  "name": "@fuel-stitches/react",
+  "version": "0.0.1",
+  "description": "The modern CSS-in-JS library",
+  "sideEffects": false,
+  "license": "MIT",
+  "repository": "stitchesjs/stitches",
+  "homepage": "https://stitches.dev/",
+  "bugs": "https://github.com/stitchesjs/stitches/issues",
+  "contributors": [
+    "Pedro Duarte",
+    "Abdulhadi Alhallak <abdul@workos.com>",
+    "Jonathan Neal"
+  ],
+  "access": "public",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "types/index.d.ts",
+  "typesVersions": {
+    ">= 4.1": {
+      "*": [
+        "types/*"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/*.js",
+    "dist/*.js",
+    "dist/*.map",
+    "dist/*.mjs",
+    "types/*.d.ts"
+  ],
+  "devDependencies": {
+    "react": "18.2.0"
+  },
+  "peerDependencies": {
+    "react": ">= 18.2.0"
+  },
+  "keywords": [
+    "component",
+    "components",
+    "create",
+    "css",
+    "css-in-js",
+    "global",
+    "globals",
+    "javascript",
+    "js",
+    "nesting",
+    "object",
+    "object-oriented",
+    "oo",
+    "oocss",
+    "oriented",
+    "scope",
+    "scoped",
+    "style",
+    "styled",
+    "styles",
+    "stylesheet",
+    "stylesheets",
+    "theme",
+    "themes",
+    "theming",
+    "token",
+    "tokens",
+    "type",
+    "typed",
+    "types",
+    "transform",
+    "ts",
+    "variable",
+    "variables",
+    "jsx",
+    "next",
+    "nextjs",
+    "preact",
+    "react",
+    "tsx"
+  ],
+  "scripts": {
+    "build": "tsup"
+  }
+}

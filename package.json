@@ -19,7 +19,8 @@
   },
   "workspaces": [
     "./common/*",
-    "./design-system/*"
+    "./design-system/*",
+    "./stitches/*"
   ],
   "scripts": {
     "build": "turbo run build",
