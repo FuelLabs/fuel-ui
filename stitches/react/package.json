@@ -1,6 +1,6 @@
 {
   "name": "@fuel-stitches/react",
-  "version": "0.0.1",
+  "version": "0.13.0",
   "description": "The modern CSS-in-JS library",
   "sideEffects": false,
   "license": "MIT",
