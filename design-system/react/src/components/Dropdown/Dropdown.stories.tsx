@@ -23,15 +23,15 @@ const Content = (props: Partial<DropdownProps>) => {
       </Dropdown.Trigger>
       <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
         <Dropdown.MenuItem key="settings" textValue="Settings">
-          <Icon icon="Gear" css={{ color: '$gray8' }} />
+          <Icon icon="Gear" />
           Settings
         </Dropdown.MenuItem>
         <Dropdown.MenuItem key="trash" textValue="Delete">
-          <Icon icon="Trash" css={{ color: '$gray8' }} />
+          <Icon icon="Trash" />
           Delete
         </Dropdown.MenuItem>
         <Dropdown.MenuItem key="edit" textValue="Edit">
-          <Icon icon="NotePencil" css={{ color: '$gray8' }} />
+          <Icon icon="NotePencil" />
           Edit
         </Dropdown.MenuItem>
       </Dropdown.Menu>

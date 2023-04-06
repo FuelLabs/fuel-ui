@@ -14,7 +14,7 @@ export const ButtonLink = createComponent<ButtonLinkProps>(
   ({ as = 'a', role = 'link', isExternal, className, ...props }) => {
     const customProps = {
       ...props,
-      className: cx('fuel_button-link', className),
+      className: cx('fuel_ButtonLink', className),
       ...(isExternal && {
         target: '_blank',
         rel: 'noopener noreferrer',

@@ -14,7 +14,7 @@ export type DialogHeadingProps = {
 export const DialogHeading = createComponent<DialogHeadingProps>(
   ({ as = 'h2', className, children, ...props }) => {
     const { headingProps } = useDialog();
-    const classes = cx('fuel_dialog--heading', className);
+    const classes = cx('fuel_DialogHeading', className);
     const nextProps = { ...headingProps, ...props, className: classes };
     return createStyledElement(as, styles.heading, null, nextProps, children);
   }

@@ -1,26 +1,21 @@
-import type { ColorKeys } from '@fuel-ui/css';
-import { cx } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { createElement } from 'react';
 
-import type { HTMLProps } from '../../utils';
-import { createStyledElement, createComponent } from '../../utils';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 
-import * as styles from './styles';
+import type * as t from './defs';
+import { styles } from './styles';
 
-export type BadgeVariants = 'solid' | 'outlined' | 'ghost';
-export type BadgeProps = HTMLProps['span'] & {
-  color?: ColorKeys;
-  variant?: BadgeVariants;
-};
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
-export const Badge = createComponent<BadgeProps>(
-  ({ color, variant, className, children, ...props }) => {
-    const classes = cx('fuel_badge', className);
-    return createStyledElement(
-      'span',
-      styles.badge,
-      { variant, color },
-      { ...props, className: classes },
-      children
-    );
+const _Badge = createComponent2<t.BadgeDef>(
+  Components.Badge,
+  ({ as = 'span', ...props }) => {
+    const classes = useStyles(styles, props);
+    const elementProps = useElementProps(props, classes.root);
+    return createElement(as, elementProps);
   }
 );
+
+export const Badge = createPolymorphicComponent<t.BadgeDef>(_Badge);

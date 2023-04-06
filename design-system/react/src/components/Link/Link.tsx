@@ -1,33 +1,37 @@
-import type { Colors } from '@fuel-ui/css';
-import { allColors, css, cx } from '@fuel-ui/css';
-import { useRef } from 'react';
-import { mergeProps, useLink } from 'react-aria';
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { allColors } from '@fuel-ui/css';
+import { createElement } from 'react';
+import { useLink } from 'react-aria';
 
-import type { HTMLProps } from '../../utils';
-import { createStyledElement, createComponent } from '../../utils';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 import { Icon } from '../Icon';
 
-export type LinkProps = HTMLProps['a'] & {
-  isExternal?: boolean;
-  color?: Colors;
-};
+import type * as t from './defs';
 
-export const Link = createComponent<LinkProps>(
-  ({ isExternal, className, children, color, ...props }) => {
-    const ref = useRef<HTMLLinkElement | null>(null);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { linkProps } = useLink(props as any, ref);
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
+
+const _Link = createComponent2<t.LinkDef>(
+  Components.Link,
+  ({ as = 'a', isExternal, children, ...props }) => {
+    const { linkProps } = useLink(props as any, props.ref as any);
+    const classes = useStyles(styles, props);
     const customProps = {
-      role: 'link',
-      className: cx('fuel_link', className),
+      ...(as !== 'a' ? { role: 'link' } : {}),
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
     };
 
-    return createStyledElement(
-      'a',
-      styles.link,
-      { color },
-      mergeProps(props, customProps, linkProps),
+    const elementProps = useElementProps(
+      props,
+      classes.root,
+      customProps,
+      linkProps
+    );
+
+    return createElement(
+      as,
+      elementProps,
       <>
         {children} {isExternal && <Icon icon="LinkSimple" color="gray8" />}
       </>
@@ -35,8 +39,10 @@ export const Link = createComponent<LinkProps>(
   }
 );
 
-const styles = {
-  link: css({
+export const Link = createPolymorphicComponent<t.LinkDef>(_Link);
+
+const styles = createStyle(Components.Link, {
+  root: {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '$1',
@@ -55,7 +61,7 @@ const styles = {
 
     variants: {
       // TODO: adjust typings
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
       color: (allColors as any[]).reduce(
         (obj, key) => ({
           ...obj,
@@ -73,5 +79,5 @@ const styles = {
     defaultVariants: {
       color: 'accent11',
     },
-  }),
-};
+  },
+});

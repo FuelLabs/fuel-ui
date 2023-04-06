@@ -21,6 +21,6 @@ export const AlertDialogContent = createComponent<AlertDialogContentProps>(
 );
 
 const CLASSES = {
-  Overlay: cx('fuel_alert-dialog--overlay', styles.overlay()),
-  Content: cx('fuel_alert-dialog--content', styles.content()),
+  Overlay: cx('fuel_AlertDialogOverlay', styles.overlay()),
+  Content: cx('fuel_AlertDialogContent', styles.content()),
 };

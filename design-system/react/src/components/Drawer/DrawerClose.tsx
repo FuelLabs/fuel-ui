@@ -21,7 +21,7 @@ export const DrawerClose = createComponent<
   OmitProps,
   ElementType
 >(({ css, className, ...props }) => {
-  const classes = cx('fuel_drawer-close', className);
+  const classes = cx('fuel_DrawerClose', className);
   const { state } = useDrawer();
 
   function handleClose() {

@@ -54,7 +54,7 @@ export const List = createComponent<ListProps, ObjProps>(
     ...props
   }) => {
     const classes = cx(
-      'fuel_list',
+      'fuel_List',
       className,
       styles({
         ...((type ? { type } : { type: false }) as any),

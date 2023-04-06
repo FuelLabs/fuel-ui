@@ -1,68 +1,51 @@
 import { useMachine } from '@xstate/react';
 import { IconContext } from 'phosphor-react';
 import type { FC, ReactNode } from 'react';
-import { useContext, createContext } from 'react';
 
 import { GlobalStyles } from '../../styles/GlobalStyles';
 import { ToastProvider } from '../Toast';
 
-import type { FuelTheme } from './machine';
-import { getDefaultSystemTheme, themeProviderMachine } from './machine';
+import { themeProviderMachine } from './machine';
 
-type ThemeProviderContext = {
-  theme: FuelTheme;
-  setTheme: (theme: FuelTheme) => void;
-  toggleTheme: () => void;
-};
-
-const context = createContext<ThemeProviderContext>({
-  theme: getDefaultSystemTheme(),
-  setTheme: () => null,
-  toggleTheme: () => null,
-});
+import type { FuelTheme } from '~/hooks/useTheme';
+import {
+  themeContext,
+  DEFAULT_THEMES,
+  getInitialTheme,
+} from '~/hooks/useTheme';
 
 export type ThemeProps = {
-  theme?: 'dark' | 'light';
   withFonts?: boolean;
   children: ReactNode;
+  themes?: Record<string, FuelTheme>;
+  initialTheme?: string;
 };
 
 export const ThemeProvider: FC<ThemeProps> = ({
   children,
   withFonts = true,
-  theme: defaultTheme,
+  themes = DEFAULT_THEMES,
+  initialTheme: current = getInitialTheme(),
 }) => {
+  const curr = themes[current] ? current : Object.keys(themes)[0];
   const [state, send] = useMachine(() =>
-    defaultTheme
-      ? themeProviderMachine.withContext({ theme: defaultTheme })
-      : themeProviderMachine
+    themeProviderMachine.withContext({
+      themes: themes as Record<string, FuelTheme>,
+      current: curr,
+    })
   );
 
   function setTheme(value: FuelTheme) {
     send('SET_THEME', { value });
   }
 
-  function toggleTheme() {
-    send('TOGGLE_THEME');
-  }
-
-  const contextValue = {
-    setTheme,
-    toggleTheme,
-    theme: state.context.theme,
-  };
-
   return (
     <IconContext.Provider value={{ size: 16 }}>
-      <context.Provider value={contextValue}>
+      <themeContext.Provider value={{ ...state.context, setTheme }}>
         <ToastProvider />
         <GlobalStyles withFonts={withFonts} />
         {children}
-      </context.Provider>
+      </themeContext.Provider>
     </IconContext.Provider>
   );
 };
-
-export function useFuelTheme() {
-  return useContext(context);
-}

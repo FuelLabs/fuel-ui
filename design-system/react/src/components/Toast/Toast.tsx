@@ -9,7 +9,7 @@ export type ToastProps = ToasterProps;
 
 export const ToastProvider = createComponent<ToastProps>(
   ({ className, position = 'bottom-right', ...props }) => {
-    const classes = cx('fuel_toast', className, styles.root());
+    const classes = cx('fuel_Toast', className, styles.root());
     return (
       <Root {...props} position={position}>
         {(t) => (

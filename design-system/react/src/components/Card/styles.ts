@@ -11,7 +11,7 @@ export const header = css({
   p: '$5',
   borderBottom: '1px solid $borderColor',
 
-  '& .fuel_heading': {
+  '& .fuel_Heading': {
     margin: 0,
   },
 });

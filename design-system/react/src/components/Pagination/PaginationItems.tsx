@@ -15,7 +15,7 @@ export const PaginationItems = createComponent<
   unknown,
   OmitProps
 >(({ className, as, ...props }) => {
-  const classes = cx('fuel_pagination-items', className);
+  const classes = cx('fuel_PaginationItems', className);
   const pagination = usePaginationContext();
   return (
     <Stack {...props} direction="row" as={as} className={classes}>

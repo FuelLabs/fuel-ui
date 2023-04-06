@@ -1,19 +1,20 @@
-import type { CSS } from '@fuel-stitches/react';
+/* eslint-disable @typescript-eslint/naming-convention */
+import type { CSS, CSSFull } from '@fuel-stitches/react';
 import { createStitches } from '@fuel-stitches/react';
 
-import { lightColors, darkColors } from './colors';
+import { darkColors } from './colors';
 import { media } from './media';
 import * as tokens from './tokens';
 import * as utils from './utils';
 
 export const {
-  styled,
   css,
+  styled,
   globalCss,
   keyframes,
   getCssText,
   theme,
-  createTheme,
+  createTheme: _createTheme,
   config,
 } = createStitches({
   theme: {
@@ -24,18 +25,11 @@ export const {
   utils,
 });
 
+export type CSSFnReturnType = ReturnType<typeof css>;
+export type CSSFnParams = CSSFull<typeof config>;
 export type ThemeUtilsCSS = CSS<typeof config>;
-
 export function cssObj(opts: ThemeUtilsCSS) {
   return opts;
 }
-
-export const lightTheme = createTheme('fuel__light-theme', {
-  colors: lightColors,
-});
-
-export const darkTheme = createTheme('fuel__dark-theme', {
-  colors: darkColors,
-});
 
 export { utils };

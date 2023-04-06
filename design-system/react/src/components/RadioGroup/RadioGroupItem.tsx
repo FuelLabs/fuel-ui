@@ -38,7 +38,7 @@ export const RadioGroupItem = createComponent<
   }) => {
     const disabled = isDisabled || isReadOnly;
     const labelId = label ? `label-${useId()}` : undefined;
-    const classes = cx('fuel_radio-group--item', className);
+    const classes = cx('fuel_RadioGroupItem', className);
     const customProps = {
       ...props,
       className: classes,

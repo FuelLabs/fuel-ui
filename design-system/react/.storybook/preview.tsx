@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { themes } from '@storybook/theming';
-import { darkTheme, lightTheme } from '@fuel-ui/css';
+import { darkTheme, lightTheme } from '../src';
 
 import { ThemeProvider, useFuelTheme } from '../src';
 import theme from './theme';
@@ -33,8 +33,8 @@ export const parameters = {
       ...themes.light,
       ...theme,
     },
-    darkClass: darkTheme.className,
-    lightClass: lightTheme.className,
+    darkClass: darkTheme.theme.className,
+    lightClass: lightTheme.theme.className,
   },
 };
 
@@ -43,7 +43,7 @@ function ThemeWrapper(props: any) {
   const { setTheme } = useFuelTheme();
 
   useEffect(() => {
-    setTheme(isDark ? 'dark' : 'light');
+    setTheme(isDark ? darkTheme : lightTheme);
   }, [isDark]);
 
   return <ThemeProvider>{props.children}</ThemeProvider>;

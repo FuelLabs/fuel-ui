@@ -1,9 +1,15 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { styled } from '@fuel-ui/css';
 import type { ForwardedRef, ReactElement, ReactNode } from 'react';
 import { useMemo, forwardRef } from 'react';
 
+import { useComponentProps } from '../hooks/useStore';
+
 import type { BaseProps } from './types';
+
+import type { StoreDefs } from '~/defs';
 
 export function createComponent<
   Props,
@@ -37,4 +43,98 @@ export function createStyledElement(
       {children}
     </Component>
   );
+}
+
+export type CreateComponent<
+  Item extends {
+    type: string;
+    component: keyof StoreDefs;
+    props: Record<string, any>;
+    element: unknown;
+    namespace?: Record<string, any> | undefined;
+    omit?: string | undefined;
+    styles?: string | undefined;
+  }
+> = {
+  type: Item['type'];
+  component: Item['component'];
+  props: Item['props'];
+  element: Item['element'];
+  namespace: Item['namespace'] extends Record<string, any>
+    ? Item['namespace']
+    : null;
+  omit: Item['omit'] extends string ? Item['omit'] : null;
+  styles: Item['styles'] extends string ? Item['styles'] : null;
+};
+
+type GetProps<Def extends CreateComponent<any>> = Def['omit'] extends string
+  ? Omit<BaseProps<Def['props']>, Def['omit']>
+  : BaseProps<StoreDefs[Def['component']]['props']>;
+
+type RenderFn<Def extends CreateComponent<any>> = (
+  props: GetProps<Def> & { ref: ForwardedRef<Def['element']> }
+) => ReactElement | null;
+
+export function createComponent2<
+  Def extends CreateComponent<any>,
+  Component extends keyof StoreDefs = Def['component']
+>(component: Component, render: RenderFn<Def>) {
+  const Comp = forwardRef<Def['element'], GetProps<Def>>((initProps, ref) => {
+    const props = useComponentProps<Component>(
+      component,
+      initProps as GetProps<Def>
+    ) as GetProps<Def>;
+    return render({ ref, ...props });
+  });
+  return Comp as Def['namespace'] extends Record<string, unknown>
+    ? typeof Comp & Def['namespace']
+    : typeof Comp;
+}
+
+type ExtendedProps<Props = {}, OverrideProps = {}> = OverrideProps &
+  Omit<Props, keyof OverrideProps>;
+
+type ElementType =
+  | keyof JSX.IntrinsicElements
+  | React.JSXElementConstructor<any>;
+
+type PropsOf<C extends ElementType> = JSX.LibraryManagedAttributes<
+  C,
+  React.ComponentPropsWithoutRef<C>
+>;
+
+type ComponentProp<C> = {
+  as?: C;
+};
+
+type InheritedProps<C extends ElementType, Props = {}> = ExtendedProps<
+  PropsOf<C>,
+  Props
+>;
+
+export type PolymorphicRef<C> = C extends React.ElementType
+  ? React.ComponentPropsWithRef<C>['ref']
+  : never;
+
+export type PolymorphicComponentProps<
+  C,
+  Props = {}
+> = C extends React.ElementType
+  ? InheritedProps<C, Props & ComponentProp<C>> & { ref?: PolymorphicRef<C> }
+  : Props & { as: React.ElementType };
+
+export function createPolymorphicComponent<Def extends CreateComponent<any>>(
+  component: ReturnType<typeof createComponent2<Def>>
+) {
+  type Props = Omit<GetProps<Def>, 'as'>;
+  type ComponentProps<C> = PolymorphicComponentProps<C, Props>;
+
+  type _PolymorphicComponent = <C = Def['type']>(
+    props: ComponentProps<C>
+  ) => React.ReactElement;
+
+  const Comp = component as _PolymorphicComponent & typeof component;
+  return Comp as Def['namespace'] extends Record<string, unknown>
+    ? typeof Comp & Def['namespace']
+    : typeof Comp;
 }

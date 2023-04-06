@@ -14,7 +14,7 @@ export const CardListItem = createComponent<CardListProps>(
   ({ children, className, rightEl, isActive, ...props }) => {
     const { isClickable } = useCardListContext();
     const classes = cx(
-      'fuel_card-list--item',
+      'fuel_CardListItem',
       className,
       styles.root({ isActive, isClickable })
     );

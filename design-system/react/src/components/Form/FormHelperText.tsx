@@ -16,11 +16,7 @@ type ObjProps = {
 export const FormHelperText = createComponent<FormHelperTextProps, ObjProps>(
   ({ as = 'div', color, children, className, ...props }) => {
     const { id, ...parentProps } = useFormControlProps();
-    const classes = cx(
-      'fuel_form--helper-text',
-      className,
-      styles.helperText({})
-    );
+    const classes = cx('fuel_FormHelperText', className, styles.helperText({}));
 
     const customProps = {
       ...props,

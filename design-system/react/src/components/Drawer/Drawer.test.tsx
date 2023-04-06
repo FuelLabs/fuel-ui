@@ -20,7 +20,7 @@ const Content = (props: Partial<DrawerProps>) => (
 );
 
 const CustomRef = () => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement | null>(null);
   return (
     <Box ref={ref}>
       <Content containerRef={ref} />

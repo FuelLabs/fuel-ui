@@ -40,7 +40,7 @@ export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
       formControlProps.isReadOnly;
 
     const readonly = isReadOnly || formControlProps.isReadOnly;
-    const classes = cx('fuel_radio_group', className);
+    const classes = cx('fuel_Radio_group', className);
 
     const customProps = {
       ...props,

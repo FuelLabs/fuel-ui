@@ -1,34 +1,24 @@
-import { cx } from '@fuel-ui/css';
 import * as RAvatar from '@radix-ui/react-avatar';
+import { createElement } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent2 } from '../../utils';
 
 import { AvatarGenerated } from './AvatarGenerated';
-import * as styles from './styles';
+import type * as t from './defs';
+import { styles } from './styles';
 
-type OmitProps = 'children';
-export type AvatarProps = RAvatar.AvatarImageProps & {
-  name: string;
-  fallback?: string;
-  size?: 'xsm' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-};
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
-type ObjProps = {
-  Generated: typeof AvatarGenerated;
-};
-
-export const Avatar = createComponent<AvatarProps, ObjProps, OmitProps>(
-  ({ name, size, className, css, as, ...props }) => {
-    const classes = cx('fuel_avatar', className);
-    const wrapperProps = { as, css, className: classes };
+export const Avatar = createComponent2<t.AvatarDef>(
+  Components.Avatar,
+  ({ name, size = 'md', css, ...props }) => {
+    const classes = useStyles(styles, { ...props, size });
+    const imageProps = useElementProps(props, classes.image);
     const children = (
       <>
-        <RAvatar.AvatarImage
-          {...props}
-          alt={props.alt || name}
-          className={styles.image()}
-        />
-        <RAvatar.AvatarFallback className={styles.fallback()}>
+        <RAvatar.AvatarImage {...imageProps} alt={props.alt || name} />
+        <RAvatar.AvatarFallback className={classes.fallback.className}>
           {name
             .split(' ')
             .map((w) => w.slice(0, 1))
@@ -36,14 +26,8 @@ export const Avatar = createComponent<AvatarProps, ObjProps, OmitProps>(
         </RAvatar.AvatarFallback>
       </>
     );
-
-    return createStyledElement(
-      RAvatar.Root,
-      styles.avatar,
-      { size },
-      wrapperProps,
-      children
-    );
+    const wrapperProps = useElementProps(classes.root, { css });
+    return createElement(RAvatar.Root, wrapperProps, children);
   }
 );
 

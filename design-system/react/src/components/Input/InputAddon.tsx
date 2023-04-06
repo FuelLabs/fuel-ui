@@ -7,7 +7,7 @@ import * as styles from './styles';
 
 const InputAddon = createComponent(({ className, children, ...props }) => {
   const { size } = useInputProps();
-  const classes = cx('fuel_input--addon', className);
+  const classes = cx('fuel_InputAddon', className);
   const customProps = { ...props, className: classes };
   return createStyledElement(
     'div',
@@ -25,19 +25,13 @@ type ObjProps = {
 
 export const InputAddonLeft = createComponent<unknown, ObjProps, OmitProps>(
   ({ className, ...props }) => (
-    <InputAddon
-      {...props}
-      className={cx('fuel_input-addon--left', className)}
-    />
+    <InputAddon {...props} className={cx('fuel_InputAddonLeft', className)} />
   )
 );
 
 export const InputAddonRight = createComponent<unknown, ObjProps, OmitProps>(
   ({ className, ...props }) => (
-    <InputAddon
-      {...props}
-      className={cx('fuel_input-addon--right', className)}
-    />
+    <InputAddon {...props} className={cx('fuel_InputAddonRight', className)} />
   )
 );
 

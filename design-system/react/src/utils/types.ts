@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
 
 type Children = ReactNode;
 
 export type BaseProps<O> = {
-  as?: string | Element;
+  as?: any;
   css?: ThemeUtilsCSS;
   className?: string;
   children?: Children;

@@ -1,20 +1,21 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ColorKeys, Colors } from '@fuel-ui/css';
-import { cx } from '@fuel-ui/css';
+import type { Colors } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
-import { useRef, cloneElement } from 'react';
-import type { AriaButtonProps } from 'react-aria';
+import { createElement, useRef, cloneElement } from 'react';
 import { mergeProps, useButton } from 'react-aria';
 
-import { createComponent, createStyledElement } from '../../utils';
-import type { HTMLProps } from '../../utils';
-import { omit } from '../../utils/helpers';
-import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
 
-import * as styles from './styles';
+import type * as t from './defs';
+import { styles } from './styles';
+
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks/useStore';
+import { createComponent2, createPolymorphicComponent } from '~/utils';
+import { omit } from '~/utils/helpers';
 
 export function createIcon(
   icon: string | ReactNode,
@@ -37,14 +38,14 @@ export function createIcon(
   );
 }
 
-export function getIconSize(size: ButtonSizes, iconSize?: number) {
+export function getIconSize(size: t.ButtonSizes, iconSize?: number) {
   if (iconSize) return iconSize;
   if (size === 'lg') return 20;
   if (size === 'md') return 18;
   return 16;
 }
 
-type GetChildrenParams = ButtonProps & {
+type GetChildrenParams = t.ButtonProps & {
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
 };
@@ -71,38 +72,6 @@ function getChildren({
   );
 }
 
-export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link';
-export type ButtonSizes = 'xs' | 'sm' | 'md' | 'lg';
-
-export type ButtonBaseProps = {
-  size?: ButtonSizes;
-  color?: ColorKeys;
-  variant?: ButtonVariants;
-  iconSize?: number;
-  leftIcon?: IconProps['icon'];
-  leftIconAriaLabel?: string;
-  rightIcon?: IconProps['icon'];
-  rightIconAriaLabel?: string;
-  isLoading?: boolean;
-  isDisabled?: boolean;
-};
-
-export type ButtonProps = Omit<HTMLProps['button'], 'onClick'> &
-  AriaButtonProps<'button'> &
-  ButtonBaseProps & {
-    justIcon?: boolean;
-    isLink?: boolean;
-    /**
-     * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
-     * You're able to use just one or another, don't use onClick and onPress together
-     */
-    onClick?: HTMLProps['button']['onClick'];
-  };
-
-type ObjProps = {
-  id: string;
-};
-
 export const SPINNER_SIZE = {
   xs: 12,
   sm: 14,
@@ -110,32 +79,21 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
-export const Button = createComponent<ButtonProps, ObjProps>(
-  ({
-    as = 'button',
-    size = 'md',
-    color = 'accent',
-    variant = 'solid',
-    iconSize: initialIconSize,
-    leftIcon,
-    leftIconAriaLabel,
-    rightIcon,
-    rightIconAriaLabel,
-    isLoading,
-    isDisabled,
-    className,
-    justIcon,
-    isLink,
-    children,
-    ref,
-    ...props
-  }) => {
-    const disabled = isLoading || isDisabled;
-    const iconSize = getIconSize(size, initialIconSize);
-    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
-    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const classes = cx('fuel_button', className);
+const _Button = createComponent2<t.ButtonDef>(
+  Components.Button,
+  ({ as = 'button', children, ref, ...props }) => {
+    const {
+      size = 'md',
+      isLoading,
+      isDisabled,
+      isLink,
+      leftIcon,
+      leftIconAriaLabel,
+      rightIcon,
+      rightIconAriaLabel,
+    } = props;
 
+    const disabled = isLoading || isDisabled;
     const innerRef = useRef<HTMLButtonElement | null>(null);
     const { buttonProps, isPressed } = useButton(
       {
@@ -155,30 +113,24 @@ export const Button = createComponent<ButtonProps, ObjProps>(
     );
 
     const customProps = {
-      ...omit(['onPress', 'onClick'], props),
       as,
       disabled,
       ref: mergeRefs(ref!, innerRef),
-      className: classes,
       'aria-disabled': isDisabled,
       'aria-busy': isLoading,
       ...(!isLink && { 'aria-pressed': !isDisabled && isPressed }),
     };
 
-    const styleProps = {
-      size,
-      variant,
-      disabled,
-      justIcon,
-      color,
-      isLink,
-    };
+    const allProps = mergeProps(props, buttonProps, customProps);
+    const classes = useStyles(styles, allProps);
+    const iconSize = getIconSize(size, props.iconSize);
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
+    const elementProps = useElementProps(allProps, classes.root);
 
-    return createStyledElement(
-      'button',
-      styles.button,
-      styleProps,
-      mergeProps(buttonProps, customProps),
+    return createElement(
+      as,
+      elementProps,
       getChildren({
         size,
         isLoading,
@@ -190,4 +142,5 @@ export const Button = createComponent<ButtonProps, ObjProps>(
   }
 );
 
+export const Button = createPolymorphicComponent<t.ButtonDef>(_Button);
 Button.id = 'Button';

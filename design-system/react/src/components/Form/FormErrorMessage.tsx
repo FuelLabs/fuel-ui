@@ -19,7 +19,7 @@ export const FormErrorMessage = createComponent<
 >(({ as = 'div', color, children, className, ...props }) => {
   const { id, ...parentProps } = useFormControlProps();
   const classes = cx(
-    'fuel_form--error-message',
+    'fuel_FormErrorMessage',
     className,
     styles.errorMessage({})
   );

@@ -1,1 +1,2 @@
-export * from './Container';
+export * from '../Box';
+export { Container } from '../Box/Container';

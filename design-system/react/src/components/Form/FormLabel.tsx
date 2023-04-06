@@ -15,7 +15,7 @@ type ObjProps = {
 export const FormLabel = createComponent<FormLabelProps, ObjProps>(
   ({ as = 'label', children, className, ...props }) => {
     const { id, ...parentProps } = useFormControlProps();
-    const classes = cx('fuel_form--label', className);
+    const classes = cx('fuel_FormLabel', className);
 
     const customProps = {
       ...props,

@@ -1,25 +1,29 @@
-import { css, cx } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { createElement } from 'react';
 
-import type { HTMLProps } from '../../utils';
-import { createStyledElement, createComponent } from '../../utils';
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 
-export type BoxProps = HTMLProps['div'];
+import { BoxCentered } from './BoxCentered';
+import { Container } from './Container';
+import { Flex } from './Flex';
+import { Stack } from './Stack';
+import type * as t from './defs';
+import { styles } from './styles';
 
-export const Box = createComponent<BoxProps>(
-  ({ className, children, ...props }) => {
-    const classes = cx('fuel_box', className);
-    return createStyledElement(
-      'div',
-      styles.root,
-      null,
-      { ...props, className: classes },
-      children
-    );
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+
+export const _Box = createComponent2<t.BoxDef>(
+  Components.Box,
+  ({ as = 'div', ...props }) => {
+    const classes = useStyles(styles, props);
+    const elementProps = useElementProps(props, classes.root);
+    return createElement(as, elementProps);
   }
 );
 
-const styles = {
-  root: css({
-    fontFamily: '$sans',
-  }),
-};
+export const Box = createPolymorphicComponent<t.BoxDef>(_Box);
+Box.Centered = BoxCentered;
+Box.Flex = Flex;
+Box.Stack = Stack;
+Box.Container = Container;

@@ -26,7 +26,7 @@ export const DialogClose = createComponent<
   unknown,
   ElementType
 >(({ ref, className, asChild, children, ...props }) => {
-  const classes = cx('fuel_dialog-close', className);
+  const classes = cx('fuel_DialogClose', className);
   const { state, triggerRef } = useDialog();
 
   function handleToggle() {

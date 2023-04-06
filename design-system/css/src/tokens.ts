@@ -78,6 +78,13 @@ export const fontSizes = {
   '7xl': '4.5rem',
   '8xl': '6rem',
   '9xl': '8rem',
+  // heading font sizes
+  h1: '$5xl',
+  h2: '$4xl',
+  h3: '$3xl',
+  h4: '$2xl',
+  h5: '$xl',
+  h6: '$lg',
 };
 
 export const fontWeights = {

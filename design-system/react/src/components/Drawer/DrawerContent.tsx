@@ -51,9 +51,9 @@ export const DrawerContent = createComponent<
   const { modalProps } = useModal();
   const finalProps = mergeProps(props, overlayProps, dialogProps, modalProps);
 
-  const contentClasses = cx('fuel_drawer-content', className, styles.content());
+  const contentClasses = cx('fuel_DrawerContent', className, styles.content());
   const underlayClasses = cx(
-    'fuel_drawer-underlay',
+    'fuel_DrawerUnderlay',
     className,
     styles.underlay({ side })
   );

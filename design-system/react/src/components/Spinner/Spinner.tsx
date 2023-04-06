@@ -1,23 +1,29 @@
 import type { ColorKeys, Colors } from '@fuel-ui/css';
-import { styled, css, darkColors, keyframes, cx } from '@fuel-ui/css';
-import { useMemo } from 'react';
+import { css, darkColors, keyframes, cx } from '@fuel-ui/css';
+import { createElement, useMemo } from 'react';
 
-import { createComponent } from '../../utils';
+import { createComponent2 } from '../../utils';
 
-type OmitProps = 'as' | 'children';
-export type SpinnerProps = {
-  size?: number;
-  color?: Colors | ColorKeys | string;
-};
+import type * as t from './defs';
 
-const Root = styled('svg');
+import { Components } from '~/defs';
+import { useElementProps } from '~/hooks';
+import { fClass } from '~/utils/css';
 
-export const Spinner = createComponent<SpinnerProps, unknown, OmitProps>(
+export const Spinner = createComponent2<t.SpinnerDef>(
+  Components.Spinner,
   ({ size = 24, color = 'accent9', className, ...props }) => {
     const styles = useMemo(() => getStyles(size, color), [size]);
-    const classes = cx('fuel_spinner', className, styles());
-    return (
-      <Root className={classes} viewBox={`0 0 ${size} ${size}`} {...props}>
+    const classes = cx(fClass(Components.Spinner), className, styles());
+    const viewBox = `0 0 ${size} ${size}`;
+    const elementProps = useElementProps(props, {
+      viewBox,
+      className: classes,
+    });
+    return createElement(
+      'svg',
+      elementProps,
+      <>
         <circle cx={size / 2} cy={size / 2} r={size * 0.4} className="bg" />
         <circle
           cx={size / 2}
@@ -25,7 +31,7 @@ export const Spinner = createComponent<SpinnerProps, unknown, OmitProps>(
           r={size * 0.4}
           className="animated"
         />
-      </Root>
+      </>
     );
   }
 );

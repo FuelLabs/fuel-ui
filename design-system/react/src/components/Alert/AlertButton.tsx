@@ -1,23 +1,28 @@
-import { cx } from '@fuel-ui/css';
-
-import { createComponent } from '../../utils';
-import type { ButtonProps } from '../Button';
+/* eslint-disable @typescript-eslint/naming-convention */
+import { createComponent2, createPolymorphicComponent } from '../../utils';
 import { Button } from '../Button';
 
-type ObjProps = {
-  id: string;
-};
+import type * as t from './defs';
+import { styles } from './styles';
 
-export const AlertButton = createComponent<ButtonProps, ObjProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_alert--button', className);
-    const customProps = { ...props, className: classes };
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+
+const _AlertButton = createComponent2<t.AlertButtonDef>(
+  Components.AlertButton,
+  ({ children, ...props }) => {
+    const classes = useStyles(styles);
+    const elementProps = useElementProps(props, classes.button);
+
     return (
-      <Button {...customProps} variant="link">
+      <Button {...elementProps} variant="link">
         {children}
       </Button>
     );
   }
 );
+
+export const AlertButton =
+  createPolymorphicComponent<t.AlertButtonDef>(_AlertButton);
 
 AlertButton.id = 'AlertButton';

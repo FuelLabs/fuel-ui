@@ -25,7 +25,7 @@ const Template: ComponentStory<typeof Pagination> = (args) => (
       <Pagination.Items />
       <Pagination.Next />
     </Pagination>
-    <Text css={{ color: '$gray8' }}>
+    <Text css={{ color: '$muted' }}>
       Use <code>←</code> and <code>→</code> to focus navigation
     </Text>
   </Stack>

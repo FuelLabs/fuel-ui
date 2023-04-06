@@ -34,7 +34,7 @@ export const item = css({
     outline: 'none',
   },
 
-  [`&:focus-visible .fuel_icon`]: {
+  [`&:focus-visible .fuel_Icon`]: {
     color: '$accent11',
   },
 });
