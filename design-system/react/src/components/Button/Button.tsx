@@ -115,6 +115,7 @@ const _Button = createComponent2<t.ButtonDef>(
     const customProps = {
       as,
       disabled,
+      role: props.role || buttonProps.role,
       ref: mergeRefs(ref!, innerRef),
       'aria-disabled': isDisabled,
       'aria-busy': isLoading,

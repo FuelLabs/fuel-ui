@@ -27,6 +27,7 @@ describe('List', () => {
 
   it('should render list with icon', async () => {
     render(<Content icon={Icon.is('Check')} iconAriaLabel="Icon Test" />);
-    expect(screen.getAllByText('Icon Test').length).toBe(3);
+    const items = await screen.findAllByLabelText(/icon test/i);
+    expect(items.length).toBe(3);
   });
 });

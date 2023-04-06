@@ -50,10 +50,10 @@ export const Icon = createComponent2<t.IconDef>(
       [icon]
     );
 
-    const label =
-      initialLabel || props['aria-label'] || typeof icon === 'string'
-        ? `Icon ${icon}`
-        : '';
+    let label = initialLabel || props['aria-label'];
+    if (!label && typeof icon === 'string') {
+      label = `Icon ${icon}`;
+    }
 
     const classes = useStyles(styles, {
       ...props,
@@ -65,7 +65,7 @@ export const Icon = createComponent2<t.IconDef>(
     });
 
     const elementProps = useElementProps(props, classes.root, {
-      'aria-label': label,
+      'aria-label': label || '',
       className: wrapperClassName,
     });
 
