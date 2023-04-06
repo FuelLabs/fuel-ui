@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { render, screen, testA11y, waitFor } from '@fuel-ui/test-utils';
 
 import type { PaginationBaseProps } from './Pagination';
 import { Pagination } from './Pagination';
@@ -36,8 +36,10 @@ describe('Pagination', () => {
     const btn = screen.getByLabelText('Next page');
     await user.click(btn);
 
-    selected = screen.getByLabelText('Page 2');
-    expect(selected.getAttribute('data-selected')).toEqual('true');
+    await waitFor(async () => {
+      selected = await screen.findByLabelText('Page 2');
+      expect(selected.getAttribute('data-selected')).toEqual('true');
+    });
   });
 
   it('should navigate to prev page', async () => {
