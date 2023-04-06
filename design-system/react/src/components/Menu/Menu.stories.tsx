@@ -1,4 +1,5 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+/// <reference types="@storybook/types" />
+import type { StoryFn } from '@storybook/react';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
@@ -19,9 +20,9 @@ export default {
       control: 'text',
     },
   },
-} as ComponentMeta<typeof Menu>;
+};
 
-const Template: ComponentStory<typeof Menu> = (args: MenuProps) => (
+const Template: StoryFn<typeof Menu> = (args: MenuProps) => (
   <Box css={{ width: '200px' }}>
     <Menu {...args} disabledKeys={['edit']} aria-label="Actions">
       <Menu.Item key="settings" textValue="Settings">

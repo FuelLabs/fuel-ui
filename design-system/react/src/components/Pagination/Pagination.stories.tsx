@@ -1,4 +1,6 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+/// <reference types="@storybook/types" />
+
+import type { StoryFn } from '@storybook/react';
 
 import { Stack } from '../Stack';
 import { Text } from '../Text';
@@ -16,9 +18,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Pagination>;
+};
 
-const Template: ComponentStory<typeof Pagination> = (args) => (
+const Template: StoryFn<typeof Pagination> = (args) => (
   <Stack>
     <Pagination {...args}>
       <Pagination.Prev />

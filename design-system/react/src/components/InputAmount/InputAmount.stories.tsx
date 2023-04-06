@@ -1,7 +1,8 @@
+/// <reference types="@storybook/types" />
 import type { BN } from '@fuel-ts/math';
 import { bn } from '@fuel-ts/math';
 import { action } from '@storybook/addon-actions';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
 import { Box } from '../Box';
@@ -24,11 +25,11 @@ export default {
       control: 'boolean',
     },
   },
-} as ComponentMeta<typeof InputAmount>;
+};
 
 const BALANCE = bn.parseUnits('1.570000044');
 
-const Template: ComponentStory<typeof InputAmount> = (args) => {
+const Template: StoryFn<typeof InputAmount> = (args) => {
   const [amount, setAmount] = useState<BN | null>(bn());
   const AMOUNT_VALUE_1 = 1_000_000_011;
   const AMOUNT_VALUE_2 = 1_000_000_000;
