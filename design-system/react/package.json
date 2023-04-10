@@ -30,7 +30,7 @@
     "xstate:typegen": "xstate typegen 'src/**/*.ts?(x)'"
   },
   "dependencies": {
-    "@fuel-ts/math": "^0.38.0",
+    "@fuel-ts/math": "^0.38.1",
     "@fuel-ui/css": "workspace:*",
     "@fuel-ui/test-utils": "workspace:*",
     "@radix-ui/react-accordion": "^1.1.1",
@@ -50,7 +50,7 @@
     "@fuel-stitches/react": "workspace:../../stitches/react",
     "@xstate/react": "^3.2.1",
     "deepmerge-json": "^1.5.0",
-    "framer-motion": "^10.10.0",
+    "framer-motion": "^10.11.2",
     "jdenticon": "^3.2.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
@@ -86,7 +86,7 @@
     "@storybook/types": "^7.0.2",
     "@types/color": "^3.0.3",
     "@types/fs-extra": "^11.0.1",
-    "@types/react": "^18.0.33",
+    "@types/react": "^18.0.34",
     "@types/react-dom": "^18.0.11",
     "@xstate/cli": "^0.4.2",
     "babel-loader": "^9.1.2",
@@ -96,9 +96,9 @@
     "storybook-dark-mode": "^3.0.0",
     "ts-jest": "^29.1.0",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
-    "typescript": "5.0.3",
+    "typescript": "5.0.4",
     "vite": "^4.2.1",
-    "vite-tsconfig-paths": "^4.0.8",
+    "vite-tsconfig-paths": "^4.0.9",
     "webpack": "5.78.0",
     "yargs": "^17.7.1"
   },
