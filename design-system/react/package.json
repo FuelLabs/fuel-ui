@@ -47,6 +47,7 @@
     "@radix-ui/react-tooltip": "^1.0.5",
     "@radix-ui/react-visually-hidden": "^1.0.2",
     "@react-aria/utils": "^3.16.0",
+    "@react-aria/focus": "^3.12.0",
     "@fuel-stitches/react": "workspace:../../stitches/react",
     "@xstate/react": "^3.2.1",
     "deepmerge-json": "^1.5.0",
