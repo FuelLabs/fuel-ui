@@ -1,6 +1,7 @@
 {
   "name": "@fuel-stitches/core",
   "version": "0.13.0",
+  "private": true,
   "description": "The modern CSS-in-JS library",
   "sideEffects": false,
   "license": "MIT",
@@ -12,7 +13,6 @@
     "Abdulhadi Alhallak <abdul@workos.com>",
     "Jonathan Neal"
   ],
-  "access": "public",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "types/index.d.ts",
