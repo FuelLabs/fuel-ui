@@ -30,7 +30,6 @@
     "xstate:typegen": "xstate typegen 'src/**/*.ts?(x)'"
   },
   "dependencies": {
-    "@fuel-stitches/react": "workspace:../../stitches/react",
     "@fuel-ts/math": "^0.38.0",
     "@fuel-ui/css": "workspace:*",
     "@fuel-ui/test-utils": "workspace:*",
@@ -47,9 +46,8 @@
     "@radix-ui/react-tabs": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.5",
     "@radix-ui/react-visually-hidden": "^1.0.2",
-    "@react-aria/focus": "^3.12.0",
-    "@react-aria/overlays": "^3.14.0",
     "@react-aria/utils": "^3.16.0",
+    "@fuel-stitches/react": "workspace:../../stitches/react",
     "@xstate/react": "^3.2.1",
     "deepmerge-json": "^1.5.0",
     "framer-motion": "^10.10.0",
