@@ -2,9 +2,7 @@
 '@fuel-ui/react': minor
 '@fuel-ui/test-utils': minor
 '@fuel-ui/css': minor
-'@fuel-stitches/react': minor
 '@fuel-ui/config': minor
-'@fuel-stitches/core': minor
 ---
 
 Feat: add new flexible and custom theme system [(all details about the RFC here)](https://github.com/FuelLabs/fuel-ui/issues/224) and an [example of usage here](https://github.com/FuelLabs/fuel-ui/tree/feat/theme-system/examples/custom-theme)

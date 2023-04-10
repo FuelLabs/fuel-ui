@@ -30,7 +30,7 @@
     "xstate:typegen": "xstate typegen 'src/**/*.ts?(x)'"
   },
   "dependencies": {
-    "@fuel-stitches/react": "workspace:*",
+    "@fuel-stitches/react": "workspace:../../stitches/react",
     "@fuel-ts/math": "^0.38.0",
     "@fuel-ui/css": "workspace:*",
     "@fuel-ui/test-utils": "workspace:*",
