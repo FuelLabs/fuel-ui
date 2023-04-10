@@ -1,12 +1,12 @@
 import type { BN } from '@fuel-ts/math';
 import { bn, DECIMAL_UNITS } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
+import type { PressEvent } from '@react-types/shared';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import { Box } from '../Box';
 import { Button } from '../Button';
-import { Dropdown } from '../Dropdown';
 import { Flex } from '../Flex';
 import { Image } from '../Image';
 import type { InputProps } from '../Input';
@@ -34,8 +34,8 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
   isDisabled?: boolean;
-  assetInfo?: AssetInfo[];
-  onClickAsset?: (val: string) => void;
+  assetInfo?: AssetInfo;
+  onClickAsset?: (val: PressEvent) => void;
 };
 
 type InputAmountComponent = FC<InputAmountProps> & {
@@ -60,14 +60,6 @@ export const InputAmount: InputAmountComponent = ({
     !value || value.eq(0) ? '' : formatAmount(value)
   );
 
-  const [assetText, setAssetText] = useState(
-    assetInfo && assetInfo.length > 0 ? assetInfo[0].assetName : 'Unknown Asset'
-  );
-
-  const [assetImageUrl, setAssetImageUrl] = useState(
-    assetInfo && assetInfo.length > 0 ? assetInfo[0].imageUrl : undefined
-  );
-
   const balance = initialBalance ?? bn(initialBalance);
   const formattedBalance = formatAmount(balance, {
     precision: balance.eq(0) ? 1 : balancePrecision,
@@ -76,13 +68,6 @@ export const InputAmount: InputAmountComponent = ({
   useEffect(() => {
     handleAmountChange(value ? formatAmount(value) : '');
   }, [value?.toString()]);
-
-  const handleSelectAsset = (assetIndex: string) => {
-    const asset = assetInfo![assetIndex];
-    setAssetText(asset.assetName);
-    setAssetImageUrl(asset.imageUrl);
-    onClickAsset!(assetIndex);
-  };
 
   const handleAmountChange = (text: string) => {
     const { text: newText, amount } = createAmount(text);
@@ -102,18 +87,6 @@ export const InputAmount: InputAmountComponent = ({
   const tokenImage = (name?: string, imageUrl?: string) => {
     return <Image alt={name} src={imageUrl} width={20} height={20} />;
   };
-
-  const dropdownItems =
-    assetInfo?.map((asset, index) => {
-      return (
-        <Dropdown.MenuItem key={index}>
-          <>
-            {tokenImage(asset.assetName, asset.imageUrl)}
-            {asset.assetName}
-          </>
-        </Dropdown.MenuItem>
-      );
-    }) || [];
 
   return (
     <Input size="lg" css={styles.input} {...props}>
@@ -137,28 +110,20 @@ export const InputAmount: InputAmountComponent = ({
         <Input.ElementRight css={styles.elementRight}>
           <Box css={styles.balanceActions}>
             <Flex align="end" direction="column">
-              {assetInfo && assetInfo.length > 0 && onClickAsset && (
+              {assetInfo && onClickAsset && (
                 <Flex>
-                  <Dropdown>
-                    <Dropdown.Trigger>
-                      <Button
-                        size="xs"
-                        aria-label="Coin Selector"
-                        css={{
-                          background: '$blackA12',
-                          color: '$gray9',
-                        }}
-                      >
-                        {tokenImage(assetText, assetImageUrl)}
-                        {assetText}
-                      </Button>
-                    </Dropdown.Trigger>
-                    <Dropdown.Menu
-                      onAction={(e) => handleSelectAsset(e.toString())}
-                    >
-                      {dropdownItems}
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  <Button
+                    size="xs"
+                    aria-label="Coin Selector"
+                    css={{
+                      background: '$blackA12',
+                      color: '$gray9',
+                    }}
+                    onPress={onClickAsset}
+                  >
+                    {tokenImage(assetInfo.assetName, assetInfo.imageUrl)}
+                    {assetInfo.assetName}
+                  </Button>
                 </Flex>
               )}
               <Flex gap="$2" align="center">
