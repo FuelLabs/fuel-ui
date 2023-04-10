@@ -1,6 +1,7 @@
 import type { BN } from '@fuel-ts/math';
 import { bn, DECIMAL_UNITS } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
+import type { Asset } from '@fuel-wallet/types';
 import type { PressEvent } from '@react-types/shared';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
@@ -17,12 +18,6 @@ import { Tooltip } from '../Tooltip';
 import { InputAmountLoader } from './InputAmountLoader';
 import { createAmount, formatAmount } from './utils';
 
-export type AssetInfo = {
-  assetName?: string;
-  assetId?: string;
-  imageUrl?: string;
-};
-
 export type InputAmountProps = Omit<InputProps, 'size'> & {
   name?: string;
   balance?: BN;
@@ -34,7 +29,7 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
   isDisabled?: boolean;
-  assetInfo?: AssetInfo;
+  assetInfo?: Asset;
   onClickAsset?: (val: PressEvent) => void;
 };
 
@@ -121,8 +116,8 @@ export const InputAmount: InputAmountComponent = ({
                     }}
                     onPress={onClickAsset}
                   >
-                    {tokenImage(assetInfo.assetName, assetInfo.imageUrl)}
-                    {assetInfo.assetName}
+                    {tokenImage(assetInfo.name, assetInfo.imageUrl)}
+                    {assetInfo.name}
                   </Button>
                 </Flex>
               )}

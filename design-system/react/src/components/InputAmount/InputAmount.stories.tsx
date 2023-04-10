@@ -81,7 +81,7 @@ WithAsset.args = {
   assetInfo: {
     assetId:
       '0x0000000000000000000000000000000000000000000000000000000000000000',
-    assetName: 'Ether',
+    name: 'Ether',
     imageUrl: 'assets/eth.svg',
   },
 };

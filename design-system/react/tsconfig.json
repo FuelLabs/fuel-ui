@@ -6,7 +6,8 @@
     "rootDir": ".",
     "paths": {
       "~/*": ["src/*"]
-    }
+    },
+    "types": ["@fuel-wallet/sdk", "chrome"]
   },
   "include": ["**/*.ts", "**/*.tsx", "jest.config.js", "jest.config.js"]
 }
