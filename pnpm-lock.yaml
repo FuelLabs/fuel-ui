@@ -215,7 +215,7 @@ importers:
   design-system/css:
     dependencies:
       '@fuel-stitches/react':
-        specifier: workspace:*
+        specifier: workspace:../../stitches/react
         version: link:../../stitches/react
       '@radix-ui/colors':
         specifier: ^0.1.8
@@ -233,7 +233,7 @@ importers:
   design-system/react:
     dependencies:
       '@fuel-stitches/react':
-        specifier: workspace:*
+        specifier: workspace:../../stitches/react
         version: link:../../stitches/react
       '@fuel-ts/math':
         specifier: ^0.35.0
