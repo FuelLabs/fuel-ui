@@ -1,5 +1,5 @@
-import type { CSS } from '@stitches/react';
-import { createStitches } from '@stitches/react';
+import type { CSS } from '@fuel-stitches/react';
+import { createStitches } from '@fuel-stitches/react';
 
 import { lightColors, darkColors } from './colors';
 import { media } from './media';

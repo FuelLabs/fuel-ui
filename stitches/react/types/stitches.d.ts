@@ -1,0 +1,296 @@
+import type * as CSSUtil from './css-util.js';
+import type * as StyledComponent from './styled-component.js';
+import type * as ThemeUtil from './theme.js';
+import type * as Util from './util';
+
+/** Remove an index signature from a type */
+export type RemoveIndex<T> = {
+  [k in keyof T as string extends k
+    ? never
+    : number extends k
+    ? never
+    : k]: T[k];
+};
+
+// Type for composer variants
+export type ComposerVariants<Composer, CSS> = {
+  [Name in string]: {
+    [Pair in number | string]: CSS;
+  };
+};
+
+// Type for compound variants
+export type CompoundVariants<Composer, CSS> = (
+  | ('variants' extends keyof Composer
+      ? {
+          [Name in keyof Composer['variants']]?:
+            | Util.Widen<keyof Composer['variants'][Name]>
+            | Util.String;
+        }
+      : Util.WideObject) & {
+      css: CSS;
+    }
+)[];
+
+// Type for default variants
+export type DefaultVariants<Composer> = 'variants' extends keyof Composer
+  ? {
+      [Name in keyof Composer['variants']]?:
+        | Util.Widen<keyof Composer['variants'][Name]>
+        | Util.String;
+    }
+  : Util.WideObject;
+
+export interface CssFunctionType<
+  Media extends {} = {},
+  Theme extends {} = {},
+  ThemeMap extends {} = {},
+  Utils extends {} = {}
+> {
+  <
+    Composers extends (
+      | string
+      | Util.Function
+      | {
+          [name: string]: unknown;
+        }
+    )[],
+    CSS = CSSUtil.CSS<Media, Theme, ThemeMap, Utils>
+  >(
+    ...composers: {
+      [K in keyof Composers]: string extends Composers[K] // Strings and Functions can be skipped over
+        ? Composers[K]
+        : Composers[K] extends string | Util.Function
+        ? Composers[K]
+        : RemoveIndex<CSS> & {
+            /** The **variants** property lets you set a subclass of styles based on a key-value pair.
+             *
+             * [Read Documentation](https://stitches.dev/docs/variants)
+             */
+            variants?: ComposerVariants<Composers[K], CSS>;
+            /** The **compoundVariants** property lets you to set a subclass of styles based on a combination of active variants.
+             *
+             * [Read Documentation](https://stitches.dev/docs/variants#compound-variants)
+             */
+            compoundVariants?: CompoundVariants<Composers[K], CSS>;
+            /** The **defaultVariants** property allows you to predefine the active key-value pairs of variants.
+             *
+             * [Read Documentation](https://stitches.dev/docs/variants#default-variants)
+             */
+            defaultVariants?: DefaultVariants<Composers[K]>;
+          } & CSS & {
+              [K2 in keyof Composers[K]]: K2 extends
+                | 'compoundVariants'
+                | 'defaultVariants'
+                | 'variants'
+                ? unknown
+                : K2 extends keyof CSS
+                ? CSS[K2]
+                : unknown;
+            };
+    }
+  ): StyledComponent.CssComponent<
+    StyledComponent.StyledComponentType<Composers>,
+    StyledComponent.StyledComponentProps<Composers>,
+    Media,
+    CSS
+  >;
+}
+
+export interface StyledFunctionType<
+  Media extends {} = {},
+  Theme extends {} = {},
+  ThemeMap extends {} = {},
+  Utils extends {} = {}
+> {
+  <
+    Type extends
+      | keyof JSX.IntrinsicElements
+      | React.ComponentType<any>
+      | Util.Function,
+    Composers extends (
+      | string
+      | Util.Function
+      | {
+          [name: string]: unknown;
+        }
+    )[],
+    CSS = CSSUtil.CSS<Media, Theme, ThemeMap, Utils>
+  >(
+    type: Type,
+    ...composers: {
+      [K in keyof Composers]: string extends Composers[K] // Strings and Functions can be skipped over
+        ? Composers[K]
+        : Composers[K] extends string | Util.Function
+        ? Composers[K]
+        : RemoveIndex<CSS> & {
+            /** The **variants** property lets you set a subclass of styles based on a key-value pair.
+             *
+             * [Read Documentation](https://stitches.dev/docs/variants)
+             */
+            variants?: ComposerVariants<Composers[K], CSS>;
+            /** The **compoundVariants** property lets you to set a subclass of styles based on a combination of active variants.
+             *
+             * [Read Documentation](https://stitches.dev/docs/variants#compound-variants)
+             */
+            compoundVariants?: CompoundVariants<Composers[K], CSS>;
+            /** The **defaultVariants** property allows you to predefine the active key-value pairs of variants.
+             *
+             * [Read Documentation](https://stitches.dev/docs/variants#default-variants)
+             */
+            defaultVariants?: DefaultVariants<Composers[K]>;
+          } & CSS & {
+              [K2 in keyof Composers[K]]: K2 extends
+                | 'compoundVariants'
+                | 'defaultVariants'
+                | 'variants'
+                ? unknown
+                : K2 extends keyof CSS
+                ? CSS[K2]
+                : unknown;
+            };
+    }
+  ): StyledComponent.StyledComponent<
+    Type,
+    StyledComponent.StyledComponentProps<Composers>,
+    Media,
+    CSSUtil.CSS<Media, Theme, ThemeMap, Utils>
+  >;
+}
+
+/** Stitches interface. */
+export default interface Stitches<
+  Prefix extends string = '',
+  Media extends {} = {},
+  Theme extends {} = {},
+  ThemeMap extends {} = {},
+  Utils extends {} = {}
+> {
+  config: {
+    prefix: Prefix;
+    media: Media;
+    theme: Theme;
+    themeMap: ThemeMap;
+    utils: Utils;
+  };
+  prefix: Prefix;
+  /** The **prefix** property defined.
+   *
+   * [Read Documentation](https://stitches.dev/docs/variants)
+   */
+  globalCss: {
+    <Styles extends { [K: string]: any }>(
+      ...styles: ({
+        /** The **@import** CSS at-rule imports style rules from other style sheets. */
+        '@import'?: unknown;
+
+        /** The **@font-face** CSS at-rule specifies a custom font with which to display text. */
+        '@font-face'?: unknown;
+      } & {
+        [K in keyof Styles]: K extends '@import'
+          ? string | string[]
+          : K extends '@font-face'
+          ?
+              | CSSUtil.Native.AtRule.FontFace
+              | Array<CSSUtil.Native.AtRule.FontFace>
+          : K extends `@keyframes ${string}`
+          ? {
+              [KeyFrame in string]: CSSUtil.CSS<Media, Theme, ThemeMap, Utils>;
+            }
+          : K extends `@property ${string}`
+          ? CSSUtil.Native.AtRule.Property
+          : CSSUtil.CSS<Media, Theme, ThemeMap, Utils>;
+      })[]
+    ): {
+      (): string;
+    };
+  };
+  keyframes: {
+    (style: { [offset: string]: CSSUtil.CSS<Media, Theme, ThemeMap, Utils> }): {
+      (): string;
+      name: string;
+    };
+  };
+  createTheme: {
+    <
+      Argument0 extends
+        | string
+        | ({
+            [Scale in keyof Theme]?: {
+              [Token in keyof Theme[Scale]]?: boolean | number | string;
+            };
+          } & {
+            [scale in string]: {
+              [token in number | string]: boolean | number | string;
+            };
+          }),
+      Argument1 extends
+        | string
+        | ({
+            [Scale in keyof Theme]?: {
+              [Token in keyof Theme[Scale]]?: boolean | number | string;
+            };
+          } & {
+            [scale in string]: {
+              [token in number | string]: boolean | number | string;
+            };
+          })
+    >(
+      nameOrScalesArg0: Argument0,
+      nameOrScalesArg1?: Argument1
+    ): string & {
+      className: string;
+      selector: string;
+    } & (Argument0 extends string
+        ? ThemeTokens<Argument1, Prefix>
+        : ThemeTokens<Argument0, Prefix>);
+  };
+  theme: string & {
+    className: string;
+    selector: string;
+  } & {
+    [Scale in keyof Theme]: {
+      [Token in keyof Theme[Scale]]: ThemeUtil.Token<
+        Extract<Token, string | number>,
+        string,
+        Extract<Scale, string | void>,
+        Extract<Prefix, string | void>
+      >;
+    };
+  };
+  reset: {
+    (): void;
+  };
+  getCssText: {
+    (): string;
+  };
+  css: {
+    withConfig: (config: {
+      componentId?: string;
+      displayName?: string;
+      shouldForwardStitchesProp?: (
+        prop: 'css' | (string & {})
+      ) => boolean | void;
+    }) => CssFunctionType<Media, Theme, ThemeMap, Utils>;
+  } & CssFunctionType<Media, Theme, ThemeMap, Utils>;
+  styled: {
+    withConfig: (config: {
+      componentId?: string;
+      displayName?: string;
+      shouldForwardStitchesProp?: (
+        prop: 'css' | (string & {})
+      ) => boolean | void;
+    }) => StyledFunctionType<Media, Theme, ThemeMap, Utils>;
+  } & StyledFunctionType<Media, Theme, ThemeMap, Utils>;
+}
+
+type ThemeTokens<Values, Prefix> = {
+  [Scale in keyof Values]: {
+    [Token in keyof Values[Scale]]: ThemeUtil.Token<
+      Extract<Token, number | string>,
+      Values[Scale][Token] & (string | number),
+      Extract<Scale, string | void>,
+      Extract<Prefix, string | void>
+    >;
+  };
+};

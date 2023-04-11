@@ -19,11 +19,12 @@
   },
   "workspaces": [
     "./common/*",
-    "./design-system/*"
+    "./design-system/*",
+    "./stitches/*"
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:storybook": "pnpm --filter=\"@fuel-ui/react\" -r build:storybook",
+    "build:storybook": "pnpm build && pnpm --filter=\"@fuel-ui/react\" -r build:storybook",
     "build:watch": "pnpm -r --filter './design-system/*' --parallel build --watch",
     "changeset": "changeset",
     "changeset:release": "changeset publish --no-git-tag",
@@ -40,7 +41,7 @@
     "test:watch": "turbo run test -- --watch",
     "test:coverage": "turbo run test -- --coverage",
     "test:clear": "turbo run test -- --clearCache",
-    "test:ci": "turbo run test -- --ci --testLocationInResults --json --coverage",
+    "test:ci": "pnpm build && turbo run test -- --ci --testLocationInResults --json --coverage",
     "ts:check": "pnpm -r run ts:check",
     "prepare": "husky install"
   },
