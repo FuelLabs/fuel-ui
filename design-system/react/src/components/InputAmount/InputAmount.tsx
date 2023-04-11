@@ -29,7 +29,7 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
   isDisabled?: boolean;
-  assetInfo?: Asset;
+  asset?: Asset;
   onClickAsset?: (val: PressEvent) => void;
 };
 
@@ -105,7 +105,7 @@ export const InputAmount: InputAmountComponent = ({
         <Input.ElementRight css={styles.elementRight}>
           <Box css={styles.balanceActions}>
             <Flex align="end" direction="column">
-              {assetInfo && onClickAsset && (
+              {asset && onClickAsset && (
                 <Flex>
                   <Button
                     size="xs"
@@ -116,8 +116,8 @@ export const InputAmount: InputAmountComponent = ({
                     }}
                     onPress={onClickAsset}
                   >
-                    {tokenImage(assetInfo.name, assetInfo.imageUrl)}
-                    {assetInfo.name}
+                    {tokenImage(asset.name, asset.imageUrl)}
+                    {asset.name}
                   </Button>
                 </Flex>
               )}

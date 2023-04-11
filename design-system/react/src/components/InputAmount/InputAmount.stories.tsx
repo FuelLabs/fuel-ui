@@ -78,7 +78,7 @@ NoAction.args = {
 export const WithAsset = Template.bind({});
 WithAsset.args = {
   balance: BALANCE,
-  assetInfo: {
+  asset: {
     assetId:
       '0x0000000000000000000000000000000000000000000000000000000000000000',
     name: 'Ether',
