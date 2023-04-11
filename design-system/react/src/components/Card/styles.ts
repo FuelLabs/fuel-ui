@@ -1,14 +1,12 @@
 import { css } from '@fuel-ui/css';
 
 export const card = css({
-  background: '$cardBg',
-  borderRadius: '$default',
-  border: '1px solid transparent',
-  boxShadow: '$sm',
+  is: ['cardLayer'],
 });
 
 export const header = css({
   p: '$5',
+  py: '$4',
   borderBottom: '1px solid $borderColor',
 
   '& .fuel_Heading': {
@@ -19,10 +17,10 @@ export const header = css({
 export const body = css({
   display: 'block',
   px: '$5',
-  py: '$5',
+  py: '$4',
 });
 
 export const footer = css({
-  p: '$5',
+  p: '$4',
   borderTop: '1px solid $borderColor',
 });

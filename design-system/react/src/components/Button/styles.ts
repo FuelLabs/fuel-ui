@@ -11,7 +11,7 @@ export const styles = createStyle(Components.Button, {
     cursor: 'pointer',
     display: 'inline-flex',
     border: '1px solid transparent',
-    borderRadius: '$xs',
+    borderRadius: '$default',
     transition: 'all',
     textDecoration: 'none',
 
@@ -79,6 +79,14 @@ export const styles = createStyle(Components.Button, {
         size: 'lg',
         justIcon: true,
         css: { px: '$4' },
+      },
+
+      {
+        justIcon: true,
+        variant: 'link',
+        css: {
+          padding: '$0',
+        },
       },
     ],
 

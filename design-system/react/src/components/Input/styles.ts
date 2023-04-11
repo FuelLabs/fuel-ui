@@ -133,11 +133,11 @@ const elementDefinitions = {
 export const element = css({
   ...elementDefinitions,
 
-  '&[class*="left"]': {
+  '&[class*="Left"]': {
     pr: 0,
   },
 
-  '&[class*="right"]': {
+  '&[class*="Right"]': {
     pl: 0,
   },
 });
@@ -147,11 +147,11 @@ export const addon = css({
   color: ADDON_COLOR,
   fontWeight: '$semibold',
 
-  '&[class*="left"]': {
+  '&[class*="Left"]': {
     pr: '$0',
   },
 
-  '&[class*="right"]': {
+  '&[class*="Right"]': {
     pl: '$0',
   },
 });

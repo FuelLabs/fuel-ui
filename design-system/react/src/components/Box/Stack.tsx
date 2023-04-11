@@ -16,6 +16,7 @@ const _Stack = createComponent2<t.StackDef>(
       css: {
         gap,
         flexDirection: direction,
+        ...props.css,
       },
     });
     const elementProps = useElementProps(props, classes.stack);

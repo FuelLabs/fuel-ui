@@ -1,4 +1,15 @@
-import { css, cssObj } from '@fuel-ui/css';
+import { css } from '@fuel-ui/css';
+
+export { close } from '../Dialog/styles';
+
+export const content = css({
+  overflowX: 'auto',
+  position: 'relative',
+  minHeight: '100%',
+  maxHeight: '100%',
+  background: '$overlayBg',
+  boxShadow: '$lg',
+});
 
 export const underlay = css({
   position: 'absolute',
@@ -11,9 +22,17 @@ export const underlay = css({
     side: {
       left: {
         justifyContent: 'flex-start',
+
+        '.fuel_DrawerContent': {
+          borderRight: '1px solid $borderColor',
+        },
       },
       right: {
         justifyContent: 'flex-end',
+
+        '.fuel_DrawerContent': {
+          borderLeft: '1px solid $borderColor',
+        },
       },
     },
   },
@@ -21,22 +40,6 @@ export const underlay = css({
   defaultVariants: {
     side: 'right',
   },
-});
-
-export const content = css({
-  overflowX: 'auto',
-  position: 'relative',
-  minHeight: '100%',
-  maxHeight: '100%',
-  background: '$overlayBg',
-  boxShadow: '$lg',
-});
-
-export const close = cssObj({
-  position: 'absolute',
-  top: '$2',
-  right: '$2',
-  padding: '$0',
 });
 
 // ----------------------------------------------------------------------------

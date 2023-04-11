@@ -32,7 +32,7 @@ export const DrawerClose = createComponent<
     <IconButton
       {...props}
       css={{ ...styles.close, ...css }}
-      icon={props.icon || Icon.is('X')}
+      icon={props.icon || Icon.is('XCircle')}
       aria-label={props['aria-label'] || 'Close'}
       variant={props.variant || 'link'}
       color={props.color || 'gray'}

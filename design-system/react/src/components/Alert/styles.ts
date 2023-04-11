@@ -3,14 +3,13 @@ import { createStyle } from '~/hooks';
 
 export const styles = createStyle(Components.Alert, {
   root: {
+    is: ['cardLayer'],
     padding: '$4',
     position: 'relative',
-    borderRadius: '$default',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     gap: '$4',
-    background: '$cardBg',
 
     '.fuel_Alert-content': {
       flex: 1,

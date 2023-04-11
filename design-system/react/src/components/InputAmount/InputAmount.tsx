@@ -179,7 +179,7 @@ const styles = {
     color: '$gray10',
 
     '& > span:first-of-type': {
-      color: '$gray8',
+      color: '$muted',
     },
   }),
 };

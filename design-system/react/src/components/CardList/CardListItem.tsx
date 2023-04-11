@@ -32,12 +32,12 @@ export const CardListItem = createComponent<CardListProps>(
 
 const styles = {
   root: css({
+    is: ['cardLayer'],
     position: 'relative',
     overflow: 'hidden',
     py: '$3',
     px: '$4',
     gap: '$3',
-    borderColor: 'transparent',
 
     variants: {
       isActive: {

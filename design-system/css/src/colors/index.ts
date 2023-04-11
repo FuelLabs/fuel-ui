@@ -67,19 +67,19 @@ export const lightColors = {
 
   bodyColor: '#FFFFFF',
   textColor: '$gray11',
-  borderColor: '$gray5',
-  borderHover: '$gray7',
+  borderColor: '$gray6',
+  borderHover: '$gray8',
   muted: '$gray8',
   iconColor: '$muted',
 
-  inputBg: '$gray1',
+  inputBg: '$bodyColor',
   inputColor: '$gray11',
   inputBorder: '$gray6',
   inputPlaceholderColor: '$gray9',
 
-  cardBg: '$gray1',
+  cardBg: 'transparent',
   cardListItemBg: '$blackA3',
-  overlayBg: '$gray1',
+  overlayBg: '$bodyColor',
 };
 
 export const darkColors = {
@@ -135,19 +135,19 @@ export const darkColors = {
 
   bodyColor: '#000000',
   textColor: '$gray11',
-  borderColor: '$bodyColor',
-  borderHover: '$gray5',
+  borderColor: '$gray6',
+  borderHover: '$gray8',
   muted: '$gray8',
   iconColor: '$muted',
 
-  inputBg: '$gray1',
+  inputBg: '$bodyColor',
   inputColor: '$gray12',
   inputBorder: '$gray5',
   inputPlaceholderColor: '$gray9',
 
-  cardBg: '$gray1',
+  cardBg: 'transparent',
   cardListItemBg: '$whiteA3',
-  overlayBg: '$gray1',
+  overlayBg: '$bodyColor',
 };
 
 export type ColorKeys =

@@ -13,7 +13,7 @@ export default {
 
 export const Usage = (args: PasswordStrengthProps) => {
   const [password, setPassword] = useState('');
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <Stack css={{ maxW: '350px' }}>

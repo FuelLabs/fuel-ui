@@ -26,7 +26,7 @@ export const ToastProvider = createComponent<ToastProps>(
                     autoFocus
                     size="xs"
                     aria-label="Close"
-                    icon="X"
+                    icon="XCircle"
                     color="gray"
                     variant="link"
                     className={styles.closeButton()}
@@ -53,13 +53,12 @@ const DEFAULT_STYLE = {
 
 const styles = {
   root: css({
+    is: ['cardLayer'],
     px: '$4',
     py: '$3',
     display: 'flex',
     alignItems: 'center',
     gap: '$4',
-    backgroundColor: '$overlayBg',
-    borderRadius: '$xl',
     color: '$gray10',
     boxShadow: '$none',
 
@@ -71,6 +70,10 @@ const styles = {
       WebkitLineClamp: 6,
       WebkitBoxOrient: 'vertical',
       overflow: 'hidden',
+    },
+
+    '.fuel_Icon[aria-label="Icon XCircle"]': {
+      color: '$muted',
     },
   }),
   closeButton: css({

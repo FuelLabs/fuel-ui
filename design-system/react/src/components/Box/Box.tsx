@@ -13,7 +13,7 @@ import { styles } from './styles';
 import { Components } from '~/defs';
 import { useElementProps, useStyles } from '~/hooks';
 
-export const _Box = createComponent2<t.BoxDef>(
+const _Box = createComponent2<t.BoxDef>(
   Components.Box,
   ({ as = 'div', ...props }) => {
     const classes = useStyles(styles, props);

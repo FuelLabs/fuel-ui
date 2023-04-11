@@ -1,2 +1,3 @@
 /// <reference types="@react-aria/focus" />
-export { FocusScope, FocusScopeProps } from 'react-aria';
+export type { FocusScopeProps } from 'react-aria';
+export { FocusScope } from 'react-aria';

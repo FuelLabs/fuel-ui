@@ -1,6 +1,7 @@
 import { css } from '@fuel-ui/css';
 
 export const menu = css({
+  is: ['cardLayer'],
   p: '$0',
   py: '$2',
   m: '$0',
@@ -20,8 +21,12 @@ export const item = css({
   height: '$9',
   px: '$3',
   opacity: 0.4,
-  borderRadius: '$default',
   color: '$gray10',
+  fontWeight: 'normal',
+
+  '.fuel_Icon': {
+    color: '$muted',
+  },
 
   '&:not([aria-disabled="true"])': {
     cursor: 'pointer',

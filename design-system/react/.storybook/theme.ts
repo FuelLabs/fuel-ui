@@ -9,4 +9,9 @@ export default {
   colorPrimary: PRIMARY_COLOR,
   colorSecondary: PRIMARY_COLOR,
   barSelectedColor: PRIMARY_COLOR,
+
+  fontBase:
+    '"PxGrotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+  fontCode:
+    '"PxGrotesk Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 };
