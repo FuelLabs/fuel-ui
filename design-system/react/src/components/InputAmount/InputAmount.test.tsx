@@ -88,7 +88,9 @@ describe('InputAmount', () => {
     expect(maxBtn).toBeInTheDocument();
     await user.click(maxBtn);
     expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
-    expect(screen.getByDisplayValue(AMOUNT_TEXT)).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`)
+    ).toBeInTheDocument();
   });
 
   it('should hidden Balance when prop hiddenBalance is true', async () => {
