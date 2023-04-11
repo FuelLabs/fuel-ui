@@ -47,7 +47,7 @@ export const InputAmount: InputAmountComponent = ({
   hiddenMaxButton,
   onChange,
   inputProps,
-  assetInfo,
+  asset,
   onClickAsset,
   ...props
 }) => {
