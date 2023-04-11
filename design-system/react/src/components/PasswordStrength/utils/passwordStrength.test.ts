@@ -4,6 +4,7 @@ import {
 } from './passwordStrength';
 
 const strongPassword = '12345LF@ik&!';
+const strongPasswordStartingWithSymbol = '!12345LF@ik&';
 const averageCharactersAndSymbolsPassword = 'L@w2';
 const averageCharactersAndSixDigitsPassword = 'ThisisaTest';
 const weakPassword = '123456';
@@ -49,6 +50,20 @@ describe('passwordChecker', () => {
       symbolsAndDigitsChecker,
       commonChecker,
     } = passwordChecker(strongPassword);
+
+    expect(casingChecker).toBeTruthy();
+    expect(lengthChecker).toBeTruthy();
+    expect(symbolsAndDigitsChecker).toBeTruthy();
+    expect(commonChecker).toBeTruthy();
+  });
+
+  it('should validate a strong password starting with a symbol correctly', () => {
+    const {
+      casingChecker,
+      lengthChecker,
+      symbolsAndDigitsChecker,
+      commonChecker,
+    } = passwordChecker(strongPasswordStartingWithSymbol);
 
     expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeTruthy();
