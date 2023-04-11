@@ -1,1 +1,1 @@
-/// <reference types="@stitches/react" />
+/// <reference types="@fuel-stitches/react" />

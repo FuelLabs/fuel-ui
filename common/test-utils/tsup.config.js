@@ -1,5 +1,8 @@
+/* eslint-disable import/no-relative-packages */
+/* eslint-disable import/order */
+/* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from 'tsup';
-import baseConfig from '@fuel-ui/config/tsup';
+import baseConfig from '../config/tsup';
 
 export default defineConfig((options) => ({
   ...baseConfig(options),
