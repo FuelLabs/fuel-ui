@@ -13,6 +13,7 @@ import { Image } from '../Image';
 import type { InputProps } from '../Input';
 import { Input } from '../Input';
 import type { InputNumberProps } from '../Input/InputNumber';
+import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
@@ -85,6 +86,7 @@ export const InputAmount: InputAmountComponent = ({
 
   return (
     <Input size="lg" css={styles.input} {...props}>
+      <Text css={styles.heading}>Amount</Text>
       <Input.Number
         autoComplete="off"
         inputMode="decimal"
@@ -101,56 +103,48 @@ export const InputAmount: InputAmountComponent = ({
         decimalScale={units}
         {...inputProps}
       />
+
       {initialBalance && (
         <Input.ElementRight css={styles.elementRight}>
           <Box css={styles.balanceActions}>
-            <Flex align="end" direction="column">
-              {asset && onClickAsset && (
-                <Flex>
-                  <Button
-                    size="xs"
-                    aria-label="Coin Selector"
-                    css={{
-                      background: '$blackA12',
-                      color: '$gray9',
-                    }}
-                    onPress={onClickAsset}
-                  >
-                    {tokenImage(asset.name, asset.imageUrl)}
-                    {asset.name}
-                  </Button>
-                </Flex>
-              )}
-              <Flex gap="$2" align="center">
-                {!hiddenBalance && (
-                  <Flex
-                    as="div"
-                    css={styles.balance}
-                    aria-label={`Balance: ${formattedBalance}`}
-                  >
-                    <Box as="span">Balance: </Box>
-                    <Tooltip content={formatAmount(balance)} sideOffset={-5}>
-                      <Box as="span">{formattedBalance}</Box>
-                    </Tooltip>
-                  </Flex>
-                )}
-                {!hiddenMaxButton && (
-                  <Flex align="center">
-                    <Button
-                      aria-label="Max"
-                      size="sm"
-                      variant="ghost"
-                      onPress={handleSetBalance}
-                      css={styles.maxButton}
-                    >
-                      Max
-                    </Button>
-                  </Flex>
-                )}
+            {!hiddenMaxButton && (
+              <Flex align="center">
+                <Button
+                  aria-label="Max"
+                  size="sm"
+                  variant="ghost"
+                  onPress={handleSetBalance}
+                  css={styles.maxButton}
+                >
+                  Max
+                </Button>
               </Flex>
-            </Flex>
+            )}
+            {asset && onClickAsset && (
+              <Button
+                size="xs"
+                aria-label="Coin Selector"
+                css={styles.assetButton}
+                onPress={onClickAsset}
+              >
+                {tokenImage(asset.name, asset.imageUrl)}
+                {asset.name}
+              </Button>
+            )}
           </Box>
         </Input.ElementRight>
+      )}
+      {!hiddenBalance && (
+        <Flex
+          as="div"
+          css={styles.balance}
+          aria-label={`Balance: ${formattedBalance}`}
+        >
+          <Box as="span">Balance: </Box>
+          <Tooltip content={formatAmount(balance)} sideOffset={-5}>
+            <Box as="span">{formattedBalance}</Box>
+          </Tooltip>
+        </Flex>
       )}
     </Input>
   );
@@ -162,7 +156,7 @@ const styles = {
   input: cssObj({
     px: '$3',
     boxSizing: 'border-box',
-    height: '$16',
+    height: '$26',
     display: 'grid',
     gridGap: '$2',
     gridTemplateColumns: '1fr auto',
@@ -177,6 +171,10 @@ const styles = {
       px: '$0',
     },
   }),
+  heading: cssObj({
+    marginTop: '10px',
+    gridArea: '1 / 1 / 1 / 4',
+  }),
   maxButtonContainer: cssObj({
     height: '$8',
   }),
@@ -184,19 +182,23 @@ const styles = {
     maxHeight: '100%',
   }),
   balanceActions: cssObj({
-    boxSizing: 'border-box',
-    display: 'grid',
-    justifyContent: 'center',
+    display: 'flex',
+    justifyContent: 'end',
   }),
   maxButton: cssObj({
-    mt: '$1',
     px: '$1',
     width: '$15',
-    gridArea: '1 / 1 / 3 / 2',
     height: '$5',
   }),
+  assetButton: cssObj({
+    background: '$blackA12',
+    color: '$gray9',
+    height: '25px',
+    width: '73px',
+    marginLeft: '10px',
+  }),
   balance: cssObj({
-    gridArea: '2 / 1 / 3 / 2',
+    gridArea: '3 / 1 / 3 / 4',
     gap: '$2',
     alignItems: 'center',
     whiteSpace: 'nowrap',
