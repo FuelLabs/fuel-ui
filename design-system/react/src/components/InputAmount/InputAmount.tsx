@@ -9,6 +9,7 @@ import type { FC } from 'react';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
+import { Icon } from '../Icon';
 import { Image } from '../Image';
 import type { InputProps } from '../Input';
 import { Input } from '../Input';
@@ -129,6 +130,7 @@ export const InputAmount: InputAmountComponent = ({
               >
                 {tokenImage(asset.name, asset.imageUrl)}
                 {asset.name}
+                <Icon icon="CaretDown" />
               </Button>
             )}
           </Box>
@@ -194,7 +196,7 @@ const styles = {
     background: '$blackA12',
     color: '$gray9',
     height: '25px',
-    width: '73px',
+    width: '86px',
     marginLeft: '10px',
   }),
   balance: cssObj({
