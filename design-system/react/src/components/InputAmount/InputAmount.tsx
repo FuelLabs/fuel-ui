@@ -82,7 +82,15 @@ export const InputAmount: InputAmountComponent = ({
   };
 
   const tokenImage = (name?: string, imageUrl?: string) => {
-    return <Image alt={name} src={imageUrl} width={20} height={20} />;
+    return (
+      <Image
+        alt={name}
+        src={imageUrl}
+        width={20}
+        height={20}
+        css={styles.image}
+      />
+    );
   };
 
   return (
@@ -158,6 +166,7 @@ const styles = {
   input: cssObj({
     px: '$3',
     boxSizing: 'border-box',
+    width: '350px',
     height: '$26',
     display: 'grid',
     gridGap: '$2',
@@ -212,4 +221,5 @@ const styles = {
       color: '$gray8',
     },
   }),
+  image: cssObj({ borderRadius: '50%' }),
 };
