@@ -207,6 +207,7 @@ const styles = {
     height: '25px',
     width: '86px',
     marginLeft: '10px',
+    borderRadius: '$md',
   }),
   balance: cssObj({
     gridArea: '3 / 1 / 3 / 4',
