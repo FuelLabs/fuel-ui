@@ -4,7 +4,10 @@ import { allColors } from '@fuel-ui/css';
 import { createElement } from 'react';
 import { useLink } from 'react-aria';
 
-import { createComponent2, createPolymorphicComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { Icon } from '../Icon';
 
 import type * as t from './defs';
@@ -12,7 +15,7 @@ import type * as t from './defs';
 import { Components } from '~/defs';
 import { createStyle, useElementProps, useStyles } from '~/hooks';
 
-const _Link = createComponent2<t.LinkDef>(
+const _Link = _unstable_createComponent<t.LinkDef>(
   Components.Link,
   ({ as = 'a', isExternal, children, ...props }) => {
     const { linkProps } = useLink(props as any, props.ref as any);

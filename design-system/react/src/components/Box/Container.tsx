@@ -2,7 +2,10 @@
 import { createElement } from 'react';
 
 import type { HTMLProps } from '../../utils';
-import { createPolymorphicComponent, createComponent2 } from '../../utils';
+import {
+  createPolymorphicComponent,
+  _unstable_createComponent,
+} from '../../utils';
 
 import type * as t from './defs';
 import { styles } from './styles';
@@ -15,7 +18,7 @@ export type ContainerProps = HTMLProps['div'] & {
   size?: ContainerSizes;
 };
 
-const _Container = createComponent2<t.ContainerDef>(
+const _Container = _unstable_createComponent<t.ContainerDef>(
   Components.Container,
   ({ as = 'div', ...props }) => {
     const classes = useStyles(styles, props, ['container']);

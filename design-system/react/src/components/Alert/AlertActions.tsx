@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Children, cloneElement, createElement } from 'react';
 
-import { createComponent2, createPolymorphicComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
 import { useAlertProps } from './Alert';
 import type * as t from './defs';
@@ -17,7 +20,7 @@ const BUTTON_COLORS = {
   error: 'red',
 };
 
-const _AlertActions = createComponent2<t.AlertActionsDef>(
+const _AlertActions = _unstable_createComponent<t.AlertActionsDef>(
   Components.AlertActions,
   ({ as = 'footer', children, ...props }) => {
     const classes = useStyles(styles);

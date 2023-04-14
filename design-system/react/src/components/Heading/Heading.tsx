@@ -3,7 +3,10 @@
 import { allColors, utils } from '@fuel-ui/css';
 import { createElement } from 'react';
 
-import { createComponent2, createPolymorphicComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { createIcon } from '../Button';
 
 import type * as t from './defs';
@@ -18,7 +21,7 @@ function getIconSize(as: t.HeadingProps['as'], iconSize?: number) {
   return 18;
 }
 
-const _Heading = createComponent2<t.HeadingDef>(
+const _Heading = _unstable_createComponent<t.HeadingDef>(
   Components.Heading,
   ({
     as = 'h2',

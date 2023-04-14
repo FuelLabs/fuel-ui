@@ -14,7 +14,7 @@ import { styles } from './styles';
 
 import { Components } from '~/defs';
 import { useElementProps, useStyles } from '~/hooks/useStore';
-import { createComponent2, createPolymorphicComponent } from '~/utils';
+import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
 import { omit } from '~/utils/helpers';
 
 export function createIcon(
@@ -79,7 +79,7 @@ export const SPINNER_SIZE = {
   lg: 20,
 };
 
-const _Button = createComponent2<t.ButtonDef>(
+const _Button = _unstable_createComponent<t.ButtonDef>(
   Components.Button,
   ({ as = 'button', children, ref, ...props }) => {
     const {

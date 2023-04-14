@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { createComponent2, createPolymorphicComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
 import { Flex } from './Flex';
 import type * as t from './defs';
@@ -8,7 +11,7 @@ import { styles } from './styles';
 import { Components } from '~/defs';
 import { useElementProps, useStyles } from '~/hooks';
 
-const _Stack = createComponent2<t.StackDef>(
+const _Stack = _unstable_createComponent<t.StackDef>(
   Components.Stack,
   ({ gap = '$2', direction = 'column', ...props }) => {
     const classes = useStyles(styles, {

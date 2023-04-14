@@ -3,7 +3,10 @@
 import { allColors, utils } from '@fuel-ui/css';
 import { createElement } from 'react';
 
-import { createComponent2, createPolymorphicComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { createIcon } from '../Button';
 
 import type * as t from './defs';
@@ -11,7 +14,7 @@ import type * as t from './defs';
 import { Components } from '~/defs';
 import { createStyle, useElementProps, useStyles } from '~/hooks';
 
-const _Text = createComponent2<t.TextDef>(
+const _Text = _unstable_createComponent<t.TextDef>(
   Components.Text,
   ({
     as = 'p',

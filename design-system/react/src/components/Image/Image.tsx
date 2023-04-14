@@ -1,6 +1,9 @@
 import { createElement } from 'react';
 
-import { createComponent2, createPolymorphicComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
 import type * as t from './defs';
 
@@ -8,7 +11,7 @@ import { Components } from '~/defs';
 import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const _Image = createComponent2<t.ImageDef>(
+const _Image = _unstable_createComponent<t.ImageDef>(
   Components.Image,
   ({ as = 'img', ...props }) => {
     const classes = useStyles(styles, props);

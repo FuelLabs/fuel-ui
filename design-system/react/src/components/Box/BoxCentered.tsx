@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { createElement } from 'react';
 
-import { createComponent2, createPolymorphicComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
 import type * as t from './defs';
 import { styles } from './styles';
@@ -9,7 +12,7 @@ import { styles } from './styles';
 import { Components } from '~/defs';
 import { useElementProps, useStyles } from '~/hooks';
 
-const _BoxCentered = createComponent2<t.BoxCenteredDef>(
+const _BoxCentered = _unstable_createComponent<t.BoxCenteredDef>(
   Components.BoxCentered,
   ({ as = 'div', css, minHS, minWS, ...props }) => {
     const { direction, align, justify, wrap, basis, grow, shrink, gap } = props;

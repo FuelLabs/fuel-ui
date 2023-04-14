@@ -75,7 +75,7 @@ type RenderFn<Def extends CreateComponent<any>> = (
   props: GetProps<Def> & { ref: ForwardedRef<Def['element']> }
 ) => ReactElement | null;
 
-export function createComponent2<
+export function _unstable_createComponent<
   Def extends CreateComponent<any>,
   Component extends keyof StoreDefs = Def['component']
 >(component: Component, render: RenderFn<Def>) {
@@ -124,7 +124,7 @@ export type PolymorphicComponentProps<
   : Props & { as: React.ElementType };
 
 export function createPolymorphicComponent<Def extends CreateComponent<any>>(
-  component: ReturnType<typeof createComponent2<Def>>
+  component: ReturnType<typeof _unstable_createComponent<Def>>
 ) {
   type Props = Omit<GetProps<Def>, 'as'>;
   type ComponentProps<C> = PolymorphicComponentProps<C, Props>;

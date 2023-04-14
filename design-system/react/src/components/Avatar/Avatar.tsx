@@ -1,7 +1,7 @@
 import * as RAvatar from '@radix-ui/react-avatar';
 import { createElement } from 'react';
 
-import { createComponent2 } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 
 import { AvatarGenerated } from './AvatarGenerated';
 import type * as t from './defs';
@@ -10,7 +10,7 @@ import { styles } from './styles';
 import { Components } from '~/defs';
 import { useElementProps, useStyles } from '~/hooks';
 
-export const Avatar = createComponent2<t.AvatarDef>(
+export const Avatar = _unstable_createComponent<t.AvatarDef>(
   Components.Avatar,
   ({ name, size = 'md', css, ...props }) => {
     const classes = useStyles(styles, { ...props, size });

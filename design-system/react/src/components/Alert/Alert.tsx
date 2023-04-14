@@ -7,7 +7,7 @@ import {
   useContext,
 } from 'react';
 
-import { createComponent2 } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import type { Icons } from '../Icon';
@@ -39,7 +39,7 @@ const STATUS_ICONS: Record<string, { icon: Icons }> = {
   error: { icon: 'XCircle' },
 };
 
-export const Alert = createComponent2<t.AlertDef>(
+export const Alert = _unstable_createComponent<t.AlertDef>(
   Components.Alert,
   ({ as = 'div', children, ...props }) => {
     const classes = useStyles(styles, props);

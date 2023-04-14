@@ -4,7 +4,7 @@ import * as PhosphorIcons from 'phosphor-react';
 import type { ReactElement } from 'react';
 import { createElement, useMemo, cloneElement } from 'react';
 
-import { createComponent2 } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 import { omit } from '../../utils/helpers';
 
 import type * as t from './defs';
@@ -12,7 +12,7 @@ import type * as t from './defs';
 import { Components } from '~/defs';
 import { createStyle, useElementProps, useStyles } from '~/hooks';
 
-export const Icon = createComponent2<t.IconDef>(
+export const Icon = _unstable_createComponent<t.IconDef>(
   Components.Icon,
   ({
     as = 'i',

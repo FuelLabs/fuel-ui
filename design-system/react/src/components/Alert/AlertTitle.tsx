@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { createElement } from 'react';
 
-import { createComponent2, createPolymorphicComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { Heading } from '../Heading';
 
 import type * as t from './defs';
@@ -10,7 +13,7 @@ import { styles } from './styles';
 import { Components } from '~/defs';
 import { useStyles, useElementProps } from '~/hooks';
 
-const _AlertTitle = createComponent2<t.AlertTitleDef>(
+const _AlertTitle = _unstable_createComponent<t.AlertTitleDef>(
   Components.AlertTitle,
   ({ as = 'header', children, ...props }) => {
     const classes = useStyles(styles);

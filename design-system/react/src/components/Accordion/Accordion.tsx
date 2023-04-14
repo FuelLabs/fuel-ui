@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as AC from '@radix-ui/react-accordion';
 
-import { createComponent2 } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 
 import { AccordionContent } from './AccordionContent';
 import { AccordionItem } from './AccordionItem';
@@ -12,7 +12,7 @@ import { styles } from './styles';
 import { Components } from '~/defs';
 import { useStyles, useElementProps } from '~/hooks';
 
-export const Accordion = createComponent2<t.AccordionDef>(
+export const Accordion = _unstable_createComponent<t.AccordionDef>(
   Components.Accordion,
   (props) => {
     const classes = useStyles(styles, props);

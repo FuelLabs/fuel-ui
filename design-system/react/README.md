@@ -154,7 +154,7 @@ Besides our main [Contribution Guide](../../CONTRIBUTING.md) it's very important
 
 There are two base props we have in all components: `as` and `css`. The `as` is very help if you want to change the base element of some component and the `css` prop will help you in order to change styles.
 
-To make this available in some component inside our design system, we created a `createComponent` function. This function will work together with the React's `createElement` function and the Stitches `styled` to create all behavior we need.
+To make this available in some component inside our design system, we created a `_unstable_createComponent` function. This function will work together with the React's `createElement` function and the Stitches `styled` to create all behavior we need.
 
 Check this example of our `Box` component:
 
@@ -163,12 +163,12 @@ import { cx, styled } from '@fuel-ui/css';
 import { createElement } from 'react';
 
 import type { HTMLProps } from '../../utils';
-import { createComponent } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 
 export type BoxProps = HTMLProps['div'];
 
 const Root = styled('div');
-export const Box = createComponent<BoxProps>(
+export const Box = _unstable_createComponent<BoxProps>(
   ({ className, children, ...props }) => {
     const classes = cx('fuel_Box', className);
     return createElement(Root, { ...props, className: classes }, children);
