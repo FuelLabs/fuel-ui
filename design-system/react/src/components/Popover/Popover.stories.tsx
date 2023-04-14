@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import { Box } from '../Box';
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
-import { Stack } from '../Stack';
 import { Text } from '../Text';
 
 import type { PopoverProps } from './Popover';

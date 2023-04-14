@@ -2,8 +2,10 @@ import { css, cx } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
 
 import type { CardProps } from '..';
-import { useCardListContext, Flex, Card } from '..';
+import { useCardListContext } from '..';
 import { createComponent } from '../../utils';
+import { Flex } from '../Box/Flex';
+import { Card } from '../Card';
 
 export type CardListProps = CardProps & {
   isActive?: boolean;

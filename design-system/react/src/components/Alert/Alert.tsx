@@ -9,7 +9,7 @@ import {
 
 import { _unstable_createComponent } from '../../utils';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex } from '../Box/Flex';
 import type { Icons } from '../Icon';
 import { Icon } from '../Icon';
 

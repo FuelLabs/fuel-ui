@@ -1,6 +1,6 @@
 import type { BoxProps } from '../Box';
+import type { FlexProps } from '../Box/Flex';
 import type { ButtonProps } from '../Button';
-import type { FlexProps } from '../Flex';
 
 import type { AlertActions } from './AlertActions';
 import type { AlertButton } from './AlertButton';

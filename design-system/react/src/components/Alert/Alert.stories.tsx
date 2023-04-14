@@ -1,4 +1,4 @@
-import { Stack } from '../Stack';
+import { Stack } from '../Box/Stack';
 
 import { Alert } from './Alert';
 import type { AlertProps } from './defs';

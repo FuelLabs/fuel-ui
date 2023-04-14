@@ -12,6 +12,8 @@ import { styles } from './styles';
 import { Components } from '~/defs';
 import { useElementProps, useStyles } from '~/hooks';
 
+export type FlexProps = t.FlexProps;
+
 const _Flex = _unstable_createComponent<t.FlexDef>(
   Components.Flex,
   ({ as = 'div', css, ...props }) => {

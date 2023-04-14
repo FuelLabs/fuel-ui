@@ -1,6 +1,6 @@
+import { Stack } from '../Box/Stack';
 import { Icon } from '../Icon';
 import { Input } from '../Input';
-import { Stack } from '../Stack';
 
 import { Form } from './Form';
 import type { FormControlProps } from './FormControl';

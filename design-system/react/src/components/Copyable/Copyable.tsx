@@ -2,8 +2,8 @@ import { cssObj, cx } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
 
 import { createComponent } from '../../utils';
-import type { FlexProps } from '../Flex';
-import { Flex } from '../Flex';
+import type { FlexProps } from '../Box/Flex';
+import { Flex } from '../Box/Flex';
 import { Icon } from '../Icon';
 import type { IconButtonProps } from '../IconButton';
 import { IconButton } from '../IconButton';

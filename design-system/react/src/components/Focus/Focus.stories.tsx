@@ -1,6 +1,6 @@
 import { Box } from '../Box';
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
-import { Stack } from '../Stack';
 import { Text } from '../Text';
 
 import { Focus } from './Focus';

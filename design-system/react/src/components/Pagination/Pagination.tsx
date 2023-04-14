@@ -2,10 +2,10 @@ import { cx } from '@fuel-ui/css';
 import { createContext, useContext } from 'react';
 
 import { createComponent } from '../../utils';
+import type { StackProps } from '../Box/Stack';
+import { Stack } from '../Box/Stack';
 import type { ButtonProps } from '../Button';
 import { Focus } from '../Focus';
-import type { StackProps } from '../Stack';
-import { Stack } from '../Stack';
 
 import { PaginationItems } from './PaginationItems';
 import { PaginationNext } from './PaginationNext';

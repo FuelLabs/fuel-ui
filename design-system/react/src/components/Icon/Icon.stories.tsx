@@ -1,4 +1,4 @@
-import { Flex } from '../Flex';
+import { Flex } from '../Box/Flex';
 import { Link } from '../Link';
 import { Text } from '../Text';
 

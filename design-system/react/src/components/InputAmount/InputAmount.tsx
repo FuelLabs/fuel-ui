@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import { Box } from '../Box';
+import { Flex } from '../Box/Flex';
 import { Button } from '../Button';
-import { Flex } from '../Flex';
 import type { InputProps } from '../Input';
 import { Input } from '../Input';
 import type { InputNumberProps } from '../Input/InputNumber';

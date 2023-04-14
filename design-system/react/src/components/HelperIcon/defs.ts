@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type { FlexProps } from '../Flex';
+import type { FlexProps } from '../Box/Flex';
 
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';

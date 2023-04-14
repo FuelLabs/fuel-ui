@@ -1,8 +1,8 @@
 import { cx } from '@fuel-ui/css';
 
 import { createComponent } from '../../utils';
-import type { StackProps } from '../Stack';
-import { Stack } from '../Stack';
+import type { StackProps } from '../Box/Stack';
+import { Stack } from '../Box/Stack';
 
 import { usePaginationContext } from './Pagination';
 import { PaginationItem } from './PaginationItem';

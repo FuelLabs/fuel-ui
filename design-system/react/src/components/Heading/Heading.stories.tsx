@@ -1,5 +1,5 @@
+import { Stack } from '../Box/Stack';
 import { Icon } from '../Icon';
-import { Stack } from '../Stack';
 
 import { Heading } from './Heading';
 import type { HeadingProps } from './defs';

@@ -2,7 +2,7 @@
 
 import type { StoryFn } from '@storybook/react';
 
-import { Stack } from '../Stack';
+import { Stack } from '../Box/Stack';
 import { Text } from '../Text';
 
 import { Pagination } from './Pagination';

@@ -6,8 +6,8 @@ import type { StoryFn } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
 import { Box } from '../Box';
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
-import { Stack } from '../Stack';
 import { Text } from '../Text';
 
 import { InputAmount } from './InputAmount';

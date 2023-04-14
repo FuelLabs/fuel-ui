@@ -1,9 +1,9 @@
 import { render } from '@fuel-ui/test-utils';
 import { useState } from 'react';
 
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { InputPassword } from '../InputPassword';
-import { Stack } from '../Stack';
 
 import { PasswordStrength } from './PasswordStrength';
 import { PasswordDictionary } from './constants';

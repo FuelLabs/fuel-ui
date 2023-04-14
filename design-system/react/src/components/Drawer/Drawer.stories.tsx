@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { Card } from '../Card';
-import { Stack } from '../Stack';
 
 import type { DrawerProps } from './Drawer';
 import { Drawer } from './Drawer';

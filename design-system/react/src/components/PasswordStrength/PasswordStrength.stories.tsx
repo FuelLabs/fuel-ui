@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
+import { Stack } from '../Box/Stack';
 import { InputPassword } from '../InputPassword';
-import { Stack } from '../Stack';
 
 import type { PasswordStrengthProps } from './PasswordStrength';
 import { PasswordStrength } from './PasswordStrength';

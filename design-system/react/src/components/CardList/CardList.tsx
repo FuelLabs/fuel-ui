@@ -1,9 +1,10 @@
 import { cx } from '@fuel-ui/css';
 import { createContext, useContext } from 'react';
 
-import type { StackProps } from '..';
-import { Focus, Stack } from '..';
 import { createComponent } from '../../utils';
+import { Box } from '../Box';
+import type { StackProps } from '../Box/Stack';
+import { Focus } from '../Focus';
 
 import { CardListItem } from './CardListItem';
 
@@ -32,7 +33,7 @@ export const CardList = createComponent<CardListProps, ObjProps>(
 
     return (
       <ctx.Provider value={{ isClickable, autoFocus }}>
-        <Stack {...props} className={classes}>
+        <Box.Stack {...props} className={classes}>
           {isClickable ? (
             <Focus.ArrowNavigator autoFocus={autoFocus}>
               {children}
@@ -40,7 +41,7 @@ export const CardList = createComponent<CardListProps, ObjProps>(
           ) : (
             children
           )}
-        </Stack>
+        </Box.Stack>
       </ctx.Provider>
     );
   }

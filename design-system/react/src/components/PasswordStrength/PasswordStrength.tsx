@@ -2,8 +2,8 @@ import { Check, X } from 'phosphor-react';
 import { useEffect } from 'react';
 
 import { Box } from '../Box';
+import { Flex } from '../Box/Flex';
 import { Stack } from '../Box/Stack';
-import { Flex } from '../Flex';
 import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 import type { PopoverProps } from '../Popover';
