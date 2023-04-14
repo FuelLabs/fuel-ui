@@ -53,14 +53,13 @@ const DEFAULT_STYLE = {
 
 const styles = {
   root: css({
-    is: ['cardLayer'],
+    is: ['overlayLayer'],
     px: '$4',
     py: '$3',
     display: 'flex',
     alignItems: 'center',
     gap: '$4',
     color: '$gray10',
-    boxShadow: '$none',
 
     '& div[role="status"]': {
       m: '0',

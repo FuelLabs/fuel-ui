@@ -1,7 +1,6 @@
 import { css } from '@fuel-ui/css';
 
 export const menu = css({
-  is: ['cardLayer'],
   p: '$0',
   py: '$2',
   m: '$0',
@@ -35,7 +34,7 @@ export const item = css({
 
   '&:focus-visible, &:not([aria-disabled="true"]):hover': {
     color: '$gray12',
-    background: '$whiteA5',
+    background: '$gray2',
     outline: 'none',
   },
 

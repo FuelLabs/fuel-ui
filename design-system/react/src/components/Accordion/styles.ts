@@ -34,6 +34,10 @@ export const styles = createStyle(Components.Accordion, {
     overflow: 'hidden',
     borderTop: '1px solid $bodyColor',
 
+    '& ~ &': {
+      mt: '$2',
+    },
+
     '&:first-child': {
       marginTop: 0,
       borderTopLeftRadius: '$md',
@@ -66,6 +70,7 @@ export const styles = createStyle(Components.Accordion, {
   },
   trigger: {
     all: 'unset',
+    is: ['cardLayer'],
     fontFamily: '$sans',
     fontWeight: '$semibold',
     px: '$4',
@@ -74,7 +79,6 @@ export const styles = createStyle(Components.Accordion, {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderBottom: '1px solid $bodyColor',
     textSize: 'base',
     transition: 'color .2s',
 

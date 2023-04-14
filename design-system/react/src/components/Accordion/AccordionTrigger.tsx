@@ -14,7 +14,12 @@ export const AccordionTrigger =
   _unstable_createComponent<t.AccordionTriggerDef>(
     Components.AccordionTrigger,
     ({ children, ...props }) => {
-      const classes = useStyles(styles, {}, ['header', 'root', 'icon']);
+      const classes = useStyles(styles, {}, [
+        'header',
+        'root',
+        'icon',
+        'trigger',
+      ]);
       const triggerElementProps = useElementProps(props, classes.trigger);
 
       return createElement(

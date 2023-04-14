@@ -18,9 +18,9 @@ export const cardLayer = {
   boxShadow: '$sm',
 };
 
-export const overLayer = {
+export const overlayLayer = {
   background: '$overlayBg',
   borderRadius: '$default',
-  border: '1px solid $borderColor',
+  border: '1px solid $overlayBorder',
   boxShadow: '$sm',
 };

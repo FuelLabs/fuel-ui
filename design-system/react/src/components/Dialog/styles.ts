@@ -31,7 +31,7 @@ export const overlay = css({
 });
 
 export const content = css({
-  is: ['overLayer'],
+  is: ['overlayLayer'],
   display: 'flex',
   flexDirection: 'column',
   position: 'fixed',

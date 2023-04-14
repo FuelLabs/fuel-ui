@@ -71,6 +71,7 @@ export const Popover = createComponent<PopoverProps>(
               icon="XCircle"
               color="gray"
               variant="link"
+              css={{ padding: '$0' }}
             />
           </RPopover.Close>
         )}

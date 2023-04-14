@@ -124,7 +124,7 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
           height: 5,
         }}
         css={styles.popover}
-        alignOffset={-43}
+        alignOffset={-32}
         sideOffset={2}
         contentProps={{
           // this is needed to prevent the input from losing focus
