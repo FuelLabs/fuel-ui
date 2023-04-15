@@ -4,11 +4,11 @@ import type { PasswordStrength } from '../types';
 /** @description - This is where we make all the rules for the password checking */
 export const passwordChecker = (password: string, minLength: number = 6) => {
   const symbolsAndDigitsChecker =
-    /(?=.*[\d])\w+/g.exec(password) !== null &&
-    /(?=.*[_\W])\w+/g.exec(password) !== null;
+    /(?=.*[\d]).+/g.exec(password) !== null &&
+    /(?=.*[_\W]).+/g.exec(password) !== null;
   const casingChecker =
-    /(?=.*[a-z])\w+/g.exec(password) !== null &&
-    /(?=.*[A-Z])\w+/g.exec(password) !== null;
+    /(?=.*[a-z]).+/g.exec(password) !== null &&
+    /(?=.*[A-Z]).+/g.exec(password) !== null;
   const lengthChecker = password.length >= minLength;
   const commonChecker =
     symbolsAndDigitsChecker &&
