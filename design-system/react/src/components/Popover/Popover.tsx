@@ -68,9 +68,10 @@ export const Popover = createComponent<PopoverProps>(
             <IconButton
               size="xs"
               aria-label="Close"
-              icon="X"
+              icon="XCircle"
               color="gray"
               variant="link"
+              css={{ padding: '$0' }}
             />
           </RPopover.Close>
         )}
@@ -81,7 +82,7 @@ export const Popover = createComponent<PopoverProps>(
 );
 
 const CLASSES = {
-  Content: cx('fuel_popover--content', styles.content()),
-  Arrow: cx('fuel_popover--arrow', styles.arrow()),
-  CloseButton: cx('fuel_popover--closeBtn', styles.closeButton()),
+  Content: cx('fuel_PopoverContent', styles.content()),
+  Arrow: cx('fuel_PopoverArrow', styles.arrow()),
+  CloseButton: cx('fuel_PopoverCloseBtn', styles.closeButton()),
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
+import { Stack } from '../Box/Stack';
 import { InputPassword } from '../InputPassword';
-import { Stack } from '../Stack';
 
 import type { PasswordStrengthProps } from './PasswordStrength';
 import { PasswordStrength } from './PasswordStrength';
@@ -13,7 +13,7 @@ export default {
 
 export const Usage = (args: PasswordStrengthProps) => {
   const [password, setPassword] = useState('');
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <Stack css={{ maxW: '350px' }}>

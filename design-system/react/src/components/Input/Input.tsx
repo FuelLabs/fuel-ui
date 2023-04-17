@@ -56,7 +56,7 @@ export const Input = createComponent<InputProps, ObjProps>(
       formControlProps.isDisabled ||
       formControlProps.isReadOnly;
 
-    const classes = cx('fuel_input', className);
+    const classes = cx('fuel_Input', className);
 
     const providerProps = {
       size,

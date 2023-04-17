@@ -132,7 +132,7 @@
 ### Patch Changes
 
 - ✨ feat(AvatarGenerated): add `background` prop; apply rounded aspect, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#131](https://github.com/FuelLabs/fuel-ui/pull/131))
-- 🐞 Fix: improve typings for createComponent function, by [@pedronauck](https://github.com/pedronauck) (See [#134](https://github.com/FuelLabs/fuel-ui/pull/134))
+- 🐞 Fix: improve typings for \_unstable_createComponent function, by [@pedronauck](https://github.com/pedronauck) (See [#134](https://github.com/FuelLabs/fuel-ui/pull/134))
 - 🐞 Fix: use browser native Clipboard API instead of ReactUse on `<Clipboard>` component, by [@pedronauck](https://github.com/pedronauck) (See [#126](https://github.com/FuelLabs/fuel-ui/pull/126))
 
 ## 0.5.0

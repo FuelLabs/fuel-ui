@@ -9,7 +9,7 @@ type DrawerBodyProps = BoxProps;
 
 export const DrawerBody = createComponent<DrawerBodyProps>(
   ({ className, ...props }) => {
-    const classes = cx('fuel_drawer-body', className);
+    const classes = cx('fuel_DrawerBody', className);
     return <Box {...props} className={classes} />;
   }
 );

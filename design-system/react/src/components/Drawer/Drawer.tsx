@@ -111,7 +111,7 @@ export const Drawer = createComponent<
       shouldCloseOnClickAway,
     };
 
-    const overlayClassNames = cx('fuel_drawer-overlay');
+    const overlayClassNames = cx('fuel_DrawerOverlay');
     const customChildren = Children.toArray(children).map((child: any) => {
       if (child?.type.id === 'DrawerContent') {
         return (

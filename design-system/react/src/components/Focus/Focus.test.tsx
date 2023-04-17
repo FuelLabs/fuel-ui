@@ -1,7 +1,7 @@
 import { render, screen, testA11y } from '@fuel-ui/test-utils';
 
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
-import { Stack } from '../Stack';
 
 import { Focus } from './Focus';
 

@@ -26,7 +26,7 @@ export const DialogClose = createComponent<
   unknown,
   ElementType
 >(({ ref, className, asChild, children, ...props }) => {
-  const classes = cx('fuel_dialog-close', className);
+  const classes = cx('fuel_DialogClose', className);
   const { state, triggerRef } = useDialog();
 
   function handleToggle() {
@@ -52,7 +52,7 @@ export const DialogClose = createComponent<
       {...(props as IconButtonProps)}
       css={{ ...styles.close, ...css }}
       className={classes}
-      icon={Icon.is('X')}
+      icon={Icon.is('XCircle')}
       aria-label={props['aria-label'] || 'Close'}
       variant={props.variant || 'link'}
       color={props.color || 'gray'}

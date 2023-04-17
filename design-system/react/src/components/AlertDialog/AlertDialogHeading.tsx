@@ -8,7 +8,7 @@ export type AlertDialogHeadingProps = RAlertDialog.AlertDialogTitleProps;
 
 export const AlertDialogHeading = createComponent<AlertDialogHeadingProps>(
   ({ className, children, ...props }) => {
-    const classes = cx('fuel_alert-dialog--heading', className);
+    const classes = cx('fuel_AlertDialogHeading', className);
     return createStyledElement(
       RAlertDialog.Title,
       styles.heading,

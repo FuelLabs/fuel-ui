@@ -1,8 +1,8 @@
 import { cx } from '@fuel-ui/css';
 
 import { createComponent } from '../../utils';
-import type { FlexProps } from '../Flex';
-import { Flex } from '../Flex';
+import type { FlexProps } from '../Box/Flex';
+import { Flex } from '../Box/Flex';
 
 import { CardBody } from './CardBody';
 import { CardFooter } from './CardFooter';
@@ -20,7 +20,7 @@ type ObjProps = {
 
 export const Card = createComponent<CardProps, ObjProps>(
   ({ direction = 'column', children, className, ...props }) => {
-    const classes = cx('fuel_card', className, styles.card());
+    const classes = cx('fuel_Card', className, styles.card());
     const customProps = { ...props, direction, className: classes };
 
     return (

@@ -43,7 +43,7 @@ export const FormControl = createComponent<FormControlProps>(
     ...props
   }) => {
     const id = useId();
-    const classes = cx('fuel_form--control', className);
+    const classes = cx('fuel_FormControl', className);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const childArr = Children.toArray(children) as any[];

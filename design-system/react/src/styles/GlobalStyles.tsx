@@ -9,7 +9,7 @@ const customStyles = {
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
     margin: '0',
-    letterSpacing: '0.01em',
+    letterSpacing: '$tight',
     textSize: 'base' as any,
     color: '$textColor',
     background: '$bodyColor',

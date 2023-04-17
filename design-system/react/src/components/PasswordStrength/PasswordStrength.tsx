@@ -2,7 +2,8 @@ import { Check, X } from 'phosphor-react';
 import { useEffect } from 'react';
 
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex } from '../Box/Flex';
+import { Stack } from '../Box/Stack';
 import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 import type { PopoverProps } from '../Popover';
@@ -63,36 +64,52 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
           <Text fontSize="xs" as="strong" css={styles.rulesHeader}>
             A secure password should have:
           </Text>
-          <Flex css={styles.popoverContainer}>
-            <Flex gap="$1">
-              <Icon
-                color={lengthChecker ? 'mint9' : 'crimson9'}
-                icon={lengthChecker ? <Check /> : <X />}
-              />
-              <Text fontSize="xs">Min. {minLength} characteres</Text>
-            </Flex>
-            <Flex gap="$1">
-              <Icon
-                color={casingChecker ? 'mint9' : 'crimson9'}
-                icon={casingChecker ? <Check /> : <X />}
-              />
-              <Text fontSize="xs">Upper & lower case letters</Text>
-            </Flex>
-            <Flex gap="$1">
-              <Icon
-                color={symbolsAndDigitsChecker ? 'mint9' : 'crimson9'}
-                icon={symbolsAndDigitsChecker ? <Check /> : <X />}
-              />
-              <Text fontSize="xs">Numbers & Symbols</Text>
-            </Flex>
-            <Flex gap="$1">
-              <Icon
-                color={commonChecker ? 'mint9' : 'crimson9'}
-                icon={commonChecker ? <Check /> : <X />}
-              />
-              <Text fontSize="xs">Not common or insecure</Text>
-            </Flex>
-          </Flex>
+          <Stack>
+            <Text
+              leftIcon={
+                <Icon
+                  data-error={lengthChecker}
+                  icon={lengthChecker ? <Check /> : <X />}
+                />
+              }
+              fontSize="xs"
+            >
+              Min. {minLength} characteres
+            </Text>
+            <Text
+              leftIcon={
+                <Icon
+                  data-error={casingChecker}
+                  icon={casingChecker ? <Check /> : <X />}
+                />
+              }
+              fontSize="xs"
+            >
+              Upper & lower case letters
+            </Text>
+            <Text
+              leftIcon={
+                <Icon
+                  data-error={symbolsAndDigitsChecker}
+                  icon={symbolsAndDigitsChecker ? <Check /> : <X />}
+                />
+              }
+              fontSize="xs"
+            >
+              Numbers & Symbols
+            </Text>
+            <Text
+              leftIcon={
+                <Icon
+                  data-error={commonChecker}
+                  icon={commonChecker ? <Check /> : <X />}
+                />
+              }
+              fontSize="xs"
+            >
+              Not common or insecure
+            </Text>
+          </Stack>
         </Flex>
       </>
     );
@@ -102,12 +119,12 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
         content={popoverContent}
         align="start"
         arrowProps={{
-          offset: 31,
+          offset: 0,
           width: 15,
           height: 5,
         }}
         css={styles.popover}
-        alignOffset={-30}
+        alignOffset={-32}
         sideOffset={2}
         contentProps={{
           // this is needed to prevent the input from losing focus

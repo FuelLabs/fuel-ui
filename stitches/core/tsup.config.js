@@ -5,7 +5,7 @@ import { defineConfig } from 'tsup';
 import baseConfig from '../../common/config/tsup';
 
 export default defineConfig((options) => ({
-  ...baseConfig(options, { withReact: false }),
+  ...baseConfig(options, { withReact: false, ts: false }),
   format: ['esm', 'cjs'],
   entry: ['src/index.js'],
 }));

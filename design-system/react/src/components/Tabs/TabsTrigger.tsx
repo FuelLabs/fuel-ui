@@ -9,7 +9,7 @@ export type TabsTriggerProps = TabsPrimitive.TabsTriggerProps;
 
 export const TabsTrigger = createComponent<TabsTriggerProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_tabs--trigger', className);
+    const classes = cx('fuel_TabsTrigger', className);
     return createStyledElement(
       TabsPrimitive.Trigger,
       styles.trigger,

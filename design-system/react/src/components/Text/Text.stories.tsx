@@ -1,7 +1,9 @@
 import { allColors } from '@fuel-ui/css';
 
-import type { TextProps } from './Text';
+import { Icon } from '../Icon';
+
 import { Text } from './Text';
+import type { TextProps } from './defs';
 
 export default {
   component: Text,
@@ -24,7 +26,12 @@ export const Usage = (args: TextProps) => (
 );
 
 export const WithIcon = (args: TextProps) => (
-  <Text {...args} leftIcon="Calendar" leftIconAriaLabel="Calendar">
+  <Text
+    {...args}
+    leftIcon={<Icon icon="Calendar" />}
+    leftIconAriaLabel="Calendar"
+    iconSize={22}
+  >
     Jun 22, 2022
   </Text>
 );

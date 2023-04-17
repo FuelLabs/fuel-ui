@@ -56,12 +56,12 @@ export const sizes = {
 };
 
 export const fonts = {
-  sans: '"Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+  sans: '"PxGrotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
   display:
-    '"Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+    '"PxGrotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
   heading:
-    '"Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
-  mono: '"Space Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    '"PxGrotesk", system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",sans-serif',
+  mono: '"PxGrotesk Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 };
 
 export const fontSizes = {
@@ -78,6 +78,13 @@ export const fontSizes = {
   '7xl': '4.5rem',
   '8xl': '6rem',
   '9xl': '8rem',
+  // heading font sizes
+  h1: '$5xl',
+  h2: '$4xl',
+  h3: '$3xl',
+  h4: '$2xl',
+  h5: '$xl',
+  h6: '$lg',
 };
 
 export const fontWeights = {
@@ -122,7 +129,7 @@ export const radii = {
   none: '0px',
   xs: '0.125rem',
   sm: '0.25rem',
-  default: '$sm',
+  default: '$md',
   md: '0.375rem',
   lg: '0.5rem',
   xl: '0.75rem',

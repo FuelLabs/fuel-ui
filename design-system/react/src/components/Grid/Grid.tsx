@@ -74,7 +74,7 @@ export const Grid = createComponent<GridProps, ObjProps>(
     className,
     ...props
   }) => {
-    const classes = cx('fuel_box--grid', className);
+    const classes = cx('fuel_BoxGrid', className);
     return (
       <Box
         {...props}

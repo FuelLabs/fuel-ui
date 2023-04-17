@@ -10,7 +10,7 @@ export type AlertDialogDescriptionProps =
 export const AlertDialogDescription =
   createComponent<AlertDialogDescriptionProps>(
     ({ className, children, ...props }) => {
-      const classes = cx('fuel_alert-dialog--description', className);
+      const classes = cx('fuel_AlertDialogDescription', className);
       return createStyledElement(
         RAlertDialog.Description,
         styles.description,

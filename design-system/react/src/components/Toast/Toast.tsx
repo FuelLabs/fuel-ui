@@ -9,7 +9,7 @@ export type ToastProps = ToasterProps;
 
 export const ToastProvider = createComponent<ToastProps>(
   ({ className, position = 'bottom-right', ...props }) => {
-    const classes = cx('fuel_toast', className, styles.root());
+    const classes = cx('fuel_Toast', className, styles.root());
     return (
       <Root {...props} position={position}>
         {(t) => (
@@ -26,7 +26,7 @@ export const ToastProvider = createComponent<ToastProps>(
                     autoFocus
                     size="xs"
                     aria-label="Close"
-                    icon="X"
+                    icon="XCircle"
                     color="gray"
                     variant="link"
                     className={styles.closeButton()}
@@ -53,15 +53,13 @@ const DEFAULT_STYLE = {
 
 const styles = {
   root: css({
+    is: ['overlayLayer'],
     px: '$4',
     py: '$3',
     display: 'flex',
     alignItems: 'center',
     gap: '$4',
-    backgroundColor: '$overlayBg',
-    borderRadius: '$xl',
     color: '$gray10',
-    boxShadow: '$none',
 
     '& div[role="status"]': {
       m: '0',
@@ -71,6 +69,10 @@ const styles = {
       WebkitLineClamp: 6,
       WebkitBoxOrient: 'vertical',
       overflow: 'hidden',
+    },
+
+    '.fuel_Icon[aria-label="Icon XCircle"]': {
+      color: '$muted',
     },
   }),
   closeButton: css({

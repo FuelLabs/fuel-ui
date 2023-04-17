@@ -11,7 +11,8 @@ export async function testA11y(
 ) {
   const { axeOptions, ...rest } = options;
   const container = isValidElement(ui) ? render(ui, rest).container : ui;
-  const results = await axe(container, axeOptions);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const results = await axe(container as any, axeOptions);
   expect(results).toHaveNoViolations();
 }
 

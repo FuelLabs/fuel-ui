@@ -1,11 +1,11 @@
 import { Text } from '..';
 import { Box } from '../Box';
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { Card } from '../Card';
 import { Form } from '../Form';
 import { Icon } from '../Icon';
 import { Input } from '../Input';
-import { Stack } from '../Stack';
 
 import type { TabsProps } from './Tabs';
 import { Tabs } from './Tabs';

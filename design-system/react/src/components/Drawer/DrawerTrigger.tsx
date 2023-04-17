@@ -20,7 +20,7 @@ export const DrawerTrigger = createComponent<
   unknown,
   ElementType
 >(({ className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_drawer-trigger', className);
+  const classes = cx('fuel_DrawerTrigger', className);
   const { state } = useDrawer();
 
   function handleToggle() {

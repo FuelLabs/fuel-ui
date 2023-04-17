@@ -2,8 +2,8 @@ import { cssObj, cx } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
 
 import { createComponent } from '../../utils';
-import type { FlexProps } from '../Flex';
-import { Flex } from '../Flex';
+import type { FlexProps } from '../Box/Flex';
+import { Flex } from '../Box/Flex';
 import { Icon } from '../Icon';
 import type { IconButtonProps } from '../IconButton';
 import { IconButton } from '../IconButton';
@@ -25,8 +25,8 @@ export const Copyable = createComponent<CopyableProps>(
     iconProps,
     ...props
   }) => {
-    const classes = cx('fuel_copyable', className);
-    const iconClass = cx('fuel_copyable-icon');
+    const classes = cx('fuel_Copyable', className);
+    const iconClass = cx('fuel_CopyableIcon');
 
     async function handleCopy() {
       await navigator.clipboard.writeText(value);
@@ -65,6 +65,6 @@ const styles = {
     py: '$3',
     px: '$0',
     height: '$4',
-    color: '$gray8',
+    color: '$iconColor',
   }),
 };

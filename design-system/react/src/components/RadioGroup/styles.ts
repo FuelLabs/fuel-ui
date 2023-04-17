@@ -1,4 +1,6 @@
-import { css, darkTheme } from '@fuel-ui/css';
+import { css } from '@fuel-ui/css';
+
+import { darkTheme } from '~/hooks';
 
 export const root = css({
   display: 'flex',
@@ -26,7 +28,7 @@ export const item = css({
   borderRadius: '100%',
   boxShadow: '$sm',
 
-  [`.${darkTheme} &`]: {
+  [`.${darkTheme.theme} &`]: {
     background: '$inputBg',
   },
 

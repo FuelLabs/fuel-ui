@@ -1,19 +1,19 @@
 import type { BN } from '@fuel-ts/math';
-import { bn, DECIMAL_UNITS } from '@fuel-ts/math';
+import { bn } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import { Box } from '../Box';
+import { Flex } from '../Box/Flex';
 import { Button } from '../Button';
-import { Flex } from '../Flex';
 import type { InputProps } from '../Input';
 import { Input } from '../Input';
 import type { InputNumberProps } from '../Input/InputNumber';
 import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
-import { createAmount, formatAmount } from './utils';
+import { DECIMAL_UNITS, createAmount, formatAmount } from './utils';
 
 export type InputAmountProps = Omit<InputProps, 'size'> & {
   name?: string;
@@ -44,8 +44,9 @@ export const InputAmount: InputAmountComponent = ({
   inputProps,
   ...props
 }) => {
+  const formatOpts = { units };
   const [assetAmount, setAssetAmount] = useState<string>(
-    !value || value.eq(0) ? '' : formatAmount(value)
+    !value || value.eq(0) ? '' : formatAmount(value, formatOpts)
   );
 
   const balance = initialBalance ?? bn(initialBalance);
@@ -54,7 +55,7 @@ export const InputAmount: InputAmountComponent = ({
   });
 
   useEffect(() => {
-    handleAmountChange(value ? formatAmount(value) : '');
+    handleAmountChange(value ? formatAmount(value, formatOpts) : '');
   }, [value?.toString()]);
 
   const handleAmountChange = (text: string) => {
@@ -68,7 +69,7 @@ export const InputAmount: InputAmountComponent = ({
 
   const handleSetBalance = () => {
     if (balance) {
-      handleAmountChange(formatAmount(balance));
+      handleAmountChange(formatAmount(balance, formatOpts));
     }
   };
 
@@ -113,7 +114,10 @@ export const InputAmount: InputAmountComponent = ({
                 aria-label={`Balance: ${formattedBalance}`}
               >
                 <Box as="span">Balance: </Box>
-                <Tooltip content={formatAmount(balance)} sideOffset={-5}>
+                <Tooltip
+                  content={formatAmount(balance, formatOpts)}
+                  sideOffset={-5}
+                >
                   <Box as="span">{formattedBalance}</Box>
                 </Tooltip>
               </Flex>
@@ -151,6 +155,7 @@ const styles = {
   }),
   elementRight: cssObj({
     maxHeight: '100%',
+    pr: '$0',
   }),
   balanceActions: cssObj({
     boxSizing: 'border-box',
@@ -175,7 +180,7 @@ const styles = {
     color: '$gray10',
 
     '& > span:first-of-type': {
-      color: '$gray8',
+      color: '$muted',
     },
   }),
 };

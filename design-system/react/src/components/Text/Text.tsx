@@ -1,31 +1,26 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Colors } from '@fuel-ui/css';
-import { css, allColors, cx, utils } from '@fuel-ui/css';
+import { allColors, utils } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import type { HTMLProps } from '../../utils';
-import { createStyledElement, createComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { createIcon } from '../Button';
-import type { IconProps } from '../Icon';
 
-export type TextProps = HTMLProps['p'] & {
-  fontSize?: utils.TextSizes;
-  color?: Colors;
-  iconSize?: number;
-  iconColor?: Colors;
-  leftIcon?: IconProps['icon'];
-  rightIcon?: IconProps['icon'];
-  leftIconAriaLabel?: string;
-  rightIconAriaLabel?: string;
-};
+import type * as t from './defs';
 
-export const Text = createComponent<TextProps>(
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
+
+const _Text = _unstable_createComponent<t.TextDef>(
+  Components.Text,
   ({
-    fontSize,
-    color,
+    as = 'p',
     children,
-    className,
     iconSize = 16,
-    iconColor = 'gray8',
+    iconColor = 'iconColor',
     leftIcon,
     rightIcon,
     leftIconAriaLabel,
@@ -45,43 +40,45 @@ export const Text = createComponent<TextProps>(
       iconColor
     );
     const withIcon = Boolean(leftIcon || rightIcon);
-    const classes = cx('fuel_text', className);
-    return createStyledElement(
-      'p',
-      styles,
-      { fontSize, color, withIcon },
-      { ...props, className: classes },
+    const classes = useStyles(styles, { ...props, withIcon } as any);
+    const elementProps = useElementProps(props, classes.root);
+    const customChildren = (
       <>
         {iconLeft} {children} {iconRight}
       </>
     );
+    return createElement(as, elementProps, customChildren);
   }
 );
 
-const styles = css({
-  margin: 0,
+const styles = createStyle(Components.Text, {
+  root: {
+    margin: 0,
 
-  variants: {
-    // TODO: adjust typings
-    fontSize: (utils.textSize.__keys as any[]).reduce(
-      (obj, key) => ({ ...obj, [key]: { textSize: key } }),
-      {}
-    ),
-    // TODO: adjust typings
-    color: (allColors as any[]).reduce(
-      (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
-      {}
-    ),
-    withIcon: {
-      true: {
-        display: 'inline-flex',
-        gap: '$2',
+    variants: {
+      // TODO: adjust typings
+      fontSize: (utils.textSize.__keys as any[]).reduce(
+        (obj, key) => ({ ...obj, [key]: { textSize: key } }),
+        {}
+      ),
+      // TODO: adjust typings
+      color: (allColors as any[]).reduce(
+        (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
+        {}
+      ),
+      withIcon: {
+        true: {
+          display: 'inline-flex',
+          gap: '$2',
+        },
       },
     },
-  },
 
-  defaultVariants: {
-    fontSize: 'base',
-    color: 'textColor',
+    defaultVariants: {
+      fontSize: 'base',
+      color: 'textColor',
+    },
   },
 });
+
+export const Text = createPolymorphicComponent<t.TextDef>(_Text);

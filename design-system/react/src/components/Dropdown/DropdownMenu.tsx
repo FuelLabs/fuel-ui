@@ -19,8 +19,6 @@ export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
         {...props}
         {...(menuProps as MenuProps)}
         css={{
-          py: '$2',
-          px: '$2',
           boxSizing: 'border-box',
           ...props.css,
         }}

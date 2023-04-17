@@ -2,8 +2,8 @@ import { css } from '@fuel-ui/css';
 
 import { Box } from '../Box';
 
-import type { AspectRatioProps } from './AspectRatio';
 import { AspectRatio } from './AspectRatio';
+import type { AspectRatioProps } from './defs';
 
 export default {
   component: AspectRatio,

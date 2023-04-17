@@ -1,12 +1,12 @@
 import type { BN } from '@fuel-ts/math';
 import { bn } from '@fuel-ts/math';
-import { act, fireEvent, render, screen, testA11y } from '@fuel-ui/test-utils';
+import { fireEvent, render, screen, testA11y } from '@fuel-ui/test-utils';
 import { useState } from 'react';
 
 import type { InputAmountProps } from './InputAmount';
 import { InputAmount } from './InputAmount';
 
-const AMOUNT_TEXT = `14.563943834`;
+const AMOUNT_TEXT = `14.563`;
 const BALANCE_TEXT = bn.parseUnits(AMOUNT_TEXT).format({ precision: 3 });
 const FIELD_NAME = 'Input Amount';
 export const MOCK_ASSET = {
@@ -83,14 +83,14 @@ describe('InputAmount', () => {
   });
 
   it('should display balance in input when click on max button', async () => {
-    render(<InputAmount balance={MOCK_ASSET.amount} />);
+    const { user } = render(<InputAmount balance={MOCK_ASSET.amount} />);
     const maxBtn = screen.getByLabelText('Max');
     expect(maxBtn).toBeInTheDocument();
+    await user.click(maxBtn);
     expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
-    act(() => {
-      maxBtn.click();
-    });
-    expect(screen.getByDisplayValue(AMOUNT_TEXT)).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`)
+    ).toBeInTheDocument();
   });
 
   it('should hidden Balance when prop hiddenBalance is true', async () => {

@@ -1,40 +1,37 @@
-import { lightTheme, darkTheme } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { assign, createMachine } from 'xstate';
 
-export type FuelTheme = 'light' | 'dark' | typeof lightTheme;
-
-const LOCALSTORAGE_KEY = 'fuel-theme';
-const DEFAULT_THEME = 'dark';
-
-export function getDefaultSystemTheme(): FuelTheme {
-  return DEFAULT_THEME;
-}
+import { useStore } from '~/hooks/useStore';
+import type { ThemesObj } from '~/hooks/useTheme';
+import { THEME_STORAGE_KEY } from '~/hooks/useTheme';
+import { mergeDeep } from '~/utils/helpers';
 
 type MachineContext = {
-  theme: FuelTheme;
+  themes: ThemesObj;
+  current: string;
 };
 
-type MachineEvents =
-  | { type: 'SET_THEME'; value: FuelTheme }
-  | { type: 'TOGGLE' };
+type MachineEvents = {
+  type: 'SET_THEME';
+  value: string;
+};
 
-const machine = createMachine<MachineContext>({
+const machine = createMachine({
   predictableActionArguments: true,
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
+  tsTypes: {} as import('./machine.typegen').Typegen0,
   schema: {
     context: {} as MachineContext,
     events: {} as MachineEvents,
   },
   id: 'themeProvider',
   initial: 'idle',
+  entry: ['saveOnLocalStorage', 'addDocumentClass'],
   states: {
     idle: {
-      entry: ['setDefaultTheme', 'addDocumentClass'],
       on: {
         SET_THEME: {
           actions: ['setTheme', 'addDocumentClass'],
-        },
-        TOGGLE_THEME: {
-          actions: ['toggleTheme', 'addDocumentClass'],
         },
       },
     },
@@ -43,36 +40,26 @@ const machine = createMachine<MachineContext>({
 
 export const themeProviderMachine = machine.withConfig({
   actions: {
-    setDefaultTheme: assign({
-      theme: (ctx) => {
-        if (typeof window === 'undefined') return DEFAULT_THEME;
-        const theme = localStorage.getItem(LOCALSTORAGE_KEY) as FuelTheme;
-        return ctx.theme || theme || getDefaultSystemTheme();
-      },
-    }),
+    saveOnLocalStorage: ({ current, themes }) => {
+      localStorage.setItem(THEME_STORAGE_KEY, current);
+      const components = themes[current]?.components || {};
+      const store = useStore.getState();
+      Object.entries(components ?? {}).forEach(([key, value]) => {
+        const curr = store.defs[key];
+        const next = mergeDeep(curr, value);
+        store.addDef(key as any, next);
+      });
+    },
     setTheme: assign({
-      theme: (_, ev) => ev.value,
-    }),
-    toggleTheme: assign({
-      theme: (ctx) => {
-        if (ctx.theme !== 'dark' && ctx.theme !== 'light') return ctx.theme;
-        return ctx.theme === 'dark' ? 'light' : 'dark';
+      current: (_, ev) => {
+        localStorage.setItem(THEME_STORAGE_KEY, ev.value);
+        return ev.value;
       },
     }),
-    addDocumentClass: ({ theme }) => {
+    addDocumentClass: ({ themes, current }) => {
+      const selected = themes[current];
       const html = document.documentElement;
-
-      if (theme !== 'dark' && theme !== 'light') {
-        html.classList.add(theme.className);
-        return;
-      }
-
-      html.classList.remove(
-        theme === 'light' ? darkTheme.className : lightTheme.className
-      );
-      html.classList.add(
-        theme === 'dark' ? darkTheme.className : lightTheme.className
-      );
+      html.classList.toggle(selected.theme, true);
     },
   },
 });

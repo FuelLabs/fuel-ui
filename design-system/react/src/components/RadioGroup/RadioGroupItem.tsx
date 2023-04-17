@@ -4,7 +4,7 @@ import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { useId } from 'react';
 
 import { createComponent, createStyledElement } from '../../utils';
-import { Flex } from '../Flex';
+import { Flex } from '../Box/Flex';
 import { Form } from '../Form';
 
 import * as styles from './styles';
@@ -38,7 +38,7 @@ export const RadioGroupItem = createComponent<
   }) => {
     const disabled = isDisabled || isReadOnly;
     const labelId = label ? `label-${useId()}` : undefined;
-    const classes = cx('fuel_radio-group--item', className);
+    const classes = cx('fuel_RadioGroupItem', className);
     const customProps = {
       ...props,
       className: classes,

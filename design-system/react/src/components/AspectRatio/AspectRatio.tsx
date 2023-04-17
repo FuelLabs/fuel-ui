@@ -1,19 +1,22 @@
-import { cx } from '@fuel-ui/css';
 import * as AspectRatioPrimitive from '@radix-ui/react-aspect-ratio';
+import { createElement } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 
-export type AspectRatioProps = AspectRatioPrimitive.AspectRatioProps;
+import type * as t from './defs';
 
-export const AspectRatio = createComponent<AspectRatioProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_aspect-ratio', className);
-    return createStyledElement(
-      AspectRatioPrimitive.Root,
-      null,
-      null,
-      { ...props, className: classes },
-      children
-    );
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
+
+export const AspectRatio = _unstable_createComponent<t.AspectRatioDef>(
+  Components.AspectRatio,
+  (props) => {
+    const classes = useStyles(styles);
+    const elementProps = useElementProps(props, classes.root);
+    return createElement(AspectRatioPrimitive.Root, elementProps);
   }
 );
+
+const styles = createStyle(Components.AspectRatio, {
+  root: {},
+});

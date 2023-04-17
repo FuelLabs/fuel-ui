@@ -25,7 +25,7 @@ export const DialogTrigger = createComponent<
   unknown,
   ElementType
 >(({ ref, className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_dialog-trigger', className);
+  const classes = cx('fuel_DialogTrigger', className);
   const { state, triggerRef } = useDialog();
 
   function handleToggle() {

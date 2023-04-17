@@ -1,37 +1,33 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Colors } from '@fuel-ui/css';
-import { css, allColors, cx, utils } from '@fuel-ui/css';
+import { allColors, utils } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import type { HTMLProps } from '../../utils';
-import { createComponent } from '../../utils';
-import { Box } from '../Box';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { createIcon } from '../Button';
-import type { IconProps } from '../Icon';
 
-export type HeadingProps = HTMLProps['h1'] & {
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  fontSize?: utils.TextSizes;
-  fontColor?: Colors;
-  iconSize?: number;
-  leftIcon?: IconProps['icon'];
-  rightIcon?: IconProps['icon'];
-  leftIconAriaLabel?: string;
-  rightIconAriaLabel?: string;
-};
+import type * as t from './defs';
 
-function getIconSize(as: HeadingProps['as'], iconSize?: number) {
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
+
+function getIconSize(as: t.HeadingProps['as'], iconSize?: number) {
   if (iconSize) return iconSize;
   if (as === 'h1' || as === 'h2') return 22;
   if (as === 'h5' || as === 'h6') return 16;
   return 18;
 }
 
-export const Heading = createComponent<HeadingProps>(
+const _Heading = _unstable_createComponent<t.HeadingDef>(
+  Components.Heading,
   ({
     as = 'h2',
     fontSize,
     fontColor,
-    className,
+    iconColor = 'iconColor',
     iconSize: initialIconSize,
     leftIcon,
     rightIcon,
@@ -41,75 +37,94 @@ export const Heading = createComponent<HeadingProps>(
     ...props
   }) => {
     const iconSize = getIconSize(as, initialIconSize);
-    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
-    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const withIcon = Boolean(leftIcon || rightIcon);
-    const classes = cx(
-      'fuel_heading',
-      className,
-      styles({ fontSize, fontColor, as, withIcon })
+    const iconLeft = createIcon(
+      leftIcon,
+      leftIconAriaLabel,
+      iconSize,
+      iconColor
     );
-    return (
-      <Box {...props} as={as} className={classes} role="heading">
+    const iconRight = createIcon(
+      rightIcon,
+      rightIconAriaLabel,
+      iconSize,
+      iconColor
+    );
+    const withIcon = Boolean(leftIcon || rightIcon);
+    const classes = useStyles(styles, {
+      ...props,
+      fontSize,
+      fontColor,
+      as,
+      withIcon,
+    } as any);
+
+    const elementProps = useElementProps(props, classes.root, {
+      role: 'heading',
+    });
+
+    return createElement(
+      as,
+      elementProps,
+      <>
         {iconLeft} {children} {iconRight}
-      </Box>
+      </>
     );
   }
 );
 
-const styles = css({
-  mt: '0.5rem',
-  mb: '1.25rem',
-  letterSpacing: '-0.02em',
-  color: '$gray12',
-  fontFamily: '$heading',
-  fontWeight: '$semibold',
+export const Heading = createPolymorphicComponent<t.HeadingDef>(_Heading);
 
-  '& .fuel_icon': {
-    color: '$gray8',
-  },
+const styles = createStyle(Components.Heading, {
+  root: {
+    mt: '0.5rem',
+    mb: '1.25rem',
+    letterSpacing: '-0.02em',
+    color: '$gray12',
+    fontFamily: '$heading',
+    fontWeight: '$semibold',
 
-  variants: {
-    // FIX: adjust type type
-    fontSize: (utils.textSize.__keys as any[]).reduce(
-      (obj, key) => ({ ...obj, [key]: { textSize: key } }),
-      {}
-    ),
-    // FIX: adjust type type
-    fontColor: (allColors as any[]).reduce(
-      (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
-      {}
-    ),
-    as: {
-      h1: {
-        textSize: '4xl',
+    variants: {
+      // FIX: adjust type type
+      fontSize: (utils.textSize.__keys as any[]).reduce(
+        (obj, key) => ({ ...obj, [key]: { textSize: key } }),
+        {}
+      ),
+      // FIX: adjust type type
+      fontColor: (allColors as any[]).reduce(
+        (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
+        {}
+      ),
+      as: {
+        h1: {
+          textSize: '4xl',
+        },
+        h2: {
+          textSize: '3xl',
+        },
+        h3: {
+          textSize: '2xl',
+        },
+        h4: {
+          textSize: 'xl',
+        },
+        h5: {
+          textSize: 'lg',
+        },
+        h6: {
+          textSize: 'base',
+        },
       },
-      h2: {
-        textSize: '3xl',
-      },
-      h3: {
-        textSize: '2xl',
-      },
-      h4: {
-        textSize: 'xl',
-      },
-      h5: {
-        textSize: 'lg',
-      },
-      h6: {
-        textSize: 'base',
+      withIcon: {
+        true: {
+          display: 'inline-flex',
+          gap: '$2',
+        },
       },
     },
-    withIcon: {
-      true: {
-        display: 'inline-flex',
-        gap: '$2',
-      },
-    },
-  },
 
-  defaultVariants: {
-    fontSize: 'md',
-    fontColor: 'fontColor',
+    defaultVariants: {
+      fontSize: 'md',
+      fontColor: 'fontColor',
+    },
   },
 });

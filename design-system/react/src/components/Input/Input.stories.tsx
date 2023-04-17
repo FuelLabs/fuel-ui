@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { Stack } from '../Stack';
 
 import type { InputProps } from './Input';
 import { Input } from './Input';

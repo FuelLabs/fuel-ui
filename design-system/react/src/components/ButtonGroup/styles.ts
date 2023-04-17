@@ -4,21 +4,21 @@ export const root = css({
   display: 'flex',
   alignItems: 'center',
 
-  '& > .fuel_button ~ .fuel_button': {
+  '& > .fuel_Button ~ .fuel_Button': {
     marginLeft: 1,
   },
-  '& > .fuel_button:first-of-type': {
+  '& > .fuel_Button:first-of-type': {
     borderTopRightRadius: '$0',
     borderBottomRightRadius: '$0',
   },
-  '& > .fuel_button:last-of-type': {
+  '& > .fuel_Button:last-of-type': {
     borderTopLeftRadius: '$0',
     borderBottomLeftRadius: '$0',
   },
-  '& > .fuel_button:not(:first-of-type,:last-of-type)': {
+  '& > .fuel_Button:not(:first-of-type,:last-of-type)': {
     borderRadius: '$0',
   },
-  '& > .fuel_button:focus-visible': {
+  '& > .fuel_Button:focus-visible': {
     zIndex: 1,
     position: 'relative',
   },

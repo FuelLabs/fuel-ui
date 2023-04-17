@@ -31,6 +31,7 @@ export const overlay = css({
 });
 
 export const content = css({
+  is: ['overlayLayer'],
   display: 'flex',
   flexDirection: 'column',
   position: 'fixed',
@@ -39,9 +40,6 @@ export const content = css({
   width: '90vw',
   maxWidth: '450px',
   maxHeight: '85vh',
-  br: '$md',
-  backgroundColor: '$overlayBg',
-  boxShadow: '$sm',
   transform: 'translate(-50%, -50%)',
 
   '@media (prefers-reduced-motion: no-preference)': {
@@ -94,7 +92,11 @@ export const footer = css({
 
 export const close = cssObj({
   position: 'absolute',
-  top: '$2',
-  right: '$2',
-  padding: '$1',
+  top: '$3',
+  right: '$3',
+  padding: '$0',
+
+  '.fuel_Icon': {
+    color: '$muted',
+  },
 });
