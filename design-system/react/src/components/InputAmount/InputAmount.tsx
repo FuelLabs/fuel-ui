@@ -155,6 +155,7 @@ const styles = {
   }),
   elementRight: cssObj({
     maxHeight: '100%',
+    pr: '$0',
   }),
   balanceActions: cssObj({
     boxSizing: 'border-box',
