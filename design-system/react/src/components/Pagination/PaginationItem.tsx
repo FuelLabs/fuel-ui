@@ -15,7 +15,7 @@ export const PaginationItem = createComponent<
   unknown,
   OmitProps
 >(({ className, page }) => {
-  const classes = cx('fuel_pagination-item', className);
+  const classes = cx('fuel_PaginationItem', className);
   const pagination = usePaginationContext();
   const autoFocus = page === 1 && pagination.autoFocus;
   const isSelected = pagination.currentPage === page;

@@ -1,6 +1,8 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+/// <reference types="@storybook/types" />
 
-import { Stack } from '../Stack';
+import type { StoryFn } from '@storybook/react';
+
+import { Stack } from '../Box/Stack';
 import { Text } from '../Text';
 
 import { Pagination } from './Pagination';
@@ -16,16 +18,16 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Pagination>;
+};
 
-const Template: ComponentStory<typeof Pagination> = (args) => (
+const Template: StoryFn<typeof Pagination> = (args) => (
   <Stack>
     <Pagination {...args}>
       <Pagination.Prev />
       <Pagination.Items />
       <Pagination.Next />
     </Pagination>
-    <Text css={{ color: '$gray8' }}>
+    <Text css={{ color: '$muted' }}>
       Use <code>←</code> and <code>→</code> to focus navigation
     </Text>
   </Stack>

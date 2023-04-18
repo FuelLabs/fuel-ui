@@ -1,4 +1,4 @@
-import { Flex } from '../Flex';
+import { Flex } from '../Box/Flex';
 import { Form } from '../Form';
 
 import type { SwitchProps } from './Switch';

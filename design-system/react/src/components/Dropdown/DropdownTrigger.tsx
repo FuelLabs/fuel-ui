@@ -25,7 +25,7 @@ export const DropdownTrigger = createComponent<
   unknown,
   ElementType
 >(({ ref, className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_dropdown-trigger', className);
+  const classes = cx('fuel_DropdownTrigger', className);
   const { state, triggerRef } = useDropdown();
 
   function handleToggle() {

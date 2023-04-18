@@ -20,7 +20,7 @@ export const ListItem = createComponent<ListProps>(
     className,
     ...props
   }) => {
-    const classes = cx('fuel_list-item', className, style());
+    const classes = cx('fuel_ListItem', className, style());
     const ctx = useListContext();
     return (
       <Text

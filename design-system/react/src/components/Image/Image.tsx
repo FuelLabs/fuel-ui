@@ -1,19 +1,26 @@
-import { cx } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
-import type { HTMLProps } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
-export type ImageProps = HTMLProps['img'];
+import type * as t from './defs';
 
-export const Image = createComponent<ImageProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_image', className);
-    return createStyledElement(
-      'img',
-      null,
-      null,
-      { ...props, className: classes },
-      children
-    );
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _Image = _unstable_createComponent<t.ImageDef>(
+  Components.Image,
+  ({ as = 'img', ...props }) => {
+    const classes = useStyles(styles, props);
+    const elementProps = useElementProps(props, classes.root);
+    return createElement(as, elementProps);
   }
 );
+
+export const Image = createPolymorphicComponent<t.ImageDef>(_Image);
+const styles = createStyle(Components.Image, {
+  root: {},
+});

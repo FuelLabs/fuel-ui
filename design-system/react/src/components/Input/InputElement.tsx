@@ -21,7 +21,7 @@ const InputElement = createComponent<InputElementProps>(
   ({ element, className, children, ...props }) => {
     const { size, ...parentProps } = useInputProps();
     const disabled = parentProps?.isDisabled || parentProps?.isReadOnly;
-    const classes = cx('fuel_input--element', className);
+    const classes = cx('fuel_InputElement', className);
 
     const customChildren = Children.toArray(element || children).map(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -71,10 +71,7 @@ export const InputElementLeft = createComponent<
   InputElementProps,
   InputElementObjProps
 >(({ className, ...props }) => (
-  <InputElement
-    {...props}
-    className={cx('fuel_input-element--left', className)}
-  />
+  <InputElement {...props} className={cx('fuel_InputElementLeft', className)} />
 ));
 
 export const InputElementRight = createComponent<
@@ -83,7 +80,7 @@ export const InputElementRight = createComponent<
 >(({ className, ...props }) => (
   <InputElement
     {...props}
-    className={cx('fuel_input-element--right', className)}
+    className={cx('fuel_InputElementRight', className)}
   />
 ));
 

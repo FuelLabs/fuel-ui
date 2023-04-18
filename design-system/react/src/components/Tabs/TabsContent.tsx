@@ -9,7 +9,7 @@ export type TabsContentProps = TabsPrimitive.TabsContentProps;
 
 export const TabsContent = createComponent<TabsContentProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_tabs--content', className);
+    const classes = cx('fuel_TabsContent', className);
     return createStyledElement(
       TabsPrimitive.Content,
       styles.content,

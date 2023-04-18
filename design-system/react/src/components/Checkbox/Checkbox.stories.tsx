@@ -1,5 +1,5 @@
+import { Stack } from '../Box/Stack';
 import { Form } from '../Form';
-import { Stack } from '../Stack';
 
 import type { CheckboxProps } from './Checkbox';
 import { Checkbox } from './Checkbox';

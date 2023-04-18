@@ -1,14 +1,14 @@
 import { cx } from '@fuel-ui/css';
 
 import { createComponent } from '../../utils';
-import type { FlexProps } from '../Flex';
-import { Flex } from '../Flex';
+import type { FlexProps } from '../Box/Flex';
+import { Flex } from '../Box/Flex';
 
 import * as styles from './styles';
 
 export const CardHeader = createComponent<FlexProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_card--header', className, styles.header());
+    const classes = cx('fuel_CardHeader', className, styles.header());
     const customProps = { ...props, className: classes };
     return (
       <Flex as="header" {...customProps}>

@@ -2,8 +2,10 @@ import { css, cx } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
 
 import type { CardProps } from '..';
-import { useCardListContext, Flex, Card } from '..';
+import { useCardListContext } from '..';
 import { createComponent } from '../../utils';
+import { Flex } from '../Box/Flex';
+import { Card } from '../Card';
 
 export type CardListProps = CardProps & {
   isActive?: boolean;
@@ -14,7 +16,7 @@ export const CardListItem = createComponent<CardListProps>(
   ({ children, className, rightEl, isActive, ...props }) => {
     const { isClickable } = useCardListContext();
     const classes = cx(
-      'fuel_card-list--item',
+      'fuel_CardListItem',
       className,
       styles.root({ isActive, isClickable })
     );
@@ -32,12 +34,12 @@ export const CardListItem = createComponent<CardListProps>(
 
 const styles = {
   root: css({
+    is: ['cardLayer'],
     position: 'relative',
     overflow: 'hidden',
     py: '$3',
     px: '$4',
     gap: '$3',
-    borderColor: 'transparent',
 
     variants: {
       isActive: {

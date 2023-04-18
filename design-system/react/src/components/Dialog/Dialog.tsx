@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { cx } from '@fuel-ui/css';
-import type { ModalAriaProps } from '@react-aria/overlays';
 import { Children, createContext, useContext, useRef } from 'react';
 import type { ReactNode } from 'react';
-import type { AriaDialogProps, AriaOverlayProps } from 'react-aria';
+import type { AriaDialogProps, AriaOverlayProps, ModalAria } from 'react-aria';
 import {
   useOverlay,
   useModal,
@@ -32,7 +31,7 @@ export type DialogContext = {
   state: OverlayTriggerState;
   triggerRef?: React.MutableRefObject<HTMLDivElement | null>;
   overlayProps?: React.HTMLAttributes<HTMLElement>;
-  modalProps?: ModalAriaProps;
+  modalProps?: ModalAria['modalProps'];
   dialogProps?: React.HTMLAttributes<HTMLElement>;
   headingProps?: React.HTMLAttributes<HTMLElement>;
   isBlocked?: boolean;
@@ -76,7 +75,7 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
     usePreventScroll({ isDisabled: !state.isOpen });
     const { modalProps } = useModal();
     const { dialogProps, titleProps } = useReactAriaDialog(props, ref);
-    const classes = cx('fuel_dialog', className);
+    const classes = cx('fuel_Dialog', className);
 
     const ctxProps = {
       ref,

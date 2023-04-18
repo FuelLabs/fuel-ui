@@ -1,5 +1,5 @@
 import { Box } from '../Box';
-import { Stack } from '../Stack';
+import { Stack } from '../Box/Stack';
 
 import type { IconButtonProps } from './IconButton';
 import { IconButton } from './IconButton';

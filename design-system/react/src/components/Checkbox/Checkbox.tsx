@@ -27,7 +27,7 @@ export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
       formControlProps.isReadOnly;
 
     const readonly = isReadOnly || formControlProps.isReadOnly;
-    const classes = cx('fuel_checkbox', className);
+    const classes = cx('fuel_Checkbox', className);
     const indicatorClass = styles.indicator({ disabled });
 
     const customProps = {

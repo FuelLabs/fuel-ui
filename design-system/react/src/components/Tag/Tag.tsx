@@ -87,7 +87,7 @@ export const Tag = createComponent<TagProps, ObjProps>(
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
 
     const classes = cx(
-      'fuel_tag',
+      'fuel_Tag',
       className,
       styles.tag({
         size,

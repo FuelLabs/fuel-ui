@@ -1,23 +1,19 @@
-import { cx } from '@fuel-ui/css';
 import * as AC from '@radix-ui/react-accordion';
+import { createElement } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 
-import * as styles from './styles';
+import type * as t from './defs';
+import { styles } from './styles';
 
-export type AccordionItemProps = AC.AccordionItemProps & {
-  className?: string;
-};
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
-export const AccordionItem = createComponent<AccordionItemProps>(
-  ({ className, children, ...props }) => {
-    const classes = cx('fuel_accordion-item', className);
-    return createStyledElement(
-      AC.AccordionItem,
-      styles.item,
-      null,
-      { ...props, className: classes },
-      children
-    );
+export const AccordionItem = _unstable_createComponent<t.AccordionItemDef>(
+  Components.AccordionItem,
+  (props) => {
+    const classes = useStyles(styles, {}, ['item']);
+    const elementProps = useElementProps(props, classes.item);
+    return createElement(AC.AccordionItem, elementProps);
   }
 );

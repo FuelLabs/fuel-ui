@@ -1,9 +1,9 @@
 import { css } from '@fuel-ui/css';
 
 import { Box } from '../Box';
+import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { Grid } from '../Grid';
-import { Stack } from '../Stack';
 
 import { toast } from './Toast';
 

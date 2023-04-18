@@ -1,5 +1,7 @@
 import { keyframes, css } from '@fuel-ui/css';
 
+import { close } from '../Dialog/styles';
+
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(2px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
@@ -21,19 +23,17 @@ const slideLeftAndFade = keyframes({
 });
 
 export const arrow = css({
-  fill: '$overlayBg',
+  fill: '$borderColor',
 });
 
 export const content = css({
-  borderRadius: '$default',
+  is: ['cardLayer'],
   py: '$4',
   px: '$5',
   pr: '$7',
   fontSize: '$sm',
   lineHeight: 1,
   color: '$gray10',
-  backgroundColor: '$overlayBg',
-  boxShadow: '$sm',
 
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: '400ms',
@@ -54,8 +54,4 @@ export const content = css({
   },
 });
 
-export const closeButton = css({
-  position: 'absolute',
-  top: '$2',
-  right: '$2',
-});
+export const closeButton = css(close);

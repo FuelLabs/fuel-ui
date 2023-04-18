@@ -1,5 +1,7 @@
 import type { BNInput, FormatConfig } from '@fuel-ts/math';
-import { bn, DECIMAL_UNITS, DEFAULT_PRECISION } from '@fuel-ts/math';
+import { bn } from '@fuel-ts/math';
+
+export const DECIMAL_UNITS = 9;
 
 export function formatAmountLeadingZeros(text: string): string {
   const valueWithoutLeadingZeros = text
@@ -25,6 +27,5 @@ export function createAmount(text: string, units: number = DECIMAL_UNITS) {
 }
 
 export function formatAmount(amount: BNInput, opts: FormatConfig = {}) {
-  const { precision = DEFAULT_PRECISION, units = DECIMAL_UNITS } = opts;
-  return bn(amount).format({ precision, units });
+  return bn(amount).format(opts);
 }

@@ -5,7 +5,7 @@ import { mergeProps } from 'react-aria';
 
 import { createComponent, createStyledElement } from '../../utils';
 import { pick } from '../../utils/helpers';
-import type { ButtonBaseProps, ButtonProps } from '../Button/Button';
+import type { ButtonBaseProps, ButtonProps } from '../Button/defs';
 import { Focus } from '../Focus';
 
 import * as styles from './styles';
@@ -20,7 +20,7 @@ function GroupChildren({ children, childrenProps }: GroupChildrenProps) {
     'div',
     styles.root,
     null,
-    { className: cx('fuel_button-group') },
+    { className: cx('fuel_ButtonGroup') },
     (Children.toArray(children) as ReactElement[]).map((child: ReactElement) =>
       cloneElement(child, mergeProps(child.props, childrenProps))
     )

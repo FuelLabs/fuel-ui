@@ -20,8 +20,12 @@ export const item = css({
   height: '$9',
   px: '$3',
   opacity: 0.4,
-  borderRadius: '$default',
   color: '$gray10',
+  fontWeight: 'normal',
+
+  '.fuel_Icon': {
+    color: '$muted',
+  },
 
   '&:not([aria-disabled="true"])': {
     cursor: 'pointer',
@@ -30,11 +34,11 @@ export const item = css({
 
   '&:focus-visible, &:not([aria-disabled="true"]):hover': {
     color: '$gray12',
-    background: '$whiteA5',
+    background: '$gray2',
     outline: 'none',
   },
 
-  [`&:focus-visible .fuel_icon`]: {
+  [`&:focus-visible .fuel_Icon`]: {
     color: '$accent11',
   },
 });

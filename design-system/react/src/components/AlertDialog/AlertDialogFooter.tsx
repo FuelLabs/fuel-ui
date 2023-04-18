@@ -10,7 +10,7 @@ export type AlertDialogFooterProps = HTMLProps['footer'] & {
 
 export const AlertDialogFooter = createComponent<AlertDialogFooterProps>(
   ({ align, className, children, ...props }) => {
-    const classes = cx('fuel_alert-dialog--footer', className);
+    const classes = cx('fuel_AlertDialogFooter', className);
     return createStyledElement(
       'footer',
       styles.footer,

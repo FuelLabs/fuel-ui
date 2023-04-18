@@ -1,7 +1,7 @@
 import { css } from '@fuel-ui/css';
 
 const OUTLINE_COLOR = '$gray4';
-const BORDER_RADIUS = '$md';
+const BORDER_RADIUS = '$default';
 const HIGHLIGHT_COLOR = '$accent11';
 
 export const root = css({
@@ -15,23 +15,21 @@ export const root = css({
 export const list = css({
   flexShrink: 0,
   display: 'flex',
-  borderBottom: `1px solid $borderColor`,
+  px: '$1',
+  mb: '$4',
 });
 
 export const trigger = css({
   is: ['display'],
   all: 'unset',
   position: 'relative',
-  px: '$5',
-  height: '$12',
-  flex: 1,
+  height: '$9',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  textSize: 'base',
+  textSize: 'xl',
   color: '$textColor',
   userSelect: 'none',
-  border: '2px solid transparent',
 
   '&:after': {
     position: 'absolute',
@@ -40,9 +38,13 @@ export const trigger = css({
     bottom: '-3px',
     left: 0,
     w: 'calc($full + 4px)',
-    height: '3px',
+    height: '2px',
     background: 'transparent',
     transform: 'translateX(-2px)',
+  },
+
+  '& ~ &': {
+    ml: '$5',
   },
 
   '&:first-child': {
@@ -53,6 +55,7 @@ export const trigger = css({
   },
   '&:hover': {
     color: HIGHLIGHT_COLOR,
+    cursor: 'pointer',
   },
   '&[data-state="active"]': {
     color: HIGHLIGHT_COLOR,
@@ -69,11 +72,11 @@ export const trigger = css({
 });
 
 export const content = css({
+  mt: '$2',
   flexGrow: 1,
   borderBottomLeftRadius: BORDER_RADIUS,
   borderBottomRightRadius: BORDER_RADIUS,
   outline: 'none',
-  border: '2px solid transparent',
 
   '&:focus-visible': {
     borderColor: OUTLINE_COLOR,

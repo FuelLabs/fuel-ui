@@ -30,7 +30,7 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
 
     const name = `${nameProp}`;
     const disabled = isDisabled || isReadOnly;
-    const classes = cx('fuel_input--field', className);
+    const classes = cx('fuel_InputField', className);
 
     const inputProps = {
       ...props,

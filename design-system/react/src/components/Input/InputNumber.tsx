@@ -41,7 +41,7 @@ export const InputNumber = createComponent<
   const name = `${nameProp}`;
   const disabled = isDisabled || isReadOnly;
   const classes = cx(
-    'fuel_input--amount',
+    'fuel_InputAmount',
     className,
     styles.field({
       isRequired,

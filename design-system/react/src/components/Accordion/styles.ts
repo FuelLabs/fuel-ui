@@ -1,11 +1,7 @@
-import {
-  lightColors,
-  css,
-  darkColors,
-  darkTheme,
-  keyframes,
-  lightTheme,
-} from '@fuel-ui/css';
+import { lightColors, darkColors, keyframes } from '@fuel-ui/css';
+
+import { Components } from '~/defs';
+import { createStyle, darkTheme, lightTheme } from '~/hooks';
 
 const slideDown = keyframes({
   from: { height: 0 },
@@ -17,92 +13,94 @@ const slideUp = keyframes({
   to: { height: 0 },
 });
 
-export const root = css({
-  borderRadius: '$default',
-  maxW: '$full',
-});
-
-export const item = css({
-  overflow: 'hidden',
-  borderTop: '1px solid $bodyColor',
-
-  '&:first-child': {
-    marginTop: 0,
-    borderTopLeftRadius: '$md',
-    borderTopRightRadius: '$md',
+export const styles = createStyle(Components.Accordion, {
+  root: {
+    borderRadius: '$default',
+    maxW: '$full',
   },
+  content: {
+    overflow: 'hidden',
+    background: 'transparent',
+    padding: '$4',
 
-  '&:last-child': {
-    borderBottomLeftRadius: '$md',
-    borderBottomRightRadius: '$md',
+    '&[data-state="open"]': {
+      animation: `${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards`,
+    },
+    '&[data-state="closed"]': {
+      animation: `${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards`,
+    },
   },
+  item: {
+    overflow: 'hidden',
+    borderTop: '1px solid $bodyColor',
 
-  '&:focus-within': {
-    position: 'relative',
-    zIndex: 1,
-  },
+    '& ~ &': {
+      mt: '$2',
+    },
 
-  [`.${darkTheme} &`]: {
-    backgroundColor: '$cardBg',
-  },
-  [`.${darkTheme} &:has(.fuel_accordion-trigger:focus-visible)`]: {
-    outline: `2px solid ${darkColors.gray4}`,
-  },
+    '&:first-child': {
+      marginTop: 0,
+      borderTopLeftRadius: '$md',
+      borderTopRightRadius: '$md',
+    },
 
-  [`.${lightTheme} &`]: {
-    backgroundColor: 'white',
-  },
-  [`.${lightTheme} &:has(.fuel_accordion-trigger:focus-visible)`]: {
-    outline: `2px solid ${lightColors.gray7}`,
-  },
-});
+    '&:last-child': {
+      borderBottomLeftRadius: '$md',
+      borderBottomRightRadius: '$md',
+    },
 
-export const header = css({
-  all: 'unset',
-  display: 'flex',
-});
+    '&:focus-within': {
+      position: 'relative',
+      zIndex: 1,
+    },
 
-export const trigger = css({
-  all: 'unset',
-  fontFamily: '$sans',
-  fontWeight: '$semibold',
-  px: '$4',
-  height: 45,
-  flex: 1,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  borderBottom: '1px solid $bodyColor',
-  textSize: 'base',
-  transition: 'color .2s',
+    [`.${darkTheme.theme} &`]: {
+      backgroundColor: '$cardBg',
+    },
+    [`.${darkTheme.theme} &:has(.fuel_Accordion-trigger:focus-visible)`]: {
+      outline: `2px solid ${darkColors.gray4}`,
+    },
 
-  '&[data-state="closed"]': {
-    color: '$gray12',
+    [`.${lightTheme.theme} &`]: {
+      backgroundColor: 'white',
+    },
+    [`.${lightTheme.theme} &:has(.fuel_Accordion-trigger:focus-visible)`]: {
+      outline: `2px solid ${lightColors.gray7}`,
+    },
   },
-  '&[data-state="open"]': {
-    color: '$accent11',
-  },
-  '&:hover': {
-    color: '$accent11',
-  },
-});
+  trigger: {
+    all: 'unset',
+    is: ['cardLayer'],
+    fontFamily: '$sans',
+    fontWeight: '$semibold',
+    px: '$4',
+    height: 45,
+    flex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    textSize: 'base',
+    transition: 'color .2s',
 
-export const content = css({
-  overflow: 'hidden',
-  background: 'transparent',
-
-  '&[data-state="open"]': {
-    animation: `${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards`,
+    '&[data-state="closed"]': {
+      color: '$gray12',
+    },
+    '&[data-state="open"]': {
+      color: '$accent11',
+    },
+    '&:hover': {
+      color: '$accent11',
+    },
   },
-  '&[data-state="closed"]': {
-    animation: `${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards`,
+  header: {
+    all: 'unset',
+    display: 'flex',
   },
-});
+  icon: {
+    transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
 
-export const chevron = css({
-  transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
-
-  '[data-state="open"] &': {
-    transform: 'rotate(180deg)',
+    '[data-state="open"] &': {
+      transform: 'rotate(180deg)',
+    },
   },
 });

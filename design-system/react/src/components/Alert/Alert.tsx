@@ -1,11 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx } from '@fuel-ui/css';
-import { Children, cloneElement, createContext, useContext } from 'react';
+import {
+  Children,
+  cloneElement,
+  createContext,
+  createElement,
+  useContext,
+} from 'react';
 
-import { createComponent } from '../../utils';
-import type { BoxProps } from '../Box';
+import { _unstable_createComponent } from '../../utils';
 import { Box } from '../Box';
-import { Flex } from '../Flex';
+import { Flex } from '../Box/Flex';
 import type { Icons } from '../Icon';
 import { Icon } from '../Icon';
 
@@ -13,11 +17,14 @@ import { AlertActions } from './AlertActions';
 import { AlertButton } from './AlertButton';
 import { AlertDescription } from './AlertDescription';
 import { AlertTitle } from './AlertTitle';
-import * as styles from './styles';
+import type * as t from './defs';
+import { styles } from './styles';
 
-export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+
 type ContextProps = {
-  status?: AlertStatus;
+  status?: t.AlertStatus;
 };
 
 const ctx = createContext<ContextProps>({});
@@ -25,49 +32,20 @@ export function useAlertProps() {
   return useContext(ctx);
 }
 
-export type AlertProps = BoxProps & {
-  direction?: 'row' | 'column';
-  status?: AlertStatus;
-};
-
-type ObjProps = {
-  id: string;
-  Title: typeof AlertTitle;
-  Description: typeof AlertDescription;
-  Actions: typeof AlertActions;
-  Button: typeof AlertButton;
-};
-
-type IconProps = {
-  icon: Icons;
-};
-
-const STATUS_ICONS: Record<string, IconProps> = {
+const STATUS_ICONS: Record<string, { icon: Icons }> = {
   info: { icon: 'WarningCircle' },
   warning: { icon: 'Warning' },
   success: { icon: 'CheckCircle' },
   error: { icon: 'XCircle' },
 };
 
-export const Alert = createComponent<AlertProps, ObjProps>(
-  ({
-    direction = 'column',
-    status = 'info',
-    children,
-    className,
-    ...props
-  }) => {
-    const classes = cx(
-      'fuel_alert',
-      className,
-      styles.root({ status, direction })
-    );
+export const Alert = _unstable_createComponent<t.AlertDef>(
+  Components.Alert,
+  ({ as = 'div', children, ...props }) => {
+    const classes = useStyles(styles, props);
+    const elementProps = useElementProps(props, classes.root);
+    const { status = 'info' } = props;
 
-    const customProps = {
-      ...props,
-      direction,
-      className: classes,
-    };
     const items = Children.toArray(children).map((child: any) => {
       if (child?.type?.id === 'AlertActions') {
         return cloneElement(child);
@@ -75,16 +53,18 @@ export const Alert = createComponent<AlertProps, ObjProps>(
       return child;
     });
 
-    return (
-      <ctx.Provider value={{ status }}>
-        <Box {...customProps}>
-          <Box className="fuel_alert--icon">
-            <Icon {...STATUS_ICONS[status]} />
-          </Box>
-          <Flex className="fuel_alert--content">{items}</Flex>
+    const element = createElement(
+      as,
+      elementProps,
+      <>
+        <Box className={classes.icon.className}>
+          <Icon {...STATUS_ICONS[status]} />
         </Box>
-      </ctx.Provider>
+        <Flex className={classes.content.className}>{items}</Flex>
+      </>
     );
+
+    return <ctx.Provider value={{ status }}>{element}</ctx.Provider>;
   }
 );
 

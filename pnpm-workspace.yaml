@@ -1,4 +1,5 @@
 packages:
   - 'common/*'
   - 'design-system/*'
+  - 'examples/*'
   - 'stitches/*'
