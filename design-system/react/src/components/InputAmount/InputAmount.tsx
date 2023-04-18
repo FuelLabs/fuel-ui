@@ -9,7 +9,6 @@ import type { FC } from 'react';
 import { Box } from '../Box';
 import { Flex } from '../Box/Flex';
 import { Button } from '../Button';
-import { Flex } from '../Flex';
 import { Icon } from '../Icon';
 import { Image } from '../Image';
 import type { InputProps } from '../Input';
