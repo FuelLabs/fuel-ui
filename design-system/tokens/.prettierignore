@@ -1,8 +1,0 @@
-**/*.template
-.changeset
-.coverage_*
-.github
-coverage
-dist
-node_modules
-pnpm-lock.yaml
