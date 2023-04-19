@@ -12,7 +12,7 @@ import { fClass } from '~/utils/css';
 
 export const Spinner = _unstable_createComponent<t.SpinnerDef>(
   Components.Spinner,
-  ({ size = 24, color = 'accent9', className, ...props }) => {
+  ({ size = 24, color = 'brand', className, ...props }) => {
     const styles = useMemo(() => getStyles(size, color), [size]);
     const classes = cx(fClass(Components.Spinner), className, styles());
     const viewBox = `0 0 ${size} ${size}`;

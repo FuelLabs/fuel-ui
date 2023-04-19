@@ -1,9 +1,35 @@
+import { toCamelCase } from '@fuel-ui/css';
+
 import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
 
+function createVariantStyle(key: string) {
+  const color = `$${toCamelCase(`intents-${key}-11`)}`;
+  const bg = `$${toCamelCase(`intents-${key}-4`)}`;
+  const border = `1px solid $${toCamelCase(`intents-${key}-6`)}`;
+
+  return {
+    bg,
+    color,
+    border,
+
+    '& .fuel_Heading, & .fuel_Icon': {
+      color,
+    },
+
+    '& .fuel_Button': {
+      p: 0,
+      color,
+      fontWeight: '$semibold',
+    },
+  };
+}
+
+const STATUSES = ['info', 'warning', 'success', 'error'];
+
 export const styles = createStyle(Components.Alert, {
   root: {
-    is: ['cardLayer'],
+    layer: 'layer-card',
     padding: '$4',
     position: 'relative',
     display: 'flex',
@@ -22,80 +48,14 @@ export const styles = createStyle(Components.Alert, {
       margin: 0,
     },
 
-    '&:after': {
-      display: 'block',
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '3px',
-      height: '100%',
-      borderTopLeftRadius: '$md',
-      borderBottomLeftRadius: '$md',
-    },
-
     variants: {
       status: {
-        info: {
-          '& .fuel_Heading, & .fuel_Icon': {
-            color: '$blue11',
-          },
-
-          '& .fuel_Button': {
-            p: 0,
-            color: '$blue10',
-            fontWeight: '$semibold',
-          },
-
-          '&:after': {
-            background: '$blue11',
-          },
-        },
-        warning: {
-          '& .fuel_Heading, & .fuel_Icon': {
-            color: '$amber11',
-          },
-
-          '& .fuel_Button': {
-            p: 0,
-            color: '$amber10',
-            fontWeight: '$semibold',
-          },
-
-          '&:after': {
-            background: '$amber11',
-          },
-        },
-        success: {
-          '& .fuel_Heading, & .fuel_Icon': {
-            color: '$green11',
-          },
-
-          '& .fuel_Button': {
-            p: 0,
-            color: '$green10',
-            fontWeight: '$semibold',
-          },
-
-          '&:after': {
-            background: '$green11',
-          },
-        },
-        error: {
-          '& .fuel_Heading, & .fuel_Icon': {
-            color: '$red11',
-          },
-
-          '& .fuel_Button': {
-            p: 0,
-            color: '$red10',
-            fontWeight: '$semibold',
-          },
-
-          '&:after': {
-            background: '$red11',
-          },
-        },
+        ...STATUSES.reduce((obj, status) => {
+          return {
+            ...obj,
+            [status]: createVariantStyle(status),
+          };
+        }, {}),
       },
 
       direction: {

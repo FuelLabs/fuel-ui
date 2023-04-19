@@ -35,9 +35,57 @@ function addPlaceholderCSS(key: string) {
   };
 }
 
-const layerVariants = ['ghost', 'solid', 'outlined', 'link'];
-const layerIntents = ['primary', 'base', 'info', 'warning', 'success', 'error'];
-const inputVariants = ['base', 'disabled', 'error', 'success'];
+function addFocusStyle(key: string) {
+  return {
+    '&:active, &[aria-pressed=true]': {
+      outline: 'none',
+    },
+    '&:not([aria-disabled=true], [data-nohover="true"]):focus-visible': {
+      outline: `2px solid $${key}Focus`,
+      outlineOffset: `1px`,
+    },
+  };
+}
+
+export type LayerVariant = 'solid' | 'ghost' | 'outlined' | 'link';
+export type LayerIntent =
+  | 'primary'
+  | 'base'
+  | 'info'
+  | 'warning'
+  | 'success'
+  | 'error';
+
+export type SemanticLayer =
+  | `layer-${LayerVariant}-${LayerIntent}`
+  | 'layer-card'
+  | 'layer-overlay';
+
+export type InputVariant = 'base' | 'disabled' | 'error' | 'success';
+export type InputLayer = `input-${InputVariant}`;
+
+export const layerVariants = [
+  'ghost',
+  'solid',
+  'outlined',
+  'link',
+] as LayerVariant[];
+
+export const layerIntents = [
+  'primary',
+  'base',
+  'info',
+  'warning',
+  'success',
+  'error',
+] as LayerIntent[];
+
+export const inputVariants = [
+  'base',
+  'disabled',
+  'error',
+  'success',
+] as InputVariant[];
 
 const semanticLayers = layerVariants.reduce((obj, variant) => {
   const next = layerIntents.reduce((innerObj, intent) => {
@@ -47,18 +95,19 @@ const semanticLayers = layerVariants.reduce((obj, variant) => {
       [key]: {
         ...addBaseCSS(key),
         ...addPlaceholderCSS(key),
-
-        '&:hover': {
-          bg: `$${key}HoverBg`,
-          border: `1px solid $${key}HoverBorder`,
-          color: `$${key}HoverColor`,
-        },
+        ...addFocusStyle(key),
 
         '& .fuel_Icon': {
           color: `$${key}Icon`,
         },
 
-        '&:hover .fuel_Icon': {
+        '&:not([aria-disabled=true], [data-nohover="true"]):hover': {
+          bg: `$${key}HoverBg`,
+          border: `1px solid $${key}HoverBorder`,
+          color: `$${key}HoverColor`,
+        },
+
+        '&:not([aria-disabled=true], [data-nohover="true"]):hover .fuel_Icon': {
           color: `$${key}HoverIcon`,
         },
       },
@@ -74,6 +123,7 @@ const inputLayers = inputVariants.reduce((obj, variant) => {
     [key]: {
       ...addBaseCSS(key),
       ...addPlaceholderCSS(key),
+      ...addFocusStyle(key),
 
       '& .fuel_Icon': {
         color: `$${key}Icon`,
@@ -82,23 +132,21 @@ const inputLayers = inputVariants.reduce((obj, variant) => {
   };
 }, {});
 
-const card = {
+const layerCard = {
   background: '$cardBg',
   borderRadius: '$default',
   border: '1px solid $border',
-  boxShadow: '$sm',
 };
 
-const overlay = {
+const layerOverlay = {
   background: '$overlayBg',
   borderRadius: '$default',
   border: '1px solid $border',
-  boxShadow: '$sm',
 };
 
 export const layers = {
   ...semanticLayers,
   ...inputLayers,
-  card,
-  overlay,
+  layerCard,
+  layerOverlay,
 };

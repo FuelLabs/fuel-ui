@@ -24,14 +24,14 @@ export const underlay = css({
         justifyContent: 'flex-start',
 
         '.fuel_DrawerContent': {
-          borderRight: '1px solid $borderColor',
+          borderRight: '1px solid $border',
         },
       },
       right: {
         justifyContent: 'flex-end',
 
         '.fuel_DrawerContent': {
-          borderLeft: '1px solid $borderColor',
+          borderLeft: '1px solid $border',
         },
       },
     },

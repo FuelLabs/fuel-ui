@@ -8,7 +8,7 @@ import type { CreateComponent, HTMLProps } from '~/utils';
 export type HeadingProps = HTMLProps['h1'] & {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | string;
   fontSize?: utils.TextSizes;
-  fontColor?: Colors;
+  color?: Colors;
   iconSize?: number;
   iconColor?: Colors;
   leftIcon?: IconProps['icon'];

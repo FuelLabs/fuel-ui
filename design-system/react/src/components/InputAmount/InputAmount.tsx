@@ -177,10 +177,10 @@ const styles = {
     whiteSpace: 'nowrap',
     fontSize: '$sm',
     fontWeight: '$medium',
-    color: '$gray10',
+    color: '$intentsBase10',
 
     '& > span:first-of-type': {
-      color: '$muted',
+      color: '$textMuted',
     },
   }),
 };

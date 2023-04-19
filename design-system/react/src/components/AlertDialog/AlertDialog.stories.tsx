@@ -13,7 +13,7 @@ export default {
 export const Usage = () => (
   <AlertDialog>
     <AlertDialog.Trigger>
-      <Button color="tomato">Delete</Button>
+      <Button intent="error">Delete</Button>
     </AlertDialog.Trigger>
     <AlertDialog.Content>
       <AlertDialog.Heading>Are you absolutely sure?</AlertDialog.Heading>
@@ -23,12 +23,12 @@ export const Usage = () => (
       </AlertDialog.Description>
       <AlertDialog.Footer>
         <AlertDialog.Cancel>
-          <Button color="gray" variant="ghost">
+          <Button intent="base" variant="ghost">
             Cancel
           </Button>
         </AlertDialog.Cancel>
         <AlertDialog.Action>
-          <Button variant="outlined" color="tomato">
+          <Button variant="outlined" intent="error">
             Confirm
           </Button>
         </AlertDialog.Action>

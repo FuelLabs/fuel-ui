@@ -12,7 +12,7 @@ export const label = css({
   display: 'inline-flex',
   alignItems: 'center',
   gap: '$2',
-  color: '$gray11',
+  color: '$intentsBase11',
   fontWeight: '$medium',
   fontSize: '$base',
 
@@ -22,7 +22,7 @@ export const label = css({
         '&:after': {
           display: 'block',
           content: '*',
-          color: '$accent11',
+          color: '$brand',
         },
       },
     },
@@ -41,6 +41,7 @@ export const helperText = css({
 export const errorMessage = css({
   px: '$1',
   textSize: 'sm',
+  color: '$intentsError9',
 
   '&[aria-hidden=true]': {
     display: 'none',

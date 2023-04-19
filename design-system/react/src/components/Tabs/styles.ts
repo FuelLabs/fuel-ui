@@ -1,13 +1,12 @@
 import { css } from '@fuel-ui/css';
 
-const OUTLINE_COLOR = '$gray4';
+const OUTLINE_COLOR = '$intentsBase4';
 const BORDER_RADIUS = '$default';
-const HIGHLIGHT_COLOR = '$accent11';
+const HIGHLIGHT_COLOR = '$brand';
 
 export const root = css({
   display: 'flex',
   flexDirection: 'column',
-  boxShadow: '$sm',
   borderRadius: BORDER_RADIUS,
   background: '$cardBg',
 });
@@ -20,7 +19,6 @@ export const list = css({
 });
 
 export const trigger = css({
-  is: ['display'],
   all: 'unset',
   position: 'relative',
   height: '$9',
@@ -30,6 +28,8 @@ export const trigger = css({
   textSize: 'xl',
   color: '$textColor',
   userSelect: 'none',
+  fontFamily: '$mono',
+  letterSpacing: '-0.08em',
 
   '&:after': {
     position: 'absolute',
@@ -58,7 +58,7 @@ export const trigger = css({
     cursor: 'pointer',
   },
   '&[data-state="active"]': {
-    color: HIGHLIGHT_COLOR,
+    color: '$gray12',
     borderBottomColor: HIGHLIGHT_COLOR,
 
     '&:after': {

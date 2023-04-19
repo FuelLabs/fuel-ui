@@ -1,27 +1,12 @@
 import { css } from '@fuel-ui/css';
 
-const BG_COLOR = '$inputBg';
-const INPUT_COLOR = '$inputColor';
-const BORDER_COLOR = '$inputBorder';
-const PLACEHOLDER_COLOR = '$inputPlaceholderColor';
-const ADDON_COLOR = '$gray7';
-
 export const input = css({
   is: ['display'],
+  layer: 'input-base',
   display: 'inline-flex',
-  background: BG_COLOR,
-  border: `1px solid ${BORDER_COLOR}`,
-  color: ADDON_COLOR,
   boxSizing: 'content-box',
   borderRadius: '$default',
   overflow: 'hidden',
-
-  [`&:focus-within`]: {
-    borderColor: '$gray6',
-  },
-  '&[aria-disabled=true]:focus-within': {
-    outline: 'none',
-  },
 
   '& > input': {
     border: 'none',
@@ -69,15 +54,13 @@ export const input = css({
 
     disabled: {
       true: {
-        opacity: '0.5',
-        cursor: 'default',
+        layer: 'input-disabled',
       },
     },
 
     invalid: {
       true: {
-        color: '$red8',
-        borderColor: '$red5',
+        layer: 'input-error',
       },
     },
   },
@@ -92,15 +75,8 @@ export const field = css({
   outline: 'none',
   p: '$0',
   flex: 1,
-  color: INPUT_COLOR,
   fontWeight: '$normal',
-
-  '&::placeholder': {
-    color: PLACEHOLDER_COLOR,
-  },
-  '&::-ms-input-placeholder': {
-    color: PLACEHOLDER_COLOR,
-  },
+  color: '$inputBaseColor',
 });
 
 const elementDefinitions = {
@@ -144,8 +120,8 @@ export const element = css({
 
 export const addon = css({
   ...elementDefinitions,
-  color: ADDON_COLOR,
-  fontWeight: '$semibold',
+  color: '$inputBaseIcon',
+  fontWeight: '$normal',
 
   '&[class*="Left"]': {
     pr: '$0',

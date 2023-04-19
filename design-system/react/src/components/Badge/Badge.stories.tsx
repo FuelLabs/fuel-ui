@@ -1,6 +1,9 @@
+import { layerIntents } from '@fuel-ui/css';
+
 import { Text } from '../Text';
 
 import { Badge } from './Badge';
+import type { BadgeProps } from './defs';
 
 export default {
   component: Badge,
@@ -8,10 +11,24 @@ export default {
   argTypes: {},
 };
 
-export const Usage = () => (
+export const Usage = (args: BadgeProps) => (
   <Text fontSize="xs" css={{ display: 'flex', margin: 0, gap: '$2' }}>
-    <Badge>Label</Badge>
-    <Badge variant="solid">Label</Badge>
-    <Badge variant="outlined">Label</Badge>
+    <Badge {...args}>Label</Badge>
+    <Badge {...args} variant="solid">
+      Label
+    </Badge>
+    <Badge {...args} variant="outlined">
+      Label
+    </Badge>
+  </Text>
+);
+
+export const Intents = (args: BadgeProps) => (
+  <Text fontSize="xs" css={{ display: 'flex', margin: 0, gap: '$2' }}>
+    {layerIntents.map((intent) => (
+      <Badge key={intent} {...args} intent={intent}>
+        Label
+      </Badge>
+    ))}
   </Text>
 );

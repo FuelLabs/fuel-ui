@@ -9,7 +9,7 @@ describe('AlertDialog', () => {
     await testA11y(
       <AlertDialog>
         <AlertDialog.Trigger>
-          <Button color="tomato">Delete</Button>
+          <Button intent="error">Delete</Button>
         </AlertDialog.Trigger>
         <AlertDialog.Content>
           <AlertDialog.Heading>Are you absolutely sure?</AlertDialog.Heading>
@@ -19,10 +19,10 @@ describe('AlertDialog', () => {
           </AlertDialog.Description>
           <AlertDialog.Footer>
             <AlertDialog.Cancel>
-              <Button color="gray">Cancel</Button>
+              <Button intent="base">Cancel</Button>
             </AlertDialog.Cancel>
             <AlertDialog.Action>
-              <Button variant="outlined" color="tomato">
+              <Button variant="outlined" intent="error">
                 Confirm
               </Button>
             </AlertDialog.Action>

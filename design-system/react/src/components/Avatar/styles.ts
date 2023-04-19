@@ -10,7 +10,7 @@ export const styles = createStyle(Components.Avatar, {
     overflow: 'hidden',
     userSelect: 'none',
     borderRadius: '$lg',
-    background: '$gray6',
+    background: '$intentsBase6',
 
     variants: {
       size: {

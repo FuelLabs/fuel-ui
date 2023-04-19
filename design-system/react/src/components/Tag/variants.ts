@@ -27,8 +27,4 @@ export const size = {
   },
 };
 
-export const colors = {
-  solid: buttonVariants.getSolidVariants(false),
-  outlined: buttonVariants.getOutlinedVariants(false),
-  ghost: buttonVariants.getGhostVariants(false),
-};
+export const intents = buttonVariants.intents;

@@ -57,7 +57,7 @@ const styles = createStyle(Components.Link, {
     },
 
     '&:focus-visible': {
-      outline: '2px solid $accent11',
+      outline: '2px solid $brand',
       outlineOffset: '1px',
       borderRadius: '$default',
     },
@@ -80,7 +80,7 @@ const styles = createStyle(Components.Link, {
     },
 
     defaultVariants: {
-      color: 'accent11',
+      color: 'brand',
     },
   },
 });

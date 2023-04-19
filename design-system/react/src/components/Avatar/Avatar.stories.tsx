@@ -73,7 +73,7 @@ export const GeneratedFixedBackground = (args: AvatarProps) => (
     <Avatar.Generated
       {...args}
       hash="0x760a9e947de58fbf133a1d0ec97ae9aa18adfe71"
-      background="$gray1"
+      background="$intentsBase1"
     />
   </Box>
 );

@@ -1,6 +1,8 @@
 import { tokens } from '@fuel-ui/design-tokens';
 import * as radixColors from '@radix-ui/colors';
 
+type ColorStep = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type BaseColor = 'gray' | 'accent' | 'crimson' | 'indigo' | 'yellow';
 export type Colors = keyof typeof lightColors;
 
 function fromColors(name: string, rename?: string) {
@@ -11,7 +13,7 @@ function fromColors(name: string, rename?: string) {
       const prop = `${name}${idx}`;
       return [key, tokens.colors[prop]];
     })
-  );
+  ) as Record<`${BaseColor}${ColorStep}`, string>;
 }
 
 export const base = {
@@ -36,8 +38,6 @@ export const lightColors = {
   ...fromColors('yellow'),
 
   bodyColor: '$bodyBg',
-  textColor: '$textActive',
-  overlayBg: '$semanticGhostBaseBg',
 };
 
 export const darkColors = {
@@ -52,8 +52,6 @@ export const darkColors = {
   ...fromColors('yellowDark', 'yellow'),
 
   bodyColor: '$bodyBg',
-  textColor: '$textActive',
-  overlayBg: '$semanticGhostBaseBg',
 };
 
 export type ColorKeys =

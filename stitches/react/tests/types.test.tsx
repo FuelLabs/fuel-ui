@@ -22,7 +22,7 @@ const { css, globalCss, keyframes, styled, theme } = createStitches({
       gray700: 'hsl(206, 10%, 80.0%)',
       gray800: 'hsl(206, 6%, 56.1%)',
       gray900: 'hsl(206, 6%, 43.9%)',
-      pedro: '$gray100',
+      pedro: '$intentsBase100',
     },
     space: {
       1: '10px',
@@ -47,27 +47,27 @@ const { css, globalCss, keyframes, styled, theme } = createStitches({
 
 keyframes({
   from: {
-    color: '$gray100',
+    color: '$intentsBase100',
   },
   to: {
-    color: '$gray900',
+    color: '$intentsBase900',
   },
 });
 
 globalCss({
   body: {
-    backgroundColor: '$gray300',
+    backgroundColor: '$intentsBase300',
     '@bp1': {
-      backgroundColor: '$gray100',
+      backgroundColor: '$intentsBase100',
     },
   },
 });
 
 // const externalStyles: Arg<typeof css> = {
 // 	'@bp1': {
-// 		backgroundColor: '$gray100',
+// 		backgroundColor: '$intentsBase100',
 // 	},
-// 	'backgroundColor': '$gray300',
+// 	'backgroundColor': '$intentsBase300',
 // }
 
 // void externalStyles
@@ -84,10 +84,10 @@ const PotatoButton = styled('button', {
     },
     hue: {
       blue: {
-        backgroundColor: '$gray100',
+        backgroundColor: '$intentsBase100',
       },
       red: {
-        backgroundColor: '$gray100',
+        backgroundColor: '$intentsBase100',
       },
     },
   },
@@ -95,7 +95,7 @@ const PotatoButton = styled('button', {
     {
       hue: 'blue',
       css: {
-        backgroundColor: '$gray200',
+        backgroundColor: '$intentsBase200',
       },
     },
   ],
@@ -111,10 +111,10 @@ const ExtendedButton = styled(PotatoButton, {
     hue: {
       green: {
         width: '$$max',
-        backgroundColor: '$gray100',
+        backgroundColor: '$intentsBase100',
       },
       red: {
-        backgroundColor: '$gray100',
+        backgroundColor: '$intentsBase100',
       },
     },
     love: {
@@ -133,7 +133,7 @@ const ExtendedButton = styled(PotatoButton, {
     {
       hue: 'green',
       css: {
-        backgroundColor: '$gray200',
+        backgroundColor: '$intentsBase200',
       },
     },
   ],
@@ -147,7 +147,7 @@ void function Test() {
   return (
     <PotatoButton
       css={{
-        backgroundColor: '$gray300',
+        backgroundColor: '$intentsBase300',
 
         '@all': {
           backgroundColor: 'initial',

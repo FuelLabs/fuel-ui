@@ -77,7 +77,7 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
       <ctx.Provider value={ctxProps}>
         <Popover
           {...popoverProps}
-          css={{ padding: '$0', ...css }}
+          css={{ padding: '$0', borderColor: 'transparent', ...css }}
           content={menu}
           open={state.isOpen}
           onOpenChange={state.setOpen}

@@ -1,4 +1,4 @@
-import type { ColorKeys } from '@fuel-ui/css';
+import type { LayerIntent, LayerVariant } from '@fuel-ui/css';
 import type { AriaButtonProps } from 'react-aria';
 
 import type { HTMLProps } from '../../utils/types';
@@ -12,8 +12,8 @@ export type ButtonSizes = 'xs' | 'sm' | 'md' | 'lg';
 
 export type ButtonBaseProps = {
   size?: ButtonSizes;
-  color?: ColorKeys;
-  variant?: ButtonVariants;
+  intent?: LayerIntent;
+  variant?: LayerVariant;
   iconSize?: number;
   leftIcon?: IconProps['icon'];
   leftIconAriaLabel?: string;

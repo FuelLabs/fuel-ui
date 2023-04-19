@@ -17,9 +17,9 @@ const customTheme = createTheme('my-theme', {
       accent6: lightColors.indigo6,
       accent7: lightColors.indigo7,
       accent8: lightColors.indigo8,
-      accent9: lightColors.indigo9,
+      brand: lightColors.indigo9,
       accent10: lightColors.indigo10,
-      accent11: lightColors.indigo11,
+      brand: lightColors.indigo11,
       accent12: lightColors.indigo12,
     },
   },
@@ -33,8 +33,8 @@ const customTheme = createTheme('my-theme', {
           variants: {
             color: {
               accent: {
-                color: '$yellow12',
-                backgroundColor: '$yellow9',
+                color: '$intentsWarning12',
+                backgroundColor: '$intentsWarning9',
               },
             },
           },

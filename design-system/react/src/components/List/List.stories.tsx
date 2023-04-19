@@ -34,7 +34,7 @@ export const Ordered = (args: ListProps) => (
 );
 
 export const WithIcon = (args: ListProps) => (
-  <List {...args} icon={Icon.is('Check')} iconColor="accent9">
+  <List {...args} icon={Icon.is('Check')} iconColor="brand">
     <List.Item>First item</List.Item>
     <List.Item>Second item</List.Item>
     <List.Item>Third item</List.Item>

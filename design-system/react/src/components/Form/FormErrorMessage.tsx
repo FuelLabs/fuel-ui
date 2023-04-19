@@ -34,7 +34,7 @@ export const FormErrorMessage = createComponent<
     <Text
       as={as}
       {...customProps}
-      color={color || 'red9'}
+      color={color || 'crimson9'}
       aria-hidden={!parentProps?.isInvalid}
     >
       {children}

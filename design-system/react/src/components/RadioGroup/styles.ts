@@ -1,7 +1,5 @@
 import { css } from '@fuel-ui/css';
 
-import { darkTheme } from '~/hooks';
-
 export const root = css({
   display: 'flex',
 
@@ -20,17 +18,12 @@ export const root = css({
 
 export const item = css({
   all: 'unset',
+  layer: 'input-base',
   position: 'relative',
   cursor: 'pointer',
-  backgroundColor: '$inputBg',
   width: '$6',
   height: '$6',
   borderRadius: '100%',
-  boxShadow: '$sm',
-
-  [`.${darkTheme.theme} &`]: {
-    background: '$inputBg',
-  },
 
   '&:after': {
     position: 'absolute',
@@ -46,11 +39,15 @@ export const item = css({
   },
 
   '&:focus-visible': {
-    borderColor: '$gray5',
+    borderColor: '$intentsBase5',
 
     '&:after': {
-      border: '2px solid $accent5',
+      border: '2px solid $intentsPrimary5',
     },
+  },
+
+  '& .fuel_Icon': {
+    color: 'inherit',
   },
 
   '&[aria-disabled=true]': {
@@ -73,14 +70,14 @@ export const indicator = css({
     width: '9px',
     height: '9px',
     borderRadius: '50%',
-    backgroundColor: '$accent11',
+    backgroundColor: '$brand',
   },
 
   variants: {
     disabled: {
       true: {
         '&:after': {
-          background: '$gray10',
+          background: '$intentsBase10',
         },
       },
     },

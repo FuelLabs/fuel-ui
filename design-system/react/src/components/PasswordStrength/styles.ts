@@ -14,7 +14,7 @@ export const styles = {
     outline: 'none !important',
   }),
   popoverContainer: cssObj({
-    is: ['cardLayer'],
+    layer: 'layer-card',
     px: '$3',
     py: '$3',
     maxW: '230px',
@@ -32,7 +32,7 @@ export const styles = {
       color: '$crimson9',
     },
     '.fuel_Icon[data-error="true"]': {
-      color: '$accent9',
+      color: '$brand',
     },
   }),
   strengthIndicatorContainer: cssObj({
@@ -46,7 +46,7 @@ export const styles = {
     height: '6px',
     width: '$full',
     borderRadius: '$full',
-    backgroundColor: '$gray7',
+    backgroundColor: '$intentsBase7',
   }),
   strengthIndicator: (strengthIndicator: PasswordStrength) =>
     cssObj({
@@ -58,10 +58,10 @@ export const styles = {
           ? '$crimson9'
           : strengthIndicator === 'average'
           ? '$amber9'
-          : '$accent9',
+          : '$brand',
     }),
   rulesHeader: cssObj({
-    color: '$gray12',
+    color: '$intentsBase12',
     pb: '$1',
   }),
   arrow: cssObj({

@@ -62,7 +62,7 @@ export const Usage = (args: IconProps) => (
 //     gridTemplateColumns: "repeat(6, 1fr)",
 //     flexWrap: "wrap",
 //     maxW: "$full",
-//     color: "$gray12",
+//     color: "$intentsBase12",
 //   },
 //   /**
 //    * Icon Wrapper styles
@@ -75,7 +75,7 @@ export const Usage = (args: IconProps) => (
 //     flexDirection: "column",
 //     alignItems: "center",
 //     gap: "$2",
-//     border: "1px solid $gray6",
+//     border: "1px solid $intentsBase6",
 
 //     "&:hover": {
 //       cursor: "pointer",
@@ -90,6 +90,6 @@ export const Usage = (args: IconProps) => (
 //     whiteSpace: "nowrap",
 //     maxW: "$full",
 //     fontSize: "$xs",
-//     color: "$gray10",
+//     color: "$intentsBase10",
 //   },
 // };

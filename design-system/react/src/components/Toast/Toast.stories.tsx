@@ -16,16 +16,16 @@ export default {
 
 export const Usage = () => (
   <Stack gap="$4" direction="row">
-    <Button onPress={() => toast('Just an information')} color="gray">
+    <Button onPress={() => toast('Just an information')} intent="base">
       Show info
     </Button>
     <Button onPress={() => toast.success('Congrats!')}>Show success</Button>
-    <Button onPress={() => toast.error('Ooops, some error')} color="red">
+    <Button onPress={() => toast.error('Ooops, some error')} intent="error">
       Show error
     </Button>
     <Button
       onPress={() => toast('Just an information', { icon: '⚠️' })}
-      color="gray"
+      intent="base"
     >
       Custom Icon
     </Button>
@@ -54,7 +54,7 @@ export const Positions = () => (
         key={pos.value}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onPress={() => toast('Hello world', { position: pos.value as any })}
-        color="gray"
+        intent="base"
       >
         {pos.label}
       </Button>
@@ -64,7 +64,7 @@ export const Positions = () => (
         key={pos.value}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onPress={() => toast('Hello world', { position: pos.value as any })}
-        color="gray"
+        intent="base"
       >
         {pos.label}
       </Button>
@@ -79,7 +79,7 @@ Positions.parameters = {
 export const Custom = () => (
   <Stack gap="$4" direction="row">
     <Button
-      color="gray"
+      intent="base"
       onPress={() =>
         toast.custom(() => <Box className={styles.custom()}>Hello world</Box>)
       }
@@ -98,7 +98,7 @@ const styles = {
     py: '$2',
     px: '$6',
     borderRadius: '$full',
-    backgroundColor: '$accent10',
+    backgroundColor: '$intentsPrimary10',
     color: 'white',
   }),
 };

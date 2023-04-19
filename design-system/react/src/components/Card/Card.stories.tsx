@@ -45,10 +45,10 @@ export const WithFooter = (args: CardProps) => (
         efficitur a sem.
       </Card.Body>
       <Card.Footer gap="$3" direction="row-reverse">
-        <Button size="sm" variant="outlined">
+        <Button size="sm" variant="solid">
           Click
         </Button>
-        <Button size="sm" variant="outlined" color="red">
+        <Button size="sm" variant="ghost" intent="error">
           Cancel
         </Button>
       </Card.Footer>
