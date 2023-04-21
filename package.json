@@ -24,7 +24,7 @@
     "./stitches/*"
   ],
   "scripts": {
-    "build": "turbo run build --filter=!custom-theme --parallel",
+    "build": "turbo run build --filter=!custom-theme",
     "build:storybook": "pnpm build && pnpm --filter=\"@fuel-ui/react\" -r build:storybook",
     "build:watch": "pnpm -r --filter './design-system/*' --parallel build --watch",
     "changeset": "changeset",
