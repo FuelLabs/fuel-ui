@@ -38,6 +38,7 @@
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
     "chroma-js": "^2.4.2",
-    "copy-to-clipboard": "^3.3.3"
+    "copy-to-clipboard": "^3.3.3",
+    "lodash": "^4.17.21"
   }
 }
