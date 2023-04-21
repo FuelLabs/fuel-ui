@@ -32,6 +32,7 @@ export const lightColors = {
 
   ...fromColors('gray'),
   ...fromColors('green', 'accent'),
+  ...fromColors('crimson', 'red'),
   ...fromColors('crimson'),
   ...fromColors('green'),
   ...fromColors('indigo'),
@@ -47,6 +48,7 @@ export const darkColors = {
   ...fromColors('grayDark', 'gray'),
   ...fromColors('greenDark', 'accent'),
   ...fromColors('crimsonDark', 'crimson'),
+  ...fromColors('crimsonDark', 'red'),
   ...fromColors('greenDark', 'green'),
   ...fromColors('indigoDark', 'indigo'),
   ...fromColors('yellowDark', 'yellow'),
