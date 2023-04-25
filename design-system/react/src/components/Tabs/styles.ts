@@ -58,7 +58,7 @@ export const trigger = css({
     cursor: 'pointer',
   },
   '&[data-state="active"]': {
-    color: '$gray12',
+    color: '$intentsBase12',
     borderBottomColor: HIGHLIGHT_COLOR,
 
     '&:after': {

@@ -10,11 +10,11 @@ const { css, globalCss, keyframes } = createStitches({
     colors: {
       hiContrast: 'hsl(200, 12%, 5%)',
       loContrast: 'white',
-      gray100: 'hsl(206, 20%, 98.8%)',
+      intentsBase100: 'hsl(206, 20%, 98.8%)',
       gray200: 'hsl(206, 14%, 96.0%)',
       gray300: 'hsl(206, 13%, 93.7%)',
       gray400: 'hsl(206, 12%, 92.0%)',
-      gray500: 'hsl(206, 12%, 89.5%)',
+      intentsBase500: 'hsl(206, 12%, 89.5%)',
       gray600: 'hsl(206, 11%, 85.2%)',
       gray700: 'hsl(206, 10%, 80.0%)',
       gray800: 'hsl(206, 6%, 56.1%)',

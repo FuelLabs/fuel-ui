@@ -29,7 +29,7 @@ export const styles = {
     },
 
     '.fuel_Icon[data-error="false"]': {
-      color: '$crimson9',
+      color: '$intentsError9',
     },
     '.fuel_Icon[data-error="true"]': {
       color: '$brand',
@@ -55,7 +55,7 @@ export const styles = {
       borderRadius: '$full',
       backgroundColor:
         strengthIndicator === 'weak'
-          ? '$crimson9'
+          ? '$intentsError9'
           : strengthIndicator === 'average'
           ? '$amber9'
           : '$brand',
