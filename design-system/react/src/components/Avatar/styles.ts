@@ -53,7 +53,7 @@ export const styles = createStyle(Components.Avatar, {
     justifyContent: 'center',
     color: '$slate12',
     textSize: 'base',
-    fontWeight: '$semibold',
+    fontWeight: '$normal',
   },
   generated: {
     borderRadius: '$full',

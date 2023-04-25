@@ -13,7 +13,7 @@ export const label = css({
   alignItems: 'center',
   gap: '$2',
   color: '$intentsBase11',
-  fontWeight: '$medium',
+  fontWeight: '$normal',
   fontSize: '$base',
 
   variants: {

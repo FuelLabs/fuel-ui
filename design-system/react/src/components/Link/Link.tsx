@@ -56,7 +56,7 @@ const styles = createStyle(Components.Link, {
     alignItems: 'center',
     gap: '$1',
     textDecoration: 'none',
-    fontWeight: '$medium',
+    fontWeight: '$normal',
 
     '&:hover': {
       textDecoration: 'underline',

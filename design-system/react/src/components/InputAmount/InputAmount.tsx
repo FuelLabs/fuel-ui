@@ -176,7 +176,7 @@ const styles = {
     alignItems: 'center',
     whiteSpace: 'nowrap',
     fontSize: '$sm',
-    fontWeight: '$medium',
+    fontWeight: '$normal',
     color: '$intentsBase10',
 
     '& > span:first-of-type': {

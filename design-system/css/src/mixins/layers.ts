@@ -59,7 +59,8 @@ export type LayerIntent =
 export type SemanticLayer =
   | `layer-${LayerVariant}-${LayerIntent}`
   | 'layer-card'
-  | 'layer-overlay';
+  | 'layer-overlay'
+  | 'layer-dialog';
 
 export type InputVariant = 'base' | 'disabled' | 'error' | 'success';
 export type InputLayer = `input-${InputVariant}`;
@@ -138,15 +139,26 @@ const layerCard = {
   border: '1px solid $border',
 };
 
+const layerDialog = {
+  background: '$dialogBg',
+  borderRadius: '$default',
+  border: '1px solid $border',
+};
+
 const layerOverlay = {
   background: '$overlayBg',
   borderRadius: '$default',
-  border: '1px solid $border',
+  color: '$overlayText',
+
+  '.fuel_Heading, .fuel_Text': {
+    color: '$overlayText',
+  },
 };
 
 export const layers = {
   ...semanticLayers,
   ...inputLayers,
   layerCard,
+  layerDialog,
   layerOverlay,
 };

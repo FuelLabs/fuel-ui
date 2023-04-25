@@ -2,36 +2,38 @@ import { css } from '@fuel-ui/css';
 
 export const root = css({
   all: 'unset',
-  layer: 'input-base',
   cursor: 'pointer',
+  overflow: 'clip',
   position: 'relative',
   width: '$6',
   height: '$6',
-  borderRadius: '$default',
+  borderRadius: '$sm',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   fontSize: '$base',
+  border: '1px solid $border',
+  transition: 'all .2s',
 
   '&:after': {
+    boxSizing: 'content-box',
     position: 'absolute',
     display: 'block',
     content: '""',
     top: 0,
     left: 0,
-    w: 'calc(100%)',
-    height: 'calc(100%)',
-    background: 'transparent',
-    borderRadius: '$default',
-    transform: 'translate(-2px, -2px)',
+    width: '100%',
+    height: '100%',
+    transform: 'translate(-1px, -1px)',
   },
 
   '&:focus-within': {
-    borderColor: '$intentsBase4',
+    outline: '2px solid $intentsBase4',
+  },
 
-    '&:after': {
-      border: '2px solid $intentsBase4',
-    },
+  '&[data-state="checked"]': {
+    background: '$brand',
+    borderColor: '$brand',
   },
 
   '& .fuel_Icon': {
@@ -46,13 +48,9 @@ export const root = css({
 
 export const indicator = css({
   is: ['centered'],
-  color: '$brand',
+  color: '$bodyBg',
 
-  variants: {
-    disabled: {
-      true: {
-        color: '$intentsBase10',
-      },
-    },
+  '&[aria-disabled="true"]': {
+    color: '$intentsBase10',
   },
 });

@@ -85,7 +85,7 @@ const styles = createStyle(Components.Heading, {
     letterSpacing: '-0.02em',
     color: '$intentsBase12',
     fontFamily: '$heading',
-    fontWeight: '$semibold',
+    fontWeight: '$normal',
 
     variants: {
       // FIX: adjust type type

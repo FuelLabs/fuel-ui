@@ -7,7 +7,7 @@ export const content = css({
   position: 'relative',
   minHeight: '100%',
   maxHeight: '100%',
-  background: '$overlayBg',
+  background: '$dialogBg',
   boxShadow: '$lg',
 });
 

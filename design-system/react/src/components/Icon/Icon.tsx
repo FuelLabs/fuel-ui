@@ -25,7 +25,7 @@ export const Icon = _unstable_createComponent<t.IconDef>(
     css,
     alt,
     size,
-    weight,
+    weight = 'regular',
     mirrored,
     ...props
   }) => {

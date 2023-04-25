@@ -57,7 +57,7 @@ export const styles = {
         strengthIndicator === 'weak'
           ? '$intentsError9'
           : strengthIndicator === 'average'
-          ? '$amber9'
+          ? '$intentsWarning9'
           : '$brand',
     }),
   rulesHeader: cssObj({

@@ -72,7 +72,7 @@ export const styles = createStyle(Components.Accordion, {
     all: 'unset',
     layer: 'layer-card',
     fontFamily: '$sans',
-    fontWeight: '$semibold',
+    fontWeight: '$normal',
     px: '$4',
     height: 45,
     flex: 1,

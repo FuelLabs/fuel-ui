@@ -31,7 +31,7 @@ export const overlay = css({
 });
 
 export const content = css({
-  layer: 'layer-overlay',
+  layer: 'layer-dialog',
   display: 'flex',
   flexDirection: 'column',
   position: 'fixed',
@@ -97,6 +97,6 @@ export const close = cssObj({
   padding: '$0',
 
   '.fuel_Icon': {
-    color: '$textIcon',
+    color: '$textInverse',
   },
 });

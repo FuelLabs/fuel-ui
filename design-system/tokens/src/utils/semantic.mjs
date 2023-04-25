@@ -2,11 +2,11 @@ import { createColor } from './helpers.mjs';
 
 function inputColor(name) {
   return {
-    color: createColor(`{intents.base.11}`),
-    placeholder: createColor(`{intents.base.8}`),
-    border: createColor(`{intents.${name}.6}`),
+    color: createColor(`{intents.base.12}`),
+    placeholder: createColor(`{intents.base.10}`),
+    border: createColor(`{intents.${name}.8}`),
     bg: createColor(`{body-bg}`),
-    icon: createColor(`{intents.${name}.6}`),
+    icon: createColor(`{intents.${name}.8}`),
     focus: createColor(`{intents.base.2}`),
   };
 }
@@ -125,10 +125,12 @@ export function createSemantics(isLight) {
   return {
     white: createColor('#ffffff'),
     black: createColor('#000000'),
-    'body-bg': createColor(isLight ? '{scales.gray.1}' : '{black}'),
-    'body-inverse': createColor(isLight ? '{black}' : '{scales.gray.1}'),
+    'body-bg': createColor(isLight ? '{white}' : '{black}'),
+    'body-inverse': createColor(isLight ? '{black}' : '{white}'),
     'card-bg': createColor('{body-bg}'),
-    'overlay-bg': createColor('{scales.gray.1}'),
+    'overlay-bg': createColor('{body-inverse}'),
+    'overlay-text': createColor('{body-bg}'),
+    'dialog-bg': createColor('{intents.base.1}'),
     border: createColor('{scales.gray.6}'),
     brand: createColor('{intents.primary.9}'),
     text: {
@@ -136,7 +138,7 @@ export function createSemantics(isLight) {
       heading: createColor('{intents.base.12}'),
       subtext: createColor('{intents.base.10}'),
       muted: createColor('{intents.base.8}'),
-      icon: createColor('{intents.base.8}'),
+      icon: createColor('{intents.base.11}'),
       inverse: createColor('{intents.base.12}'),
       active: createColor('{intents.base.12}'),
       link: createColor('{intents.primary.8}'),

@@ -20,7 +20,7 @@ function createVariantStyle(key: string) {
     '& .fuel_Button': {
       p: 0,
       color,
-      fontWeight: '$semibold',
+      fontWeight: '$normal',
     },
   };
 }
@@ -43,7 +43,7 @@ export const styles = createStyle(Components.Alert, {
     },
 
     '& .fuel_Heading': {
-      fontWeight: '$bold',
+      fontWeight: '$normal',
       textSize: 'lg',
       margin: 0,
     },
