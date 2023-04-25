@@ -26,6 +26,7 @@ export const ToastProvider = createComponent<ToastProps>(
                     autoFocus
                     size="xs"
                     aria-label="Close"
+                    iconSize={22}
                     icon="XCircle"
                     intent="base"
                     variant="link"
@@ -59,7 +60,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '$4',
-    color: '$textColor',
+    color: '$overlayText',
 
     '& div[role="status"]': {
       m: '0',
@@ -72,7 +73,7 @@ const styles = {
     },
 
     '.fuel_Icon[aria-label="Icon XCircle"]': {
-      color: '$textIcon',
+      color: '$overlayText',
     },
   }),
   closeButton: css({
