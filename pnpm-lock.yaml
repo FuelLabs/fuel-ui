@@ -301,9 +301,6 @@ importers:
       framer-motion:
         specifier: ^10.12.4
         version: 10.12.4(react-dom@18.2.0)(react@18.2.0)
-      jdenticon:
-        specifier: ^3.2.0
-        version: 3.2.0
       phosphor-react:
         specifier: ^1.4.1
         version: 1.4.1(react@18.2.0)
@@ -8235,12 +8232,6 @@ packages:
     resolution: {integrity: sha512-iaIZ8gVrWfemh5DG3T9/YqarVZoYf0r188IjaGwx68j4Pf0SGY6CQkmJUIE+NZHkkecQGohzXmBGEwWDr9aM3Q==}
     dev: true
 
-  /canvas-renderer@2.2.1:
-    resolution: {integrity: sha512-RrBgVL5qCEDIXpJ6NrzyRNoTnXxYarqm/cS/W6ERhUJts5UQtt/XPEosGN3rqUkZ4fjBArlnCbsISJ+KCFnIAg==}
-    dependencies:
-      '@types/node': 18.16.0
-    dev: false
-
   /case-sensitive-paths-webpack-plugin@2.4.0:
     resolution: {integrity: sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==}
     engines: {node: '>=4'}
@@ -11043,14 +11034,6 @@ packages:
       filelist: 1.0.4
       minimatch: 3.1.2
     dev: true
-
-  /jdenticon@3.2.0:
-    resolution: {integrity: sha512-z6Iq3fTODUMSOiR2nNYrqigS6Y0GvdXfyQWrUby7htDHvX7GNEwaWR4hcaL+FmhEgBe08Xkup/BKxXQhDJByPA==}
-    engines: {node: '>=6.4.0'}
-    hasBin: true
-    dependencies:
-      canvas-renderer: 2.2.1
-    dev: false
 
   /jest-axe@7.0.1:
     resolution: {integrity: sha512-1JoEla6gL4rcsTxEWm+VBcWMwOhP3f9w4dH7/YW3H41nU08Dds3gUFqxgdAq/pzBNPpauC3QPr/BuO+0W8eamg==}
