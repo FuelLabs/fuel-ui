@@ -1144,7 +1144,7 @@
       "value": {
         "color": "{intents.base.6}",
         "width": "1px",
-        "style": "dotted"
+        "style": "solid"
       },
       "type": "border"
     },

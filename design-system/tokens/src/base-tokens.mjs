@@ -423,7 +423,7 @@ export const borders = {
   divider: {
     color: '{intents.base.6}',
     width: '1px',
-    style: 'dotted',
+    style: 'solid',
   },
   base: {
     color: '{intents.base.9}',
