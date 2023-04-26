@@ -1,7 +1,3 @@
-import { css, lightColors } from '@fuel-ui/css';
-import { toSvg } from 'jdenticon';
-import { useMemo } from 'react';
-
 const SIZES = {
   xsm: 24,
   sm: 32,
@@ -11,51 +7,36 @@ const SIZES = {
   '2xl': 100,
 };
 
-function getBackgroundColor(
-  backgroundColor?: string,
-  hash?: string
-): string | undefined {
-  if (backgroundColor === 'fuel') return lightColors.brand;
-  if (backgroundColor !== 'random') return backgroundColor;
-  if (!hash) return hash;
+function getFixedGradientDirection(hash: string) {
+  const sum = hash
+    .slice(4, 7)
+    .split('')
+    .reduce((acc, char) => {
+      return acc + char.charCodeAt(0);
+    }, 0);
 
-  const numberHash = [...hash].reduce(
-    (prev, _cur, i) => hash.charCodeAt(i) + ((prev << 5) - prev),
-    0
-  );
-  return [0, 0, 0].reduce(
-    (prev, _v, i) =>
-      `${prev}${`00${((numberHash >> (i * 8)) & 0xff).toString(16)}`.slice(
-        -2
-      )}`,
-    '#'
-  );
+  return `${sum}deg`;
+}
+
+function hashToGradient(hash: string): string {
+  const direction = getFixedGradientDirection(hash);
+  const color1 = hash.slice(4, 10);
+  const color2 = hash.slice(8, 14);
+  const stops = [`#${color1} 0%`, `#${color2} 100%`];
+  return `linear-gradient(${direction}, ${stops.join(', ')})`;
 }
 
 type UseAvatarGeneratedProps = {
-  background?: string;
   hash?: string;
   size: string;
 };
 
-export function useAvatarGenerated({
-  background,
-  hash,
-  size,
-}: UseAvatarGeneratedProps) {
+export function useAvatarGenerated({ hash, size }: UseAvatarGeneratedProps) {
   const totalSize = SIZES[size];
-  const backColor = getBackgroundColor(background, hash);
-  const className = useMemo(
-    () => css({ background: backColor })(),
-    [backColor]
-  );
-  const svgString = toSvg(hash, totalSize, {
-    backColor: 'transparent',
-    padding: 0.15,
-  }).replace('<svg', `<svg class="${className}"`);
+  const background = hashToGradient(hash!);
 
   return {
-    svgString,
+    background,
     totalSize,
   };
 }

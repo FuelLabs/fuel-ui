@@ -56,6 +56,7 @@ export const styles = createStyle(Components.Avatar, {
     fontWeight: '$normal',
   },
   generated: {
+    display: 'inline-block',
     borderRadius: '$full',
     overflow: 'hidden',
   },
