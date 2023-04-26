@@ -4,7 +4,8 @@ import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
 
 function createVariantStyle(key: string) {
-  const color = `$${toCamelCase(`intents-${key}-11`)}`;
+  const color = '$textInverse';
+  const iconColor = `$${toCamelCase(`intents-${key}-11`)}`;
   const bg = `$${toCamelCase(`intents-${key}-4`)}`;
   const border = `1px solid $${toCamelCase(`intents-${key}-6`)}`;
 
@@ -13,8 +14,12 @@ function createVariantStyle(key: string) {
     color,
     border,
 
-    '& .fuel_Heading, & .fuel_Icon': {
+    '& .fuel_Heading': {
       color,
+    },
+
+    '& .fuel_Icon': {
+      color: iconColor,
     },
 
     '& .fuel_Button': {
