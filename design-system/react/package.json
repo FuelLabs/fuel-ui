@@ -30,7 +30,7 @@
     "xstate:typegen": "xstate typegen 'src/**/*.ts?(x)'"
   },
   "dependencies": {
-    "@fuel-ts/math": "^0.39.1",
+    "@fuel-ts/math": "^0.40.0",
     "@fuel-ui/css": "workspace:*",
     "@fuel-ui/test-utils": "workspace:*",
     "@radix-ui/react-accordion": "^1.1.1",
@@ -50,7 +50,7 @@
     "@react-aria/overlays": "^3.14.0",
     "@react-aria/utils": "^3.16.0",
     "@fuel-stitches/react": "workspace:../../stitches/react",
-    "@xstate/react": "^3.2.1",
+    "@xstate/react": "^3.2.2",
     "deepmerge-json": "^1.5.0",
     "framer-motion": "^10.12.4",
     "phosphor-react": "^1.4.1",
@@ -62,7 +62,7 @@
     "react-number-format": "^5.1.4",
     "react-stately": "^3.22.0",
     "react-use": "^17.4.0",
-    "xstate": "^4.37.1",
+    "xstate": "^4.37.2",
     "zustand": "^4.3.7"
   },
   "devDependencies": {
@@ -87,8 +87,8 @@
     "@storybook/types": "^7.0.7",
     "@types/color": "^3.0.3",
     "@types/fs-extra": "^11.0.1",
-    "@types/react": "^18.0.38",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
     "@xstate/cli": "^0.4.2",
     "babel-loader": "^9.1.2",
     "fs-extra": "^11.1.1",
@@ -98,9 +98,9 @@
     "ts-jest": "^29.1.0",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "5.0.4",
-    "vite": "^4.3.1",
+    "vite": "^4.3.3",
     "vite-tsconfig-paths": "^4.2.0",
-    "webpack": "5.80.0",
+    "webpack": "5.81.0",
     "yargs": "^17.7.1"
   },
   "pnpm": {
