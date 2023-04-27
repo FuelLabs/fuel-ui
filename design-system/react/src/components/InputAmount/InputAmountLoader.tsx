@@ -5,7 +5,7 @@ import { ContentLoader } from '../ContentLoader';
 import type { ContentLoaderProps } from '../ContentLoader';
 
 export const InputAmountLoader = (props: ContentLoaderProps) => (
-  <Card>
+  <Card css={{ p: '$0' }}>
     <ContentLoader
       speed={2}
       height={66}
