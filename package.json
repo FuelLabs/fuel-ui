@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "build": "turbo run build --filter=!custom-theme",
-    "build:storybook": "pnpm build && pnpm --filter=\"@fuel-ui/react\" -r build:storybook",
+    "build:storybook": "turbo run build:storybook --filter=!custom-theme",
     "build:watch": "pnpm -r --filter './design-system/*' --parallel build --watch",
     "changeset": "changeset",
     "changeset:release": "changeset publish --no-git-tag",
