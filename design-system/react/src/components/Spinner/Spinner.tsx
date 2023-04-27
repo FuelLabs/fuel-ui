@@ -37,7 +37,10 @@ export const Spinner = _unstable_createComponent<t.SpinnerDef>(
 );
 
 function getStyles(size: number, color: Colors | ColorKeys | string) {
-  const strokeColor = darkColors[color] || darkColors[`${color}`] || color;
+  const strokeColor = String(
+    darkColors[color] || darkColors[`${color}`] || color
+  );
+
   const animation = keyframes({
     '0%': {
       strokeDashoffset: 0.66 * size,
