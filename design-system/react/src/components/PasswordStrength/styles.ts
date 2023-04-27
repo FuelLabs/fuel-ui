@@ -17,11 +17,11 @@ export const styles = {
     layer: 'layer-card',
     px: '$3',
     py: '$3',
-    maxW: '230px',
-    width: '$full',
     flex: 1,
     flexDirection: 'column',
     gap: '$1',
+    background: 'transparent',
+    borderColor: 'transparent',
 
     h5: {
       lineHeight: 1,
