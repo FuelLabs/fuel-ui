@@ -11,7 +11,7 @@ export default {
 
 export const Usage = () => {
   return (
-    <Card css={{ width: 300 }}>
+    <Card css={{ width: 300, padding: '$0' }}>
       <ContentLoader
         speed={2}
         width={300}
