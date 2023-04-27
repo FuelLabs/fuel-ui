@@ -26,8 +26,9 @@ export const ToastProvider = createComponent<ToastProps>(
                     autoFocus
                     size="xs"
                     aria-label="Close"
+                    iconSize={22}
                     icon="XCircle"
-                    color="gray"
+                    intent="base"
                     variant="link"
                     className={styles.closeButton()}
                     onPress={() => toast.dismiss(t.id)}
@@ -53,13 +54,13 @@ const DEFAULT_STYLE = {
 
 const styles = {
   root: css({
-    is: ['overlayLayer'],
+    layer: 'layer-overlay',
     px: '$4',
     py: '$3',
     display: 'flex',
     alignItems: 'center',
     gap: '$4',
-    color: '$gray10',
+    color: '$overlayText',
 
     '& div[role="status"]': {
       m: '0',
@@ -72,7 +73,7 @@ const styles = {
     },
 
     '.fuel_Icon[aria-label="Icon XCircle"]': {
-      color: '$muted',
+      color: '$overlayText',
     },
   }),
   closeButton: css({

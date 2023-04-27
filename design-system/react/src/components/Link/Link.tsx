@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { allColors } from '@fuel-ui/css';
 import { createElement } from 'react';
 import { useLink } from 'react-aria';
 
@@ -17,9 +16,16 @@ import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 const _Link = _unstable_createComponent<t.LinkDef>(
   Components.Link,
-  ({ as = 'a', isExternal, children, ...props }) => {
+  ({ as = 'a', isExternal, children, css, ...props }) => {
     const { linkProps } = useLink(props as any, props.ref as any);
-    const classes = useStyles(styles, props);
+    const classes = useStyles(styles, {
+      ...props,
+      css: {
+        ...css,
+        color: css?.color || '$accent8',
+      },
+    });
+
     const customProps = {
       ...(as !== 'a' ? { role: 'link' } : {}),
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
@@ -36,7 +42,7 @@ const _Link = _unstable_createComponent<t.LinkDef>(
       as,
       elementProps,
       <>
-        {children} {isExternal && <Icon icon="LinkSimple" color="gray8" />}
+        {children} {isExternal && <Icon icon="LinkSimple" color="textIcon" />}
       </>
     );
   }
@@ -50,37 +56,16 @@ const styles = createStyle(Components.Link, {
     alignItems: 'center',
     gap: '$1',
     textDecoration: 'none',
-    fontWeight: '$medium',
+    fontWeight: '$normal',
 
     '&:hover': {
       textDecoration: 'underline',
     },
 
     '&:focus-visible': {
-      outline: '2px solid $accent11',
+      outline: '2px solid $brand',
       outlineOffset: '1px',
       borderRadius: '$default',
-    },
-
-    variants: {
-      // TODO: adjust typings
-
-      color: (allColors as any[]).reduce(
-        (obj, key) => ({
-          ...obj,
-          [key]: {
-            color: `$${key}`,
-            '&:visited': {
-              color: `$${key}`,
-            },
-          },
-        }),
-        {}
-      ),
-    },
-
-    defaultVariants: {
-      color: 'accent11',
     },
   },
 });

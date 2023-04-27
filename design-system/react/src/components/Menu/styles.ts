@@ -1,6 +1,7 @@
 import { css } from '@fuel-ui/css';
 
 export const menu = css({
+  layer: 'layer-card',
   p: '$0',
   py: '$2',
   m: '$0',
@@ -8,7 +9,7 @@ export const menu = css({
   minWidth: '160px',
 
   '&:focus-visible': {
-    outline: '2px solid $gray5',
+    outline: '2px solid $intentsBase5',
   },
 });
 
@@ -20,11 +21,11 @@ export const item = css({
   height: '$9',
   px: '$3',
   opacity: 0.4,
-  color: '$gray10',
+  color: '$intentsBase10',
   fontWeight: 'normal',
 
   '.fuel_Icon': {
-    color: '$muted',
+    color: '$textIcon',
   },
 
   '&:not([aria-disabled="true"])': {
@@ -33,12 +34,12 @@ export const item = css({
   },
 
   '&:focus-visible, &:not([aria-disabled="true"]):hover': {
-    color: '$gray12',
-    background: '$gray2',
+    color: '$intentsBase12',
+    background: '$intentsBase2',
     outline: 'none',
   },
 
   [`&:focus-visible .fuel_Icon`]: {
-    color: '$accent11',
+    color: '$brand',
   },
 });

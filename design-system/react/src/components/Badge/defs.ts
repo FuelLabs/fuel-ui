@@ -1,11 +1,11 @@
-import type { ColorKeys } from '@fuel-ui/css';
+import type { LayerIntent } from '@fuel-ui/css';
 
 import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
 
 export type BadgeVariants = 'solid' | 'outlined' | 'ghost';
 export type BadgeProps = HTMLProps['span'] & {
-  color?: ColorKeys;
+  intent?: LayerIntent;
   variant?: BadgeVariants;
 };
 

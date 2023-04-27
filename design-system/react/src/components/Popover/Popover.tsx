@@ -69,7 +69,8 @@ export const Popover = createComponent<PopoverProps>(
               size="xs"
               aria-label="Close"
               icon="XCircle"
-              color="gray"
+              iconSize={22}
+              intent="base"
               variant="link"
               css={{ padding: '$0' }}
             />

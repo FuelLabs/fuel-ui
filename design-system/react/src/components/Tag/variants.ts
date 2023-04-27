@@ -5,7 +5,7 @@ export const size = {
     gap: '$1',
     px: '$2',
     fontSize: '$xs',
-    fontWeight: '$bold',
+    fontWeight: '$normal',
     height: '$5',
     borderRadius: '$full',
   },
@@ -13,7 +13,7 @@ export const size = {
     gap: '$2',
     px: '$3',
     fontSize: '$sm',
-    fontWeight: '$medium',
+    fontWeight: '$normal',
     height: '$6',
     borderRadius: '$full',
   },
@@ -21,14 +21,10 @@ export const size = {
     gap: '$2',
     px: '$3',
     fontSize: '$base',
-    fontWeight: '$medium',
+    fontWeight: '$normal',
     height: '$8',
     borderRadius: '$full',
   },
 };
 
-export const colors = {
-  solid: buttonVariants.getSolidVariants(false),
-  outlined: buttonVariants.getOutlinedVariants(false),
-  ghost: buttonVariants.getGhostVariants(false),
-};
+export const intents = buttonVariants.intents;

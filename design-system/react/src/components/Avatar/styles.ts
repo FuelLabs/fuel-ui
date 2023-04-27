@@ -10,7 +10,7 @@ export const styles = createStyle(Components.Avatar, {
     overflow: 'hidden',
     userSelect: 'none',
     borderRadius: '$lg',
-    background: '$gray6',
+    background: '$intentsBase6',
 
     variants: {
       size: {
@@ -53,9 +53,10 @@ export const styles = createStyle(Components.Avatar, {
     justifyContent: 'center',
     color: '$slate12',
     textSize: 'base',
-    fontWeight: '$semibold',
+    fontWeight: '$normal',
   },
   generated: {
+    display: 'inline-block',
     borderRadius: '$full',
     overflow: 'hidden',
   },

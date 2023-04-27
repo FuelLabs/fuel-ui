@@ -49,11 +49,11 @@ export const InputPassword = createComponent<InputPasswordProps>(
         <Input.ElementRight
           element={
             <IconButton
-              color="gray"
+              intent="base"
               variant="link"
               icon={
                 showing ? (
-                  <Icon icon="Eye" color="accent11" />
+                  <Icon icon="Eye" color="brand" />
                 ) : (
                   <Icon icon="EyeClosed" color="gray8" />
                 )

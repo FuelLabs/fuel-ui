@@ -22,7 +22,13 @@ export const styles = createStyle(Components.Button, {
 
     variants: {
       size: variants.size,
-      color: variants.colors.solid,
+      intent: {
+        primary: {},
+        base: {},
+        info: {},
+        warning: {},
+        error: {},
+      },
 
       variant: {
         solid: {},
@@ -53,9 +59,10 @@ export const styles = createStyle(Components.Button, {
     },
 
     compoundVariants: [
-      ...variants.colors.outlined,
-      ...variants.colors.ghost,
-      ...variants.colors.link,
+      ...variants.intents.solid,
+      ...variants.intents.outlined,
+      ...variants.intents.ghost,
+      ...variants.intents.link,
 
       /**
        * Sizes when with just icon prop
@@ -92,7 +99,7 @@ export const styles = createStyle(Components.Button, {
 
     defaultVariants: {
       size: 'md',
-      color: 'accent',
+      intent: 'primary',
       variant: 'solid',
       isLink: false,
     },

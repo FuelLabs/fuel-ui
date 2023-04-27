@@ -32,4 +32,6 @@ export function cssObj(opts: ThemeUtilsCSS) {
   return opts;
 }
 
+export type * from './utils';
+export * from './mixins/layers';
 export { utils };

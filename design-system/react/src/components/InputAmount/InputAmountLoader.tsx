@@ -5,12 +5,12 @@ import { ContentLoader } from '../ContentLoader';
 import type { ContentLoaderProps } from '../ContentLoader';
 
 export const InputAmountLoader = (props: ContentLoaderProps) => (
-  <Card>
+  <Card css={{ p: '$0' }}>
     <ContentLoader
       speed={2}
       height={66}
-      backgroundColor={darkColors.gray2}
-      foregroundColor={darkColors.gray3}
+      backgroundColor={darkColors.intentsBase10}
+      foregroundColor={darkColors.intentsBase5}
       {...props}
     >
       <ContentLoader.Rect x="12" y="21" width="100" height="24" rx="4" />

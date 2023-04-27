@@ -33,8 +33,8 @@ const customTheme = createTheme('my-theme', {
           variants: {
             color: {
               accent: {
-                color: '$yellow12',
-                backgroundColor: '$yellow9',
+                color: '$intentsPrimary11',
+                backgroundColor: '$intentsPrimary9',
               },
             },
           },

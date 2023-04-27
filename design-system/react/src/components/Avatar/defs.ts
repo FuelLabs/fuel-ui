@@ -25,7 +25,6 @@ export type AvatarDef = CreateComponent<{
 
 export type AvatarGeneratedProps = Omit<AvatarProps, 'name'> & {
   hash: string;
-  background?: 'fuel' | 'random' | string;
 };
 
 export type AvatarGeneratedDef = CreateComponent<{

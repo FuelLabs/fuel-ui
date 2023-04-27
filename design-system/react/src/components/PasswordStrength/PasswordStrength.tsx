@@ -61,7 +61,7 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
               }
             />
           </Box>
-          <Text fontSize="xs" as="strong" css={styles.rulesHeader}>
+          <Text fontSize="xs" css={styles.rulesHeader}>
             A secure password should have:
           </Text>
           <Stack>
@@ -128,8 +128,8 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
         sideOffset={2}
         contentProps={{
           // this is needed to prevent the input from losing focus
-          onOpenAutoFocus: (e) => e.preventDefault(),
-          onCloseAutoFocus: (e) => e.preventDefault(),
+          onOpenAutoFocus: (e: any) => e.preventDefault(),
+          onCloseAutoFocus: (e: any) => e.preventDefault(),
         }}
         {...props}
       >

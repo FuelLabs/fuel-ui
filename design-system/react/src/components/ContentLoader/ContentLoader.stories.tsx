@@ -16,8 +16,8 @@ export const Usage = () => {
         speed={2}
         width={300}
         height={60}
-        backgroundColor={darkColors.gray2}
-        foregroundColor={darkColors.gray3}
+        backgroundColor={darkColors.intentsBase11}
+        foregroundColor={darkColors.gray6}
       >
         <ContentLoader.Rect x="10" y="10" width="30" height="30" rx="4" />
         <ContentLoader.Rect

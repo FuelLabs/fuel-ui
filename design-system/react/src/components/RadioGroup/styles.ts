@@ -1,7 +1,5 @@
 import { css } from '@fuel-ui/css';
 
-import { darkTheme } from '~/hooks';
-
 export const root = css({
   display: 'flex',
 
@@ -20,17 +18,18 @@ export const root = css({
 
 export const item = css({
   all: 'unset',
-  position: 'relative',
   cursor: 'pointer',
-  backgroundColor: '$inputBg',
-  width: '$6',
-  height: '$6',
-  borderRadius: '100%',
-  boxShadow: '$sm',
-
-  [`.${darkTheme.theme} &`]: {
-    background: '$inputBg',
-  },
+  overflow: 'clip',
+  position: 'relative',
+  width: '$5',
+  height: '$5',
+  borderRadius: '$full',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: '$base',
+  border: '1px solid $border',
+  transition: 'all .2s',
 
   '&:after': {
     position: 'absolute',
@@ -38,19 +37,23 @@ export const item = css({
     content: '""',
     top: 0,
     left: 0,
-    w: 'calc(100%)',
-    height: 'calc(100%)',
-    background: 'transparent',
+    width: '100%',
+    height: '100%',
     borderRadius: '100%',
     transform: 'translate(-2px, -2px)',
   },
 
   '&:focus-visible': {
-    borderColor: '$gray5',
+    outline: '2px solid $intentsBase4',
+  },
 
-    '&:after': {
-      border: '2px solid $accent5',
-    },
+  '&[data-state="checked"]': {
+    background: '$brand',
+    borderColor: '$brand',
+  },
+
+  '& .fuel_Icon': {
+    color: 'inherit',
   },
 
   '&[aria-disabled=true]': {
@@ -70,17 +73,17 @@ export const indicator = css({
   '&::after': {
     content: '""',
     display: 'block',
-    width: '9px',
-    height: '9px',
+    width: '$2',
+    height: '$2',
     borderRadius: '50%',
-    backgroundColor: '$accent11',
+    backgroundColor: '$bodyBg',
   },
 
   variants: {
     disabled: {
       true: {
         '&:after': {
-          background: '$gray10',
+          background: '$intentsBase10',
         },
       },
     },

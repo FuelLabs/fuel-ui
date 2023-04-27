@@ -44,12 +44,12 @@ const styles = {
   base: cssObj({
     is: ['display'],
     px: '$1',
-    color: '$gray7',
+    color: '$intentsBase7',
     background: 'transparent !important',
     borderColor: 'transparent !important',
 
     '&:hover:not([aria-disabled="true"])': {
-      color: '$gray10',
+      color: '$intentsBase10',
     },
     '&[aria-disabled="true"]:focus': {
       outline: 'none',

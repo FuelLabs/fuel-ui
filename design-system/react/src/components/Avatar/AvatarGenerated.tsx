@@ -16,18 +16,15 @@ import { useElementProps, useStyles } from '~/hooks';
 const _AvatarGenerated = _unstable_createComponent<t.AvatarGeneratedDef>(
   Components.AvatarGenerated,
   ({ as = 'div', size = 'md', css, ...props }) => {
-    const { svgString, totalSize } = useAvatarGenerated({ ...props, size });
+    const { background, totalSize } = useAvatarGenerated({ ...props, size });
     const classes = useStyles(
       styles,
-      { css: { ...css, width: totalSize, height: totalSize } },
+      { css: { ...css, width: totalSize, height: totalSize, background } },
       ['generated']
     );
-    const elementProps = useElementProps(props, classes.root, {
-      dangerouslySetInnerHTML: {
-        __html: svgString,
-      },
+    const elementProps = useElementProps(props, classes.generated, {
+      alt: props.alt || 'Fuel Generated Avatar',
     });
-
     return createElement(as, elementProps);
   }
 );

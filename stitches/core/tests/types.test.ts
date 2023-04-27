@@ -10,16 +10,16 @@ const { css, globalCss, keyframes } = createStitches({
     colors: {
       hiContrast: 'hsl(200, 12%, 5%)',
       loContrast: 'white',
-      gray100: 'hsl(206, 20%, 98.8%)',
+      intentsBase100: 'hsl(206, 20%, 98.8%)',
       gray200: 'hsl(206, 14%, 96.0%)',
       gray300: 'hsl(206, 13%, 93.7%)',
       gray400: 'hsl(206, 12%, 92.0%)',
-      gray500: 'hsl(206, 12%, 89.5%)',
+      intentsBase500: 'hsl(206, 12%, 89.5%)',
       gray600: 'hsl(206, 11%, 85.2%)',
       gray700: 'hsl(206, 10%, 80.0%)',
       gray800: 'hsl(206, 6%, 56.1%)',
       gray900: 'hsl(206, 6%, 43.9%)',
-      pedro: '$gray100',
+      pedro: '$intentsBase100',
     },
     space: {
       1: '10px',
@@ -44,19 +44,19 @@ const { css, globalCss, keyframes } = createStitches({
 
 keyframes({
   from: {
-    color: '$gray100',
+    color: '$intentsBase100',
   },
   to: {
-    color: '$gray900',
+    color: '$intentsBase900',
   },
 });
 
 globalCss({
   body: {
     '@bp1': {
-      backgroundColor: '$gray100',
+      backgroundColor: '$intentsBase100',
     },
-    backgroundColor: '$gray300',
+    backgroundColor: '$intentsBase300',
   },
 });
 
@@ -72,10 +72,10 @@ const PotatoButton = css({
     },
     variant: {
       blue: {
-        backgroundColor: '$gray100',
+        backgroundColor: '$intentsBase100',
       },
       red: {
-        backgroundColor: '$gray100',
+        backgroundColor: '$intentsBase100',
       },
     },
   },
@@ -83,7 +83,7 @@ const PotatoButton = css({
     {
       variant: 'blue',
       css: {
-        backgroundColor: '$gray200',
+        backgroundColor: '$intentsBase200',
       },
     },
   ],
@@ -100,10 +100,10 @@ const two = css(PotatoButton, {
     hue: {
       green: {
         width: '$$max',
-        backgroundColor: '$gray100',
+        backgroundColor: '$intentsBase100',
       },
       red: {
-        backgroundColor: '$gray100',
+        backgroundColor: '$intentsBase100',
       },
     },
     love: {
@@ -122,7 +122,7 @@ const two = css(PotatoButton, {
     {
       hue: 'green',
       css: {
-        backgroundColor: '$gray200',
+        backgroundColor: '$intentsBase200',
       },
     },
   ],
@@ -137,7 +137,7 @@ two({
 PotatoButton({
   className: '',
   css: {
-    backgroundColor: '$gray300',
+    backgroundColor: '$intentsBase300',
 
     '@all': {
       backgroundColor: 'initial',
