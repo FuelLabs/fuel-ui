@@ -16,7 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/ci-setup
-      - run: pnpm build
 
       - name: Build Storybook
         run: |
@@ -27,7 +26,7 @@ jobs:
         with:
           clean: true
           branch: gh-pages
-          folder: design-system/react/storybook-static
+          folder: ./design-system/react/storybook-static
 
   release-changesets:
     name: Changesets Release
