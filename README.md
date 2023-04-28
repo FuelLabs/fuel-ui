@@ -1,8 +1,5 @@
 <h1>⚡️ Fuel UI</h1>
 
-[![CI status][github-action-image]][github-action-url]
-[![codecov][codecov-image]][codecov-url]
-
 [github-action-image]: https://github.com/fuellabs/fuel-ui/workflows/%E2%9C%85%20test/badge.svg
 [github-action-url]: https://github.com/fuellabs/fuel-ui/actions?query=workflow%3A%22%E2%9C%85+test%22
 [codecov-image]: https://img.shields.io/codecov/c/github/fuellabs/fuel-ui/master.svg?style=flat-square
@@ -42,6 +39,7 @@ projects and also packages that we're using to build them:
 ┣ 📂 design-system              // design system related packages
 ┃ ┗ 📂 css                     // contain our theme/tokens definitions
 ┃ ┗ 📂 react                   // ui related react components
+┃ ┗ 📂 tokens                  // ui tokens creation scripts (colors, fonts, spaces, themes...)
 ```
 
 All this two folders (`common`, `design-system`) are configured using [PNPM workspaces](https://pnpm.io/workspaces).
