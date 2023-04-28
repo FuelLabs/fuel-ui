@@ -1,0 +1,2 @@
+import{j as m}from"./system-5118686d.js";import{F as a}from"./FuelLogo-8f87df70.js";import"./index-8db94870.js";import"./_commonjsHelpers-042e6b4d.js";const i={component:a,title:"UI/FuelLogo"},o=t=>m(a,{...t});var r,e,s;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:"(args: FuelLogoProps) => <FuelLogo {...args} />",...(s=(e=o.parameters)==null?void 0:e.docs)==null?void 0:s.source}}};const l=["Usage"];export{o as Usage,l as __namedExportsOrder,i as default};
+//# sourceMappingURL=FuelLogo.stories-ae562a7e.js.map

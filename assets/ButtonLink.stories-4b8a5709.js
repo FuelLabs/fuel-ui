@@ -1,0 +1,6 @@
+import{j as c}from"./system-5118686d.js";import{B as n}from"./ButtonLink-3f7c9137.js";import"./index-8db94870.js";import"./_commonjsHelpers-042e6b4d.js";import"./index-2e110d33.js";import"./Button-74374672.js";import"./index-e0df417c.js";import"./extends-98964cd2.js";import"./index.module-3064e7bd.js";import"./index-8ce4a492.js";import"./defs-32db6e6f.js";import"./Spinner-db12658c.js";import"./import-591e5e0f.js";import"./import-b8fa3143.js";const v={component:n,title:"UI/ButtonLink"},r=o=>c(n,{href:"#",...o,children:"Link"}),t=o=>c(n,{href:"https://fuel.sh/",...o,isExternal:!0,variant:"link",children:"Link"});var e,s,i;r.parameters={...r.parameters,docs:{...(e=r.parameters)==null?void 0:e.docs,source:{originalSource:`(args: ButtonLinkProps) => <ButtonLink href="#" {...args}>
+    Link
+  </ButtonLink>`,...(i=(s=r.parameters)==null?void 0:s.docs)==null?void 0:i.source}}};var a,p,m;t.parameters={...t.parameters,docs:{...(a=t.parameters)==null?void 0:a.docs,source:{originalSource:`(args: ButtonLinkProps) => <ButtonLink href="https://fuel.sh/" {...args} isExternal variant="link">
+    Link
+  </ButtonLink>`,...(m=(p=t.parameters)==null?void 0:p.docs)==null?void 0:m.source}}};const P=["Usage","External"];export{t as External,r as Usage,P as __namedExportsOrder,v as default};
+//# sourceMappingURL=ButtonLink.stories-4b8a5709.js.map
