@@ -10,24 +10,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-storybook:
-    name: Build Storybook
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/ci-setup
-
-      - name: Build Storybook
-        run: |
-          pnpm build:storybook
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          clean: true
-          branch: gh-pages
-          folder: ./design-system/react/storybook-static
-
   release-changesets:
     name: Changesets Release
     runs-on: ubuntu-latest
