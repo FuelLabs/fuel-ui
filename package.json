@@ -31,6 +31,7 @@
     "changeset:release": "changeset publish --no-git-tag",
     "changeset:version": "changeset version",
     "changeset:check": "changeset status --since=master",
+    "changeset:next": "node ./scripts/changesets/next.mjs",
     "dev": "turbo run dev --parallel",
     "deps:update": "updates -gu && pnpm -r exec updates -gu",
     "lint:check": "eslint . --ext .ts,.tsx,.js,.jsx",
@@ -44,7 +45,8 @@
     "test:clear": "turbo run test -- --clearCache",
     "test:ci": "pnpm build && turbo run test -- --ci --testLocationInResults --json --coverage",
     "ts:check": "pnpm -r run ts:check",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pr:clean-releases": "./scripts/remove-pr-releases.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
