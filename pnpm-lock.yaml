@@ -221,7 +221,7 @@ importers:
         specifier: workspace:../../stitches/react
         version: link:../../stitches/react
       '@fuel-ui/design-tokens':
-        specifier: workspace:../tokens
+        specifier: workspace:*
         version: link:../tokens
       '@radix-ui/colors':
         specifier: ^0.1.8
