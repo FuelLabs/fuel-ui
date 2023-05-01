@@ -217,9 +217,6 @@ importers:
 
   design-system/css:
     dependencies:
-      '@fuel-stitches/react':
-        specifier: file:../../stitches/react
-        version: file:stitches/react(react@18.2.0)
       '@fuel-ui/design-tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -235,12 +232,13 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@fuel-stitches/react':
+        specifier: workspace:../../stitches/react
+        version: link:../../stitches/react
 
   design-system/react:
     dependencies:
-      '@fuel-stitches/react':
-        specifier: file:../../stitches/react
-        version: file:stitches/react(react@18.2.0)
       '@fuel-ts/math':
         specifier: ^0.40.0
         version: 0.40.0
@@ -344,6 +342,9 @@ importers:
       '@babel/core':
         specifier: ^7.21.4
         version: 7.21.4
+      '@fuel-stitches/react':
+        specifier: workspace:../../stitches/react
+        version: link:../../stitches/react
       '@react-types/button':
         specifier: ^3.7.2
         version: 3.7.2(react@18.2.0)
@@ -15674,18 +15675,4 @@ packages:
     dependencies:
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
-    dev: false
-
-  file:stitches/react(react@18.2.0):
-    resolution: {directory: stitches/react, type: directory}
-    id: file:stitches/react
-    name: '@fuel-stitches/react'
-    version: 0.13.0
-    peerDependencies:
-      react: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      react: 18.2.0
     dev: false
