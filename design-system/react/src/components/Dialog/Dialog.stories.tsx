@@ -25,7 +25,7 @@ export const Usage = (args: DialogProps) => {
         </Dialog.Description>
         <Dialog.Footer>
           <Dialog.Close asChild>
-            <Button color="gray" variant="ghost">
+            <Button intent="base" variant="ghost">
               Close
             </Button>
           </Dialog.Close>

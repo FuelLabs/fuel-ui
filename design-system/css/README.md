@@ -61,7 +61,7 @@ import { css } from '@fuel-ui/css';
 const App = () => <div className={customStyle()}>Hello world</div>;
 
 const customStyle = css({
-  bg: '$gray6',
+  bg: '$intentsBase6',
 });
 ```
 

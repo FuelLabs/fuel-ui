@@ -1,4 +1,4 @@
-import * as variants from './variants';
+import * as buttonVariants from '../Button/variants';
 
 import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
@@ -15,7 +15,7 @@ export const styles = createStyle(Components.Badge, {
     textTransform: 'uppercase',
 
     variants: {
-      color: variants.colors.solid,
+      intent: buttonVariants.intents.solid,
 
       variant: {
         solid: {},
@@ -28,12 +28,13 @@ export const styles = createStyle(Components.Badge, {
       /**
        * Variants imported from button variants
        */
-      ...variants.colors.outlined,
-      ...variants.colors.ghost,
+      ...buttonVariants.intents.solid,
+      ...buttonVariants.intents.outlined,
+      ...buttonVariants.intents.ghost,
     ],
 
     defaultVariants: {
-      color: 'accent',
+      intent: 'primary',
       variant: 'ghost',
     },
   },

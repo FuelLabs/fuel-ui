@@ -65,19 +65,18 @@ export const fonts = {
 };
 
 export const fontSizes = {
-  xs: '0.75rem',
-  sm: '0.875rem',
-  base: '1rem',
-  lg: '1.125rem',
-  xl: '1.25rem',
-  '2xl': '1.5rem',
-  '3xl': '1.875rem',
-  '4xl': '2.25rem',
-  '5xl': '3rem',
-  '6xl': '3.75rem',
-  '7xl': '4.5rem',
-  '8xl': '6rem',
-  '9xl': '8rem',
+  // heading font sizes
+  xs: '0.694rem',
+  sm: '0.833rem',
+  md: '1.2rem',
+  lg: '1.2rem',
+  xl: '1.44rem',
+  '2xl': '1.728rem',
+  '3xl': '2.074rem',
+  '4xl': '2.488rem',
+  '5xl': '2.986rem',
+  '6xl': '3.583rem',
+  '7xl': '4.3rem',
   // heading font sizes
   h1: '$5xl',
   h2: '$4xl',
@@ -127,15 +126,14 @@ export const lineHeights = {
 
 export const radii = {
   none: '0px',
-  xs: '0.125rem',
-  sm: '0.25rem',
-  default: '$md',
-  md: '0.375rem',
-  lg: '0.5rem',
-  xl: '0.75rem',
-  '2xl': '1rem',
-  '3xl': '1.5rem',
+  sm: '4px',
+  md: '6px',
+  lg: '16px',
+  xl: '24px',
+  '2xl': '32px',
+  '3xl': '48px',
   full: '9999px',
+  default: '$md',
 };
 
 export const shadows = {

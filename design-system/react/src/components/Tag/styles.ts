@@ -13,7 +13,7 @@ export const tag = css({
 
   '& button': {
     px: '$0',
-    color: 'inherit',
+    intent: 'inherit',
     opacity: '.6',
 
     '&:hover': {
@@ -23,12 +23,21 @@ export const tag = css({
 
   variants: {
     size: variants.size,
-    color: variants.colors.solid,
+
+    intent: {
+      primary: {},
+      base: {},
+      info: {},
+      warning: {},
+      success: {},
+      error: {},
+    },
 
     variant: {
       solid: {},
-      outlined: {},
       ghost: {},
+      outlined: {},
+      link: {},
     },
 
     disabled: {
@@ -43,13 +52,15 @@ export const tag = css({
     /**
      * Variants imported from button variants
      */
-    ...variants.colors.outlined,
-    ...variants.colors.ghost,
+    ...variants.intents.solid,
+    ...variants.intents.ghost,
+    ...variants.intents.outlined,
+    ...variants.intents.link,
   ],
 
   defaultVariants: {
     size: 'sm',
-    color: 'accent',
+    intent: 'primary',
     variant: 'solid',
   },
 });

@@ -42,7 +42,7 @@ export const Copyable = createComponent<CopyableProps>(
       >
         {children}
         <IconButton
-          color="gray"
+          intent="base"
           tooltip={tooltipMessage}
           onPress={handleCopy}
           variant="link"
@@ -65,6 +65,6 @@ const styles = {
     py: '$3',
     px: '$0',
     height: '$4',
-    color: '$iconColor',
+    color: '$textIcon',
   }),
 };

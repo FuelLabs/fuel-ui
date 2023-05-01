@@ -23,17 +23,16 @@ const slideLeftAndFade = keyframes({
 });
 
 export const arrow = css({
-  fill: '$borderColor',
+  fill: '$overlayBg',
 });
 
 export const content = css({
-  is: ['cardLayer'],
+  layer: 'layer-overlay',
   py: '$4',
   px: '$5',
   pr: '$7',
   fontSize: '$sm',
   lineHeight: 1,
-  color: '$gray10',
 
   '@media (prefers-reduced-motion: no-preference)': {
     animationDuration: '400ms',
@@ -49,7 +48,7 @@ export const content = css({
   },
 
   '&[data-state="open"]:focus-visible': {
-    outline: `2px solid $gray10`,
+    outline: `2px solid $intentsBase10`,
     outlineOffset: '1px',
   },
 });

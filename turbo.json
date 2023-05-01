@@ -2,7 +2,11 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "storybook-static/**"]
+      "cache": false
+    },
+    "build:storybook": {
+      "dependsOn": ["build"],
+      "cache": false
     },
     "test": {
       "dependsOn": []

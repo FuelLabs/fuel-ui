@@ -20,7 +20,7 @@ export const HelperIcon = _unstable_createComponent<t.HelperIconDef>(
       <>
         {children}
         <Tooltip content={props.message}>
-          <Icon icon="Question" aria-label="Helper Icon" color="iconColor" />
+          <Icon icon="Question" aria-label="Helper Icon" color="textIcon" />
         </Tooltip>
       </>
     );

@@ -1,13 +1,14 @@
 import { css } from '@fuel-ui/css';
 
 export const card = css({
-  is: ['cardLayer'],
+  layer: 'layer-card',
+  p: '$7',
 });
 
 export const header = css({
-  p: '$5',
-  py: '$4',
-  borderBottom: '1px solid $borderColor',
+  pb: '$5',
+  mb: '$5',
+  borderBottom: '1px solid $border',
 
   '& .fuel_Heading': {
     margin: 0,
@@ -16,11 +17,10 @@ export const header = css({
 
 export const body = css({
   display: 'block',
-  px: '$5',
-  py: '$4',
 });
 
 export const footer = css({
-  p: '$4',
-  borderTop: '1px solid $borderColor',
+  mt: '$5',
+  pt: '$5',
+  borderTop: '1px solid $border',
 });

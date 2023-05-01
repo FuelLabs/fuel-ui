@@ -22,7 +22,7 @@ const popoverContent = (
     <Heading as="h5" css={{ m: '$0', mb: '$2' }}>
       Some title
     </Heading>
-    <Text css={{ m: '$0', color: '$gray10' }} fontSize="sm">
+    <Text css={{ m: '$0', color: '$intentsBase10' }} fontSize="sm">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nemo ullam
       labore libero necessitatibus harum aliquam voluptas at expedita
     </Text>

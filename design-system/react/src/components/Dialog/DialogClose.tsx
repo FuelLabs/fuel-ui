@@ -53,6 +53,7 @@ export const DialogClose = createComponent<
       css={{ ...styles.close, ...css }}
       className={classes}
       icon={Icon.is('XCircle')}
+      iconSize={22}
       aria-label={props['aria-label'] || 'Close'}
       variant={props.variant || 'link'}
       color={props.color || 'gray'}

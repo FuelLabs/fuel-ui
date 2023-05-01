@@ -46,6 +46,6 @@ export const ListItem = createComponent<ListProps>(
 
 const style = css({
   '&::marker': {
-    color: '$gray6',
+    color: '$intentsBase6',
   },
 });

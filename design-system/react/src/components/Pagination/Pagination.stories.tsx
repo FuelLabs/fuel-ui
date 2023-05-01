@@ -27,7 +27,7 @@ const Template: StoryFn<typeof Pagination> = (args) => (
       <Pagination.Items />
       <Pagination.Next />
     </Pagination>
-    <Text css={{ color: '$muted' }}>
+    <Text css={{ color: '$textMuted' }}>
       Use <code>←</code> and <code>→</code> to focus navigation
     </Text>
   </Stack>

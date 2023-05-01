@@ -25,7 +25,12 @@ export function createIcon(
 ) {
   if (typeof icon === 'string') {
     return (
-      <Icon icon={icon} label={iconAriaLabel} size={iconSize} color={color} />
+      <Icon
+        icon={icon}
+        label={iconAriaLabel}
+        size={iconSize || 20}
+        color={color}
+      />
     );
   }
   return (

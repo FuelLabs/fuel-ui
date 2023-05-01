@@ -1,4 +1,4 @@
-import { colorKeys } from '@fuel-ui/css';
+import { layerIntents } from '@fuel-ui/css';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
@@ -17,9 +17,9 @@ export default {
       defaultValue: 'md',
       control: 'select',
     },
-    color: {
-      options: colorKeys,
-      defaultValue: 'accent',
+    intent: {
+      options: layerIntents,
+      defaultValue: 'primary',
       control: 'select',
     },
     variant: {
@@ -73,10 +73,10 @@ export const Variants = (args: ButtonProps) => (
   </Box>
 );
 
-export const Colors = (args: ButtonProps) => (
+export const intents = (args: ButtonProps) => (
   <Box css={styles.gridList}>
-    {colorKeys.map((color) => (
-      <Button key={color} {...args} color={color}>
+    {layerIntents.map((intent) => (
+      <Button key={intent} {...args} intent={intent}>
         Button
       </Button>
     ))}

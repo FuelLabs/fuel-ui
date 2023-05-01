@@ -26,14 +26,15 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
   ({
     as = 'h2',
     fontSize,
-    fontColor,
-    iconColor = 'iconColor',
+    color = 'textHeading',
+    iconColor = 'textIcon',
     iconSize: initialIconSize,
     leftIcon,
     rightIcon,
     leftIconAriaLabel,
     rightIconAriaLabel,
     children,
+    css,
     ...props
   }) => {
     const iconSize = getIconSize(as, initialIconSize);
@@ -53,9 +54,12 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
     const classes = useStyles(styles, {
       ...props,
       fontSize,
-      fontColor,
       as,
       withIcon,
+      css: {
+        color: `$${color}`,
+        ...css,
+      },
     } as any);
 
     const elementProps = useElementProps(props, classes.root, {
@@ -79,9 +83,9 @@ const styles = createStyle(Components.Heading, {
     mt: '0.5rem',
     mb: '1.25rem',
     letterSpacing: '-0.02em',
-    color: '$gray12',
+    color: '$intentsBase12',
     fontFamily: '$heading',
-    fontWeight: '$semibold',
+    fontWeight: '$normal',
 
     variants: {
       // FIX: adjust type type

@@ -1,3 +1,4 @@
+import type { LayerVariant } from '@fuel-ui/css';
 import { cx } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
 import { Children } from 'react';
@@ -51,13 +52,12 @@ function getChildren({
   );
 }
 
-export type TagVariants = 'solid' | 'outlined' | 'ghost';
 export type TagSizes = 'xs' | 'sm' | 'md';
 
 export type TagProps = HTMLProps['div'] &
   Omit<ButtonBaseProps, 'iconAriaLabel'> & {
     size?: TagSizes;
-    variant?: TagVariants;
+    variant?: LayerVariant;
   };
 
 type ObjProps = {
@@ -68,7 +68,7 @@ export const Tag = createComponent<TagProps, ObjProps>(
   ({
     as = 'span',
     size = 'sm',
-    color = 'accent',
+    intent = 'primary',
     variant = 'solid',
     iconSize: initialIconSize,
     leftIcon,
@@ -93,7 +93,7 @@ export const Tag = createComponent<TagProps, ObjProps>(
         size,
         variant,
         disabled,
-        color,
+        intent,
       })
     );
 

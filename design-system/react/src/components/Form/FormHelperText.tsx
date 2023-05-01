@@ -28,7 +28,7 @@ export const FormHelperText = createComponent<FormHelperTextProps, ObjProps>(
       <Text
         as={as}
         {...customProps}
-        color={color || 'gray9'}
+        color={color || 'intentsBase9'}
         aria-hidden={parentProps?.isInvalid}
       >
         {children}

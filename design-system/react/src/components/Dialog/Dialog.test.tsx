@@ -18,7 +18,7 @@ function Content(props: Omit<DialogProps, 'children'>) {
         </Dialog.Description>
         <Dialog.Footer>
           <Dialog.Close>
-            <Button color="gray">Close</Button>
+            <Button intent="base">Close</Button>
           </Dialog.Close>
         </Dialog.Footer>
       </Dialog.Content>

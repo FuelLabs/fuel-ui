@@ -33,6 +33,7 @@ export const DrawerClose = createComponent<
       {...props}
       css={{ ...styles.close, ...css }}
       icon={props.icon || Icon.is('XCircle')}
+      iconSize={22}
       aria-label={props['aria-label'] || 'Close'}
       variant={props.variant || 'link'}
       color={props.color || 'gray'}

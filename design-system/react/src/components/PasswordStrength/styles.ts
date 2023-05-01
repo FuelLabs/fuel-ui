@@ -14,14 +14,14 @@ export const styles = {
     outline: 'none !important',
   }),
   popoverContainer: cssObj({
-    is: ['cardLayer'],
+    layer: 'layer-card',
     px: '$3',
     py: '$3',
-    maxW: '230px',
-    width: '$full',
     flex: 1,
     flexDirection: 'column',
     gap: '$1',
+    background: 'transparent',
+    borderColor: 'transparent',
 
     h5: {
       lineHeight: 1,
@@ -29,10 +29,10 @@ export const styles = {
     },
 
     '.fuel_Icon[data-error="false"]': {
-      color: '$crimson9',
+      color: '$intentsError9',
     },
     '.fuel_Icon[data-error="true"]': {
-      color: '$accent9',
+      color: '$brand',
     },
   }),
   strengthIndicatorContainer: cssObj({
@@ -46,7 +46,7 @@ export const styles = {
     height: '6px',
     width: '$full',
     borderRadius: '$full',
-    backgroundColor: '$gray7',
+    backgroundColor: '$intentsBase7',
   }),
   strengthIndicator: (strengthIndicator: PasswordStrength) =>
     cssObj({
@@ -55,13 +55,13 @@ export const styles = {
       borderRadius: '$full',
       backgroundColor:
         strengthIndicator === 'weak'
-          ? '$crimson9'
+          ? '$intentsError9'
           : strengthIndicator === 'average'
-          ? '$amber9'
-          : '$accent9',
+          ? '$intentsWarning9'
+          : '$brand',
     }),
   rulesHeader: cssObj({
-    color: '$gray12',
+    color: '$intentsBase12',
     pb: '$1',
   }),
   arrow: cssObj({

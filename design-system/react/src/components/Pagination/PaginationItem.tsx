@@ -44,16 +44,16 @@ const styles = {
   base: cssObj({
     is: ['display'],
     '&:not([data-selected="true"])': {
-      color: '$gray10',
+      color: '$intentsBase10',
     },
     '&[data-variant="solid"]:not([data-selected="true"])': {
-      background: '$gray3',
+      background: '$intentsBase3',
     },
     '&[data-variant="outlined"]:not([data-selected="true"])': {
-      borderColor: '$gray3',
+      borderColor: '$intentsBase3',
     },
     '&[data-variant="ghost"]:not([data-selected="true"])': {
-      background: '$gray3',
+      background: '$intentsBase3',
     },
     '&[aria-disabled="true"]': {
       background: 'transparent !important',

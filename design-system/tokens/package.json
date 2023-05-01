@@ -1,0 +1,44 @@
+{
+  "name": "@fuel-ui/design-tokens",
+  "version": "0.14.1",
+  "description": "Scripts used to generate our design tokens",
+  "license": "Apache-2",
+  "main": "./lib/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "typings": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "./dist/index.js",
+        "default": "./dist/index.mjs"
+      }
+    },
+    "files": [
+      "dist"
+    ]
+  },
+  "scripts": {
+    "lint:check": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "pnpm lint:check --fix",
+    "lint": "run-s lint:check prettier:check",
+    "prettier:check": "prettier --check .",
+    "prettier:format": "prettier --write .",
+    "copy-set": "node src/copy-set.mjs",
+    "copy-set:global": "node src/copy-set.mjs --global",
+    "copy-set:radix": "node src/copy-set.mjs --radix",
+    "copy-set:dark": "node src/copy-set.mjs --dark",
+    "copy-set:light": "node src/copy-set.mjs --light",
+    "ts:check": "tsc --noEmit",
+    "build-tokens": "node ./src/build.mjs",
+    "build": "pnpm build-tokens && tsup --dts"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^0.1.8",
+    "chroma-js": "^2.4.2",
+    "copy-to-clipboard": "^3.3.3",
+    "lodash": "^4.17.21"
+  }
+}

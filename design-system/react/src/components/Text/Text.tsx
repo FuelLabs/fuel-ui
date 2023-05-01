@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { allColors, utils } from '@fuel-ui/css';
+import { utils } from '@fuel-ui/css';
 import { createElement } from 'react';
 
 import {
@@ -20,11 +20,13 @@ const _Text = _unstable_createComponent<t.TextDef>(
     as = 'p',
     children,
     iconSize = 16,
-    iconColor = 'iconColor',
+    iconColor = 'textIcon',
     leftIcon,
     rightIcon,
     leftIconAriaLabel,
     rightIconAriaLabel,
+    css,
+    color = 'textColor',
     ...props
   }) => {
     const iconLeft = createIcon(
@@ -40,7 +42,14 @@ const _Text = _unstable_createComponent<t.TextDef>(
       iconColor
     );
     const withIcon = Boolean(leftIcon || rightIcon);
-    const classes = useStyles(styles, { ...props, withIcon } as any);
+    const classes = useStyles(styles, {
+      ...props,
+      withIcon,
+      css: {
+        color: `$${color}`,
+        ...css,
+      },
+    } as any);
     const elementProps = useElementProps(props, classes.root);
     const customChildren = (
       <>
@@ -61,11 +70,6 @@ const styles = createStyle(Components.Text, {
         (obj, key) => ({ ...obj, [key]: { textSize: key } }),
         {}
       ),
-      // TODO: adjust typings
-      color: (allColors as any[]).reduce(
-        (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
-        {}
-      ),
       withIcon: {
         true: {
           display: 'inline-flex',
@@ -76,7 +80,6 @@ const styles = createStyle(Components.Text, {
 
     defaultVariants: {
       fontSize: 'base',
-      color: 'textColor',
     },
   },
 });

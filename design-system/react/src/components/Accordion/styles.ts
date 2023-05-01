@@ -70,9 +70,9 @@ export const styles = createStyle(Components.Accordion, {
   },
   trigger: {
     all: 'unset',
-    is: ['cardLayer'],
+    layer: 'layer-card',
     fontFamily: '$sans',
-    fontWeight: '$semibold',
+    fontWeight: '$normal',
     px: '$4',
     height: 45,
     flex: 1,
@@ -83,13 +83,13 @@ export const styles = createStyle(Components.Accordion, {
     transition: 'color .2s',
 
     '&[data-state="closed"]': {
-      color: '$gray12',
+      color: '$intentsBase12',
     },
     '&[data-state="open"]': {
-      color: '$accent11',
+      color: '$brand',
     },
     '&:hover': {
-      color: '$accent11',
+      color: '$brand',
     },
   },
   header: {

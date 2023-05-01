@@ -12,7 +12,7 @@ describe('Tokens', () => {
 
     globalCss({
       article: {
-        color: '$red',
+        color: '$intentsError',
       },
     })();
 
@@ -36,7 +36,7 @@ describe('Tokens', () => {
 
     globalCss({
       article: {
-        boxShadow: '0 0 0 1px $red',
+        boxShadow: '0 0 0 1px $intentsError',
       },
     })();
 
@@ -54,14 +54,14 @@ describe('Tokens', () => {
       theme: {
         colors: {
           red: 'tomato',
-          red500: '$red',
+          red500: '$intentsError',
         },
       },
     });
 
     globalCss({
       article: {
-        color: '$red500',
+        color: '$intentsError500',
       },
     })();
 
@@ -79,15 +79,15 @@ describe('Tokens', () => {
       theme: {
         shadows: {
           red: 'tomato',
-          red500: '$red',
-          redUnique: '$$red',
+          red500: '$intentsError',
+          redUnique: '$$intentsError',
         },
       },
     });
 
     globalCss({
       article: {
-        boxShadow: '0 0 0 1px $red500',
+        boxShadow: '0 0 0 1px $intentsError500',
       },
     })();
 
@@ -112,7 +112,7 @@ describe('Tokens', () => {
 
     globalCss({
       article: {
-        boxShadow: '0 0 0 1px $colors$red',
+        boxShadow: '0 0 0 1px $colors$intentsError',
       },
     })();
 
@@ -137,7 +137,7 @@ describe('Tokens', () => {
 
     globalCss({
       article: {
-        boxShadow: '0 0 0 1px $colors$red',
+        boxShadow: '0 0 0 1px $colors$intentsError',
       },
     })();
 

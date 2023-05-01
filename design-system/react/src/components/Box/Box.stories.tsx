@@ -22,17 +22,17 @@ export const Usage = (args: BoxProps) => {
 
 export const Flex = (args: FlexProps) => (
   <Box.Flex {...args} gap="$4">
-    <Box css={{ background: '$gray7' }}>&nbsp;</Box>
-    <Box css={{ background: '$gray7' }}>&nbsp;</Box>
+    <Box css={{ background: '$intentsBase7' }}>&nbsp;</Box>
+    <Box css={{ background: '$intentsBase7' }}>&nbsp;</Box>
   </Box.Flex>
 );
 
 export const Stack = (args: StackProps) => (
   <Box.Stack {...args}>
-    <Box css={{ background: '$gray7' }}>&nbsp;</Box>
-    <Box css={{ background: '$gray7' }}>&nbsp;</Box>
-    <Box css={{ background: '$gray7' }}>&nbsp;</Box>
-    <Box css={{ background: '$gray7' }}>&nbsp;</Box>
+    <Box css={{ background: '$intentsBase7' }}>&nbsp;</Box>
+    <Box css={{ background: '$intentsBase7' }}>&nbsp;</Box>
+    <Box css={{ background: '$intentsBase7' }}>&nbsp;</Box>
+    <Box css={{ background: '$intentsBase7' }}>&nbsp;</Box>
   </Box.Stack>
 );
 

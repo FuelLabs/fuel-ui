@@ -34,7 +34,7 @@ export const CardListItem = createComponent<CardListProps>(
 
 const styles = {
   root: css({
-    is: ['cardLayer'],
+    layer: 'layer-card',
     position: 'relative',
     overflow: 'hidden',
     py: '$3',
@@ -52,7 +52,7 @@ const styles = {
             left: 0,
             width: '3px',
             height: '100%',
-            background: '$accent11',
+            background: '$brand',
           },
         },
       },

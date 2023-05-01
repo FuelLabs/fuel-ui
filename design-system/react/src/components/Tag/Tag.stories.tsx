@@ -1,4 +1,4 @@
-import { colorKeys } from '@fuel-ui/css';
+import { layerIntents } from '@fuel-ui/css';
 
 import { Box } from '../Box';
 import { Icon } from '../Icon';
@@ -15,8 +15,8 @@ export default {
       defaultValue: 'sm',
       control: 'select',
     },
-    color: {
-      options: colorKeys,
+    intent: {
+      options: layerIntents,
       defaultValue: 'accent',
       control: 'select',
     },
@@ -63,10 +63,10 @@ export const Variants = (args: TagProps) => (
   </Box>
 );
 
-export const Colors = (args: TagProps) => (
+export const Intents = (args: TagProps) => (
   <Box css={styles.gridList}>
-    {colorKeys.map((color) => (
-      <Tag key={color} {...args} color={color}>
+    {layerIntents.map((intent) => (
+      <Tag key={intent} {...args} intent={intent}>
         Label
       </Tag>
     ))}

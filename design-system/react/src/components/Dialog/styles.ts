@@ -31,7 +31,7 @@ export const overlay = css({
 });
 
 export const content = css({
-  is: ['overlayLayer'],
+  layer: 'layer-dialog',
   display: 'flex',
   flexDirection: 'column',
   position: 'fixed',
@@ -54,16 +54,16 @@ export const content = css({
 export const heading = css({
   p: '$4',
   m: '$0',
-  color: '$gray12',
+  color: '$intentsBase12',
   fontFamily: '$heading',
   fontSize: '$xl',
-  borderBottom: '1px solid $borderColor',
+  borderBottom: '1px solid $border',
 });
 
 export const description = css({
   p: '$4',
   my: '$0',
-  color: '$gray10',
+  color: '$intentsBase10',
   textSize: 'base',
 });
 
@@ -72,7 +72,7 @@ export const footer = css({
   gap: '$3',
   mt: '$2',
   p: '$4',
-  borderTop: '1px solid $borderColor',
+  borderTop: '1px solid $border',
 
   variants: {
     align: {
@@ -97,6 +97,6 @@ export const close = cssObj({
   padding: '$0',
 
   '.fuel_Icon': {
-    color: '$muted',
+    color: '$textInverse',
   },
 });

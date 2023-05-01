@@ -20,6 +20,7 @@ import { DialogDescription } from './DialogDescription';
 import { DialogFooter } from './DialogFooter';
 import { DialogHeading } from './DialogHeading';
 import { DialogTrigger } from './DialogTrigger';
+import * as styles from './styles';
 
 import { createComponent, createStyledElement } from '~/utils';
 
@@ -90,7 +91,10 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
     const customChildren = Children.toArray(children).map((child: any) => {
       if (child?.type.id === 'DialogContent') {
         return (
-          <OverlayContainer key={child?.type.id}>
+          <OverlayContainer
+            key={child?.type.id}
+            {...(state.isOpen && { className: styles.overlay() })}
+          >
             {state.isOpen && <>{child}</>}
           </OverlayContainer>
         );

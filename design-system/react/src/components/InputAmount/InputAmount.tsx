@@ -96,8 +96,10 @@ export const InputAmount: InputAmountComponent = ({
 
   return (
     <Input size="lg" css={styles.input} {...props}>
-      <Text css={styles.heading}>Amount</Text>
-      <Flex align="center">
+      <Text color="intentsBase9" css={styles.heading}>
+        Amount
+      </Text>
+      <Flex align="center" css={styles.secondRow}>
         <Input.Number
           autoComplete="off"
           inputMode="decimal"
@@ -122,11 +124,12 @@ export const InputAmount: InputAmountComponent = ({
                 <Flex align="center">
                   <Button
                     aria-label="Max"
-                    variant="ghost"
+                    variant="solid"
+                    intent="primary"
                     onPress={handleSetBalance}
                     css={styles.maxButton}
                   >
-                    Max
+                    MAX
                   </Button>
                 </Flex>
               )}
@@ -134,12 +137,21 @@ export const InputAmount: InputAmountComponent = ({
                 <Button
                   size="xs"
                   aria-label="Coin Selector"
+                  variant="outlined"
+                  intent="base"
                   css={styles.assetButton}
                   onPress={onClickAsset}
                 >
                   {tokenImage(asset.name, asset.imageUrl)}
-                  {asset.name}
-                  <Icon icon="CaretDown" size="10" />
+                  <Text fontSize="xs" color="intentsBase12">
+                    {asset.name}
+                  </Text>
+                  <Icon
+                    icon="CaretDown"
+                    size="10"
+                    color="intentsBase12"
+                    css={{ color: '$intentsBase12 !important' }}
+                  />
                 </Button>
               )}
             </Box>
@@ -149,12 +161,16 @@ export const InputAmount: InputAmountComponent = ({
       {!hiddenBalance && (
         <Flex
           as="div"
-          css={styles.balance}
+          css={styles.balanceContainer}
           aria-label={`Balance: ${formattedBalance}`}
         >
-          <Box as="span">Balance: </Box>
+          <Box as="span" css={styles.balance}>
+            Balance:{' '}
+          </Box>
           <Tooltip content={formatAmount(balance, formatOpts)} sideOffset={-5}>
-            <Box as="span">{formattedBalance}</Box>
+            <Box as="span" css={styles.balance}>
+              {formattedBalance}
+            </Box>
           </Tooltip>
         </Flex>
       )}
@@ -172,13 +188,14 @@ const styles = {
     height: '80px',
     display: 'flex',
     flexDirection: 'column',
-    alignContent: 'space-between',
+    flexWrap: 'wrap',
 
     input: {
       is: ['display'],
       width: '100%',
       boxSizing: 'border-box',
-      fontSize: '$xs',
+      fontSize: '$sm',
+      fontFamily: '$mono',
     },
 
     'input, .fuel_input-element--right': {
@@ -186,10 +203,14 @@ const styles = {
     },
   }),
   heading: cssObj({
-    marginTop: '$2',
-    marginBottom: '$2',
+    mt: '$3',
+    mb: '$1',
     fontSize: '$xs',
     lineHeight: '$tight',
+  }),
+  secondRow: cssObj({
+    width: '100%',
+    height: '24px',
   }),
   elementRight: cssObj({
     maxHeight: '100%',
@@ -204,30 +225,27 @@ const styles = {
     width: '24px',
     height: '16px',
     borderRadius: '3px',
-    fontSize: '$xs',
+    fontSize: '8px',
+    fontFamily: '$mono',
   }),
   assetButton: cssObj({
-    background: '$blackA12',
-    color: '$gray9',
     height: '24px',
     width: '72px',
     marginLeft: '$2',
     borderRadius: '$md',
   }),
-  balance: cssObj({
+  balanceContainer: cssObj({
     gap: '$1',
     alignItems: 'center',
     whiteSpace: 'nowrap',
-    fontSize: 'xx-small',
-    fontWeight: '$medium',
-    color: '$gray10',
     lineHeight: '$tight',
-    marginTop: '$1',
-    marginBottom: '$1',
-
-    '& > span:first-of-type': {
-      color: '$muted',
-    },
+    fontSize: '8px',
+    fontWeight: '$normal',
+    mt: '$1',
+  }),
+  balance: cssObj({
+    fontFamily: '$mono',
+    color: '$intentsBase9',
   }),
   image: cssObj({ borderRadius: '50%' }),
 };
