@@ -49,7 +49,6 @@
     "@react-aria/focus": "^3.12.0",
     "@react-aria/overlays": "^3.14.0",
     "@react-aria/utils": "^3.16.0",
-    "@fuel-stitches/react": "workspace:../../stitches/react",
     "@xstate/react": "^3.2.2",
     "deepmerge-json": "^1.5.0",
     "framer-motion": "^10.12.4",
@@ -67,6 +66,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
+    "@fuel-stitches/react": "workspace:../../stitches/react",
     "@react-types/button": "^3.7.2",
     "@react-types/shared": "^3.18.0",
     "@storybook/addon-a11y": "^7.0.7",
