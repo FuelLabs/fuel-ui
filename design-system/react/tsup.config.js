@@ -7,5 +7,4 @@ import baseConfig from '../../common/config/tsup';
 export default defineConfig((options) => ({
   ...baseConfig(options, { withReact: true }),
   entry: ['src/index.tsx'],
-  noExternal: ['@fuel-stitches/react'],
 }));
