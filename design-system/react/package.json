@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/react",
-  "version": "0.14.1",
+  "version": "0.14.2",
   "main": "./src/index.tsx",
   "publishConfig": {
     "access": "public",
