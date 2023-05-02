@@ -27,16 +27,3 @@ runs:
       with:
         version: ${{ inputs.pnpm-version }}
         run_install: true
-
-    - name: Configure npm
-      run: |
-        cat << EOF > "$HOME/.npmrc"
-          //registry.npmjs.org/:_authToken=$NPM_TOKEN
-        EOF
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-    - name: Ensure NPM access
-      run: npm whoami
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
