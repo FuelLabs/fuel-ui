@@ -11,6 +11,7 @@ import mm from 'micromatch';
 import minimist from 'minimist';
 import { createRequire } from 'module';
 import { dirname } from 'path';
+import semver from 'semver';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -26,22 +27,13 @@ async function getAllPackages() {
   return mm.not(pkgNames, ignored);
 }
 
-async function main() {
-  if (!argv.pr) {
-    console.log('Please specify a PR number with --pr');
-    process.exit(1);
-  }
-
-  const prNumber = argv.pr;
-  const pattern = `-pr-${prNumber}-[a-f0-9]*`;
+async function deletePackageVersions(filterFn) {
   const packages = await getAllPackages();
 
   for (const pkg of packages) {
     const response = await fetch(`https://registry.npmjs.org/${pkg}`);
     const { versions } = await response.json();
-    const filtered = Object.keys(versions).filter((version) =>
-      new RegExp(pattern).test(version)
-    );
+    const filtered = Object.keys(versions).filter(filterFn);
 
     // Check if filteredVersions contains any matching versions
     if (filtered.length > 0) {
@@ -56,6 +48,7 @@ async function main() {
           await $`npm view ${fullPackageName} version`;
 
         if (packageVersion) {
+          console.log(`Unpublishing ${fullPackageName}`);
           const { stdout } = await $`npm unpublish ${fullPackageName} --force`;
           console.log(stdout);
         }
@@ -65,6 +58,34 @@ async function main() {
         `No versions match the specified pattern for package ${pkg}.`
       );
     }
+  }
+}
+
+async function cleanPr(prNumber) {
+  const pattern = `-pr-${prNumber}-[a-f0-9]*`;
+  await deletePackageVersions(
+    (version) => semver.valid(version) && new RegExp(pattern).test(version)
+  );
+}
+
+async function cleanAll() {
+  const pattern = /-(dev|pr)-/;
+  await deletePackageVersions((version) => {
+    return pattern.test(version) && semver.valid(version);
+  });
+}
+
+async function main() {
+  if (!argv.pr && !argv.clean) {
+    console.log('Please specify a PR number with --pr');
+    process.exit(1);
+  }
+
+  if (argv.pr) {
+    await cleanPr(argv.pr);
+  }
+  if (argv.clean) {
+    await cleanAll();
   }
 }
 

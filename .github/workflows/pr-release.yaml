@@ -1,6 +1,10 @@
 name: Release to @pr-<number> tag on npm
 on:
   workflow_dispatch:
+    inputs:
+      jobToRun:
+        description: 'Job to run (release, clean)'
+        required: true
   pull_request:
     types:
       - closed
@@ -9,8 +13,7 @@ jobs:
   release-pr:
     name: "Release PR to npm"
     runs-on: ubuntu-latest
-    # comment out if:false to enable release PR to npm
-    # if: false
+    if: ${{ github.event.inputs.jobToRun == 'release' }}
     permissions: write-all
     steps:
       - name: Checkout
@@ -21,19 +24,6 @@ jobs:
 
       - name: CI Setup
         uses: ./.github/actions/ci-setup
-
-      - name: Configure npm
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Ensure NPM access
-        run: npm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build
         run: pnpm build
@@ -80,22 +70,30 @@ jobs:
       - name: CI Setup
         uses: ./.github/actions/ci-setup
 
-      - name: Configure npm
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Ensure NPM access
-        run: npm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Delete published versions
         run: |
           # Pass the PR number as an argument to the pr:clean-releases script
           pnpm pr:clean-releases --pr ${{ github.event.pull_request.number }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  clean-dev-releases:
+    name: "Delete all dev, next and pr-* releases from NPM"
+    runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.jobToRun == 'clean' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: CI Setup
+        uses: ./.github/actions/ci-setup
+
+      - name: Delete published versions
+        run: |
+          # Pass the PR number as an argument to the pr:clean-releases script
+          pnpm pr:clean-releases --clean
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
