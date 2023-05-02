@@ -1,5 +1,11 @@
 # @fuel-ui/css
 
+## 0.14.2
+
+### Patch Changes
+
+- 🐞 Fix: mark stitches package as external for bundling, by [@pedronauck](https://github.com/pedronauck) (See [#242](https://github.com/FuelLabs/fuel-ui/pull/242))
+
 ## 0.14.1
 
 ### Patch Changes
