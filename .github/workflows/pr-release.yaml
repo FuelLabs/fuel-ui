@@ -3,8 +3,13 @@ on:
   workflow_dispatch:
     inputs:
       jobToRun:
-        description: 'Job to run (release, clean)'
+        description: 'Job to run'
         required: true
+        options:
+          - 'release'
+          - 'clean-tag-dev'
+          - 'clean-tag-next'
+          - 'clean-tag-pr'
   pull_request:
     types:
       - closed
@@ -87,10 +92,10 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  clean-dev-releases:
-    name: "Delete all dev, next and pr-* releases from NPM"
+  clean-pre-releases:
+    name: "Delete prereleases with tag dev, next or pr-* from NPM"
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.jobToRun == 'clean' }}
+    if: ${{ contains(fromJSON(github.event.inputs.jobToRun), 'clean')}}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -109,6 +114,6 @@ jobs:
       - name: Delete published versions
         run: |
           # Pass the PR number as an argument to the pr:clean-releases script
-          pnpm pr:clean-releases --clean
+          pnpm pr:clean-releases --clean ${{ github.event.inputs.jobToRun }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

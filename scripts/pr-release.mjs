@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /* eslint-disable no-restricted-syntax */
-/* eslint-disable import/no-extraneous-dependencies */
+
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { getPackages } from '@manypkg/get-packages';
@@ -68,10 +68,10 @@ async function cleanPr(prNumber) {
   );
 }
 
-async function cleanAll() {
-  const pattern = /-(dev|pr)-/;
+async function cleanPrerelease(tag) {
+  const pattern = `-${tag}-`;
   await deletePackageVersions((version) => {
-    return pattern.test(version) && semver.valid(version);
+    return new RegExp(pattern).test(version) && semver.valid(version);
   });
 }
 
@@ -85,7 +85,7 @@ async function main() {
     await cleanPr(argv.pr);
   }
   if (argv.clean) {
-    await cleanAll();
+    await cleanPrerelease(argv.clean.replace('clean-tag-', ''));
   }
 }
 
