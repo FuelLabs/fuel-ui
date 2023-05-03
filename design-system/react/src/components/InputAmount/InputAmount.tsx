@@ -84,15 +84,7 @@ export const InputAmount: InputAmountComponent = ({
   };
 
   const tokenImage = (name?: string, imageUrl?: string) => {
-    return (
-      <Image
-        alt={name}
-        src={imageUrl}
-        width={14}
-        height={14}
-        css={styles.image}
-      />
-    );
+    return <Image alt={name} src={imageUrl} css={styles.image} />;
   };
 
   const assetButton = (name?: string, imageUrl?: string) => {
@@ -107,16 +99,9 @@ export const InputAmount: InputAmountComponent = ({
         disabled={!onClickAsset}
       >
         {tokenImage(name, imageUrl)}
-        <Text fontSize="xs" color="intentsBase12">
-          {name}
-        </Text>
+        <Text css={styles.assetText}>{name}</Text>
         {!!onClickAsset && (
-          <Icon
-            icon="CaretDown"
-            size="10"
-            color="intentsBase12"
-            css={{ color: '$intentsBase12 !important' }}
-          />
+          <Icon icon="CaretDown" size="10" css={styles.assetCaret} />
         )}
       </Button>
     );
@@ -124,10 +109,8 @@ export const InputAmount: InputAmountComponent = ({
 
   return (
     <Input size="lg" css={styles.input} {...props}>
-      <Text color="intentsBase9" css={styles.heading}>
-        Amount
-      </Text>
-      <Flex align="center" css={styles.secondRow}>
+      <Text css={styles.heading}>Amount</Text>
+      <Flex css={styles.secondRow}>
         <Input.Number
           autoComplete="off"
           inputMode="decimal"
@@ -217,12 +200,14 @@ const styles = {
     },
   }),
   heading: cssObj({
+    color: '$intentsBase9',
     mt: '$3',
     mb: '$1',
     fontSize: '$xs',
     lineHeight: '$tight',
   }),
   secondRow: cssObj({
+    alignItems: 'center',
     width: '100%',
     height: '$6',
   }),
@@ -248,6 +233,13 @@ const styles = {
     marginLeft: '$2',
     borderRadius: '$md',
   }),
+  assetText: cssObj({
+    fontSize: 'xs',
+    color: '$intentsBase12',
+  }),
+  assetCaret: cssObj({
+    color: '$intentsBase12 !important',
+  }),
   balanceContainer: cssObj({
     gap: '$1',
     alignItems: 'center',
@@ -261,5 +253,5 @@ const styles = {
     fontFamily: '$mono',
     color: '$intentsBase9',
   }),
-  image: cssObj({ borderRadius: '50%' }),
+  image: cssObj({ borderRadius: '50%', width: 14, height: 14 }),
 };
