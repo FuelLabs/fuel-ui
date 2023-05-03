@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/css",
-  "version": "0.14.1",
+  "version": "0.14.2",
   "license": "Apache-2.0",
   "main": "./src/index.ts",
   "publishConfig": {
@@ -25,10 +25,12 @@
   },
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
-    "@fuel-stitches/react": "workspace:../../stitches/react",
     "@fuel-ui/design-tokens": "workspace:*",
     "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@fuel-stitches/react": "workspace:../../stitches/react"
   }
 }
