@@ -87,26 +87,6 @@ export const InputAmount: InputAmountComponent = ({
     return <Image alt={name} src={imageUrl} css={styles.image} />;
   };
 
-  const assetButton = (name?: string, imageUrl?: string) => {
-    return (
-      <Button
-        size="xs"
-        aria-label="Coin Selector"
-        variant="outlined"
-        intent="base"
-        css={styles.assetButton}
-        onPress={onClickAsset}
-        disabled={!onClickAsset}
-      >
-        {tokenImage(name, imageUrl)}
-        <Text css={styles.assetText}>{name}</Text>
-        {!!onClickAsset && (
-          <Icon icon="CaretDown" size="10" css={styles.assetCaret} />
-        )}
-      </Button>
-    );
-  };
-
   return (
     <Input size="lg" css={styles.input} {...props}>
       <Text css={styles.heading}>Amount</Text>
@@ -144,14 +124,29 @@ export const InputAmount: InputAmountComponent = ({
                   </Button>
                 </Flex>
               )}
-              {asset &&
-                (assetTooltip ? (
-                  <Tooltip content={<>{assetTooltip}</>}>
-                    {assetButton(asset.name, asset.imageUrl)}
-                  </Tooltip>
-                ) : (
-                  <>{assetButton(asset.name, asset.imageUrl)}</>
-                ))}
+              {asset && (
+                <Tooltip content={assetTooltip}>
+                  <Button
+                    size="xs"
+                    aria-label="Coin Selector"
+                    variant="outlined"
+                    intent="base"
+                    css={styles.assetButton}
+                    onPress={onClickAsset}
+                    disabled={!onClickAsset}
+                  >
+                    {tokenImage(asset.name, asset.imageUrl)}
+                    <Text css={styles.assetText}>{asset.name}</Text>
+                    {!!onClickAsset && (
+                      <Icon
+                        icon="CaretDown"
+                        size="10"
+                        css={styles.assetCaret}
+                      />
+                    )}
+                  </Button>
+                </Tooltip>
+              )}
             </Box>
           </Input.ElementRight>
         )}
