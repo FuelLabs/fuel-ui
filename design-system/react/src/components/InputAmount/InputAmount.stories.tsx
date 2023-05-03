@@ -88,7 +88,7 @@ WithAsset.args = {
 };
 
 export const Loader = () => (
-  <Box css={{ width: 300 }}>
+  <Box css={{ width: 352 }}>
     <InputAmount.Loader isFullWidth={true} />
   </Box>
 );
