@@ -42,7 +42,7 @@ const Template: StoryFn<typeof InputAmount> = (args) => {
   }, [amount]);
 
   return (
-    <Box css={{ width: 300 }}>
+    <Box css={{ width: 352 }}>
       <InputAmount {...args} onChange={setAmount} value={amount} />
       <Stack gap="$3">
         <Text fontSize="lg" css={{ marginTop: '$2' }}>
@@ -80,11 +80,31 @@ export const WithAsset = Template.bind({});
 WithAsset.args = {
   balance: BALANCE,
   asset: {
-    assetId:
-      '0x0000000000000000000000000000000000000000000000000000000000000000',
     name: 'ETH',
     imageUrl: './assets/eth.svg',
   },
+  onClickAsset: undefined,
+};
+
+export const WithAssetTooltip = Template.bind({});
+WithAssetTooltip.args = {
+  balance: BALANCE,
+  asset: {
+    name: 'ETH',
+    imageUrl: './assets/eth.svg',
+  },
+  assetTooltip: 'Lorem Ipsum',
+  onClickAsset: undefined,
+};
+
+export const WithAssetOnClick = Template.bind({});
+WithAssetOnClick.args = {
+  balance: BALANCE,
+  asset: {
+    name: 'ETH',
+    imageUrl: './assets/eth.svg',
+  },
+  onClickAsset: () => {},
 };
 
 export const Loader = () => (

@@ -33,8 +33,6 @@
     "@fuel-ts/math": "^0.40.0",
     "@fuel-ui/css": "workspace:*",
     "@fuel-ui/test-utils": "workspace:*",
-    "@fuel-wallet/sdk": "^0.7.2",
-    "@fuel-wallet/types": "^0.7.2",
     "@radix-ui/react-accordion": "^1.1.1",
     "@radix-ui/react-alert-dialog": "^1.0.3",
     "@radix-ui/react-aspect-ratio": "^1.0.2",

@@ -1,7 +1,6 @@
 import type { BN } from '@fuel-ts/math';
 import { bn } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
-import type { Asset } from '@fuel-wallet/types';
 import type { PressEvent } from '@react-types/shared';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
@@ -31,8 +30,9 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
   isDisabled?: boolean;
-  asset?: Asset;
-  onClickAsset?: (val: PressEvent) => void;
+  asset?: { name?: string; imageUrl?: string };
+  assetTooltip?: string;
+  onClickAsset?: (e: PressEvent) => void;
 };
 
 type InputAmountComponent = FC<InputAmountProps> & {
@@ -50,6 +50,7 @@ export const InputAmount: InputAmountComponent = ({
   onChange,
   inputProps,
   asset,
+  assetTooltip,
   onClickAsset,
   ...props
 }) => {
@@ -94,6 +95,33 @@ export const InputAmount: InputAmountComponent = ({
     );
   };
 
+  const assetButton = (name?: string, imageUrl?: string) => {
+    return (
+      <Button
+        size="xs"
+        aria-label="Coin Selector"
+        variant="outlined"
+        intent="base"
+        css={styles.assetButton}
+        onPress={onClickAsset}
+        disabled={!onClickAsset}
+      >
+        {tokenImage(name, imageUrl)}
+        <Text fontSize="xs" color="intentsBase12">
+          {name}
+        </Text>
+        {!!onClickAsset && (
+          <Icon
+            icon="CaretDown"
+            size="10"
+            color="intentsBase12"
+            css={{ color: '$intentsBase12 !important' }}
+          />
+        )}
+      </Button>
+    );
+  };
+
   return (
     <Input size="lg" css={styles.input} {...props}>
       <Text color="intentsBase9" css={styles.heading}>
@@ -133,27 +161,14 @@ export const InputAmount: InputAmountComponent = ({
                   </Button>
                 </Flex>
               )}
-              {asset && onClickAsset && (
-                <Button
-                  size="xs"
-                  aria-label="Coin Selector"
-                  variant="outlined"
-                  intent="base"
-                  css={styles.assetButton}
-                  onPress={onClickAsset}
-                >
-                  {tokenImage(asset.name, asset.imageUrl)}
-                  <Text fontSize="xs" color="intentsBase12">
-                    {asset.name}
-                  </Text>
-                  <Icon
-                    icon="CaretDown"
-                    size="10"
-                    color="intentsBase12"
-                    css={{ color: '$intentsBase12 !important' }}
-                  />
-                </Button>
-              )}
+              {asset &&
+                (assetTooltip ? (
+                  <Tooltip content={<>{assetTooltip}</>}>
+                    {assetButton(asset.name, asset.imageUrl)}
+                  </Tooltip>
+                ) : (
+                  <>{assetButton(asset.name, asset.imageUrl)}</>
+                ))}
             </Box>
           </Input.ElementRight>
         )}
@@ -184,8 +199,7 @@ const styles = {
   input: cssObj({
     px: '$3',
     boxSizing: 'border-box',
-    width: '352px',
-    height: '80px',
+    height: '$20',
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
@@ -210,7 +224,7 @@ const styles = {
   }),
   secondRow: cssObj({
     width: '100%',
-    height: '24px',
+    height: '$6',
   }),
   elementRight: cssObj({
     maxHeight: '100%',
@@ -222,15 +236,15 @@ const styles = {
   }),
   maxButton: cssObj({
     px: '$1',
-    width: '24px',
-    height: '16px',
+    width: '$6',
+    height: '$4',
     borderRadius: '3px',
     fontSize: '8px',
     fontFamily: '$mono',
   }),
   assetButton: cssObj({
-    height: '24px',
-    width: '72px',
+    height: '$6',
+    width: '$18',
     marginLeft: '$2',
     borderRadius: '$md',
   }),
