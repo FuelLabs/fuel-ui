@@ -222,14 +222,14 @@ export const fonts = {
     sizes: {
       H1: {
         fontSize: 'h1',
-        fontWeight: 'Regular',
+        fontWeight: 'normal',
         textCase: 'uppercase',
         letterSpacing: 'tight',
         lineHeight: 'none',
       },
       H2: {
         fontSize: 'h2',
-        fontWeight: 'Regular',
+        fontWeight: 'normal',
         textCase: 'uppercase',
         letterSpacing: 'tight',
         lineHeight: 'none',
@@ -264,7 +264,7 @@ export const fonts = {
       },
       sectionHead: {
         fontSize: 'h1',
-        fontWeight: 'Regular',
+        fontWeight: 'normal',
         textCase: 'normal',
         letterSpacing: 'tight',
         lineHeight: 'none',

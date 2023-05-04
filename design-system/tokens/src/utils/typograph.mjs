@@ -32,7 +32,7 @@ export function createBody(fonts) {
             ...obj,
             [size]: createTypographValue({
               fontFamily: key,
-              fontWeight: `Regular`,
+              fontWeight: `normal`,
               lineHeight: sizeItem.lineHeight,
               fontSize: size,
               letterSpacing: 'default',
@@ -54,7 +54,7 @@ export function createHeadings(fonts) {
       ...obj,
       [key]: createTypographValue({
         fontFamily: 'headings',
-        fontWeight: `Regular`,
+        fontWeight: `normal`,
         lineHeight: size.lineHeight,
         fontSize: size.fontSize,
         letterSpacing: size.letterSpacing,

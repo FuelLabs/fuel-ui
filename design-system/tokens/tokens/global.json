@@ -687,7 +687,7 @@
     "xs": {
       "value": {
         "fontFamily": "{fontFamilies.body}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.tight}",
         "fontSize": "{fontSizes.xs}",
         "letterSpacing": "{letterSpacings.default}",
@@ -699,7 +699,7 @@
     "sm": {
       "value": {
         "fontFamily": "{fontFamilies.body}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.tight}",
         "fontSize": "{fontSizes.sm}",
         "letterSpacing": "{letterSpacings.default}",
@@ -711,7 +711,7 @@
     "md": {
       "value": {
         "fontFamily": "{fontFamilies.body}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.md}",
         "letterSpacing": "{letterSpacings.default}",
@@ -723,7 +723,7 @@
     "lg": {
       "value": {
         "fontFamily": "{fontFamilies.body}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.lg}",
         "letterSpacing": "{letterSpacings.default}",
@@ -735,7 +735,7 @@
     "xl": {
       "value": {
         "fontFamily": "{fontFamilies.body}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.xl}",
         "letterSpacing": "{letterSpacings.default}",
@@ -749,7 +749,7 @@
     "H1": {
       "value": {
         "fontFamily": "{fontFamilies.headings}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h1}",
         "letterSpacing": "{letterSpacings.tight}",
@@ -761,7 +761,7 @@
     "H2": {
       "value": {
         "fontFamily": "{fontFamilies.headings}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h2}",
         "letterSpacing": "{letterSpacings.tight}",
@@ -773,7 +773,7 @@
     "H3": {
       "value": {
         "fontFamily": "{fontFamilies.headings}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h3}",
         "letterSpacing": "{letterSpacings.tight}",
@@ -785,7 +785,7 @@
     "H4": {
       "value": {
         "fontFamily": "{fontFamilies.headings}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h4}",
         "letterSpacing": "{letterSpacings.tight}",
@@ -797,7 +797,7 @@
     "H5": {
       "value": {
         "fontFamily": "{fontFamilies.headings}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h5}",
         "letterSpacing": "{letterSpacings.tight}",
@@ -809,7 +809,7 @@
     "H6": {
       "value": {
         "fontFamily": "{fontFamilies.headings}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h6}",
         "letterSpacing": "{letterSpacings.tight}",
@@ -821,7 +821,7 @@
     "sectionHead": {
       "value": {
         "fontFamily": "{fontFamilies.headings}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.normal}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h1}",
         "letterSpacing": "{letterSpacings.tight}",
