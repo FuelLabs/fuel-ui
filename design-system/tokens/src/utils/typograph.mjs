@@ -30,25 +30,15 @@ export function createBody(fonts) {
         [key]: Object.entries(font.sizes).reduce((obj, [size, sizeItem]) => {
           return {
             ...obj,
-            [size]: font.weights.reduce((obj, weight) => {
-              return {
-                ...obj,
-                [weight]: font.cases.reduce((obj, textCase) => {
-                  return {
-                    ...obj,
-                    [textCase]: createTypographValue({
-                      fontFamily: key,
-                      fontWeight: `${key}.${weight}`,
-                      lineHeight: sizeItem.lineHeight,
-                      fontSize: size,
-                      letterSpacing: 'default',
-                      textCase,
-                      textDecoration: 'none',
-                    }),
-                  };
-                }, {}),
-              };
-            }, {}),
+            [size]: createTypographValue({
+              fontFamily: key,
+              fontWeight: `Regular`,
+              lineHeight: sizeItem.lineHeight,
+              fontSize: size,
+              letterSpacing: 'default',
+              textCase: 'normal',
+              textDecoration: 'none',
+            }),
           };
         }, {}),
       };
@@ -64,31 +54,13 @@ export function createHeadings(fonts) {
       ...obj,
       [key]: createTypographValue({
         fontFamily: 'headings',
-        fontWeight: `headings.${size.fontWeight}`,
+        fontWeight: `Regular`,
         lineHeight: size.lineHeight,
         fontSize: size.fontSize,
         letterSpacing: size.letterSpacing,
-        textCase: size.textCase,
+        textCase: 'normal',
         textDecoration: 'none',
       }),
-    };
-  }, {});
-}
-
-export function createUtilities(utilities) {
-  return Object.entries(utilities).reduce((obj, [key, utility]) => {
-    return {
-      ...obj,
-      [key]: Object.keys(utility.sizes).reduce((obj, size) => {
-        return {
-          ...obj,
-          [size]: createTypographValue({
-            ...utility.sizes[size],
-            fontFamily: utility.fontFamily,
-            fontWeight: `${utility.fontFamily}.${utility.sizes[size].fontWeight}`,
-          }),
-        };
-      }, {}),
     };
   }, {});
 }
