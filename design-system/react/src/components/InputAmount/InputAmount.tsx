@@ -83,10 +83,6 @@ export const InputAmount: InputAmountComponent = ({
     }
   };
 
-  const tokenImage = (name?: string, imageUrl?: string) => {
-    return <Image alt={name} src={imageUrl} css={styles.image} />;
-  };
-
   return (
     <Input size="lg" css={styles.input} {...props}>
       <Text css={styles.heading}>Amount</Text>
@@ -131,11 +127,15 @@ export const InputAmount: InputAmountComponent = ({
                     aria-label="Coin Selector"
                     variant="outlined"
                     intent="base"
-                    css={styles.assetButton}
                     onPress={onClickAsset}
-                    disabled={!onClickAsset}
+                    isDisabled={!onClickAsset}
+                    css={styles.assetButton}
                   >
-                    {tokenImage(asset.name, asset.imageUrl)}
+                    <Image
+                      alt={asset.name}
+                      src={asset.imageUrl}
+                      css={styles.image}
+                    />
                     <Text css={styles.assetText}>{asset.name}</Text>
                     {!!onClickAsset && (
                       <Icon
@@ -209,6 +209,11 @@ const styles = {
   elementRight: cssObj({
     maxHeight: '100%',
     pr: '$0',
+    '[aria-disabled="true"]': {
+      opacity: 'unset',
+      backgroundColor: 'unset',
+      color: 'unset',
+    },
   }),
   balanceActions: cssObj({
     display: 'flex',
