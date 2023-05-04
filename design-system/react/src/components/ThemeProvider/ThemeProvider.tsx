@@ -30,11 +30,12 @@ export const ThemeProvider: FC<ThemeProps> = ({
   const [state, send] = useMachine(() =>
     themeProviderMachine.withContext({
       themes: themes as Record<string, FuelTheme>,
+      old: curr,
       current: curr,
     })
   );
 
-  function setTheme(value: FuelTheme) {
+  function setTheme(value: string) {
     send('SET_THEME', { value });
   }
 

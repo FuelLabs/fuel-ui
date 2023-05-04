@@ -57,8 +57,8 @@ export type FuelTheme = ReturnType<typeof createTheme>;
 export type ThemesObj = Record<string, FuelTheme>;
 
 type Context = {
-  setTheme: (theme: FuelTheme) => void;
-  themes: Record<string, FuelTheme>;
+  setTheme: (theme: string) => void;
+  themes: ThemesObj;
   current: string;
 };
 
