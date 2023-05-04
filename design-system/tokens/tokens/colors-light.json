@@ -248,11 +248,11 @@
         },
         "disabled-color": {
           "type": "color",
-          "value": "{whiteA.whiteA10}"
+          "value": "{whiteA.10}"
         },
         "disabled-icon": {
           "type": "color",
-          "value": "{whiteA.whiteA10}"
+          "value": "{whiteA.10}"
         }
       },
       "primary": {
@@ -310,11 +310,11 @@
         },
         "disabled-color": {
           "type": "color",
-          "value": "{blackA.blackA10}"
+          "value": "{blackA.10}"
         },
         "disabled-icon": {
           "type": "color",
-          "value": "{blackA.blackA10}"
+          "value": "{blackA.10}"
         }
       },
       "secondary": {
@@ -372,11 +372,11 @@
         },
         "disabled-color": {
           "type": "color",
-          "value": "{whiteA.whiteA10}"
+          "value": "{whiteA.10}"
         },
         "disabled-icon": {
           "type": "color",
-          "value": "{whiteA.whiteA10}"
+          "value": "{whiteA.10}"
         }
       },
       "info": {
@@ -434,11 +434,11 @@
         },
         "disabled-color": {
           "type": "color",
-          "value": "{whiteA.whiteA10}"
+          "value": "{whiteA.10}"
         },
         "disabled-icon": {
           "type": "color",
-          "value": "{whiteA.whiteA10}"
+          "value": "{whiteA.10}"
         }
       },
       "warning": {
@@ -496,11 +496,11 @@
         },
         "disabled-color": {
           "type": "color",
-          "value": "{blackA.blackA10}"
+          "value": "{blackA.10}"
         },
         "disabled-icon": {
           "type": "color",
-          "value": "{blackA.blackA10}"
+          "value": "{blackA.10}"
         }
       },
       "success": {
@@ -558,11 +558,11 @@
         },
         "disabled-color": {
           "type": "color",
-          "value": "{blackA.blackA10}"
+          "value": "{blackA.10}"
         },
         "disabled-icon": {
           "type": "color",
-          "value": "{blackA.blackA10}"
+          "value": "{blackA.10}"
         }
       },
       "error": {
@@ -620,11 +620,11 @@
         },
         "disabled-color": {
           "type": "color",
-          "value": "{blackA.blackA10}"
+          "value": "{blackA.10}"
         },
         "disabled-icon": {
           "type": "color",
-          "value": "{blackA.blackA10}"
+          "value": "{blackA.10}"
         }
       }
     },

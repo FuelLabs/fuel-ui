@@ -42,12 +42,8 @@ const categories = {
         name === 'base' ? '{intents.base.6}' : `{intents.${name}.7}`
       ),
       'disabled-border': createColor('transparent'),
-      'disabled-color': createColor(
-        isLight ? `{blackA.blackA10}` : `{whiteA.whiteA10}`
-      ),
-      'disabled-icon': createColor(
-        isLight ? `{blackA.blackA10}` : `{whiteA.whiteA10}`
-      ),
+      'disabled-color': createColor(isLight ? `{blackA.10}` : `{whiteA.10}`),
+      'disabled-icon': createColor(isLight ? `{blackA.10}` : `{whiteA.10}`),
     };
   },
   ghost(name) {
