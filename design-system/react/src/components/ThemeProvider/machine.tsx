@@ -9,6 +9,7 @@ import { mergeDeep } from '~/utils/helpers';
 type MachineContext = {
   themes: ThemesObj;
   current: string;
+  old: string;
 };
 
 type MachineEvents = {
@@ -50,16 +51,25 @@ export const themeProviderMachine = machine.withConfig({
         store.addDef(key as any, next);
       });
     },
-    setTheme: assign({
-      current: (_, ev) => {
-        localStorage.setItem(THEME_STORAGE_KEY, ev.value);
-        return ev.value;
-      },
+    setTheme: assign((ctx, ev) => {
+      localStorage.setItem(THEME_STORAGE_KEY, ev.value);
+      return {
+        ...ctx,
+        old: ctx.current,
+        current: ev.value,
+      };
     }),
-    addDocumentClass: ({ themes, current }) => {
+    addDocumentClass: ({ themes, current, old }) => {
       const selected = themes[current];
+      const oldClassName = themes[old];
+
+      if (!selected || !oldClassName) {
+        throw new Error('Theme does not exist');
+      }
+
       const html = document.documentElement;
-      html.classList.toggle(selected.theme, true);
+      html.classList.remove(oldClassName.theme.toString());
+      html.classList.add(selected.theme.toString());
     },
   },
 });
