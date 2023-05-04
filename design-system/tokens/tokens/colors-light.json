@@ -262,11 +262,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{blackA12}"
+          "value": "{black}"
         },
         "icon": {
           "type": "color",
-          "value": "{blackA10}"
+          "value": "{black}"
         },
         "placeholder": {
           "type": "color",
@@ -424,11 +424,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{blackA12}"
+          "value": "{black}"
         },
         "icon": {
           "type": "color",
-          "value": "{blackA10}"
+          "value": "{black}"
         },
         "placeholder": {
           "type": "color",
@@ -478,11 +478,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{blackA12}"
+          "value": "{black}"
         },
         "icon": {
           "type": "color",
-          "value": "{blackA10}"
+          "value": "{black}"
         },
         "placeholder": {
           "type": "color",
@@ -532,11 +532,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{blackA12}"
+          "value": "{black}"
         },
         "icon": {
           "type": "color",
-          "value": "{blackA10}"
+          "value": "{black}"
         },
         "placeholder": {
           "type": "color",

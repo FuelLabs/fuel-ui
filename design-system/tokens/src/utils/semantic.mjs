@@ -24,8 +24,8 @@ const categories = {
       ),
       border: createColor('transparent'),
       focus: createColor(`{intents.${name}.4}`),
-      color: createColor(isLight ? `{blackA12}` : `{body-inverse}`),
-      icon: createColor(isLight ? `{blackA10}` : `{body-inverse}`),
+      color: createColor(isLight ? `{black}` : `{body-inverse}`),
+      icon: createColor(isLight ? `{black}` : `{body-inverse}`),
       placeholder: createColor(
         !isLight ? `{intents.${name}.2}` : `{intents.${name}.11}`
       ),
