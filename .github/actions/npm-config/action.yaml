@@ -1,0 +1,23 @@
+name: "NPM Configuration"
+description: "Configure npm and ensure NPM access"
+inputs:
+  npm-token:
+    description: "NPM token"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Configure npm
+      run: |
+        cat << EOF > "$HOME/.npmrc"
+          //registry.npmjs.org/:_authToken=$NPM_TOKEN
+        EOF
+      env:
+        NPM_TOKEN: ${{ inputs.npm-token }}
+      shell: bash
+
+    - name: Ensure NPM access
+      run: npm whoami
+      env:
+        NODE_AUTH_TOKEN: ${{ inputs.npm-token }}
+      shell: bash

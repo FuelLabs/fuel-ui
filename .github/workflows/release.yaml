@@ -22,13 +22,10 @@ jobs:
       - name: CI Setup
         uses: ./.github/actions/ci-setup
 
-      - name: Configure npm
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Configure NPM
+        uses: ./.github/actions/npm-config
+        with:
+          npm-token: ${{ secrets.NPM_TOKEN }}
 
       - name: Bump and Collect Version
         run: |
@@ -37,11 +34,6 @@ jobs:
           git reset --hard
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Ensure NPM access
-        run: npm whoami
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Setup git user (for changelog step)
         run: |
