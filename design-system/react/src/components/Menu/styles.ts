@@ -7,10 +7,6 @@ export const menu = css({
   m: '$0',
   borderRadius: '$default',
   minWidth: '160px',
-
-  '&:focus-visible': {
-    outline: '2px solid $intentsBase5',
-  },
 });
 
 export const item = css({
@@ -20,12 +16,10 @@ export const item = css({
   gap: '$2',
   height: '$9',
   px: '$3',
-  opacity: 0.4,
-  color: '$intentsBase10',
   fontWeight: 'normal',
 
-  '.fuel_Icon': {
-    color: '$textIcon',
+  '&, & .fuel_Icon': {
+    color: '$semanticGhostBaseColor',
   },
 
   '&:not([aria-disabled="true"])': {
@@ -34,12 +28,20 @@ export const item = css({
   },
 
   '&:focus-visible, &:not([aria-disabled="true"]):hover': {
-    color: '$intentsBase12',
-    background: '$intentsBase2',
+    color: '$semanticGhostBaseColor',
+    background: '$semanticGhostBaseBg',
     outline: 'none',
   },
 
   [`&:focus-visible .fuel_Icon`]: {
     color: '$brand',
+  },
+
+  '&[aria-disabled="true"]': {
+    cursor: 'not-allowed',
+
+    '&, & .fuel_Icon': {
+      color: '$semanticGhostBaseDisabledColor',
+    },
   },
 });

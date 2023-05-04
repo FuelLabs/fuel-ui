@@ -24,8 +24,8 @@ const categories = {
       ),
       border: createColor('transparent'),
       focus: createColor(`{intents.${name}.4}`),
-      color: createColor(isLight ? `{black}` : `{body-inverse}`),
-      icon: createColor(isLight ? `{black}` : `{body-inverse}`),
+      color: createColor(isLight ? `{black}` : `{white}`),
+      icon: createColor(isLight ? `{black}` : `{white}`),
       placeholder: createColor(
         !isLight ? `{intents.${name}.2}` : `{intents.${name}.11}`
       ),
@@ -38,8 +38,12 @@ const categories = {
       'hover-placeholder': createColor(
         !isLight ? `{intents.${name}.3}` : `{intents.${name}.10}`
       ),
-      'disabled-color': createColor(`{intents.${name}.11}`),
-      'disabled-bg': createColor(`{intents.${name}.5}`),
+      'disabled-bg': createColor(
+        name === 'base' ? '{intents.base.6}' : `{intents.${name}.7}`
+      ),
+      'disabled-border': createColor('transparent'),
+      'disabled-color': createColor(isLight ? `{blackA10}` : `{whiteA10}`),
+      'disabled-icon': createColor(isLight ? `{blackA10}` : `{whiteA10}`),
     };
   },
   ghost(name) {
@@ -55,14 +59,16 @@ const categories = {
       'hover-color': createColor(`{intents.${name}.12}`),
       'hover-icon': createColor(`{intents.${name}.8}`),
       'hover-placeholder': createColor(`{intents.${name}.9}`),
+      'disabled-bg': createColor(`{intents.${name}.3}`),
+      'disabled-border': createColor(`{intents.${name}.3}`),
       'disabled-color': createColor(`{intents.${name}.11}`),
-      'disabled-bg': createColor(`{intents.${name}.5}`),
+      'disabled-icon': createColor(`{intents.${name}.6}`),
     };
   },
   outlined(name) {
     const isLight = isIntentLight(name);
     return {
-      bg: createColor(`transparent`),
+      bg: createColor('transparent'),
       border: createColor(`{intents.${name}.8}`),
       focus: createColor(`{intents.${name}.4}`),
       color: createColor(
@@ -70,21 +76,25 @@ const categories = {
       ),
       icon: createColor(`{intents.${name}.10}`),
       placeholder: createColor(`{intents.${name}.8}`),
-      'hover-bg': createColor(`transparent`),
+      'hover-bg': createColor('transparent'),
       'hover-border': createColor(`{intents.${name}.8}`),
       'hover-color': createColor(
         isLight ? `{intents.${name}.9}` : `{intents.${name}.12}`
       ),
       'hover-icon': createColor(`{intents.${name}.10}`),
       'hover-placeholder': createColor(`{intents.${name}.9}`),
-      'disabled-color': createColor(`{intents.${name}.11}`),
-      'disabled-bg': createColor(`{intents.${name}.5}`),
+      'disabled-bg': createColor('transparent'),
+      'disabled-border': createColor(`{intents.${name}.6}`),
+      'disabled-color': createColor(
+        isLight ? `{intents.${name}.6}` : `{intents.${name}.9}`
+      ),
+      'disabled-icon': createColor(`{intents.${name}.8}`),
     };
   },
   link(name) {
     const isLight = isIntentLight(name);
     return {
-      bg: createColor(`transparent`),
+      bg: createColor('transparent'),
       color: createColor(
         isLight ? `{intents.${name}.11}` : `{intents.${name}.9}`
       ),
@@ -92,10 +102,10 @@ const categories = {
         isLight ? `{intents.${name}.11}` : `{intents.${name}.9}`
       ),
       placeholder: createColor(`{intents.${name}.8}`),
-      border: createColor(`transparent`),
+      border: createColor('transparent'),
       focus: createColor('transparent'),
-      'hover-bg': createColor(`transparent`),
-      'hover-border': createColor(`transparent`),
+      'hover-bg': createColor('transparent'),
+      'hover-border': createColor('transparent'),
       'hover-color': createColor(
         isLight ? `{intents.${name}.12}` : `{intents.${name}.10}`
       ),
@@ -103,8 +113,14 @@ const categories = {
         isLight ? `{intents.${name}.12}` : `{intents.${name}.10}`
       ),
       'hover-placeholder': createColor(`{intents.${name}.8}`),
-      'disabled-color': createColor(`{intents.${name}.11}`),
-      'disabled-bg': createColor(`{intents.${name}.5}`),
+      'disabled-bg': createColor('transparent'),
+      'disabled-border': createColor('transparent'),
+      'disabled-color': createColor(
+        isLight ? `{intents.${name}.9}` : `{intents.${name}.7}`
+      ),
+      'disabled-icon': createColor(
+        isLight ? `{intents.${name}.9}` : `{intents.${name}.7}`
+      ),
     };
   },
 };

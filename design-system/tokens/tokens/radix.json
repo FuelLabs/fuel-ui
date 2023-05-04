@@ -1,101 +1,101 @@
 {
   "yellow / dark": {
     "1": {
-      "value": "#1C1500",
+      "value": "#131000",
       "type": "color"
     },
     "2": {
-      "value": "#221A00",
+      "value": "#262100",
       "type": "color"
     },
     "3": {
-      "value": "#2C2100",
+      "value": "#3A3100",
       "type": "color"
     },
     "4": {
-      "value": "#352800",
+      "value": "#4D4100",
       "type": "color"
     },
     "5": {
-      "value": "#3E3000",
+      "value": "#605200",
       "type": "color"
     },
     "6": {
-      "value": "#493C00",
+      "value": "#736200",
       "type": "color"
     },
     "7": {
-      "value": "#594A05",
+      "value": "#867201",
       "type": "color"
     },
     "8": {
-      "value": "#705E00",
+      "value": "#9A8301",
       "type": "color"
     },
     "9": {
-      "value": "#F5D90A",
+      "value": "#F2D21F",
       "type": "color"
     },
     "10": {
-      "value": "#FFEF5C",
+      "value": "#F5DC52",
       "type": "color"
     },
     "11": {
-      "value": "#F0C000",
+      "value": "#DDBC01",
       "type": "color"
     },
     "12": {
-      "value": "#FFFAD1",
+      "value": "#FEFBEB",
       "type": "color"
     }
   },
   "yellow / light": {
     "1": {
-      "value": "#FDFDF9",
+      "value": "#FEFBEB",
       "type": "color"
     },
     "2": {
-      "value": "#FFFCE8",
+      "value": "#FDF7D6",
       "type": "color"
     },
     "3": {
-      "value": "#FFFBD1",
+      "value": "#FBF3C2",
       "type": "color"
     },
     "4": {
-      "value": "#FFF8BB",
+      "value": "#FAEFAE",
       "type": "color"
     },
     "5": {
-      "value": "#FEF2A4",
+      "value": "#F9EB99",
       "type": "color"
     },
     "6": {
-      "value": "#F9E68C",
+      "value": "#F8E785",
       "type": "color"
     },
     "7": {
-      "value": "#EFD36C",
+      "value": "#F5DE5C",
       "type": "color"
     },
     "8": {
-      "value": "#EBBC00",
+      "value": "#E6C401",
       "type": "color"
     },
     "9": {
-      "value": "#F5D90A",
+      "value": "#F1D015",
       "type": "color"
     },
     "10": {
-      "value": "#F7CE00",
+      "value": "#F0CC01",
       "type": "color"
     },
     "11": {
-      "value": "#946800",
+      "value": "#A38B01",
       "type": "color"
     },
     "12": {
-      "value": "#35290F",
+      "value": "#302900",
       "type": "color"
     }
   },
@@ -105,7 +105,7 @@
       "type": "color"
     },
     "2": {
-      "value": "#002716",
+      "value": "#002717",
       "type": "color"
     },
     "3": {
@@ -121,27 +121,27 @@
       "type": "color"
     },
     "6": {
-      "value": "#007643",
+      "value": "#007644",
       "type": "color"
     },
     "7": {
-      "value": "#009D5A",
+      "value": "#00894F",
       "type": "color"
     },
     "8": {
-      "value": "#00C470",
+      "value": "#009D5A",
       "type": "color"
     },
     "9": {
-      "value": "#52F8B1",
+      "value": "#1FF69B",
       "type": "color"
     },
     "10": {
-      "value": "#29F79E",
+      "value": "#52F8B1",
       "type": "color"
     },
     "11": {
-      "value": "#00F58C",
+      "value": "#00E182",
       "type": "color"
     },
     "12": {
@@ -155,15 +155,15 @@
       "type": "color"
     },
     "2": {
-      "value": "#D6FDED",
+      "value": "#D6FDEC",
       "type": "color"
     },
     "3": {
-      "value": "#C2FDE3",
+      "value": "#C2FCE3",
       "type": "color"
     },
     "4": {
-      "value": "#ADFCDA",
+      "value": "#ADFBDA",
       "type": "color"
     },
     "5": {
@@ -171,31 +171,31 @@
       "type": "color"
     },
     "6": {
-      "value": "#85FAC8",
+      "value": "#85FAC7",
       "type": "color"
     },
     "7": {
-      "value": "#5CF9B5",
+      "value": "#5CF8B5",
       "type": "color"
     },
     "8": {
-      "value": "#33F7A3",
+      "value": "#00C36F",
       "type": "color"
     },
     "9": {
-      "value": "#00A75F",
+      "value": "#14F594",
       "type": "color"
     },
     "10": {
-      "value": "#00CE76",
+      "value": "#00EA85",
       "type": "color"
     },
     "11": {
-      "value": "#00F58C",
+      "value": "#00A65F",
       "type": "color"
     },
     "12": {
-      "value": "#00140B",
+      "value": "#00311C",
       "type": "color"
     }
   },
