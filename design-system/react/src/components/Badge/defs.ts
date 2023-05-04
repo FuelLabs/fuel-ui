@@ -7,6 +7,7 @@ export type BadgeVariants = 'solid' | 'outlined' | 'ghost';
 export type BadgeProps = HTMLProps['span'] & {
   intent?: LayerIntent;
   variant?: BadgeVariants;
+  isDisabled?: boolean;
 };
 
 export type BadgeDef = CreateComponent<{

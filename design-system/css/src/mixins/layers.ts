@@ -13,7 +13,13 @@ function addBaseCSS(key: string) {
 
     '&[aria-disabled="true"]': {
       bg: `$${key}DisabledBg`,
+      borderColor: `$${key}DisabledBorder`,
       color: `$${key}DisabledColor`,
+      cursor: 'not-allowed',
+
+      '& .fuel_Icon': {
+        color: `$${key}DisabledIcon`,
+      },
     },
   };
 }
