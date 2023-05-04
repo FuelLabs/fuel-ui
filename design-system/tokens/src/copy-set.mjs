@@ -10,9 +10,9 @@ const __dirname = dirname(__filename);
 
 const JSON_SET_MAP = {
   global: 'global',
+  radix: 'radix',
   dark: 'colors-dark',
   light: 'colors-light',
-  radix: 'radix',
 };
 
 (async () => {
