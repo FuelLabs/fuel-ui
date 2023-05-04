@@ -208,11 +208,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "icon": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "placeholder": {
           "type": "color",
@@ -228,11 +228,11 @@
         },
         "hover-color": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "hover-icon": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -316,11 +316,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "icon": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "placeholder": {
           "type": "color",
@@ -336,11 +336,11 @@
         },
         "hover-color": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "hover-icon": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -370,11 +370,11 @@
         },
         "color": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "icon": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "placeholder": {
           "type": "color",
@@ -390,11 +390,11 @@
         },
         "hover-color": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "hover-icon": {
           "type": "color",
-          "value": "{bodyInverse}"
+          "value": "{body-inverse}"
         },
         "hover-placeholder": {
           "type": "color",

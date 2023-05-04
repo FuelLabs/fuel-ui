@@ -24,8 +24,8 @@ const categories = {
       ),
       border: createColor('transparent'),
       focus: createColor(`{intents.${name}.4}`),
-      color: createColor(isLight ? `{blackA12}` : `{bodyInverse}`),
-      icon: createColor(isLight ? `{blackA10}` : `{bodyInverse}`),
+      color: createColor(isLight ? `{blackA12}` : `{body-inverse}`),
+      icon: createColor(isLight ? `{blackA10}` : `{body-inverse}`),
       placeholder: createColor(
         !isLight ? `{intents.${name}.2}` : `{intents.${name}.11}`
       ),
@@ -33,8 +33,8 @@ const categories = {
         name === 'base' ? '{intents.base.9}' : `{intents.${name}.10}`
       ),
       'hover-border': createColor('transparent'),
-      'hover-color': createColor(isLight ? `{black}` : `{bodyInverse}`),
-      'hover-icon': createColor(isLight ? `{black}` : `{bodyInverse}`),
+      'hover-color': createColor(isLight ? `{black}` : `{body-inverse}`),
+      'hover-icon': createColor(isLight ? `{black}` : `{body-inverse}`),
       'hover-placeholder': createColor(
         !isLight ? `{intents.${name}.3}` : `{intents.${name}.10}`
       ),
