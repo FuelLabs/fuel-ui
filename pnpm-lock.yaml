@@ -314,6 +314,9 @@ importers:
       '@react-aria/utils':
         specifier: ^3.16.0
         version: 3.16.0(react@18.2.0)
+      '@tabler/icons-react':
+        specifier: ^2.17.0
+        version: 2.17.0(react@18.2.0)
       '@xstate/react':
         specifier: ^3.2.2
         version: 3.2.2(@types/react@18.2.0)(react@18.2.0)(xstate@4.37.2)
@@ -323,9 +326,6 @@ importers:
       framer-motion:
         specifier: ^10.12.4
         version: 10.12.4(react-dom@18.2.0)(react@18.2.0)
-      phosphor-react:
-        specifier: ^1.4.1
-        version: 1.4.1(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1154,15 +1154,6 @@ packages:
       '@babel/core': 7.21.4
       '@babel/helper-plugin-utils': 7.20.2
 
-  /@babel/plugin-syntax-jsx@7.16.7(@babel/core@7.21.4):
-    resolution: {integrity: sha512-Esxmk7YjA8QysKeT3VhTXvF6y77f/a91SIs4pWb4H2eWGQkCKFgQaG6hdoEVZtGsrAcb2K5BW66XsOErD4WU3Q==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.21.4
-      '@babel/helper-plugin-utils': 7.20.2
-
   /@babel/plugin-syntax-jsx@7.21.4(@babel/core@7.21.4):
     resolution: {integrity: sha512-5hewiLct5OKyh6PLKEYaFclcqtIgCb6bmELouxjF6up5q3Sov7rOayW4RwhbaBL0dit8rA80GNfY+UuDp2mBbQ==}
     engines: {node: '>=6.9.0'}
@@ -1171,7 +1162,6 @@ packages:
     dependencies:
       '@babel/core': 7.21.4
       '@babel/helper-plugin-utils': 7.20.2
-    dev: true
 
   /@babel/plugin-syntax-logical-assignment-operators@7.10.4(@babel/core@7.21.4):
     resolution: {integrity: sha512-d8waShlpFDinQ5MtvGU9xDAOzKH47+FFoney2baFIoMr952hKOLp1HR7VszoZvOsV/4+RRszNY7D17ba0te0ig==}
@@ -6570,6 +6560,23 @@ packages:
       tslib: 2.4.0
     dev: true
 
+  /@tabler/icons-react@2.17.0(react@18.2.0):
+    resolution: {integrity: sha512-kuEW+qNwRqcK5iMl7qTapzX2NiMOwPg4Az01d+IZ1DIMwaZ7iKPJaIor2ihKFLPYrT9D5BZHXB8R5mSkw0FETg==}
+    peerDependencies:
+      react: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      '@tabler/icons': 2.17.0
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
+  /@tabler/icons@2.17.0:
+    resolution: {integrity: sha512-UeJaylOGNRhQKyDlgZfrQ3UPSGlfVQuXcmCsTYeXioKKepibW6VZ3H36Lo1jvBTBkQD2e9m+k2NxwkztOTXwrA==}
+    dev: false
+
   /@testing-library/dom@8.20.0:
     resolution: {integrity: sha512-d9ULIT+a4EXLX3UU8FBjauG9NnsZHkHztXoIcTsOKoOw030fyjheN9svkTULjJxtYag9DZz5Jz5qkWZDPxTFwA==}
     engines: {node: '>=12'}
@@ -11487,7 +11494,7 @@ packages:
     dependencies:
       '@babel/core': 7.21.4
       '@babel/generator': 7.21.4
-      '@babel/plugin-syntax-jsx': 7.16.7(@babel/core@7.21.4)
+      '@babel/plugin-syntax-jsx': 7.21.4(@babel/core@7.21.4)
       '@babel/plugin-syntax-typescript': 7.17.10(@babel/core@7.21.4)
       '@babel/traverse': 7.21.4
       '@babel/types': 7.21.4
@@ -12753,18 +12760,6 @@ packages:
   /pend@1.2.0:
     resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
     dev: true
-
-  /phosphor-react@1.4.1(react@18.2.0):
-    resolution: {integrity: sha512-gO5j7U0xZrdglTAYDYPACU4xDOFBTJmptrrB/GeR+tHhCZF3nUMyGmV/0hnloKjuTrOmpSFlbfOY78H39rgjUQ==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}

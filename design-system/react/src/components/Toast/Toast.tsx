@@ -27,7 +27,7 @@ export const ToastProvider = createComponent<ToastProps>(
                     size="xs"
                     aria-label="Close"
                     iconSize={22}
-                    icon="XCircle"
+                    icon="SquareRoundedX"
                     intent="base"
                     variant="link"
                     className={styles.closeButton()}
@@ -72,7 +72,7 @@ const styles = {
       overflow: 'hidden',
     },
 
-    '.fuel_Icon[aria-label="Icon XCircle"]': {
+    '.fuel_Icon[aria-label="Icon SquareRoundedX"]': {
       color: '$overlayText',
     },
   }),
