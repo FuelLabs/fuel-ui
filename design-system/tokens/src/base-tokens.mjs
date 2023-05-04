@@ -215,6 +215,26 @@ export const fonts = {
         fontSize: 'xl',
         lineHeight: 'normal',
       },
+      '2xl': {
+        fontSize: '2xl',
+        lineHeight: 'normal',
+      },
+      '3xl': {
+        fontSize: '3xl',
+        lineHeight: 'normal',
+      },
+      '4xl': {
+        fontSize: '4xl',
+        lineHeight: 'normal',
+      },
+      '6xl': {
+        fontSize: '6xl',
+        lineHeight: 'normal',
+      },
+      '7xl': {
+        fontSize: '7xl',
+        lineHeight: 'normal',
+      },
     },
   },
   headings: {

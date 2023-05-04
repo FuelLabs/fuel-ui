@@ -743,6 +743,66 @@
         "textDecoration": "{textDecorations.none}"
       },
       "type": "typography"
+    },
+    "2xl": {
+      "value": {
+        "fontFamily": "{fontFamilies.body}",
+        "fontWeight": "{fontWeights.normal}",
+        "lineHeight": "{lineHeights.normal}",
+        "fontSize": "{fontSizes.2xl}",
+        "letterSpacing": "{letterSpacings.default}",
+        "textCase": "{textCases.normal}",
+        "textDecoration": "{textDecorations.none}"
+      },
+      "type": "typography"
+    },
+    "3xl": {
+      "value": {
+        "fontFamily": "{fontFamilies.body}",
+        "fontWeight": "{fontWeights.normal}",
+        "lineHeight": "{lineHeights.normal}",
+        "fontSize": "{fontSizes.3xl}",
+        "letterSpacing": "{letterSpacings.default}",
+        "textCase": "{textCases.normal}",
+        "textDecoration": "{textDecorations.none}"
+      },
+      "type": "typography"
+    },
+    "4xl": {
+      "value": {
+        "fontFamily": "{fontFamilies.body}",
+        "fontWeight": "{fontWeights.normal}",
+        "lineHeight": "{lineHeights.normal}",
+        "fontSize": "{fontSizes.4xl}",
+        "letterSpacing": "{letterSpacings.default}",
+        "textCase": "{textCases.normal}",
+        "textDecoration": "{textDecorations.none}"
+      },
+      "type": "typography"
+    },
+    "6xl": {
+      "value": {
+        "fontFamily": "{fontFamilies.body}",
+        "fontWeight": "{fontWeights.normal}",
+        "lineHeight": "{lineHeights.normal}",
+        "fontSize": "{fontSizes.6xl}",
+        "letterSpacing": "{letterSpacings.default}",
+        "textCase": "{textCases.normal}",
+        "textDecoration": "{textDecorations.none}"
+      },
+      "type": "typography"
+    },
+    "7xl": {
+      "value": {
+        "fontFamily": "{fontFamilies.body}",
+        "fontWeight": "{fontWeights.normal}",
+        "lineHeight": "{lineHeights.normal}",
+        "fontSize": "{fontSizes.7xl}",
+        "letterSpacing": "{letterSpacings.default}",
+        "textCase": "{textCases.normal}",
+        "textDecoration": "{textDecorations.none}"
+      },
+      "type": "typography"
     }
   },
   "headings": {
