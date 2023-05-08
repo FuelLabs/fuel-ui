@@ -234,7 +234,7 @@ const styles = {
     borderRadius: '$md',
   }),
   assetText: cssObj({
-    fontSize: 'xs',
+    fontSize: '$xs',
     color: '$intentsBase12',
   }),
   assetCaret: cssObj({
