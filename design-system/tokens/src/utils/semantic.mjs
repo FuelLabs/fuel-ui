@@ -148,7 +148,9 @@ export function createSemantics(isLight) {
     'overlay-text': createColor('{body-bg}'),
     'dialog-bg': createColor('{intents.base.1}'),
     border: createColor('{scales.gray.6}'),
-    brand: createColor('{intents.primary.9}'),
+    brand: createColor(
+      isLight ? '{intents.primary.10}' : '{intents.primary.9}'
+    ),
     text: {
       color: createColor('{intents.base.11}'),
       heading: createColor('{intents.base.12}'),

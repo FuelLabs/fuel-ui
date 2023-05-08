@@ -9,8 +9,8 @@ export function createTypographValue({
 }) {
   return {
     value: {
+      fontWeight,
       fontFamily: `{fontFamilies.${fontFamily}}`,
-      fontWeight: `{fontWeights.${fontWeight}}`,
       lineHeight: `{lineHeights.${lineHeight}}`,
       fontSize: `{fontSizes.${fontSize}}`,
       letterSpacing: `{letterSpacings.${letterSpacing}}`,
@@ -44,7 +44,7 @@ export function createBody(fonts) {
               weights.reduce((obj, weight) => {
                 return {
                   ...obj,
-                  [`${size}.${weight}`]: createTypographValue({
+                  [`${size}-${weight}`]: createTypographValue({
                     fontFamily: key,
                     fontWeight: weight,
                     lineHeight: sizeItem.lineHeight,
@@ -85,9 +85,9 @@ export function createHeadings(fonts) {
         weights.reduce((obj, weight) => {
           return {
             ...obj,
-            [`${key}.${weight}`]: createTypographValue({
+            [`${key}-${weight}`]: createTypographValue({
               fontFamily: 'headings',
-              fontWeight: `${weight}`,
+              fontWeight: weight,
               lineHeight: size.lineHeight,
               fontSize: size.fontSize,
               letterSpacing: size.letterSpacing,

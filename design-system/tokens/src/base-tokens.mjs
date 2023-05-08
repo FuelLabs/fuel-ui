@@ -184,7 +184,7 @@ export const textDecorations = {
 
 export const fontWeights = {
   thin: '100',
-  light: '300',
+  light: '200',
   normal: '400',
   medium: '500',
   semibold: '600',
@@ -194,7 +194,7 @@ export const fontWeights = {
 export const fonts = {
   body: {
     fontFamily: 'Px Grotesk',
-    weights: ['light', 'regular', 'bold'],
+    weights: ['Light', 'Regular', 'Bold'],
     sizes: {
       xs: {
         fontSize: 'xs',
@@ -240,7 +240,7 @@ export const fonts = {
   },
   headings: {
     fontFamily: 'Px Grotesk',
-    weights: ['light', 'regular', 'bold'],
+    weights: ['Light', 'Regular', 'Bold'],
     sizes: {
       H1: {
         fontSize: 'h1',
