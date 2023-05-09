@@ -8,7 +8,6 @@ function createVariantStyle(key: string) {
   const iconColor = `$${toCamelCase(`semantic-ghost-${key}-icon`)}`;
   const bg = `$${toCamelCase(`semantic-ghost-${key}-bg`)}`;
   const border = `$${toCamelCase(`semantic-ghost-${key}-border`)}`;
-  const headingColor = `$${toCamelCase(`semantic-ghost-${key}-disabledColor`)}`;
 
   return {
     bg,
@@ -16,7 +15,8 @@ function createVariantStyle(key: string) {
     border,
 
     '& .fuel_Heading': {
-      color: headingColor,
+      fontWeight: '$semibold',
+      color,
     },
 
     '& .fuel_Icon': {
@@ -25,8 +25,8 @@ function createVariantStyle(key: string) {
 
     '& .fuel_Button': {
       p: 0,
-      color: headingColor,
-      fontWeight: '$normal',
+      fontWeight: '$semibold',
+      color,
     },
   };
 }
