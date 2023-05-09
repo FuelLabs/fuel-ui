@@ -68,7 +68,7 @@ export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
     return createStyledElement(
       RadioGroupPrimitive.Root,
       styles.root,
-      { disabled },
+      null,
       customProps,
       customChildren
     );
