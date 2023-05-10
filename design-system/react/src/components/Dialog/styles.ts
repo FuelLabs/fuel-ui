@@ -35,6 +35,7 @@ export const content = css({
   layer: 'layer-dialog',
   display: 'flex',
   flexDirection: 'column',
+  gap: '$5',
   position: 'fixed',
   top: '50%',
   left: '50%',
@@ -55,12 +56,9 @@ export const content = css({
 export const heading = css({
   p: '$0',
   m: '$0',
-  pb: '$5',
-  mb: '$5',
   color: '$intentsBase12',
   fontFamily: '$heading',
   fontSize: '$xl',
-  borderBottom: '1px solid $border',
 });
 
 export const description = css({
@@ -73,9 +71,6 @@ export const footer = css({
   is: ['centered'],
   gap: '$3',
   p: '$0',
-  mt: '$5',
-  pt: '$5',
-  borderTop: '1px solid $border',
 
   variants: {
     align: {
