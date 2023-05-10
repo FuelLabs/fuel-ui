@@ -56,6 +56,7 @@ type GetChildrenParams = t.ButtonProps & {
 };
 function getChildren({
   isLoading,
+  loadingText,
   size = 'md',
   children,
   iconLeft,
@@ -64,7 +65,8 @@ function getChildren({
   if (isLoading) {
     return (
       <>
-        <Spinner color="current" size={SPINNER_SIZE[size]} /> Loading...
+        <Spinner color="current" size={SPINNER_SIZE[size]} />{' '}
+        {loadingText || 'Loading...'}
       </>
     );
   }
