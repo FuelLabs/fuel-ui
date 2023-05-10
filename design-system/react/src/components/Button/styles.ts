@@ -37,13 +37,6 @@ export const styles = createStyle(Components.Button, {
         link: {},
       },
 
-      disabled: {
-        true: {
-          opacity: '0.6',
-          cursor: 'default',
-        },
-      },
-
       justIcon: {
         true: {
           minW: 'auto',

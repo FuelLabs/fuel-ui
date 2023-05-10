@@ -11,6 +11,10 @@ function createVariantStyle(variant: LayerVariant, intent: LayerIntent) {
       px: '$1',
       height: 'auto',
       minW: 'auto',
+
+      '&:hover': {
+        textDecoration: 'underline',
+      },
     }),
   };
 }
@@ -33,7 +37,7 @@ export const size = {
   md: {
     gap: '$2',
     px: '$4',
-    fontSize: '$md',
+    fontSize: '$default',
     fontWeight: '$normal',
     height: '$10',
   },

@@ -46,6 +46,7 @@ export const MenuItem = createComponent<MenuItemProps>(
       ref: mergeRefs(ref, props.ref!),
       className: classes,
       'data-focused': isFocused,
+      'aria-disabled': isDisabled,
       'aria-label': item.props['aria-label'],
     };
 

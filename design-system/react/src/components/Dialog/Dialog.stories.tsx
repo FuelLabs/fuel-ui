@@ -43,6 +43,13 @@ export const WithoutTrigger = (args: DialogProps) => {
         <Dialog.Description>
           Just a big text with a nice description here
         </Dialog.Description>
+        <Dialog.Footer>
+          <Dialog.Close asChild>
+            <Button intent="base" variant="ghost" size="md">
+              Close
+            </Button>
+          </Dialog.Close>
+        </Dialog.Footer>
       </Dialog.Content>
     </Dialog>
   );

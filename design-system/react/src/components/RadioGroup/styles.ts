@@ -6,14 +6,6 @@ export const root = css({
   '& label': {
     fontSize: '$base',
   },
-
-  variants: {
-    disabled: {
-      true: {
-        opacity: '0.5',
-      },
-    },
-  },
 });
 
 export const item = css({
@@ -58,7 +50,11 @@ export const item = css({
 
   '&[aria-disabled=true]': {
     cursor: 'default',
-    opacity: '0.5',
+  },
+
+  '&[aria-disabled=true]:not([data-state="unchecked"])': {
+    background: '$inputDisabledBorder',
+    borderColor: '$inputDisabledBorder',
   },
 });
 
@@ -77,15 +73,5 @@ export const indicator = css({
     height: '$2',
     borderRadius: '50%',
     backgroundColor: '$bodyBg',
-  },
-
-  variants: {
-    disabled: {
-      true: {
-        '&:after': {
-          background: '$intentsBase10',
-        },
-      },
-    },
   },
 });

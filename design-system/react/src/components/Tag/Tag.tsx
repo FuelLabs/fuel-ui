@@ -105,8 +105,13 @@ export const Tag = createComponent<TagProps, ObjProps>(
       children,
     });
 
+    const customProps = {
+      ...props,
+      'aria-disabled': disabled,
+    };
+
     return (
-      <Box as={as} {...props} className={classes}>
+      <Box as={as} {...customProps} className={classes}>
         {customChildren}
       </Box>
     );
