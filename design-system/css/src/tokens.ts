@@ -68,7 +68,7 @@ export const fontSizes = {
   // heading font sizes
   xs: '0.694rem',
   sm: '0.833rem',
-  md: '1.2rem',
+  md: '1rem',
   lg: '1.2rem',
   xl: '1.44rem',
   '2xl': '1.728rem',
