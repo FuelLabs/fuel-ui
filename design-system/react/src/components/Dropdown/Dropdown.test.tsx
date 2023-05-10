@@ -51,7 +51,7 @@ describe('Dropdown', () => {
     const trigger = screen.getByText('Click here');
     await act(() => user.click(trigger));
 
-    const menuItem = await screen.findByText(/settings/i);
+    const menuItem = await screen.findByText('Settings');
     await act(() => user.click(menuItem));
 
     await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
