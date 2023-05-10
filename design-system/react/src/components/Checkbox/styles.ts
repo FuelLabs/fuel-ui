@@ -1,5 +1,10 @@
 import { css } from '@fuel-ui/css';
 
+export const indicator = css({
+  is: ['centered'],
+  color: '$bodyBg',
+});
+
 export const root = css({
   all: 'unset',
   cursor: 'pointer',
@@ -41,16 +46,8 @@ export const root = css({
   },
 
   '&[aria-disabled=true]': {
-    opacity: '0.5',
     cursor: 'default',
-  },
-});
-
-export const indicator = css({
-  is: ['centered'],
-  color: '$bodyBg',
-
-  '&[aria-disabled="true"]': {
-    color: '$intentsBase10',
+    background: '$inputDisabledBorder',
+    borderColor: '$inputDisabledBorder',
   },
 });

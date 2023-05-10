@@ -150,8 +150,13 @@ export function useElementProps<P extends any[]>(...props: P): P[0] {
   const res = omit(OMIT_FOR_DOM, mergeProps<P>(...props) as any) as P[0];
   const classNameArr = allClasses?.split(' ') ?? [];
   const className = Array.from(new Set(classNameArr)).join(' ');
+  const disabled = props.some((p) => p?.isDisabled || p?.isLoading);
   return {
     ...res,
     className,
+    ...(disabled && {
+      'aria-disabled': true,
+      disabled: true,
+    }),
   };
 }

@@ -39,13 +39,6 @@ export const tag = css({
       outlined: {},
       link: {},
     },
-
-    disabled: {
-      true: {
-        opacity: '0.6',
-        cursor: 'default',
-      },
-    },
   },
 
   compoundVariants: [

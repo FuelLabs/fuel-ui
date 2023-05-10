@@ -115,7 +115,7 @@ export const fontSizes = {
   '2xs': '0.579rem',
   xs: '0.694rem',
   sm: '0.833rem',
-  md: '1.2rem',
+  md: '1rem',
   lg: '1.2rem',
   xl: '1.44rem',
   '2xl': '1.728rem',
@@ -182,11 +182,19 @@ export const textDecorations = {
   overline: 'overline',
 };
 
+export const fontWeights = {
+  thin: '100',
+  light: '200',
+  normal: '400',
+  medium: '500',
+  semibold: '600',
+  bold: '700',
+};
+
 export const fonts = {
   body: {
-    cases: ['normal', 'uppercase'],
-    fontFamily: 'Inter',
-    weights: ['Regular', 'Medium', 'Bold'],
+    fontFamily: 'Px Grotesk',
+    weights: ['Light', 'Regular', 'Bold'],
     sizes: {
       xs: {
         fontSize: 'xs',
@@ -208,12 +216,24 @@ export const fonts = {
         fontSize: 'xl',
         lineHeight: 'normal',
       },
-      caption: {
-        fontSize: 'caption',
+      '2xl': {
+        fontSize: '2xl',
         lineHeight: 'normal',
       },
-      body: {
-        fontSize: 'body',
+      '3xl': {
+        fontSize: '3xl',
+        lineHeight: 'normal',
+      },
+      '4xl': {
+        fontSize: '4xl',
+        lineHeight: 'normal',
+      },
+      '6xl': {
+        fontSize: '6xl',
+        lineHeight: 'normal',
+      },
+      '7xl': {
+        fontSize: '7xl',
         lineHeight: 'normal',
       },
     },
@@ -224,14 +244,14 @@ export const fonts = {
     sizes: {
       H1: {
         fontSize: 'h1',
-        fontWeight: 'Regular',
+        fontWeight: 'normal',
         textCase: 'uppercase',
         letterSpacing: 'tight',
         lineHeight: 'none',
       },
       H2: {
         fontSize: 'h2',
-        fontWeight: 'Regular',
+        fontWeight: 'normal',
         textCase: 'uppercase',
         letterSpacing: 'tight',
         lineHeight: 'none',
@@ -264,9 +284,9 @@ export const fonts = {
         letterSpacing: 'tight',
         lineHeight: 'none',
       },
-      subtitle: {
-        fontSize: 'subtitle',
-        fontWeight: 'Regular',
+      sectionHead: {
+        fontSize: 'h1',
+        fontWeight: 'normal',
         textCase: 'normal',
         letterSpacing: 'tight',
         lineHeight: 'none',
@@ -274,9 +294,7 @@ export const fonts = {
     },
   },
   mono: {
-    cases: ['normal', 'uppercase'],
     fontFamily: 'Px Grotesk Mono',
-    weights: ['Regular', 'Medium', 'Bold'],
     sizes: {
       xs: {
         fontSize: 'xs',
@@ -301,9 +319,8 @@ export const fonts = {
     },
   },
   display: {
-    cases: ['normal', 'uppercase'],
     fontFamily: 'Px Grotesk',
-    weights: ['Regular', 'Medium', 'Bold'],
+    weights: ['light', 'regular', 'bold'],
     sizes: {
       xs: {
         fontSize: 'xs',
@@ -324,91 +341,6 @@ export const fonts = {
       xl: {
         fontSize: 'xl',
         lineHeight: 'normal',
-      },
-    },
-  },
-};
-
-export const utilities = {
-  button: {
-    fontFamily: 'display',
-    sizes: {
-      xs: {
-        fontSize: 'xs',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'uppercase',
-        textDecoration: 'none',
-      },
-      sm: {
-        fontSize: 'sm',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'normal',
-        textDecoration: 'none',
-      },
-      md: {
-        fontSize: 'md',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'normal',
-        textDecoration: 'none',
-      },
-      lg: {
-        fontSize: 'lg',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'normal',
-        textDecoration: 'none',
-      },
-      xl: {
-        fontSize: 'xl',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'normal',
-        textDecoration: 'none',
-      },
-    },
-  },
-  input: {
-    fontFamily: 'display',
-    sizes: {
-      sm: {
-        fontSize: 'sm',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'normal',
-        textDecoration: 'none',
-      },
-      md: {
-        fontSize: 'md',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'normal',
-        textDecoration: 'none',
-      },
-      lg: {
-        fontSize: 'lg',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'normal',
-        textDecoration: 'none',
-      },
-      xl: {
-        fontSize: 'xl',
-        fontWeight: 'Regular',
-        lineHeight: 'default',
-        letterSpacing: 'wide',
-        textCase: 'normal',
-        textDecoration: 'none',
       },
     },
   },

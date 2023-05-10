@@ -55,7 +55,8 @@ export const RadioGroupItem = createComponent<
       null,
       customProps,
       <RadioGroupPrimitive.Indicator
-        className={styles.indicator({ disabled })}
+        aria-disabled={disabled}
+        className={styles.indicator()}
       />
     );
 

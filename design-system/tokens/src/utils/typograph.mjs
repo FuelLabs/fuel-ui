@@ -9,8 +9,8 @@ export function createTypographValue({
 }) {
   return {
     value: {
+      fontWeight,
       fontFamily: `{fontFamilies.${fontFamily}}`,
-      fontWeight: `{fontWeights.${fontWeight}}`,
       lineHeight: `{lineHeights.${lineHeight}}`,
       fontSize: `{fontSizes.${fontSize}}`,
       letterSpacing: `{letterSpacings.${letterSpacing}}`,
@@ -28,27 +28,33 @@ export function createBody(fonts) {
       return {
         ...obj,
         [key]: Object.entries(font.sizes).reduce((obj, [size, sizeItem]) => {
+          const weights = font.weights.filter((w) => w !== 'regular');
           return {
             ...obj,
-            [size]: font.weights.reduce((obj, weight) => {
-              return {
-                ...obj,
-                [weight]: font.cases.reduce((obj, textCase) => {
-                  return {
-                    ...obj,
-                    [textCase]: createTypographValue({
-                      fontFamily: key,
-                      fontWeight: `${key}.${weight}`,
-                      lineHeight: sizeItem.lineHeight,
-                      fontSize: size,
-                      letterSpacing: 'default',
-                      textCase,
-                      textDecoration: 'none',
-                    }),
-                  };
-                }, {}),
-              };
-            }, {}),
+            [size]: createTypographValue({
+              fontFamily: key,
+              fontWeight: `normal`,
+              lineHeight: sizeItem.lineHeight,
+              fontSize: size,
+              letterSpacing: 'default',
+              textCase: 'normal',
+              textDecoration: 'none',
+            }),
+            ...(weights &&
+              weights.reduce((obj, weight) => {
+                return {
+                  ...obj,
+                  [`${size}-${weight}`]: createTypographValue({
+                    fontFamily: key,
+                    fontWeight: weight,
+                    lineHeight: sizeItem.lineHeight,
+                    fontSize: size,
+                    letterSpacing: 'default',
+                    textCase: 'normal',
+                    textDecoration: 'none',
+                  }),
+                };
+              }, {})),
           };
         }, {}),
       };
@@ -59,36 +65,37 @@ export function createHeadings(fonts) {
   const selected = Object.entries(fonts).filter(
     ([key]) => key === 'headings'
   )[0];
-  return Object.entries(selected[1].sizes).reduce((obj, [key, size]) => {
+
+  const sizes = selected[1].sizes;
+  const weights = selected[1].weights.filter((w) => w !== 'regular');
+
+  return Object.entries(sizes).reduce((obj, [key, size]) => {
     return {
       ...obj,
       [key]: createTypographValue({
         fontFamily: 'headings',
-        fontWeight: `headings.${size.fontWeight}`,
+        fontWeight: `normal`,
         lineHeight: size.lineHeight,
         fontSize: size.fontSize,
         letterSpacing: size.letterSpacing,
-        textCase: size.textCase,
+        textCase: 'normal',
         textDecoration: 'none',
       }),
-    };
-  }, {});
-}
-
-export function createUtilities(utilities) {
-  return Object.entries(utilities).reduce((obj, [key, utility]) => {
-    return {
-      ...obj,
-      [key]: Object.keys(utility.sizes).reduce((obj, size) => {
-        return {
-          ...obj,
-          [size]: createTypographValue({
-            ...utility.sizes[size],
-            fontFamily: utility.fontFamily,
-            fontWeight: `${utility.fontFamily}.${utility.sizes[size].fontWeight}`,
-          }),
-        };
-      }, {}),
+      ...(weights &&
+        weights.reduce((obj, weight) => {
+          return {
+            ...obj,
+            [`${key}-${weight}`]: createTypographValue({
+              fontFamily: 'headings',
+              fontWeight: weight,
+              lineHeight: size.lineHeight,
+              fontSize: size.fontSize,
+              letterSpacing: size.letterSpacing,
+              textCase: 'normal',
+              textDecoration: 'none',
+            }),
+          };
+        }, {})),
     };
   }, {});
 }

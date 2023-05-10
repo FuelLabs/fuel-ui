@@ -32,3 +32,12 @@ export const Intents = (args: BadgeProps) => (
     ))}
   </Text>
 );
+export const Disabled = (args: BadgeProps) => (
+  <Text fontSize="xs" css={{ display: 'flex', margin: 0, gap: '$2' }}>
+    {layerIntents.map((intent) => (
+      <Badge key={intent} {...args} intent={intent} isDisabled>
+        Label
+      </Badge>
+    ))}
+  </Text>
+);
