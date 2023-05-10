@@ -26,8 +26,8 @@ export const Usage = (args: IconProps) => (
     <Icon {...args} icon="User" inline />
     <Text fontSize="sm" as="div">
       We&apos;re using{' '}
-      <Link isExternal href="https://phosphoricons.com/">
-        Phosphor Icons
+      <Link isExternal href="https://tabler-icons.io/">
+        Tabler Icons
       </Link>{' '}
       Icons as icon set, so you can check more details about it on their website
     </Text>

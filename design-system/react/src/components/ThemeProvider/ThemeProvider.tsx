@@ -1,5 +1,4 @@
 import { useMachine } from '@xstate/react';
-import { IconContext } from 'phosphor-react';
 import type { FC, ReactNode } from 'react';
 
 import { GlobalStyles } from '../../styles/GlobalStyles';
@@ -41,12 +40,10 @@ export const ThemeProvider: FC<ThemeProps> = ({
   }
 
   return (
-    <IconContext.Provider value={{ size: 16 }}>
-      <themeContext.Provider value={{ ...state.context, setTheme }}>
-        <ToastProvider />
-        <GlobalStyles withFonts={withFonts} />
-        {children}
-      </themeContext.Provider>
-    </IconContext.Provider>
+    <themeContext.Provider value={{ ...state.context, setTheme }}>
+      <ToastProvider />
+      <GlobalStyles withFonts={withFonts} />
+      {children}
+    </themeContext.Provider>
   );
 };

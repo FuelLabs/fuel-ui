@@ -26,7 +26,7 @@ export const PaginationNav = createComponent<
   return (
     <IconButton
       {...props}
-      icon={Icon.is(direction === 'next' ? 'CaretRight' : 'CaretLeft')}
+      icon={Icon.is(direction === 'next' ? 'ChevronRight' : 'ChevronLeft')}
       aria-label={direction === 'next' ? 'Next page' : 'Previous page'}
       className={classes}
       data-variant={pagination.variant}

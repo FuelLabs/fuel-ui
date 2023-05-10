@@ -39,7 +39,7 @@ function Account() {
           <Form.Control>
             <Form.Label htmlFor="email">Email</Form.Label>
             <Input>
-              <Input.ElementLeft element={<Icon icon="Envelope" />} />
+              <Input.ElementLeft element={<Icon icon="Mail" />} />
               <Input.Field
                 type="email"
                 name="email"

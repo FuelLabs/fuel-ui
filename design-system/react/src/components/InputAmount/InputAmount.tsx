@@ -140,7 +140,7 @@ export const InputAmount: InputAmountComponent = ({
                     {!!onClickAsset && (
                       <Icon
                         icon="CaretDown"
-                        size="10"
+                        size={10}
                         css={styles.assetCaret}
                       />
                     )}

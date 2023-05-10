@@ -1,4 +1,4 @@
-import { Check, X } from 'phosphor-react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 
 import { Box } from '../Box';
@@ -69,7 +69,13 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
               leftIcon={
                 <Icon
                   data-error={lengthChecker}
-                  icon={lengthChecker ? <Check /> : <X />}
+                  icon={
+                    lengthChecker ? (
+                      <Icon icon={Icon.is('Check')} />
+                    ) : (
+                      <Icon icon={Icon.is('X')} />
+                    )
+                  }
                 />
               }
               fontSize="xs"
@@ -80,7 +86,13 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
               leftIcon={
                 <Icon
                   data-error={casingChecker}
-                  icon={casingChecker ? <Check /> : <X />}
+                  icon={
+                    casingChecker ? (
+                      <Icon icon={Icon.is('Check')} />
+                    ) : (
+                      <Icon icon={Icon.is('X')} />
+                    )
+                  }
                 />
               }
               fontSize="xs"
@@ -91,7 +103,13 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
               leftIcon={
                 <Icon
                   data-error={symbolsAndDigitsChecker}
-                  icon={symbolsAndDigitsChecker ? <Check /> : <X />}
+                  icon={
+                    symbolsAndDigitsChecker ? (
+                      <Icon icon={Icon.is('Check')} />
+                    ) : (
+                      <Icon icon={Icon.is('X')} />
+                    )
+                  }
                 />
               }
               fontSize="xs"
@@ -102,7 +120,13 @@ export const PasswordStrength = createComponent<PasswordStrengthProps>(
               leftIcon={
                 <Icon
                   data-error={commonChecker}
-                  icon={commonChecker ? <Check /> : <X />}
+                  icon={
+                    commonChecker ? (
+                      <Icon icon={Icon.is('Check')} />
+                    ) : (
+                      <Icon icon={Icon.is('X')} />
+                    )
+                  }
                 />
               }
               fontSize="xs"

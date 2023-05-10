@@ -33,10 +33,10 @@ export function useAlertProps() {
 }
 
 const STATUS_ICONS: Record<string, { icon: Icons }> = {
-  info: { icon: 'WarningCircle' },
-  warning: { icon: 'Warning' },
-  success: { icon: 'CheckCircle' },
-  error: { icon: 'XCircle' },
+  info: { icon: 'HelpCircle' },
+  warning: { icon: 'AlertTriangle' },
+  success: { icon: 'CircleCheck' },
+  error: { icon: 'SquareRoundedX' },
 };
 
 export const Alert = _unstable_createComponent<t.AlertDef>(
