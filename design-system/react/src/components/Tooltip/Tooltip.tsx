@@ -27,28 +27,31 @@ export const Tooltip = createComponent<TooltipProps>(
     sideOffset = 5,
     alignOffset,
     ...props
-  }) => (
-    <RTooltip.Provider>
-      <RTooltip.Root {...props}>
-        <RTooltip.Trigger asChild>{children}</RTooltip.Trigger>
-        <RTooltip.Content
-          className={cx(className, CLASSES.Content)}
-          side={side}
-          align={align}
-          sideOffset={sideOffset}
-          alignOffset={alignOffset}
-        >
-          <RTooltip.Arrow
-            offset={5}
-            width={11}
-            height={5}
-            className={cx(arrowClassName, CLASSES.Arrow)}
-          />
-          {content}
-        </RTooltip.Content>
-      </RTooltip.Root>
-    </RTooltip.Provider>
-  )
+  }) =>
+    !content ? (
+      <>{children}</>
+    ) : (
+      <RTooltip.Provider>
+        <RTooltip.Root {...props}>
+          <RTooltip.Trigger asChild>{children}</RTooltip.Trigger>
+          <RTooltip.Content
+            className={cx(className, CLASSES.Content)}
+            side={side}
+            align={align}
+            sideOffset={sideOffset}
+            alignOffset={alignOffset}
+          >
+            <RTooltip.Arrow
+              offset={5}
+              width={11}
+              height={5}
+              className={cx(arrowClassName, CLASSES.Arrow)}
+            />
+            {content}
+          </RTooltip.Content>
+        </RTooltip.Root>
+      </RTooltip.Provider>
+    )
 );
 
 const CLASSES = {

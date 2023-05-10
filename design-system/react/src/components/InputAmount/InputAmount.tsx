@@ -1,15 +1,19 @@
 import type { BN } from '@fuel-ts/math';
 import { bn } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
+import type { PressEvent } from '@react-types/shared';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import { Box } from '../Box';
 import { Flex } from '../Box/Flex';
 import { Button } from '../Button';
+import { Icon } from '../Icon';
+import { Image } from '../Image';
 import type { InputProps } from '../Input';
 import { Input } from '../Input';
 import type { InputNumberProps } from '../Input/InputNumber';
+import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
@@ -26,6 +30,9 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
   isDisabled?: boolean;
+  asset?: { name?: string; imageUrl?: string };
+  assetTooltip?: string;
+  onClickAsset?: (e: PressEvent) => void;
 };
 
 type InputAmountComponent = FC<InputAmountProps> & {
@@ -42,6 +49,9 @@ export const InputAmount: InputAmountComponent = ({
   hiddenMaxButton,
   onChange,
   inputProps,
+  asset,
+  assetTooltip,
+  onClickAsset,
   ...props
 }) => {
   const formatOpts = { units };
@@ -75,55 +85,87 @@ export const InputAmount: InputAmountComponent = ({
 
   return (
     <Input size="lg" css={styles.input} {...props}>
-      <Input.Number
-        autoComplete="off"
-        inputMode="decimal"
-        name={name}
-        aria-label={name}
-        placeholder="0.00"
-        allowedDecimalSeparators={['.', ',']}
-        allowNegative={false}
-        thousandSeparator={false}
-        value={assetAmount}
-        onChange={(e) => {
-          handleAmountChange(e.target.value);
-        }}
-        decimalScale={units}
-        {...inputProps}
-      />
-      {initialBalance && (
-        <Input.ElementRight css={styles.elementRight}>
-          <Box css={styles.balanceActions}>
-            {!hiddenMaxButton && (
-              <Flex align="center" justify="end">
-                <Button
-                  aria-label="Max"
-                  size="sm"
-                  variant="ghost"
-                  onPress={handleSetBalance}
-                  css={styles.maxButton}
-                >
-                  Max
-                </Button>
-              </Flex>
-            )}
-            {!hiddenBalance && (
-              <Flex
-                as="div"
-                css={styles.balance}
-                aria-label={`Balance: ${formattedBalance}`}
-              >
-                <Box as="span">Balance: </Box>
-                <Tooltip
-                  content={formatAmount(balance, formatOpts)}
-                  sideOffset={-5}
-                >
-                  <Box as="span">{formattedBalance}</Box>
+      <Text css={styles.heading}>Amount</Text>
+      <Flex css={styles.secondRow}>
+        <Input.Number
+          autoComplete="off"
+          inputMode="decimal"
+          name={name}
+          aria-label={name}
+          placeholder="0.00"
+          allowedDecimalSeparators={['.', ',']}
+          allowNegative={false}
+          thousandSeparator={false}
+          value={assetAmount}
+          onChange={(e) => {
+            handleAmountChange(e.target.value);
+          }}
+          decimalScale={units}
+          {...inputProps}
+        />
+
+        {initialBalance && (
+          <Input.ElementRight css={styles.elementRight}>
+            <Box css={styles.balanceActions}>
+              {!hiddenMaxButton && (
+                <Flex align="center">
+                  <Button
+                    aria-label="Max"
+                    variant="solid"
+                    intent="primary"
+                    onPress={handleSetBalance}
+                    css={styles.maxButton}
+                  >
+                    MAX
+                  </Button>
+                </Flex>
+              )}
+              {asset && (
+                <Tooltip content={assetTooltip}>
+                  <Button
+                    size="xs"
+                    aria-label="Coin Selector"
+                    variant="outlined"
+                    intent="base"
+                    onPress={onClickAsset}
+                    isDisabled={!onClickAsset}
+                    css={styles.assetButton}
+                  >
+                    <Image
+                      alt={asset.name}
+                      src={asset.imageUrl}
+                      css={styles.image}
+                    />
+                    <Text css={styles.assetText}>{asset.name}</Text>
+                    {!!onClickAsset && (
+                      <Icon
+                        icon="CaretDown"
+                        size={10}
+                        css={styles.assetCaret}
+                      />
+                    )}
+                  </Button>
                 </Tooltip>
-              </Flex>
-            )}
+              )}
+            </Box>
+          </Input.ElementRight>
+        )}
+      </Flex>
+      {!hiddenBalance && (
+        <Flex
+          as="div"
+          css={styles.balanceContainer}
+          aria-label={`Balance: ${formattedBalance}`}
+        >
+          <Box as="span" css={styles.balance}>
+            Balance:{' '}
           </Box>
-        </Input.ElementRight>
+          <Tooltip content={formatAmount(balance, formatOpts)} sideOffset={-5}>
+            <Box as="span" css={styles.balance}>
+              {formattedBalance}
+            </Box>
+          </Tooltip>
+        </Flex>
       )}
     </Input>
   );
@@ -135,52 +177,81 @@ const styles = {
   input: cssObj({
     px: '$3',
     boxSizing: 'border-box',
-    height: '$16',
-    display: 'grid',
-    gridGap: '$2',
-    gridTemplateColumns: '1fr auto',
+    height: '$20',
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
 
     input: {
       is: ['display'],
       width: '100%',
       boxSizing: 'border-box',
+      fontSize: '$sm',
+      fontFamily: '$mono',
     },
 
     'input, .fuel_input-element--right': {
       px: '$0',
     },
   }),
-  maxButtonContainer: cssObj({
-    height: '$8',
+  heading: cssObj({
+    color: '$intentsBase9',
+    mt: '$3',
+    mb: '$1',
+    fontSize: '$xs',
+    lineHeight: '$tight',
+  }),
+  secondRow: cssObj({
+    alignItems: 'center',
+    width: '100%',
+    height: '$6',
   }),
   elementRight: cssObj({
     maxHeight: '100%',
     pr: '$0',
-  }),
-  balanceActions: cssObj({
-    boxSizing: 'border-box',
-    display: 'grid',
-    gridTemplateRows: '1fr 1fr',
-    justifyContent: 'center',
-  }),
-  maxButton: cssObj({
-    mt: '$1',
-    px: '$1',
-    width: '$15',
-    gridArea: '1 / 1 / 3 / 2',
-    height: '$5',
-  }),
-  balance: cssObj({
-    gridArea: '2 / 1 / 3 / 2',
-    gap: '$2',
-    alignItems: 'center',
-    whiteSpace: 'nowrap',
-    fontSize: '$sm',
-    fontWeight: '$normal',
-    color: '$intentsBase10',
-
-    '& > span:first-of-type': {
-      color: '$textMuted',
+    '[aria-disabled="true"]': {
+      opacity: 'unset',
+      backgroundColor: 'unset',
+      color: 'unset',
     },
   }),
+  balanceActions: cssObj({
+    display: 'flex',
+    justifyContent: 'end',
+  }),
+  maxButton: cssObj({
+    px: '$1',
+    width: '$6',
+    height: '$4',
+    borderRadius: '3px',
+    fontSize: '8px',
+    fontFamily: '$mono',
+  }),
+  assetButton: cssObj({
+    height: '$6',
+    width: '$18',
+    marginLeft: '$2',
+    borderRadius: '$md',
+  }),
+  assetText: cssObj({
+    fontSize: '$xs',
+    color: '$intentsBase12',
+  }),
+  assetCaret: cssObj({
+    color: '$intentsBase12 !important',
+  }),
+  balanceContainer: cssObj({
+    gap: '$1',
+    alignItems: 'center',
+    whiteSpace: 'nowrap',
+    lineHeight: '$tight',
+    fontSize: '8px',
+    fontWeight: '$normal',
+    mt: '$1',
+  }),
+  balance: cssObj({
+    fontFamily: '$mono',
+    color: '$intentsBase9',
+  }),
+  image: cssObj({ borderRadius: '50%', width: 14, height: 14 }),
 };
