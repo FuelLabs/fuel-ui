@@ -63,9 +63,13 @@ function getChildren({
   iconRight,
 }: GetChildrenParams) {
   if (isLoading) {
+    console.log({
+      isLoading,
+      loadingText,
+    });
     return (
       <>
-        <Spinner color="current" size={SPINNER_SIZE[size]} />{' '}
+        <Spinner color="current" size={SPINNER_SIZE[size]} />
         {loadingText || 'Loading...'}
       </>
     );
@@ -92,6 +96,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     const {
       size = 'md',
       isLoading,
+      loadingText,
       isDisabled,
       isLink,
       leftIcon,
@@ -142,6 +147,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
       getChildren({
         size,
         isLoading,
+        loadingText,
         children,
         iconLeft,
         iconRight,

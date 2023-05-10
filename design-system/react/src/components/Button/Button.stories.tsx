@@ -128,6 +128,14 @@ export const Loading = (args: ButtonProps) => (
   </Box>
 );
 
+export const CustomLoadingMessage = (args: ButtonProps) => (
+  <Box css={styles.wrapper}>
+    <Button {...args} isLoading loadingText="Custom Loading...">
+      Button
+    </Button>
+  </Box>
+);
+
 export const Disabled = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
     <Button {...args} isDisabled>
