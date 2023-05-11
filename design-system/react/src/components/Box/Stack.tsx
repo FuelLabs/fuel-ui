@@ -15,12 +15,29 @@ export type StackProps = t.StackProps;
 
 const _Stack = _unstable_createComponent<t.StackDef>(
   Components.Stack,
-  ({ gap = '$2', direction = 'column', ...props }) => {
+  (props) => {
+    const {
+      direction = 'column',
+      align,
+      justify,
+      wrap,
+      basis,
+      grow,
+      shrink,
+      gap = '$2',
+    } = props;
     const classes = useStyles(styles, {
       ...props,
       css: {
         gap,
         flexDirection: direction,
+        alignItems: align,
+        justifyContent: justify,
+        flexWrap: wrap,
+        flexBasis: basis,
+        flexGrow: grow,
+        flexShrink: shrink,
+        display: 'flex',
         ...props.css,
       },
     });
