@@ -1,4 +1,3 @@
-import type { BNInput, FormatConfig } from '@fuel-ts/math';
 import { bn } from '@fuel-ts/math';
 
 export const DECIMAL_UNITS = 9;
@@ -24,8 +23,4 @@ export function createAmount(text: string, units: number = DECIMAL_UNITS) {
     text: textAmountFixed,
     amount: bn.parseUnits(text.replaceAll(',', ''), units),
   };
-}
-
-export function formatAmount(amount: BNInput, opts: FormatConfig = {}) {
-  return bn(amount).format(opts);
 }
