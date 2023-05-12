@@ -41,7 +41,7 @@ const STATUS_ICONS: Record<string, { icon: Icons }> = {
 
 export const Alert = _unstable_createComponent<t.AlertDef>(
   Components.Alert,
-  ({ as = 'div', children, ...props }) => {
+  ({ as = 'div', hideIcon, children, ...props }) => {
     const classes = useStyles(styles, props);
     const elementProps = useElementProps(props, classes.root);
     const { status = 'info' } = props;
@@ -57,9 +57,11 @@ export const Alert = _unstable_createComponent<t.AlertDef>(
       as,
       elementProps,
       <>
-        <Box className={classes.icon.className}>
-          <Icon {...STATUS_ICONS[status]} />
-        </Box>
+        {!hideIcon && (
+          <Box className={classes.icon.className}>
+            <Icon {...STATUS_ICONS[status]} />
+          </Box>
+        )}
         <Flex className={classes.content.className}>{items}</Flex>
       </>
     );

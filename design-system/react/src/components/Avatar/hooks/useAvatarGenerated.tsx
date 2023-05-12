@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 const SIZES = {
   xsm: 24,
   sm: 32,
@@ -19,11 +20,18 @@ function getFixedGradientDirection(hash: string) {
 }
 
 function hashToGradient(hash: string): string {
+  let fixedHex = '';
+  for (let i = 0; i < hash.length; i++) {
+    const char = hash.charAt(i);
+    if (/\d/.test(char)) {
+      fixedHex += char;
+    }
+  }
+
+  const color1 = fixedHex.slice(0, 6);
+  const color2 = fixedHex.slice(6, 12);
   const direction = getFixedGradientDirection(hash);
-  const color1 = hash.slice(4, 10);
-  const color2 = hash.slice(8, 14);
-  const stops = [`#${color1} 0%`, `#${color2} 100%`];
-  return `linear-gradient(${direction}, ${stops.join(', ')})`;
+  return `linear-gradient(${direction}, #${color1}, #${color2})`;
 }
 
 type UseAvatarGeneratedProps = {

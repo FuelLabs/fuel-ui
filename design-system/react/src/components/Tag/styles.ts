@@ -53,7 +53,7 @@ export const tag = css({
 
   defaultVariants: {
     size: 'sm',
-    intent: 'primary',
+    intent: 'base',
     variant: 'solid',
   },
 });

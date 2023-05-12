@@ -15,6 +15,7 @@ export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 export type AlertProps = BoxProps & {
   direction?: 'row' | 'column';
   status?: AlertStatus;
+  hideIcon?: boolean;
 };
 
 export type AlertActionsProps = FlexProps;
