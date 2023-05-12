@@ -31,8 +31,10 @@ const BALANCE = bn.parseUnits('1.570000044');
 
 const Template: StoryFn<typeof InputAmount> = (args) => {
   const [amount, setAmount] = useState<BN | null>(bn());
-  const AMOUNT_VALUE_1 = 1_000_000_011;
-  const AMOUNT_VALUE_2 = 1_000_000_000;
+  const { units } = args || {};
+
+  const valueOne = bn.parseUnits('1', units).add(11);
+  const valueTwo = bn.parseUnits('1', units);
 
   // Log onChange amount
   useEffect(() => {
@@ -46,13 +48,13 @@ const Template: StoryFn<typeof InputAmount> = (args) => {
       <InputAmount {...args} onChange={setAmount} value={amount} />
       <Stack gap="$3">
         <Text fontSize="lg" css={{ marginTop: '$2' }}>
-          Amount: {amount?.format({ precision: 9 })}
+          Amount: {amount?.format({ precision: units, units })}
         </Text>
-        <Button onPress={() => setAmount(bn(AMOUNT_VALUE_1))}>
-          Set ({bn(AMOUNT_VALUE_1).format({ precision: 9 })})
+        <Button onPress={() => setAmount(valueOne)}>
+          Set ({valueOne.format({ precision: units, units })})
         </Button>
-        <Button onPress={() => setAmount(bn(AMOUNT_VALUE_2))}>
-          Set ({bn(AMOUNT_VALUE_2).format({ precision: 3 })})
+        <Button onPress={() => setAmount(valueTwo)}>
+          Set ({valueTwo.format({ precision: units, units })})
         </Button>
         <Button onPress={() => setAmount(null)}>Clear</Button>
       </Stack>
@@ -63,6 +65,12 @@ const Template: StoryFn<typeof InputAmount> = (args) => {
 export const Usage = Template.bind({});
 Usage.args = {
   balance: BALANCE,
+};
+
+export const EthUnits = Template.bind({});
+EthUnits.args = {
+  balance: bn.parseUnits('1.570000044', 18),
+  units: 18,
 };
 
 export const NoBalance = Template.bind({});

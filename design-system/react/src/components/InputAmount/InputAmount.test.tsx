@@ -5,9 +5,9 @@ import { useState } from 'react';
 
 import type { InputAmountProps } from './InputAmount';
 import { InputAmount } from './InputAmount';
+import { DECIMAL_UNITS } from './utils';
 
 const AMOUNT_TEXT = `14.563`;
-const BALANCE_TEXT = bn.parseUnits(AMOUNT_TEXT).format({ precision: 3 });
 const FIELD_NAME = 'Input Amount';
 export const MOCK_ASSET = {
   assetId: '0x0000000000000000000000000000000000000000000000000000000000000000',
@@ -44,43 +44,93 @@ describe('InputAmount', () => {
     await testA11y(<Content onChange={onChange} />);
   });
 
-  it('should input correctly', async () => {
-    render(<Content onChange={onChange} />);
+  it.each([DECIMAL_UNITS, 18])(
+    'should input correctly a fraction',
+    async (units) => {
+      render(<Content onChange={onChange} units={units} />);
 
-    const input = screen.getByLabelText(FIELD_NAME);
-    fireEvent.input(input, { target: { value: '0.5' } });
-    expect(input.getAttribute('value')).toBe('0.5');
-    expect(onChange).toBeCalledWith(bn(500000000));
-  });
+      const input = screen.getByLabelText(FIELD_NAME);
+      const INPUT_VALUE = '0.5';
+      fireEvent.input(input, { target: { value: INPUT_VALUE } });
+      expect(input.getAttribute('value')).toBe(INPUT_VALUE);
+      expect(onChange).toBeCalledWith(bn.parseUnits(INPUT_VALUE, units));
+    }
+  );
 
-  it('should correct inputed values', async () => {
-    render(<Content onChange={onChange} />);
-    const input = screen.getByLabelText(FIELD_NAME);
+  it.each([DECIMAL_UNITS, 18])(
+    'should input correctly(units: %i) a fraction without the zero. for example .5',
+    async (units) => {
+      render(<Content onChange={onChange} units={units} />);
 
-    fireEvent.input(input, { target: { value: '.3' } });
-    expect(input.getAttribute('value')).toBe('0.3');
-    expect(onChange).toBeCalledWith(bn(300000000));
+      const input = screen.getByLabelText(FIELD_NAME);
+      const INPUT_VALUE = '0.5';
+      fireEvent.input(input, { target: { value: '.5' } });
+      expect(input.getAttribute('value')).toBe(INPUT_VALUE);
+      expect(onChange).toBeCalledWith(bn.parseUnits(INPUT_VALUE, units));
+    }
+  );
 
-    fireEvent.input(input, { target: { value: '1.000000001' } });
-    expect(input.getAttribute('value')).toBe('1.000000001');
-    expect(onChange).toBeCalledWith(bn(1000000001));
+  it.each([DECIMAL_UNITS, 18])(
+    'should input correctly(units: %i) a 1 integer and 1 unit value. for example 1.000000001 for 9 units or 1.000000000000000001 for 18 units.',
+    async (units) => {
+      render(<Content onChange={onChange} units={units} />);
 
-    fireEvent.input(input, { target: { value: '1.000' } });
-    expect(input.getAttribute('value')).toBe('1.000');
-    expect(onChange).toBeCalledWith(bn(1000000000));
-  });
+      const input = screen.getByLabelText(FIELD_NAME);
+      const INPUT_VALUE = bn
+        .parseUnits('1', units)
+        .add(1)
+        .format({ precision: units, units });
+      fireEvent.input(input, { target: { value: INPUT_VALUE } });
+      expect(input.getAttribute('value')).toBe(INPUT_VALUE);
+      expect(onChange).toBeCalledWith(bn.parseUnits(INPUT_VALUE, units));
+    }
+  );
+
+  it.each([DECIMAL_UNITS, 18])(
+    'should input correctly(units: %i) trailing zeros',
+    async (units) => {
+      render(<Content onChange={onChange} units={units} />);
+      const input = screen.getByLabelText(FIELD_NAME);
+
+      const INPUT_VALUE = '1.000';
+      fireEvent.input(input, { target: { value: INPUT_VALUE } });
+      expect(input.getAttribute('value')).toBe(INPUT_VALUE);
+      expect(onChange).toBeCalledWith(bn.parseUnits(INPUT_VALUE, units));
+    }
+  );
 
   it('should show placeholder', () => {
     render(<InputAmount value={bn(0)} />);
     expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
   });
 
-  it('should show balance formatted', () => {
-    render(<InputAmount balance={MOCK_ASSET.amount} />);
-    expect(
-      screen.getByLabelText(`Balance: ${BALANCE_TEXT}`)
-    ).toBeInTheDocument();
-  });
+  it.each([DECIMAL_UNITS, 18])(
+    'should show balance formatted (units: %i)',
+    (units) => {
+      const balance = bn.parseUnits('100', units);
+      const formattedBalance = bn
+        .parseUnits('100', units)
+        .format({ precision: 3, units });
+      render(<InputAmount balance={balance} units={units} />);
+      expect(
+        screen.getByLabelText(`Balance: ${formattedBalance}`)
+      ).toBeInTheDocument();
+    }
+  );
+
+  it.each([DECIMAL_UNITS, 18])(
+    'should show balance formatted for full units balance precision (units: %i)',
+    (units) => {
+      const balance = bn.parseUnits('100', units);
+      const formattedBalance = bn
+        .parseUnits('100', units)
+        .format({ precision: 3, units });
+      render(<InputAmount balance={balance} units={units} />);
+      expect(
+        screen.getByLabelText(`Balance: ${formattedBalance}`)
+      ).toBeInTheDocument();
+    }
+  );
 
   it('should display balance in input when click on max button', async () => {
     const { user } = render(<InputAmount balance={MOCK_ASSET.amount} />);
