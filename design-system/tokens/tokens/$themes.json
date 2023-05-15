@@ -5,9 +5,7 @@
     "selectedTokenSets": {
       "global": "enabled",
       "colors-dark": "enabled",
-      "radix": "enabled",
-      "test light": "disabled",
-      "test dark": "disabled"
+      "radix": "enabled"
     },
     "$figmaStyleReferences": {
       "whiteA.whiteA1": "S:d78b9d77502c5f842217525d62c87a95e865df6b,",
@@ -1814,9 +1812,7 @@
     "selectedTokenSets": {
       "global": "enabled",
       "colors-light": "enabled",
-      "radix": "enabled",
-      "test light": "disabled",
-      "test dark": "disabled"
+      "radix": "enabled"
     },
     "$figmaStyleReferences": {
       "whiteA.whiteA1": "S:d78b9d77502c5f842217525d62c87a95e865df6b,",
