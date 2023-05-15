@@ -591,8 +591,9 @@
       "type": "borderRadius"
     },
     "3xl": {
-      "value": "12px",
-      "type": "borderRadius"
+      "value": "48px",
+      "type": "borderRadius",
+      "description": "vorder raadius 3xl back to 48px"
     },
     "full": {
       "value": "9999px",
