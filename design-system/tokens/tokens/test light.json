@@ -1,10 +1,10 @@
 {
   "test primary": {
-    "value": "#0057ff",
+    "value": "#ff00f1",
     "type": "color"
   },
   "test secondary": {
-    "value": "#00ff00",
+    "value": "#11db11",
     "type": "color"
   }
 }
