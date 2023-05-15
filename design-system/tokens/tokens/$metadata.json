@@ -3,6 +3,8 @@
     "global",
     "radix",
     "colors-light",
-    "colors-dark"
+    "colors-dark",
+    "test light",
+    "test dark"
   ]
 }
