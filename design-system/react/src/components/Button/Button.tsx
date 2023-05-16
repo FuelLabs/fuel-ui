@@ -63,10 +63,6 @@ function getChildren({
   iconRight,
 }: GetChildrenParams) {
   if (isLoading) {
-    console.log({
-      isLoading,
-      loadingText,
-    });
     return (
       <>
         <Spinner color="current" size={SPINNER_SIZE[size]} />
