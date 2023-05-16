@@ -28,7 +28,7 @@ export const AccordionTrigger =
         <AC.AccordionTrigger {...triggerElementProps}>
           {children}
           <Icon
-            icon="CaretDown"
+            icon="ChevronDown"
             aria-hidden
             className={classes.icon.className}
           />

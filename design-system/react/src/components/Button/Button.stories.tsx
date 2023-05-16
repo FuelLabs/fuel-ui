@@ -122,7 +122,16 @@ export const WithIcon = (args: ButtonProps) => (
 
 export const Loading = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
-    <Button {...args} isLoading>
+    <Button {...args} variant="solid" isLoading>
+      Button
+    </Button>
+    <Button {...args} variant="outlined" isLoading>
+      Button
+    </Button>
+    <Button {...args} variant="ghost" isLoading>
+      Button
+    </Button>
+    <Button {...args} variant="link" isLoading>
       Button
     </Button>
   </Box>
@@ -138,7 +147,16 @@ export const CustomLoadingMessage = (args: ButtonProps) => (
 
 export const Disabled = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
-    <Button {...args} isDisabled>
+    <Button {...args} variant="solid" isDisabled>
+      Button
+    </Button>
+    <Button {...args} variant="outlined" isDisabled>
+      Button
+    </Button>
+    <Button {...args} variant="ghost" isDisabled>
+      Button
+    </Button>
+    <Button {...args} variant="link" isDisabled>
       Button
     </Button>
   </Box>

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -75,39 +73,25 @@ export const Addon = (args: InputProps) => (
 export const WithIcon = (args: InputProps) => (
   <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args}>
-      <Input.ElementLeft element={<Icon icon="Envelope" />} />
+      <Input.ElementLeft element={<Icon icon="Mail" />} />
       <Input.Field {...FIELD_ARGS} />
     </Input>
     <Input {...args}>
       <Input.Field {...FIELD_ARGS} />
-      <Input.ElementRight element={<Icon icon="Envelope" />} />
+      <Input.ElementRight element={<Icon icon="Mail" />} />
     </Input>
   </Stack>
 );
 
 export const WithButton = (args: InputProps) => {
-  const [showing, setShowing] = useState(false);
-
-  function toggle() {
-    setShowing((s) => !s);
-  }
-
   return (
     <Stack css={{ maxW: '350px' }} gap="$3">
       <Input {...args}>
-        <Input.ElementLeft element={<Icon icon="Lock" />} />
-        <Input.Field
-          type={showing ? 'text' : 'password'}
-          name="password"
-          placeholder="Your password..."
-        />
+        <Input.ElementLeft element={<Icon icon="Mail" />} />
+        <Input.Field type="email" name="email" placeholder="Your email" />
         <Input.ElementRight>
-          <Button
-            variant="outlined"
-            onPress={toggle}
-            css={{ mr: '-6px', px: '$2' }}
-          >
-            Show
+          <Button variant="outlined" css={{ mr: '-6px', px: '$2' }}>
+            Submit
           </Button>
         </Input.ElementRight>
       </Input>
@@ -118,7 +102,7 @@ export const WithButton = (args: InputProps) => {
 export const Invalid = (args: InputProps) => (
   <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args} isInvalid>
-      <Input.ElementLeft element={<Icon icon="Envelope" />} />
+      <Input.ElementLeft element={<Icon icon="Mail" />} />
       <Input.Field {...FIELD_ARGS} />
     </Input>
     <Input {...args} isInvalid>

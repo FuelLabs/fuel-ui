@@ -91,7 +91,7 @@ const App = () => {
       <Form.Control isRequired>
         <Form.Label htmlFor="email">Email</Form.Label>
         <Input isFullWidth>
-          <Input.ElementLeft element={<Icon icon="LockClosedIcon" />} />
+          <Input.ElementLeft element={<Icon icon="Lock" />} />
           <Input.Field
             type={showing ? 'text' : 'password'}
             name="password"
@@ -261,9 +261,9 @@ We are using Radix as base components extensively here:
 
 > Radix Primitives is a low-level UI component library with a focus on accessibility, customization and developer experience. You can use their components either as the base layer of your design system, or adopt them incrementally. We're
 
-#### → [Phosphor Icons](https://phosphoricons.com/)
+#### → [TablerIcons](https://tablericons.io/)
 
-As icon set, we're using Phosphor Icons here. Phosphor Icons is a flexible icon family for interfaces, diagrams, presentations — whatever, really.
+As icon set, we're using Tabler Icons here. Tabler Icons is a flexible icon family for interfaces, diagrams, presentations — whatever, really.
 
 #### → [Radix Colors](https://www.radix-ui.com/colors)
 

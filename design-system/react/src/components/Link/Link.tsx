@@ -42,7 +42,7 @@ const _Link = _unstable_createComponent<t.LinkDef>(
       as,
       elementProps,
       <>
-        {children} {isExternal && <Icon icon="LinkSimple" color="textIcon" />}
+        {children} {isExternal && <Icon icon="Link" color="textIcon" />}
       </>
     );
   }

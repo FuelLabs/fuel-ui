@@ -106,7 +106,13 @@ export const Loading = (args: TagProps) => (
 
 export const Disabled = (args: TagProps) => (
   <Box css={styles.wrapper}>
-    <Tag {...args} isDisabled>
+    <Tag {...args} variant="solid" isDisabled>
+      Label
+    </Tag>
+    <Tag {...args} variant="outlined" isDisabled>
+      Label
+    </Tag>
+    <Tag {...args} variant="ghost" isDisabled>
       Label
     </Tag>
   </Box>

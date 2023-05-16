@@ -1,5 +1,5 @@
 import type { BN } from '@fuel-ts/math';
-import { bn } from '@fuel-ts/math';
+import { bn, format } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
 import type { PressEvent } from '@react-types/shared';
 import { useEffect, useState } from 'react';
@@ -17,7 +17,7 @@ import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
-import { DECIMAL_UNITS, createAmount, formatAmount } from './utils';
+import { DECIMAL_UNITS, createAmount } from './utils';
 
 export type InputAmountProps = Omit<InputProps, 'size'> & {
   name?: string;
@@ -54,23 +54,27 @@ export const InputAmount: InputAmountComponent = ({
   onClickAsset,
   ...props
 }) => {
-  const formatOpts = { units };
+  const formatOpts = { units, precision: units };
   const [assetAmount, setAssetAmount] = useState<string>(
-    !value || value.eq(0) ? '' : formatAmount(value, formatOpts)
+    !value || value.eq(0) ? '' : value.format(formatOpts)
   );
 
   const balance = initialBalance ?? bn(initialBalance);
-  const formattedBalance = formatAmount(balance, {
+  const formattedBalance = balance.format({
+    ...formatOpts,
     precision: balance.eq(0) ? 1 : balancePrecision,
   });
 
   useEffect(() => {
-    handleAmountChange(value ? formatAmount(value, formatOpts) : '');
+    handleAmountChange(value ? value.format(formatOpts) : '');
   }, [value?.toString()]);
 
   const handleAmountChange = (text: string) => {
-    const { text: newText, amount } = createAmount(text);
-    const { amount: currentAmount } = createAmount(assetAmount);
+    const { text: newText, amount } = createAmount(text, formatOpts.units);
+    const { amount: currentAmount } = createAmount(
+      assetAmount,
+      formatOpts.units
+    );
     if (!currentAmount.eq(amount)) {
       onChange?.(amount);
       setAssetAmount(newText);
@@ -79,7 +83,7 @@ export const InputAmount: InputAmountComponent = ({
 
   const handleSetBalance = () => {
     if (balance) {
-      handleAmountChange(formatAmount(balance, formatOpts));
+      handleAmountChange(balance.format(formatOpts));
     }
   };
 
@@ -140,7 +144,7 @@ export const InputAmount: InputAmountComponent = ({
                     {!!onClickAsset && (
                       <Icon
                         icon="CaretDown"
-                        size="10"
+                        size={10}
                         css={styles.assetCaret}
                       />
                     )}
@@ -160,7 +164,7 @@ export const InputAmount: InputAmountComponent = ({
           <Box as="span" css={styles.balance}>
             Balance:{' '}
           </Box>
-          <Tooltip content={formatAmount(balance, formatOpts)} sideOffset={-5}>
+          <Tooltip content={format(balance, formatOpts)} sideOffset={-5}>
             <Box as="span" css={styles.balance}>
               {formattedBalance}
             </Box>

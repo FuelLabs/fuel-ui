@@ -51,7 +51,7 @@ export const DropdownTrigger = createComponent<
       {...props}
       ref={mergeRefs(ref, triggerRef as never)}
       onPress={handleToggle}
-      rightIcon={state?.isOpen ? Icon.is('CaretUp') : Icon.is('CaretDown')}
+      rightIcon={state?.isOpen ? Icon.is('ChevronUp') : Icon.is('ChevronDown')}
     >
       {children}
     </Button>

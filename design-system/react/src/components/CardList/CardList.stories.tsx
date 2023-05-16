@@ -63,7 +63,7 @@ export const WithAction = (args: CardListProps) => (
           size="xs"
           variant="link"
           intent="base"
-          icon={<Icon icon="DotsThreeOutline" color="gray8" />}
+          icon={<Icon icon="Dots" color="gray8" />}
           aria-label="Action"
           css={{ px: '$0', color: '$intentsBase10' }}
         />

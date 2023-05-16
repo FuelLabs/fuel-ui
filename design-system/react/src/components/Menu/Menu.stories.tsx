@@ -26,7 +26,7 @@ const Template: StoryFn<typeof Menu> = (args: MenuProps) => (
   <Box css={{ width: '200px' }}>
     <Menu {...args} disabledKeys={['edit']} aria-label="Actions">
       <Menu.Item key="settings" textValue="Settings">
-        <Icon icon="Gear" />
+        <Icon icon="Settings" />
         Settings
       </Menu.Item>
       <Menu.Item key="profile" textValue="Profile">
@@ -38,7 +38,7 @@ const Template: StoryFn<typeof Menu> = (args: MenuProps) => (
         Remove
       </Menu.Item>
       <Menu.Item key="edit" textValue="Edit">
-        <Icon icon="NotePencil" />
+        <Icon icon="Edit" />
         Edit
       </Menu.Item>
     </Menu>

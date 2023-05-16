@@ -106,7 +106,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     const { buttonProps, isPressed } = useButton(
       {
         ...omit(['onClick'], props),
-        isDisabled,
+        isDisabled: disabled,
         ...(isLink && { elementType: 'a' }),
         /**
          * Need this because of triggers components on Radix uses asChild props
@@ -122,12 +122,10 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
 
     const customProps = {
       as,
-      disabled,
       role: props.role || buttonProps.role,
       ref: mergeRefs(ref!, innerRef),
-      'aria-disabled': isDisabled,
       'aria-busy': isLoading,
-      ...(!isLink && { 'aria-pressed': !isDisabled && isPressed }),
+      ...(!isLink && { 'aria-pressed': !disabled && isPressed }),
     };
 
     const allProps = mergeProps(props, buttonProps, customProps);

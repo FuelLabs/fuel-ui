@@ -1,11 +1,10 @@
 import { cx } from '@fuel-ui/css';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
-import * as PhosphorIcons from 'phosphor-react';
+import * as TablerIcons from '@tabler/icons-react';
 import type { ReactElement } from 'react';
 import { createElement, useMemo, cloneElement } from 'react';
 
 import { _unstable_createComponent } from '../../utils';
-import { omit } from '../../utils/helpers';
 
 import type * as t from './defs';
 
@@ -23,26 +22,25 @@ export const Icon = _unstable_createComponent<t.IconDef>(
     className,
     wrapperClassName,
     css,
-    alt,
-    size,
-    weight = 'regular',
-    mirrored,
+    size = 18,
+    stroke = 2,
     ...props
   }) => {
     const iconProps = {
       className: cx(`fuel_Icon-${icon}`, className),
       focusable: false,
       'aria-hidden': true,
-      alt,
       size,
-      weight,
-      mirrored,
+      stroke,
     };
 
     const iconElement = useMemo<ReactElement>(
       (() => {
         if (typeof icon === 'string') {
-          const Component = PhosphorIcons[icon];
+          const Component = TablerIcons[`Icon${icon}`];
+          if (!Component) {
+            throw new Error(`Icon ${icon} not found`);
+          }
           return <Component />;
         }
         return icon;
@@ -80,9 +78,7 @@ export const Icon = _unstable_createComponent<t.IconDef>(
   }
 );
 
-const iconList = Object.keys(
-  omit(['Icon', 'IconProps', 'IconWeight', 'IconContext'], PhosphorIcons)
-) as t.Icons[];
+const iconList = Object.keys(TablerIcons) as t.Icons[];
 
 Icon.id = 'Icon';
 Icon.iconList = iconList;

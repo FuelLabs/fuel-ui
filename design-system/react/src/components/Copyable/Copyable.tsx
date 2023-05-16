@@ -46,7 +46,7 @@ export const Copyable = createComponent<CopyableProps>(
           tooltip={tooltipMessage}
           onPress={handleCopy}
           variant="link"
-          icon={<Icon icon="CopySimple" size={16} />}
+          icon={<Icon icon="Copy" size={16} />}
           aria-label="Copy to clipboard"
           className={iconClass}
           css={styles.icon}

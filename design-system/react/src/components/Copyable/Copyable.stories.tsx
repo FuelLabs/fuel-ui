@@ -16,7 +16,7 @@ export const Usage = () => (
 export const IconProps = () => (
   <Copyable
     value="Another text which you copied"
-    iconProps={{ icon: Icon.is('Airplane'), 'aria-label': 'An Airplane' }}
+    iconProps={{ icon: Icon.is('Send') }}
   >
     Different Icon
   </Copyable>

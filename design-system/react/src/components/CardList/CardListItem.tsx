@@ -37,8 +37,7 @@ const styles = {
     layer: 'layer-card',
     position: 'relative',
     overflow: 'hidden',
-    py: '$3',
-    px: '$4',
+    padding: '$4 !important',
     gap: '$3',
 
     variants: {

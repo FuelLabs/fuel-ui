@@ -4,10 +4,10 @@ import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
 
 function createVariantStyle(key: string) {
-  const color = '$textInverse';
-  const iconColor = `$${toCamelCase(`intents-${key}-11`)}`;
-  const bg = `$${toCamelCase(`intents-${key}-4`)}`;
-  const border = `1px solid $${toCamelCase(`intents-${key}-6`)}`;
+  const color = `$${toCamelCase(`semantic-ghost-${key}-color`)}`;
+  const iconColor = `$${toCamelCase(`semantic-ghost-${key}-icon`)}`;
+  const bg = `$${toCamelCase(`semantic-ghost-${key}-bg`)}`;
+  const border = `$${toCamelCase(`semantic-ghost-${key}-border`)}`;
 
   return {
     bg,
@@ -15,6 +15,7 @@ function createVariantStyle(key: string) {
     border,
 
     '& .fuel_Heading': {
+      fontWeight: '$semibold',
       color,
     },
 
@@ -24,8 +25,8 @@ function createVariantStyle(key: string) {
 
     '& .fuel_Button': {
       p: 0,
+      fontWeight: '$semibold',
       color,
-      fontWeight: '$normal',
     },
   };
 }

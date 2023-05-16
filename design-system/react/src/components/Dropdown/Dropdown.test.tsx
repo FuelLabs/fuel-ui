@@ -14,7 +14,7 @@ const Content = (props: Partial<DropdownProps>) => {
       </Dropdown.Trigger>
       <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
         <Dropdown.MenuItem key="settings" textValue="Settings">
-          <Icon icon="Gear" />
+          <Icon icon="Settings" />
           Settings
         </Dropdown.MenuItem>
         <Dropdown.MenuItem key="trash" textValue="Delete">
@@ -22,7 +22,7 @@ const Content = (props: Partial<DropdownProps>) => {
           Delete
         </Dropdown.MenuItem>
         <Dropdown.MenuItem key="edit" textValue="Edit">
-          <Icon icon="NotePencil" />
+          <Icon icon="Edit" />
           Edit
         </Dropdown.MenuItem>
       </Dropdown.Menu>
@@ -51,7 +51,7 @@ describe('Dropdown', () => {
     const trigger = screen.getByText('Click here');
     await act(() => user.click(trigger));
 
-    const menuItem = await screen.findByText(/settings/i);
+    const menuItem = await screen.findByText('Settings');
     await act(() => user.click(menuItem));
 
     await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());

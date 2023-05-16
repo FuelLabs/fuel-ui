@@ -1,13 +1,8 @@
 import * as tokens from '../base-tokens.mjs';
-import {
-  createBody,
-  createDef,
-  createHeadings,
-  createItem,
-  createUtilities,
-} from '../utils/index.mjs';
+import { createBody, createDef, createHeadings } from '../utils/index.mjs';
 
 const fontSizes = createDef('fontSizes', tokens.fontSizes);
+const fontWeights = createDef('fontWeights', tokens.fontWeights);
 const spacing = createDef('spacing', tokens.spacing);
 const sizing = createDef('sizing', tokens.sizing);
 const lineHeights = createDef('lineHeights', tokens.lineHeights);
@@ -27,26 +22,13 @@ const fontFamilies = createDef(
   (value) => value.fontFamily
 );
 
-// fontWeights
-const fontWeights = Object.entries(tokens.fonts).reduce((obj, [key, font]) => {
-  return {
-    ...obj,
-    [key]: font.weights.reduce((obj, weight) => {
-      obj[weight] = createItem(weight, 'fontWeights');
-      return obj;
-    }, {}),
-  };
-}, {});
-
 const body = createBody(tokens.fonts);
 const headings = createHeadings(tokens.fonts);
-const utilities = createUtilities(tokens.utilities);
 const borders = createDef('border', tokens.borders);
 
 const typography = {
   ...body,
   headings,
-  utilities,
 };
 
 export const global = {

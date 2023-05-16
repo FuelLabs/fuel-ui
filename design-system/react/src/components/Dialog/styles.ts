@@ -31,9 +31,11 @@ export const overlay = css({
 });
 
 export const content = css({
+  p: '$7',
   layer: 'layer-dialog',
   display: 'flex',
   flexDirection: 'column',
+  gap: '$5',
   position: 'fixed',
   top: '50%',
   left: '50%',
@@ -52,17 +54,15 @@ export const content = css({
 });
 
 export const heading = css({
-  p: '$4',
+  p: '$0',
   m: '$0',
   color: '$intentsBase12',
   fontFamily: '$heading',
   fontSize: '$xl',
-  borderBottom: '1px solid $border',
 });
 
 export const description = css({
-  p: '$4',
-  my: '$0',
+  p: '$0',
   color: '$intentsBase10',
   textSize: 'base',
 });
@@ -70,9 +70,7 @@ export const description = css({
 export const footer = css({
   is: ['centered'],
   gap: '$3',
-  mt: '$2',
-  p: '$4',
-  borderTop: '1px solid $border',
+  p: '$0',
 
   variants: {
     align: {

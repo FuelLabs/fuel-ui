@@ -68,7 +68,7 @@ export const Popover = createComponent<PopoverProps>(
             <IconButton
               size="xs"
               aria-label="Close"
-              icon="XCircle"
+              icon="SquareRoundedX"
               iconSize={22}
               intent="base"
               variant="link"
