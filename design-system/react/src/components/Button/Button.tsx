@@ -56,6 +56,7 @@ type GetChildrenParams = t.ButtonProps & {
 };
 function getChildren({
   isLoading,
+  loadingText,
   size = 'md',
   children,
   iconLeft,
@@ -64,7 +65,8 @@ function getChildren({
   if (isLoading) {
     return (
       <>
-        <Spinner color="current" size={SPINNER_SIZE[size]} /> Loading...
+        <Spinner color="current" size={SPINNER_SIZE[size]} />
+        {loadingText || 'Loading...'}
       </>
     );
   }
@@ -90,6 +92,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     const {
       size = 'md',
       isLoading,
+      loadingText,
       isDisabled,
       isLink,
       leftIcon,
@@ -138,6 +141,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
       getChildren({
         size,
         isLoading,
+        loadingText,
         children,
         iconLeft,
         iconRight,
