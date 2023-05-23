@@ -17,7 +17,7 @@
   },
   "card-bg": {
     "type": "color",
-    "value": "{body-bg}"
+    "value": "transparent"
   },
   "overlay-bg": {
     "type": "color",
@@ -34,6 +34,10 @@
   "border": {
     "type": "color",
     "value": "{scales.gray.6}"
+  },
+  "borderHover": {
+    "type": "color",
+    "value": "{scales.gray.8}"
   },
   "brand": {
     "type": "color",
@@ -112,7 +116,7 @@
         "value": "{intents.base.6}"
       }
     },
-    "base": {
+    "active": {
       "color": {
         "type": "color",
         "value": "{intents.base.12}"
@@ -124,6 +128,32 @@
       "border": {
         "type": "color",
         "value": "{intents.base.8}"
+      },
+      "bg": {
+        "type": "color",
+        "value": "{body-bg}"
+      },
+      "icon": {
+        "type": "color",
+        "value": "{intents.base.8}"
+      },
+      "focus": {
+        "type": "color",
+        "value": "{intents.base.2}"
+      }
+    },
+    "base": {
+      "color": {
+        "type": "color",
+        "value": "{intents.base.12}"
+      },
+      "placeholder": {
+        "type": "color",
+        "value": "{intents.base.10}"
+      },
+      "border": {
+        "type": "color",
+        "value": "{intents.base.6}"
       },
       "bg": {
         "type": "color",
@@ -149,7 +179,7 @@
       },
       "border": {
         "type": "color",
-        "value": "{intents.success.8}"
+        "value": "{intents.success.6}"
       },
       "bg": {
         "type": "color",
@@ -175,7 +205,7 @@
       },
       "border": {
         "type": "color",
-        "value": "{intents.error.8}"
+        "value": "{intents.error.6}"
       },
       "bg": {
         "type": "color",
@@ -1072,7 +1102,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.base.8}"
+          "value": "{intents.base.6}"
         },
         "focus": {
           "type": "color",
@@ -1134,7 +1164,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.primary.8}"
+          "value": "{intents.primary.6}"
         },
         "focus": {
           "type": "color",
@@ -1196,7 +1226,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.secondary.8}"
+          "value": "{intents.secondary.6}"
         },
         "focus": {
           "type": "color",
@@ -1258,7 +1288,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.info.8}"
+          "value": "{intents.info.6}"
         },
         "focus": {
           "type": "color",
@@ -1320,7 +1350,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.warning.8}"
+          "value": "{intents.warning.6}"
         },
         "focus": {
           "type": "color",
@@ -1382,7 +1412,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.success.8}"
+          "value": "{intents.success.6}"
         },
         "focus": {
           "type": "color",
@@ -1444,7 +1474,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.error.8}"
+          "value": "{intents.error.6}"
         },
         "focus": {
           "type": "color",

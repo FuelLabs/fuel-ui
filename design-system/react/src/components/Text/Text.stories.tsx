@@ -30,7 +30,7 @@ export const WithIcon = (args: TextProps) => (
     {...args}
     leftIcon={<Icon icon="Calendar" />}
     leftIconAriaLabel="Calendar"
-    iconSize={22}
+    iconSize={20}
   >
     Jun 22, 2022
   </Text>

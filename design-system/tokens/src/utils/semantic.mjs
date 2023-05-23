@@ -4,7 +4,7 @@ function inputColor(name) {
   return {
     color: createColor(`{intents.base.12}`),
     placeholder: createColor(`{intents.base.10}`),
-    border: createColor(`{intents.${name}.8}`),
+    border: createColor(`{intents.${name}.6}`),
     bg: createColor(`{body-bg}`),
     icon: createColor(`{intents.${name}.8}`),
     focus: createColor(`{intents.base.2}`),
@@ -69,7 +69,7 @@ const categories = {
     const isLight = isIntentLight(name);
     return {
       bg: createColor('transparent'),
-      border: createColor(`{intents.${name}.8}`),
+      border: createColor(`{intents.${name}.6}`),
       focus: createColor(`{intents.${name}.4}`),
       color: createColor(
         isLight ? `{intents.${name}.8}` : `{intents.${name}.11}`
@@ -143,11 +143,12 @@ export function createSemantics(isLight) {
     black: createColor('#000000'),
     'body-bg': createColor(isLight ? '{white}' : '{black}'),
     'body-inverse': createColor(isLight ? '{black}' : '{white}'),
-    'card-bg': createColor('{body-bg}'),
+    'card-bg': createColor('transparent'),
     'overlay-bg': createColor('{body-inverse}'),
     'overlay-text': createColor('{body-bg}'),
     'dialog-bg': createColor('{intents.base.1}'),
     border: createColor('{scales.gray.6}'),
+    borderHover: createColor('{scales.gray.8}'),
     brand: createColor(
       isLight ? '{intents.primary.10}' : '{intents.primary.9}'
     ),
@@ -172,6 +173,14 @@ export function createSemantics(isLight) {
         border: createColor('{border}'),
         bg: createColor('{body-bg}'),
         icon: createColor('{intents.base.6}'),
+      },
+      active: {
+        color: createColor(`{intents.base.12}`),
+        placeholder: createColor(`{intents.base.10}`),
+        border: createColor(`{intents.base.8}`),
+        bg: createColor(`{body-bg}`),
+        icon: createColor(`{intents.base.8}`),
+        focus: createColor(`{intents.base.2}`),
       },
       base: inputColor('base'),
       success: inputColor('success'),

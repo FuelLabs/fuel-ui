@@ -27,7 +27,7 @@ export const Icon = _unstable_createComponent<t.IconDef>(
     ...props
   }) => {
     const iconProps = {
-      className: cx(`fuel_Icon-${icon}`, className),
+      className: cx('fuel_Icon', `fuel_Icon-${icon}`, className),
       focusable: false,
       'aria-hidden': true,
       size,

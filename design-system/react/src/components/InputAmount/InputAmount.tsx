@@ -123,7 +123,7 @@ export const InputAmount: InputAmountComponent = ({
               {asset && (
                 <Tooltip content={assetTooltip}>
                   <Button
-                    size="xs"
+                    size="sm"
                     aria-label="Coin Selector"
                     variant="outlined"
                     intent="base"
@@ -175,18 +175,17 @@ InputAmount.Loader = InputAmountLoader;
 
 const styles = {
   input: cssObj({
-    px: '$3',
-    boxSizing: 'border-box',
-    height: '$20',
+    py: '$4',
+    px: '$4',
     display: 'flex',
     flexDirection: 'column',
-    flexWrap: 'wrap',
+    height: 'auto',
 
     input: {
       is: ['display'],
       width: '100%',
       boxSizing: 'border-box',
-      fontSize: '$sm',
+      fontSize: '$md',
       fontFamily: '$mono',
     },
 
@@ -196,19 +195,17 @@ const styles = {
   }),
   heading: cssObj({
     color: '$intentsBase9',
-    mt: '$3',
     mb: '$1',
-    fontSize: '$xs',
+    fontSize: '$sm',
     lineHeight: '$tight',
   }),
   secondRow: cssObj({
     alignItems: 'center',
     width: '100%',
-    height: '$6',
   }),
   elementRight: cssObj({
-    maxHeight: '100%',
     pr: '$0',
+
     '[aria-disabled="true"]': {
       opacity: 'unset',
       backgroundColor: 'unset',
@@ -220,21 +217,21 @@ const styles = {
     justifyContent: 'end',
   }),
   maxButton: cssObj({
-    px: '$1',
-    width: '$6',
-    height: '$4',
-    borderRadius: '3px',
-    fontSize: '8px',
+    px: '$3',
+    width: '$8',
+    height: '$5',
+    borderRadius: '$default',
+    fontSize: '$sm',
     fontFamily: '$mono',
   }),
   assetButton: cssObj({
     height: '$6',
     width: '$18',
     marginLeft: '$2',
-    borderRadius: '$md',
+    borderRadius: '$default',
   }),
   assetText: cssObj({
-    fontSize: '$xs',
+    fontSize: '$sm',
     color: '$intentsBase12',
   }),
   assetCaret: cssObj({
@@ -245,7 +242,7 @@ const styles = {
     alignItems: 'center',
     whiteSpace: 'nowrap',
     lineHeight: '$tight',
-    fontSize: '8px',
+    fontSize: '$sm',
     fontWeight: '$normal',
     mt: '$1',
   }),
@@ -253,5 +250,9 @@ const styles = {
     fontFamily: '$mono',
     color: '$intentsBase9',
   }),
-  image: cssObj({ borderRadius: '50%', width: 14, height: 14 }),
+  image: cssObj({
+    borderRadius: '50%',
+    width: 14,
+    height: 14,
+  }),
 };

@@ -7,6 +7,13 @@ export const menu = css({
   m: '$0',
   borderRadius: '$default',
   minWidth: '160px',
+
+  '&[data-overlay="true"]': {
+    '& .fuel_MenuListItem:not([data-focused="true"]), & .fuel_MenuListItem:not([data-focused="true"]) .fuel_Icon':
+      {
+        color: '$bodyBg',
+      },
+  },
 });
 
 export const item = css({
@@ -14,13 +21,9 @@ export const item = css({
   display: 'flex',
   alignItems: 'center',
   gap: '$2',
-  height: '$9',
+  minHeight: '$9',
   px: '$3',
   fontWeight: 'normal',
-
-  '&, & .fuel_Icon': {
-    color: '$semanticGhostBaseColor',
-  },
 
   '&:not([aria-disabled="true"])': {
     cursor: 'pointer',
@@ -39,9 +42,6 @@ export const item = css({
 
   '&[aria-disabled="true"]': {
     cursor: 'not-allowed',
-
-    '&, & .fuel_Icon': {
-      color: '$semanticGhostBaseDisabledColor',
-    },
+    opacity: '0.5',
   },
 });

@@ -16,7 +16,7 @@ type ObjProps = {
 export const FormErrorMessage = createComponent<
   FormErrorMessageProps,
   ObjProps
->(({ as = 'div', color, children, className, ...props }) => {
+>(({ as = 'div', color, fontSize = 'sm', children, className, ...props }) => {
   const { id, ...parentProps } = useFormControlProps();
   const classes = cx(
     'fuel_FormErrorMessage',
@@ -33,6 +33,7 @@ export const FormErrorMessage = createComponent<
   return (
     <Text
       as={as}
+      fontSize={fontSize}
       {...customProps}
       color={color || 'intentsError9'}
       aria-hidden={!parentProps?.isInvalid}

@@ -43,12 +43,7 @@ type ObjProps = {
 };
 
 export type DropdownProps = Omit<MenuTriggerProps, 'direction'> & {
-  popoverProps?: {
-    side?: PopoverProps['side'];
-    sideOffset?: PopoverProps['sideOffset'];
-    align?: PopoverProps['align'];
-    alignOffset?: PopoverProps['sideOffset'];
-  };
+  popoverProps?: Partial<PopoverProps>;
 };
 
 export const Dropdown = createComponent<DropdownProps, ObjProps>(

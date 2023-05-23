@@ -7,6 +7,7 @@ import { Flex } from '../Box/Flex';
 import { Icon } from '../Icon';
 import type { IconButtonProps } from '../IconButton';
 import { IconButton } from '../IconButton';
+import { toast } from '../Toast';
 
 export type CopyableProps = Omit<FlexProps, 'children'> & {
   value: string;
@@ -30,6 +31,7 @@ export const Copyable = createComponent<CopyableProps>(
 
     async function handleCopy() {
       await navigator.clipboard.writeText(value);
+      toast.success('Copied to clipboard');
     }
 
     return (

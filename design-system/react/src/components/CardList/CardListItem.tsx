@@ -15,14 +15,16 @@ export type CardListProps = CardProps & {
 export const CardListItem = createComponent<CardListProps>(
   ({ children, className, rightEl, isActive, ...props }) => {
     const { isClickable } = useCardListContext();
-    const classes = cx(
-      'fuel_CardListItem',
-      className,
-      styles.root({ isActive, isClickable })
-    );
+    const classes = cx('fuel_CardListItem', className, styles.root());
 
     return (
-      <Card direction={'row'} {...props} className={classes}>
+      <Card
+        direction="row"
+        {...props}
+        className={classes}
+        data-is-active={isActive}
+        data-is-clickable={isClickable}
+      >
         <Flex align="center" gap="$3" css={{ flex: 1 }}>
           {children}
         </Flex>
@@ -40,34 +42,26 @@ const styles = {
     padding: '$4 !important',
     gap: '$3',
 
-    variants: {
-      isActive: {
-        true: {
-          '&::after': {
-            position: 'absolute',
-            display: 'block',
-            content: '""',
-            top: 0,
-            left: 0,
-            width: '3px',
-            height: '100%',
-            background: '$brand',
-          },
-        },
-      },
-      isClickable: {
-        true: {
-          '&:hover, &:focus-within': {
-            outline: 'none',
-            borderColor: '$borderHover',
-          },
-        },
+    '&[data-is-active="true"]': {
+      '&::after': {
+        position: 'absolute',
+        display: 'block',
+        content: '""',
+        top: 0,
+        left: 0,
+        width: '3px',
+        height: '100%',
+        background: '$brand',
       },
     },
 
-    defaultVariants: {
-      isActive: false,
-      isClickable: false,
+    '&[data-is-clickable="true"]': {
+      cursor: 'pointer',
+
+      '&:hover, &:focus-within': {
+        outline: 'none',
+        borderColor: '$borderHover',
+      },
     },
   }),
 };

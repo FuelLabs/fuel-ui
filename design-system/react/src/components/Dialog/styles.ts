@@ -31,7 +31,7 @@ export const overlay = css({
 });
 
 export const content = css({
-  p: '$7',
+  p: '$6',
   layer: 'layer-dialog',
   display: 'flex',
   flexDirection: 'column',

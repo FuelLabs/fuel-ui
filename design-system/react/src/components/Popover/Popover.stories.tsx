@@ -34,8 +34,23 @@ export const Usage = (args: PopoverProps) => (
     <Button>Click here</Button>
   </Popover>
 );
-
 Usage.parameters = {
+  layout: 'centered',
+};
+
+export const CustomOffset = (args: PopoverProps) => (
+  <Popover
+    {...args}
+    content={popoverContent}
+    showCloseButton
+    contentProps={{ arrowPadding: 20 }}
+    align="start"
+    side="top"
+  >
+    <Button>Click here</Button>
+  </Popover>
+);
+CustomOffset.parameters = {
   layout: 'centered',
 };
 

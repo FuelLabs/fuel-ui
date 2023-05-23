@@ -42,7 +42,9 @@ const _Stack = _unstable_createComponent<t.StackDef>(
       },
     });
     const elementProps = useElementProps(props, classes.stack);
-    return <Flex {...elementProps} gap={gap} direction={direction} />;
+    return (
+      <Flex {...elementProps} as={props.as} gap={gap} direction={direction} />
+    );
   }
 );
 

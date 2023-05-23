@@ -46,7 +46,7 @@ function addFocusStyle(key: string) {
     '&:active, &[aria-pressed=true]': {
       outline: 'none',
     },
-    '&:not([aria-disabled=true], [data-nohover="true"]):focus-visible': {
+    '&:not([aria-disabled=true]):focus-visible': {
       outline: `2px solid $${key}Focus`,
       outlineOffset: `1px`,
     },
@@ -108,13 +108,13 @@ const semanticLayers = layerVariants.reduce((obj, variant) => {
           color: `$${key}Icon`,
         },
 
-        '&:not([aria-disabled=true], [data-nohover="true"]):hover': {
+        '&:not([aria-disabled="true"]):hover': {
           bg: `$${key}HoverBg`,
           border: `1px solid $${key}HoverBorder`,
           color: `$${key}HoverColor`,
         },
 
-        '&:not([aria-disabled=true], [data-nohover="true"]):hover .fuel_Icon': {
+        '&:not([aria-disabled="true"]):hover .fuel_Icon': {
           color: `$${key}HoverIcon`,
         },
       },
