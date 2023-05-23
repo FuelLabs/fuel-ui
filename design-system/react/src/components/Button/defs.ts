@@ -20,6 +20,7 @@ export type ButtonBaseProps = {
   rightIcon?: IconProps['icon'];
   rightIconAriaLabel?: string;
   isLoading?: boolean;
+  loadingText?: string;
   isDisabled?: boolean;
 };
 
