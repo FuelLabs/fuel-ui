@@ -28,12 +28,12 @@ type ObjProps = {
 };
 
 export const CardList = createComponent<CardListProps, ObjProps>(
-  ({ children, className, isClickable, autoFocus, ...props }) => {
+  ({ children, className, gap = '$2', isClickable, autoFocus, ...props }) => {
     const classes = cx('fuel_CardList', className);
 
     return (
       <ctx.Provider value={{ isClickable, autoFocus }}>
-        <Box.Stack {...props} className={classes}>
+        <Box.Stack gap={gap} {...props} className={classes}>
           {isClickable ? (
             <Focus.ArrowNavigator autoFocus={autoFocus}>
               {children}
