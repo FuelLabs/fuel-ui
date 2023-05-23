@@ -32,6 +32,7 @@ export type AlertNS = {
 };
 
 export type AlertDef = CreateComponent<{
+  omit: 'as';
   type: 'div';
   props: AlertProps;
   component: Components.Alert;

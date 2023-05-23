@@ -10,7 +10,6 @@ export const header = css({
 });
 
 export const body = css({
-  display: 'block',
   mx: '$5',
   my: '$5',
 });

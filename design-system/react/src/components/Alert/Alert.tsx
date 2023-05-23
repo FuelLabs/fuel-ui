@@ -41,7 +41,7 @@ const STATUS_ICONS: Record<string, { icon: Icons }> = {
 
 export const Alert = _unstable_createComponent<t.AlertDef>(
   Components.Alert,
-  ({ as = 'div', hideIcon, children, ...props }) => {
+  ({ hideIcon, children, ...props }) => {
     const classes = useStyles(styles, props);
     const elementProps = useElementProps(props, classes.root);
     const { status = 'info' } = props;
@@ -54,7 +54,7 @@ export const Alert = _unstable_createComponent<t.AlertDef>(
     });
 
     const element = createElement(
-      as,
+      'as',
       elementProps,
       <>
         {!hideIcon && (
