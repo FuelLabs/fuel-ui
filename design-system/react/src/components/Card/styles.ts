@@ -1,12 +1,8 @@
 import { css } from '@fuel-ui/css';
 
-export const card = css({
-  layer: 'layer-card',
-});
-
 export const header = css({
-  px: '$5',
-  pt: '$5',
+  mx: '$5',
+  mt: '$5',
 
   '& .fuel_Heading': {
     margin: 0,
@@ -15,11 +11,26 @@ export const header = css({
 
 export const body = css({
   display: 'block',
-  px: '$5',
-  py: '$5',
+  mx: '$5',
+  my: '$5',
 });
 
 export const footer = css({
-  px: '$5',
-  pb: '$5',
+  mx: '$5',
+  mb: '$5',
+});
+
+export const card = css({
+  layer: 'layer-card',
+
+  '&[data-dividers="true"]': {
+    [`& .${header}`]: {
+      pb: '$3',
+      borderBottom: '1px solid $border',
+    },
+    [`& .${footer}`]: {
+      pt: '$3',
+      borderTop: '1px solid $border',
+    },
+  },
 });
