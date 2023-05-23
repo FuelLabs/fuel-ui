@@ -1,5 +1,16 @@
 # @fuel-ui/react
 
+## 0.15.0
+
+### Minor Changes
+
+- ✨ Feat: use [TablerIcons](https://tablericons.io) instead of PhosphorIcons.
+  ⚠️ This is a huge breaking change, since there are different icon names across the sets, by [@pedronauck](https://github.com/pedronauck) (See [#251](https://github.com/FuelLabs/fuel-ui/pull/251))
+
+### Patch Changes
+
+- 🐞 Fix: adjust `setTheme` inside the `useFuelTheme` to just accept strings representing the themes passed to the themes object within `<ThemeProvider>`, by [@pedronauck](https://github.com/pedronauck) (See [#248](https://github.com/FuelLabs/fuel-ui/pull/248))
+
 ## 0.14.2
 
 ### Patch Changes
