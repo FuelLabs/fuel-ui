@@ -1,19 +1,13 @@
 import { css } from '@fuel-ui/css';
 
 export const menu = css({
-  layer: 'layer-card',
+  layer: 'layer-overlay',
   p: '$0',
   py: '$2',
   m: '$0',
   borderRadius: '$default',
   minWidth: '160px',
-
-  '&[data-overlay="true"]': {
-    '& .fuel_MenuListItem:not([data-focused="true"]), & .fuel_MenuListItem:not([data-focused="true"]) .fuel_Icon':
-      {
-        color: '$bodyBg',
-      },
-  },
+  background: 'transparent',
 });
 
 export const item = css({
@@ -21,8 +15,8 @@ export const item = css({
   display: 'flex',
   alignItems: 'center',
   gap: '$2',
-  minHeight: '$9',
   px: '$3',
+  minHeight: '$9',
   fontWeight: 'normal',
 
   '&:not([aria-disabled="true"])': {
@@ -32,7 +26,7 @@ export const item = css({
 
   '&:focus-visible, &:not([aria-disabled="true"]):hover': {
     color: '$semanticGhostBaseColor',
-    background: '$semanticGhostBaseBg',
+    background: '$inverseA3',
     outline: 'none',
   },
 

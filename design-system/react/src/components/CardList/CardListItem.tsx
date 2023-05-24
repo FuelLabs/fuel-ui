@@ -41,18 +41,11 @@ const styles = {
     overflow: 'hidden',
     padding: '$4 !important',
     gap: '$3',
+    transitionProperty: 'background-color, border-color',
+    transitionDuration: '0.3ms',
 
     '&[data-is-active="true"]': {
-      '&::after': {
-        position: 'absolute',
-        display: 'block',
-        content: '""',
-        top: 0,
-        left: 0,
-        width: '3px',
-        height: '100%',
-        background: '$brand',
-      },
+      is: ['borderHighlight'],
     },
 
     '&[data-is-clickable="true"]': {
@@ -60,7 +53,7 @@ const styles = {
 
       '&:hover, &:focus-within': {
         outline: 'none',
-        borderColor: '$borderHover',
+        is: ['borderHighlight'],
       },
     },
   }),

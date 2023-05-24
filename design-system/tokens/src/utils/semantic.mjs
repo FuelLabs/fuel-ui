@@ -4,8 +4,8 @@ function inputColor(name) {
   return {
     color: createColor(`{intents.base.12}`),
     placeholder: createColor(`{intents.base.10}`),
-    border: createColor(`{intents.${name}.6}`),
-    bg: createColor(`{body-bg}`),
+    border: createColor(`{intents.${name}.2}`),
+    bg: createColor(`{input-bg}`),
     icon: createColor(`{intents.${name}.8}`),
     focus: createColor(`{intents.base.2}`),
   };
@@ -48,9 +48,15 @@ const categories = {
   },
   ghost(name) {
     return {
-      bg: createColor(`{intents.${name}.4}`),
-      border: createColor(`{intents.${name}.4}`),
-      focus: createColor(`{intents.${name}.4}`),
+      bg: createColor(
+        name === 'base' ? `{intents.base.1}` : `{intents.${name}.6}`
+      ),
+      border: createColor(
+        name === 'base' ? `{intents.base.1}` : `{intents.${name}.6}`
+      ),
+      focus: createColor(
+        name === 'base' ? `{intents.base.1}` : `{intents.${name}.6}`
+      ),
       color: createColor(`{intents.${name}.12}`),
       icon: createColor(`{intents.${name}.8}`),
       placeholder: createColor(`{intents.${name}.8}`),
@@ -143,10 +149,11 @@ export function createSemantics(isLight) {
     black: createColor('#000000'),
     'body-bg': createColor(isLight ? '{white}' : '{black}'),
     'body-inverse': createColor(isLight ? '{black}' : '{white}'),
-    'card-bg': createColor('transparent'),
-    'overlay-bg': createColor('{body-inverse}'),
-    'overlay-text': createColor('{body-bg}'),
-    'dialog-bg': createColor('{intents.base.1}'),
+    'card-bg': createColor(isLight ? '#E7E7E7' : '#0F0F0F'),
+    'overlay-bg': createColor('{intents.base.2}'),
+    'overlay-text': createColor('{intents.base.11}'),
+    'dialog-bg': createColor('{card-bg}'),
+    'input-bg': createColor('{intents.base.1}'),
     border: createColor('{scales.gray.6}'),
     borderHover: createColor('{scales.gray.8}'),
     brand: createColor(
@@ -170,15 +177,15 @@ export function createSemantics(isLight) {
       disabled: {
         color: createColor('{intents.base.6}'),
         placeholder: createColor('{intents.base.6}'),
-        border: createColor('{border}'),
-        bg: createColor('{body-bg}'),
+        border: createColor('{input-bg}'),
+        bg: createColor('{input-bg}'),
         icon: createColor('{intents.base.6}'),
       },
       active: {
         color: createColor(`{intents.base.12}`),
         placeholder: createColor(`{intents.base.10}`),
-        border: createColor(`{intents.base.8}`),
-        bg: createColor(`{body-bg}`),
+        border: createColor(`{input-bg}`),
+        bg: createColor(`{input-bg}`),
         icon: createColor(`{intents.base.8}`),
         focus: createColor(`{intents.base.2}`),
       },

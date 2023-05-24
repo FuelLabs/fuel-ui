@@ -54,7 +54,7 @@ export const Alert = _unstable_createComponent<t.AlertDef>(
     });
 
     const element = createElement(
-      'as',
+      'div',
       elementProps,
       <>
         {!hideIcon && (

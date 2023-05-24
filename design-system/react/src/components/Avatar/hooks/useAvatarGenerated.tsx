@@ -21,10 +21,22 @@ function getFixedGradientDirection(hash: string) {
 
 function hashToGradient(hash: string): string {
   let fixedHex = '';
-  for (let i = 0; i < hash.length; i++) {
+  const length = hash?.length || 0;
+  if (length === 0) {
+    return '$cardBg';
+  }
+
+  for (let i = 0; i < length; i++) {
     const char = hash.charAt(i);
     if (/\d/.test(char)) {
       fixedHex += char;
+    }
+  }
+
+  if (fixedHex.length < 12) {
+    const diff = 12 - fixedHex.length;
+    for (let i = 0; i < diff; i++) {
+      fixedHex += '0';
     }
   }
 

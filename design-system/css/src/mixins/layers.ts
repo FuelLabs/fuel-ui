@@ -66,7 +66,8 @@ export type SemanticLayer =
   | `layer-${LayerVariant}-${LayerIntent}`
   | 'layer-card'
   | 'layer-overlay'
-  | 'layer-dialog';
+  | 'layer-dialog'
+  | 'layer-gradient';
 
 export type InputVariant = 'base' | 'disabled' | 'error' | 'success';
 export type InputLayer = `input-${InputVariant}`;
@@ -142,7 +143,7 @@ const inputLayers = inputVariants.reduce((obj, variant) => {
 const layerCard = {
   background: '$cardBg',
   borderRadius: '$default',
-  border: '1px solid $border',
+  border: '1px solid $cardBg',
 };
 
 const layerDialog = {
@@ -161,10 +162,22 @@ const layerOverlay = {
   },
 };
 
+const layerGradient = {
+  background: 'linear-gradient(45deg, $intentsPrimary9, $intentsInfo10)',
+  border: `1px solid $brand`,
+  color: '$blackA12',
+
+  '&[aria-disabled="true"]': {
+    opacity: '0.5',
+    cursor: 'not-allowed',
+  },
+};
+
 export const layers = {
   ...semanticLayers,
   ...inputLayers,
   layerCard,
   layerDialog,
   layerOverlay,
+  layerGradient,
 };
