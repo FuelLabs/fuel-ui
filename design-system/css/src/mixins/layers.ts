@@ -163,7 +163,8 @@ const layerOverlay = {
 };
 
 const layerGradient = {
-  background: 'linear-gradient(45deg, $intentsPrimary9, $intentsInfo10)',
+  background:
+    'linear-gradient(80.17deg, #02F58C 0%, #02DEB7 58.85%, #02C9F5 100%)',
   border: `1px solid $brand`,
   color: '$blackA12',
 
