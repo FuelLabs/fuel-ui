@@ -189,6 +189,7 @@ export function createSemantics(isLight) {
         border: createColor('{input-bg}'),
         bg: createColor('{input-bg}'),
         icon: createColor('{intents.base.6}'),
+        focus: createColor(`{intents.base.2}`),
       },
       active: {
         color: createColor(`{intents.base.12}`),

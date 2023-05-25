@@ -122,6 +122,10 @@
       "icon": {
         "type": "color",
         "value": "{intents.base.6}"
+      },
+      "focus": {
+        "type": "color",
+        "value": "{intents.base.2}"
       }
     },
     "active": {

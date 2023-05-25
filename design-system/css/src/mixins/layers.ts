@@ -42,11 +42,15 @@ function addPlaceholderCSS(key: string) {
 }
 
 function addFocusStyle(key: string) {
+  const focusSelector = key.includes('input')
+    ? ':has(input:focus-visible)'
+    : ':focus-visible';
+
   return {
     '&:active, &[aria-pressed=true]': {
       outline: 'none',
     },
-    '&:not([aria-disabled=true]):focus-visible': {
+    [`&:not([aria-disabled=true])${focusSelector}`]: {
       outline: `2px solid $${key}Focus`,
       outlineOffset: `1px`,
     },

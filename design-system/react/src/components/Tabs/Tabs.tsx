@@ -1,5 +1,6 @@
 import { cx } from '@fuel-ui/css';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
+import { createContext, useContext } from 'react';
 
 import { createComponent, createStyledElement } from '../../utils';
 
@@ -8,7 +9,19 @@ import { TabsList } from './TabsList';
 import { TabsTrigger } from './TabsTrigger';
 import * as styles from './styles';
 
-export type TabsProps = TabsPrimitive.TabsProps;
+export type TabsVariant = 'subtle' | 'link';
+export type TabsProps = TabsPrimitive.TabsProps & {
+  variant?: TabsVariant;
+};
+
+type Context = {
+  variant?: TabsVariant;
+};
+
+const ctx = createContext<Context>({ variant: 'link' });
+export function useTabsProps() {
+  return useContext(ctx);
+}
 
 type ObjProps = {
   id: string;
@@ -18,14 +31,14 @@ type ObjProps = {
 };
 
 export const Tabs = createComponent<TabsProps, ObjProps>(
-  ({ children, className, ...props }) => {
+  ({ children, className, variant, ...props }) => {
     const classes = cx('fuel_Tabs', className);
     return createStyledElement(
       TabsPrimitive.Root,
       styles.root,
       null,
       { ...props, className: classes },
-      children
+      <ctx.Provider value={{ variant }}>{children}</ctx.Provider>
     );
   }
 );
