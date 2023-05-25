@@ -1,7 +1,7 @@
 import { Button } from '../Button';
 
-import type { ButtonGroupProps } from './ButtonGroup';
 import { ButtonGroup } from './ButtonGroup';
+import type { ButtonGroupProps } from './defs';
 
 export default {
   component: ButtonGroup,

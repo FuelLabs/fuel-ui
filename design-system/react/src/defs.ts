@@ -24,6 +24,7 @@ import type {
   ContainerDef,
 } from './components/Box/defs';
 import type { ButtonDef } from './components/Button/defs';
+import type { ButtonGroupDef } from './components/ButtonGroup/defs';
 import type { HeadingDef } from './components/Heading/defs';
 import type { HelperIconDef } from './components/HelperIcon/defs';
 import type { IconDef } from './components/Icon/defs';
@@ -157,6 +158,7 @@ export type StoreDefs = {
   Box: BoxDef;
   BoxCentered: BoxCenteredDef;
   Button: ButtonDef;
+  ButtonGroup: ButtonGroupDef;
   Container: ContainerDef;
   Image: ImageDef;
   Flex: FlexDef;
