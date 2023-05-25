@@ -1,40 +1,36 @@
-import { cx } from '@fuel-ui/css';
-import type { ReactElement, ReactNode } from 'react';
-import { Children, cloneElement } from 'react';
+import type { ReactElement } from 'react';
+import { Children, cloneElement, createElement } from 'react';
 import { mergeProps } from 'react-aria';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 import { pick } from '../../utils/helpers';
-import type { ButtonBaseProps, ButtonProps } from '../Button/defs';
 import { Focus } from '../Focus';
 
-import * as styles from './styles';
+import type * as t from './defs';
+import { styles } from './styles';
 
-type GroupChildrenProps = {
-  childrenProps: ButtonBaseProps;
-  children: ReactNode;
-};
+import { Components } from '~/defs';
+import { useStyles, useElementProps } from '~/hooks';
 
-function GroupChildren({ children, childrenProps }: GroupChildrenProps) {
-  return createStyledElement(
-    'div',
-    styles.root,
-    null,
-    { className: cx('fuel_ButtonGroup') },
-    (Children.toArray(children) as ReactElement[]).map((child: ReactElement) =>
-      cloneElement(child, mergeProps(child.props, childrenProps))
-    )
-  );
-}
+const BUTTON_BASE_PROPS = ['size', 'color', 'variant', 'isDisabled', 'intent'];
 
-const BUTTON_BASE_PROPS = ['size', 'color', 'variant', 'isDisabled'];
+export const ButtonGroup = _unstable_createComponent<t.ButtonGroupDef>(
+  Components.ButtonGroup,
+  ({ children, ...props }) => {
+    const classes = useStyles(styles, props);
+    const buttons = (Children.toArray(children) as ReactElement[]).map(
+      (child: ReactElement) =>
+        cloneElement(
+          child,
+          mergeProps(child.props, pick(BUTTON_BASE_PROPS, props))
+        )
+    );
 
-export type ButtonGroupProps = Omit<ButtonProps, 'className'>;
+    const buttonChildren = (
+      <Focus.ArrowNavigator>{buttons}</Focus.ArrowNavigator>
+    );
 
-export const ButtonGroup = createComponent<ButtonGroupProps>(
-  ({ children, ...props }) => (
-    <GroupChildren childrenProps={pick(BUTTON_BASE_PROPS, props)}>
-      <Focus.ArrowNavigator>{children}</Focus.ArrowNavigator>
-    </GroupChildren>
-  )
+    const wrapperProps = useElementProps(props, classes.root);
+    return createElement('div', wrapperProps, buttonChildren);
+  }
 );
