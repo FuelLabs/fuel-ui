@@ -33,7 +33,8 @@
     "copy-set:light": "node src/copy-set.mjs --light",
     "ts:check": "tsc --noEmit",
     "build-tokens": "node ./src/build.mjs",
-    "build": "pnpm build-tokens && tsup --dts"
+    "build": "pnpm build-tokens && tsup --dts",
+    "update:tokens": "pnpm build && run-p copy-set:*"
   },
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",

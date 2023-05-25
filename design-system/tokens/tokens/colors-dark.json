@@ -82,15 +82,15 @@
     },
     "link": {
       "type": "color",
-      "value": "{intents.primary.8}"
+      "value": "{intents.primary.9}"
     },
     "link-active": {
       "type": "color",
-      "value": "{intents.primary.8}"
+      "value": "{intents.primary.9}"
     },
     "link-visited": {
       "type": "color",
-      "value": "{intents.primary.8}"
+      "value": "{intents.primary.9}"
     },
     "link-hover": {
       "type": "color",

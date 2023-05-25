@@ -170,9 +170,15 @@ export function createSemantics(isLight) {
       icon: createColor('{intents.base.11}'),
       inverse: createColor('{intents.base.12}'),
       active: createColor('{intents.base.12}'),
-      link: createColor('{intents.primary.8}'),
-      'link-active': createColor('{intents.primary.8}'),
-      'link-visited': createColor('{intents.primary.8}'),
+      link: createColor(
+        isLight ? '{intents.primary.8}' : '{intents.primary.9}'
+      ),
+      'link-active': createColor(
+        isLight ? '{intents.primary.8}' : '{intents.primary.9}'
+      ),
+      'link-visited': createColor(
+        isLight ? '{intents.primary.8}' : '{intents.primary.9}'
+      ),
       'link-hover': createColor('{intents.primary.11}'),
       'link-disabled': createColor('{intents.primary.7}'),
     },

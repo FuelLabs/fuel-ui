@@ -1,6 +1,7 @@
 import tsconfigpath from 'vite-tsconfig-paths';
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
+
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.tsx'],
   addons: [
