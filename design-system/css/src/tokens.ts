@@ -36,17 +36,14 @@ export const sizes = {
   auto: 'auto',
   none: 'none',
   0: '0rem',
-  xs: '20rem',
-  sm: '24rem',
-  md: '28rem',
-  lg: '32rem',
-  xl: '36rem',
-  '2xl': '42rem',
-  '3xl': '48rem',
-  '4xl': '56rem',
-  '5xl': '64rem',
-  '6xl': '72rem',
-  '7xl': '80rem',
+  xs: '18.75rem', // 300px
+  sm: '26.25rem', // 420px
+  md: '37.5rem', // 600px
+  lg: '48rem', // 768px
+  xl: '64rem', // 1024px
+  '2xl': '80rem', // 1280px
+  '3xl': '90rem', // 1440px
+  '4xl': '120rem', // 1920px
   full: '100%',
   min: 'min-content',
   max: 'max-content',

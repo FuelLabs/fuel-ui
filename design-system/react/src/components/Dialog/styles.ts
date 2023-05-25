@@ -58,6 +58,7 @@ export const heading = css({
   m: '$0',
   color: '$intentsBase12',
   fontFamily: '$heading',
+  fontWeight: '$normal',
   fontSize: '$xl',
 });
 

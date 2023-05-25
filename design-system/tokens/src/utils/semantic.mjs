@@ -159,6 +159,9 @@ export function createSemantics(isLight) {
     brand: createColor(
       isLight ? '{intents.primary.10}' : '{intents.primary.9}'
     ),
+    brandGradient: createColor(
+      'linear-gradient(80.17deg, #02F58C 0%, #02DEB7 58.85%, #02C9F5 100%)'
+    ),
     text: {
       color: createColor('{intents.base.11}'),
       heading: createColor('{intents.base.12}'),

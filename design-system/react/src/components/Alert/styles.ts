@@ -12,7 +12,7 @@ function createVariantStyle(key: string) {
     color,
 
     '& .fuel_Heading': {
-      fontWeight: '$semibold',
+      fontWeight: '$normal',
       color,
     },
 
@@ -22,7 +22,7 @@ function createVariantStyle(key: string) {
 
     '& .fuel_Button': {
       p: 0,
-      fontWeight: '$semibold',
+      fontWeight: '$normal',
       color,
     },
 
