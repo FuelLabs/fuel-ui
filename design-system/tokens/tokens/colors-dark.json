@@ -682,7 +682,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.base.1}"
+          "value": "{intents.base.2}"
         },
         "color": {
           "type": "color",
@@ -1566,7 +1566,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1628,7 +1628,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1690,7 +1690,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1752,7 +1752,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1814,7 +1814,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1876,7 +1876,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1938,7 +1938,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
