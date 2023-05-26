@@ -47,10 +47,6 @@
     "type": "color",
     "value": "{intents.primary.10}"
   },
-  "brandGradient": {
-    "type": "color",
-    "value": "linear-gradient(80.17deg, #02F58C 0%, #02DEB7 58.85%, #02C9F5 100%)"
-  },
   "text": {
     "color": {
       "type": "color",
@@ -139,7 +135,7 @@
       },
       "border": {
         "type": "color",
-        "value": "{input-bg}"
+        "value": "{border}"
       },
       "bg": {
         "type": "color",

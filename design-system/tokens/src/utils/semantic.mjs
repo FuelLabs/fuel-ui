@@ -159,9 +159,6 @@ export function createSemantics(isLight) {
     brand: createColor(
       isLight ? '{intents.primary.10}' : '{intents.primary.9}'
     ),
-    brandGradient: createColor(
-      'linear-gradient(80.17deg, #02F58C 0%, #02DEB7 58.85%, #02C9F5 100%)'
-    ),
     text: {
       color: createColor('{intents.base.11}'),
       heading: createColor('{intents.base.12}'),
@@ -194,7 +191,7 @@ export function createSemantics(isLight) {
       active: {
         color: createColor(`{intents.base.12}`),
         placeholder: createColor(`{intents.base.10}`),
-        border: createColor(`{input-bg}`),
+        border: createColor(`{border}`),
         bg: createColor(`{input-bg}`),
         icon: createColor(`{intents.base.8}`),
         focus: createColor(`{intents.base.2}`),

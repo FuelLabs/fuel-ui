@@ -42,18 +42,28 @@ function addPlaceholderCSS(key: string) {
 }
 
 function addFocusStyle(key: string) {
-  const focusSelector = key.includes('input')
-    ? ':has(input:focus-visible)'
-    : ':focus-visible';
+  const isInput = key.includes('input');
 
   return {
+    outline: `2px solid transparent`,
+    outlineOffset: `1px`,
+    transitionProperty: 'background, border, outline',
+    transitionDuration: '0.2s',
+
     '&:active, &[aria-pressed=true]': {
       outline: 'none',
     },
-    [`&:not([aria-disabled=true])${focusSelector}`]: {
-      outline: `2px solid $${key}Focus`,
-      outlineOffset: `1px`,
-    },
+    ...(isInput
+      ? {
+          '&:not([aria-disabled=true]):has(input:focus-visible)': {
+            borderColor: `$inputActiveBorder`,
+          },
+        }
+      : {
+          '&:not([aria-disabled=true]):focus-visible': {
+            outline: `2px solid $${key}Focus`,
+          },
+        }),
   };
 }
 
@@ -70,8 +80,7 @@ export type SemanticLayer =
   | `layer-${LayerVariant}-${LayerIntent}`
   | 'layer-card'
   | 'layer-overlay'
-  | 'layer-dialog'
-  | 'layer-gradient';
+  | 'layer-dialog';
 
 export type InputVariant = 'base' | 'disabled' | 'error' | 'success';
 export type InputLayer = `input-${InputVariant}`;
@@ -166,22 +175,10 @@ const layerOverlay = {
   },
 };
 
-const layerGradient = {
-  background: '$brandGradient',
-  border: `1px solid $brand`,
-  color: '$blackA12',
-
-  '&[aria-disabled="true"]': {
-    opacity: '0.5',
-    cursor: 'not-allowed',
-  },
-};
-
 export const layers = {
   ...semanticLayers,
   ...inputLayers,
   layerCard,
   layerDialog,
   layerOverlay,
-  layerGradient,
 };

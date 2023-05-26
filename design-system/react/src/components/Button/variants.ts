@@ -6,15 +6,6 @@ function createVariantStyle(variant: LayerVariant, intent: LayerIntent) {
   return {
     layer,
 
-    ...(variant === 'solid' &&
-      intent === 'primary' && {
-        background: '$brandGradient',
-
-        '&[aria-disabled="true"]': {
-          opacity: '0.5',
-        },
-      }),
-
     ...(variant === 'link' && {
       py: '$1',
       px: '$1',
