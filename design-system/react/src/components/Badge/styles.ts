@@ -35,7 +35,7 @@ export const styles = createStyle(Components.Badge, {
 
     defaultVariants: {
       intent: 'base',
-      variant: 'ghost',
+      variant: 'solid',
     },
   },
 });

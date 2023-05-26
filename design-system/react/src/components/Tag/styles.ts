@@ -13,7 +13,7 @@ export const tag = css({
 
   '& button': {
     px: '$0',
-    intent: 'inherit',
+    color: 'inherit',
     opacity: '.6',
 
     '&:hover': {
