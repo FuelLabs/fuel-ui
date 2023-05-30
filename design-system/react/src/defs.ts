@@ -13,6 +13,16 @@ import type {
   AlertDescriptionDef,
   AlertTitleDef,
 } from './components/Alert/defs';
+import type {
+  AlertDialogActionDef,
+  AlertDialogCancelDef,
+  AlertDialogContentDef,
+  AlertDialogDef,
+  AlertDialogDescriptionDef,
+  AlertDialogFooterDef,
+  AlertDialogHeadingDef,
+  AlertDialogTriggerDef,
+} from './components/AlertDialog/defs';
 import type { AspectRatioDef } from './components/AspectRatio/defs';
 import type { AvatarDef, AvatarGeneratedDef } from './components/Avatar/defs';
 import type { BadgeDef } from './components/Badge/defs';
@@ -151,6 +161,14 @@ export type StoreDefs = {
   AlertButton: AlertButtonDef;
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
+  AlertDialog: AlertDialogDef;
+  AlertDialogAction: AlertDialogActionDef;
+  AlertDialogCancel: AlertDialogCancelDef;
+  AlertDialogContent: AlertDialogContentDef;
+  AlertDialogDescription: AlertDialogDescriptionDef;
+  AlertDialogFooter: AlertDialogFooterDef;
+  AlertDialogHeading: AlertDialogHeadingDef;
+  AlertDialogTrigger: AlertDialogTriggerDef;
   AspectRatio: AspectRatioDef;
   Avatar: AvatarDef;
   AvatarGenerated: AvatarGeneratedDef;
