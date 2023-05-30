@@ -91,14 +91,14 @@ export const trigger = css({
         '&[data-state="active"]': {
           color: '$textInverse',
           background: '$bodyBg',
-          is: ['borderHighlight'],
+          borderColor: '$border',
         },
         '&:hover': {
           color: '$textInverse',
           cursor: 'pointer',
         },
         '&:focus-visible': {
-          outline: '1px solid $intentsBase4',
+          outline: '2px solid $intentsBase3',
         },
       },
     },

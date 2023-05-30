@@ -12,10 +12,6 @@ export const input = css({
     border: 'none',
   },
 
-  '&:hover, &:focus-within': {
-    borderColor: '$inputActiveBorder',
-  },
-
   variants: {
     size: {
       sm: {
