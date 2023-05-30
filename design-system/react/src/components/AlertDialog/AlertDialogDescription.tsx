@@ -1,27 +1,27 @@
-import { styled } from '@fuel-stitches/react';
-import { cx } from '@fuel-ui/css';
 import * as RAlertDialog from '@radix-ui/react-alert-dialog';
+import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
-import * as styles from '../Dialog/styles';
+import { _unstable_createComponent } from '../../utils';
+
+import type { AlertDialogDescriptionDef } from './defs';
+import { styles } from './styles';
+
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 export type AlertDialogDescriptionProps =
   RAlertDialog.AlertDialogDescriptionProps;
 
-const Root = styled(RAlertDialog.Description);
-
 export const AlertDialogDescription =
-  createComponent<AlertDialogDescriptionProps>(
-    ({ className, children, ...props }) => {
-      const classes = cx(
-        'fuel_AlertDialogDescription',
-        className,
-        styles.description()
-      );
-      return (
-        <Root as="div" className={classes} {...props}>
-          {children}
-        </Root>
+  _unstable_createComponent<AlertDialogDescriptionDef>(
+    Components.AlertDialogDescription,
+    ({ children, ...props }) => {
+      const classes = useStyles(styles, props, ['description']);
+      const elementProps = useElementProps(props, classes.description);
+      return createElement(
+        RAlertDialog.AlertDialogDescription,
+        elementProps,
+        children
       );
     }
   );
