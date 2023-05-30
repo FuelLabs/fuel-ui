@@ -1,34 +1,35 @@
+// Values in pixels for different spacing sizes
 export const space = {
-  0: '0px',
-  1: '0.25rem',
-  2: '0.5rem',
-  3: '0.75rem',
-  4: '1rem',
-  5: '1.25rem',
-  6: '1.5rem',
-  7: '1.75rem',
-  8: '2rem',
-  9: '2.25rem',
-  10: '2.5rem',
-  11: '2.75rem',
-  12: '3rem',
-  14: '3.5rem',
-  16: '4rem',
-  20: '5rem',
-  24: '6rem',
-  28: '7rem',
-  32: '8rem',
-  36: '9rem',
-  40: '10rem',
-  44: '11rem',
-  48: '12rem',
-  52: '13rem',
-  56: '14rem',
-  60: '15rem',
-  64: '16rem',
-  72: '18rem',
-  80: '20rem',
-  96: '24rem',
+  0: '0px', // 0 pixels
+  1: '0.25rem', // 4 pixels
+  2: '0.5rem', // 8 pixels
+  3: '0.75rem', // 12 pixels
+  4: '1rem', // 16 pixels
+  5: '1.25rem', // 20 pixels
+  6: '1.5rem', // 24 pixels
+  7: '1.75rem', // 28 pixels
+  8: '2rem', // 32 pixels
+  9: '2.25rem', // 36 pixels
+  10: '2.5rem', // 40 pixels
+  11: '2.75rem', // 44 pixels
+  12: '3rem', // 48 pixels
+  14: '3.5rem', // 56 pixels
+  16: '4rem', // 64 pixels
+  20: '5rem', // 80 pixels
+  24: '6rem', // 96 pixels
+  28: '7rem', // 112 pixels
+  32: '8rem', // 128 pixels
+  36: '9rem', // 144 pixels
+  40: '10rem', // 160 pixels
+  44: '11rem', // 176 pixels
+  48: '12rem', // 192 pixels
+  52: '13rem', // 208 pixels
+  56: '14rem', // 224 pixels
+  60: '15rem', // 240 pixels
+  64: '16rem', // 256 pixels
+  72: '18rem', // 288 pixels
+  80: '20rem', // 320 pixels
+  96: '24rem', // 384 pixels
 };
 
 export const sizes = {
@@ -37,7 +38,7 @@ export const sizes = {
   none: 'none',
   0: '0rem',
   xs: '18.75rem', // 300px
-  sm: '26.25rem', // 420px
+  sm: '27.5rem', // 420px
   md: '37.5rem', // 600px
   lg: '48rem', // 768px
   xl: '64rem', // 1024px
@@ -61,26 +62,27 @@ export const fonts = {
   mono: '"PxGrotesk Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 };
 
+// Font sizes in rems
 export const fontSizes = {
   // heading font sizes
-  xs: '0.694rem',
-  sm: '0.833rem',
-  md: '1.2rem',
-  lg: '1.2rem',
-  xl: '1.44rem',
-  '2xl': '1.728rem',
-  '3xl': '2.074rem',
-  '4xl': '2.488rem',
-  '5xl': '2.986rem',
-  '6xl': '3.583rem',
-  '7xl': '4.3rem',
+  xs: '0.694rem', // 11.104 pixels
+  sm: '0.833rem', // 13.328 pixels
+  md: '1.2rem', // 19.2 pixels
+  lg: '1.2rem', // 19.2 pixels
+  xl: '1.44rem', // 23.04 pixels
+  '2xl': '1.728rem', // 27.648 pixels
+  '3xl': '2.074rem', // 33.184 pixels
+  '4xl': '2.488rem', // 39.808 pixels
+  '5xl': '2.986rem', // 47.776 pixels
+  '6xl': '3.583rem', // 57.328 pixels
+  '7xl': '4.3rem', // 68.8 pixels
   // heading font sizes
-  h1: '$5xl',
-  h2: '$4xl',
-  h3: '$3xl',
-  h4: '$2xl',
-  h5: '$xl',
-  h6: '$lg',
+  h1: '$5xl', // uses the value of '5xl'
+  h2: '$4xl', // uses the value of '4xl'
+  h3: '$3xl', // uses the value of '3xl'
+  h4: '$2xl', // uses the value of '2xl'
+  h5: '$xl', // uses the value of 'xl'
+  h6: '$lg', // uses the value of 'lg'
 };
 
 export const fontWeights = {
