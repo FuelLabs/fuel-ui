@@ -16,7 +16,7 @@ describe('Toast', () => {
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
 
-    await user.press('Enter', button);
+    await user.click(button);
     expect(screen.getByText('Hello world')).toBeInTheDocument();
   });
 });

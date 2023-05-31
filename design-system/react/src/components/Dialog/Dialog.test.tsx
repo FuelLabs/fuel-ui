@@ -42,7 +42,7 @@ describe('Dialog', () => {
     expect(await screen.findByText('Dialog Title')).toBeInTheDocument();
     expect(onOpen).toBeCalledTimes(1);
 
-    await user.press('Enter');
+    await user.press('Esc');
     expect(() => screen.getByText('Dialog Title')).toThrow();
   });
 
