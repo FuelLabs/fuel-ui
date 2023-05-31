@@ -1,8 +1,22 @@
-import { styled } from '@fuel-ui/css';
 import * as RAlertDialog from '@radix-ui/react-alert-dialog';
+import { createElement } from 'react';
 
-export type AlertDialogCancelProps = RAlertDialog.AlertDialogCancelProps;
-export const AlertDialogCancel = styled(RAlertDialog.Cancel);
+import type * as t from './defs';
+import { styles } from './styles';
+
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
+
+export const AlertDialogCancel =
+  _unstable_createComponent<t.AlertDialogCancelDef>(
+    Components.AlertDialogCancel,
+    (props) => {
+      const classes = useStyles(styles, {}, ['cancel']);
+      const elementProps = useElementProps(props, classes.cancel);
+      return createElement(RAlertDialog.AlertDialogCancel, elementProps);
+    }
+  );
 
 AlertDialogCancel.defaultProps = {
   asChild: true,
