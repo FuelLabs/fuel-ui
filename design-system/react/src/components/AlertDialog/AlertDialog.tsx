@@ -1,5 +1,5 @@
-import { styled } from '@fuel-ui/css';
-import * as RAlertDialog from '@radix-ui/react-alert-dialog';
+import * as AD from '@radix-ui/react-alert-dialog';
+import { createElement } from 'react';
 
 import { AlertDialogAction } from './AlertDialogAction';
 import { AlertDialogCancel } from './AlertDialogCancel';
@@ -8,20 +8,22 @@ import { AlertDialogDescription } from './AlertDialogDescription';
 import { AlertDialogFooter } from './AlertDialogFooter';
 import { AlertDialogHeading } from './AlertDialogHeading';
 import { AlertDialogTrigger } from './AlertDialogTrigger';
+import type * as t from './defs';
+import { styles } from './styles';
 
-const AlertDialogRoot = styled(RAlertDialog.Root);
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
-type AlertDialogComponent = typeof AlertDialogRoot & {
-  Content: typeof AlertDialogContent;
-  Trigger: typeof AlertDialogTrigger;
-  Heading: typeof AlertDialogHeading;
-  Description: typeof AlertDialogDescription;
-  Footer: typeof AlertDialogFooter;
-  Cancel: typeof AlertDialogCancel;
-  Action: typeof AlertDialogAction;
-};
+export const AlertDialog = _unstable_createComponent<t.AlertDialogDef>(
+  Components.AlertDialog,
+  (props) => {
+    const classes = useStyles(styles, props);
+    const elementProps = useElementProps(props, classes.root);
+    return createElement(AD.Root, elementProps);
+  }
+);
 
-export const AlertDialog = AlertDialogRoot as AlertDialogComponent;
 AlertDialog.Content = AlertDialogContent;
 AlertDialog.Trigger = AlertDialogTrigger;
 AlertDialog.Heading = AlertDialogHeading;

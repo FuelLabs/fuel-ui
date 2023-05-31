@@ -1,8 +1,22 @@
-import { styled } from '@fuel-ui/css';
 import * as RAlertDialog from '@radix-ui/react-alert-dialog';
+import { createElement } from 'react';
 
-export type AlertDialogTriggerProps = RAlertDialog.AlertDialogTriggerProps;
-export const AlertDialogTrigger = styled(RAlertDialog.AlertDialogTrigger);
+import type * as t from './defs';
+import { styles } from './styles';
+
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
+
+export const AlertDialogTrigger =
+  _unstable_createComponent<t.AlertDialogTriggerDef>(
+    Components.AlertDialogTrigger,
+    (props) => {
+      const classes = useStyles(styles, {}, ['trigger']);
+      const elementProps = useElementProps(props, classes.trigger);
+      return createElement(RAlertDialog.AlertDialogTrigger, elementProps);
+    }
+  );
 
 AlertDialogTrigger.defaultProps = {
   asChild: true,
