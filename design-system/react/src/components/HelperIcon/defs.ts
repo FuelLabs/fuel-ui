@@ -7,6 +7,7 @@ import type { CreateComponent } from '~/utils';
 
 export type HelperIconProps = FlexProps & {
   message: ReactNode;
+  iconSize?: number;
 };
 
 export type HelperIconDef = CreateComponent<{

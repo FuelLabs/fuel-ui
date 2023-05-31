@@ -11,7 +11,7 @@ import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 export const HelperIcon = _unstable_createComponent<t.HelperIconDef>(
   Components.HelperIcon,
-  ({ as = 'div', children, ...props }) => {
+  ({ as = 'div', children, iconSize = 18, ...props }) => {
     const classes = useStyles(styles, props);
     const elementProps = useElementProps(props, classes.root);
     return createElement(
@@ -20,7 +20,12 @@ export const HelperIcon = _unstable_createComponent<t.HelperIconDef>(
       <>
         {children}
         <Tooltip content={props.message}>
-          <Icon icon="HelpOctagon" aria-label="Helper Icon" color="textIcon" />
+          <Icon
+            icon="HelpOctagon"
+            aria-label="Helper Icon"
+            color="textIcon"
+            size={iconSize}
+          />
         </Tooltip>
       </>
     );
