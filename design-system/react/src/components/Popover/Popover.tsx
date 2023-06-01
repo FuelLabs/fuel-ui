@@ -53,7 +53,6 @@ export const Popover = createComponent<PopoverProps>(
         {...{ ...contentProps, sideOffset, alignOffset }}
       >
         <RPopover.Arrow
-          offset={0}
           width={15}
           height={5}
           {...arrowProps}
@@ -68,8 +67,8 @@ export const Popover = createComponent<PopoverProps>(
             <IconButton
               size="xs"
               aria-label="Close"
-              icon="SquareRoundedX"
-              iconSize={22}
+              icon="X"
+              iconSize={20}
               intent="base"
               variant="link"
               css={{ padding: '$0' }}

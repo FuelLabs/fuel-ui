@@ -42,14 +42,28 @@ function addPlaceholderCSS(key: string) {
 }
 
 function addFocusStyle(key: string) {
+  const isInput = key.includes('input');
+
   return {
+    outline: `2px solid transparent`,
+    outlineOffset: `1px`,
+    transitionProperty: 'background, border, outline',
+    transitionDuration: '0.2s',
+
     '&:active, &[aria-pressed=true]': {
       outline: 'none',
     },
-    '&:not([aria-disabled=true], [data-nohover="true"]):focus-visible': {
-      outline: `2px solid $${key}Focus`,
-      outlineOffset: `1px`,
-    },
+    ...(isInput
+      ? {
+          '&:not([aria-disabled=true]):has(input:focus-visible)': {
+            borderColor: `$inputActiveBorder`,
+          },
+        }
+      : {
+          '&:not([aria-disabled=true]):focus-visible': {
+            outline: `2px solid $${key}Focus`,
+          },
+        }),
   };
 }
 
@@ -108,13 +122,13 @@ const semanticLayers = layerVariants.reduce((obj, variant) => {
           color: `$${key}Icon`,
         },
 
-        '&:not([aria-disabled=true], [data-nohover="true"]):hover': {
+        '&:not([aria-disabled="true"]):hover': {
           bg: `$${key}HoverBg`,
           border: `1px solid $${key}HoverBorder`,
           color: `$${key}HoverColor`,
         },
 
-        '&:not([aria-disabled=true], [data-nohover="true"]):hover .fuel_Icon': {
+        '&:not([aria-disabled="true"]):hover .fuel_Icon': {
           color: `$${key}HoverIcon`,
         },
       },
@@ -142,7 +156,7 @@ const inputLayers = inputVariants.reduce((obj, variant) => {
 const layerCard = {
   background: '$cardBg',
   borderRadius: '$default',
-  border: '1px solid $border',
+  border: '1px solid $cardBg',
 };
 
 const layerDialog = {

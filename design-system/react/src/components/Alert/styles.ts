@@ -6,27 +6,36 @@ import { createStyle } from '~/hooks';
 function createVariantStyle(key: string) {
   const color = `$${toCamelCase(`semantic-ghost-${key}-color`)}`;
   const iconColor = `$${toCamelCase(`semantic-ghost-${key}-icon`)}`;
-  const bg = `$${toCamelCase(`semantic-ghost-${key}-bg`)}`;
-  const border = `$${toCamelCase(`semantic-ghost-${key}-border`)}`;
+  const background = `$${toCamelCase(`semantic-solid-${key}-bg`)}`;
 
   return {
-    bg,
     color,
-    border,
 
     '& .fuel_Heading': {
-      fontWeight: '$semibold',
+      fontWeight: '$normal',
       color,
     },
 
-    '& .fuel_Icon': {
+    '& .fuel_Alert-icon .fuel_Icon': {
       color: iconColor,
     },
 
     '& .fuel_Button': {
       p: 0,
-      fontWeight: '$semibold',
+      fontWeight: '$normal',
       color,
+    },
+
+    '&:before': {
+      position: 'absolute',
+      display: 'block',
+      content: '""',
+      top: 0,
+      left: 0,
+      width: 4,
+      height: '100%',
+      background,
+      borderRadius: '$default 0 0 $default',
     },
   };
 }

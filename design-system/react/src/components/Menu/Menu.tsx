@@ -69,7 +69,11 @@ export const Menu = createComponent<MenuProps, ObjProps>(
     ));
 
     return (
-      <Box as="ul" {...mergeProps(menuProps, customProps)}>
+      <Box
+        as="ul"
+        {...mergeProps(menuProps, customProps)}
+        css={{ border: 'none', ...props.css }}
+      >
         {children}
       </Box>
     );

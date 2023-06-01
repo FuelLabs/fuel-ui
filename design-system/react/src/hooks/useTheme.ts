@@ -14,16 +14,31 @@ type ComponentProps<K extends DefKeys> = {
   >;
 };
 
-type Tokens = Parameters<typeof _createTheme>[1];
 export type ThemeOverride = {
-  tokens: Tokens;
-  components?: {
+  tokens: Partial<{
+    colors: Record<string, string>;
+    space: Record<string, string>;
+    sizes: Record<string, string>;
+    fonts: Record<string, string>;
+    fontSizes: Record<string, string>;
+    fontWeights: Record<string, string>;
+    lineHeights: Record<string, string>;
+    letterSpacings: Record<string, string>;
+    radii: Record<string, string>;
+    shadows: Record<string, string>;
+    zIndices: Record<string, string>;
+    transitions: Record<string, string>;
+    borderWidths: Record<string, string>;
+    borderStyles: Record<string, string>;
+  }>;
+  components?: Partial<{
     [K in DefKeys]?: ComponentProps<K>;
-  };
+  }>;
 };
 
 export function createTheme(name: string, override: ThemeOverride) {
-  const theme = _createTheme(name, override.tokens);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const theme = _createTheme(name, override.tokens as any);
   return { theme, components: override.components };
 }
 

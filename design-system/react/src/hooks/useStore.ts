@@ -129,7 +129,6 @@ const OMIT_FOR_DOM = [
   'color',
   'size',
   'css',
-  'onClick',
   'isDisabled',
   'onPress',
   'isLoading',

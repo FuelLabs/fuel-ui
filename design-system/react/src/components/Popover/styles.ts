@@ -46,11 +46,6 @@ export const content = css({
       '&[data-side="left"]': { animationName: slideRightAndFade },
     },
   },
-
-  '&[data-state="open"]:focus-visible': {
-    outline: `2px solid $intentsBase10`,
-    outlineOffset: '1px',
-  },
 });
 
 export const closeButton = css(close);

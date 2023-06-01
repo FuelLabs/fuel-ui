@@ -9,7 +9,9 @@ import { CardFooter } from './CardFooter';
 import { CardHeader } from './CardHeader';
 import * as styles from './styles';
 
-export type CardProps = FlexProps;
+export type CardProps = FlexProps & {
+  withDividers?: boolean;
+};
 
 type ObjProps = {
   id: string;
@@ -19,12 +21,12 @@ type ObjProps = {
 };
 
 export const Card = createComponent<CardProps, ObjProps>(
-  ({ direction = 'column', children, className, ...props }) => {
+  ({ direction = 'column', withDividers, children, className, ...props }) => {
     const classes = cx('fuel_Card', className, styles.card());
     const customProps = { ...props, direction, className: classes };
 
     return (
-      <Flex as="article" {...customProps}>
+      <Flex as="article" {...customProps} data-dividers={withDividers}>
         {children}
       </Flex>
     );

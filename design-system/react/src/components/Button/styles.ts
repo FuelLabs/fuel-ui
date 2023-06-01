@@ -92,7 +92,7 @@ export const styles = createStyle(Components.Button, {
 
     defaultVariants: {
       size: 'md',
-      intent: 'primary',
+      intent: 'base',
       variant: 'solid',
       isLink: false,
     },

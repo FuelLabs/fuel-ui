@@ -17,23 +17,31 @@
   },
   "card-bg": {
     "type": "color",
-    "value": "{body-bg}"
+    "value": "{intents.base.1}"
   },
   "overlay-bg": {
     "type": "color",
-    "value": "{body-inverse}"
+    "value": "{intents.base.2}"
   },
   "overlay-text": {
     "type": "color",
-    "value": "{body-bg}"
+    "value": "{intents.base.11}"
   },
   "dialog-bg": {
     "type": "color",
-    "value": "{intents.base.1}"
+    "value": "{card-bg}"
+  },
+  "input-bg": {
+    "type": "color",
+    "value": "{intents.base.2}"
   },
   "border": {
     "type": "color",
     "value": "{scales.gray.6}"
+  },
+  "borderHover": {
+    "type": "color",
+    "value": "{scales.gray.8}"
   },
   "brand": {
     "type": "color",
@@ -58,7 +66,7 @@
     },
     "icon": {
       "type": "color",
-      "value": "{intents.base.11}"
+      "value": "{intents.base.9}"
     },
     "inverse": {
       "type": "color",
@@ -93,23 +101,53 @@
     "disabled": {
       "color": {
         "type": "color",
-        "value": "{intents.base.6}"
+        "value": "{intents.base.8}"
       },
       "placeholder": {
         "type": "color",
-        "value": "{intents.base.6}"
+        "value": "{intents.base.8}"
       },
       "border": {
         "type": "color",
-        "value": "{border}"
+        "value": "{intents.base.4}"
       },
       "bg": {
         "type": "color",
-        "value": "{body-bg}"
+        "value": "{intents.base.1}"
       },
       "icon": {
         "type": "color",
         "value": "{intents.base.6}"
+      },
+      "focus": {
+        "type": "color",
+        "value": "{intents.base.2}"
+      }
+    },
+    "active": {
+      "color": {
+        "type": "color",
+        "value": "{intents.base.12}"
+      },
+      "placeholder": {
+        "type": "color",
+        "value": "{intents.base.10}"
+      },
+      "border": {
+        "type": "color",
+        "value": "{borderHover}"
+      },
+      "bg": {
+        "type": "color",
+        "value": "{input-bg}"
+      },
+      "icon": {
+        "type": "color",
+        "value": "{intents.base.8}"
+      },
+      "focus": {
+        "type": "color",
+        "value": "{intents.base.2}"
       }
     },
     "base": {
@@ -123,11 +161,11 @@
       },
       "border": {
         "type": "color",
-        "value": "{intents.base.8}"
+        "value": "{intents.base.6}"
       },
       "bg": {
         "type": "color",
-        "value": "{body-bg}"
+        "value": "{input-bg}"
       },
       "icon": {
         "type": "color",
@@ -149,11 +187,11 @@
       },
       "border": {
         "type": "color",
-        "value": "{intents.success.8}"
+        "value": "{intents.success.6}"
       },
       "bg": {
         "type": "color",
-        "value": "{body-bg}"
+        "value": "{input-bg}"
       },
       "icon": {
         "type": "color",
@@ -175,11 +213,11 @@
       },
       "border": {
         "type": "color",
-        "value": "{intents.error.8}"
+        "value": "{intents.error.6}"
       },
       "bg": {
         "type": "color",
-        "value": "{body-bg}"
+        "value": "{input-bg}"
       },
       "icon": {
         "type": "color",
@@ -632,15 +670,15 @@
       "base": {
         "bg": {
           "type": "color",
-          "value": "{intents.base.4}"
+          "value": "{intents.base.1}"
         },
         "border": {
           "type": "color",
-          "value": "{intents.base.4}"
+          "value": "{intents.base.1}"
         },
         "focus": {
           "type": "color",
-          "value": "{intents.base.4}"
+          "value": "{intents.base.2}"
         },
         "color": {
           "type": "color",
@@ -648,7 +686,7 @@
         },
         "icon": {
           "type": "color",
-          "value": "{intents.base.8}"
+          "value": "{intents.base.10}"
         },
         "placeholder": {
           "type": "color",
@@ -668,7 +706,7 @@
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.base.8}"
+          "value": "{intents.base.10}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -694,15 +732,15 @@
       "primary": {
         "bg": {
           "type": "color",
-          "value": "{intents.primary.4}"
+          "value": "{intents.primary.6}"
         },
         "border": {
           "type": "color",
-          "value": "{intents.primary.4}"
+          "value": "{intents.primary.6}"
         },
         "focus": {
           "type": "color",
-          "value": "{intents.primary.4}"
+          "value": "{intents.primary.6}"
         },
         "color": {
           "type": "color",
@@ -710,7 +748,7 @@
         },
         "icon": {
           "type": "color",
-          "value": "{intents.primary.8}"
+          "value": "{intents.primary.10}"
         },
         "placeholder": {
           "type": "color",
@@ -730,7 +768,7 @@
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.primary.8}"
+          "value": "{intents.primary.10}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -756,15 +794,15 @@
       "secondary": {
         "bg": {
           "type": "color",
-          "value": "{intents.secondary.4}"
+          "value": "{intents.secondary.6}"
         },
         "border": {
           "type": "color",
-          "value": "{intents.secondary.4}"
+          "value": "{intents.secondary.6}"
         },
         "focus": {
           "type": "color",
-          "value": "{intents.secondary.4}"
+          "value": "{intents.secondary.6}"
         },
         "color": {
           "type": "color",
@@ -772,7 +810,7 @@
         },
         "icon": {
           "type": "color",
-          "value": "{intents.secondary.8}"
+          "value": "{intents.secondary.10}"
         },
         "placeholder": {
           "type": "color",
@@ -792,7 +830,7 @@
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.secondary.8}"
+          "value": "{intents.secondary.10}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -818,15 +856,15 @@
       "info": {
         "bg": {
           "type": "color",
-          "value": "{intents.info.4}"
+          "value": "{intents.info.6}"
         },
         "border": {
           "type": "color",
-          "value": "{intents.info.4}"
+          "value": "{intents.info.6}"
         },
         "focus": {
           "type": "color",
-          "value": "{intents.info.4}"
+          "value": "{intents.info.6}"
         },
         "color": {
           "type": "color",
@@ -834,7 +872,7 @@
         },
         "icon": {
           "type": "color",
-          "value": "{intents.info.8}"
+          "value": "{intents.info.10}"
         },
         "placeholder": {
           "type": "color",
@@ -854,7 +892,7 @@
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.info.8}"
+          "value": "{intents.info.10}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -880,15 +918,15 @@
       "warning": {
         "bg": {
           "type": "color",
-          "value": "{intents.warning.4}"
+          "value": "{intents.warning.6}"
         },
         "border": {
           "type": "color",
-          "value": "{intents.warning.4}"
+          "value": "{intents.warning.6}"
         },
         "focus": {
           "type": "color",
-          "value": "{intents.warning.4}"
+          "value": "{intents.warning.6}"
         },
         "color": {
           "type": "color",
@@ -896,7 +934,7 @@
         },
         "icon": {
           "type": "color",
-          "value": "{intents.warning.8}"
+          "value": "{intents.warning.10}"
         },
         "placeholder": {
           "type": "color",
@@ -916,7 +954,7 @@
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.warning.8}"
+          "value": "{intents.warning.10}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -942,15 +980,15 @@
       "success": {
         "bg": {
           "type": "color",
-          "value": "{intents.success.4}"
+          "value": "{intents.success.6}"
         },
         "border": {
           "type": "color",
-          "value": "{intents.success.4}"
+          "value": "{intents.success.6}"
         },
         "focus": {
           "type": "color",
-          "value": "{intents.success.4}"
+          "value": "{intents.success.6}"
         },
         "color": {
           "type": "color",
@@ -958,7 +996,7 @@
         },
         "icon": {
           "type": "color",
-          "value": "{intents.success.8}"
+          "value": "{intents.success.10}"
         },
         "placeholder": {
           "type": "color",
@@ -978,7 +1016,7 @@
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.success.8}"
+          "value": "{intents.success.10}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -1004,15 +1042,15 @@
       "error": {
         "bg": {
           "type": "color",
-          "value": "{intents.error.4}"
+          "value": "{intents.error.6}"
         },
         "border": {
           "type": "color",
-          "value": "{intents.error.4}"
+          "value": "{intents.error.6}"
         },
         "focus": {
           "type": "color",
-          "value": "{intents.error.4}"
+          "value": "{intents.error.6}"
         },
         "color": {
           "type": "color",
@@ -1020,7 +1058,7 @@
         },
         "icon": {
           "type": "color",
-          "value": "{intents.error.8}"
+          "value": "{intents.error.10}"
         },
         "placeholder": {
           "type": "color",
@@ -1040,7 +1078,7 @@
         },
         "hover-icon": {
           "type": "color",
-          "value": "{intents.error.8}"
+          "value": "{intents.error.10}"
         },
         "hover-placeholder": {
           "type": "color",
@@ -1072,7 +1110,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.base.8}"
+          "value": "{intents.base.6}"
         },
         "focus": {
           "type": "color",
@@ -1134,7 +1172,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.primary.8}"
+          "value": "{intents.primary.6}"
         },
         "focus": {
           "type": "color",
@@ -1196,7 +1234,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.secondary.8}"
+          "value": "{intents.secondary.6}"
         },
         "focus": {
           "type": "color",
@@ -1258,7 +1296,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.info.8}"
+          "value": "{intents.info.6}"
         },
         "focus": {
           "type": "color",
@@ -1320,7 +1358,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.warning.8}"
+          "value": "{intents.warning.6}"
         },
         "focus": {
           "type": "color",
@@ -1382,7 +1420,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.success.8}"
+          "value": "{intents.success.6}"
         },
         "focus": {
           "type": "color",
@@ -1444,7 +1482,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.error.8}"
+          "value": "{intents.error.6}"
         },
         "focus": {
           "type": "color",
@@ -1524,7 +1562,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1586,7 +1624,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1648,7 +1686,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1710,7 +1748,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1772,7 +1810,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1834,7 +1872,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",
@@ -1896,7 +1934,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "transparent"
+          "value": "{intents.base.2}"
         },
         "hover-bg": {
           "type": "color",

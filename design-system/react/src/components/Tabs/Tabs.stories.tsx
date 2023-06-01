@@ -51,7 +51,9 @@ function Account() {
         </Stack>
       </Card.Body>
       <Card.Footer direction="row-reverse">
-        <Button size="sm">Save changes</Button>
+        <Button intent="primary" size="sm">
+          Save changes
+        </Button>
       </Card.Footer>
     </Card>
   );
@@ -92,7 +94,9 @@ function Password() {
         </Stack>
       </Card.Body>
       <Card.Footer direction="row-reverse">
-        <Button size="sm">Save changes</Button>
+        <Button intent="primary" size="sm">
+          Save changes
+        </Button>
       </Card.Footer>
     </Card>
   );
@@ -101,6 +105,23 @@ function Password() {
 export const Usage = (args: TabsProps) => (
   <Box css={{ maxW: '400px' }}>
     <Tabs {...args} defaultValue="account">
+      <Tabs.List aria-label="Manage your account">
+        <Tabs.Trigger value="account">Account</Tabs.Trigger>
+        <Tabs.Trigger value="password">Password</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="account">
+        <Account />
+      </Tabs.Content>
+      <Tabs.Content value="password">
+        <Password />
+      </Tabs.Content>
+    </Tabs>
+  </Box>
+);
+
+export const Subtle = (args: TabsProps) => (
+  <Box css={{ maxW: '400px' }}>
+    <Tabs {...args} defaultValue="account" variant="subtle">
       <Tabs.List aria-label="Manage your account">
         <Tabs.Trigger value="account">Account</Tabs.Trigger>
         <Tabs.Trigger value="password">Password</Tabs.Trigger>

@@ -4,8 +4,8 @@ function inputColor(name) {
   return {
     color: createColor(`{intents.base.12}`),
     placeholder: createColor(`{intents.base.10}`),
-    border: createColor(`{intents.${name}.8}`),
-    bg: createColor(`{body-bg}`),
+    border: createColor(`{intents.${name}.6}`),
+    bg: createColor(`{input-bg}`),
     icon: createColor(`{intents.${name}.8}`),
     focus: createColor(`{intents.base.2}`),
   };
@@ -48,16 +48,22 @@ const categories = {
   },
   ghost(name) {
     return {
-      bg: createColor(`{intents.${name}.4}`),
-      border: createColor(`{intents.${name}.4}`),
-      focus: createColor(`{intents.${name}.4}`),
+      bg: createColor(
+        name === 'base' ? `{intents.base.1}` : `{intents.${name}.6}`
+      ),
+      border: createColor(
+        name === 'base' ? `{intents.base.1}` : `{intents.${name}.6}`
+      ),
+      focus: createColor(
+        name === 'base' ? `{intents.base.2}` : `{intents.${name}.6}`
+      ),
       color: createColor(`{intents.${name}.12}`),
-      icon: createColor(`{intents.${name}.8}`),
+      icon: createColor(`{intents.${name}.10}`),
       placeholder: createColor(`{intents.${name}.8}`),
       'hover-bg': createColor(`{intents.${name}.5}`),
       'hover-border': createColor(`{intents.${name}.5}`),
       'hover-color': createColor(`{intents.${name}.12}`),
-      'hover-icon': createColor(`{intents.${name}.8}`),
+      'hover-icon': createColor(`{intents.${name}.10}`),
       'hover-placeholder': createColor(`{intents.${name}.9}`),
       'disabled-bg': createColor(`{intents.${name}.3}`),
       'disabled-border': createColor(`{intents.${name}.3}`),
@@ -69,7 +75,7 @@ const categories = {
     const isLight = isIntentLight(name);
     return {
       bg: createColor('transparent'),
-      border: createColor(`{intents.${name}.8}`),
+      border: createColor(`{intents.${name}.6}`),
       focus: createColor(`{intents.${name}.4}`),
       color: createColor(
         isLight ? `{intents.${name}.8}` : `{intents.${name}.11}`
@@ -103,7 +109,7 @@ const categories = {
       ),
       placeholder: createColor(`{intents.${name}.8}`),
       border: createColor('transparent'),
-      focus: createColor('transparent'),
+      focus: createColor('{intents.base.2}'),
       'hover-bg': createColor('transparent'),
       'hover-border': createColor('transparent'),
       'hover-color': createColor(
@@ -143,11 +149,13 @@ export function createSemantics(isLight) {
     black: createColor('#000000'),
     'body-bg': createColor(isLight ? '{white}' : '{black}'),
     'body-inverse': createColor(isLight ? '{black}' : '{white}'),
-    'card-bg': createColor('{body-bg}'),
-    'overlay-bg': createColor('{body-inverse}'),
-    'overlay-text': createColor('{body-bg}'),
-    'dialog-bg': createColor('{intents.base.1}'),
+    'card-bg': createColor('{intents.base.1}'),
+    'overlay-bg': createColor('{intents.base.2}'),
+    'overlay-text': createColor('{intents.base.11}'),
+    'dialog-bg': createColor('{card-bg}'),
+    'input-bg': createColor('{intents.base.2}'),
     border: createColor('{scales.gray.6}'),
+    borderHover: createColor('{scales.gray.8}'),
     brand: createColor(
       isLight ? '{intents.primary.10}' : '{intents.primary.9}'
     ),
@@ -156,22 +164,37 @@ export function createSemantics(isLight) {
       heading: createColor('{intents.base.12}'),
       subtext: createColor('{intents.base.10}'),
       muted: createColor('{intents.base.8}'),
-      icon: createColor('{intents.base.11}'),
+      icon: createColor('{intents.base.9}'),
       inverse: createColor('{intents.base.12}'),
       active: createColor('{intents.base.12}'),
-      link: createColor('{intents.primary.8}'),
-      'link-active': createColor('{intents.primary.8}'),
-      'link-visited': createColor('{intents.primary.8}'),
+      link: createColor(
+        isLight ? '{intents.primary.8}' : '{intents.primary.9}'
+      ),
+      'link-active': createColor(
+        isLight ? '{intents.primary.8}' : '{intents.primary.9}'
+      ),
+      'link-visited': createColor(
+        isLight ? '{intents.primary.8}' : '{intents.primary.9}'
+      ),
       'link-hover': createColor('{intents.primary.11}'),
       'link-disabled': createColor('{intents.primary.7}'),
     },
     input: {
       disabled: {
-        color: createColor('{intents.base.6}'),
-        placeholder: createColor('{intents.base.6}'),
-        border: createColor('{border}'),
-        bg: createColor('{body-bg}'),
+        color: createColor('{intents.base.8}'),
+        placeholder: createColor('{intents.base.8}'),
+        border: createColor('{intents.base.4}'),
+        bg: createColor('{intents.base.1}'),
         icon: createColor('{intents.base.6}'),
+        focus: createColor(`{intents.base.2}`),
+      },
+      active: {
+        color: createColor(`{intents.base.12}`),
+        placeholder: createColor(`{intents.base.10}`),
+        border: createColor(`{borderHover}`),
+        bg: createColor(`{input-bg}`),
+        icon: createColor(`{intents.base.8}`),
+        focus: createColor(`{intents.base.2}`),
       },
       base: inputColor('base'),
       success: inputColor('success'),

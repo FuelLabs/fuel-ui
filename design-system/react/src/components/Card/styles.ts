@@ -1,26 +1,32 @@
 import { css } from '@fuel-ui/css';
 
-export const card = css({
-  layer: 'layer-card',
-  p: '$7',
-});
-
 export const header = css({
-  pb: '$5',
-  mb: '$5',
-  borderBottom: '1px solid $border',
+  px: '$4',
+  py: '$4',
+  borderBottom: '1px solid $bodyBg',
 
   '& .fuel_Heading': {
     margin: 0,
   },
+
+  '&[data-space=compact]': {
+    py: '$2',
+    fontSize: '$sm',
+  },
 });
 
 export const body = css({
-  display: 'block',
+  px: '$4',
+  py: '$4',
 });
 
 export const footer = css({
-  mt: '$5',
-  pt: '$5',
-  borderTop: '1px solid $border',
+  px: '$4',
+  pb: '$4',
+  pt: '$4',
+  borderTop: '1px solid $bodyBg',
+});
+
+export const card = css({
+  layer: 'layer-card',
 });

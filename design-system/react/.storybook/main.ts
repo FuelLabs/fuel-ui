@@ -13,9 +13,7 @@ const config: StorybookConfig = {
     'storybook-dark-mode',
   ],
   staticDirs: ['../public'],
-  core: {
-    builder: '@storybook/builder-vite',
-  },
+  core: {},
   framework: {
     name: '@storybook/react-vite',
     options: {},
@@ -25,6 +23,8 @@ const config: StorybookConfig = {
       plugins: [tsconfigpath()],
     });
   },
+  docs: {
+    autodocs: true,
+  },
 };
-
 export default config;

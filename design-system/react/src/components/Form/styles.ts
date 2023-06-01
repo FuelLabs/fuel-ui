@@ -8,7 +8,6 @@ export const control = css({
 });
 
 export const label = css({
-  px: '$1',
   display: 'inline-flex',
   alignItems: 'center',
   gap: '$2',

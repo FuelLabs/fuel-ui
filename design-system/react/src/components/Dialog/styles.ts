@@ -31,7 +31,7 @@ export const overlay = css({
 });
 
 export const content = css({
-  p: '$7',
+  p: '$4',
   layer: 'layer-dialog',
   display: 'flex',
   flexDirection: 'column',
@@ -58,6 +58,7 @@ export const heading = css({
   m: '$0',
   color: '$intentsBase12',
   fontFamily: '$heading',
+  fontWeight: '$normal',
   fontSize: '$xl',
 });
 
