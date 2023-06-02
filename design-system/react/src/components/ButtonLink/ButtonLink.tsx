@@ -25,8 +25,8 @@ export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
       as: 'a',
       role: 'link',
       variant: 'link' as LayerVariant,
-      isExternal,
       size,
+      isLink: true,
     };
     return createElement(Button, allProps);
   }
