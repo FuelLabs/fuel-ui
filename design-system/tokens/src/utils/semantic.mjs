@@ -23,7 +23,7 @@ const categories = {
         name === 'base' ? '{intents.base.8}' : `{intents.${name}.9}`
       ),
       border: createColor('transparent'),
-      focus: createColor(`{intents.${name}.4}`),
+      focus: createColor(`{intents.${name}.6}`),
       color: createColor(isLight ? `{black}` : `{white}`),
       icon: createColor(isLight ? `{black}` : `{white}`),
       placeholder: createColor(
@@ -55,7 +55,7 @@ const categories = {
         name === 'base' ? `{intents.base.1}` : `{intents.${name}.6}`
       ),
       focus: createColor(
-        name === 'base' ? `{intents.base.2}` : `{intents.${name}.6}`
+        name === 'base' ? `{intents.base.4}` : `{intents.${name}.6}`
       ),
       color: createColor(`{intents.${name}.12}`),
       icon: createColor(`{intents.${name}.10}`),
@@ -76,7 +76,7 @@ const categories = {
     return {
       bg: createColor('transparent'),
       border: createColor(`{intents.${name}.6}`),
-      focus: createColor(`{intents.${name}.4}`),
+      focus: createColor(`{intents.${name}.6}`),
       color: createColor(
         isLight ? `{intents.${name}.8}` : `{intents.${name}.11}`
       ),
@@ -109,7 +109,7 @@ const categories = {
       ),
       placeholder: createColor(`{intents.${name}.8}`),
       border: createColor('transparent'),
-      focus: createColor('{intents.base.2}'),
+      focus: createColor('{intents.base.4}'),
       'hover-bg': createColor('transparent'),
       'hover-border': createColor('transparent'),
       'hover-color': createColor(
