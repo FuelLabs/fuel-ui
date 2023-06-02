@@ -12,7 +12,7 @@ import { useStyles, useElementProps, createStyle } from '~/hooks';
 
 export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
   Components.ButtonLink,
-  ({ isExternal = false, size, ...props }) => {
+  ({ isExternal = false, size, as, onPress, ...props }) => {
     const classes = useStyles(styles, props);
     const elementProps = useElementProps(props, classes.root);
     const allProps = {
@@ -26,6 +26,8 @@ export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
       variant: 'link' as LayerVariant,
       size,
       isLink: true,
+      as,
+      onPress,
     };
     return createElement(Button, allProps);
   }
