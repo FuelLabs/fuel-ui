@@ -12,6 +12,10 @@ export const input = css({
     border: 'none',
   },
 
+  '& button:not([aria-disabled=true]):focus-visible': {
+    outlineColor: '$border',
+  },
+
   variants: {
     size: {
       sm: {
