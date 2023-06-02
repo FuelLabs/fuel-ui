@@ -22,7 +22,6 @@ export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
         rel: 'noopener noreferrer',
         rightIcon: 'Link' as ButtonProps['rightIcon'],
       }),
-      as: 'a',
       role: 'link',
       variant: 'link' as LayerVariant,
       size,

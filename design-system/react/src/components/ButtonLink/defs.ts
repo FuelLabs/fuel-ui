@@ -3,16 +3,7 @@ import type { ButtonProps } from '../Button/defs';
 import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
 
-type PropsToOmit =
-  | 'as'
-  | 'leftIcon'
-  | 'leftIconAriaLabel'
-  | 'rightIcon'
-  | 'rightIconAriaLabel'
-  | 'isLoading'
-  | 'loadingText'
-  | 'justIcon'
-  | 'isLink';
+type PropsToOmit = 'isLink' | 'role' | 'variant';
 
 export type ButtonLinkProps = Omit<ButtonProps, PropsToOmit> &
   HTMLProps['a'] & {
@@ -25,5 +16,5 @@ export type ButtonLinkDef = CreateComponent<{
   component: Components.ButtonLink;
   props: ButtonLinkProps;
   styles: 'root';
-  omit: 'as' | 'variant';
+  omit: PropsToOmit;
 }>;
