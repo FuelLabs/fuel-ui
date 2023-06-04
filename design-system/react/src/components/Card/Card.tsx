@@ -1,29 +1,24 @@
-import { cx } from '@fuel-ui/css';
-
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Box/Flex';
+import { _unstable_createComponent } from '../../utils';
 import { Flex } from '../Box/Flex';
 
 import { CardBody } from './CardBody';
 import { CardFooter } from './CardFooter';
 import { CardHeader } from './CardHeader';
-import * as styles from './styles';
+import type { CardDef } from './defs';
+import { styles } from './styles';
 
-export type CardProps = FlexProps & {
-  withDividers?: boolean;
-};
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-type ObjProps = {
-  id: string;
-  Header: typeof CardHeader;
-  Body: typeof CardBody;
-  Footer: typeof CardFooter;
-};
-
-export const Card = createComponent<CardProps, ObjProps>(
-  ({ direction = 'column', withDividers, children, className, ...props }) => {
-    const classes = cx('fuel_Card', className, styles.card());
-    const customProps = { ...props, direction, className: classes };
+export const Card = _unstable_createComponent<CardDef>(
+  Components.Card,
+  ({ direction = 'column', withDividers, children, ...props }) => {
+    const classes = useStyles(styles, props);
+    const customProps = {
+      ...props,
+      direction,
+      className: classes.root.className,
+    };
 
     return (
       <Flex as="article" {...customProps} data-dividers={withDividers}>

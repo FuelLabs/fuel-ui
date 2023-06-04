@@ -1,15 +1,17 @@
-import { cx } from '@fuel-ui/css';
-
-import { createComponent } from '../../utils';
-import type { BoxProps } from '../Box';
+import { _unstable_createComponent } from '../../utils';
 import { Box } from '../Box';
 
-import * as styles from './styles';
+import type { CardBodyDef } from './defs';
+import { styles } from './styles';
 
-export const CardBody = createComponent<BoxProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_CardBody', className, styles.body());
-    const customProps = { ...props, className: classes };
-    return <Box {...customProps}>{children}</Box>;
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+
+export const CardBody = _unstable_createComponent<CardBodyDef>(
+  Components.CardBody,
+  ({ children, ...props }) => {
+    const classes = useStyles(styles, props);
+    const elementProps = { ...props, className: classes.body.className };
+    return <Box {...elementProps}>{children}</Box>;
   }
 );

@@ -1,17 +1,19 @@
-import { cx } from '@fuel-ui/css';
-
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Box/Flex';
+import { _unstable_createComponent } from '../../utils';
 import { Flex } from '../Box/Flex';
 
-import * as styles from './styles';
+import type { CardFooterDef } from './defs';
+import { styles } from './styles';
 
-export const CardFooter = createComponent<FlexProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_CardFooter', className, styles.footer());
-    const customProps = { ...props, className: classes };
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+
+export const CardFooter = _unstable_createComponent<CardFooterDef>(
+  Components.CardFooter,
+  ({ children, ...props }) => {
+    const classes = useStyles(styles, props, ['footer']);
+    const elementProps = { ...props, className: classes.footer.className };
     return (
-      <Flex as="footer" {...customProps}>
+      <Flex as="footer" {...elementProps}>
         {children}
       </Flex>
     );

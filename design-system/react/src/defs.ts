@@ -35,6 +35,12 @@ import type {
 } from './components/Box/defs';
 import type { ButtonDef } from './components/Button/defs';
 import type { ButtonGroupDef } from './components/ButtonGroup/defs';
+import type {
+  CardBodyDef,
+  CardDef,
+  CardFooterDef,
+  CardHeaderDef,
+} from './components/Card/defs';
 import type { HeadingDef } from './components/Heading/defs';
 import type { HelperIconDef } from './components/HelperIcon/defs';
 import type { IconDef } from './components/Icon/defs';
@@ -177,6 +183,10 @@ export type StoreDefs = {
   BoxCentered: BoxCenteredDef;
   Button: ButtonDef;
   ButtonGroup: ButtonGroupDef;
+  Card: CardDef;
+  CardBody: CardBodyDef;
+  CardFooter: CardFooterDef;
+  CardHeader: CardHeaderDef;
   Container: ContainerDef;
   Image: ImageDef;
   Flex: FlexDef;

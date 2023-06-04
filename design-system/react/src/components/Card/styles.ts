@@ -1,32 +1,32 @@
-import { css } from '@fuel-ui/css';
+import { Components } from '~/defs';
+import { createStyle } from '~/hooks';
 
-export const header = css({
-  px: '$4',
-  py: '$4',
-  borderBottom: '1px solid $bodyBg',
-
-  '& .fuel_Heading': {
-    margin: 0,
+export const styles = createStyle(Components.Card, {
+  root: {
+    layer: 'layer-card',
   },
-
-  '&[data-space=compact]': {
-    py: '$2',
-    fontSize: '$sm',
+  body: {
+    px: '$4',
+    py: '$4',
   },
-});
+  footer: {
+    px: '$4',
+    pb: '$4',
+    pt: '$4',
+    borderTop: '1px solid $bodyBg',
+  },
+  header: {
+    px: '$4',
+    py: '$4',
+    borderBottom: '1px solid $bodyBg',
 
-export const body = css({
-  px: '$4',
-  py: '$4',
-});
+    '& .fuel_Heading': {
+      margin: 0,
+    },
 
-export const footer = css({
-  px: '$4',
-  pb: '$4',
-  pt: '$4',
-  borderTop: '1px solid $bodyBg',
-});
-
-export const card = css({
-  layer: 'layer-card',
+    '&[data-space=compact]': {
+      py: '$2',
+      fontSize: '$sm',
+    },
+  },
 });
