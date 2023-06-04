@@ -1,5 +1,6 @@
 import type { LayerVariant } from '@fuel-ui/css';
 import { createElement } from 'react';
+import { mergeProps } from 'react-aria';
 
 import { _unstable_createComponent } from '../../utils';
 import type { ButtonProps } from '../Button';
@@ -12,24 +13,22 @@ import { useStyles, useElementProps, createStyle } from '~/hooks';
 
 export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
   Components.ButtonLink,
-  ({ isExternal = false, size, as, onPress, ...props }) => {
+  ({ isExternal = false, as = 'a', role = 'link', size, ...props }) => {
     const classes = useStyles(styles, props);
     const elementProps = useElementProps(props, classes.root);
-    const allProps = {
-      ...elementProps,
+    const allprops = mergeProps(elementProps, {
       ...(isExternal && {
         target: '_blank',
         rel: 'noopener noreferrer',
         rightIcon: 'Link' as ButtonProps['rightIcon'],
       }),
-      role: 'link',
       variant: 'link' as LayerVariant,
-      size,
       isLink: true,
       as,
-      onPress,
-    };
-    return createElement(Button, allProps);
+      role,
+      size,
+    });
+    return createElement(Button, allprops);
   }
 );
 

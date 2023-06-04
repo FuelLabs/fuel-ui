@@ -3,7 +3,7 @@ import type { ButtonProps } from '../Button/defs';
 import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
 
-type PropsToOmit = 'isLink' | 'role' | 'variant';
+type PropsToOmit = 'isLink' | 'variant';
 
 export type ButtonLinkProps = Omit<ButtonProps, PropsToOmit> &
   HTMLProps['a'] & {

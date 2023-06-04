@@ -19,6 +19,10 @@ const meta: Meta<typeof ButtonLink> = {
     onPress: {
       control: false,
     },
+    size: {
+      defaultValue: 'md',
+      control: 'select',
+    },
   },
 };
 
