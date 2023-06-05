@@ -24,7 +24,7 @@ const _Card = _unstable_createComponent<CardDef>(
       ...props,
       direction,
       className: classes.root.className,
-      dataDividers: withDividers,
+      withDividers,
       as: 'article',
     };
 
