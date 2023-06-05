@@ -1,24 +1,19 @@
-import { cx } from '@fuel-ui/css';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import { createElement } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
 import { Icon } from '../Icon';
 
-import * as styles from './styles';
+import type { CheckboxDef } from './defs';
+import { styles } from './styles';
 
-type OmitProps = 'children' | 'as';
-export type CheckboxProps = CheckboxPrimitive.CheckboxProps & {
-  isDisabled?: boolean;
-  isReadOnly?: boolean;
-};
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
-type ObjProps = {
-  id: string;
-};
-
-export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
-  ({ isDisabled, isReadOnly, className, ...props }) => {
+export const Checkbox = _unstable_createComponent<CheckboxDef>(
+  Components.Checkbox,
+  ({ isDisabled, isReadOnly, ...props }) => {
     const formControlProps = useFormControlProps();
     const disabled =
       isDisabled ||
@@ -27,22 +22,20 @@ export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
       formControlProps.isReadOnly;
 
     const readonly = isReadOnly || formControlProps.isReadOnly;
-    const classes = cx('fuel_Checkbox', className);
-    const indicatorClass = styles.indicator({ disabled });
+    const classes = useStyles(styles, props);
+    const indicatorClass = classes.indicator.className;
+    const elementProps = useElementProps(props, classes.root);
 
     const customProps = {
-      ...props,
+      ...elementProps,
       disabled,
       'aria-disabled': disabled,
       'aria-readonly': readonly,
-      className: classes,
       required: props.required || formControlProps.isRequired,
     };
 
-    return createStyledElement(
+    return createElement(
       CheckboxPrimitive.Root,
-      styles.root,
-      { disabled },
       customProps,
       <CheckboxPrimitive.CheckboxIndicator className={indicatorClass}>
         <Icon icon="Check" />
@@ -50,5 +43,3 @@ export const Checkbox = createComponent<CheckboxProps, ObjProps, OmitProps>(
     );
   }
 );
-
-Checkbox.id = 'Checkbox';

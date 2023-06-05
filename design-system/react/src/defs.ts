@@ -41,6 +41,8 @@ import type {
   CardFooterDef,
   CardHeaderDef,
 } from './components/Card/defs';
+import type { CardListDef, CardListItemDef } from './components/CardList/defs';
+import type { CheckboxDef } from './components/Checkbox/defs';
 import type { HeadingDef } from './components/Heading/defs';
 import type { HelperIconDef } from './components/HelperIcon/defs';
 import type { IconDef } from './components/Icon/defs';
@@ -187,6 +189,9 @@ export type StoreDefs = {
   CardBody: CardBodyDef;
   CardFooter: CardFooterDef;
   CardHeader: CardHeaderDef;
+  CardList: CardListDef;
+  CardListItem: CardListItemDef;
+  Checkbox: CheckboxDef;
   Container: ContainerDef;
   Image: ImageDef;
   Flex: FlexDef;
