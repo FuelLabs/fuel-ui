@@ -1,8 +1,8 @@
 import { Stack } from '../Box/Stack';
 import { Form } from '../Form';
 
-import type { CheckboxProps } from './Checkbox';
 import { Checkbox } from './Checkbox';
+import type { CheckboxProps } from './defs';
 
 export default {
   component: Checkbox,
