@@ -13,7 +13,7 @@ import { useStyles, useElementProps, createStyle } from '~/hooks';
 
 export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
   Components.ButtonLink,
-  ({ isExternal = false, as = 'a', role = 'link', size, ...props }) => {
+  ({ isExternal, as = 'a', role = 'link', size, ...props }) => {
     const classes = useStyles(styles, props);
     const elementProps = useElementProps(props, classes.root);
     const allprops = mergeProps(elementProps, {
