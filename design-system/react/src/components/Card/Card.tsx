@@ -1,4 +1,9 @@
-import { _unstable_createComponent } from '../../utils';
+import { createElement } from 'react';
+
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { Flex } from '../Box/Flex';
 
 import { CardBody } from './CardBody';
@@ -10,23 +15,24 @@ import { styles } from './styles';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
-export const Card = _unstable_createComponent<CardDef>(
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _Card = _unstable_createComponent<CardDef>(
   Components.Card,
   ({ direction = 'column', withDividers, children, ...props }) => {
     const classes = useStyles(styles, props);
-    const customProps = {
+    const elementProps = {
       ...props,
       direction,
       className: classes.root.className,
+      dataDividers: withDividers,
+      as: 'article',
     };
 
-    return (
-      <Flex as="article" {...customProps} data-dividers={withDividers}>
-        {children}
-      </Flex>
-    );
+    return createElement(Flex, elementProps, children);
   }
 );
+
+export const Card = createPolymorphicComponent<CardDef>(_Card);
 
 Card.id = 'Card';
 Card.Header = CardHeader;
