@@ -1,3 +1,5 @@
+import { mergeProps } from 'react-aria';
+
 import { _unstable_createComponent } from '../../utils';
 import { Box } from '../Box';
 import { Focus } from '../Focus';
@@ -8,13 +10,15 @@ import { CardListContext } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useStyles } from '~/hooks';
 
 export const CardList = _unstable_createComponent<t.CardListDef>(
   Components.CardList,
   ({ children, gap = '$2', isClickable, autoFocus, ...props }) => {
     const classes = useStyles(styles, props, ['root']);
-    const elementProps = useElementProps(props, classes.root);
+    const elementProps = mergeProps(props, {
+      className: classes.root.className,
+    });
 
     return (
       <CardListContext.Provider value={{ isClickable, autoFocus }}>

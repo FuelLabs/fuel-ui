@@ -1,3 +1,5 @@
+import { mergeProps } from 'react-aria';
+
 import { _unstable_createComponent } from '../../utils';
 import { Flex } from '../Box/Flex';
 import { Card } from '../Card';
@@ -7,14 +9,16 @@ import { useCardListContext } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useStyles } from '~/hooks';
 
 export const CardListItem = _unstable_createComponent<CardListItemDef>(
   Components.CardListItem,
   ({ children, rightEl, isActive, ...props }) => {
     const { isClickable } = useCardListContext();
     const classes = useStyles(styles, props, ['item']);
-    const elementProps = useElementProps(props, classes.item);
+    const elementProps = mergeProps(props, {
+      className: classes.item.className,
+    });
 
     return (
       <Card
