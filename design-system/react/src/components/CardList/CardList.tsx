@@ -8,21 +8,16 @@ import { CardListContext } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useStyles } from '~/hooks';
 
 export const CardList = _unstable_createComponent<t.CardListDef>(
   Components.CardList,
   ({ children, gap = '$2', isClickable, autoFocus, ...props }) => {
     const classes = useStyles(styles, props, ['root']);
-    const elementProps = useElementProps(props, classes.root);
 
     return (
       <CardListContext.Provider value={{ isClickable, autoFocus }}>
-        <Box.Stack
-          gap={gap}
-          {...elementProps}
-          className={classes.root.className}
-        >
+        <Box.Stack gap={gap} {...props} className={classes.root.className}>
           {isClickable ? (
             <Focus.ArrowNavigator autoFocus={autoFocus}>
               {children}
