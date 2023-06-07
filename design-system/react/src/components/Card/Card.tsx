@@ -4,7 +4,6 @@ import {
   _unstable_createComponent,
   createPolymorphicComponent,
 } from '../../utils';
-import { Flex } from '../Box/Flex';
 
 import { CardBody } from './CardBody';
 import { CardFooter } from './CardFooter';
@@ -18,17 +17,22 @@ import { useStyles } from '~/hooks';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const _Card = _unstable_createComponent<CardDef>(
   Components.Card,
-  ({ direction = 'column', withDividers, children, ...props }) => {
+  ({
+    as = 'article',
+    direction = 'column',
+    withDividers,
+    children,
+    ...props
+  }) => {
     const classes = useStyles(styles, props);
     const elementProps = {
       ...props,
       direction,
       className: classes.root.className,
       'data-dividers': withDividers,
-      as: 'article',
     };
 
-    return createElement(Flex, elementProps, children);
+    return createElement(as, elementProps, children);
   }
 );
 
