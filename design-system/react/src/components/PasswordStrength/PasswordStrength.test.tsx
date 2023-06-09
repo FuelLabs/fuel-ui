@@ -113,4 +113,31 @@ describe('PasswordStrength', () => {
     const input = await findByPlaceholderText('Type your password');
     expect(input).toHaveFocus();
   });
+
+  it('should fill 1 levels as strength weak', async () => {
+    const container = document.createElement('div');
+    render(<PasswordStrength.Indicator strength={'weak'} />, {
+      container,
+    });
+    const elements = container.querySelectorAll('[data-strength="weak"]');
+    expect(elements.length).toBe(1);
+  });
+
+  it('should fill 2 levels as strength weak', async () => {
+    const container = document.createElement('div');
+    render(<PasswordStrength.Indicator strength={'average'} />, {
+      container,
+    });
+    const elements = container.querySelectorAll('[data-strength="average"]');
+    expect(elements.length).toBe(2);
+  });
+
+  it('should fill all levels when strength strong', async () => {
+    const container = document.createElement('div');
+    render(<PasswordStrength.Indicator strength={'strong'} />, {
+      container,
+    });
+    const elements = container.querySelectorAll('[data-strength="strong"]');
+    expect(elements.length).toBe(3);
+  });
 });
