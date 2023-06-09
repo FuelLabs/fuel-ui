@@ -1,5 +1,16 @@
 # @fuel-ui/react
 
+## 0.16.0
+
+### Minor Changes
+
+- Split Strength Indicator from PasswordStrength component, by [@luizstacio](https://github.com/luizstacio) (See [#268](https://github.com/FuelLabs/fuel-ui/pull/268))
+
+### Patch Changes
+
+- Upgrade the CardList components to the new API, by [@tomiiide](https://github.com/tomiiide) (See [#262](https://github.com/FuelLabs/fuel-ui/pull/262))
+- Upgrate the AlertDialog components to new API, by [@tomiiide](https://github.com/tomiiide) (See [#257](https://github.com/FuelLabs/fuel-ui/pull/257))
+
 ## 0.15.0
 
 ### Minor Changes
