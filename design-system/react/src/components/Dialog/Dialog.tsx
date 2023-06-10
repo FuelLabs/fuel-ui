@@ -1,8 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx } from '@fuel-ui/css';
-import { Children, createContext, useContext, useRef } from 'react';
-import type { ReactNode } from 'react';
-import type { AriaDialogProps, AriaOverlayProps, ModalAria } from 'react-aria';
+import { Children, createElement, useRef } from 'react';
 import {
   useOverlay,
   useModal,
@@ -11,7 +8,6 @@ import {
   useDialog as useReactAriaDialog,
   OverlayProvider,
 } from 'react-aria';
-import type { OverlayTriggerState } from 'react-stately';
 import { useOverlayTriggerState } from 'react-stately';
 
 import { DialogClose } from './DialogClose';
@@ -20,43 +16,20 @@ import { DialogDescription } from './DialogDescription';
 import { DialogFooter } from './DialogFooter';
 import { DialogHeading } from './DialogHeading';
 import { DialogTrigger } from './DialogTrigger';
-import * as styles from './styles';
+import { DialogCtx, type DialogDef } from './defs';
+import { styles } from './styles';
 
-import { createComponent, createStyledElement } from '~/utils';
-
-// ----------------------------------------------------------------------------
-// Context
-// ----------------------------------------------------------------------------
-
-export type DialogContext = {
-  state: OverlayTriggerState;
-  triggerRef?: React.MutableRefObject<HTMLDivElement | null>;
-  overlayProps?: React.HTMLAttributes<HTMLElement>;
-  modalProps?: ModalAria['modalProps'];
-  dialogProps?: React.HTMLAttributes<HTMLElement>;
-  headingProps?: React.HTMLAttributes<HTMLElement>;
-  isBlocked?: boolean;
-};
-
-export type DialogProps = AriaOverlayProps &
-  AriaDialogProps & {
-    children: ReactNode;
-    isBlocked?: boolean;
-    onOpenChange?: (isOpen: boolean) => any;
-  };
-
-const ctx = createContext<DialogContext>({} as DialogContext);
-
-export function useDialog() {
-  return useContext(ctx);
-}
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
 // ----------------------------------------------------------------------------
 // DialogInternal
 // ----------------------------------------------------------------------------
 
-const DialogInternal = createComponent<DialogProps, ObjProps>(
-  ({ children, className, isBlocked, isOpen, onOpenChange, ...props }) => {
+const DialogInternal = _unstable_createComponent<DialogDef>(
+  Components.Dialog,
+  ({ children, isBlocked, isOpen, onOpenChange, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
     const state = useOverlayTriggerState({
       isOpen: isBlocked || isOpen,
@@ -76,7 +49,7 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
     usePreventScroll({ isDisabled: !state.isOpen });
     const { modalProps } = useModal();
     const { dialogProps, titleProps } = useReactAriaDialog(props, ref);
-    const classes = cx('fuel_Dialog', className);
+    const classes = useStyles(styles, props);
 
     const ctxProps = {
       ref,
@@ -93,7 +66,7 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
         return (
           <OverlayContainer
             key={child?.type.id}
-            {...(state.isOpen && { className: styles.overlay() })}
+            {...(state.isOpen && { className: classes.overlay.className })}
           >
             {state.isOpen && <>{child}</>}
           </OverlayContainer>
@@ -102,15 +75,15 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
       return child;
     });
 
-    return createStyledElement(
-      'div',
-      null,
-      null,
-      { className: classes },
+    const renderDialogInternal = (
       <div {...underlayProps}>
-        <ctx.Provider value={ctxProps}>{customChildren}</ctx.Provider>
+        <DialogCtx.Provider value={ctxProps}>
+          {customChildren}
+        </DialogCtx.Provider>
       </div>
     );
+
+    return createElement('div', props, renderDialogInternal);
   }
 );
 
@@ -118,22 +91,16 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
 // Dialog
 // ----------------------------------------------------------------------------
 
-type ObjProps = {
-  Content: typeof DialogContent;
-  Trigger: typeof DialogTrigger;
-  Heading: typeof DialogHeading;
-  Description: typeof DialogDescription;
-  Footer: typeof DialogFooter;
-  Close: typeof DialogClose;
-};
-
-export const Dialog = createComponent<DialogProps, ObjProps>((props) => {
-  return (
-    <OverlayProvider>
-      <DialogInternal {...props} />
-    </OverlayProvider>
-  );
-});
+export const Dialog = _unstable_createComponent<DialogDef>(
+  Components.Dialog,
+  (props) => {
+    return (
+      <OverlayProvider>
+        <DialogInternal {...props} />
+      </OverlayProvider>
+    );
+  }
+);
 
 Dialog.Content = DialogContent;
 Dialog.Trigger = DialogTrigger;

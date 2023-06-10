@@ -1,21 +1,23 @@
-import { cx } from '@fuel-ui/css';
-import type { ReactNode } from 'react';
+import { createElement } from 'react';
 
-import { useDialog } from '..';
-import { createComponent, createStyledElement } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 
-import * as styles from './styles';
+import { useDialog, type DialogHeadingDef } from './defs';
+import { styles } from './styles';
 
-export type DialogHeadingProps = {
-  children?: ReactNode;
-  className?: string;
-};
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-export const DialogHeading = createComponent<DialogHeadingProps>(
-  ({ as = 'h2', className, children, ...props }) => {
+export const DialogHeading = _unstable_createComponent<DialogHeadingDef>(
+  Components.DialogHeading,
+  ({ as = 'h2', children, ...props }) => {
     const { headingProps } = useDialog();
-    const classes = cx('fuel_DialogHeading', className);
-    const nextProps = { ...headingProps, ...props, className: classes };
-    return createStyledElement(as, styles.heading, null, nextProps, children);
+    const classes = useStyles(styles, props);
+    const nextProps = {
+      ...headingProps,
+      ...props,
+      className: classes.heading.className,
+    };
+    return createElement(as, nextProps, children);
   }
 );

@@ -1,7 +1,7 @@
 import { Button } from '../Button';
 
 import { Dialog } from './Dialog';
-import type { DialogProps } from './Dialog';
+import type { DialogProps } from './defs';
 
 export default {
   component: Dialog,

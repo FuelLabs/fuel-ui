@@ -1,60 +1,52 @@
 import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
-import { Children, cloneElement } from 'react';
+import { Children, cloneElement, createElement } from 'react';
 import type { ReactElement } from 'react';
 
 import { Button } from '../Button';
-import type { ButtonProps } from '../Button';
 
-import { useDialog } from './Dialog';
+import type { DialogTriggerDef } from './defs';
+import { useDialog } from './defs';
+import { styles } from './styles';
 
-import { createComponent } from '~/utils';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
-type ElementType = 'button';
-type DialogTriggerProps = ButtonProps & {
-  asChild?: boolean;
-};
+export const DialogTrigger = _unstable_createComponent<DialogTriggerDef>(
+  Components.DialogTrigger,
+  ({ ref, className, asChild = true, children, ...props }) => {
+    const classes = useStyles(styles, {}, ['trigger']);
+    const { state, triggerRef } = useDialog();
 
-type ObjProps = {
-  id: string;
-};
+    function handleToggle() {
+      state?.toggle();
+    }
 
-export const DialogTrigger = createComponent<
-  DialogTriggerProps,
-  ObjProps,
-  unknown,
-  ElementType
->(({ ref, className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_DialogTrigger', className);
-  const { state, triggerRef } = useDialog();
+    if (asChild) {
+      return (
+        <>
+          {Children.toArray(Children.only(children)).map((child) => {
+            return cloneElement(child as ReactElement, {
+              ref: mergeRefs(ref, triggerRef as never),
+              onPress: handleToggle,
+              className: cx(className, classes.trigger.className),
+            });
+          })}
+        </>
+      );
+    }
 
-  function handleToggle() {
-    state?.toggle();
-  }
-
-  if (asChild) {
-    return (
-      <>
-        {Children.toArray(Children.only(children)).map((child) => {
-          return cloneElement(child as ReactElement, {
-            ref: mergeRefs(ref, triggerRef as never),
-            onPress: handleToggle,
-            className: classes,
-          });
-        })}
-      </>
+    return createElement(
+      Button,
+      {
+        ...props,
+        ref: mergeRefs(ref, triggerRef as never),
+        onPress: handleToggle,
+      },
+      children
     );
   }
-
-  return (
-    <Button
-      {...props}
-      ref={mergeRefs(ref, triggerRef as never)}
-      onPress={handleToggle}
-    >
-      {children}
-    </Button>
-  );
-});
+);
 
 DialogTrigger.id = 'DialogTrigger';

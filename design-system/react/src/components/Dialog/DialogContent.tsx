@@ -1,29 +1,20 @@
-import { cx } from '@fuel-ui/css';
-import type { ReactNode } from 'react';
+import { createElement } from 'react';
 import { FocusScope, mergeProps } from 'react-aria';
 
-import { useDialog } from '..';
-import { createComponent, createStyledElement } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 
-import * as styles from './styles';
+import type { DialogContentDef } from './defs';
+import { useDialog } from './defs';
+import { styles } from './styles';
 
-export type DialogContentProps = {
-  overlayClassName?: string;
-  closeClassName?: string;
-  hideCloseButton?: boolean;
-  children: ReactNode;
-  className?: string;
-  onClose?: () => void;
-};
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-type ObjProps = {
-  id: string;
-};
-
-export const DialogContent = createComponent<DialogContentProps, ObjProps>(
-  ({ as = 'div', children, className, ...props }) => {
+export const DialogContent = _unstable_createComponent<DialogContentDef>(
+  Components.DialogContent,
+  ({ as = 'div', children, ...props }) => {
     const dialogProps = useDialog();
-    const classes = cx('fuel_Dialog_content', className);
+    const classes = useStyles(styles, props);
 
     const nextProps = {
       ...mergeProps(
@@ -33,13 +24,11 @@ export const DialogContent = createComponent<DialogContentProps, ObjProps>(
         dialogProps.modalProps!
       ),
       ref: dialogProps.triggerRef,
-      className: classes,
+      className: classes.content.className,
     };
 
-    return createStyledElement(
+    return createElement(
       as,
-      styles.content,
-      null,
       nextProps,
       <FocusScope contain autoFocus>
         {children}

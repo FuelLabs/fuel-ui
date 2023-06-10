@@ -1,6 +1,15 @@
 import { css } from '@fuel-ui/css';
 
-export { close } from '../Dialog/styles';
+export const close = css({
+  position: 'absolute',
+  top: '$3',
+  right: '$3',
+  padding: '$0',
+
+  '.fuel_Icon': {
+    color: '$textInverse',
+  },
+});
 
 export const content = css({
   overflowX: 'auto',
