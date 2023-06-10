@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.16.1
+
+### Patch Changes
+
+- Change fonts links, by [@luizstacio](https://github.com/luizstacio) (See [#272](https://github.com/FuelLabs/fuel-ui/pull/272))
+
 ## 0.16.0
 
 ### Minor Changes
