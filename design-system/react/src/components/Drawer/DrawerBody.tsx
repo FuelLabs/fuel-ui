@@ -1,15 +1,16 @@
-import { cx } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import type { BoxProps } from '..';
-import { Box } from '..';
+import type { DrawerBodyDef } from './defs';
+import { styles } from './styles';
 
-import { createComponent } from '~/utils';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
-type DrawerBodyProps = BoxProps;
-
-export const DrawerBody = createComponent<DrawerBodyProps>(
-  ({ className, ...props }) => {
-    const classes = cx('fuel_DrawerBody', className);
-    return <Box {...props} className={classes} />;
+export const DrawerBody = _unstable_createComponent<DrawerBodyDef>(
+  Components.DrawerBody,
+  ({ as = 'div', ...props }) => {
+    const classes = useStyles(styles, props);
+    return createElement(as, { ...props, className: classes.body.className });
   }
 );

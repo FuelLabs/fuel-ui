@@ -4,8 +4,8 @@ import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { Card } from '../Card';
 
-import type { DrawerProps } from './Drawer';
 import { Drawer } from './Drawer';
+import type { DrawerProps } from './defs';
 
 export default {
   component: Drawer,

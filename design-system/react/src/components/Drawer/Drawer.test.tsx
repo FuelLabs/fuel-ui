@@ -4,8 +4,8 @@ import { useRef } from 'react';
 import { Box } from '../Box';
 import { Button } from '../Button';
 
-import type { DrawerProps } from './Drawer';
 import { Drawer } from './Drawer';
+import type { DrawerProps } from './defs';
 
 const Content = (props: Partial<DrawerProps>) => (
   <Drawer {...(props as DrawerProps)}>

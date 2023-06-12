@@ -1,48 +1,39 @@
-import { cx } from '@fuel-ui/css';
 import type { ReactElement } from 'react';
-import { Children, cloneElement } from 'react';
+import { Children, cloneElement, createElement } from 'react';
 
-import type { ButtonProps } from '..';
 import { Button } from '..';
 
-import { useDrawer } from '.';
+import type { DrawerTriggerDef } from './defs';
+import { useDrawer } from './defs';
+import { styles } from './styles';
 
-import { createComponent } from '~/utils';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
-type ElementType = 'button';
-type DrawerTriggerProps = ButtonProps & {
-  asChild?: boolean;
-};
+export const DrawerTrigger = _unstable_createComponent<DrawerTriggerDef>(
+  Components.DrawerTrigger,
+  ({ asChild = true, children, ...props }) => {
+    const classes = useStyles(styles, props);
+    const { state } = useDrawer();
 
-export const DrawerTrigger = createComponent<
-  DrawerTriggerProps,
-  unknown,
-  unknown,
-  ElementType
->(({ className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_DrawerTrigger', className);
-  const { state } = useDrawer();
+    function handleToggle() {
+      state?.toggle();
+    }
 
-  function handleToggle() {
-    state?.toggle();
+    if (asChild) {
+      return (
+        <>
+          {Children.toArray(Children.only(children)).map((child) => {
+            return cloneElement(child as ReactElement, {
+              onPress: handleToggle,
+              className: classes.trigger.className,
+            });
+          })}
+        </>
+      );
+    }
+
+    return createElement(Button, { ...props, onPress: handleToggle }, children);
   }
-
-  if (asChild) {
-    return (
-      <>
-        {Children.toArray(Children.only(children)).map((child) => {
-          return cloneElement(child as ReactElement, {
-            onPress: handleToggle,
-            className: classes,
-          });
-        })}
-      </>
-    );
-  }
-
-  return (
-    <Button {...props} onPress={handleToggle}>
-      {children}
-    </Button>
-  );
-});
+);
