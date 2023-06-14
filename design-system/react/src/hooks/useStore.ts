@@ -73,7 +73,7 @@ type Props<K extends DefKeys> = StoreDefs[K]['props'] & {
 export function useComponentProps<K extends DefKeys>(name: K, props: Props<K>) {
   const theme = useFuelTheme();
   const currTheme = theme.themes[theme.current];
-  const defaultProps = currTheme.components?.[name]?.defaultProps ?? {};
+  const defaultProps = currTheme?.components?.[name]?.defaultProps ?? {};
   return mergeDeep<StoreDefs[K]['props']>(defaultProps, props);
 }
 
