@@ -3,8 +3,8 @@ import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 
-import type { CardListProps } from './CardList';
 import { CardList } from './CardList';
+import type { CardListProps } from './defs';
 
 export default {
   component: CardList,

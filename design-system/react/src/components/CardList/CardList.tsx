@@ -1,39 +1,23 @@
-import { cx } from '@fuel-ui/css';
-import { createContext, useContext } from 'react';
-
-import { createComponent } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 import { Box } from '../Box';
-import type { StackProps } from '../Box/Stack';
 import { Focus } from '../Focus';
 
 import { CardListItem } from './CardListItem';
+import type * as t from './defs';
+import { CardListContext } from './defs';
+import { styles } from './styles';
 
-type Context = {
-  isClickable?: boolean;
-  autoFocus?: boolean;
-  isFocused?: boolean;
-};
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-const ctx = createContext<Context>({} as Context);
-
-export function useCardListContext() {
-  return useContext(ctx);
-}
-
-export type CardListProps = StackProps & Omit<Context, 'isFocused'>;
-
-type ObjProps = {
-  id: string;
-  Item: typeof CardListItem;
-};
-
-export const CardList = createComponent<CardListProps, ObjProps>(
-  ({ children, className, gap = '$2', isClickable, autoFocus, ...props }) => {
-    const classes = cx('fuel_CardList', className);
+export const CardList = _unstable_createComponent<t.CardListDef>(
+  Components.CardList,
+  ({ children, gap = '$2', isClickable, autoFocus, ...props }) => {
+    const classes = useStyles(styles, props, ['root']);
 
     return (
-      <ctx.Provider value={{ isClickable, autoFocus }}>
-        <Box.Stack gap={gap} {...props} className={classes}>
+      <CardListContext.Provider value={{ isClickable, autoFocus }}>
+        <Box.Stack gap={gap} {...props} className={classes.root.className}>
           {isClickable ? (
             <Focus.ArrowNavigator autoFocus={autoFocus}>
               {children}
@@ -42,7 +26,7 @@ export const CardList = createComponent<CardListProps, ObjProps>(
             children
           )}
         </Box.Stack>
-      </ctx.Provider>
+      </CardListContext.Provider>
     );
   }
 );

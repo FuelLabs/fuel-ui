@@ -1,27 +1,25 @@
-import { css, cx } from '@fuel-ui/css';
-import type { ReactNode } from 'react';
-
-import type { CardProps } from '..';
-import { useCardListContext } from '..';
-import { createComponent } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 import { Flex } from '../Box/Flex';
 import { Card } from '../Card';
 
-export type CardListProps = CardProps & {
-  isActive?: boolean;
-  rightEl?: ReactNode;
-};
+import type { CardListItemDef } from './defs';
+import { useCardListContext } from './defs';
+import { styles } from './styles';
 
-export const CardListItem = createComponent<CardListProps>(
-  ({ children, className, rightEl, isActive, ...props }) => {
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+
+export const CardListItem = _unstable_createComponent<CardListItemDef>(
+  Components.CardListItem,
+  ({ children, rightEl, isActive, ...props }) => {
     const { isClickable } = useCardListContext();
-    const classes = cx('fuel_CardListItem', className, styles.root());
+    const classes = useStyles(styles, props, ['item']);
 
     return (
       <Card
         direction="row"
         {...props}
-        className={classes}
+        className={classes.item.className}
         data-is-active={isActive}
         data-is-clickable={isClickable}
       >
@@ -33,36 +31,3 @@ export const CardListItem = createComponent<CardListProps>(
     );
   }
 );
-
-const styles = {
-  root: css({
-    layer: 'layer-card',
-    position: 'relative',
-    overflow: 'hidden',
-    padding: '$4 !important',
-    gap: '$3',
-    transition: 'border 0.2s',
-
-    '&[data-is-active="true"]': {
-      '&::after': {
-        position: 'absolute',
-        display: 'block',
-        content: '""',
-        top: 0,
-        left: 0,
-        width: '3px',
-        height: '100%',
-        background: '$brand',
-      },
-    },
-
-    '&[data-is-clickable="true"]': {
-      cursor: 'pointer',
-
-      '&:hover, &:focus-within': {
-        outline: 'none',
-        borderColor: '$borderHover',
-      },
-    },
-  }),
-};
