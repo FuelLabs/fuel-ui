@@ -14,8 +14,8 @@ import { useStyles } from '~/hooks';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const _CardBody = _unstable_createComponent<CardBodyDef>(
   Components.CardBody,
-  ({ as, children, ...props }) => {
-    const classes = useStyles(styles, props);
+  ({ as = 'div', children, ...props }) => {
+    const classes = useStyles(styles, props, ['body']);
     const elementProps = { ...props, className: classes.body.className };
     return createElement(as, elementProps, children);
   }
