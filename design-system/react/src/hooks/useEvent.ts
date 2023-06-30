@@ -1,29 +1,72 @@
-import { useRef, useCallback } from 'react';
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from 'react';
 
-import { useSafeLayoutEffect } from './useSafeLayoutEffect';
+import { isBrowser, off, on } from '../utils/misc';
 
-/**
- * Any function.
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type AnyFunction = (...args: any) => any;
+export interface ListenerType1 {
+  addEventListener(
+    name: string,
+    handler: (event?: any) => void,
+    ...args: any[]
+  ): void;
 
-/**
- * Creates a stable callback function that has access to the latest state and
- * can be used within event handlers and effect callbacks. Throws when used in
- * the render phase.
- * @example
- * function Component(props) {
- *   const onPress = useEvent(props.onPress);
- *   React.useEffect(() => {}, [onPress]);
- * }
- */
-export function useEvent<T extends AnyFunction>(callback?: T) {
-  const ref = useRef<AnyFunction | undefined>(() => {
-    throw new Error('Cannot call an event handler while rendering.');
-  });
-  useSafeLayoutEffect(() => {
-    ref.current = callback;
-  });
-  return useCallback<AnyFunction>((...args) => ref.current?.(...args), []) as T;
+  removeEventListener(
+    name: string,
+    handler: (event?: any) => void,
+    ...args: any[]
+  ): void;
 }
+
+export interface ListenerType2 {
+  on(name: string, handler: (event?: any) => void, ...args: any[]): void;
+
+  off(name: string, handler: (event?: any) => void, ...args: any[]): void;
+}
+
+export type UseEventTarget = ListenerType1 | ListenerType2;
+
+const defaultTarget = isBrowser ? window : null;
+
+const isListenerType1 = (target: any): target is ListenerType1 => {
+  return !!target.addEventListener;
+};
+const isListenerType2 = (target: any): target is ListenerType2 => {
+  return !!target.on;
+};
+
+type AddEventListener<T> = T extends ListenerType1
+  ? T['addEventListener']
+  : T extends ListenerType2
+  ? T['on']
+  : never;
+
+export type UseEventOptions<T> = Parameters<AddEventListener<T>>[2];
+
+export const useEvent = <T extends UseEventTarget>(
+  name: Parameters<AddEventListener<T>>[0],
+  handler?: null | undefined | Parameters<AddEventListener<T>>[1],
+  target: null | T | Window = defaultTarget,
+  options?: UseEventOptions<T>
+) => {
+  useEffect(() => {
+    if (!handler) {
+      return;
+    }
+    if (!target) {
+      return;
+    }
+    if (isListenerType1(target)) {
+      on(target as any, name, handler, options);
+    } else if (isListenerType2(target)) {
+      target.on(name, handler, options);
+    }
+    return () => {
+      if (isListenerType1(target)) {
+        off(target as any, name, handler, options);
+      } else if (isListenerType2(target)) {
+        target.off(name, handler, options);
+      }
+    };
+  }, [name, handler, target, JSON.stringify(options)]);
+};

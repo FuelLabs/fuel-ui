@@ -61,7 +61,6 @@
     "react-hot-toast": "^2.4.1",
     "react-number-format": "^5.2.2",
     "react-stately": "^3.24.0",
-    "react-use": "^17.4.0",
     "xstate": "^4.38.0",
     "zustand": "^4.3.8"
   },
