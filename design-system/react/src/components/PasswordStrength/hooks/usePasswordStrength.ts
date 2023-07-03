@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import { PasswordDictionary } from '../constants';
 import { passwordChecker, passwordStrengthCalculator } from '../utils';
 
 type PasswordStrengthOptions = {
@@ -24,5 +25,6 @@ export function usePasswordStrength({
   return {
     checker,
     strength,
+    label: PasswordDictionary[strength],
   };
 }
