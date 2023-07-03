@@ -1,7 +1,4 @@
-/* eslint-disable no-nested-ternary */
 import { cssObj } from '@fuel-ui/css';
-
-import type { PasswordStrength } from './types';
 
 export const styles = {
   heading: cssObj({
@@ -39,27 +36,25 @@ export const styles = {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr',
     gap: '$2',
-    width: '165px',
+    width: '$full',
     mb: '$2',
   }),
-  strengthIndicatorBase: cssObj({
+  strengthIndicator: cssObj({
     height: '6px',
     width: '$full',
     borderRadius: '$full',
     backgroundColor: '$intentsBase7',
+
+    '&[data-strength="weak"]': {
+      backgroundColor: '$intentsError9',
+    },
+    '&[data-strength="average"]': {
+      backgroundColor: '$intentsWarning9',
+    },
+    '&[data-strength="strong"]': {
+      backgroundColor: '$brand',
+    },
   }),
-  strengthIndicator: (strengthIndicator: PasswordStrength) =>
-    cssObj({
-      height: '6px',
-      width: '$full',
-      borderRadius: '$full',
-      backgroundColor:
-        strengthIndicator === 'weak'
-          ? '$intentsError9'
-          : strengthIndicator === 'average'
-          ? '$intentsWarning9'
-          : '$brand',
-    }),
   rulesHeader: cssObj({
     color: '$intentsBase12',
     pb: '$1',
