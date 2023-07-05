@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/design-tokens",
-  "version": "0.15.0",
+  "version": "0.16.1",
   "description": "Scripts used to generate our design tokens",
   "license": "Apache-2",
   "main": "./lib/index.ts",
@@ -37,7 +37,7 @@
     "update:tokens": "pnpm build && run-p copy-set:*"
   },
   "dependencies": {
-    "@radix-ui/colors": "^0.1.8",
+    "@radix-ui/colors": "^1.0.0",
     "chroma-js": "^2.4.2",
     "copy-to-clipboard": "^3.3.3",
     "lodash": "^4.17.21"
