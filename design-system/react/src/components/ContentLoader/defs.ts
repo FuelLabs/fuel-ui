@@ -18,4 +18,5 @@ export type ContentLoaderDef = CreateComponent<{
   element: HTMLDivElement;
   props: ContentLoaderProps;
   styles: 'root';
+  omit: 'as';
 }>;
