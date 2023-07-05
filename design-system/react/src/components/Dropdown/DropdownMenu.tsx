@@ -1,29 +1,39 @@
+import { createElement } from 'react';
+
 import type { MenuProps } from '../Menu';
 import { Menu } from '../Menu';
 
-import { useDropdown } from './Dropdown';
+import type { DropdownMenuDef } from './defs';
+import { useDropdown } from './defs';
+import { styles } from './styles';
 
-import { createComponent } from '~/utils';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
-export type DropdownMenuProps = MenuProps;
-type ObjProps = {
-  id: string;
-};
-
-export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
+export const DropdownMenu = _unstable_createComponent<DropdownMenuDef>(
+  Components.DropdownMenu,
   (props) => {
     const { menuProps } = useDropdown();
-    return (
-      <Menu
-        {...props}
-        {...(menuProps as MenuProps)}
-        data-overlay
-        css={{
+
+    const classes = useStyles(
+      styles,
+      {
+        ...props,
+        css: {
           boxSizing: 'border-box',
           ...props.css,
-        }}
-      />
+        },
+      },
+      ['menu']
     );
+
+    const elementProps = useElementProps(props, classes.menu);
+
+    return createElement(Menu, {
+      ...elementProps,
+      ...(menuProps as MenuProps),
+    });
   }
 );
 

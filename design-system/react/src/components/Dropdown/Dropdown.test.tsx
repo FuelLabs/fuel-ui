@@ -3,8 +3,8 @@ import { render, testA11y, screen, waitFor, act } from '@fuel-ui/test-utils';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 
-import type { DropdownProps } from './Dropdown';
 import { Dropdown } from './Dropdown';
+import type { DropdownProps } from './defs';
 
 const Content = (props: Partial<DropdownProps>) => {
   return (

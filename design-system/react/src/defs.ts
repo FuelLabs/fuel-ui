@@ -40,6 +40,12 @@ import type { CardListDef, CardListItemDef } from './components/CardList/defs';
 import type { CheckboxDef } from './components/Checkbox/defs';
 import type { ContentLoaderDef } from './components/ContentLoader/defs';
 import type { CopyableDef } from './components/Copyable/defs';
+import type {
+  DropdownDef,
+  DropdownMenuDef,
+  DropdownMenuItemDef,
+  DropdownTriggerDef,
+} from './components/Dropdown/defs';
 import type { HeadingDef } from './components/Heading/defs';
 import type { HelperIconDef } from './components/HelperIcon/defs';
 import type { IconDef } from './components/Icon/defs';
@@ -189,6 +195,10 @@ export type StoreDefs = {
   Copyable: CopyableDef;
   Container: ContainerDef;
   ContentLoader: ContentLoaderDef;
+  Dropdown: DropdownDef;
+  DropdownTrigger: DropdownTriggerDef;
+  DropdownMenu: DropdownMenuDef;
+  DropdownMenuItem: DropdownMenuItemDef;
   Image: ImageDef;
   Flex: FlexDef;
   Heading: HeadingDef;
