@@ -37,7 +37,7 @@
     "update:tokens": "pnpm build && run-p copy-set:*"
   },
   "dependencies": {
-    "@radix-ui/colors": "^0.1.8",
+    "@radix-ui/colors": "^1.0.0",
     "chroma-js": "^2.4.2",
     "copy-to-clipboard": "^3.3.3",
     "lodash": "^4.17.21"
