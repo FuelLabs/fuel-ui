@@ -1,10 +1,13 @@
-import type { KeyboardEvent, ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { Children, cloneElement } from 'react';
-import { FocusScope, mergeProps, useFocusManager } from 'react-aria';
+import { FocusScope, mergeProps } from 'react-aria';
 
-import { createComponent } from '../../utils';
+import { _unstable_createComponent, createComponent } from '../../utils';
 
-import type { FocusScopeProps } from './FocusScope';
+import type { FocusArrowNavigatorDef } from './defs';
+import { useFocusNavigator } from './defs';
+
+import { Components } from '~/defs';
 
 type GroupChildrenProps = {
   children: ReactNode;
@@ -26,40 +29,15 @@ const GroupChildren = createComponent<GroupChildrenProps>(({ children }) => {
   throw new Error('Children type not accepted');
 });
 
-export type FocusArrowNavigatorProps = FocusScopeProps & {
-  children: ReactNode;
-};
-
-export const FocusArrowNavigator = createComponent<FocusArrowNavigatorProps>(
-  ({ children, ...props }) => (
-    <FocusScope {...props}>
-      <GroupChildren>{children}</GroupChildren>
-    </FocusScope>
-  )
-);
-
-export function useFocusNavigator() {
-  const focusManager = useFocusManager();
-
-  const onKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'ArrowRight') {
-      focusManager.focusNext();
-    }
-    if (e.key === 'ArrowLeft') {
-      focusManager.focusPrevious();
-    }
-    if (e.key === 'ArrowUp') {
-      focusManager.focusNext();
-    }
-    if (e.key === 'ArrowDown') {
-      focusManager.focusPrevious();
-    }
-  };
-
-  return {
-    onKeyDown,
-  };
-}
+export const FocusArrowNavigator =
+  _unstable_createComponent<FocusArrowNavigatorDef>(
+    Components.FocusArrowNavigator,
+    ({ children, ...props }) => (
+      <FocusScope {...props}>
+        <GroupChildren>{children}</GroupChildren>
+      </FocusScope>
+    )
+  );
 
 function isRightChildrenType(children: ReactNode) {
   return (

@@ -39,6 +39,7 @@ import type { ButtonLinkDef } from './components/ButtonLink/defs';
 import type { CardListDef, CardListItemDef } from './components/CardList/defs';
 import type { CheckboxDef } from './components/Checkbox/defs';
 import type { CopyableDef } from './components/Copyable/defs';
+import type { FocusArrowNavigatorDef } from './components/Focus/defs';
 import type { HeadingDef } from './components/Heading/defs';
 import type { HelperIconDef } from './components/HelperIcon/defs';
 import type { IconDef } from './components/Icon/defs';
@@ -189,6 +190,7 @@ export type StoreDefs = {
   Container: ContainerDef;
   Image: ImageDef;
   Flex: FlexDef;
+  FocusArrowNavigator: FocusArrowNavigatorDef;
   Heading: HeadingDef;
   Text: TextDef;
   Link: LinkDef;
