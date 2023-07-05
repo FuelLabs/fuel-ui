@@ -35,8 +35,10 @@ import type {
 } from './components/Box/defs';
 import type { ButtonDef } from './components/Button/defs';
 import type { ButtonGroupDef } from './components/ButtonGroup/defs';
+import type { ButtonLinkDef } from './components/ButtonLink/defs';
 import type { CardListDef, CardListItemDef } from './components/CardList/defs';
 import type { CheckboxDef } from './components/Checkbox/defs';
+import type { CopyableDef } from './components/Copyable/defs';
 import type {
   DialogCloseDef,
   DialogContentDef,
@@ -188,9 +190,11 @@ export type StoreDefs = {
   BoxCentered: BoxCenteredDef;
   Button: ButtonDef;
   ButtonGroup: ButtonGroupDef;
+  ButtonLink: ButtonLinkDef;
   CardList: CardListDef;
   CardListItem: CardListItemDef;
   Checkbox: CheckboxDef;
+  Copyable: CopyableDef;
   Container: ContainerDef;
   Dialog: DialogDef;
   DialogContent: DialogContentDef;

@@ -5,8 +5,8 @@ import type { AriaButtonProps, AriaMenuOptions } from 'react-aria';
 import { useMenuTrigger } from 'react-aria';
 import type { MenuTriggerProps, MenuTriggerState } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
-import { useKeyPressEvent } from 'react-use';
 
+import { useKeyPressEvent } from '../../hooks/useKeyPressEvent';
 import { createComponent, createStyledElement } from '../../utils';
 import type { PopoverProps } from '../Popover';
 import { Popover } from '../Popover';
