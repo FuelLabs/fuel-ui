@@ -98,7 +98,9 @@
       "terser@<4.8.1": ">=4.8.1",
       "loader-utils@<1.4.1": ">=1.4.1",
       "loader-utils@>=2.0.0 <2.0.3": ">=2.0.3",
-      "json5": ">=2.2.2"
+      "json5": ">=2.2.2",
+      "semver": ">=7.5.2",
+      "word-wrap": "npm:@aashutoshrathi/word-wrap"
     }
   }
 }
