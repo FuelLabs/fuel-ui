@@ -28,8 +28,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.S3_CDN_SECRET_KEY }}
           aws-region: us-east-1
 
-      - name: CI Setup
-
       - name: Deploy S3 Assets
         run: |
           aws s3 cp test/ s3://${S3_CDN_BUCKET}/design/ --recursive
