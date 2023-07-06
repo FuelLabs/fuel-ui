@@ -1,9 +1,14 @@
-name: "Upload S3 Frontend Assets"
+name: Upload S3 Frontend Assets
 
 on:
-  push:
-    branches:
-      - feature/upload-s3-ui-assets
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: "folder to copy to S3"
+        required: true
+
+env:
+  FOLDER: ${{ github.event.inputs.folder }}
 
 jobs:
   deploy-s3-assets:
@@ -30,6 +35,6 @@ jobs:
 
       - name: Deploy S3 Assets
         run: |
-          aws s3 cp test/ s3://${S3_CDN_BUCKET}/design/ --recursive
+          aws s3 cp $FOLDER/ s3://${S3_CDN_BUCKET}/design/ --recursive
         env:
           S3_CDN_BUCKET: ${{ secrets.S3_CDN_BUCKET }}
