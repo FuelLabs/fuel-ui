@@ -6,14 +6,11 @@ on:
       - feature/upload-s3-ui-assets
 
 jobs:
-  release-changesets:
-    name: Changesets Release
+  deploy-s3-assets:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          # need this to get full git-history/clone in order to build changelogs and check changesets
-          fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - id: install-aws-cli
         uses: unfor19/install-aws-cli-action@v1.0.3
