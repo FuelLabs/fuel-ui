@@ -1,5 +1,4 @@
 import type { PopoverProps } from '@radix-ui/react-popover';
-import { createContext, useContext } from 'react';
 import type { AriaButtonProps, AriaMenuOptions } from 'react-aria';
 import type {
   MenuTriggerState,
@@ -27,14 +26,6 @@ export type DropdownContext = {
   menuTriggerProps: AriaButtonProps<'button'>;
   menuProps: AriaMenuOptions<unknown>;
 };
-
-export const DropdownCtx = createContext<DropdownContext>(
-  {} as DropdownContext
-);
-
-export function useDropdown() {
-  return useContext(DropdownCtx);
-}
 
 // ----------------------------------------------------------------------------
 // Drawer Component

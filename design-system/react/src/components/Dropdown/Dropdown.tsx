@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Children, createElement, useRef } from 'react';
+import {
+  Children,
+  createContext,
+  createElement,
+  useContext,
+  useRef,
+} from 'react';
 import { useMenuTrigger } from 'react-aria';
 import { useMenuTriggerState } from 'react-stately';
 
@@ -10,11 +16,19 @@ import { Popover } from '../Popover';
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownMenuItem } from './DropdownMenuItem';
 import { DropdownTrigger } from './DropdownTrigger';
-import { DropdownCtx, type DropdownDef } from './defs';
+import type { DropdownContext, DropdownDef } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+
+export const DropdownCtx = createContext<DropdownContext>(
+  {} as DropdownContext
+);
+
+export function useDropdown() {
+  return useContext(DropdownCtx);
+}
 
 export const Dropdown = _unstable_createComponent<DropdownDef>(
   Components.Dropdown,

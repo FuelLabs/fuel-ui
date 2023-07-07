@@ -5,7 +5,7 @@ import { Children, cloneElement, createElement } from 'react';
 
 import { Icon, Button } from '..';
 
-import { useDropdown } from './defs';
+import { useDropdown } from './Dropdown';
 import type { DropdownTriggerDef } from './defs';
 import { styles } from './styles';
 

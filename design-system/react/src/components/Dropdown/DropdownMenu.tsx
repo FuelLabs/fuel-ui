@@ -3,8 +3,8 @@ import { createElement } from 'react';
 import type { MenuProps } from '../Menu';
 import { Menu } from '../Menu';
 
+import { useDropdown } from './Dropdown';
 import type { DropdownMenuDef } from './defs';
-import { useDropdown } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
