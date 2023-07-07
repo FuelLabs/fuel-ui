@@ -5,7 +5,8 @@ import { Children, cloneElement } from 'react';
 
 import { Icon, IconButton } from '..';
 
-import { useDialog, type DialogCloseDef } from './defs';
+import { useDialog } from './Dialog';
+import type { DialogCloseDef } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';

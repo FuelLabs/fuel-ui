@@ -5,8 +5,8 @@ import type { ReactElement } from 'react';
 
 import { Button } from '../Button';
 
+import { useDialog } from './Dialog';
 import type { DialogTriggerDef } from './defs';
-import { useDialog } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';

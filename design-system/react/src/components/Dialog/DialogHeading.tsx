@@ -2,7 +2,8 @@ import { createElement } from 'react';
 
 import { _unstable_createComponent } from '../../utils';
 
-import { useDialog, type DialogHeadingDef } from './defs';
+import { useDialog } from './Dialog';
+import type { DialogHeadingDef } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';

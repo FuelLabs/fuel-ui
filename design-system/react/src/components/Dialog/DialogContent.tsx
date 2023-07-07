@@ -3,8 +3,8 @@ import { FocusScope, mergeProps } from 'react-aria';
 
 import { _unstable_createComponent } from '../../utils';
 
+import { useDialog } from './Dialog';
 import type { DialogContentDef } from './defs';
-import { useDialog } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
