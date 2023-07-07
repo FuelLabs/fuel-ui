@@ -1,8 +1,6 @@
 import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
 
-export { close } from '../Dialog/styles';
-
 // ----------------------------------------------------------------------------
 // Sizes
 // ----------------------------------------------------------------------------
@@ -62,5 +60,14 @@ export const styles = createStyle(Components.Drawer, {
   overlay: {},
   body: {},
   trigger: {},
-  close: {},
+  close: {
+    position: 'absolute',
+    top: '$3',
+    right: '$3',
+    padding: '$0',
+
+    '.fuel_Icon': {
+      color: '$textInverse',
+    },
+  },
 });

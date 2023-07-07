@@ -38,7 +38,10 @@ export const DrawerContent = _unstable_createComponent<DrawerContentDef>(
     const { modalProps } = useModal();
     const finalProps = mergeProps(props, overlayProps, dialogProps, modalProps);
 
-    const classes = useStyles(styles, { ...props, side }, ['content']);
+    const classes = useStyles(styles, { ...props, side }, [
+      'content',
+      'underlay',
+    ]);
 
     usePreventScroll();
     useClickAway(ref, () => {
