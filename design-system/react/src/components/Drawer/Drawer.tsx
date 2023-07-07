@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef, Children } from 'react';
+import {
+  useState,
+  useEffect,
+  useRef,
+  Children,
+  createContext,
+  useContext,
+} from 'react';
 import { OverlayContainer, useOverlay } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
 
@@ -10,11 +17,17 @@ import { DrawerBody } from './DrawerBody';
 import { DrawerClose } from './DrawerClose';
 import { DrawerContent } from './DrawerContent';
 import { DrawerTrigger } from './DrawerTrigger';
-import { DrawerCtx, type DrawerDef } from './defs';
+import type { DrawerContext, DrawerDef } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+
+export const DrawerCtx = createContext<DrawerContext>({} as DrawerContext);
+
+export function useDrawer() {
+  return useContext(DrawerCtx);
+}
 
 export const Drawer = _unstable_createComponent<DrawerDef>(
   Components.Drawer,

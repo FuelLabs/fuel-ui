@@ -3,8 +3,8 @@ import { Children, cloneElement, createElement } from 'react';
 
 import { Button } from '..';
 
+import { useDrawer } from './Drawer';
 import type { DrawerTriggerDef } from './defs';
-import { useDrawer } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
@@ -14,7 +14,7 @@ import { _unstable_createComponent } from '~/utils';
 export const DrawerTrigger = _unstable_createComponent<DrawerTriggerDef>(
   Components.DrawerTrigger,
   ({ asChild = true, children, ...props }) => {
-    const classes = useStyles(styles, props);
+    const classes = useStyles(styles, props, ['trigger']);
     const { state } = useDrawer();
 
     function handleToggle() {

@@ -7,8 +7,8 @@ import { useClickAway } from 'react-use';
 
 import { Box } from '..';
 
+import { useDrawer } from './Drawer';
 import type { DrawerContentDef } from './defs';
-import { useDrawer } from './defs';
 import { getSize, styles } from './styles';
 
 import { Components } from '~/defs';
@@ -38,7 +38,7 @@ export const DrawerContent = _unstable_createComponent<DrawerContentDef>(
     const { modalProps } = useModal();
     const finalProps = mergeProps(props, overlayProps, dialogProps, modalProps);
 
-    const classes = useStyles(styles, { ...props, side });
+    const classes = useStyles(styles, { ...props, side }, ['content']);
 
     usePreventScroll();
     useClickAway(ref, () => {

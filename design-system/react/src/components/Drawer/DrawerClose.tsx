@@ -1,7 +1,7 @@
 import { Icon, IconButton } from '..';
 
+import { useDrawer } from './Drawer';
 import type { DrawerCloseDef } from './defs';
-import { useDrawer } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
@@ -11,7 +11,7 @@ import { _unstable_createComponent } from '~/utils';
 export const DrawerClose = _unstable_createComponent<DrawerCloseDef>(
   Components.DrawerClose,
   ({ css, ...props }) => {
-    const classes = useStyles(styles, props);
+    const classes = useStyles(styles, props, ['close']);
     const { state } = useDrawer();
 
     function handleClose() {

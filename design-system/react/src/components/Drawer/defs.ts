@@ -2,7 +2,6 @@
 import type { FocusableElement } from '@react-types/shared';
 import type { AnimationProps } from 'framer-motion';
 import type { DOMAttributes, MutableRefObject } from 'react';
-import { createContext, useContext } from 'react';
 import type { AriaOverlayProps } from 'react-aria';
 import type { OverlayTriggerProps, OverlayTriggerState } from 'react-stately';
 
@@ -33,12 +32,6 @@ export type DrawerContext = {
   size: DrawerSize | string | number;
   shouldCloseOnClickAway?: boolean;
 };
-
-export const DrawerCtx = createContext<DrawerContext>({} as DrawerContext);
-
-export function useDrawer() {
-  return useContext(DrawerCtx);
-}
 
 // ----------------------------------------------------------------------------
 // Drawer

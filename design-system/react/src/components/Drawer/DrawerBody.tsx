@@ -10,7 +10,7 @@ import { _unstable_createComponent } from '~/utils';
 export const DrawerBody = _unstable_createComponent<DrawerBodyDef>(
   Components.DrawerBody,
   ({ as = 'div', ...props }) => {
-    const classes = useStyles(styles, props);
+    const classes = useStyles(styles, props, ['body']);
     return createElement(as, { ...props, className: classes.body.className });
   }
 );
