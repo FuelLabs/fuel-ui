@@ -3,7 +3,6 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { AnimationProps } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { FocusScope, usePreventScroll, useDialog, useModal } from 'react-aria';
-import { useClickAway } from 'react-use';
 
 import { Box } from '..';
 
@@ -13,6 +12,7 @@ import { getSize, styles } from './styles';
 
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { useClickAway } from '~/hooks/useClickAway';
 import { _unstable_createComponent } from '~/utils';
 
 const MotionBox = motion<any>(Box);
