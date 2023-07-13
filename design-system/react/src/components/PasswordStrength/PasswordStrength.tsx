@@ -1,29 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect } from "react"
-import { createComponent } from "~/utils"
+import { useEffect } from 'react';
+import { createComponent } from '~/utils';
 
-import { Flex } from "../Box/Flex"
-import { Stack } from "../Box/Stack"
-import { Heading } from "../Heading"
-import { Icon } from "../Icon"
-import type { PopoverProps } from "../Popover"
-import { Popover } from "../Popover"
-import { Text } from "../Text"
+import { Flex } from '../Box/Flex';
+import { Stack } from '../Box/Stack';
+import { Heading } from '../Heading';
+import { Icon } from '../Icon';
+import type { PopoverProps } from '../Popover';
+import { Popover } from '../Popover';
+import { Text } from '../Text';
 
-import { StrengthIndicator } from "./StrengthIndicator"
-import type { PasswordDictionary } from "./constants"
-import { usePasswordStrength } from "./hooks"
-import { styles } from "./styles"
+import { StrengthIndicator } from './StrengthIndicator';
+import type { PasswordDictionary } from './constants';
+import { usePasswordStrength } from './hooks';
+import { styles } from './styles';
 
 export type PasswordStrengthProps = {
-  password: string
-  minLength?: number
-  onChangeStrength?: (strength: keyof typeof PasswordDictionary) => void
-} & Omit<PopoverProps, "content">
+  password: string;
+  minLength?: number;
+  onChangeStrength?: (strength: keyof typeof PasswordDictionary) => void;
+} & Omit<PopoverProps, 'content'>;
 
 type ObjProps = {
-  Indicator: typeof StrengthIndicator
-}
+  Indicator: typeof StrengthIndicator;
+};
 
 export const PasswordStrength = createComponent<
   PasswordStrengthProps,
@@ -38,11 +38,11 @@ export const PasswordStrength = createComponent<
       symbolsAndDigitsChecker,
       commonChecker,
     },
-  } = usePasswordStrength({ password, minLength })
+  } = usePasswordStrength({ password, minLength });
 
   useEffect(() => {
-    onChangeStrength?.(strength)
-  }, [strength, onChangeStrength])
+    onChangeStrength?.(strength);
+  }, [strength, onChangeStrength]);
 
   const popoverContent = (
     <>
@@ -61,9 +61,9 @@ export const PasswordStrength = createComponent<
                 data-error={lengthChecker}
                 icon={
                   lengthChecker ? (
-                    <Icon icon={Icon.is("Check")} />
+                    <Icon icon={Icon.is('Check')} />
                   ) : (
-                    <Icon icon={Icon.is("X")} />
+                    <Icon icon={Icon.is('X')} />
                   )
                 }
               />
@@ -78,9 +78,9 @@ export const PasswordStrength = createComponent<
                 data-error={casingChecker}
                 icon={
                   casingChecker ? (
-                    <Icon icon={Icon.is("Check")} />
+                    <Icon icon={Icon.is('Check')} />
                   ) : (
-                    <Icon icon={Icon.is("X")} />
+                    <Icon icon={Icon.is('X')} />
                   )
                 }
               />
@@ -95,9 +95,9 @@ export const PasswordStrength = createComponent<
                 data-error={symbolsAndDigitsChecker}
                 icon={
                   symbolsAndDigitsChecker ? (
-                    <Icon icon={Icon.is("Check")} />
+                    <Icon icon={Icon.is('Check')} />
                   ) : (
-                    <Icon icon={Icon.is("X")} />
+                    <Icon icon={Icon.is('X')} />
                   )
                 }
               />
@@ -112,9 +112,9 @@ export const PasswordStrength = createComponent<
                 data-error={commonChecker}
                 icon={
                   commonChecker ? (
-                    <Icon icon={Icon.is("Check")} />
+                    <Icon icon={Icon.is('Check')} />
                   ) : (
-                    <Icon icon={Icon.is("X")} />
+                    <Icon icon={Icon.is('X')} />
                   )
                 }
               />
@@ -126,7 +126,7 @@ export const PasswordStrength = createComponent<
         </Stack>
       </Flex>
     </>
-  )
+  );
 
   return (
     <Popover
@@ -149,11 +149,11 @@ export const PasswordStrength = createComponent<
     >
       {children}
     </Popover>
-  )
-})
+  );
+});
 
-PasswordStrength.Indicator = StrengthIndicator
+PasswordStrength.Indicator = StrengthIndicator;
 
 PasswordStrength.defaultProps = {
   minLength: 6,
-}
+};

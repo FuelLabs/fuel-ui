@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { ButtonLink } from "./ButtonLink"
-import type { ButtonLinkProps } from "./defs"
+import { ButtonLink } from './ButtonLink';
+import type { ButtonLinkProps } from './defs';
 
 const meta: Meta<typeof ButtonLink> = {
   component: ButtonLink,
-  title: "UI/ButtonLink",
+  title: 'UI/ButtonLink',
   argTypes: {
     css: {
       control: false,
@@ -20,26 +20,26 @@ const meta: Meta<typeof ButtonLink> = {
       control: false,
     },
     size: {
-      defaultValue: "md",
-      control: "select",
+      defaultValue: 'md',
+      control: 'select',
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof ButtonLink>
+export default meta;
+type Story = StoryObj<typeof ButtonLink>;
 
 export const Usage: Story = {
   render: (args: ButtonLinkProps) => <ButtonLink {...args}>Link</ButtonLink>,
   args: {
-    href: "#",
+    href: '#',
   },
-}
+};
 
 export const External: Story = {
   render: (args: ButtonLinkProps) => <ButtonLink {...args}>Link</ButtonLink>,
   args: {
-    href: "https://fuel.sh/",
+    href: 'https://fuel.sh/',
     isExternal: true,
   },
-}
+};

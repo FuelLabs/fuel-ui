@@ -1,2 +1,2 @@
-export * from "./PasswordStrength"
-export * from "./hooks"
+export * from './PasswordStrength';
+export * from './hooks';

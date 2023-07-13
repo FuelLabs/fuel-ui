@@ -1,17 +1,17 @@
-const borderStyles = "borderStyles"
-const borderWidths = "borderWidths"
-const colors = "colors"
-const fonts = "fonts"
-const fontSizes = "fontSizes"
-const fontWeights = "fontWeights"
-const letterSpacings = "letterSpacings"
-const lineHeights = "lineHeights"
-const radii = "radii"
-const shadows = "shadows"
-const sizes = "sizes"
-const space = "space"
-const transitions = "transitions"
-const zIndices = "zIndices"
+const borderStyles = 'borderStyles';
+const borderWidths = 'borderWidths';
+const colors = 'colors';
+const fonts = 'fonts';
+const fontSizes = 'fontSizes';
+const fontWeights = 'fontWeights';
+const letterSpacings = 'letterSpacings';
+const lineHeights = 'lineHeights';
+const radii = 'radii';
+const shadows = 'shadows';
+const sizes = 'sizes';
+const space = 'space';
+const transitions = 'transitions';
+const zIndices = 'zIndices';
 
 /** @type {DefaultThemeMap} */
 export const defaultThemeMap = {
@@ -160,7 +160,7 @@ export const defaultThemeMap = {
   transition: transitions,
 
   zIndex: zIndices,
-}
+};
 
 /**
  * @typedef {Object} DefaultThemeMap

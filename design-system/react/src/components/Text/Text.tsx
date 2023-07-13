@@ -1,30 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { utils } from "@fuel-ui/css"
-import { createElement } from "react"
-import { Components } from "~/defs"
-import { createStyle, useElementProps, useStyles } from "~/hooks"
+import { utils } from '@fuel-ui/css';
+import { createElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
   createPolymorphicComponent,
-} from "../../utils"
-import { createIcon } from "../Button"
+} from '../../utils';
+import { createIcon } from '../Button';
 
-import type * as t from "./defs"
+import type * as t from './defs';
 
 const _Text = _unstable_createComponent<t.TextDef>(
   Components.Text,
   ({
-    as = "p",
+    as = 'p',
     children,
     iconSize = 16,
-    iconColor = "textIcon",
+    iconColor = 'textIcon',
     leftIcon,
     rightIcon,
     leftIconAriaLabel,
     rightIconAriaLabel,
     css,
-    color = "textColor",
+    color = 'textColor',
     ...props
   }) => {
     const iconLeft = createIcon(
@@ -32,14 +32,14 @@ const _Text = _unstable_createComponent<t.TextDef>(
       leftIconAriaLabel,
       iconSize,
       iconColor,
-    )
+    );
     const iconRight = createIcon(
       rightIcon,
       rightIconAriaLabel,
       iconSize,
       iconColor,
-    )
-    const withIcon = Boolean(leftIcon || rightIcon)
+    );
+    const withIcon = Boolean(leftIcon || rightIcon);
     const classes = useStyles(styles, {
       ...props,
       withIcon,
@@ -47,16 +47,16 @@ const _Text = _unstable_createComponent<t.TextDef>(
         color: `$${color}`,
         ...css,
       },
-    } as any)
-    const elementProps = useElementProps(props, classes.root)
+    } as any);
+    const elementProps = useElementProps(props, classes.root);
     const customChildren = (
       <>
         {iconLeft} {children} {iconRight}
       </>
-    )
-    return createElement(as, elementProps, customChildren)
+    );
+    return createElement(as, elementProps, customChildren);
   },
-)
+);
 
 const styles = createStyle(Components.Text, {
   root: {
@@ -70,16 +70,16 @@ const styles = createStyle(Components.Text, {
       ),
       withIcon: {
         true: {
-          display: "inline-flex",
-          gap: "$2",
+          display: 'inline-flex',
+          gap: '$2',
         },
       },
     },
 
     defaultVariants: {
-      fontSize: "base",
+      fontSize: 'base',
     },
   },
-})
+});
 
-export const Text = createPolymorphicComponent<t.TextDef>(_Text)
+export const Text = createPolymorphicComponent<t.TextDef>(_Text);

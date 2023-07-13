@@ -1,17 +1,17 @@
-import { cx } from "@fuel-ui/css"
-import type { ReactElement } from "react"
-import { Children, cloneElement } from "react"
-import { createComponent } from "~/utils"
+import { cx } from '@fuel-ui/css';
+import type { ReactElement } from 'react';
+import { Children, cloneElement } from 'react';
+import { createComponent } from '~/utils';
 
-import type { ButtonProps } from ".."
-import { Button } from ".."
+import type { ButtonProps } from '..';
+import { Button } from '..';
 
-import { useDrawer } from "."
+import { useDrawer } from '.';
 
-type ElementType = "button"
+type ElementType = 'button';
 type DrawerTriggerProps = ButtonProps & {
-  asChild?: boolean
-}
+  asChild?: boolean;
+};
 
 export const DrawerTrigger = createComponent<
   DrawerTriggerProps,
@@ -19,11 +19,11 @@ export const DrawerTrigger = createComponent<
   unknown,
   ElementType
 >(({ className, asChild = true, children, ...props }) => {
-  const classes = cx("fuel_DrawerTrigger", className)
-  const { state } = useDrawer()
+  const classes = cx('fuel_DrawerTrigger', className);
+  const { state } = useDrawer();
 
   function handleToggle() {
-    state?.toggle()
+    state?.toggle();
   }
 
   if (asChild) {
@@ -33,15 +33,15 @@ export const DrawerTrigger = createComponent<
           return cloneElement(child as ReactElement, {
             onPress: handleToggle,
             className: classes,
-          })
+          });
         })}
       </>
-    )
+    );
   }
 
   return (
     <Button {...props} onPress={handleToggle}>
       {children}
     </Button>
-  )
-})
+  );
+});

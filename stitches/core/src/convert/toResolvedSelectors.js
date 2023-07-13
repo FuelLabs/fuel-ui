@@ -9,17 +9,17 @@ export const toResolvedSelectors = (
     ? parentSelectors.reduce((resolvedSelectors, parentSelector) => {
         resolvedSelectors.push(
           ...nestedSelectors.map((selector) =>
-            selector.includes("&")
+            selector.includes('&')
               ? selector.replace(
                   /&/g,
                   /[ +>|~]/.test(parentSelector) && /&.*&/.test(selector)
                     ? `:is(${parentSelector})`
                     : parentSelector,
                 )
-              : parentSelector + " " + selector,
+              : parentSelector + ' ' + selector,
           ),
-        )
+        );
 
-        return resolvedSelectors
+        return resolvedSelectors;
       }, [])
-    : nestedSelectors
+    : nestedSelectors;

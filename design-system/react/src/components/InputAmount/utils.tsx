@@ -1,26 +1,26 @@
-import { bn } from "@fuel-ts/math"
+import { bn } from '@fuel-ts/math';
 
-export const DECIMAL_UNITS = 9
+export const DECIMAL_UNITS = 9;
 
 export function formatAmountLeadingZeros(text: string): string {
   const valueWithoutLeadingZeros = text
-    .replace(/^0\d/, (substring) => substring.replace(/^0+(?=[\d])/, ""))
-    .replace(/^0+(\d\.)/, "$1")
-  const startsWithPoint = valueWithoutLeadingZeros.startsWith(".")
+    .replace(/^0\d/, (substring) => substring.replace(/^0+(?=[\d])/, ''))
+    .replace(/^0+(\d\.)/, '$1');
+  const startsWithPoint = valueWithoutLeadingZeros.startsWith('.');
 
   if (!startsWithPoint) {
-    return valueWithoutLeadingZeros
+    return valueWithoutLeadingZeros;
   }
   if (valueWithoutLeadingZeros.length < 3) {
-    return `0${valueWithoutLeadingZeros}`
+    return `0${valueWithoutLeadingZeros}`;
   }
-  return text
+  return text;
 }
 
 export function createAmount(text: string, units: number = DECIMAL_UNITS) {
-  const textAmountFixed = formatAmountLeadingZeros(text)
+  const textAmountFixed = formatAmountLeadingZeros(text);
   return {
     text: textAmountFixed,
-    amount: bn.parseUnits(text.replaceAll(",", ""), units),
-  }
+    amount: bn.parseUnits(text.replaceAll(',', ''), units),
+  };
 }

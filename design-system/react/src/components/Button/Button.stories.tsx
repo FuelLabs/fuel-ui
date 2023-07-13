@@ -1,41 +1,41 @@
-import { layerIntents } from "@fuel-ui/css"
+import { layerIntents } from '@fuel-ui/css';
 
-import { Box } from "../Box"
-import { Icon } from "../Icon"
+import { Box } from '../Box';
+import { Icon } from '../Icon';
 
-import { Button } from "./Button"
-import type { ButtonProps } from "./defs"
+import { Button } from './Button';
+import type { ButtonProps } from './defs';
 
 export default {
-  title: "UI/Button",
+  title: 'UI/Button',
   component: Button,
   argTypes: {
     onPress: {
-      action: "pressed",
+      action: 'pressed',
     },
     size: {
-      defaultValue: "md",
-      control: "select",
+      defaultValue: 'md',
+      control: 'select',
     },
     intent: {
       options: layerIntents,
-      defaultValue: "primary",
-      control: "select",
+      defaultValue: 'primary',
+      control: 'select',
     },
     variant: {
-      defaultValue: "solid",
-      control: "select",
+      defaultValue: 'solid',
+      control: 'select',
     },
     leftIcon: {
       options: Icon.iconList,
-      control: "select",
+      control: 'select',
     },
     rightIcon: {
       options: Icon.iconList,
-      control: "select",
+      control: 'select',
     },
   },
-}
+};
 
 export const Sizes = (args: ButtonProps) => {
   return (
@@ -53,8 +53,8 @@ export const Sizes = (args: ButtonProps) => {
         Button
       </Button>
     </Box>
-  )
-}
+  );
+};
 
 export const Variants = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
@@ -71,7 +71,7 @@ export const Variants = (args: ButtonProps) => (
       Button
     </Button>
   </Box>
-)
+);
 
 export const intents = (args: ButtonProps) => (
   <Box css={styles.gridList}>
@@ -81,7 +81,7 @@ export const intents = (args: ButtonProps) => (
       </Button>
     ))}
   </Box>
-)
+);
 
 export const WithIcon = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
@@ -118,7 +118,7 @@ export const WithIcon = (args: ButtonProps) => (
       Button
     </Button>
   </Box>
-)
+);
 
 export const Loading = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
@@ -135,7 +135,7 @@ export const Loading = (args: ButtonProps) => (
       Button
     </Button>
   </Box>
-)
+);
 
 export const CustomLoadingMessage = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
@@ -143,7 +143,7 @@ export const CustomLoadingMessage = (args: ButtonProps) => (
       Button
     </Button>
   </Box>
-)
+);
 
 export const Disabled = (args: ButtonProps) => (
   <Box css={styles.wrapper}>
@@ -160,20 +160,20 @@ export const Disabled = (args: ButtonProps) => (
       Button
     </Button>
   </Box>
-)
+);
 
 /**
  * Styles
  */
 const styles = {
   wrapper: {
-    display: "flex",
-    alignItems: "center",
-    gap: "$4",
+    display: 'flex',
+    alignItems: 'center',
+    gap: '$4',
   },
   gridList: {
-    display: "grid",
-    gap: "$4",
-    gridTemplateColumns: "repeat(6, 1fr)",
+    display: 'grid',
+    gap: '$4',
+    gridTemplateColumns: 'repeat(6, 1fr)',
   },
-}
+};

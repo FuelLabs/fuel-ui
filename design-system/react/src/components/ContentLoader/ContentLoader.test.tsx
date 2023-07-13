@@ -1,10 +1,10 @@
-import { darkColors } from "@fuel-ui/css"
-import { testA11y } from "@fuels/jest"
+import { darkColors } from '@fuel-ui/css';
+import { testA11y } from '@fuels/jest';
 
-import { ContentLoader } from "./ContentLoader"
+import { ContentLoader } from './ContentLoader';
 
-describe("ContentLoader", () => {
-  it("a11y", async () => {
+describe('ContentLoader', () => {
+  it('a11y', async () => {
     await testA11y(
       <ContentLoader
         speed={2}
@@ -24,6 +24,6 @@ describe("ContentLoader", () => {
           rx="4"
         />
       </ContentLoader>,
-    )
-  })
-})
+    );
+  });
+});

@@ -1,2 +1,2 @@
-export * from "./HelperIcon"
-export * from "./defs"
+export * from './HelperIcon';
+export * from './defs';

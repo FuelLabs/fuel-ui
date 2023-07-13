@@ -1,9 +1,9 @@
-import { testA11y } from "@fuels/jest"
+import { testA11y } from '@fuels/jest';
 
-import { Accordion } from "./Accordion"
+import { Accordion } from './Accordion';
 
-describe("Accordion", () => {
-  it("a11y", async () => {
+describe('Accordion', () => {
+  it('a11y', async () => {
     await testA11y(
       <Accordion type="single" defaultValue="item-1">
         <Accordion.Item value="item-1">
@@ -17,6 +17,6 @@ describe("Accordion", () => {
           <Accordion.Content>Yes, blazingly fast!</Accordion.Content>
         </Accordion.Item>
       </Accordion>,
-    )
-  })
-})
+    );
+  });
+});

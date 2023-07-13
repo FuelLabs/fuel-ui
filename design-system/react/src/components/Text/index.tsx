@@ -1,2 +1,2 @@
-export * from "./Text"
-export * from "./defs"
+export * from './Text';
+export * from './defs';

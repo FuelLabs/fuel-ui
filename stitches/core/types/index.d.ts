@@ -1,41 +1,41 @@
-import type Stitches from "./stitches.js"
+import type Stitches from './stitches.js';
 
-import type * as Config from "./config.js"
-import type * as CSSUtil from "./css-util.js"
-import type * as StyledComponent from "./styled-component.js"
+import type * as Config from './config.js';
+import type * as CSSUtil from './css-util.js';
+import type * as StyledComponent from './styled-component.js';
 
-export { $$PropertyValue, $$ScaleValue, $$ThemeValue } from "./css-util.js"
-export type CreateStitches = Config.CreateStitches
-export type CSSProperties = CSSUtil.CSSProperties
-export type DefaultThemeMap = Config.DefaultThemeMap
-export type FontFace = CSSUtil.Native.AtRule.FontFace
+export { $$PropertyValue, $$ScaleValue, $$ThemeValue } from './css-util.js';
+export type CreateStitches = Config.CreateStitches;
+export type CSSProperties = CSSUtil.CSSProperties;
+export type DefaultThemeMap = Config.DefaultThemeMap;
+export type FontFace = CSSUtil.Native.AtRule.FontFace;
 
 /** Returns a Style interface from a configuration, leveraging the given media and style map. */
 export type CSS<
   Config extends {
-    media?: {}
-    theme?: {}
-    themeMap?: {}
-    utils?: {}
+    media?: {};
+    theme?: {};
+    themeMap?: {};
+    utils?: {};
   } = {
-    media: {}
-    theme: {}
-    themeMap: {}
-    utils: {}
+    media: {};
+    theme: {};
+    themeMap: {};
+    utils: {};
   },
 > = CSSUtil.CSS<
-  Config["media"],
-  Config["theme"],
-  Config["themeMap"],
-  Config["utils"]
->
+  Config['media'],
+  Config['theme'],
+  Config['themeMap'],
+  Config['utils']
+>;
 
 /** Returns the properties, attributes, and children expected by a component. */
 export type ComponentProps<Component> = Component extends (
   ...args: any[]
 ) => any
   ? Parameters<Component>[0]
-  : never
+  : never;
 
 /** Returns a type that expects a value to be a kind of CSS property value. */
 export type PropertyValue<
@@ -45,43 +45,43 @@ export type PropertyValue<
   ? CSSUtil.WithPropertyValue<Property>
   : Config extends { [K: string]: any }
   ? CSSUtil.CSS<
-      Config["media"],
-      Config["theme"],
-      Config["themeMap"],
-      Config["utils"]
+      Config['media'],
+      Config['theme'],
+      Config['themeMap'],
+      Config['utils']
     >[Property]
-  : never
+  : never;
 
 /** Returns a type that expects a value to be a kind of theme scale value. */
 export type ScaleValue<Scale, Config = null> = Config extends null
   ? CSSUtil.WithScaleValue<Scale>
   : Config extends { [K: string]: any }
-  ? Scale extends keyof Config["theme"]
-    ? `$${string & keyof Config["theme"][Scale]}`
+  ? Scale extends keyof Config['theme']
+    ? `$${string & keyof Config['theme'][Scale]}`
     : never
-  : never
+  : never;
 
 /** Returns a type that suggests variants from a component as possible prop values. */
 export type VariantProps<Component extends { [key: symbol | string]: any }> =
   StyledComponent.TransformProps<
     Component[StyledComponent.$$StyledComponentProps],
     Component[StyledComponent.$$StyledComponentMedia]
-  >
+  >;
 
 /** Map of CSS properties to token scales. */
-export declare const defaultThemeMap: DefaultThemeMap
+export declare const defaultThemeMap: DefaultThemeMap;
 
 /** Returns a library used to create styles. */
-export declare const createStitches: CreateStitches
+export declare const createStitches: CreateStitches;
 
 /** Returns an object representing a theme. */
-export declare const createTheme: Stitches["createTheme"]
+export declare const createTheme: Stitches['createTheme'];
 
 /** Returns a function that applies globalCss styles. */
-export declare const globalCss: Stitches["globalCss"]
+export declare const globalCss: Stitches['globalCss'];
 
 /** Returns an object that applies `@keyframes` styles. */
-export declare const keyframes: Stitches["keyframes"]
+export declare const keyframes: Stitches['keyframes'];
 
 /** Returns a function that applies styles and variants for a specific class. */
-export declare const css: Stitches["css"]
+export declare const css: Stitches['css'];

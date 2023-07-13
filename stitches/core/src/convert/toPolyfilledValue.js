@@ -1,6 +1,6 @@
-const splitBySpace = /\s+(?![^()]*\))/
+const splitBySpace = /\s+(?![^()]*\))/;
 const split = (fn) => (data) =>
-  fn(...(typeof data === "string" ? String(data).split(splitBySpace) : [data]))
+  fn(...(typeof data === 'string' ? String(data).split(splitBySpace) : [data]));
 
 export const toPolyfilledValue = {
   // prefixed properties
@@ -51,4 +51,4 @@ export const toPolyfilledValue = {
     paddingInlineStart: s,
     paddingInlineEnd: e || s,
   })),
-}
+};

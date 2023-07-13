@@ -1,2 +1,2 @@
-export * from "./Heading"
-export * from "./defs"
+export * from './Heading';
+export * from './defs';

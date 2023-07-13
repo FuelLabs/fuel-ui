@@ -1,11 +1,11 @@
-import { testA11y } from "@fuels/jest"
+import { testA11y } from '@fuels/jest';
 
-import { Image } from "../Image"
+import { Image } from '../Image';
 
-import { AspectRatio } from "./AspectRatio"
+import { AspectRatio } from './AspectRatio';
 
-describe("AspectRatio", () => {
-  it("a11y", async () => {
+describe('AspectRatio', () => {
+  it('a11y', async () => {
     await testA11y(
       <AspectRatio ratio={16 / 9}>
         <Image
@@ -13,6 +13,6 @@ describe("AspectRatio", () => {
           alt="Landscape photo by Tobias Tullius"
         />
       </AspectRatio>,
-    )
-  })
-})
+    );
+  });
+});

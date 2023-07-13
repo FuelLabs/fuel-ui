@@ -1,16 +1,16 @@
-import { Avatar } from "../Avatar"
-import { Heading } from "../Heading"
-import { Icon } from "../Icon"
-import { IconButton } from "../IconButton"
+import { Avatar } from '../Avatar';
+import { Heading } from '../Heading';
+import { Icon } from '../Icon';
+import { IconButton } from '../IconButton';
 
-import { CardList } from "./CardList"
-import type { CardListProps } from "./defs"
+import { CardList } from './CardList';
+import type { CardListProps } from './defs';
 
 export default {
   component: CardList,
-  title: "UI/CardList",
+  title: 'UI/CardList',
   argTypes: {},
-}
+};
 
 const cardItem = (
   <CardList.Item>
@@ -23,17 +23,17 @@ const cardItem = (
       Colm Tuite
     </Heading>
   </CardList.Item>
-)
+);
 
 export const Usage = (args: CardListProps) => (
-  <CardList {...args} css={{ maxW: "$md" }}>
+  <CardList {...args} css={{ maxW: '$md' }}>
     {cardItem}
     {cardItem}
   </CardList>
-)
+);
 
 export const Active = (args: CardListProps) => (
-  <CardList {...args} css={{ maxW: "$md" }}>
+  <CardList {...args} css={{ maxW: '$md' }}>
     <CardList.Item isActive>
       <Avatar
         {...args}
@@ -46,17 +46,17 @@ export const Active = (args: CardListProps) => (
       </Heading>
     </CardList.Item>
   </CardList>
-)
+);
 
 export const Clickable = (args: CardListProps) => (
-  <CardList {...args} css={{ maxW: "$md" }} isClickable>
+  <CardList {...args} css={{ maxW: '$md' }} isClickable>
     {cardItem}
     {cardItem}
   </CardList>
-)
+);
 
 export const WithAction = (args: CardListProps) => (
-  <CardList {...args} css={{ maxW: "$md" }}>
+  <CardList {...args} css={{ maxW: '$md' }}>
     <CardList.Item
       rightEl={
         <IconButton
@@ -65,7 +65,7 @@ export const WithAction = (args: CardListProps) => (
           intent="base"
           icon={<Icon icon="Dots" color="gray8" />}
           aria-label="Action"
-          css={{ px: "$0", color: "$intentsBase10" }}
+          css={{ px: '$0', color: '$intentsBase10' }}
         />
       }
     >
@@ -80,4 +80,4 @@ export const WithAction = (args: CardListProps) => (
       </Heading>
     </CardList.Item>
   </CardList>
-)
+);

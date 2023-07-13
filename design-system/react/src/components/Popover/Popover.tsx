@@ -1,38 +1,38 @@
-import { cx, styled } from "@fuel-ui/css"
-import * as RPopover from "@radix-ui/react-popover"
-import type { ReactNode } from "react"
+import { cx, styled } from '@fuel-ui/css';
+import * as RPopover from '@radix-ui/react-popover';
+import type { ReactNode } from 'react';
 
-import { createComponent } from "../../utils"
-import { IconButton } from "../IconButton"
+import { createComponent } from '../../utils';
+import { IconButton } from '../IconButton';
 
-import * as styles from "./styles"
+import * as styles from './styles';
 
 export type PopoverProps = RPopover.PopoverProps & {
-  content: ReactNode
-  side?: RPopover.PopperContentProps["side"]
-  sideOffset?: RPopover.PopoverContentProps["sideOffset"]
-  align?: RPopover.PopperContentProps["align"]
-  alignOffset?: RPopover.PopoverContentProps["sideOffset"]
-  showCloseButton?: boolean
-  className?: string
-  arrowProps?: RPopover.PopoverArrowProps
-  arrowClassName?: string
-  closeButtonClassName?: string
+  content: ReactNode;
+  side?: RPopover.PopperContentProps['side'];
+  sideOffset?: RPopover.PopoverContentProps['sideOffset'];
+  align?: RPopover.PopperContentProps['align'];
+  alignOffset?: RPopover.PopoverContentProps['sideOffset'];
+  showCloseButton?: boolean;
+  className?: string;
+  arrowProps?: RPopover.PopoverArrowProps;
+  arrowClassName?: string;
+  closeButtonClassName?: string;
   contentProps?: Omit<
     RPopover.PopoverContentProps,
-    "sideOffset" | "alignOffset"
-  >
-}
+    'sideOffset' | 'alignOffset'
+  >;
+};
 
-const Content = styled(RPopover.Content)
+const Content = styled(RPopover.Content);
 
 export const Popover = createComponent<PopoverProps>(
   ({
     children,
     content,
-    side = "bottom",
+    side = 'bottom',
     sideOffset = 5,
-    align = "center",
+    align = 'center',
     alignOffset = 0,
     showCloseButton,
     className,
@@ -71,7 +71,7 @@ export const Popover = createComponent<PopoverProps>(
               iconSize={20}
               intent="base"
               variant="link"
-              css={{ padding: "$0" }}
+              css={{ padding: '$0' }}
             />
           </RPopover.Close>
         )}
@@ -79,10 +79,10 @@ export const Popover = createComponent<PopoverProps>(
       </Content>
     </RPopover.Root>
   ),
-)
+);
 
 const CLASSES = {
-  Content: cx("fuel_PopoverContent", styles.content()),
-  Arrow: cx("fuel_PopoverArrow", styles.arrow()),
-  CloseButton: cx("fuel_PopoverCloseBtn", styles.closeButton()),
-}
+  Content: cx('fuel_PopoverContent', styles.content()),
+  Arrow: cx('fuel_PopoverArrow', styles.arrow()),
+  CloseButton: cx('fuel_PopoverCloseBtn', styles.closeButton()),
+};

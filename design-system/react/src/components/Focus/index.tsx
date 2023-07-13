@@ -1,1 +1,1 @@
-export * from "./Focus"
+export * from './Focus';

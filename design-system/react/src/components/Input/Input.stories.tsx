@@ -1,24 +1,24 @@
-import { Stack } from "../Box/Stack"
-import { Button } from "../Button"
-import { Icon } from "../Icon"
+import { Stack } from '../Box/Stack';
+import { Button } from '../Button';
+import { Icon } from '../Icon';
 
-import type { InputProps } from "./Input"
-import { Input } from "./Input"
+import type { InputProps } from './Input';
+import { Input } from './Input';
 
 export default {
   component: Input,
-  title: "Form/Input",
+  title: 'Form/Input',
   argTypes: {},
-}
+};
 
 const FIELD_ARGS = {
-  name: "email",
-  type: "email",
-  placeholder: "Your email",
-}
+  name: 'email',
+  type: 'email',
+  placeholder: 'Your email',
+};
 
 export const Sizes = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...FIELD_ARGS} {...args} size="sm">
       <Input.Field {...FIELD_ARGS} type="email" />
     </Input>
@@ -29,36 +29,36 @@ export const Sizes = (args: InputProps) => (
       <Input.Field {...FIELD_ARGS} type="email" />
     </Input>
   </Stack>
-)
+);
 
 export const TypeNumber = (_args: InputProps) => {
   return (
-    <Stack css={{ maxW: "350px" }} gap="$3">
+    <Stack css={{ maxW: '350px' }} gap="$3">
       <Input>
         <Input.Number name="amount" placeholder="0.0" inputMode="decimal" />
       </Input>
     </Stack>
-  )
-}
+  );
+};
 
 export const Disabled = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args} isDisabled>
       <Input.Field {...FIELD_ARGS} />
     </Input>
   </Stack>
-)
+);
 
 export const ReadOnly = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args} isReadOnly>
       <Input.Field {...FIELD_ARGS} />
     </Input>
   </Stack>
-)
+);
 
 export const Addon = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args}>
       <Input.AddonLeft>http://</Input.AddonLeft>
       <Input.Field type="text" name="website" placeholder="yourwebsite.xyz" />
@@ -68,10 +68,10 @@ export const Addon = (args: InputProps) => (
       <Input.AddonRight>.eth</Input.AddonRight>
     </Input>
   </Stack>
-)
+);
 
 export const WithIcon = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args}>
       <Input.ElementLeft element={<Icon icon="Mail" />} />
       <Input.Field {...FIELD_ARGS} />
@@ -81,26 +81,26 @@ export const WithIcon = (args: InputProps) => (
       <Input.ElementRight element={<Icon icon="Mail" />} />
     </Input>
   </Stack>
-)
+);
 
 export const WithButton = (args: InputProps) => {
   return (
-    <Stack css={{ maxW: "350px" }} gap="$3">
+    <Stack css={{ maxW: '350px' }} gap="$3">
       <Input {...args}>
         <Input.ElementLeft element={<Icon icon="Mail" />} />
         <Input.Field type="email" name="email" placeholder="Your email" />
         <Input.ElementRight>
-          <Button variant="outlined" css={{ mr: "-6px", px: "$2" }}>
+          <Button variant="outlined" css={{ mr: '-6px', px: '$2' }}>
             Submit
           </Button>
         </Input.ElementRight>
       </Input>
     </Stack>
-  )
-}
+  );
+};
 
 export const Invalid = (args: InputProps) => (
-  <Stack css={{ maxW: "350px" }} gap="$3">
+  <Stack css={{ maxW: '350px' }} gap="$3">
     <Input {...args} isInvalid>
       <Input.ElementLeft element={<Icon icon="Mail" />} />
       <Input.Field {...FIELD_ARGS} />
@@ -109,4 +109,4 @@ export const Invalid = (args: InputProps) => (
       <Input.Field {...FIELD_ARGS} />
     </Input>
   </Stack>
-)
+);

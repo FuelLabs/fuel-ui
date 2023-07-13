@@ -1,9 +1,9 @@
-import type * as Native from "./css.js"
-import type * as Config from "./config.js"
-import type * as ThemeUtil from "./theme.js"
-import type * as Util from "./util.js"
+import type * as Native from './css.js';
+import type * as Config from './config.js';
+import type * as ThemeUtil from './theme.js';
+import type * as Util from './util.js';
 
-export { Native }
+export { Native };
 
 /** CSS style declaration object. */
 export interface CSSProperties
@@ -12,16 +12,18 @@ export interface CSSProperties
     Native.SvgProperties {}
 
 type ValueByPropertyName<PropertyName> =
-  PropertyName extends keyof CSSProperties ? CSSProperties[PropertyName] : never
+  PropertyName extends keyof CSSProperties
+    ? CSSProperties[PropertyName]
+    : never;
 
 type TokenByPropertyName<PropertyName, Theme, ThemeMap> =
   PropertyName extends keyof ThemeMap
     ? TokenByScaleName<ThemeMap[PropertyName], Theme>
-    : never
+    : never;
 
 type TokenByScaleName<ScaleName, Theme> = ScaleName extends keyof Theme
-  ? Util.Prefixed<"$", keyof Theme[ScaleName]>
-  : never
+  ? Util.Prefixed<'$', keyof Theme[ScaleName]>
+  : never;
 
 /** Returns a Style interface, leveraging the given media and style map. */
 export type CSS<
@@ -32,7 +34,7 @@ export type CSS<
 > =
   // nested at-rule css styles
   {
-    [K in Util.Prefixed<"@", keyof Media>]?: CSS<Media, Theme, ThemeMap, Utils>
+    [K in Util.Prefixed<'@', keyof Media>]?: CSS<Media, Theme, ThemeMap, Utils>;
   } & {
     // known property styles
     [K in keyof CSSProperties as K extends keyof Utils ? never : K]?:
@@ -41,7 +43,7 @@ export type CSS<
       | Native.Globals
       | ThemeUtil.ScaleValue
       | Util.Index
-      | undefined
+      | undefined;
   } & {
     // known utility styles
     [K in keyof Utils]?: Utils[K] extends (arg: infer P) => any
@@ -79,14 +81,14 @@ export type CSS<
                   | undefined
               : never)
           | P
-      : never
+      : never;
   } & {
     // known theme styles
     [K in keyof ThemeMap as K extends keyof CSSProperties
       ? never
       : K extends keyof Utils
       ? never
-      : K]?: Native.Globals | Util.Index | undefined
+      : K]?: Native.Globals | Util.Index | undefined;
   } & {
     // unknown css declaration styles
     /** Unknown property. */
@@ -95,29 +97,29 @@ export type CSS<
       | string
       | CSS<Media, Theme, ThemeMap, Utils>
       | {}
-      | undefined
-  }
+      | undefined;
+  };
 
 /** Unique symbol used to reference a property value. */
-export declare const $$PropertyValue: unique symbol
+export declare const $$PropertyValue: unique symbol;
 
 /** Unique symbol used to reference a property value. */
-export type $$PropertyValue = typeof $$PropertyValue
+export type $$PropertyValue = typeof $$PropertyValue;
 
 /** Unique symbol used to reference a token value. */
-export declare const $$ScaleValue: unique symbol
+export declare const $$ScaleValue: unique symbol;
 
 /** Unique symbol used to reference a token value. */
-export type $$ScaleValue = typeof $$ScaleValue
+export type $$ScaleValue = typeof $$ScaleValue;
 
-export declare const $$ThemeValue: unique symbol
+export declare const $$ThemeValue: unique symbol;
 
-export type $$ThemeValue = typeof $$ThemeValue
+export type $$ThemeValue = typeof $$ThemeValue;
 
 // https://github.com/microsoft/TypeScript/issues/37888#issuecomment-846638356
 export type WithPropertyValue<T> = {
-  readonly [K in $$PropertyValue]: T
-}
+  readonly [K in $$PropertyValue]: T;
+};
 export type WithScaleValue<T> = {
-  readonly [K in $$ScaleValue]: T
-}
+  readonly [K in $$ScaleValue]: T;
+};

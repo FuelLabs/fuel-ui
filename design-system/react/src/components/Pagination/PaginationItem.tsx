@@ -1,25 +1,25 @@
-import { cssObj, cx } from "@fuel-ui/css"
+import { cssObj, cx } from '@fuel-ui/css';
 
-import { createComponent } from "../../utils"
-import { Button } from "../Button"
+import { createComponent } from '../../utils';
+import { Button } from '../Button';
 
-import { usePaginationContext } from "./Pagination"
+import { usePaginationContext } from './Pagination';
 
-type OmitProps = "children" | "as" | "css"
+type OmitProps = 'children' | 'as' | 'css';
 export type PaginationItemProps = {
-  page: number
-}
+  page: number;
+};
 
 export const PaginationItem = createComponent<
   PaginationItemProps,
   unknown,
   OmitProps
 >(({ className, page }) => {
-  const classes = cx("fuel_PaginationItem", className)
-  const pagination = usePaginationContext()
-  const autoFocus = page === 1 && pagination.autoFocus
-  const isSelected = pagination.currentPage === page
-  const isDisabled = page < 0
+  const classes = cx('fuel_PaginationItem', className);
+  const pagination = usePaginationContext();
+  const autoFocus = page === 1 && pagination.autoFocus;
+  const isSelected = pagination.currentPage === page;
+  const isDisabled = page < 0;
   return (
     <Button
       aria-label={`Page ${page}`}
@@ -35,32 +35,32 @@ export const PaginationItem = createComponent<
       onPress={() => pagination.goTo(page)}
       {...(isDisabled && { tabIndex: -1 })}
     >
-      {page < 0 ? "..." : page}
+      {page < 0 ? '...' : page}
     </Button>
-  )
-})
+  );
+});
 
 const styles = {
   base: cssObj({
-    is: ["display"],
+    is: ['display'],
     '&:not([data-selected="true"])': {
-      color: "$intentsBase10",
+      color: '$intentsBase10',
     },
     '&[data-variant="solid"]:not([data-selected="true"])': {
-      background: "$intentsBase3",
+      background: '$intentsBase3',
     },
     '&[data-variant="outlined"]:not([data-selected="true"])': {
-      borderColor: "$intentsBase3",
+      borderColor: '$intentsBase3',
     },
     '&[data-variant="ghost"]:not([data-selected="true"])': {
-      background: "$intentsBase3",
+      background: '$intentsBase3',
     },
     '&[aria-disabled="true"]': {
-      background: "transparent !important",
-      borderColor: "transparent !important",
+      background: 'transparent !important',
+      borderColor: 'transparent !important',
     },
     '&[aria-disabled="true"]:focus': {
-      outline: "none",
+      outline: 'none',
     },
   }),
-}
+};

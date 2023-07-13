@@ -1,18 +1,18 @@
-import { Components } from "~/defs"
-import { createStyle } from "~/hooks"
+import { Components } from '~/defs';
+import { createStyle } from '~/hooks';
 
-import * as buttonVariants from "../Button/variants"
+import * as buttonVariants from '../Button/variants';
 
 export const styles = createStyle(Components.Badge, {
   root: {
-    is: ["display"],
-    border: "none",
-    transition: "all",
-    textDecoration: "none",
-    py: "2px",
-    px: "$2",
-    borderRadius: "$default",
-    textTransform: "uppercase",
+    is: ['display'],
+    border: 'none',
+    transition: 'all',
+    textDecoration: 'none',
+    py: '2px',
+    px: '$2',
+    borderRadius: '$default',
+    textTransform: 'uppercase',
 
     variants: {
       intent: buttonVariants.intents.solid,
@@ -34,8 +34,8 @@ export const styles = createStyle(Components.Badge, {
     ],
 
     defaultVariants: {
-      intent: "base",
-      variant: "solid",
+      intent: 'base',
+      variant: 'solid',
     },
   },
-})
+});

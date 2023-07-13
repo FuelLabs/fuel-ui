@@ -1,22 +1,22 @@
-import { useInterpret, useSelector } from "@xstate/react"
+import { useInterpret, useSelector } from '@xstate/react';
 
-import type { PaginationMachineState } from "./paginationMachine"
-import { paginationMachine } from "./paginationMachine"
+import type { PaginationMachineState } from './paginationMachine';
+import { paginationMachine } from './paginationMachine';
 
 export type UsePaginationOpts = {
-  pagesCount: number
-  pagesToDisplay?: number
-  onPageChange?: (page: number) => void
+  pagesCount: number;
+  pagesToDisplay?: number;
+  onPageChange?: (page: number) => void;
   initialState?: {
-    currentPage?: number
-  }
-}
+    currentPage?: number;
+  };
+};
 
 const selectors = {
   context(state: PaginationMachineState) {
-    return state.context
+    return state.context;
   },
-}
+};
 
 /**
  * Hook to used inside the <Pagiation> component to handle paginatioMachie logic.
@@ -53,22 +53,22 @@ export function usePagination(opts: UsePaginationOpts) {
       .withConfig({
         actions: {
           onPageChange: (ctx) => {
-            opts.onPageChange?.(ctx.currentPage!)
+            opts.onPageChange?.(ctx.currentPage!);
           },
         },
       }),
-  )
+  );
 
-  const context = useSelector(service, selectors.context)
+  const context = useSelector(service, selectors.context);
 
   function next() {
-    service.send({ type: "NEXT" })
+    service.send({ type: 'NEXT' });
   }
   function prev() {
-    service.send({ type: "PREV" })
+    service.send({ type: 'PREV' });
   }
   function goTo(page: number) {
-    service.send({ type: "GOTO", input: page })
+    service.send({ type: 'GOTO', input: page });
   }
 
   return {
@@ -76,7 +76,7 @@ export function usePagination(opts: UsePaginationOpts) {
     next,
     prev,
     goTo,
-  }
+  };
 }
 
-export type UsePaginationReturn = ReturnType<typeof usePagination>
+export type UsePaginationReturn = ReturnType<typeof usePagination>;

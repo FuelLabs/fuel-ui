@@ -1,23 +1,23 @@
-import { css, cx } from "@fuel-ui/css"
-import { mergeRefs } from "@react-aria/utils"
-import type { ReactElement } from "react"
-import { Children, cloneElement } from "react"
-import { createComponent } from "~/utils"
+import { css, cx } from '@fuel-ui/css';
+import { mergeRefs } from '@react-aria/utils';
+import type { ReactElement } from 'react';
+import { Children, cloneElement } from 'react';
+import { createComponent } from '~/utils';
 
-import { Icon, IconButton, useDialog } from ".."
-import type { ButtonProps, IconButtonProps } from ".."
+import { Icon, IconButton, useDialog } from '..';
+import type { ButtonProps, IconButtonProps } from '..';
 
-import * as styles from "./styles"
+import * as styles from './styles';
 
-type ElementType = "button"
+type ElementType = 'button';
 
 export type DialogCloseProps = ButtonProps & {
-  asChild?: boolean
-}
+  asChild?: boolean;
+};
 
 type ObjProps = {
-  id: string
-}
+  id: string;
+};
 
 export const DialogClose = createComponent<
   DialogCloseProps,
@@ -25,11 +25,11 @@ export const DialogClose = createComponent<
   unknown,
   ElementType
 >(({ ref, className, asChild, children, ...props }) => {
-  const classes = cx("fuel_DialogClose", className)
-  const { state, triggerRef } = useDialog()
+  const classes = cx('fuel_DialogClose', className);
+  const { state, triggerRef } = useDialog();
 
   function handleToggle() {
-    state?.toggle()
+    state?.toggle();
   }
 
   if (asChild) {
@@ -40,10 +40,10 @@ export const DialogClose = createComponent<
             ref: mergeRefs(ref, triggerRef as never),
             onPress: handleToggle,
             className: classes,
-          })
+          });
         })}
       </>
-    )
+    );
   }
 
   return (
@@ -51,14 +51,14 @@ export const DialogClose = createComponent<
       {...(props as IconButtonProps)}
       css={{ ...styles.close, ...css }}
       className={classes}
-      icon={Icon.is("X")}
+      icon={Icon.is('X')}
       iconSize={20}
-      aria-label={props["aria-label"] || "Close"}
-      variant={props.variant || "link"}
-      color={props.color || "gray"}
+      aria-label={props['aria-label'] || 'Close'}
+      variant={props.variant || 'link'}
+      color={props.color || 'gray'}
       onPress={handleToggle}
     />
-  )
-})
+  );
+});
 
-DialogClose.id = "DialogClose"
+DialogClose.id = 'DialogClose';

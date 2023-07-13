@@ -1,26 +1,26 @@
-import { cx } from "@fuel-ui/css"
-import { createContext, useContext } from "react"
+import { cx } from '@fuel-ui/css';
+import { createContext, useContext } from 'react';
 
-import { createComponent } from "../../utils"
-import type { StackProps } from "../Box/Stack"
-import { Stack } from "../Box/Stack"
-import type { ButtonProps } from "../Button"
-import { Focus } from "../Focus"
+import { createComponent } from '../../utils';
+import type { StackProps } from '../Box/Stack';
+import { Stack } from '../Box/Stack';
+import type { ButtonProps } from '../Button';
+import { Focus } from '../Focus';
 
-import { PaginationItems } from "./PaginationItems"
-import { PaginationNext } from "./PaginationNext"
-import { PaginationPrev } from "./PaginationPrev"
-import type { UsePaginationOpts, UsePaginationReturn } from "./usePagination"
-import { usePagination } from "./usePagination"
+import { PaginationItems } from './PaginationItems';
+import { PaginationNext } from './PaginationNext';
+import { PaginationPrev } from './PaginationPrev';
+import type { UsePaginationOpts, UsePaginationReturn } from './usePagination';
+import { usePagination } from './usePagination';
 
 // ----------------------------------------------------------------------------
 // Context
 // ----------------------------------------------------------------------------
 
-type Context = UsePaginationReturn & PaginationBaseProps
-const ctx = createContext({} as Context)
+type Context = UsePaginationReturn & PaginationBaseProps;
+const ctx = createContext({} as Context);
 export function usePaginationContext() {
-  return useContext(ctx)
+  return useContext(ctx);
 }
 
 // ----------------------------------------------------------------------------
@@ -28,18 +28,18 @@ export function usePaginationContext() {
 // ----------------------------------------------------------------------------
 
 export type PaginationBaseProps = UsePaginationOpts & {
-  autoFocus?: boolean
-  variant?: ButtonProps["variant"]
-  color?: ButtonProps["color"]
-  size?: ButtonProps["size"]
-}
+  autoFocus?: boolean;
+  variant?: ButtonProps['variant'];
+  color?: ButtonProps['color'];
+  size?: ButtonProps['size'];
+};
 
-export type PaginationProps = StackProps & PaginationBaseProps
+export type PaginationProps = StackProps & PaginationBaseProps;
 type ObjProps = {
-  Items: typeof PaginationItems
-  Next: typeof PaginationNext
-  Prev: typeof PaginationPrev
-}
+  Items: typeof PaginationItems;
+  Next: typeof PaginationNext;
+  Prev: typeof PaginationPrev;
+};
 
 /**
  * Pagination component.
@@ -59,9 +59,9 @@ export const Pagination = createComponent<PaginationProps, ObjProps>(
     children,
     className,
     as,
-    variant = "outlined",
+    variant = 'outlined',
     color,
-    size = "sm",
+    size = 'sm',
     pagesCount,
     pagesToDisplay = 6,
     onPageChange,
@@ -69,13 +69,13 @@ export const Pagination = createComponent<PaginationProps, ObjProps>(
     autoFocus,
     ...props
   }) => {
-    const classes = cx("fuel_Pagination", className)
+    const classes = cx('fuel_Pagination', className);
     const pagination = usePagination({
       pagesCount,
       pagesToDisplay,
       onPageChange,
       initialState,
-    })
+    });
     return (
       <ctx.Provider value={{ ...pagination, variant, color, size, autoFocus }}>
         <Focus.ArrowNavigator restoreFocus>
@@ -84,10 +84,10 @@ export const Pagination = createComponent<PaginationProps, ObjProps>(
           </Stack>
         </Focus.ArrowNavigator>
       </ctx.Provider>
-    )
+    );
   },
-)
+);
 
-Pagination.Items = PaginationItems
-Pagination.Next = PaginationNext
-Pagination.Prev = PaginationPrev
+Pagination.Items = PaginationItems;
+Pagination.Next = PaginationNext;
+Pagination.Prev = PaginationPrev;

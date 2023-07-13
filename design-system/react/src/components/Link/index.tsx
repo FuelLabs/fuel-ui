@@ -1,2 +1,2 @@
-export * from "./Link"
-export * from "./defs"
+export * from './Link';
+export * from './defs';

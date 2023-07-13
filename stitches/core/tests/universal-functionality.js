@@ -1,33 +1,33 @@
-import { createStitches } from "../src/index.js"
+import { createStitches } from '../src/index.js';
 
-describe("Configuration", () => {
-  let stitches
+describe('Configuration', () => {
+  let stitches;
 
-  test("createStitches()", () => {
-    const { css, globalCss } = createStitches()
+  test('createStitches()', () => {
+    const { css, globalCss } = createStitches();
 
-    expect(css).toBeInstanceOf(Function)
-    expect(globalCss).toBeInstanceOf(Function)
-  })
+    expect(css).toBeInstanceOf(Function);
+    expect(globalCss).toBeInstanceOf(Function);
+  });
 
-  test("createStitches({})", () => {
-    const { css, globalCss } = createStitches({})
+  test('createStitches({})', () => {
+    const { css, globalCss } = createStitches({});
 
-    expect(css).toBeInstanceOf(Function)
-    expect(globalCss).toBeInstanceOf(Function)
-  })
+    expect(css).toBeInstanceOf(Function);
+    expect(globalCss).toBeInstanceOf(Function);
+  });
 
   test('createStitches({ prefix: "fusion-" })', () => {
-    const { config } = createStitches({ prefix: "fusion-" })
+    const { config } = createStitches({ prefix: 'fusion-' });
 
-    expect(config.prefix).toBe("fusion-")
-  })
+    expect(config.prefix).toBe('fusion-');
+  });
 
-  test("createStitches({ theme })", () => {
-    const themeConfig = { colors: { blue: "dodgerblue" } }
+  test('createStitches({ theme })', () => {
+    const themeConfig = { colors: { blue: 'dodgerblue' } };
 
-    const { config } = createStitches({ theme: themeConfig })
+    const { config } = createStitches({ theme: themeConfig });
 
-    expect(config.theme).toBe(themeConfig)
-  })
-})
+    expect(config.theme).toBe(themeConfig);
+  });
+});

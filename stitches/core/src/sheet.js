@@ -1,4 +1,4 @@
-import { getNonce } from "./utility/getNonce.js"
+import { getNonce } from './utility/getNonce.js';
 
 /**
  * Rules in the sheet appear in this order:
@@ -12,125 +12,125 @@ import { getNonce } from "./utility/getNonce.js"
  */
 /** @type {RuleGroupNames} */
 export const names = [
-  "themed",
-  "global",
-  "styled",
-  "onevar",
-  "resonevar",
-  "allvar",
-  "inline",
-]
+  'themed',
+  'global',
+  'styled',
+  'onevar',
+  'resonevar',
+  'allvar',
+  'inline',
+];
 
 const isSheetAccessible = (/** @type {CSSStyleSheet} */ sheet) => {
   if (sheet.href && !sheet.href.startsWith(location.origin)) {
-    return false
+    return false;
   }
 
   try {
-    return !!sheet.cssRules
+    return !!sheet.cssRules;
   } catch (e) {
-    return false
+    return false;
   }
-}
+};
 
 export const createSheet = (/** @type {DocumentOrShadowRoot} */ root) => {
   /** @type {SheetGroup} Object hosting the hydrated stylesheet. */
-  let groupSheet
+  let groupSheet;
 
   const toString = () => {
-    const { cssRules } = groupSheet.sheet
+    const { cssRules } = groupSheet.sheet;
     return [].map
       .call(cssRules, (cssRule, cssRuleIndex) => {
-        const { cssText } = cssRule
+        const { cssText } = cssRule;
 
-        let lastRuleCssText = ""
+        let lastRuleCssText = '';
 
-        if (cssText.startsWith("--sxs")) return ""
+        if (cssText.startsWith('--sxs')) return '';
 
         if (
           cssRules[cssRuleIndex - 1] &&
           (lastRuleCssText = cssRules[cssRuleIndex - 1].cssText).startsWith(
-            "--sxs",
+            '--sxs',
           )
         ) {
-          if (!cssRule.cssRules.length) return ""
+          if (!cssRule.cssRules.length) return '';
 
           for (const name in groupSheet.rules) {
             if (groupSheet.rules[name].group === cssRule) {
               return `--sxs{--sxs:${[...groupSheet.rules[name].cache].join(
-                " ",
-              )}}${cssText}`
+                ' ',
+              )}}${cssText}`;
             }
           }
 
-          return cssRule.cssRules.length ? `${lastRuleCssText}${cssText}` : ""
+          return cssRule.cssRules.length ? `${lastRuleCssText}${cssText}` : '';
         }
 
-        return cssText
+        return cssText;
       })
-      .join("")
-  }
+      .join('');
+  };
 
   const reset = () => {
     if (groupSheet) {
-      const { rules, sheet } = groupSheet
+      const { rules, sheet } = groupSheet;
 
       if (!sheet.deleteRule) {
         while (Object(Object(sheet.cssRules)[0]).type === 3)
-          sheet.cssRules.splice(0, 1)
+          sheet.cssRules.splice(0, 1);
 
-        sheet.cssRules = []
+        sheet.cssRules = [];
       }
 
       for (const groupName in rules) {
-        delete rules[groupName]
+        delete rules[groupName];
       }
     }
 
     /** @type {StyleSheetList} */
-    const sheets = Object(root).styleSheets || []
+    const sheets = Object(root).styleSheets || [];
 
     // iterate all stylesheets until a hydratable stylesheet is found
     for (const sheet of sheets) {
-      if (!isSheetAccessible(sheet)) continue
+      if (!isSheetAccessible(sheet)) continue;
 
       for (let index = 0, rules = sheet.cssRules; rules[index]; ++index) {
         /** @type {CSSStyleRule} Possible indicator rule. */
-        const check = Object(rules[index])
+        const check = Object(rules[index]);
 
         // a hydratable set of rules will start with a style rule (type: 1), ignore all others
-        if (check.type !== 1) continue
+        if (check.type !== 1) continue;
 
         /** @type {CSSMediaRule} Possible styling group. */
-        const group = Object(rules[index + 1])
+        const group = Object(rules[index + 1]);
 
         // a hydratable set of rules will follow with a media rule (type: 4), ignore all others
-        if (group.type !== 4) continue
+        if (group.type !== 4) continue;
 
-        ++index
+        ++index;
 
-        const { cssText } = check
+        const { cssText } = check;
 
         // a hydratable style rule will have a selector of `--sxs`, ignore all others
-        if (!cssText.startsWith("--sxs")) continue
+        if (!cssText.startsWith('--sxs')) continue;
 
-        const cache = cssText.slice(14, -3).trim().split(/\s+/)
+        const cache = cssText.slice(14, -3).trim().split(/\s+/);
 
         /** @type {GroupName} Name of the group. */
-        const groupName = names[cache[0]]
+        const groupName = names[cache[0]];
 
         // a hydratable style rule will have a parsable group, ignore all others
-        if (!groupName) continue
+        if (!groupName) continue;
 
         // create a group sheet if one does not already exist
-        if (!groupSheet) groupSheet = { sheet, reset, rules: {}, toString }
+        if (!groupSheet) groupSheet = { sheet, reset, rules: {}, toString };
 
         // add the group to the group sheet
-        groupSheet.rules[groupName] = { group, index, cache: new Set(cache) }
+        groupSheet.rules[groupName] = { group, index, cache: new Set(cache) };
       }
 
       // if a hydratable stylesheet is found, stop looking
-      if (groupSheet) break
+      if (groupSheet) break;
     }
 
     // if no hydratable stylesheet is found
@@ -153,85 +153,85 @@ export const createSheet = (/** @type {DocumentOrShadowRoot} */ root) => {
                   undefined: 1,
                 }[(cssText.toLowerCase().match(/^@([a-z]+)/) || [])[1]] || 4,
               ),
-            )
+            );
           },
           get cssText() {
-            return sourceCssText === "@media{}"
+            return sourceCssText === '@media{}'
               ? `@media{${[].map
                   .call(this.cssRules, (cssRule) => cssRule.cssText)
-                  .join("")}}`
-              : sourceCssText
+                  .join('')}}`
+              : sourceCssText;
           },
-        })
-      }
+        });
+      };
 
       const createSheet = () => {
         if (!root) {
-          return createCSSMediaRule("", "text/css")
+          return createCSSMediaRule('', 'text/css');
         }
-        const styleEl = document.createElement("style")
-        const nonce = getNonce()
+        const styleEl = document.createElement('style');
+        const nonce = getNonce();
         if (nonce) {
-          styleEl.setAttribute("nonce", nonce)
+          styleEl.setAttribute('nonce', nonce);
         }
-        return (root.head || root).appendChild(styleEl).sheet
-      }
+        return (root.head || root).appendChild(styleEl).sheet;
+      };
 
       groupSheet = {
         sheet: createSheet(),
         rules: {},
         reset,
         toString,
-      }
+      };
     }
 
-    const { sheet, rules } = groupSheet
+    const { sheet, rules } = groupSheet;
     for (let i = names.length - 1; i >= 0; --i) {
       // name of group on current index
-      const name = names[i]
+      const name = names[i];
       if (!rules[name]) {
         // name of prev group
-        const prevName = names[i + 1]
+        const prevName = names[i + 1];
         // get the index of that prev group or else get the length of the whole sheet
         const index = rules[prevName]
           ? rules[prevName].index
-          : sheet.cssRules.length
+          : sheet.cssRules.length;
         // insert the grouping & the sxs rule
-        sheet.insertRule("@media{}", index)
-        sheet.insertRule(`--sxs{--sxs:${i}}`, index)
+        sheet.insertRule('@media{}', index);
+        sheet.insertRule(`--sxs{--sxs:${i}}`, index);
         // add the group to the group sheet
         rules[name] = {
           group: sheet.cssRules[index + 1],
           index,
           cache: new Set([i]),
-        }
+        };
       }
-      addApplyToGroup(rules[name])
+      addApplyToGroup(rules[name]);
     }
-  }
+  };
 
-  reset()
+  reset();
 
-  return groupSheet
-}
+  return groupSheet;
+};
 
 const addApplyToGroup = (/** @type {RuleGroup} */ group) => {
-  const groupingRule = group.group
+  const groupingRule = group.group;
 
-  let index = groupingRule.cssRules.length
+  let index = groupingRule.cssRules.length;
 
   group.apply = (cssText) => {
     try {
-      groupingRule.insertRule(cssText, index)
+      groupingRule.insertRule(cssText, index);
 
-      ++index
+      ++index;
     } catch (__) {
       // do nothing and continue
     }
-  }
-}
+  };
+};
 /** Pending rules for injection */
-const $pr = Symbol()
+const $pr = Symbol();
 
 /**
  * When a stitches component is extending some other random react component,
@@ -242,22 +242,22 @@ export const createRulesInjectionDeferrer = (globalSheet) => {
   // the injection deferrer
   function injector() {
     for (let i = 0; i < injector[$pr].length; i++) {
-      const [sheet, cssString] = injector[$pr][i]
-      globalSheet.rules[sheet].apply(cssString)
+      const [sheet, cssString] = injector[$pr][i];
+      globalSheet.rules[sheet].apply(cssString);
     }
-    injector[$pr] = []
-    return null
+    injector[$pr] = [];
+    return null;
   }
   // private prop to store pending rules
-  injector[$pr] = []
+  injector[$pr] = [];
   // mocking the rules.apply api used on the sheet
-  injector.rules = {}
+  injector.rules = {};
   // creating the apply methods under rules[something]
   names.forEach(
     (sheetName) =>
       (injector.rules[sheetName] = {
         apply: (rule) => injector[$pr].push([sheetName, rule]),
       }),
-  )
-  return injector
-}
+  );
+  return injector;
+};

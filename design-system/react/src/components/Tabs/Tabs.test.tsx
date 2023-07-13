@@ -1,9 +1,9 @@
-import { testA11y } from "@fuels/jest"
+import { testA11y } from '@fuels/jest';
 
-import { Tabs } from "./Tabs"
+import { Tabs } from './Tabs';
 
-describe("Tabs", () => {
-  it("a11y", async () => {
+describe('Tabs', () => {
+  it('a11y', async () => {
     await testA11y(
       <Tabs defaultValue="account">
         <Tabs.List aria-label="Manage your account">
@@ -17,6 +17,6 @@ describe("Tabs", () => {
           <div>Password</div>
         </Tabs.Content>
       </Tabs>,
-    )
-  })
-})
+    );
+  });
+});

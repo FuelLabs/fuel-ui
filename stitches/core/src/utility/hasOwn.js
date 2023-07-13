@@ -1,3 +1,3 @@
-const { hasOwnProperty } = Object.prototype
+const { hasOwnProperty } = Object.prototype;
 
-export const hasOwn = (target, key) => hasOwnProperty.call(target, key)
+export const hasOwn = (target, key) => hasOwnProperty.call(target, key);

@@ -1,11 +1,11 @@
-import { act, render, screen, testA11y } from "@fuels/jest"
+import { act, render, screen, testA11y } from '@fuels/jest';
 
-import { Button } from "../Button"
+import { Button } from '../Button';
 
-import type { DialogProps } from "./Dialog"
-import { Dialog } from "./Dialog"
+import type { DialogProps } from './Dialog';
+import { Dialog } from './Dialog';
 
-function Content(props: Omit<DialogProps, "children">) {
+function Content(props: Omit<DialogProps, 'children'>) {
   return (
     <Dialog {...props}>
       <Dialog.Trigger>
@@ -23,31 +23,31 @@ function Content(props: Omit<DialogProps, "children">) {
         </Dialog.Footer>
       </Dialog.Content>
     </Dialog>
-  )
+  );
 }
 
-describe("Dialog", () => {
-  it("a11y", async () => {
-    await testA11y(<Content />)
-  })
+describe('Dialog', () => {
+  it('a11y', async () => {
+    await testA11y(<Content />);
+  });
 
-  it("should open and close dialog correctly", async () => {
-    const onOpen = jest.fn()
-    const { user } = render(<Content onOpenChange={onOpen} />)
+  it('should open and close dialog correctly', async () => {
+    const onOpen = jest.fn();
+    const { user } = render(<Content onOpenChange={onOpen} />);
 
-    const trigger = screen.getByText("Open")
-    expect(() => screen.getByText("Dialog Title")).toThrow()
+    const trigger = screen.getByText('Open');
+    expect(() => screen.getByText('Dialog Title')).toThrow();
 
-    await act(() => user.click(trigger))
-    expect(await screen.findByText("Dialog Title")).toBeInTheDocument()
-    expect(onOpen).toBeCalledTimes(1)
+    await act(() => user.click(trigger));
+    expect(await screen.findByText('Dialog Title')).toBeInTheDocument();
+    expect(onOpen).toBeCalledTimes(1);
 
-    await user.press("Esc")
-    expect(() => screen.getByText("Dialog Title")).toThrow()
-  })
+    await user.press('Esc');
+    expect(() => screen.getByText('Dialog Title')).toThrow();
+  });
 
-  it("should open by default without trigger", async () => {
-    render(<Content isOpen />)
-    expect(await screen.findByText("Dialog Title")).toBeInTheDocument()
-  })
-})
+  it('should open by default without trigger', async () => {
+    render(<Content isOpen />);
+    expect(await screen.findByText('Dialog Title')).toBeInTheDocument();
+  });
+});

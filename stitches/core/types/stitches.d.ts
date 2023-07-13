@@ -1,7 +1,7 @@
-import type * as CSSUtil from "./css-util.js"
-import type * as StyledComponent from "./styled-component.js"
-import type * as ThemeUtil from "./theme.js"
-import type * as Util from "./util.js"
+import type * as CSSUtil from './css-util.js';
+import type * as StyledComponent from './styled-component.js';
+import type * as ThemeUtil from './theme.js';
+import type * as Util from './util.js';
 
 /** Remove an index signature from a type */
 export type RemoveIndex<T> = {
@@ -9,8 +9,8 @@ export type RemoveIndex<T> = {
     ? never
     : number extends k
     ? never
-    : k]: T[k]
-}
+    : k]: T[k];
+};
 
 export interface CssFunctionType<
   Media extends {} = {},
@@ -23,7 +23,7 @@ export interface CssFunctionType<
       | string
       | Util.Function
       | {
-          [name: string]: unknown
+          [name: string]: unknown;
         }
     )[],
     CSS = CSSUtil.CSS<Media, Theme, ThemeMap, Utils>,
@@ -40,68 +40,68 @@ export interface CssFunctionType<
              */
             variants?: {
               [Name in string]: {
-                [Pair in number | string]: CSS
-              }
-            }
+                [Pair in number | string]: CSS;
+              };
+            };
             /** The **compoundVariants** property lets you to set a subclass of styles based on a combination of active variants.
              *
              * [Read Documentation](https://stitches.dev/docs/variants#compound-variants)
              */
-            compoundVariants?: (("variants" extends keyof Composers[K]
+            compoundVariants?: (('variants' extends keyof Composers[K]
               ? {
-                  [Name in keyof Composers[K]["variants"]]?:
-                    | Util.Widen<keyof Composers[K]["variants"][Name]>
-                    | Util.String
+                  [Name in keyof Composers[K]['variants']]?:
+                    | Util.Widen<keyof Composers[K]['variants'][Name]>
+                    | Util.String;
                 }
               : Util.WideObject) & {
-              css: CSS
-            })[]
+              css: CSS;
+            })[];
             /** The **defaultVariants** property allows you to predefine the active key-value pairs of variants.
              *
              * [Read Documentation](https://stitches.dev/docs/variants#default-variants)
              */
-            defaultVariants?: "variants" extends keyof Composers[K]
+            defaultVariants?: 'variants' extends keyof Composers[K]
               ? {
-                  [Name in keyof Composers[K]["variants"]]?:
-                    | Util.Widen<keyof Composers[K]["variants"][Name]>
-                    | Util.String
+                  [Name in keyof Composers[K]['variants']]?:
+                    | Util.Widen<keyof Composers[K]['variants'][Name]>
+                    | Util.String;
                 }
-              : Util.WideObject
+              : Util.WideObject;
           } & CSS & {
               [K2 in keyof Composers[K]]: K2 extends
-                | "compoundVariants"
-                | "defaultVariants"
-                | "variants"
+                | 'compoundVariants'
+                | 'defaultVariants'
+                | 'variants'
                 ? unknown
                 : K2 extends keyof CSS
                 ? CSS[K2]
-                : unknown
-            }
+                : unknown;
+            };
     }
   ): StyledComponent.CssComponent<
     StyledComponent.StyledComponentType<Composers>,
     StyledComponent.StyledComponentProps<Composers>,
     Media,
     CSS
-  >
+  >;
 }
 
 /** Stitches interface. */
 export default interface Stitches<
-  Prefix extends string = "",
+  Prefix extends string = '',
   Media extends {} = {},
   Theme extends {} = {},
   ThemeMap extends {} = {},
   Utils extends {} = {},
 > {
   config: {
-    prefix: Prefix
-    media: Media
-    theme: Theme
-    themeMap: ThemeMap
-    utils: Utils
-  }
-  prefix: Prefix
+    prefix: Prefix;
+    media: Media;
+    theme: Theme;
+    themeMap: ThemeMap;
+    utils: Utils;
+  };
+  prefix: Prefix;
   /** The **prefix** property defined.
    *
    * [Read Documentation](https://stitches.dev/docs/variants)
@@ -110,72 +110,72 @@ export default interface Stitches<
     <Styles extends { [K: string]: any }>(
       ...styles: ({
         /** The **@import** CSS at-rule imports style rules from other style sheets. */
-        "@import"?: unknown
+        '@import'?: unknown;
 
         /** The **@font-face** CSS at-rule specifies a custom font with which to display text. */
-        "@font-face"?: unknown
+        '@font-face'?: unknown;
       } & {
-        [K in keyof Styles]: K extends "@import"
+        [K in keyof Styles]: K extends '@import'
           ? string | string[]
-          : K extends "@font-face"
+          : K extends '@font-face'
           ?
               | CSSUtil.Native.AtRule.FontFace
               | Array<CSSUtil.Native.AtRule.FontFace>
           : K extends `@keyframes ${string}`
           ? {
-              [KeyFrame in string]: CSSUtil.CSS<Media, Theme, ThemeMap, Utils>
+              [KeyFrame in string]: CSSUtil.CSS<Media, Theme, ThemeMap, Utils>;
             }
           : K extends `@property ${string}`
           ? CSSUtil.Native.AtRule.Property
-          : CSSUtil.CSS<Media, Theme, ThemeMap, Utils>
+          : CSSUtil.CSS<Media, Theme, ThemeMap, Utils>;
       })[]
     ): {
-      (): string
-    }
-  }
+      (): string;
+    };
+  };
   keyframes: {
     (style: { [offset: string]: CSSUtil.CSS<Media, Theme, ThemeMap, Utils> }): {
-      (): string
-      name: string
-    }
-  }
+      (): string;
+      name: string;
+    };
+  };
   createTheme: {
     <
       Argument0 extends
         | string
         | ({
             [Scale in keyof Theme]?: {
-              [Token in keyof Theme[Scale]]?: boolean | number | string
-            }
+              [Token in keyof Theme[Scale]]?: boolean | number | string;
+            };
           } & {
             [scale in string]: {
-              [token in number | string]: boolean | number | string
-            }
+              [token in number | string]: boolean | number | string;
+            };
           }),
       Argument1 extends
         | string
         | ({
             [Scale in keyof Theme]?: {
-              [Token in keyof Theme[Scale]]?: boolean | number | string
-            }
+              [Token in keyof Theme[Scale]]?: boolean | number | string;
+            };
           } & {
             [scale in string]: {
-              [token in number | string]: boolean | number | string
-            }
+              [token in number | string]: boolean | number | string;
+            };
           }),
     >(
       nameOrScalesArg0: Argument0,
       nameOrScalesArg1?: Argument1,
     ): string & {
-      className: string
-      selector: string
+      className: string;
+      selector: string;
     } & (Argument0 extends string
         ? ThemeTokens<Argument1, Prefix>
-        : ThemeTokens<Argument0, Prefix>)
-  }
+        : ThemeTokens<Argument0, Prefix>);
+  };
   theme: string & {
-    className: string
-    selector: string
+    className: string;
+    selector: string;
   } & {
     [Scale in keyof Theme]: {
       [Token in keyof Theme[Scale]]: ThemeUtil.Token<
@@ -183,24 +183,24 @@ export default interface Stitches<
         string,
         Extract<Scale, string | void>,
         Extract<Prefix, string | void>
-      >
-    }
-  }
+      >;
+    };
+  };
   reset: {
-    (): void
-  }
+    (): void;
+  };
   getCssText: {
-    (): string
-  }
+    (): string;
+  };
   css: {
     withConfig: (config: {
-      componentId?: string
-      displayName?: string
+      componentId?: string;
+      displayName?: string;
       shouldForwardStitchesProp?: (
-        prop: "css" | (string & {}),
-      ) => boolean | void
-    }) => CssFunctionType<Media, Theme, ThemeMap, Utils>
-  } & CssFunctionType<Media, Theme, ThemeMap, Utils>
+        prop: 'css' | (string & {}),
+      ) => boolean | void;
+    }) => CssFunctionType<Media, Theme, ThemeMap, Utils>;
+  } & CssFunctionType<Media, Theme, ThemeMap, Utils>;
 }
 
 type ThemeTokens<Values, Prefix> = {
@@ -210,6 +210,6 @@ type ThemeTokens<Values, Prefix> = {
       Values[Scale][Token] & (string | number),
       Extract<Scale, string | void>,
       Extract<Prefix, string | void>
-    >
-  }
-}
+    >;
+  };
+};

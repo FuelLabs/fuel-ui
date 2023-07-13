@@ -1,31 +1,31 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { allColors, utils } from "@fuel-ui/css"
-import { createElement } from "react"
-import { Components } from "~/defs"
-import { createStyle, useElementProps, useStyles } from "~/hooks"
+import { allColors, utils } from '@fuel-ui/css';
+import { createElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
   createPolymorphicComponent,
-} from "../../utils"
-import { createIcon } from "../Button"
+} from '../../utils';
+import { createIcon } from '../Button';
 
-import type * as t from "./defs"
+import type * as t from './defs';
 
-function getIconSize(as: t.HeadingProps["as"], iconSize?: number) {
-  if (iconSize) return iconSize
-  if (as === "h1" || as === "h2") return 22
-  if (as === "h5" || as === "h6") return 16
-  return 18
+function getIconSize(as: t.HeadingProps['as'], iconSize?: number) {
+  if (iconSize) return iconSize;
+  if (as === 'h1' || as === 'h2') return 22;
+  if (as === 'h5' || as === 'h6') return 16;
+  return 18;
 }
 
 const _Heading = _unstable_createComponent<t.HeadingDef>(
   Components.Heading,
   ({
-    as = "h2",
+    as = 'h2',
     fontSize,
-    color = "textHeading",
-    iconColor = "textIcon",
+    color = 'textHeading',
+    iconColor = 'textIcon',
     iconSize: initialIconSize,
     leftIcon,
     rightIcon,
@@ -35,20 +35,20 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
     css,
     ...props
   }) => {
-    const iconSize = getIconSize(as, initialIconSize)
+    const iconSize = getIconSize(as, initialIconSize);
     const iconLeft = createIcon(
       leftIcon,
       leftIconAriaLabel,
       iconSize,
       iconColor,
-    )
+    );
     const iconRight = createIcon(
       rightIcon,
       rightIconAriaLabel,
       iconSize,
       iconColor,
-    )
-    const withIcon = Boolean(leftIcon || rightIcon)
+    );
+    const withIcon = Boolean(leftIcon || rightIcon);
     const classes = useStyles(styles, {
       ...props,
       fontSize,
@@ -58,11 +58,11 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
         color: `$${color}`,
         ...css,
       },
-    } as any)
+    } as any);
 
     const elementProps = useElementProps(props, classes.root, {
-      role: "heading",
-    })
+      role: 'heading',
+    });
 
     return createElement(
       as,
@@ -70,20 +70,20 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
       <>
         {iconLeft} {children} {iconRight}
       </>,
-    )
+    );
   },
-)
+);
 
-export const Heading = createPolymorphicComponent<t.HeadingDef>(_Heading)
+export const Heading = createPolymorphicComponent<t.HeadingDef>(_Heading);
 
 const styles = createStyle(Components.Heading, {
   root: {
-    mt: "0.5rem",
-    mb: "1.25rem",
-    letterSpacing: "-0.02em",
-    color: "$intentsBase12",
-    fontFamily: "$heading",
-    fontWeight: "$normal",
+    mt: '0.5rem',
+    mb: '1.25rem',
+    letterSpacing: '-0.02em',
+    color: '$intentsBase12',
+    fontFamily: '$heading',
+    fontWeight: '$normal',
 
     variants: {
       // FIX: adjust type type
@@ -98,35 +98,35 @@ const styles = createStyle(Components.Heading, {
       ),
       as: {
         h1: {
-          textSize: "4xl",
+          textSize: '4xl',
         },
         h2: {
-          textSize: "3xl",
+          textSize: '3xl',
         },
         h3: {
-          textSize: "2xl",
+          textSize: '2xl',
         },
         h4: {
-          textSize: "xl",
+          textSize: 'xl',
         },
         h5: {
-          textSize: "lg",
+          textSize: 'lg',
         },
         h6: {
-          textSize: "base",
+          textSize: 'base',
         },
       },
       withIcon: {
         true: {
-          display: "inline-flex",
-          gap: "$2",
+          display: 'inline-flex',
+          gap: '$2',
         },
       },
     },
 
     defaultVariants: {
-      fontSize: "md",
-      fontColor: "fontColor",
+      fontSize: 'md',
+      fontColor: 'fontColor',
     },
   },
-})
+});

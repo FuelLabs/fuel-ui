@@ -1,36 +1,36 @@
-import { cx } from "@fuel-ui/css"
-import { mergeRefs } from "@react-aria/utils"
-import { useRef } from "react"
-import { mergeProps, useFocusable } from "react-aria"
+import { cx } from '@fuel-ui/css';
+import { mergeRefs } from '@react-aria/utils';
+import { useRef } from 'react';
+import { mergeProps, useFocusable } from 'react-aria';
 
-import { createComponent, useCreateStyledElement } from "../../utils"
-import type { HTMLProps } from "../../utils"
+import { createComponent, useCreateStyledElement } from '../../utils';
+import type { HTMLProps } from '../../utils';
 
-import { useInputProps } from "./Input"
-import * as styles from "./styles"
+import { useInputProps } from './Input';
+import * as styles from './styles';
 
-type HTMLInputProps = HTMLProps["input"]
-type OmitProps = "as" | "children"
-export type InputFieldProps = Omit<HTMLInputProps, "size"> & {
-  htmlSize?: HTMLInputProps["size"]
-}
+type HTMLInputProps = HTMLProps['input'];
+type OmitProps = 'as' | 'children';
+export type InputFieldProps = Omit<HTMLInputProps, 'size'> & {
+  htmlSize?: HTMLInputProps['size'];
+};
 
 type ObjProps = {
-  id: string
-}
+  id: string;
+};
 
 export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
-  ({ name: nameProp, htmlSize, role = "textbox", className, ...props }) => {
-    const parentProps = useInputProps()
-    const isRequired = parentProps?.isRequired
-    const isDisabled = parentProps?.isDisabled
-    const isReadOnly = parentProps?.isReadOnly
-    const isInvalid = parentProps?.isInvalid
-    const describedBy = parentProps?.describedBy
+  ({ name: nameProp, htmlSize, role = 'textbox', className, ...props }) => {
+    const parentProps = useInputProps();
+    const isRequired = parentProps?.isRequired;
+    const isDisabled = parentProps?.isDisabled;
+    const isReadOnly = parentProps?.isReadOnly;
+    const isInvalid = parentProps?.isInvalid;
+    const describedBy = parentProps?.describedBy;
 
-    const name = `${nameProp}`
-    const disabled = isDisabled || isReadOnly
-    const classes = cx("fuel_InputField", className)
+    const name = `${nameProp}`;
+    const disabled = isDisabled || isReadOnly;
+    const classes = cx('fuel_InputField', className);
 
     const inputProps = {
       ...props,
@@ -40,25 +40,25 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
       role,
       size: htmlSize,
       required: isRequired,
-      "aria-describedby": describedBy,
-      "aria-required": isRequired,
-      "aria-invalid": isInvalid,
-      "aria-disabled": isDisabled,
-      "aria-readonly": isReadOnly,
-      "aria-placeholder": props.placeholder,
-    }
+      'aria-describedby': describedBy,
+      'aria-required': isRequired,
+      'aria-invalid': isInvalid,
+      'aria-disabled': isDisabled,
+      'aria-readonly': isReadOnly,
+      'aria-placeholder': props.placeholder,
+    };
 
-    const ref = useRef<HTMLInputElement | null>(null)
+    const ref = useRef<HTMLInputElement | null>(null);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { focusableProps } = useFocusable(props as any, ref)
-    const customProps = mergeProps(inputProps, focusableProps)
+    const { focusableProps } = useFocusable(props as any, ref);
+    const customProps = mergeProps(inputProps, focusableProps);
 
-    return useCreateStyledElement("input", styles.field, null, {
+    return useCreateStyledElement('input', styles.field, null, {
       ...customProps,
       className: classes,
       ref: mergeRefs(ref, props.ref!),
-    })
+    });
   },
-)
+);
 
-InputField.id = "InputField"
+InputField.id = 'InputField';

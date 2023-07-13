@@ -1,61 +1,61 @@
-import { createStitches } from "../src/index.js"
+import { createStitches } from '../src/index.js';
 
-describe("Numeric Values", () => {
-  test("Authors can use numeric values to assign px values", () => {
-    const { globalCss, toString } = createStitches()
+describe('Numeric Values', () => {
+  test('Authors can use numeric values to assign px values', () => {
+    const { globalCss, toString } = createStitches();
 
-    expect(toString()).toBe("")
+    expect(toString()).toBe('');
 
     globalCss({
       body: {
         margin: 0,
       },
-    })()
+    })();
 
-    expect(toString()).toBe(`--sxs{--sxs:1 cSHHDh}@media{body{margin:0}}`)
+    expect(toString()).toBe(`--sxs{--sxs:1 cSHHDh}@media{body{margin:0}}`);
 
     globalCss({
       body: {
         margin: 10,
       },
-    })()
+    })();
 
     expect(toString()).toBe(
       `--sxs{--sxs:1 cSHHDh fFIrKk}@media{body{margin:0}body{margin:10px}}`,
-    )
-  })
+    );
+  });
 
-  test("Authors can use numeric values to assign numeric values", () => {
-    const { globalCss, toString } = createStitches()
+  test('Authors can use numeric values to assign numeric values', () => {
+    const { globalCss, toString } = createStitches();
 
-    expect(toString()).toBe("")
+    expect(toString()).toBe('');
 
     globalCss({
       body: {
         lineHeight: 0,
         width: 0,
       },
-    })()
+    })();
 
     expect(toString()).toBe(
       `--sxs{--sxs:1 bpctHq}@media{body{line-height:0;width:0}}`,
-    )
+    );
 
     globalCss({
       body: {
         lineHeight: 10,
         width: 10,
       },
-    })()
+    })();
 
     expect(toString()).toBe(
       `--sxs{--sxs:1 bpctHq cudWGu}@media{body{line-height:0;width:0}body{line-height:10;width:10px}}`,
-    )
-  })
+    );
+  });
 
-  test("Authors can use unit-less properties as known to React", () => {
+  test('Authors can use unit-less properties as known to React', () => {
     for (let i = 0; i <= 33; i += 11) {
-      const { globalCss, getCssText } = createStitches()
+      const { globalCss, getCssText } = createStitches();
 
       globalCss({
         div: {
@@ -90,134 +90,134 @@ describe("Numeric Values", () => {
           zIndex: i,
           zoom: i,
         },
-      })()
+      })();
 
-      const cssText = getCssText().replace(/^.+@media\{|\}$/g, "")
+      const cssText = getCssText().replace(/^.+@media\{|\}$/g, '');
 
       expect(cssText).toBe(
-        "div" +
-          "{" +
-          "animation-iteration-count:" +
+        'div' +
+          '{' +
+          'animation-iteration-count:' +
           i +
-          ";" +
-          "border-image-outset:" +
+          ';' +
+          'border-image-outset:' +
           i +
-          ";" +
-          "border-image-slice:" +
+          ';' +
+          'border-image-slice:' +
           i +
-          ";" +
-          "border-image-width:" +
+          ';' +
+          'border-image-width:' +
           i +
-          ";" +
-          "box-flex:" +
+          ';' +
+          'box-flex:' +
           i +
-          ";" +
-          "box-flex-group:" +
+          ';' +
+          'box-flex-group:' +
           i +
-          ";" +
-          "box-ordinal-group:" +
+          ';' +
+          'box-ordinal-group:' +
           i +
-          ";" +
-          "column-count:" +
+          ';' +
+          'column-count:' +
           i +
-          ";" +
-          "columns:" +
+          ';' +
+          'columns:' +
           i +
-          ";" +
-          "flex:" +
+          ';' +
+          'flex:' +
           i +
-          ";" +
-          "flex-grow:" +
+          ';' +
+          'flex-grow:' +
           i +
-          ";" +
-          "flex-shrink:" +
+          ';' +
+          'flex-shrink:' +
           i +
-          ";" +
-          "flex-order:" +
+          ';' +
+          'flex-order:' +
           i +
-          ";" +
-          "grid-row:" +
+          ';' +
+          'grid-row:' +
           i +
-          ";" +
-          "grid-row-end:" +
+          ';' +
+          'grid-row-end:' +
           i +
-          ";" +
-          "grid-row-span:" +
+          ';' +
+          'grid-row-span:' +
           i +
-          ";" +
-          "grid-row-start:" +
+          ';' +
+          'grid-row-start:' +
           i +
-          ";" +
-          "grid-column:" +
+          ';' +
+          'grid-column:' +
           i +
-          ";" +
-          "grid-column-end:" +
+          ';' +
+          'grid-column-end:' +
           i +
-          ";" +
-          "grid-column-span:" +
+          ';' +
+          'grid-column-span:' +
           i +
-          ";" +
-          "grid-column-start:" +
+          ';' +
+          'grid-column-start:' +
           i +
-          ";" +
-          "font-weight:" +
+          ';' +
+          'font-weight:' +
           i +
-          ";" +
-          "line-height:" +
+          ';' +
+          'line-height:' +
           i +
-          ";" +
-          "opacity:" +
+          ';' +
+          'opacity:' +
           i +
-          ";" +
-          "order:" +
+          ';' +
+          'order:' +
           i +
-          ";" +
-          "orphans:" +
+          ';' +
+          'orphans:' +
           i +
-          ";" +
-          "tab-size:" +
+          ';' +
+          'tab-size:' +
           i +
-          ";" +
-          "widows:" +
+          ';' +
+          'widows:' +
           i +
-          ";" +
-          "z-index:" +
+          ';' +
+          'z-index:' +
           i +
-          ";" +
-          "zoom:" +
+          ';' +
+          'zoom:' +
           i +
-          "}",
-      )
+          '}',
+      );
     }
-  })
+  });
 
   const commonProps =
-    "fontSize margin marginTop marginRight marginBottom marginLeft padding paddingTop paddingRight paddingBottom paddingLeft".split(
-      " ",
-    )
+    'fontSize margin marginTop marginRight marginBottom marginLeft padding paddingTop paddingRight paddingBottom paddingLeft'.split(
+      ' ',
+    );
 
   for (const prop of commonProps) {
     const kebabProp = prop.replace(
       /[A-Z]/g,
-      (letter) => "-" + letter.toLowerCase(),
-    )
+      (letter) => '-' + letter.toLowerCase(),
+    );
 
     test(`Author can use the unit-only ${kebabProp} property`, () => {
       for (let i = 0; i <= 33; i += 11) {
-        const { globalCss, getCssText } = createStitches()
+        const { globalCss, getCssText } = createStitches();
 
         globalCss({
           div: {
             [prop]: i,
           },
-        })()
+        })();
 
-        const cssText = getCssText().replace(/^.+@media\{|\}$/g, "")
+        const cssText = getCssText().replace(/^.+@media\{|\}$/g, '');
 
         expect(cssText).toBe(
-          `div{` + kebabProp + `:` + i + (i ? "px" : "") + `}`,
-        )
+          `div{` + kebabProp + `:` + i + (i ? 'px' : '') + `}`,
+        );
       }
-    })
+    });
   }
-})
+});

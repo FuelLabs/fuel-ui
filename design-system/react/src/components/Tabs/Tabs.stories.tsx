@@ -1,26 +1,26 @@
-import { Text } from ".."
-import { Box } from "../Box"
-import { Stack } from "../Box/Stack"
-import { Button } from "../Button"
-import { Card } from "../Card"
-import { Form } from "../Form"
-import { Icon } from "../Icon"
-import { Input } from "../Input"
+import { Text } from '..';
+import { Box } from '../Box';
+import { Stack } from '../Box/Stack';
+import { Button } from '../Button';
+import { Card } from '../Card';
+import { Form } from '../Form';
+import { Icon } from '../Icon';
+import { Input } from '../Input';
 
-import type { TabsProps } from "./Tabs"
-import { Tabs } from "./Tabs"
+import type { TabsProps } from './Tabs';
+import { Tabs } from './Tabs';
 
 export default {
   component: Tabs,
-  title: "UI/Tabs",
+  title: 'UI/Tabs',
   argTypes: {},
-}
+};
 
 function Account() {
   return (
     <Card>
       <Card.Body>
-        <Text css={{ mt: "$0", mb: "$4" }}>
+        <Text css={{ mt: '$0', mb: '$4' }}>
           Make changes to your account here. Click save when you&apos;re done.
         </Text>
         <Stack gap="$4">
@@ -56,14 +56,14 @@ function Account() {
         </Button>
       </Card.Footer>
     </Card>
-  )
+  );
 }
 
 function Password() {
   return (
     <Card>
       <Card.Body>
-        <Text css={{ mt: "$0", mb: "$4" }}>
+        <Text css={{ mt: '$0', mb: '$4' }}>
           Change your password here. After saving, you&apos;ll be logged out.
         </Text>
         <Stack gap="$4">
@@ -99,11 +99,11 @@ function Password() {
         </Button>
       </Card.Footer>
     </Card>
-  )
+  );
 }
 
 export const Usage = (args: TabsProps) => (
-  <Box css={{ maxW: "400px" }}>
+  <Box css={{ maxW: '400px' }}>
     <Tabs {...args} defaultValue="account">
       <Tabs.List aria-label="Manage your account">
         <Tabs.Trigger value="account">Account</Tabs.Trigger>
@@ -117,10 +117,10 @@ export const Usage = (args: TabsProps) => (
       </Tabs.Content>
     </Tabs>
   </Box>
-)
+);
 
 export const Subtle = (args: TabsProps) => (
-  <Box css={{ maxW: "400px" }}>
+  <Box css={{ maxW: '400px' }}>
     <Tabs {...args} defaultValue="account" variant="subtle">
       <Tabs.List aria-label="Manage your account">
         <Tabs.Trigger value="account">Account</Tabs.Trigger>
@@ -134,4 +134,4 @@ export const Subtle = (args: TabsProps) => (
       </Tabs.Content>
     </Tabs>
   </Box>
-)
+);

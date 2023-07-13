@@ -1,24 +1,24 @@
 /// <reference types="@storybook/types" />
 
-import type { StoryFn } from "@storybook/react"
+import type { StoryFn } from '@storybook/react';
 
-import { Stack } from "../Box/Stack"
-import { Text } from "../Text"
+import { Stack } from '../Box/Stack';
+import { Text } from '../Text';
 
-import { Pagination } from "./Pagination"
+import { Pagination } from './Pagination';
 
 export default {
   component: Pagination,
-  title: "UI/Pagination",
+  title: 'UI/Pagination',
   argTypes: {
     variant: {
       control: {
-        type: "select",
-        options: ["solid", "outlined", "ghost", "link"],
+        type: 'select',
+        options: ['solid', 'outlined', 'ghost', 'link'],
       },
     },
   },
-}
+};
 
 const Template: StoryFn<typeof Pagination> = (args) => (
   <Stack>
@@ -27,34 +27,34 @@ const Template: StoryFn<typeof Pagination> = (args) => (
       <Pagination.Items />
       <Pagination.Next />
     </Pagination>
-    <Text css={{ color: "$textMuted" }}>
+    <Text css={{ color: '$textMuted' }}>
       Use <code>←</code> and <code>→</code> to focus navigation
     </Text>
   </Stack>
-)
+);
 
-export const Usage = Template.bind({})
+export const Usage = Template.bind({});
 Usage.args = {
   pagesCount: 10,
-}
+};
 
-export const WithAutofocus = Template.bind({})
+export const WithAutofocus = Template.bind({});
 WithAutofocus.args = {
   pagesCount: 10,
   autoFocus: true,
-}
+};
 
-export const PagesToDisplay = Template.bind({})
+export const PagesToDisplay = Template.bind({});
 PagesToDisplay.args = {
   pagesCount: 28,
   pagesToDisplay: 15,
-}
+};
 
-export const InitialState = Template.bind({})
+export const InitialState = Template.bind({});
 InitialState.args = {
   pagesCount: 28,
   pagesToDisplay: 8,
   initialState: {
     currentPage: 14,
   },
-}
+};

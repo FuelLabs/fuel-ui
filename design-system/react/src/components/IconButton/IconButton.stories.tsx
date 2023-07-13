@@ -1,13 +1,13 @@
-import { Box } from "../Box"
-import { Stack } from "../Box/Stack"
+import { Box } from '../Box';
+import { Stack } from '../Box/Stack';
 
-import type { IconButtonProps } from "./IconButton"
-import { IconButton } from "./IconButton"
+import type { IconButtonProps } from './IconButton';
+import { IconButton } from './IconButton';
 
 export default {
   component: IconButton,
-  title: "UI/IconButton",
-}
+  title: 'UI/IconButton',
+};
 
 export const Usage = (args: IconButtonProps) => (
   <Stack direction="row">
@@ -15,10 +15,10 @@ export const Usage = (args: IconButtonProps) => (
     <IconButton {...args} size="sm" aria-label="Button" icon="Calendar" />
     <IconButton {...args} size="md" aria-label="Button" icon="Calendar" />
   </Stack>
-)
+);
 
 export const WithTooltip = (args: IconButtonProps) => (
-  <Box css={{ display: "flex", gap: "$2" }}>
+  <Box css={{ display: 'flex', gap: '$2' }}>
     <IconButton
       {...args}
       aria-label="Button"
@@ -26,4 +26,4 @@ export const WithTooltip = (args: IconButtonProps) => (
       tooltip="View Calendar"
     />
   </Box>
-)
+);

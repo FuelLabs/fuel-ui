@@ -1,94 +1,100 @@
-import { render, screen, testA11y } from "@fuels/jest"
+import { render, screen, testA11y } from '@fuels/jest';
 
-import { Button } from "../Button"
+import { Button } from '../Button';
 
-import { Input } from "./Input"
+import { Input } from './Input';
 
 const FIELD_ARGS = {
-  type: "text",
-  name: "name",
-  placeholder: "Type your name",
-}
+  type: 'text',
+  name: 'name',
+  placeholder: 'Type your name',
+};
 
-describe("Input", () => {
-  it("a11y", async () => {
+describe('Input', () => {
+  it('a11y', async () => {
     await testA11y(
       <Input>
         <Input.Field {...FIELD_ARGS} />
       </Input>,
-    )
-  })
+    );
+  });
 
-  it("should render an input field correctly", () => {
+  it('should render an input field correctly', () => {
     const { container } = render(
       <Input>
         <Input.Field {...FIELD_ARGS} />
       </Input>,
-    )
+    );
 
-    expect(container.querySelector("input")).toBeInTheDocument()
-    expect(screen.getByRole("textbox")).toBeInTheDocument()
-  })
+    expect(container.querySelector('input')).toBeInTheDocument();
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+  });
 
-  it("should render addons correctly", () => {
+  it('should render addons correctly', () => {
     render(
       <Input>
         <Input.AddonLeft>https://</Input.AddonLeft>
         <Input.Field {...FIELD_ARGS} />
         <Input.AddonRight>.com</Input.AddonRight>
       </Input>,
-    )
+    );
 
-    expect(screen.getByRole("textbox")).toBeInTheDocument()
-    expect(screen.getByText("https://")).toBeInTheDocument()
-    expect(screen.getByText(".com")).toBeInTheDocument()
-  })
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    expect(screen.getByText('https://')).toBeInTheDocument();
+    expect(screen.getByText('.com')).toBeInTheDocument();
+  });
 
-  it("should render invalid input correctly", () => {
+  it('should render invalid input correctly', () => {
     render(
       <Input isInvalid>
         <Input.Field {...FIELD_ARGS} />
       </Input>,
-    )
-    expect(screen.getByRole("textbox")).toHaveAttribute("aria-invalid", "true")
-  })
+    );
+    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+  });
 
-  it("should render disabled input correctly", () => {
+  it('should render disabled input correctly', () => {
     render(
       <Input isDisabled>
         <Input.Field {...FIELD_ARGS} />
       </Input>,
-    )
-    expect(screen.getByRole("textbox")).toHaveAttribute("aria-disabled", "true")
-  })
+    );
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-disabled',
+      'true',
+    );
+  });
 
-  it("should render readonly input correctly", () => {
+  it('should render readonly input correctly', () => {
     render(
       <Input isReadOnly>
         <Input.Field {...FIELD_ARGS} />
       </Input>,
-    )
-    expect(screen.getByRole("textbox")).toHaveAttribute("aria-readonly", "true")
-  })
+    );
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-readonly',
+      'true',
+    );
+  });
 
-  it("should render input amount correctly", () => {
+  it('should render input amount correctly', () => {
     render(
       <Input>
         <Input.Number placeholder="0.0" />
       </Input>,
-    )
-    expect(screen.getByRole("textbox")).toHaveAttribute("inputmode", "numeric")
-  })
+    );
+    expect(screen.getByRole('textbox')).toHaveAttribute('inputmode', 'numeric');
+  });
 
-  it("should render elements using element prop", async () => {
+  it('should render elements using element prop', async () => {
     render(
       <Input isDisabled>
         <Input.Field {...FIELD_ARGS} />
         <Input.ElementRight element={<Button>Click</Button>} />
       </Input>,
-    )
-    expect(screen.getByRole("button")).toBeInTheDocument()
-  })
+    );
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
 
   it("should don't call elements if disabled", async () => {
     render(
@@ -98,10 +104,10 @@ describe("Input", () => {
           <Button>Click</Button>
         </Input.ElementRight>
       </Input>,
-    )
+    );
 
-    expect(screen.getByRole("button")).toHaveAttribute("aria-disabled", "true")
-  })
+    expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+  });
 
   it("should don't call elements if readonly", async () => {
     render(
@@ -111,12 +117,12 @@ describe("Input", () => {
           <Button>Click</Button>
         </Input.ElementRight>
       </Input>,
-    )
+    );
 
-    expect(screen.getByRole("button")).toHaveAttribute("aria-disabled", "true")
-  })
+    expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+  });
 
-  it("should focus correctly when have button inside element", async () => {
+  it('should focus correctly when have button inside element', async () => {
     const { user } = render(
       <Input>
         <Input.Field {...FIELD_ARGS} />
@@ -124,11 +130,11 @@ describe("Input", () => {
           <Button>Click</Button>
         </Input.ElementRight>
       </Input>,
-    )
+    );
 
-    await user.tab()
-    expect(screen.getByRole("textbox")).toHaveFocus()
-    await user.tab()
-    expect(screen.getByRole("button")).toHaveFocus()
-  })
-})
+    await user.tab();
+    expect(screen.getByRole('textbox')).toHaveFocus();
+    await user.tab();
+    expect(screen.getByRole('button')).toHaveFocus();
+  });
+});

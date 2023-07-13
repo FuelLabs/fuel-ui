@@ -1,51 +1,51 @@
-import { createContext, useContext } from "react"
-import type { Components } from "~/defs"
-import type { CreateComponent } from "~/utils"
+import { createContext, useContext } from 'react';
+import type { Components } from '~/defs';
+import type { CreateComponent } from '~/utils';
 
-import type { StackProps } from "../Box"
-import type { CardProps } from "../Card/Card"
+import type { StackProps } from '../Box';
+import type { CardProps } from '../Card/Card';
 
-import type { CardListItem } from "./CardListItem"
+import type { CardListItem } from './CardListItem';
 
 export type CardListNS = {
-  id: string
-  Item: typeof CardListItem
-}
+  id: string;
+  Item: typeof CardListItem;
+};
 
 export const CardListContext = createContext<ICardListContext>(
   {} as ICardListContext,
-)
+);
 
 export function useCardListContext() {
-  return useContext(CardListContext)
+  return useContext(CardListContext);
 }
 
 export type ICardListContext = {
-  isClickable?: boolean
-  autoFocus?: boolean
-  isFocused?: boolean
-}
+  isClickable?: boolean;
+  autoFocus?: boolean;
+  isFocused?: boolean;
+};
 
-export type CardListProps = StackProps & Omit<ICardListContext, "isFocused">
+export type CardListProps = StackProps & Omit<ICardListContext, 'isFocused'>;
 
 export type CardListItemProps = CardProps & {
-  isActive?: boolean
-  rightEl?: React.ReactNode
-}
+  isActive?: boolean;
+  rightEl?: React.ReactNode;
+};
 
 export type CardListDef = CreateComponent<{
-  type: "div"
-  component: Components.CardList
-  props: CardListProps
-  element: HTMLDivElement
-  styles: "root" | "item"
-  namespace: CardListNS
-}>
+  type: 'div';
+  component: Components.CardList;
+  props: CardListProps;
+  element: HTMLDivElement;
+  styles: 'root' | 'item';
+  namespace: CardListNS;
+}>;
 
 export type CardListItemDef = CreateComponent<{
-  type: "div"
-  component: Components.CardListItem
-  props: CardListItemProps
-  element: HTMLDivElement
-  styles: "item"
-}>
+  type: 'div';
+  component: Components.CardListItem;
+  props: CardListItemProps;
+  element: HTMLDivElement;
+  styles: 'item';
+}>;

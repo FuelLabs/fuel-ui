@@ -1,22 +1,22 @@
-import { cx } from "@fuel-ui/css"
-import { mergeRefs } from "@react-aria/utils"
-import { Children, cloneElement } from "react"
-import type { ReactElement } from "react"
-import { createComponent } from "~/utils"
+import { cx } from '@fuel-ui/css';
+import { mergeRefs } from '@react-aria/utils';
+import { Children, cloneElement } from 'react';
+import type { ReactElement } from 'react';
+import { createComponent } from '~/utils';
 
-import { Button } from "../Button"
-import type { ButtonProps } from "../Button"
+import { Button } from '../Button';
+import type { ButtonProps } from '../Button';
 
-import { useDialog } from "./Dialog"
+import { useDialog } from './Dialog';
 
-type ElementType = "button"
+type ElementType = 'button';
 type DialogTriggerProps = ButtonProps & {
-  asChild?: boolean
-}
+  asChild?: boolean;
+};
 
 type ObjProps = {
-  id: string
-}
+  id: string;
+};
 
 export const DialogTrigger = createComponent<
   DialogTriggerProps,
@@ -24,11 +24,11 @@ export const DialogTrigger = createComponent<
   unknown,
   ElementType
 >(({ ref, className, asChild = true, children, ...props }) => {
-  const classes = cx("fuel_DialogTrigger", className)
-  const { state, triggerRef } = useDialog()
+  const classes = cx('fuel_DialogTrigger', className);
+  const { state, triggerRef } = useDialog();
 
   function handleToggle() {
-    state?.toggle()
+    state?.toggle();
   }
 
   if (asChild) {
@@ -39,10 +39,10 @@ export const DialogTrigger = createComponent<
             ref: mergeRefs(ref, triggerRef as never),
             onPress: handleToggle,
             className: classes,
-          })
+          });
         })}
       </>
-    )
+    );
   }
 
   return (
@@ -53,7 +53,7 @@ export const DialogTrigger = createComponent<
     >
       {children}
     </Button>
-  )
-})
+  );
+});
 
-DialogTrigger.id = "DialogTrigger"
+DialogTrigger.id = 'DialogTrigger';

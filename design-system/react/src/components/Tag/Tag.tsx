@@ -1,28 +1,28 @@
-import type { LayerVariant } from "@fuel-ui/css"
-import { cx } from "@fuel-ui/css"
-import type { ReactNode } from "react"
-import { Children } from "react"
+import type { LayerVariant } from '@fuel-ui/css';
+import { cx } from '@fuel-ui/css';
+import type { ReactNode } from 'react';
+import { Children } from 'react';
 
-import { createComponent } from "../../utils"
-import type { HTMLProps } from "../../utils"
-import { Box } from "../Box"
-import type { ButtonBaseProps } from "../Button"
-import { SPINNER_SIZE, createIcon } from "../Button"
-import { Spinner } from "../Spinner"
+import { createComponent } from '../../utils';
+import type { HTMLProps } from '../../utils';
+import { Box } from '../Box';
+import type { ButtonBaseProps } from '../Button';
+import { SPINNER_SIZE, createIcon } from '../Button';
+import { Spinner } from '../Spinner';
 
-import { TagCloseButton } from "./TagCloseButton"
-import * as styles from "./styles"
+import { TagCloseButton } from './TagCloseButton';
+import * as styles from './styles';
 
-function getIconSize(size: TagProps["size"], iconSize?: number) {
-  if (iconSize) return iconSize
-  if (size === "xs") return 14
-  return 16
+function getIconSize(size: TagProps['size'], iconSize?: number) {
+  if (iconSize) return iconSize;
+  if (size === 'xs') return 14;
+  return 16;
 }
 
 type GetChildrenParams = TagProps & {
-  iconLeft?: ReactNode
-  iconRight?: ReactNode
-}
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
+};
 function getChildren({
   isLoading,
   size,
@@ -33,43 +33,43 @@ function getChildren({
   if (isLoading) {
     return (
       <>
-        <Spinner color="current" size={SPINNER_SIZE[size || "md"]} />
+        <Spinner color="current" size={SPINNER_SIZE[size || 'md']} />
         {children}
       </>
-    )
+    );
   }
 
   const hasCloseBtn = Children.toArray(children).some(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (child: any) => child.type?.id?.includes("TagCloseButton"),
-  )
+    (child: any) => child.type?.id?.includes('TagCloseButton'),
+  );
   return (
     <>
       {iconLeft}
       {children}
       {!hasCloseBtn && iconRight}
     </>
-  )
+  );
 }
 
-export type TagSizes = "xs" | "sm" | "md"
+export type TagSizes = 'xs' | 'sm' | 'md';
 
-export type TagProps = HTMLProps["div"] &
-  Omit<ButtonBaseProps, "iconAriaLabel"> & {
-    size?: TagSizes
-    variant?: LayerVariant
-  }
+export type TagProps = HTMLProps['div'] &
+  Omit<ButtonBaseProps, 'iconAriaLabel'> & {
+    size?: TagSizes;
+    variant?: LayerVariant;
+  };
 
 type ObjProps = {
-  CloseButton: typeof TagCloseButton
-}
+  CloseButton: typeof TagCloseButton;
+};
 
 export const Tag = createComponent<TagProps, ObjProps>(
   ({
-    as = "span",
-    size = "sm",
-    intent = "primary",
-    variant = "solid",
+    as = 'span',
+    size = 'sm',
+    intent = 'primary',
+    variant = 'solid',
     iconSize: initialIconSize,
     leftIcon,
     rightIcon,
@@ -81,13 +81,13 @@ export const Tag = createComponent<TagProps, ObjProps>(
     className,
     ...props
   }) => {
-    const disabled = isLoading || isDisabled
-    const iconSize = getIconSize(size, initialIconSize)
-    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize)
-    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize)
+    const disabled = isLoading || isDisabled;
+    const iconSize = getIconSize(size, initialIconSize);
+    const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
+    const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
 
     const classes = cx(
-      "fuel_Tag",
+      'fuel_Tag',
       className,
       styles.tag({
         size,
@@ -95,7 +95,7 @@ export const Tag = createComponent<TagProps, ObjProps>(
         disabled,
         intent,
       }),
-    )
+    );
 
     const customChildren = getChildren({
       isLoading,
@@ -103,19 +103,19 @@ export const Tag = createComponent<TagProps, ObjProps>(
       iconLeft,
       iconRight,
       children,
-    })
+    });
 
     const customProps = {
       ...props,
-      "aria-disabled": disabled,
-    }
+      'aria-disabled': disabled,
+    };
 
     return (
       <Box as={as} {...customProps} className={classes}>
         {customChildren}
       </Box>
-    )
+    );
   },
-)
+);
 
-Tag.CloseButton = TagCloseButton
+Tag.CloseButton = TagCloseButton;

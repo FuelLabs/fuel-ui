@@ -56,13 +56,13 @@ $ pnpm install @fuel-ui/css
 ### 👨🏻‍💻&nbsp; Usage
 
 ```jsx
-import { css } from "@fuel-ui/css"
+import { css } from '@fuel-ui/css';
 
-const App = () => <div className={customStyle()}>Hello world</div>
+const App = () => <div className={customStyle()}>Hello world</div>;
 
 const customStyle = css({
-  bg: "$intentsBase6",
-})
+  bg: '$intentsBase6',
+});
 ```
 
 ## 💪🏻&nbsp; Contributing

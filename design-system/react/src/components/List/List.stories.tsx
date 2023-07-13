@@ -1,13 +1,13 @@
-import { Icon } from "../Icon"
+import { Icon } from '../Icon';
 
-import type { ListProps } from "./List"
-import { List } from "./List"
+import type { ListProps } from './List';
+import { List } from './List';
 
 export default {
   component: List,
-  title: "Base/Typography/List",
+  title: 'Base/Typography/List',
   argTypes: {},
-}
+};
 
 export const Default = (args: ListProps) => (
   <List {...args}>
@@ -15,7 +15,7 @@ export const Default = (args: ListProps) => (
     <List.Item>Second item</List.Item>
     <List.Item>Third item</List.Item>
   </List>
-)
+);
 
 export const Unordered = (args: ListProps) => (
   <List {...args} type="unordered">
@@ -23,7 +23,7 @@ export const Unordered = (args: ListProps) => (
     <List.Item>Second item</List.Item>
     <List.Item>Third item</List.Item>
   </List>
-)
+);
 
 export const Ordered = (args: ListProps) => (
   <List {...args} type="ordered">
@@ -31,12 +31,12 @@ export const Ordered = (args: ListProps) => (
     <List.Item>Second item</List.Item>
     <List.Item>Third item</List.Item>
   </List>
-)
+);
 
 export const WithIcon = (args: ListProps) => (
-  <List {...args} icon={Icon.is("Check")} iconColor="brand">
+  <List {...args} icon={Icon.is('Check')} iconColor="brand">
     <List.Item>First item</List.Item>
     <List.Item>Second item</List.Item>
     <List.Item>Third item</List.Item>
   </List>
-)
+);

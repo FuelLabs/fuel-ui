@@ -1,37 +1,37 @@
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { createElement } from "react"
-import { Components } from "~/defs"
-import { useElementProps, useStyles } from "~/hooks"
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
-import { _unstable_createComponent } from "../../utils"
-import { useFormControlProps } from "../Form/FormControl"
-import { Icon } from "../Icon"
+import { _unstable_createComponent } from '../../utils';
+import { useFormControlProps } from '../Form/FormControl';
+import { Icon } from '../Icon';
 
-import type { CheckboxDef } from "./defs"
-import { styles } from "./styles"
+import type { CheckboxDef } from './defs';
+import { styles } from './styles';
 
 export const Checkbox = _unstable_createComponent<CheckboxDef>(
   Components.Checkbox,
   ({ isDisabled, isReadOnly, ...props }) => {
-    const formControlProps = useFormControlProps()
+    const formControlProps = useFormControlProps();
     const disabled =
       isDisabled ||
       isReadOnly ||
       formControlProps.isDisabled ||
-      formControlProps.isReadOnly
+      formControlProps.isReadOnly;
 
-    const readonly = isReadOnly || formControlProps.isReadOnly
-    const classes = useStyles(styles, props)
-    const indicatorClass = classes.indicator.className
-    const elementProps = useElementProps(props, classes.root)
+    const readonly = isReadOnly || formControlProps.isReadOnly;
+    const classes = useStyles(styles, props);
+    const indicatorClass = classes.indicator.className;
+    const elementProps = useElementProps(props, classes.root);
 
     const customProps = {
       ...elementProps,
       disabled,
-      "aria-disabled": disabled,
-      "aria-readonly": readonly,
+      'aria-disabled': disabled,
+      'aria-readonly': readonly,
       required: props.required || formControlProps.isRequired,
-    }
+    };
 
     return createElement(
       CheckboxPrimitive.Root,
@@ -39,6 +39,6 @@ export const Checkbox = _unstable_createComponent<CheckboxDef>(
       <CheckboxPrimitive.CheckboxIndicator className={indicatorClass}>
         <Icon icon="Check" />
       </CheckboxPrimitive.CheckboxIndicator>,
-    )
+    );
   },
-)
+);

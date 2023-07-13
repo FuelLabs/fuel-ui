@@ -1,4 +1,4 @@
-const mqunit = /([\d.]+)([^]*)/
+const mqunit = /([\d.]+)([^]*)/;
 
 /** Returns a media query with polyfilled ranges. */
 export const toResolvedMediaQueryRanges = (
@@ -21,37 +21,37 @@ export const toResolvedMediaQueryRanges = (
       p3,
     ) => {
       /** Whether the first param is a value. */
-      const isP1Value = mqunit.test(p1)
+      const isP1Value = mqunit.test(p1);
 
       /** Numeric shift applied to a value when an operator is `<` or `>`. */
-      const shift = 0.0625 * (isP1Value ? -1 : 1)
+      const shift = 0.0625 * (isP1Value ? -1 : 1);
 
-      const [name, value] = isP1Value ? [p2, p1] : [p1, p2]
+      const [name, value] = isP1Value ? [p2, p1] : [p1, p2];
 
       return (
-        "(" +
-        (o1[0] === "=" ? "" : (o1[0] === ">") === isP1Value ? "max-" : "min-") +
+        '(' +
+        (o1[0] === '=' ? '' : (o1[0] === '>') === isP1Value ? 'max-' : 'min-') +
         name +
-        ":" +
-        (o1[0] !== "=" && o1.length === 1
+        ':' +
+        (o1[0] !== '=' && o1.length === 1
           ? value.replace(
               mqunit,
-              (_, v, u) => Number(v) + shift * (o1 === ">" ? 1 : -1) + u,
+              (_, v, u) => Number(v) + shift * (o1 === '>' ? 1 : -1) + u,
             )
           : value) +
         (o2
-          ? ") and (" +
-            ((o2[0] === ">" ? "min-" : "max-") +
+          ? ') and (' +
+            ((o2[0] === '>' ? 'min-' : 'max-') +
               name +
-              ":" +
+              ':' +
               (o2.length === 1
                 ? p3.replace(
                     mqunit,
-                    (_, v, u) => Number(v) + shift * (o2 === ">" ? -1 : 1) + u,
+                    (_, v, u) => Number(v) + shift * (o2 === '>' ? -1 : 1) + u,
                   )
                 : p3))
-          : "") +
-        ")"
-      )
+          : '') +
+        ')'
+      );
     },
-  )
+  );

@@ -1,7 +1,7 @@
-import { createStitches } from "../src/index.js"
+import { createStitches } from '../src/index.js';
 
-describe("emerson", () => {
-  test("lake", () => {
+describe('emerson', () => {
+  test('lake', () => {
     const { styled, toString } = createStitches({
       utils: {
         px: (value) => ({
@@ -9,36 +9,36 @@ describe("emerson", () => {
           paddingRight: value,
         }),
       },
-    })
+    });
 
-    const component = styled("span", {
+    const component = styled('span', {
       variants: {
         size: {
           1: {
-            px: "$1",
+            px: '$1',
           },
           2: {
-            px: "$2",
+            px: '$2',
           },
         },
       },
-    })
+    });
 
     const cssText =
       `--sxs{--sxs:3 fuel_PJLV-efCiES-size-1}@media{` +
       `.fuel_PJLV-efCiES-size-1{padding-left:var(--space-1);padding-right:var(--space-1)}` +
-      `}`
+      `}`;
 
-    component.render({ size: "1" })
+    component.render({ size: '1' });
 
-    expect(toString()).toBe(cssText)
+    expect(toString()).toBe(cssText);
 
-    component.render({ size: "1" })
+    component.render({ size: '1' });
 
-    expect(toString()).toBe(cssText)
+    expect(toString()).toBe(cssText);
 
-    component.render({ size: "1" })
+    component.render({ size: '1' });
 
-    expect(toString()).toBe(cssText)
-  })
-})
+    expect(toString()).toBe(cssText);
+  });
+});

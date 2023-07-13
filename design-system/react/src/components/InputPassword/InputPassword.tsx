@@ -1,14 +1,14 @@
-import { cx } from "@fuel-ui/css"
-import { useState } from "react"
+import { cx } from '@fuel-ui/css';
+import { useState } from 'react';
 
-import { createComponent } from "../../utils"
-import { Icon } from "../Icon"
-import { IconButton } from "../IconButton"
-import type { InputProps } from "../Input/Input"
-import { Input } from "../Input/Input"
-import type { InputFieldProps } from "../Input/InputField"
+import { createComponent } from '../../utils';
+import { Icon } from '../Icon';
+import { IconButton } from '../IconButton';
+import type { InputProps } from '../Input/Input';
+import { Input } from '../Input/Input';
+import type { InputFieldProps } from '../Input/InputField';
 
-export type InputPasswordProps = InputProps & InputFieldProps
+export type InputPasswordProps = InputProps & InputFieldProps;
 
 export const InputPassword = createComponent<InputPasswordProps>(
   ({
@@ -22,8 +22,8 @@ export const InputPassword = createComponent<InputPasswordProps>(
     describedBy,
     ...props
   }) => {
-    const classes = cx("fuel_InputPassword", className)
-    const [showing, setShowing] = useState(() => false)
+    const classes = cx('fuel_InputPassword', className);
+    const [showing, setShowing] = useState(() => false);
     const inputProps = {
       size,
       isRequired,
@@ -32,10 +32,10 @@ export const InputPassword = createComponent<InputPasswordProps>(
       isReadOnly,
       isFullWidth,
       describedBy,
-    }
+    };
 
     function handleToggle() {
-      setShowing((s) => !s)
+      setShowing((s) => !s);
     }
 
     return (
@@ -43,7 +43,7 @@ export const InputPassword = createComponent<InputPasswordProps>(
         <Input.ElementLeft element={<Icon icon="Lock" />} />
         <Input.Field
           {...props}
-          type={!showing ? "password" : "text"}
+          type={!showing ? 'password' : 'text'}
           className={classes}
         />
         <Input.ElementRight
@@ -59,12 +59,12 @@ export const InputPassword = createComponent<InputPasswordProps>(
                 )
               }
               aria-label="Toggle Password"
-              css={{ px: "0" }}
+              css={{ px: '0' }}
               onPress={handleToggle}
             />
           }
         />
       </Input>
-    )
+    );
   },
-)
+);

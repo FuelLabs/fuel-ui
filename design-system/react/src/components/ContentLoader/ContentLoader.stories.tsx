@@ -1,17 +1,17 @@
-import { darkColors } from "@fuel-ui/css"
+import { darkColors } from '@fuel-ui/css';
 
-import { Card } from "../Card"
+import { Card } from '../Card';
 
-import { ContentLoader } from "./ContentLoader"
+import { ContentLoader } from './ContentLoader';
 
 export default {
   component: ContentLoader,
-  title: "UI/ContentLoader",
-}
+  title: 'UI/ContentLoader',
+};
 
 export const Usage = () => {
   return (
-    <Card css={{ width: 300, padding: "$0" }}>
+    <Card css={{ width: 300, padding: '$0' }}>
       <ContentLoader
         speed={2}
         width={300}
@@ -31,5 +31,5 @@ export const Usage = () => {
         />
       </ContentLoader>
     </Card>
-  )
-}
+  );
+};

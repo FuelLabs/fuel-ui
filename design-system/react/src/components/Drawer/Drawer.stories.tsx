@@ -1,26 +1,26 @@
-import { useRef, useState } from "react"
+import { useRef, useState } from 'react';
 
-import { Stack } from "../Box/Stack"
-import { Button } from "../Button"
-import { Card } from "../Card"
+import { Stack } from '../Box/Stack';
+import { Button } from '../Button';
+import { Card } from '../Card';
 
-import type { DrawerProps } from "./Drawer"
-import { Drawer } from "./Drawer"
+import type { DrawerProps } from './Drawer';
+import { Drawer } from './Drawer';
 
 export default {
   component: Drawer,
-  title: "Overlay/Drawer",
+  title: 'Overlay/Drawer',
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
-}
+};
 
 const content = (
   <Drawer.Content>
     <Drawer.CloseButton />
-    <Drawer.Body css={{ padding: "$4" }}>Hello world</Drawer.Body>
+    <Drawer.Body css={{ padding: '$4' }}>Hello world</Drawer.Body>
   </Drawer.Content>
-)
+);
 
 export const Usage = (args: DrawerProps) => {
   return (
@@ -30,12 +30,12 @@ export const Usage = (args: DrawerProps) => {
       </Drawer.Trigger>
       {content}
     </Drawer>
-  )
-}
+  );
+};
 
 Usage.parameters = {
-  layout: "centered",
-}
+  layout: 'centered',
+};
 
 export const Sides = (args: DrawerProps) => {
   return (
@@ -53,14 +53,14 @@ export const Sides = (args: DrawerProps) => {
         {content}
       </Drawer>
     </Stack>
-  )
-}
+  );
+};
 
 Sides.parameters = {
-  layout: "centered",
-}
+  layout: 'centered',
+};
 
-const SIZES = ["sm", "md", "lg", "325px"]
+const SIZES = ['sm', 'md', 'lg', '325px'];
 
 export const CustomSize = (args: DrawerProps) => {
   return (
@@ -74,26 +74,26 @@ export const CustomSize = (args: DrawerProps) => {
         </Drawer>
       ))}
     </Stack>
-  )
-}
+  );
+};
 
 CustomSize.parameters = {
-  layout: "centered",
-}
+  layout: 'centered',
+};
 
 export const CustomContainer = (args: DrawerProps) => {
-  const ref = useRef<HTMLDivElement>()
+  const ref = useRef<HTMLDivElement>();
   return (
     <Card
       ref={ref}
       css={{
-        overflow: "hidden",
-        position: "relative",
-        width: "500px",
-        height: "500px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        overflow: 'hidden',
+        position: 'relative',
+        width: '500px',
+        height: '500px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Drawer {...args} side="right" containerRef={ref} size={300}>
@@ -103,28 +103,28 @@ export const CustomContainer = (args: DrawerProps) => {
         {content}
       </Drawer>
     </Card>
-  )
-}
+  );
+};
 
 CustomContainer.parameters = {
-  layout: "centered",
-}
+  layout: 'centered',
+};
 
 export const StateControlled = (args: DrawerProps) => {
-  const ref = useRef<HTMLDivElement>()
-  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>();
+  const [open, setOpen] = useState(false);
 
   return (
     <Card
       ref={ref}
       css={{
-        overflow: "hidden",
-        position: "relative",
-        width: "500px",
-        height: "500px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        overflow: 'hidden',
+        position: 'relative',
+        width: '500px',
+        height: '500px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Button onPress={() => setOpen(true)}>Open</Button>
@@ -140,9 +140,9 @@ export const StateControlled = (args: DrawerProps) => {
         {content}
       </Drawer>
     </Card>
-  )
-}
+  );
+};
 
 StateControlled.parameters = {
-  layout: "centered",
-}
+  layout: 'centered',
+};

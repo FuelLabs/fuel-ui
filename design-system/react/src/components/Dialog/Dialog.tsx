@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx } from "@fuel-ui/css"
-import { Children, createContext, useContext, useRef } from "react"
-import type { ReactNode } from "react"
-import type { AriaDialogProps, AriaOverlayProps, ModalAria } from "react-aria"
+import { cx } from '@fuel-ui/css';
+import { Children, createContext, useContext, useRef } from 'react';
+import type { ReactNode } from 'react';
+import type { AriaDialogProps, AriaOverlayProps, ModalAria } from 'react-aria';
 import {
   useOverlay,
   useModal,
@@ -10,44 +10,44 @@ import {
   OverlayContainer,
   useDialog as useReactAriaDialog,
   OverlayProvider,
-} from "react-aria"
-import type { OverlayTriggerState } from "react-stately"
-import { useOverlayTriggerState } from "react-stately"
-import { createComponent, useCreateStyledElement } from "~/utils"
+} from 'react-aria';
+import type { OverlayTriggerState } from 'react-stately';
+import { useOverlayTriggerState } from 'react-stately';
+import { createComponent, useCreateStyledElement } from '~/utils';
 
-import { DialogClose } from "./DialogClose"
-import { DialogContent } from "./DialogContent"
-import { DialogDescription } from "./DialogDescription"
-import { DialogFooter } from "./DialogFooter"
-import { DialogHeading } from "./DialogHeading"
-import { DialogTrigger } from "./DialogTrigger"
-import * as styles from "./styles"
+import { DialogClose } from './DialogClose';
+import { DialogContent } from './DialogContent';
+import { DialogDescription } from './DialogDescription';
+import { DialogFooter } from './DialogFooter';
+import { DialogHeading } from './DialogHeading';
+import { DialogTrigger } from './DialogTrigger';
+import * as styles from './styles';
 
 // ----------------------------------------------------------------------------
 // Context
 // ----------------------------------------------------------------------------
 
 export type DialogContext = {
-  state: OverlayTriggerState
-  triggerRef?: React.MutableRefObject<HTMLDivElement | null>
-  overlayProps?: React.HTMLAttributes<HTMLElement>
-  modalProps?: ModalAria["modalProps"]
-  dialogProps?: React.HTMLAttributes<HTMLElement>
-  headingProps?: React.HTMLAttributes<HTMLElement>
-  isBlocked?: boolean
-}
+  state: OverlayTriggerState;
+  triggerRef?: React.MutableRefObject<HTMLDivElement | null>;
+  overlayProps?: React.HTMLAttributes<HTMLElement>;
+  modalProps?: ModalAria['modalProps'];
+  dialogProps?: React.HTMLAttributes<HTMLElement>;
+  headingProps?: React.HTMLAttributes<HTMLElement>;
+  isBlocked?: boolean;
+};
 
 export type DialogProps = AriaOverlayProps &
   AriaDialogProps & {
-    children: ReactNode
-    isBlocked?: boolean
-    onOpenChange?: (isOpen: boolean) => any
-  }
+    children: ReactNode;
+    isBlocked?: boolean;
+    onOpenChange?: (isOpen: boolean) => any;
+  };
 
-const ctx = createContext<DialogContext>({} as DialogContext)
+const ctx = createContext<DialogContext>({} as DialogContext);
 
 export function useDialog() {
-  return useContext(ctx)
+  return useContext(ctx);
 }
 
 // ----------------------------------------------------------------------------
@@ -56,11 +56,11 @@ export function useDialog() {
 
 const DialogInternal = createComponent<DialogProps, ObjProps>(
   ({ children, className, isBlocked, isOpen, onOpenChange, ...props }) => {
-    const ref = useRef<HTMLButtonElement>(null)
+    const ref = useRef<HTMLButtonElement>(null);
     const state = useOverlayTriggerState({
       isOpen: isBlocked || isOpen,
       onOpenChange,
-    })
+    });
 
     const { overlayProps, underlayProps } = useOverlay(
       {
@@ -70,12 +70,12 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
         onClose: state.close,
       },
       ref,
-    )
+    );
 
-    usePreventScroll({ isDisabled: !state.isOpen })
-    const { modalProps } = useModal()
-    const { dialogProps, titleProps } = useReactAriaDialog(props, ref)
-    const classes = cx("fuel_Dialog", className)
+    usePreventScroll({ isDisabled: !state.isOpen });
+    const { modalProps } = useModal();
+    const { dialogProps, titleProps } = useReactAriaDialog(props, ref);
+    const classes = cx('fuel_Dialog', className);
 
     const ctxProps = {
       ref,
@@ -85,10 +85,10 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
       dialogProps,
       headingProps: titleProps,
       isBlocked,
-    }
+    };
 
     const customChildren = Children.toArray(children).map((child: any) => {
-      if (child?.type.id === "DialogContent") {
+      if (child?.type.id === 'DialogContent') {
         return (
           <OverlayContainer
             key={child?.type.id}
@@ -96,47 +96,47 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
           >
             {state.isOpen && <>{child}</>}
           </OverlayContainer>
-        )
+        );
       }
-      return child
-    })
+      return child;
+    });
 
     return useCreateStyledElement(
-      "div",
+      'div',
       null,
       null,
       { className: classes },
       <div {...underlayProps}>
         <ctx.Provider value={ctxProps}>{customChildren}</ctx.Provider>
       </div>,
-    )
+    );
   },
-)
+);
 
 // ----------------------------------------------------------------------------
 // Dialog
 // ----------------------------------------------------------------------------
 
 type ObjProps = {
-  Content: typeof DialogContent
-  Trigger: typeof DialogTrigger
-  Heading: typeof DialogHeading
-  Description: typeof DialogDescription
-  Footer: typeof DialogFooter
-  Close: typeof DialogClose
-}
+  Content: typeof DialogContent;
+  Trigger: typeof DialogTrigger;
+  Heading: typeof DialogHeading;
+  Description: typeof DialogDescription;
+  Footer: typeof DialogFooter;
+  Close: typeof DialogClose;
+};
 
 export const Dialog = createComponent<DialogProps, ObjProps>((props) => {
   return (
     <OverlayProvider>
       <DialogInternal {...props} />
     </OverlayProvider>
-  )
-})
+  );
+});
 
-Dialog.Content = DialogContent
-Dialog.Trigger = DialogTrigger
-Dialog.Heading = DialogHeading
-Dialog.Description = DialogDescription
-Dialog.Footer = DialogFooter
-Dialog.Close = DialogClose
+Dialog.Content = DialogContent;
+Dialog.Trigger = DialogTrigger;
+Dialog.Heading = DialogHeading;
+Dialog.Description = DialogDescription;
+Dialog.Footer = DialogFooter;
+Dialog.Close = DialogClose;
