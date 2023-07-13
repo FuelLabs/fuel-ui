@@ -1,44 +1,44 @@
-import { keyframes, css } from '@fuel-ui/css';
+import { keyframes, css } from "@fuel-ui/css"
 
-import { close } from '../Dialog/styles';
+import { close } from "../Dialog/styles"
 
 const slideUpAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateY(2px)' },
-  '100%': { opacity: 1, transform: 'translateY(0)' },
-});
+  "0%": { opacity: 0, transform: "translateY(2px)" },
+  "100%": { opacity: 1, transform: "translateY(0)" },
+})
 
 const slideRightAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateX(-2px)' },
-  '100%': { opacity: 1, transform: 'translateX(0)' },
-});
+  "0%": { opacity: 0, transform: "translateX(-2px)" },
+  "100%": { opacity: 1, transform: "translateX(0)" },
+})
 
 const slideDownAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateY(-2px)' },
-  '100%': { opacity: 1, transform: 'translateY(0)' },
-});
+  "0%": { opacity: 0, transform: "translateY(-2px)" },
+  "100%": { opacity: 1, transform: "translateY(0)" },
+})
 
 const slideLeftAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateX(2px)' },
-  '100%': { opacity: 1, transform: 'translateX(0)' },
-});
+  "0%": { opacity: 0, transform: "translateX(2px)" },
+  "100%": { opacity: 1, transform: "translateX(0)" },
+})
 
 export const arrow = css({
-  fill: '$overlayBg',
-});
+  fill: "$overlayBg",
+})
 
 export const content = css({
-  layer: 'layer-overlay',
-  py: '$4',
-  px: '$5',
-  pr: '$7',
-  fontSize: '$sm',
+  layer: "layer-overlay",
+  py: "$4",
+  px: "$5",
+  pr: "$7",
+  fontSize: "$sm",
   lineHeight: 1,
 
-  '@media (prefers-reduced-motion: no-preference)': {
-    animationDuration: '400ms',
-    animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-    animationFillMode: 'forwards',
-    willChange: 'transform, opacity',
+  "@media (prefers-reduced-motion: no-preference)": {
+    animationDuration: "400ms",
+    animationTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+    animationFillMode: "forwards",
+    willChange: "transform, opacity",
     '&[data-state="delayed-open"]': {
       '&[data-side="top"]': { animationName: slideDownAndFade },
       '&[data-side="right"]': { animationName: slideLeftAndFade },
@@ -46,6 +46,6 @@ export const content = css({
       '&[data-side="left"]': { animationName: slideRightAndFade },
     },
   },
-});
+})
 
-export const closeButton = css(close);
+export const closeButton = css(close)

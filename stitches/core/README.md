@@ -20,7 +20,7 @@ yarn add @fuel-stitches/core
 
 ```html
 <script type="module">
-  import { css } from 'https://cdn.skypack.dev/@fuel-stitches/core';
+  import { css } from "https://cdn.skypack.dev/@fuel-stitches/core"
 </script>
 ```
 

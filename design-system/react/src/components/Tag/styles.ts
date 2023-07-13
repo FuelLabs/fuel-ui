@@ -1,22 +1,22 @@
-import { css } from '@fuel-ui/css';
+import { css } from "@fuel-ui/css"
 
-import * as variants from './variants';
+import * as variants from "./variants"
 
 export const tag = css({
-  is: ['display'],
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: '1px solid transparent',
-  transition: 'all',
-  textDecoration: 'none',
+  is: ["display"],
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "1px solid transparent",
+  transition: "all",
+  textDecoration: "none",
 
-  '& button': {
-    px: '$0',
-    color: 'inherit',
-    opacity: '.6',
+  "& button": {
+    px: "$0",
+    color: "inherit",
+    opacity: ".6",
 
-    '&:hover': {
+    "&:hover": {
       opacity: 1,
     },
   },
@@ -52,8 +52,8 @@ export const tag = css({
   ],
 
   defaultVariants: {
-    size: 'sm',
-    intent: 'base',
-    variant: 'solid',
+    size: "sm",
+    intent: "base",
+    variant: "solid",
   },
-});
+})

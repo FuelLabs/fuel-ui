@@ -1,6 +1,6 @@
-import { createStitches } from '../createStitches.js';
+import { createStitches } from "../createStitches.js"
 
-let cachedConfig;
+let cachedConfig
 
 export const getCachedConfig = () =>
-  cachedConfig || (cachedConfig = createStitches());
+  cachedConfig || (cachedConfig = createStitches())

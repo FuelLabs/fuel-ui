@@ -1,13 +1,13 @@
-import { Button } from '../Button';
+import { Button } from "../Button"
 
-import { ButtonGroup } from './ButtonGroup';
-import type { ButtonGroupProps } from './defs';
+import { ButtonGroup } from "./ButtonGroup"
+import type { ButtonGroupProps } from "./defs"
 
 export default {
   component: ButtonGroup,
-  title: 'UI/ButtonGroup',
+  title: "UI/ButtonGroup",
   argTypes: {},
-};
+}
 
 export const Usage = (args: ButtonGroupProps) => (
   <ButtonGroup {...args}>
@@ -15,4 +15,4 @@ export const Usage = (args: ButtonGroupProps) => (
     <Button leftIcon="Calendar">Second</Button>
     <Button>Third</Button>
   </ButtonGroup>
-);
+)

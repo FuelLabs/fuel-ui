@@ -1,23 +1,23 @@
-import { createStyle } from '../../hooks/useStore';
+import { Components } from "~/defs"
 
-import * as variants from './variants';
+import { createStyle } from "../../hooks/useStore"
 
-import { Components } from '~/defs';
+import * as variants from "./variants"
 
 export const styles = createStyle(Components.Button, {
   root: {
-    is: ['display', 'centered'],
-    appearance: 'none',
-    cursor: 'pointer',
-    display: 'inline-flex',
-    border: '1px solid transparent',
-    borderRadius: '$default',
-    transition: 'all',
-    textDecoration: 'none',
+    is: ["display", "centered"],
+    appearance: "none",
+    cursor: "pointer",
+    display: "inline-flex",
+    border: "1px solid transparent",
+    borderRadius: "$default",
+    transition: "all",
+    textDecoration: "none",
 
-    '&:not([aria-disabled=true]):active, &:not([aria-disabled=true])[aria-pressed=true]':
+    "&:not([aria-disabled=true]):active, &:not([aria-disabled=true])[aria-pressed=true]":
       {
-        transform: 'scale(0.97)',
+        transform: "scale(0.97)",
       },
 
     variants: {
@@ -39,14 +39,14 @@ export const styles = createStyle(Components.Button, {
 
       justIcon: {
         true: {
-          minW: 'auto',
+          minW: "auto",
         },
       },
 
       isLink: {
         true: {
-          textDecoration: 'none',
-          background: 'red',
+          textDecoration: "none",
+          background: "red",
         },
       },
     },
@@ -61,39 +61,39 @@ export const styles = createStyle(Components.Button, {
        * Sizes when with just icon prop
        */
       {
-        size: 'xs',
+        size: "xs",
         justIcon: true,
-        css: { px: '$1' },
+        css: { px: "$1" },
       },
       {
-        size: 'sm',
+        size: "sm",
         justIcon: true,
-        css: { px: '$2' },
+        css: { px: "$2" },
       },
       {
-        size: 'md',
+        size: "md",
         justIcon: true,
-        css: { px: '$3' },
+        css: { px: "$3" },
       },
       {
-        size: 'lg',
+        size: "lg",
         justIcon: true,
-        css: { px: '$4' },
+        css: { px: "$4" },
       },
 
       {
         justIcon: true,
-        variant: 'link',
+        variant: "link",
         css: {
-          padding: '$0',
+          padding: "$0",
         },
       },
     ],
 
     defaultVariants: {
-      size: 'md',
-      intent: 'base',
-      variant: 'solid',
+      size: "md",
+      intent: "base",
+      variant: "solid",
       isLink: false,
     },
   },
@@ -103,4 +103,4 @@ export const styles = createStyle(Components.Button, {
   iconRight: {
     //
   },
-});
+})

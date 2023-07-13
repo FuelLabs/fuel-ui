@@ -1,13 +1,13 @@
-import type { Config } from '@fuel-ui/test-utils/config';
-import { config as baseConfig } from '@fuel-ui/test-utils/config';
+import type { Config } from "@fuels/jest/config"
+import { config as baseConfig } from "@fuels/jest/config"
 
-import pkg from './package.json';
+import pkg from "./package.json"
 
 const config: Config = {
   ...baseConfig,
   rootDir: __dirname,
   displayName: pkg.name,
-  setupFilesAfterEnv: ['../../common/test-utils/setup.ts'],
-};
+  setupFilesAfterEnv: ["@fuels/jest/setup"],
+}
 
-export default config;
+export default config

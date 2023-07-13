@@ -1,39 +1,39 @@
-import { layerIntents } from '@fuel-ui/css';
+import { layerIntents } from "@fuel-ui/css"
 
-import { Box } from '../Box';
-import { Icon } from '../Icon';
+import { Box } from "../Box"
+import { Icon } from "../Icon"
 
-import type { TagProps } from './Tag';
-import { Tag } from './Tag';
-import { TagCloseButton } from './TagCloseButton';
+import type { TagProps } from "./Tag"
+import { Tag } from "./Tag"
+import { TagCloseButton } from "./TagCloseButton"
 
 export default {
   component: Tag,
-  title: 'UI/Tag',
+  title: "UI/Tag",
   argTypes: {
     size: {
-      defaultValue: 'sm',
-      control: 'select',
+      defaultValue: "sm",
+      control: "select",
     },
     intent: {
       options: layerIntents,
-      defaultValue: 'accent',
-      control: 'select',
+      defaultValue: "accent",
+      control: "select",
     },
     variant: {
-      defaultValue: 'solid',
-      control: 'select',
+      defaultValue: "solid",
+      control: "select",
     },
     leftIcon: {
       options: Icon.iconList,
-      control: 'select',
+      control: "select",
     },
     rightIcon: {
       options: Icon.iconList,
-      control: 'select',
+      control: "select",
     },
   },
-};
+}
 
 export const Sizes = (args: TagProps) => (
   <Box css={styles.wrapper}>
@@ -47,7 +47,7 @@ export const Sizes = (args: TagProps) => (
       Label
     </Tag>
   </Box>
-);
+)
 
 export const Variants = (args: TagProps) => (
   <Box css={styles.wrapper}>
@@ -61,7 +61,7 @@ export const Variants = (args: TagProps) => (
       Label
     </Tag>
   </Box>
-);
+)
 
 export const Intents = (args: TagProps) => (
   <Box css={styles.gridList}>
@@ -71,7 +71,7 @@ export const Intents = (args: TagProps) => (
       </Tag>
     ))}
   </Box>
-);
+)
 
 export const WithIcon = (args: TagProps) => (
   <Box css={styles.wrapper}>
@@ -85,7 +85,7 @@ export const WithIcon = (args: TagProps) => (
       Label
     </Tag>
   </Box>
-);
+)
 
 export const WithClose = (args: TagProps) => (
   <Box css={styles.wrapper}>
@@ -94,7 +94,7 @@ export const WithClose = (args: TagProps) => (
       <TagCloseButton />
     </Tag>
   </Box>
-);
+)
 
 export const Loading = (args: TagProps) => (
   <Box css={styles.wrapper}>
@@ -102,7 +102,7 @@ export const Loading = (args: TagProps) => (
       Label
     </Tag>
   </Box>
-);
+)
 
 export const Disabled = (args: TagProps) => (
   <Box css={styles.wrapper}>
@@ -116,20 +116,20 @@ export const Disabled = (args: TagProps) => (
       Label
     </Tag>
   </Box>
-);
+)
 
 /**
  * Styles
  */
 const styles = {
   wrapper: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '$4',
+    display: "flex",
+    alignItems: "center",
+    gap: "$4",
   },
   gridList: {
-    display: 'grid',
-    gap: '$4',
-    gridTemplateColumns: 'repeat(6, 1fr)',
+    display: "grid",
+    gap: "$4",
+    gridTemplateColumns: "repeat(6, 1fr)",
   },
-};
+}

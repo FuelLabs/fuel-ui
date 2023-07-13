@@ -1,15 +1,15 @@
-import { css, cx } from '@fuel-ui/css';
-import type { ToasterProps } from 'react-hot-toast';
-import toast, { ToastBar, Toaster as Root } from 'react-hot-toast';
+import { css, cx } from "@fuel-ui/css"
+import type { ToasterProps } from "react-hot-toast"
+import toast, { ToastBar, Toaster as Root } from "react-hot-toast"
 
-import { createComponent } from '../../utils';
-import { IconButton } from '../IconButton';
+import { createComponent } from "../../utils"
+import { IconButton } from "../IconButton"
 
-export type ToastProps = ToasterProps;
+export type ToastProps = ToasterProps
 
 export const ToastProvider = createComponent<ToastProps>(
-  ({ className, position = 'bottom-right', ...props }) => {
-    const classes = cx('fuel_Toast', className, styles.root());
+  ({ className, position = "bottom-right", ...props }) => {
+    const classes = cx("fuel_Toast", className, styles.root())
     return (
       <Root {...props} position={position}>
         {(t) => (
@@ -17,11 +17,11 @@ export const ToastProvider = createComponent<ToastProps>(
             {({ icon, message }) => (
               <div
                 className={classes}
-                data-state={t.visible ? 'opened' : 'closed'}
+                data-state={t.visible ? "opened" : "closed"}
               >
                 {icon}
                 {message}
-                {t.type !== 'loading' && (
+                {t.type !== "loading" && (
                   <IconButton
                     autoFocus
                     size="xs"
@@ -39,44 +39,44 @@ export const ToastProvider = createComponent<ToastProps>(
           </ToastBar>
         )}
       </Root>
-    );
-  }
-);
+    )
+  },
+)
 
-export { toast };
+export { toast }
 
 const DEFAULT_STYLE = {
   padding: 0,
-  boxShadow: 'none',
-  borderRadius: '0',
-  background: 'transparent',
-};
+  boxShadow: "none",
+  borderRadius: "0",
+  background: "transparent",
+}
 
 const styles = {
   root: css({
-    layer: 'layer-overlay',
-    px: '$4',
-    py: '$3',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '$4',
-    color: '$overlayText',
+    layer: "layer-overlay",
+    px: "$4",
+    py: "$3",
+    display: "flex",
+    alignItems: "center",
+    gap: "$4",
+    color: "$overlayText",
 
     '& div[role="status"]': {
-      m: '0',
-      display: '-webkit-box',
+      m: "0",
+      display: "-webkit-box",
       maxWidth: 200,
       lineClamp: 6,
       WebkitLineClamp: 6,
-      WebkitBoxOrient: 'vertical',
-      overflow: 'hidden',
+      WebkitBoxOrient: "vertical",
+      overflow: "hidden",
     },
 
     '.fuel_Icon[aria-label="Icon X"]': {
-      color: '$overlayText',
+      color: "$overlayText",
     },
   }),
   closeButton: css({
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
   }),
-};
+}

@@ -1,33 +1,33 @@
-import { cssObj, cx } from '@fuel-ui/css';
+import { cssObj, cx } from "@fuel-ui/css"
 
-import { createComponent } from '../../utils';
-import { Icon } from '../Icon';
-import { IconButton } from '../IconButton';
+import { createComponent } from "../../utils"
+import { Icon } from "../Icon"
+import { IconButton } from "../IconButton"
 
-import { usePaginationContext } from './Pagination';
+import { usePaginationContext } from "./Pagination"
 
-export type OmitProps = 'children' | 'as' | 'css';
+export type OmitProps = "children" | "as" | "css"
 
 export type PaginationNavProps = {
-  direction: 'next' | 'prev';
-};
+  direction: "next" | "prev"
+}
 
 export const PaginationNav = createComponent<
   PaginationNavProps,
   unknown,
   OmitProps
 >(({ direction, className, ...props }) => {
-  const classes = cx(`fuel_Pagination-${direction}`, className);
-  const pagination = usePaginationContext();
-  const { currentPage, pagesCount } = pagination;
+  const classes = cx(`fuel_Pagination-${direction}`, className)
+  const pagination = usePaginationContext()
+  const { currentPage, pagesCount } = pagination
   const isDisabled =
-    direction === 'next' ? currentPage === pagesCount : currentPage === 1;
+    direction === "next" ? currentPage === pagesCount : currentPage === 1
 
   return (
     <IconButton
       {...props}
-      icon={Icon.is(direction === 'next' ? 'ChevronRight' : 'ChevronLeft')}
-      aria-label={direction === 'next' ? 'Next page' : 'Previous page'}
+      icon={Icon.is(direction === "next" ? "ChevronRight" : "ChevronLeft")}
+      aria-label={direction === "next" ? "Next page" : "Previous page"}
       className={classes}
       data-variant={pagination.variant}
       variant={pagination.variant}
@@ -37,22 +37,22 @@ export const PaginationNav = createComponent<
       isDisabled={isDisabled}
       onPress={() => pagination[direction]()}
     />
-  );
-});
+  )
+})
 
 const styles = {
   base: cssObj({
-    is: ['display'],
-    px: '$1',
-    color: '$intentsBase7',
-    background: 'transparent !important',
-    borderColor: 'transparent !important',
+    is: ["display"],
+    px: "$1",
+    color: "$intentsBase7",
+    background: "transparent !important",
+    borderColor: "transparent !important",
 
     '&:hover:not([aria-disabled="true"])': {
-      color: '$intentsBase10',
+      color: "$intentsBase10",
     },
     '&[aria-disabled="true"]:focus': {
-      outline: 'none',
+      outline: "none",
     },
   }),
-};
+}

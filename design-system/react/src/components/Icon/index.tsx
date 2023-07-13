@@ -1,2 +1,2 @@
-export * from './Icon';
-export * from './defs';
+export * from "./Icon"
+export * from "./defs"

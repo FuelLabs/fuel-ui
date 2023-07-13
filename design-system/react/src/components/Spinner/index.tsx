@@ -1,2 +1,2 @@
-export * from './Spinner';
-export * from './defs';
+export * from "./Spinner"
+export * from "./defs"

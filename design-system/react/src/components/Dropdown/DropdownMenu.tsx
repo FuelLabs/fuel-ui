@@ -1,30 +1,30 @@
-import type { MenuProps } from '../Menu';
-import { Menu } from '../Menu';
+import { createComponent } from "~/utils"
 
-import { useDropdown } from './Dropdown';
+import type { MenuProps } from "../Menu"
+import { Menu } from "../Menu"
 
-import { createComponent } from '~/utils';
+import { useDropdown } from "./Dropdown"
 
-export type DropdownMenuProps = MenuProps;
+export type DropdownMenuProps = MenuProps
 type ObjProps = {
-  id: string;
-};
+  id: string
+}
 
 export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
   (props) => {
-    const { menuProps } = useDropdown();
+    const { menuProps } = useDropdown()
     return (
       <Menu
         {...props}
         {...(menuProps as MenuProps)}
         data-overlay
         css={{
-          boxSizing: 'border-box',
+          boxSizing: "border-box",
           ...props.css,
         }}
       />
-    );
-  }
-);
+    )
+  },
+)
 
-DropdownMenu.id = 'DropdownMenu';
+DropdownMenu.id = "DropdownMenu"

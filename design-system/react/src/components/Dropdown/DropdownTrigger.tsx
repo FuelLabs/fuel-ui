@@ -1,23 +1,22 @@
-import { cx } from '@fuel-ui/css';
-import { mergeRefs } from '@react-aria/utils';
-import type { ReactElement } from 'react';
-import { Children, cloneElement } from 'react';
+import { cx } from "@fuel-ui/css"
+import { mergeRefs } from "@react-aria/utils"
+import type { ReactElement } from "react"
+import { Children, cloneElement } from "react"
+import { createComponent } from "~/utils"
 
-import type { ButtonProps } from '..';
-import { Icon, Button } from '..';
+import type { ButtonProps } from ".."
+import { Icon, Button } from ".."
 
-import { useDropdown } from '.';
+import { useDropdown } from "."
 
-import { createComponent } from '~/utils';
-
-type ElementType = 'button';
+type ElementType = "button"
 type DropdownTriggerProps = ButtonProps & {
-  asChild?: boolean;
-};
+  asChild?: boolean
+}
 
 type ObjProps = {
-  id: string;
-};
+  id: string
+}
 
 export const DropdownTrigger = createComponent<
   DropdownTriggerProps,
@@ -25,11 +24,11 @@ export const DropdownTrigger = createComponent<
   unknown,
   ElementType
 >(({ ref, className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_DropdownTrigger', className);
-  const { state, triggerRef } = useDropdown();
+  const classes = cx("fuel_DropdownTrigger", className)
+  const { state, triggerRef } = useDropdown()
 
   function handleToggle() {
-    state?.toggle();
+    state?.toggle()
   }
 
   if (asChild) {
@@ -40,10 +39,10 @@ export const DropdownTrigger = createComponent<
             ref: mergeRefs(ref, triggerRef as never),
             onPress: handleToggle,
             className: classes,
-          });
+          })
         })}
       </>
-    );
+    )
   }
 
   return (
@@ -51,11 +50,11 @@ export const DropdownTrigger = createComponent<
       {...props}
       ref={mergeRefs(ref, triggerRef as never)}
       onPress={handleToggle}
-      rightIcon={state?.isOpen ? Icon.is('ChevronUp') : Icon.is('ChevronDown')}
+      rightIcon={state?.isOpen ? Icon.is("ChevronUp") : Icon.is("ChevronDown")}
     >
       {children}
     </Button>
-  );
-});
+  )
+})
 
-DropdownTrigger.id = 'DropdownTrigger';
+DropdownTrigger.id = "DropdownTrigger"

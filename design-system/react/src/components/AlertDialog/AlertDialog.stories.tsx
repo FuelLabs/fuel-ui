@@ -1,14 +1,14 @@
-import { Button } from '../Button';
+import { Button } from "../Button"
 
-import { AlertDialog } from './AlertDialog';
+import { AlertDialog } from "./AlertDialog"
 
 export default {
   component: AlertDialog,
-  title: 'Overlay/AlertDialog',
+  title: "Overlay/AlertDialog",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-};
+}
 
 export const Usage = () => (
   <AlertDialog>
@@ -35,8 +35,8 @@ export const Usage = () => (
       </AlertDialog.Footer>
     </AlertDialog.Content>
   </AlertDialog>
-);
+)
 
 Usage.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}

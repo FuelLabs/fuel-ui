@@ -1,26 +1,26 @@
-import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import { cx } from '@fuel-ui/css';
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { useId } from 'react';
+import type { ThemeUtilsCSS } from "@fuel-ui/css"
+import { cx } from "@fuel-ui/css"
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
+import { useId } from "react"
 
-import { createComponent, createStyledElement } from '../../utils';
-import { Flex } from '../Box/Flex';
-import { Form } from '../Form';
+import { createComponent, useCreateStyledElement } from "../../utils"
+import { Flex } from "../Box/Flex"
+import { Form } from "../Form"
 
-import * as styles from './styles';
+import * as styles from "./styles"
 
-type OmitProps = 'as' | 'children';
+type OmitProps = "as" | "children"
 export type RadioGroupItemProps = RadioGroupPrimitive.RadioGroupItemProps & {
-  label: string;
-  isDisabled?: boolean;
-  isReadOnly?: boolean;
-  labelClassName?: string;
-  labelCSS?: ThemeUtilsCSS;
-};
+  label: string
+  isDisabled?: boolean
+  isReadOnly?: boolean
+  labelClassName?: string
+  labelCSS?: ThemeUtilsCSS
+}
 
 type ObjProps = {
-  id: string;
-};
+  id: string
+}
 
 export const RadioGroupItem = createComponent<
   RadioGroupItemProps,
@@ -36,20 +36,20 @@ export const RadioGroupItem = createComponent<
     labelCSS,
     ...props
   }) => {
-    const disabled = isDisabled || isReadOnly;
-    const labelId = label ? `label-${useId()}` : undefined;
-    const classes = cx('fuel_RadioGroupItem', className);
+    const disabled = isDisabled || isReadOnly
+    const labelId = label ? `label-${useId()}` : undefined
+    const classes = cx("fuel_RadioGroupItem", className)
     const customProps = {
       ...props,
       className: classes,
       disabled,
-      'aria-label': label,
-      'aria-disabled': disabled,
-      'aria-readonly': isReadOnly,
-      ...(label && { 'aria-describedby': labelId }),
-    };
+      "aria-label": label,
+      "aria-disabled": disabled,
+      "aria-readonly": isReadOnly,
+      ...(label && { "aria-describedby": labelId }),
+    }
 
-    const element = createStyledElement(
+    const element = useCreateStyledElement(
       RadioGroupPrimitive.Item,
       styles.item,
       null,
@@ -57,23 +57,23 @@ export const RadioGroupItem = createComponent<
       <RadioGroupPrimitive.Indicator
         aria-disabled={disabled}
         className={styles.indicator()}
-      />
-    );
+      />,
+    )
 
     return (
       <Flex gap="$1">
-        {element}{' '}
+        {element}{" "}
         <Form.Label
           id={labelId}
           htmlFor={props.id}
-          css={{ textSize: 'sm', ...labelCSS }}
+          css={{ textSize: "sm", ...labelCSS }}
           className={cx(labelClassName)}
         >
           {label}
         </Form.Label>
       </Flex>
-    );
-  }
-);
+    )
+  },
+)
 
-RadioGroupItem.id = 'RadioGroupItem';
+RadioGroupItem.id = "RadioGroupItem"

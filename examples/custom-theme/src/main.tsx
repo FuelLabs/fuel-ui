@@ -1,11 +1,11 @@
-import { lightColors } from '@fuel-ui/css';
-import { createTheme, darkTheme, ThemeProvider } from '@fuel-ui/react';
-import { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
+import { lightColors } from "@fuel-ui/css"
+import { createTheme, darkTheme, ThemeProvider } from "@fuel-ui/react"
+import { StrictMode } from "react"
+import ReactDOM from "react-dom/client"
 
-import { App } from './App';
+import { App } from "./App"
 
-const customTheme = createTheme('custom-theme', {
+const customTheme = createTheme("custom-theme", {
   tokens: {
     colors: {
       ...lightColors,
@@ -26,15 +26,15 @@ const customTheme = createTheme('custom-theme', {
   components: {
     Button: {
       defaultProps: {
-        size: 'lg',
+        size: "lg",
       },
       styles: {
         root: {
           variants: {
             color: {
               accent: {
-                color: '$intentsPrimary11',
-                backgroundColor: '$intentsPrimary9',
+                color: "$intentsPrimary11",
+                backgroundColor: "$intentsPrimary9",
               },
             },
           },
@@ -42,12 +42,12 @@ const customTheme = createTheme('custom-theme', {
       },
     },
   },
-});
+})
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
     <ThemeProvider themes={{ custom: customTheme, dark: darkTheme }}>
       <App />
     </ThemeProvider>
-  </StrictMode>
-);
+  </StrictMode>,
+)

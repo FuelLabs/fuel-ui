@@ -1,3 +1,3 @@
-import tokens from '../build/tokens-raw';
+import tokens from "../build/tokens-raw"
 
-export { tokens };
+export { tokens }

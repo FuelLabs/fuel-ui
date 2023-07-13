@@ -1,26 +1,25 @@
-import * as AC from '@radix-ui/react-accordion';
-import { createElement } from 'react';
+import * as AC from "@radix-ui/react-accordion"
+import { createElement } from "react"
+import { Components } from "~/defs"
+import { useElementProps, useStyles } from "~/hooks"
 
-import { _unstable_createComponent } from '../../utils';
-import { Icon } from '../Icon';
+import { _unstable_createComponent } from "../../utils"
+import { Icon } from "../Icon"
 
-import type * as t from './defs';
-import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import type * as t from "./defs"
+import { styles } from "./styles"
 
 export const AccordionTrigger =
   _unstable_createComponent<t.AccordionTriggerDef>(
     Components.AccordionTrigger,
     ({ children, ...props }) => {
       const classes = useStyles(styles, {}, [
-        'header',
-        'root',
-        'icon',
-        'trigger',
-      ]);
-      const triggerElementProps = useElementProps(props, classes.trigger);
+        "header",
+        "root",
+        "icon",
+        "trigger",
+      ])
+      const triggerElementProps = useElementProps(props, classes.trigger)
 
       return createElement(
         AC.AccordionHeader,
@@ -32,7 +31,7 @@ export const AccordionTrigger =
             aria-hidden
             className={classes.icon.className}
           />
-        </AC.AccordionTrigger>
-      );
-    }
-  );
+        </AC.AccordionTrigger>,
+      )
+    },
+  )

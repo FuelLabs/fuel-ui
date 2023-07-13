@@ -1,11 +1,11 @@
-import { Image } from './Image';
-import type { ImageProps } from './defs';
+import { Image } from "./Image"
+import type { ImageProps } from "./defs"
 
 export default {
   component: Image,
-  title: 'UI/Image',
+  title: "UI/Image",
   argTypes: {},
-};
+}
 
 export const Usage = (args: ImageProps) => (
   <Image
@@ -14,4 +14,4 @@ export const Usage = (args: ImageProps) => (
     alt="Landscape photo by Tobias Tullius"
     height={400}
   />
-);
+)

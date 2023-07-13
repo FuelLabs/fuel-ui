@@ -1,13 +1,13 @@
-import { Box } from '../Box';
+import { createComponent } from "~/utils"
 
-import { styles } from './styles';
-import type { PasswordStrength } from './types';
+import { Box } from "../Box"
 
-import { createComponent } from '~/utils';
+import { styles } from "./styles"
+import type { PasswordStrength } from "./types"
 
 export type StrengthIndicatorIndicatorProps = {
-  strength: PasswordStrength;
-};
+  strength: PasswordStrength
+}
 
 export const StrengthIndicator =
   createComponent<StrengthIndicatorIndicatorProps>(({ strength, ...props }) => (
@@ -15,13 +15,13 @@ export const StrengthIndicator =
       <Box data-strength={strength} css={styles.strengthIndicator} />
       <Box
         data-strength={
-          strength !== 'average' && strength !== 'strong' ? 0 : strength
+          strength !== "average" && strength !== "strong" ? 0 : strength
         }
         css={styles.strengthIndicator}
       />
       <Box
-        data-strength={strength === 'strong' ? strength : ''}
+        data-strength={strength === "strong" ? strength : ""}
         css={styles.strengthIndicator}
       />
     </Box>
-  ));
+  ))

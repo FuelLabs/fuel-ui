@@ -1,17 +1,17 @@
-import { HelperIcon } from './HelperIcon';
+import { HelperIcon } from "./HelperIcon"
 
 export default {
   component: HelperIcon,
-  title: 'Helpers/HelperIcon',
+  title: "Helpers/HelperIcon",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-};
+}
 
 export const Usage = () => (
   <HelperIcon message="This is a helper message">Some information</HelperIcon>
-);
+)
 
 Usage.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}

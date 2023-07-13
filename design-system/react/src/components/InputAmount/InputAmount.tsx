@@ -1,43 +1,43 @@
-import type { BN } from '@fuel-ts/math';
-import { bn, format } from '@fuel-ts/math';
-import { cssObj } from '@fuel-ui/css';
-import type { PressEvent } from '@react-types/shared';
-import { useEffect, useState } from 'react';
-import type { FC } from 'react';
+import type { BN } from "@fuel-ts/math"
+import { bn, format } from "@fuel-ts/math"
+import { cssObj } from "@fuel-ui/css"
+import type { PressEvent } from "@react-types/shared"
+import { useEffect, useState } from "react"
+import type { FC } from "react"
 
-import { Box } from '../Box';
-import { Flex } from '../Box/Flex';
-import { Button } from '../Button';
-import { Icon } from '../Icon';
-import { Image } from '../Image';
-import type { InputProps } from '../Input';
-import { Input } from '../Input';
-import type { InputNumberProps } from '../Input/InputNumber';
-import { Text } from '../Text';
-import { Tooltip } from '../Tooltip';
+import { Box } from "../Box"
+import { Flex } from "../Box/Flex"
+import { Button } from "../Button"
+import { Icon } from "../Icon"
+import { Image } from "../Image"
+import type { InputProps } from "../Input"
+import { Input } from "../Input"
+import type { InputNumberProps } from "../Input/InputNumber"
+import { Text } from "../Text"
+import { Tooltip } from "../Tooltip"
 
-import { InputAmountLoader } from './InputAmountLoader';
-import { DECIMAL_UNITS, createAmount } from './utils';
+import { InputAmountLoader } from "./InputAmountLoader"
+import { DECIMAL_UNITS, createAmount } from "./utils"
 
-export type InputAmountProps = Omit<InputProps, 'size'> & {
-  name?: string;
-  balance?: BN;
-  balancePrecision?: number;
-  value?: BN | null;
-  units?: number;
-  onChange?: (val: BN) => void;
-  hiddenMaxButton?: boolean;
-  hiddenBalance?: boolean;
-  inputProps?: InputNumberProps;
-  isDisabled?: boolean;
-  asset?: { name?: string; imageUrl?: string };
-  assetTooltip?: string;
-  onClickAsset?: (e: PressEvent) => void;
-};
+export type InputAmountProps = Omit<InputProps, "size"> & {
+  name?: string
+  balance?: BN
+  balancePrecision?: number
+  value?: BN | null
+  units?: number
+  onChange?: (val: BN) => void
+  hiddenMaxButton?: boolean
+  hiddenBalance?: boolean
+  inputProps?: InputNumberProps
+  isDisabled?: boolean
+  asset?: { name?: string; imageUrl?: string }
+  assetTooltip?: string
+  onClickAsset?: (e: PressEvent) => void
+}
 
 type InputAmountComponent = FC<InputAmountProps> & {
-  Loader: typeof InputAmountLoader;
-};
+  Loader: typeof InputAmountLoader
+}
 
 export const InputAmount: InputAmountComponent = ({
   name,
@@ -54,38 +54,38 @@ export const InputAmount: InputAmountComponent = ({
   onClickAsset,
   ...props
 }) => {
-  const formatOpts = { units, precision: units };
+  const formatOpts = { units, precision: units }
   const [assetAmount, setAssetAmount] = useState<string>(
-    !value || value.eq(0) ? '' : value.format(formatOpts)
-  );
+    !value || value.eq(0) ? "" : value.format(formatOpts),
+  )
 
-  const balance = initialBalance ?? bn(initialBalance);
+  const balance = initialBalance ?? bn(initialBalance)
   const formattedBalance = balance.format({
     ...formatOpts,
     precision: balance.eq(0) ? 1 : balancePrecision,
-  });
+  })
 
   useEffect(() => {
-    handleAmountChange(value ? value.format(formatOpts) : '');
-  }, [value?.toString()]);
+    handleAmountChange(value ? value.format(formatOpts) : "")
+  }, [value?.toString()])
 
   const handleAmountChange = (text: string) => {
-    const { text: newText, amount } = createAmount(text, formatOpts.units);
+    const { text: newText, amount } = createAmount(text, formatOpts.units)
     const { amount: currentAmount } = createAmount(
       assetAmount,
-      formatOpts.units
-    );
+      formatOpts.units,
+    )
     if (!currentAmount.eq(amount)) {
-      onChange?.(amount);
-      setAssetAmount(newText);
+      onChange?.(amount)
+      setAssetAmount(newText)
     }
-  };
+  }
 
   const handleSetBalance = () => {
     if (balance) {
-      handleAmountChange(balance.format(formatOpts));
+      handleAmountChange(balance.format(formatOpts))
     }
-  };
+  }
 
   return (
     <Input size="lg" css={styles.input} {...props}>
@@ -97,12 +97,12 @@ export const InputAmount: InputAmountComponent = ({
           name={name}
           aria-label={name}
           placeholder="0.00"
-          allowedDecimalSeparators={['.', ',']}
+          allowedDecimalSeparators={[".", ","]}
           allowNegative={false}
           thousandSeparator={false}
           value={assetAmount}
           onChange={(e) => {
-            handleAmountChange(e.target.value);
+            handleAmountChange(e.target.value)
           }}
           decimalScale={units}
           {...inputProps}
@@ -162,7 +162,7 @@ export const InputAmount: InputAmountComponent = ({
           aria-label={`Balance: ${formattedBalance}`}
         >
           <Box as="span" css={styles.balance}>
-            Balance:{' '}
+            Balance:{" "}
           </Box>
           <Tooltip content={format(balance, formatOpts)} sideOffset={-5}>
             <Box as="span" css={styles.balance}>
@@ -172,91 +172,91 @@ export const InputAmount: InputAmountComponent = ({
         </Flex>
       )}
     </Input>
-  );
-};
+  )
+}
 
-InputAmount.Loader = InputAmountLoader;
+InputAmount.Loader = InputAmountLoader
 
 const styles = {
   input: cssObj({
-    py: '$4',
-    px: '$4',
-    display: 'flex',
-    flexDirection: 'column',
-    height: 'auto',
+    py: "$4",
+    px: "$4",
+    display: "flex",
+    flexDirection: "column",
+    height: "auto",
 
     input: {
-      is: ['display'],
-      width: '100%',
-      boxSizing: 'border-box',
-      fontSize: '$md',
-      fontFamily: '$mono',
+      is: ["display"],
+      width: "100%",
+      boxSizing: "border-box",
+      fontSize: "$md",
+      fontFamily: "$mono",
     },
 
-    'input, .fuel_input-element--right': {
-      px: '$0',
+    "input, .fuel_input-element--right": {
+      px: "$0",
     },
   }),
   heading: cssObj({
-    color: '$intentsBase9',
-    mb: '$1',
-    fontSize: '$sm',
-    lineHeight: '$tight',
+    color: "$intentsBase9",
+    mb: "$1",
+    fontSize: "$sm",
+    lineHeight: "$tight",
   }),
   secondRow: cssObj({
-    alignItems: 'center',
-    width: '100%',
+    alignItems: "center",
+    width: "100%",
   }),
   elementRight: cssObj({
-    pr: '$0',
+    pr: "$0",
 
     '[aria-disabled="true"]': {
-      opacity: 'unset',
-      backgroundColor: 'unset',
-      color: 'unset',
+      opacity: "unset",
+      backgroundColor: "unset",
+      color: "unset",
     },
   }),
   balanceActions: cssObj({
-    display: 'flex',
-    justifyContent: 'end',
+    display: "flex",
+    justifyContent: "end",
   }),
   maxButton: cssObj({
-    px: '$3',
-    width: '$8',
-    height: '$5',
-    borderRadius: '$default',
-    fontSize: '$sm',
-    fontFamily: '$mono',
+    px: "$3",
+    width: "$8",
+    height: "$5",
+    borderRadius: "$default",
+    fontSize: "$sm",
+    fontFamily: "$mono",
   }),
   assetButton: cssObj({
-    height: '$6',
-    width: '$18',
-    marginLeft: '$2',
-    borderRadius: '$default',
+    height: "$6",
+    width: "$18",
+    marginLeft: "$2",
+    borderRadius: "$default",
   }),
   assetText: cssObj({
-    fontSize: '$sm',
-    color: '$intentsBase12',
+    fontSize: "$sm",
+    color: "$intentsBase12",
   }),
   assetCaret: cssObj({
-    color: '$intentsBase12 !important',
+    color: "$intentsBase12 !important",
   }),
   balanceContainer: cssObj({
-    gap: '$1',
-    alignItems: 'center',
-    whiteSpace: 'nowrap',
-    lineHeight: '$tight',
-    fontSize: '$sm',
-    fontWeight: '$normal',
-    mt: '$1',
+    gap: "$1",
+    alignItems: "center",
+    whiteSpace: "nowrap",
+    lineHeight: "$tight",
+    fontSize: "$sm",
+    fontWeight: "$normal",
+    mt: "$1",
   }),
   balance: cssObj({
-    fontFamily: '$mono',
-    color: '$intentsBase9',
+    fontFamily: "$mono",
+    color: "$intentsBase9",
   }),
   image: cssObj({
-    borderRadius: '50%',
+    borderRadius: "50%",
     width: 14,
     height: 14,
   }),
-};
+}

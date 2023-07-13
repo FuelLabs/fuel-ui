@@ -1,51 +1,51 @@
-import { css } from '@fuel-ui/css';
+import { css } from "@fuel-ui/css"
 
-import { Box } from '../Box';
-import { Stack } from '../Box/Stack';
-import { Button } from '../Button';
-import { Grid } from '../Grid';
+import { Box } from "../Box"
+import { Stack } from "../Box/Stack"
+import { Button } from "../Button"
+import { Grid } from "../Grid"
 
-import { toast } from './Toast';
+import { toast } from "./Toast"
 
 export default {
-  title: 'Overlay/Toast',
+  title: "Overlay/Toast",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-};
+}
 
 export const Usage = () => (
   <Stack gap="$4" direction="row">
-    <Button onPress={() => toast('Just an information')} intent="base">
+    <Button onPress={() => toast("Just an information")} intent="base">
       Show info
     </Button>
-    <Button onPress={() => toast.success('Congrats!')}>Show success</Button>
-    <Button onPress={() => toast.error('Ooops, some error')} intent="error">
+    <Button onPress={() => toast.success("Congrats!")}>Show success</Button>
+    <Button onPress={() => toast.error("Ooops, some error")} intent="error">
       Show error
     </Button>
     <Button
-      onPress={() => toast('Just an information', { icon: '⚠️' })}
+      onPress={() => toast("Just an information", { icon: "⚠️" })}
       intent="base"
     >
       Custom Icon
     </Button>
   </Stack>
-);
+)
 
 Usage.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}
 
 const POSITIONS_TOP = [
-  { value: 'top-left', label: 'Top left' },
-  { value: 'top-center', label: 'Top center' },
-  { value: 'top-right', label: 'Top right' },
-];
+  { value: "top-left", label: "Top left" },
+  { value: "top-center", label: "Top center" },
+  { value: "top-right", label: "Top right" },
+]
 const POSITIONS_BOTTOM = [
-  { value: 'bottom-left', label: 'Bottom left' },
-  { value: 'bottom-center', label: 'Bottom center' },
-  { value: 'bottom-right', label: 'Bottom right' },
-];
+  { value: "bottom-left", label: "Bottom left" },
+  { value: "bottom-center", label: "Bottom center" },
+  { value: "bottom-right", label: "Bottom right" },
+]
 
 export const Positions = () => (
   <Grid gap="$4" templateColumns="repeat(3, 1fr)" templateRows="repeat(2, 1fr)">
@@ -53,7 +53,7 @@ export const Positions = () => (
       <Button
         key={pos.value}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onPress={() => toast('Hello world', { position: pos.value as any })}
+        onPress={() => toast("Hello world", { position: pos.value as any })}
         intent="base"
       >
         {pos.label}
@@ -63,18 +63,18 @@ export const Positions = () => (
       <Button
         key={pos.value}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onPress={() => toast('Hello world', { position: pos.value as any })}
+        onPress={() => toast("Hello world", { position: pos.value as any })}
         intent="base"
       >
         {pos.label}
       </Button>
     ))}
   </Grid>
-);
+)
 
 Positions.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}
 
 export const Custom = () => (
   <Stack gap="$4" direction="row">
@@ -87,18 +87,18 @@ export const Custom = () => (
       Custom Toast
     </Button>
   </Stack>
-);
+)
 
 Custom.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}
 
 const styles = {
   custom: css({
-    py: '$2',
-    px: '$6',
-    borderRadius: '$full',
-    backgroundColor: '$intentsPrimary10',
-    color: 'white',
+    py: "$2",
+    px: "$6",
+    borderRadius: "$full",
+    backgroundColor: "$intentsPrimary10",
+    color: "white",
   }),
-};
+}

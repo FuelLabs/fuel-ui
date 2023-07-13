@@ -1,70 +1,70 @@
-import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import { cx } from '@fuel-ui/css';
+import type { ThemeUtilsCSS } from "@fuel-ui/css"
+import { cx } from "@fuel-ui/css"
 
-import type { HTMLProps } from '../../utils';
-import { createComponent } from '../../utils';
-import { Box } from '../Box';
+import type { HTMLProps } from "../../utils"
+import { createComponent } from "../../utils"
+import { Box } from "../Box"
 
-import { GridItem } from './GridItem';
+import { GridItem } from "./GridItem"
 
-export type GridProps = HTMLProps['div'] & {
+export type GridProps = HTMLProps["div"] & {
   /**
    * Shorthand prop for `gridAutoColumns`
    * @type ThemeUtilsCSS["gridAutoColumns"];
    */
-  autoColumns?: ThemeUtilsCSS['gridAutoColumns'];
+  autoColumns?: ThemeUtilsCSS["gridAutoColumns"]
   /**
    * Shorthand prop for `gridAutoRows`
    * @type ThemeUtilsCSS["gridAutoRows"];
    */
-  autoRows?: ThemeUtilsCSS['gridAutoRows'];
+  autoRows?: ThemeUtilsCSS["gridAutoRows"]
   /**
    * Shorthand prop for `gridColumn`
    * @type ThemeUtilsCSS["gridColumn"];
    */
-  column?: ThemeUtilsCSS['gridColumn'];
+  column?: ThemeUtilsCSS["gridColumn"]
   /**
    * Shorthand prop for `gridAutoFlow`
    * @type ThemeUtilsCSS["gridAutoFlow"];
    */
-  direction?: ThemeUtilsCSS['gridAutoFlow'];
+  direction?: ThemeUtilsCSS["gridAutoFlow"]
   /**
    * Shorthand prop for `gap`
    * @type ThemeUtilsCSS["gap"];
    */
-  gap?: ThemeUtilsCSS['gap'];
+  gap?: ThemeUtilsCSS["gap"]
   /**
    * Shorthand prop for `gridRow`
    * @type ThemeUtilsCSS["gridRow"];
    */
-  row?: ThemeUtilsCSS['gridRow'];
+  row?: ThemeUtilsCSS["gridRow"]
   /**
    * Shorthand prop for `gridTemplateAreas`
    * @type ThemeUtilsCSS["gridTemplateAreas"];
    */
-  templateAreas?: ThemeUtilsCSS['gridTemplateAreas'];
+  templateAreas?: ThemeUtilsCSS["gridTemplateAreas"]
   /**
    * Shorthand prop for `gridTemplateColumns`
    * @type ThemeUtilsCSS["gridTemplateColumns"];
    */
-  templateColumns?: ThemeUtilsCSS['gridTemplateColumns'];
+  templateColumns?: ThemeUtilsCSS["gridTemplateColumns"]
   /**
    * Shorthand prop for `gridTemplateRows`
    * @type ThemeUtilsCSS["gridTemplateRows"];
    */
-  templateRows?: ThemeUtilsCSS['gridTemplateRows'];
-};
+  templateRows?: ThemeUtilsCSS["gridTemplateRows"]
+}
 
 type ObjProps = {
-  Item: typeof GridItem;
-};
+  Item: typeof GridItem
+}
 
 export const Grid = createComponent<GridProps, ObjProps>(
   ({
     autoColumns,
     autoRows,
     column,
-    direction = 'row',
+    direction = "row",
     gap,
     row,
     templateAreas,
@@ -74,7 +74,7 @@ export const Grid = createComponent<GridProps, ObjProps>(
     className,
     ...props
   }) => {
-    const classes = cx('fuel_BoxGrid', className);
+    const classes = cx("fuel_BoxGrid", className)
     return (
       <Box
         {...props}
@@ -90,11 +90,11 @@ export const Grid = createComponent<GridProps, ObjProps>(
           gridTemplateColumns: templateColumns,
           gridTemplateRows: templateRows,
           ...css,
-          display: 'grid',
+          display: "grid",
         }}
       />
-    );
-  }
-);
+    )
+  },
+)
 
-Grid.Item = GridItem;
+Grid.Item = GridItem

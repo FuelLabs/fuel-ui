@@ -306,7 +306,7 @@
 - 🐞 Fix: pass machine for useMachine on ThemeProvider in a right way, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
 - Updated dependencies (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105), [#105](https://github.com/FuelLabs/fuel-ui/pull/105), and [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
   - @fuel-ui/css@0.2.0
-  - @fuel-ui/test-utils@0.2.0
+  - @fuels/jest@0.2.0
 
 ## 0.1.1
 
@@ -416,5 +416,5 @@
   ```
 - ⚠️ Fix default <Button> props when merge with useButton() props using mergeProps from react-aria, by [@pedronauck](https://github.com/pedronauck) (See [#82](https://github.com/FuelLabs/fuel-ui/pull/82))
 - Updated dependencies (See [#46](https://github.com/FuelLabs/fuel-ui/pull/46))
-  - @fuel-ui/test-utils@0.0.2
+  - @fuels/jest@0.0.2
   - @fuel-ui/css@0.0.2

@@ -1,36 +1,36 @@
-import { Icon } from '../Icon';
+import { Icon } from "../Icon"
 
-import { Copyable } from './Copyable';
+import { Copyable } from "./Copyable"
 
 export default {
   component: Copyable,
-  title: 'Helpers/Copyable',
+  title: "Helpers/Copyable",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-};
+}
 
 export const Usage = () => (
   <Copyable value="You copied this text">Standard Icon</Copyable>
-);
+)
 export const IconProps = () => (
   <Copyable
     value="Another text which you copied"
-    iconProps={{ icon: Icon.is('Send') }}
+    iconProps={{ icon: Icon.is("Send") }}
   >
     Different Icon
   </Copyable>
-);
+)
 
 IconProps.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}
 Usage.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}
 
-export const WithoutChildren = () => <Copyable value="Some value" />;
+export const WithoutChildren = () => <Copyable value="Some value" />
 
 WithoutChildren.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}

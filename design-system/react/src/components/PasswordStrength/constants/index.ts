@@ -1,2 +1,2 @@
-export * from './insecurePasswords';
-export * from './passwordDictionary';
+export * from "./insecurePasswords"
+export * from "./passwordDictionary"

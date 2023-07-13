@@ -1,5 +1,5 @@
 packages:
-  - 'common/*'
-  - 'design-system/*'
-  - 'examples/*'
-  - 'stitches/*'
+  - "common/*"
+  - "design-system/*"
+  - "examples/*"
+  - "stitches/*"

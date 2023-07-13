@@ -1,12 +1,12 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { render, screen, testA11y } from "@fuels/jest"
 
-import { Stack } from '../Box/Stack';
-import { Button } from '../Button';
+import { Stack } from "../Box/Stack"
+import { Button } from "../Button"
 
-import { Focus } from './Focus';
+import { Focus } from "./Focus"
 
-describe('Focus', () => {
-  it('a11y', async () => {
+describe("Focus", () => {
+  it("a11y", async () => {
     await testA11y(
       <Focus.ArrowNavigator autoFocus>
         <Stack gap="$3" direction="row">
@@ -14,11 +14,11 @@ describe('Focus', () => {
           <Button>Second</Button>
           <Button>Third</Button>
         </Stack>
-      </Focus.ArrowNavigator>
-    );
-  });
+      </Focus.ArrowNavigator>,
+    )
+  })
 
-  it('should have focus navigation usings arrows', async () => {
+  it("should have focus navigation usings arrows", async () => {
     const { user } = render(
       <Focus.ArrowNavigator autoFocus>
         <Stack gap="$3" direction="row">
@@ -26,17 +26,17 @@ describe('Focus', () => {
           <Button>Second</Button>
           <Button>Third</Button>
         </Stack>
-      </Focus.ArrowNavigator>
-    );
+      </Focus.ArrowNavigator>,
+    )
 
-    expect(await screen.findByText('First')).toHaveFocus();
-    await user.press('ArrowRight');
-    expect(await screen.findByText('Second')).toHaveFocus();
-    await user.press('ArrowRight');
-    expect(await screen.findByText('Third')).toHaveFocus();
-    await user.press('ArrowLeft');
-    expect(await screen.findByText('Second')).toHaveFocus();
-    await user.press('ArrowLeft');
-    expect(await screen.findByText('First')).toHaveFocus();
-  });
-});
+    expect(await screen.findByText("First")).toHaveFocus()
+    await user.press("ArrowRight")
+    expect(await screen.findByText("Second")).toHaveFocus()
+    await user.press("ArrowRight")
+    expect(await screen.findByText("Third")).toHaveFocus()
+    await user.press("ArrowLeft")
+    expect(await screen.findByText("Second")).toHaveFocus()
+    await user.press("ArrowLeft")
+    expect(await screen.findByText("First")).toHaveFocus()
+  })
+})

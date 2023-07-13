@@ -1,9 +1,9 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from "@fuels/jest"
 
-import { Accordion } from './Accordion';
+import { Accordion } from "./Accordion"
 
-describe('Accordion', () => {
-  it('a11y', async () => {
+describe("Accordion", () => {
+  it("a11y", async () => {
     await testA11y(
       <Accordion type="single" defaultValue="item-1">
         <Accordion.Item value="item-1">
@@ -16,7 +16,7 @@ describe('Accordion', () => {
           <Accordion.Trigger>Is really fast?</Accordion.Trigger>
           <Accordion.Content>Yes, blazingly fast!</Accordion.Content>
         </Accordion.Item>
-      </Accordion>
-    );
-  });
-});
+      </Accordion>,
+    )
+  })
+})

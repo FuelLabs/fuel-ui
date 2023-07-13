@@ -1,11 +1,11 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from "@fuels/jest"
 
-import { Button } from '../Button';
+import { Button } from "../Button"
 
-import { AlertDialog } from './AlertDialog';
+import { AlertDialog } from "./AlertDialog"
 
-describe('AlertDialog', () => {
-  it('a11y', async () => {
+describe("AlertDialog", () => {
+  it("a11y", async () => {
     await testA11y(
       <AlertDialog>
         <AlertDialog.Trigger>
@@ -28,7 +28,7 @@ describe('AlertDialog', () => {
             </AlertDialog.Action>
           </AlertDialog.Footer>
         </AlertDialog.Content>
-      </AlertDialog>
-    );
-  });
-});
+      </AlertDialog>,
+    )
+  })
+})

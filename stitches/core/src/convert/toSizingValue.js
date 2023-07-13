@@ -1,25 +1,25 @@
-import { toHyphenCase } from './toHyphenCase.js';
+import { toHyphenCase } from "./toHyphenCase.js"
 
 /** Returns a declaration sizing value with polyfilled sizing keywords. */
 export const toSizingValue = (
   /** @type {string} */ declarationName,
-  /** @type {string} */ declarationValue
+  /** @type {string} */ declarationValue,
 ) =>
-  declarationName in sizeProps && typeof declarationValue === 'string'
+  declarationName in sizeProps && typeof declarationValue === "string"
     ? declarationValue.replace(
         /^((?:[^]*[^\w-])?)(fit-content|stretch)((?:[^\w-][^]*)?)$/,
         (data, lead, main, tail) =>
           lead +
-          (main === 'stretch'
+          (main === "stretch"
             ? `-moz-available${tail};${toHyphenCase(
-                declarationName
+                declarationName,
               )}:${lead}-webkit-fill-available`
             : `-moz-fit-content${tail};${toHyphenCase(
-                declarationName
+                declarationName,
               )}:${lead}fit-content`) +
-          tail
+          tail,
       )
-    : String(declarationValue);
+    : String(declarationValue)
 
 /** CSS Properties whose value include a sizing keyword. */
 const sizeProps = {
@@ -35,4 +35,4 @@ const sizeProps = {
   minInlineSize: 1,
   minWidth: 1,
   width: 1,
-};
+}

@@ -1,14 +1,14 @@
-import type * as React from 'react';
-import type * as Util from './util.js';
+import type * as React from "react"
+import type * as Util from "./util.js"
 
-export type IntrinsicElementsKeys = keyof JSX.IntrinsicElements;
+export type IntrinsicElementsKeys = keyof JSX.IntrinsicElements
 
 /** Returns a new Styled Component. */
 export interface StyledComponent<
-  Type = 'span',
+  Type = "span",
   Props = {},
   Media = {},
-  CSS = {}
+  CSS = {},
 > extends React.ForwardRefExoticComponent<
     Util.Assign<
       Type extends IntrinsicElementsKeys | React.ComponentType<any>
@@ -23,11 +23,11 @@ export interface StyledComponent<
         ? React.ComponentPropsWithRef<Type>
         : {},
       TransformProps<Props, Media> & {
-        as?: never;
-        css?: CSS;
+        as?: never
+        css?: CSS
       }
-    >
-  ): React.ReactElement | null;
+    >,
+  ): React.ReactElement | null
 
   <
     C extends CSS,
@@ -36,83 +36,85 @@ export interface StyledComponent<
       | React.ComponentType<any>
       ? Type
       : any,
-    InnerProps = Type extends StyledComponent<any, infer IP, any, any> ? IP : {}
+    InnerProps = Type extends StyledComponent<any, infer IP, any, any>
+      ? IP
+      : {},
   >(
     props: Util.Assign<
       React.ComponentPropsWithRef<
         As extends IntrinsicElementsKeys | React.ComponentType<any> ? As : never
       >,
       TransformProps<Util.Assign<InnerProps, Props>, Media> & {
-        as?: As;
+        as?: As
         css?: {
-          [K in keyof C]: K extends keyof CSS ? CSS[K] : never;
-        };
+          [K in keyof C]: K extends keyof CSS ? CSS[K] : never
+        }
       }
-    >
-  ): React.ReactElement | null;
+    >,
+  ): React.ReactElement | null
 
-  className: string;
-  selector: string;
+  className: string
+  selector: string
 
-  [$$StyledComponentType]: Type;
-  [$$StyledComponentProps]: Props;
-  [$$StyledComponentMedia]: Media;
+  [$$StyledComponentType]: Type
+  [$$StyledComponentProps]: Props
+  [$$StyledComponentMedia]: Media
 }
 
 /** Returns a new CSS Component. */
-export interface CssComponent<Type = 'span', Props = {}, Media = {}, CSS = {}> {
+export interface CssComponent<Type = "span", Props = {}, Media = {}, CSS = {}> {
   (
     props?: TransformProps<Props, Media> & {
-      css?: CSS;
+      css?: CSS
     } & {
-      [name in number | string]: any;
-    }
+      [name in number | string]: any
+    },
   ): string & {
-    className: string;
-    selector: string;
-    props: {};
-  };
+    className: string
+    selector: string
+    props: {}
+  }
 
-  className: string;
-  selector: string;
+  className: string
+  selector: string
 
-  [$$StyledComponentType]: Type;
-  [$$StyledComponentProps]: Props;
-  [$$StyledComponentMedia]: Media;
+  [$$StyledComponentType]: Type
+  [$$StyledComponentProps]: Props
+  [$$StyledComponentMedia]: Media
 }
 
 export type TransformProps<Props, Media> = {
   [K in keyof Props]:
     | Props[K]
     | ({
-        [KMedia in Util.Prefixed<'@', 'initial' | keyof Media>]?: Props[K];
+        [KMedia in Util.Prefixed<"@", "initial" | keyof Media>]?: Props[K]
       } & {
-        [KMedia in string]: Props[K];
-      });
-};
+        [KMedia in string]: Props[K]
+      })
+}
 
 /** Unique symbol used to reference the type of a Styled Component. */
-export declare const $$StyledComponentType: unique symbol;
+export declare const $$StyledComponentType: unique symbol
 
 /** Unique symbol used to reference the type of a Styled Component. */
-export type $$StyledComponentType = typeof $$StyledComponentType;
+export type $$StyledComponentType = typeof $$StyledComponentType
 
 /** Unique symbol used to reference the props of a Styled Component. */
-export declare const $$StyledComponentProps: unique symbol;
+export declare const $$StyledComponentProps: unique symbol
 
 /** Unique symbol used to reference the props of a Styled Component. */
-export type $$StyledComponentProps = typeof $$StyledComponentProps;
+export type $$StyledComponentProps = typeof $$StyledComponentProps
 
 /** Unique symbol used to reference the media passed into a Styled Component. */
-export declare const $$StyledComponentMedia: unique symbol;
+export declare const $$StyledComponentMedia: unique symbol
 
 /** Unique symbol used to reference the media passed into a Styled Component. */
-export type $$StyledComponentMedia = typeof $$StyledComponentMedia;
+export type $$StyledComponentMedia = typeof $$StyledComponentMedia
 
 /** Returns a narrowed JSX element from the given tag name. */
 type IntrinsicElement<TagName> = TagName extends IntrinsicElementsKeys
   ? TagName
-  : never;
+  : never
 
 /** Returns a ForwardRef component. */
 type ForwardRefExoticComponent<Type, Props> = React.ForwardRefExoticComponent<
@@ -120,11 +122,11 @@ type ForwardRefExoticComponent<Type, Props> = React.ForwardRefExoticComponent<
     Type extends React.ElementType ? React.ComponentPropsWithRef<Type> : never,
     Props & { as?: Type }
   >
->;
+>
 
 /** Returns the first Styled Component type from the given array of compositions. */
 export type StyledComponentType<T extends any[]> = T[0] extends never
-  ? 'span'
+  ? "span"
   : T[0] extends string
   ? T[0]
   : T[0] extends (props: any) => any
@@ -133,7 +135,7 @@ export type StyledComponentType<T extends any[]> = T[0] extends never
   ? T[0][$$StyledComponentType]
   : T extends [lead: any, ...tail: infer V]
   ? StyledComponentType<V>
-  : never;
+  : never
 
 /** Returns the cumulative variants from the given array of compositions. */
 export type StyledComponentProps<T extends any[]> =
@@ -141,7 +143,7 @@ export type StyledComponentProps<T extends any[]> =
     ? T[0][$$StyledComponentProps]
     : T[0] extends { variants: { [name: string]: unknown } }
     ? {
-        [K in keyof T[0]['variants']]?: Util.Widen<keyof T[0]['variants'][K]>;
+        [K in keyof T[0]["variants"]]?: Util.Widen<keyof T[0]["variants"][K]>
       }
     : {}) &
-    (T extends [lead: any, ...tail: infer V] ? StyledComponentProps<V> : {});
+    (T extends [lead: any, ...tail: infer V] ? StyledComponentProps<V> : {})

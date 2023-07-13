@@ -1,20 +1,20 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { render, screen, testA11y } from "@fuels/jest"
 
-import { Badge } from './Badge';
+import { Badge } from "./Badge"
 
-describe('Badge', () => {
-  it('a11y', async () => {
-    await testA11y(<Badge>Label</Badge>);
-  });
+describe("Badge", () => {
+  it("a11y", async () => {
+    await testA11y(<Badge>Label</Badge>)
+  })
 
-  it('should render a span with inner text as Label', () => {
-    const { container } = render(<Badge>Label</Badge>);
-    expect(container.querySelector('span')).toBeInTheDocument();
-    expect(screen.getByText('Label')).toBeInTheDocument();
-  });
+  it("should render a span with inner text as Label", () => {
+    const { container } = render(<Badge>Label</Badge>)
+    expect(container.querySelector("span")).toBeInTheDocument()
+    expect(screen.getByText("Label")).toBeInTheDocument()
+  })
 
-  it('should change element with as prop', async () => {
-    const { container } = render(<Badge as="div">Label</Badge>);
-    expect(container.querySelector('div')).toBeInTheDocument();
-  });
-});
+  it("should change element with as prop", async () => {
+    const { container } = render(<Badge as="div">Label</Badge>)
+    expect(container.querySelector("div")).toBeInTheDocument()
+  })
+})

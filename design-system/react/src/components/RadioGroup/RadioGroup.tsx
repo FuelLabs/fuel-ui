@@ -1,30 +1,30 @@
-import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import { cx } from '@fuel-ui/css';
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { Children, cloneElement } from 'react';
+import type { ThemeUtilsCSS } from "@fuel-ui/css"
+import { cx } from "@fuel-ui/css"
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
+import { Children, cloneElement } from "react"
 
-import { createComponent, createStyledElement } from '../../utils';
-import { useFormControlProps } from '../Form/FormControl';
+import { createComponent, useCreateStyledElement } from "../../utils"
+import { useFormControlProps } from "../Form/FormControl"
 
-import { RadioGroupItem } from './RadioGroupItem';
-import * as styles from './styles';
+import { RadioGroupItem } from "./RadioGroupItem"
+import * as styles from "./styles"
 
 export type RadioGroupProps = RadioGroupPrimitive.RadioGroupProps & {
-  gap?: ThemeUtilsCSS['gap'];
-  direction?: 'row' | 'column';
-  isDisabled?: boolean;
-  isReadOnly?: boolean;
-};
+  gap?: ThemeUtilsCSS["gap"]
+  direction?: "row" | "column"
+  isDisabled?: boolean
+  isReadOnly?: boolean
+}
 
 type ObjProps = {
-  id: string;
-  Item: typeof RadioGroupItem;
-};
+  id: string
+  Item: typeof RadioGroupItem
+}
 
 export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
   ({
-    gap = '$2',
-    direction = 'column',
+    gap = "$2",
+    direction = "column",
     css,
     isDisabled,
     isReadOnly,
@@ -32,15 +32,15 @@ export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
     className,
     ...props
   }) => {
-    const formControlProps = useFormControlProps();
+    const formControlProps = useFormControlProps()
     const disabled =
       isDisabled ||
       isReadOnly ||
       formControlProps.isDisabled ||
-      formControlProps.isReadOnly;
+      formControlProps.isReadOnly
 
-    const readonly = isReadOnly || formControlProps.isReadOnly;
-    const classes = cx('fuel_Radio_group', className);
+    const readonly = isReadOnly || formControlProps.isReadOnly
+    const classes = cx("fuel_Radio_group", className)
 
     const customProps = {
       ...props,
@@ -51,29 +51,29 @@ export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
         flexDirection: direction,
         ...css,
       },
-    };
+    }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const customChildren = Children.toArray(children).map((child: any) => {
-      if (child?.type?.id === 'RadioGroupItem') {
+      if (child?.type?.id === "RadioGroupItem") {
         return cloneElement(child, {
           isDisabled: disabled,
           isReadOnly: readonly,
           required: props.required || formControlProps.isRequired,
-        });
+        })
       }
-      return child;
-    });
+      return child
+    })
 
-    return createStyledElement(
+    return useCreateStyledElement(
       RadioGroupPrimitive.Root,
       styles.root,
       null,
       customProps,
-      customChildren
-    );
-  }
-);
+      customChildren,
+    )
+  },
+)
 
-RadioGroup.id = 'RadioGroup';
-RadioGroup.Item = RadioGroupItem;
+RadioGroup.id = "RadioGroup"
+RadioGroup.Item = RadioGroupItem

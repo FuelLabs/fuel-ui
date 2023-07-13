@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { useState } from "react"
 
-import { Stack } from '../Box/Stack';
-import { Button } from '../Button';
-import { Icon } from '../Icon';
+import { Stack } from "../Box/Stack"
+import { Button } from "../Button"
+import { Icon } from "../Icon"
 
-import type { DropdownProps } from './Dropdown';
-import { Dropdown } from './Dropdown';
+import type { DropdownProps } from "./Dropdown"
+import { Dropdown } from "./Dropdown"
 
 export default {
   component: Dropdown,
-  title: 'Overlay/Dropdown',
+  title: "Overlay/Dropdown",
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-};
+}
 
 const Content = (props: Partial<DropdownProps>) => {
   return (
@@ -21,7 +21,7 @@ const Content = (props: Partial<DropdownProps>) => {
       <Dropdown.Trigger>
         <Button>Click here</Button>
       </Dropdown.Trigger>
-      <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
+      <Dropdown.Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
         <Dropdown.MenuItem key="settings" textValue="Settings">
           <Icon icon="Settings" />
           Settings
@@ -36,17 +36,17 @@ const Content = (props: Partial<DropdownProps>) => {
         </Dropdown.MenuItem>
       </Dropdown.Menu>
     </Dropdown>
-  );
-};
+  )
+}
 
-export const Usage = (args: DropdownProps) => <Content {...args} />;
+export const Usage = (args: DropdownProps) => <Content {...args} />
 
 Usage.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}
 
 export const Controlled = (args: DropdownProps) => {
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useState(false)
   return (
     <Stack gap="$2" direction="row">
       <Button onPress={() => setOpened(true)} variant="ghost">
@@ -54,9 +54,9 @@ export const Controlled = (args: DropdownProps) => {
       </Button>
       <Content {...args} isOpen={opened} onOpenChange={setOpened} />
     </Stack>
-  );
-};
+  )
+}
 
 Controlled.parameters = {
-  layout: 'centered',
-};
+  layout: "centered",
+}

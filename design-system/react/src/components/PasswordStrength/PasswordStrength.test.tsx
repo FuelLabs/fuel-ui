@@ -1,94 +1,94 @@
-import { render } from '@fuel-ui/test-utils';
-import { useState } from 'react';
+import { render } from "@fuels/jest"
+import { useState } from "react"
 
-import { Stack } from '../Box/Stack';
-import { Button } from '../Button';
-import { InputPassword } from '../InputPassword';
+import { Stack } from "../Box/Stack"
+import { Button } from "../Button"
+import { InputPassword } from "../InputPassword"
 
-import { PasswordStrength } from './PasswordStrength';
-import { PasswordDictionary } from './constants';
-import { passwordStrengthCalculator } from './utils';
+import { PasswordStrength } from "./PasswordStrength"
+import { PasswordDictionary } from "./constants"
+import { passwordStrengthCalculator } from "./utils"
 
-const strongPassword = '12345LF@ik&!';
-const averagePassword = 'L@w2';
-const weakPassword = '12345678';
+const strongPassword = "12345LF@ik&!"
+const averagePassword = "L@w2"
+const weakPassword = "12345678"
 
-describe('PasswordStrength', () => {
-  it('should render a weak password', async () => {
+describe("PasswordStrength", () => {
+  it("should render a weak password", async () => {
     const { findByText } = render(
       <PasswordStrength password={weakPassword} open>
         <Button></Button>
-      </PasswordStrength>
-    );
+      </PasswordStrength>,
+    )
 
     expect(PasswordDictionary[passwordStrengthCalculator(weakPassword)]).toBe(
-      'Weak'
-    );
+      "Weak",
+    )
     expect(
       await findByText(
-        PasswordDictionary[passwordStrengthCalculator(weakPassword)]
-      )
-    ).toBeDefined();
-  });
+        PasswordDictionary[passwordStrengthCalculator(weakPassword)],
+      ),
+    ).toBeDefined()
+  })
 
-  it('should render a weak password if password minimum length is 8', async () => {
+  it("should render a weak password if password minimum length is 8", async () => {
     const { findByText } = render(
       <PasswordStrength password="123456" open>
         <Button></Button>
-      </PasswordStrength>
-    );
+      </PasswordStrength>,
+    )
 
     expect(PasswordDictionary[passwordStrengthCalculator(weakPassword)]).toBe(
-      'Weak'
-    );
+      "Weak",
+    )
     expect(
       await findByText(
-        PasswordDictionary[passwordStrengthCalculator(weakPassword)]
-      )
-    ).toBeDefined();
-  });
+        PasswordDictionary[passwordStrengthCalculator(weakPassword)],
+      ),
+    ).toBeDefined()
+  })
 
-  it('should render a average password', async () => {
+  it("should render a average password", async () => {
     const { findByText } = render(
       <PasswordStrength password={averagePassword} open>
         <Button></Button>
-      </PasswordStrength>
-    );
+      </PasswordStrength>,
+    )
 
     expect(
-      PasswordDictionary[passwordStrengthCalculator(averagePassword)]
-    ).toBe('Average');
+      PasswordDictionary[passwordStrengthCalculator(averagePassword)],
+    ).toBe("Average")
     expect(
       await findByText(
-        PasswordDictionary[passwordStrengthCalculator(averagePassword)]
-      )
-    ).toBeDefined();
-  });
+        PasswordDictionary[passwordStrengthCalculator(averagePassword)],
+      ),
+    ).toBeDefined()
+  })
 
-  it('should render a strong password', async () => {
+  it("should render a strong password", async () => {
     const { findByText } = render(
       <PasswordStrength password={strongPassword} open>
         <Button></Button>
-      </PasswordStrength>
-    );
+      </PasswordStrength>,
+    )
 
     expect(PasswordDictionary[passwordStrengthCalculator(strongPassword)]).toBe(
-      'Strong'
-    );
+      "Strong",
+    )
     expect(
       await findByText(
-        PasswordDictionary[passwordStrengthCalculator(strongPassword)]
-      )
-    ).toBeDefined();
-  });
+        PasswordDictionary[passwordStrengthCalculator(strongPassword)],
+      ),
+    ).toBeDefined()
+  })
 
-  it('should focus input when user press tab', async () => {
+  it("should focus input when user press tab", async () => {
     const WithInput = () => {
-      const [password, setPassword] = useState('');
-      const [open, setOpen] = useState(false);
+      const [password, setPassword] = useState("")
+      const [open, setOpen] = useState(false)
 
       return (
-        <Stack css={{ maxW: '350px' }}>
+        <Stack css={{ maxW: "350px" }}>
           <PasswordStrength
             onOpenChange={() => setOpen(true)}
             password={password}
@@ -103,41 +103,41 @@ describe('PasswordStrength', () => {
             />
           </PasswordStrength>
         </Stack>
-      );
-    };
+      )
+    }
 
-    const { user, findByPlaceholderText } = render(<WithInput />);
+    const { user, findByPlaceholderText } = render(<WithInput />)
 
     // create test to make sure when user press tab, input is focused
-    await user.tab();
-    const input = await findByPlaceholderText('Type your password');
-    expect(input).toHaveFocus();
-  });
+    await user.tab()
+    const input = await findByPlaceholderText("Type your password")
+    expect(input).toHaveFocus()
+  })
 
-  it('should fill 1 levels as strength weak', async () => {
-    const container = document.createElement('div');
-    render(<PasswordStrength.Indicator strength={'weak'} />, {
+  it("should fill 1 levels as strength weak", async () => {
+    const container = document.createElement("div")
+    render(<PasswordStrength.Indicator strength={"weak"} />, {
       container,
-    });
-    const elements = container.querySelectorAll('[data-strength="weak"]');
-    expect(elements.length).toBe(1);
-  });
+    })
+    const elements = container.querySelectorAll('[data-strength="weak"]')
+    expect(elements.length).toBe(1)
+  })
 
-  it('should fill 2 levels as strength weak', async () => {
-    const container = document.createElement('div');
-    render(<PasswordStrength.Indicator strength={'average'} />, {
+  it("should fill 2 levels as strength weak", async () => {
+    const container = document.createElement("div")
+    render(<PasswordStrength.Indicator strength={"average"} />, {
       container,
-    });
-    const elements = container.querySelectorAll('[data-strength="average"]');
-    expect(elements.length).toBe(2);
-  });
+    })
+    const elements = container.querySelectorAll('[data-strength="average"]')
+    expect(elements.length).toBe(2)
+  })
 
-  it('should fill all levels when strength strong', async () => {
-    const container = document.createElement('div');
-    render(<PasswordStrength.Indicator strength={'strong'} />, {
+  it("should fill all levels when strength strong", async () => {
+    const container = document.createElement("div")
+    render(<PasswordStrength.Indicator strength={"strong"} />, {
       container,
-    });
-    const elements = container.querySelectorAll('[data-strength="strong"]');
-    expect(elements.length).toBe(3);
-  });
-});
+    })
+    const elements = container.querySelectorAll('[data-strength="strong"]')
+    expect(elements.length).toBe(3)
+  })
+})

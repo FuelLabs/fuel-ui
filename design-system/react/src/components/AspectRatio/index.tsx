@@ -1,2 +1,2 @@
-export * from './AspectRatio';
-export * from './defs';
+export * from "./AspectRatio"
+export * from "./defs"

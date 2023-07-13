@@ -1,31 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-export const noop = () => {};
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export const noop = () => {}
 
 export function on<T extends Window | Document | HTMLElement | EventTarget>(
   obj: T | null,
-  ...args: Parameters<T['addEventListener']> | [string, Function | null, ...any]
+  ...args: Parameters<T["addEventListener"]> | [string, Function | null, ...any]
 ): void {
   if (obj && obj.addEventListener) {
     obj.addEventListener(
-      ...(args as Parameters<HTMLElement['addEventListener']>)
-    );
+      ...(args as Parameters<HTMLElement["addEventListener"]>),
+    )
   }
 }
 
 export function off<T extends Window | Document | HTMLElement | EventTarget>(
   obj: T | null,
   ...args:
-    | Parameters<T['removeEventListener']>
+    | Parameters<T["removeEventListener"]>
     | [string, Function | null, ...any]
 ): void {
   if (obj && obj.removeEventListener) {
     obj.removeEventListener(
-      ...(args as Parameters<HTMLElement['removeEventListener']>)
-    );
+      ...(args as Parameters<HTMLElement["removeEventListener"]>),
+    )
   }
 }
 
-export const isBrowser = typeof window !== 'undefined';
+export const isBrowser = typeof window !== "undefined"
 
-export const isNavigator = typeof navigator !== 'undefined';
+export const isNavigator = typeof navigator !== "undefined"

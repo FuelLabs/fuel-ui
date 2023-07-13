@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { css, cx } from '@fuel-ui/css';
+import { css, cx } from "@fuel-ui/css"
 
-import type { ListContext } from '..';
-import { useListContext } from '..';
-import { createComponent } from '../../utils';
-import type { HTMLProps } from '../../utils';
-import { Text } from '../Text';
+import type { ListContext } from ".."
+import { useListContext } from ".."
+import { createComponent } from "../../utils"
+import type { HTMLProps } from "../../utils"
+import { Text } from "../Text"
 
-type BaseProps = HTMLProps['li'];
-export type ListProps = BaseProps & ListContext;
+type BaseProps = HTMLProps["li"]
+export type ListProps = BaseProps & ListContext
 
 export const ListItem = createComponent<ListProps>(
   ({
@@ -20,8 +20,8 @@ export const ListItem = createComponent<ListProps>(
     className,
     ...props
   }) => {
-    const classes = cx('fuel_ListItem', className, style());
-    const ctx = useListContext();
+    const classes = cx("fuel_ListItem", className, style())
+    const ctx = useListContext()
     return (
       <Text
         as="li"
@@ -33,19 +33,19 @@ export const ListItem = createComponent<ListProps>(
           leftIcon: icon || ctx.icon,
           leftIconAriaLabel: iconAriaLabel || ctx.iconAriaLabel,
           css: {
-            display: 'flex',
+            display: "flex",
             ...props.css,
           },
         })}
       >
         {children}
       </Text>
-    );
-  }
-);
+    )
+  },
+)
 
 const style = css({
-  '&::marker': {
-    color: '$intentsBase6',
+  "&::marker": {
+    color: "$intentsBase6",
   },
-});
+})

@@ -1,9 +1,9 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from "@fuels/jest"
 
-import { Alert } from './Alert';
+import { Alert } from "./Alert"
 
-describe('Alert', () => {
-  it('a11y', async () => {
-    await testA11y(<Alert>Hello world</Alert>);
-  });
-});
+describe("Alert", () => {
+  it("a11y", async () => {
+    await testA11y(<Alert>Hello world</Alert>)
+  })
+})

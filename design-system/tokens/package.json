@@ -27,14 +27,15 @@
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
     "copy-set": "node src/copy-set.mjs",
-    "copy-set:global": "node src/copy-set.mjs --global",
-    "copy-set:radix": "node src/copy-set.mjs --radix",
-    "copy-set:dark": "node src/copy-set.mjs --dark",
-    "copy-set:light": "node src/copy-set.mjs --light",
+    "copy-set:global": "pnpm copy-set --global",
+    "copy-set:radix": "pnpm copy-set --radix",
+    "copy-set:dark": "pnpm copy-set --dark",
+    "copy-set:light": "pnpm copy-set --light",
+    "copy-sets": "run-p copy-set:*",
     "ts:check": "tsc --noEmit",
-    "build-tokens": "node ./src/build.mjs",
+    "build-tokens": "pnpm copy-sets && node ./src/build.mjs",
     "build": "pnpm build-tokens && tsup --dts",
-    "update:tokens": "pnpm build && run-p copy-set:*"
+    "update:tokens": "pnpm build && pnpm copy-sets"
   },
   "dependencies": {
     "@radix-ui/colors": "^1.0.0",

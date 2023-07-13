@@ -1,10 +1,10 @@
-import { render, testA11y, screen, waitFor, act } from '@fuel-ui/test-utils';
+import { render, testA11y, screen, waitFor, act } from "@fuels/jest"
 
-import { Button } from '../Button';
-import { Icon } from '../Icon';
+import { Button } from "../Button"
+import { Icon } from "../Icon"
 
-import type { DropdownProps } from './Dropdown';
-import { Dropdown } from './Dropdown';
+import type { DropdownProps } from "./Dropdown"
+import { Dropdown } from "./Dropdown"
 
 const Content = (props: Partial<DropdownProps>) => {
   return (
@@ -12,7 +12,7 @@ const Content = (props: Partial<DropdownProps>) => {
       <Dropdown.Trigger>
         <Button>Click here</Button>
       </Dropdown.Trigger>
-      <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
+      <Dropdown.Menu autoFocus disabledKeys={["edit"]} aria-label="Actions">
         <Dropdown.MenuItem key="settings" textValue="Settings">
           <Icon icon="Settings" />
           Settings
@@ -27,59 +27,59 @@ const Content = (props: Partial<DropdownProps>) => {
         </Dropdown.MenuItem>
       </Dropdown.Menu>
     </Dropdown>
-  );
-};
+  )
+}
 
-describe('Dropdown', () => {
-  it('a11y', async () => {
-    await testA11y(<Content />);
-  });
+describe("Dropdown", () => {
+  it("a11y", async () => {
+    await testA11y(<Content />)
+  })
 
-  it('should open dropdown menu when click on trigger', async () => {
-    const { user } = render(<Content />);
+  it("should open dropdown menu when click on trigger", async () => {
+    const { user } = render(<Content />)
 
-    expect(() => screen.getByText('Settings')).toThrow();
-    const trigger = screen.getByText('Click here');
-    await act(() => user.click(trigger));
+    expect(() => screen.getByText("Settings")).toThrow()
+    const trigger = screen.getByText("Click here")
+    await act(() => user.click(trigger))
 
-    expect(await screen.findByText('Settings')).toBeInTheDocument();
-  });
+    expect(await screen.findByText("Settings")).toBeInTheDocument()
+  })
 
-  it('should close when click on menu item', async () => {
-    const { user } = render(<Content />);
+  it("should close when click on menu item", async () => {
+    const { user } = render(<Content />)
 
-    const trigger = screen.getByText('Click here');
-    await act(() => user.click(trigger));
+    const trigger = screen.getByText("Click here")
+    await act(() => user.click(trigger))
 
-    const menuItem = await screen.findByText('Settings');
-    await act(() => user.click(menuItem));
+    const menuItem = await screen.findByText("Settings")
+    await act(() => user.click(menuItem))
 
-    await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
-  });
+    await waitFor(() => expect(() => screen.getByText("Settings")).toThrow())
+  })
 
-  it('should close when click outside', async () => {
+  it("should close when click outside", async () => {
     const { user } = render(
       <>
         <Content />
         <Button>Foo</Button>
-      </>
-    );
+      </>,
+    )
 
-    const trigger = screen.getByText('Click here');
-    await act(() => user.click(trigger));
+    const trigger = screen.getByText("Click here")
+    await act(() => user.click(trigger))
 
-    const fooBtn = await screen.findByText('Foo');
-    await act(() => user.click(fooBtn));
+    const fooBtn = await screen.findByText("Foo")
+    await act(() => user.click(fooBtn))
 
-    await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
-  });
+    await waitFor(() => expect(() => screen.getByText("Settings")).toThrow())
+  })
 
-  it('should close when press esc', async () => {
-    const { user } = render(<Content />);
+  it("should close when press esc", async () => {
+    const { user } = render(<Content />)
 
-    const trigger = screen.getByText('Click here');
-    await act(() => user.click(trigger));
-    await user.press('Esc');
-    await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
-  });
-});
+    const trigger = screen.getByText("Click here")
+    await act(() => user.click(trigger))
+    await user.press("Esc")
+    await waitFor(() => expect(() => screen.getByText("Settings")).toThrow())
+  })
+})

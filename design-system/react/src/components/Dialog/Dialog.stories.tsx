@@ -1,15 +1,15 @@
-import { Button } from '../Button';
+import { Button } from "../Button"
 
-import { Dialog } from './Dialog';
-import type { DialogProps } from './Dialog';
+import { Dialog } from "./Dialog"
+import type { DialogProps } from "./Dialog"
 
 export default {
   component: Dialog,
-  title: 'Overlay/Dialog',
+  title: "Overlay/Dialog",
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-};
+}
 
 export const Usage = (args: DialogProps) => {
   return (
@@ -32,8 +32,8 @@ export const Usage = (args: DialogProps) => {
         </Dialog.Footer>
       </Dialog.Content>
     </Dialog>
-  );
-};
+  )
+}
 
 export const WithoutTrigger = (args: DialogProps) => {
   return (
@@ -52,5 +52,5 @@ export const WithoutTrigger = (args: DialogProps) => {
         </Dialog.Footer>
       </Dialog.Content>
     </Dialog>
-  );
-};
+  )
+}

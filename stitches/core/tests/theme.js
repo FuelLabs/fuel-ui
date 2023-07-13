@@ -1,25 +1,25 @@
-import { createStitches } from '../src/index.js';
+import { createStitches } from "../src/index.js"
 
-describe('Theme', () => {
-  test('Expected behavior for the createTheme() method', () => {
-    const { createTheme, getCssText } = createStitches();
+describe("Theme", () => {
+  test("Expected behavior for the createTheme() method", () => {
+    const { createTheme, getCssText } = createStitches()
 
-    const myTheme = createTheme('my', {
+    const myTheme = createTheme("my", {
       colors: {
-        blue: 'dodgerblue',
+        blue: "dodgerblue",
       },
-    });
+    })
 
-    expect(getCssText()).toBe('');
-    expect(`<div class="${myTheme}">`).toBe('<div class="my">');
+    expect(getCssText()).toBe("")
+    expect(`<div class="${myTheme}">`).toBe('<div class="my">')
     expect(getCssText()).toBe(
-      `--sxs{--sxs:0 my}@media{.my{--colors-blue:dodgerblue}}`
-    );
-    expect(myTheme.className).toBe('my');
-    expect(myTheme.selector).toBe('.my');
-  });
+      `--sxs{--sxs:0 my}@media{.my{--colors-blue:dodgerblue}}`,
+    )
+    expect(myTheme.className).toBe("my")
+    expect(myTheme.selector).toBe(".my")
+  })
 
-  test('createTheme() support for non-strings', () => {
+  test("createTheme() support for non-strings", () => {
     {
       const { getCssText } = createStitches({
         theme: {
@@ -29,13 +29,13 @@ describe('Theme', () => {
             lg: 500,
           },
         },
-      });
+      })
 
       expect(getCssText()).toBe(
         `--sxs{--sxs:0 t-egkarf}@media{` +
           `:root,.t-egkarf{--sizes-sm:100;--sizes-md:200;--sizes-lg:500}` +
-          `}`
-      );
+          `}`,
+      )
     }
 
     {
@@ -43,11 +43,11 @@ describe('Theme', () => {
         theme: {
           sizes: {
             sm: 100,
-            md: 'calc($sm * 3)',
-            lg: 'calc($md * 3)',
+            md: "calc($sm * 3)",
+            lg: "calc($md * 3)",
           },
         },
-      });
+      })
 
       expect(getCssText()).toBe(
         `--sxs{--sxs:0 t-eJkcVD}@media{` +
@@ -56,26 +56,26 @@ describe('Theme', () => {
           `--sizes-md:calc(var(--sizes-sm) * 3);` +
           `--sizes-lg:calc(var(--sizes-md) * 3)` +
           `}` +
-          `}`
-      );
+          `}`,
+      )
     }
-  });
+  })
 
-  test('theme.className injects the theme', () => {
-    const { getCssText, createTheme } = createStitches();
+  test("theme.className injects the theme", () => {
+    const { getCssText, createTheme } = createStitches()
 
     const theme = createTheme({
       colors: {
-        blue: '#0000ff',
+        blue: "#0000ff",
       },
-    });
+    })
 
-    expect(getCssText()).toBe(``);
+    expect(getCssText()).toBe(``)
 
-    void theme.className;
+    void theme.className
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:0 t-gpVVQE}@media{.t-gpVVQE{--colors-blue:#0000ff}}`
-    );
-  });
-});
+      `--sxs{--sxs:0 t-gpVVQE}@media{.t-gpVVQE{--colors-blue:#0000ff}}`,
+    )
+  })
+})

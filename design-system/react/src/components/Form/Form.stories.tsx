@@ -1,20 +1,20 @@
-import { Stack } from '../Box/Stack';
-import { Icon } from '../Icon';
-import { Input } from '../Input';
+import { Stack } from "../Box/Stack"
+import { Icon } from "../Icon"
+import { Input } from "../Input"
 
-import { Form } from './Form';
-import type { FormControlProps } from './FormControl';
+import { Form } from "./Form"
+import type { FormControlProps } from "./FormControl"
 
 export default {
   component: Form.Control,
-  title: 'Form/FormControl',
+  title: "Form/FormControl",
   argTypes: {},
-};
+}
 
-const EMAIL_ICON = <Icon icon="Mail" label="Mail" />;
+const EMAIL_ICON = <Icon icon="Mail" label="Mail" />
 
 export const Usage = (args: FormControlProps) => (
-  <Stack css={{ maxW: '400px' }}>
+  <Stack css={{ maxW: "400px" }}>
     <Form.Control {...args} isRequired>
       <Form.Label htmlFor="email">Email</Form.Label>
       <Input isFullWidth>
@@ -29,10 +29,10 @@ export const Usage = (args: FormControlProps) => (
       <Form.HelperText>We will never share your email</Form.HelperText>
     </Form.Control>
   </Stack>
-);
+)
 
 export const Invalid = (args: FormControlProps) => (
-  <Stack css={{ maxW: '400px' }}>
+  <Stack css={{ maxW: "400px" }}>
     <Form.Control {...args} isRequired isInvalid>
       <Form.Label htmlFor="email">Email</Form.Label>
       <Input isFullWidth>
@@ -49,4 +49,4 @@ export const Invalid = (args: FormControlProps) => (
       <Form.ErrorMessage>Wrong email format</Form.ErrorMessage>
     </Form.Control>
   </Stack>
-);
+)

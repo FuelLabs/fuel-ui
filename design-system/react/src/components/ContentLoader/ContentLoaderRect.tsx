@@ -1,4 +1,4 @@
-import { toCSSValue } from '~/utils/css';
+import { toCSSValue } from "~/utils/css"
 
 export function Rect({
   x,
@@ -7,18 +7,18 @@ export function Rect({
   stickY,
   ...props
 }: React.SVGProps<SVGRectElement> & {
-  stickX?: 'right' | 'left';
-  stickY?: 'top' | 'bottom';
+  stickX?: "right" | "left"
+  stickY?: "top" | "bottom"
 }) {
-  const xValue = toCSSValue(x);
-  const yValue = toCSSValue(y);
-  let finalX = x;
-  let finalY = y;
-  if (stickX === 'right') {
-    finalX = `calc(100% - ${xValue} - ${toCSSValue(props.width)})`;
+  const xValue = toCSSValue(x)
+  const yValue = toCSSValue(y)
+  let finalX = x
+  let finalY = y
+  if (stickX === "right") {
+    finalX = `calc(100% - ${xValue} - ${toCSSValue(props.width)})`
   }
-  if (stickY === 'bottom') {
-    finalY = `calc(100% - ${yValue} - ${toCSSValue(props.height)})`;
+  if (stickY === "bottom") {
+    finalY = `calc(100% - ${yValue} - ${toCSSValue(props.height)})`
   }
-  return <rect x={finalX} y={finalY} {...props} />;
+  return <rect x={finalX} y={finalY} {...props} />
 }
