@@ -30,7 +30,7 @@
     "xstate:typegen": "xstate typegen 'src/**/*.ts?(x)'"
   },
   "dependencies": {
-    "@fuel-ts/math": "^0.46.0",
+    "@fuel-ts/math": "^0.47.0",
     "@fuel-ui/css": "workspace:*",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.4",
@@ -52,7 +52,7 @@
     "@tabler/icons-react": "^2.25.0",
     "@xstate/react": "^3.2.2",
     "deepmerge-json": "^1.5.0",
-    "framer-motion": "^10.12.20",
+    "framer-motion": "^10.12.21",
     "react": "^18.2.0",
     "react-aria": "^3.26.0",
     "react-content-loader": "^6.2.1",
@@ -98,7 +98,7 @@
     "ts-jest": "^29.1.1",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "5.1.6",
-    "vite": "^4.4.3",
+    "vite": "^4.4.4",
     "vite-tsconfig-paths": "^4.2.0",
     "webpack": "5.88.1",
     "yargs": "^17.7.2"
