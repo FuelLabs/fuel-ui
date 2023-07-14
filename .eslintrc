@@ -1,6 +1,7 @@
 {
   "extends": ["plugin:@fuels/base"],
   "rules": {
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "import/no-unresolved": "off"
   }
 }
