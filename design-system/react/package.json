@@ -50,6 +50,8 @@
     "@react-aria/utils": "^3.18.0",
     "@storybook/global": "^5.0.0",
     "@tabler/icons-react": "^2.25.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@types/testing-library__jest-dom": "^5.14.8",
     "@xstate/react": "^3.2.2",
     "deepmerge-json": "^1.5.0",
     "framer-motion": "^10.12.21",

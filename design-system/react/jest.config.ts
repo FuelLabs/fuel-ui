@@ -7,7 +7,7 @@ const config: Config = {
   ...baseConfig,
   rootDir: __dirname,
   displayName: pkg.name,
-  setupFilesAfterEnv: ['@fuels/jest/setup'],
+  setupFilesAfterEnv: ['@fuels/jest/setup', './jest.setup.ts'],
 };
 
 export default config;
