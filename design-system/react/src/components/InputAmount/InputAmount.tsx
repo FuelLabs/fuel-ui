@@ -25,7 +25,7 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   balancePrecision?: number;
   value?: BN | null;
   units?: number;
-  onChange?: (val: BN) => void;
+  onChange?: (val?: BN) => void;
   hiddenMaxButton?: boolean;
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
@@ -76,7 +76,7 @@ export const InputAmount: InputAmountComponent = ({
       formatOpts.units
     );
     if (!currentAmount.eq(amount)) {
-      onChange?.(amount);
+      onChange?.(newText.length ? amount : undefined);
       setAssetAmount(newText);
     }
   };
