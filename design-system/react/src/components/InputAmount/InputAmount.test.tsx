@@ -110,9 +110,7 @@ describe('InputAmount', () => {
     const input = screen.getByLabelText(FIELD_NAME);
     fireEvent.input(input, { target: { value: 0.5 } });
     expect(input.getAttribute('value')).toBe('0.5');
-    console.log('pooooooooooooo');
     fireEvent.input(input, { target: { value: undefined } });
-    // expect(input.getAttribute('value')).toBe('0');
     expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
   });
 
