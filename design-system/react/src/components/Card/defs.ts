@@ -1,3 +1,5 @@
+import type { LayerVariant } from '@fuel-ui/css';
+
 import type { BoxProps, FlexProps } from '../Box';
 
 import type { CardBody } from './CardBody';
@@ -7,8 +9,9 @@ import type { CardHeader } from './CardHeader';
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
 
-export type CardProps = FlexProps & {
+export type CardProps = {
   withDividers?: boolean;
+  variant?: Exclude<Exclude<LayerVariant, 'link'>, 'solid'>;
 };
 
 type CardNS = {

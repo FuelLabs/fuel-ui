@@ -17,17 +17,11 @@ import { useStyles } from '~/hooks';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const _Card = _unstable_createComponent<CardDef>(
   Components.Card,
-  ({
-    as = 'article',
-    direction = 'column',
-    withDividers,
-    children,
-    ...props
-  }) => {
-    const classes = useStyles(styles, props);
+  ({ as = 'article', variant = 'ghost', withDividers, children, ...props }) => {
+    const classes = useStyles(styles, { ...props, variant });
     const elementProps = {
       ...props,
-      direction,
+      direction: 'column',
       className: classes.root.className,
       'data-dividers': withDividers,
     };
