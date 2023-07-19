@@ -15,9 +15,9 @@ export const MOCK_ASSET = {
 };
 
 function Content({ onChange, ...props }: Partial<InputAmountProps>) {
-  const [val, setVal] = useState<BN | undefined>(bn(0));
+  const [val, setVal] = useState<BN | null>(bn(0));
 
-  function handleChange(val?: BN) {
+  function handleChange(val: BN | null) {
     onChange?.(val);
     setVal(val);
   }

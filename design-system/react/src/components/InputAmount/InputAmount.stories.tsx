@@ -30,7 +30,7 @@ export default {
 const BALANCE = bn.parseUnits('1.570000044');
 
 const Template: StoryFn<typeof InputAmount> = (args) => {
-  const [amount, setAmount] = useState<BN | null | undefined>(bn());
+  const [amount, setAmount] = useState<BN | null>(bn());
   const { units } = args || {};
 
   const valueOne = bn.parseUnits('1', units).add(11);
