@@ -82,7 +82,7 @@ CustomSize.parameters = {
 };
 
 export const CustomContainer = (args: DrawerProps) => {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
   return (
     <Card
       ref={ref}
@@ -111,7 +111,7 @@ CustomContainer.parameters = {
 };
 
 export const StateControlled = (args: DrawerProps) => {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
 
   return (

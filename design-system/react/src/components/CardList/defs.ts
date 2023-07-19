@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
 import type { StackProps } from '../Box';
-import type { CardProps } from '../Card/Card';
+import type { CardProps } from '../Card/defs';
 
 import type { CardListItem } from './CardListItem';
 
