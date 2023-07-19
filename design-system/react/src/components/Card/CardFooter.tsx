@@ -1,19 +1,25 @@
-import { cx } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Box/Flex';
-import { Flex } from '../Box/Flex';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
-import * as styles from './styles';
+import type { CardFooterDef } from './defs';
+import { styles } from './styles';
 
-export const CardFooter = createComponent<FlexProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_CardFooter', className, styles.footer());
-    const customProps = { ...props, className: classes };
-    return (
-      <Flex as="footer" {...customProps}>
-        {children}
-      </Flex>
-    );
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _CardFooter = _unstable_createComponent<CardFooterDef>(
+  Components.CardFooter,
+  ({ as = 'footer', children, ...props }) => {
+    const classes = useStyles(styles, props, ['footer']);
+    const elementProps = { ...props, className: classes.footer.className };
+    return createElement(as, elementProps, children);
   }
 );
+
+export const CardFooter =
+  createPolymorphicComponent<CardFooterDef>(_CardFooter);
