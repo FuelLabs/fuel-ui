@@ -1,37 +1,36 @@
-import { cx } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Box/Flex';
-import { Flex } from '../Box/Flex';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
 import { CardBody } from './CardBody';
 import { CardFooter } from './CardFooter';
 import { CardHeader } from './CardHeader';
-import * as styles from './styles';
+import type { CardDef } from './defs';
+import { styles } from './styles';
 
-export type CardProps = FlexProps & {
-  withDividers?: boolean;
-};
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-type ObjProps = {
-  id: string;
-  Header: typeof CardHeader;
-  Body: typeof CardBody;
-  Footer: typeof CardFooter;
-};
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _Card = _unstable_createComponent<CardDef>(
+  Components.Card,
+  ({ as = 'article', variant = 'ghost', withDividers, children, ...props }) => {
+    const classes = useStyles(styles, { ...props, variant });
+    const elementProps = {
+      ...props,
+      direction: 'column',
+      className: classes.root.className,
+      'data-dividers': withDividers,
+    };
 
-export const Card = createComponent<CardProps, ObjProps>(
-  ({ direction = 'column', withDividers, children, className, ...props }) => {
-    const classes = cx('fuel_Card', className, styles.card());
-    const customProps = { ...props, direction, className: classes };
-
-    return (
-      <Flex as="article" {...customProps} data-dividers={withDividers}>
-        {children}
-      </Flex>
-    );
+    return createElement(as, elementProps, children);
   }
 );
+
+export const Card = createPolymorphicComponent<CardDef>(_Card);
 
 Card.id = 'Card';
 Card.Header = CardHeader;

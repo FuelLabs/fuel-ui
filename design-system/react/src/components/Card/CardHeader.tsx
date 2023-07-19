@@ -1,23 +1,29 @@
-import { cx } from '@fuel-ui/css';
+import { createElement } from 'react';
 
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Box/Flex';
-import { Flex } from '../Box/Flex';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
-import * as styles from './styles';
+import type { CardHeaderDef } from './defs';
+import { styles } from './styles';
 
-export type CardHeaderProps = FlexProps & {
-  space?: 'normal' | 'compact';
-};
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-export const CardHeader = createComponent<CardHeaderProps>(
-  ({ children, space = 'normal', className, ...props }) => {
-    const classes = cx('fuel_CardHeader', className, styles.header());
-    const customProps = { ...props, className: classes };
-    return (
-      <Flex as="header" {...customProps} data-space={space}>
-        {children}
-      </Flex>
-    );
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _CardHeader = _unstable_createComponent<CardHeaderDef>(
+  Components.CardHeader,
+  ({ as = 'header', children, space = 'normal', ...props }) => {
+    const classes = useStyles(styles, props, ['header']);
+    const elementProps = {
+      ...props,
+      className: classes.header.className,
+      dataSpace: space,
+    };
+    return createElement(as, elementProps, children);
   }
 );
+
+export const CardHeader =
+  createPolymorphicComponent<CardHeaderDef>(_CardHeader);

@@ -3,8 +3,8 @@ import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 
-import type { CardProps } from './Card';
 import { Card } from './Card';
+import type { CardProps } from './defs';
 
 export default {
   component: Card,
@@ -18,6 +18,17 @@ export const Usage = (args: CardProps) => (
       <Card.Body>Hello world</Card.Body>
     </Card>
   </Box>
+);
+
+export const Variants = (args: CardProps) => (
+  <Box.Stack css={{ maxW: '400px' }} gap="$4">
+    <Card {...args} variant="ghost">
+      <Card.Body>Ghost</Card.Body>
+    </Card>
+    <Card {...args} variant="outlined">
+      <Card.Body>Outlined</Card.Body>
+    </Card>
+  </Box.Stack>
 );
 
 export const WithHeader = (args: CardProps) => (
