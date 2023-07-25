@@ -84,7 +84,7 @@ export const WithAction = (args: CardListProps) => (
 
 export const WithOnClick = (args: CardListProps) => (
   <CardList {...args} css={{ maxW: '$md' }} isClickable>
-    <CardList.Item onClick={() => alert('hello')}>
+    <CardList.Item>
       <Avatar
         {...args}
         size="sm"

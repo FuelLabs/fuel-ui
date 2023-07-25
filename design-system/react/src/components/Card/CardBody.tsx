@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createElement } from 'react';
 
 import {
@@ -15,7 +16,7 @@ import { useStyles } from '~/hooks';
 const _CardBody = _unstable_createComponent<CardBodyDef>(
   Components.CardBody,
   ({ as = 'div', children, ...props }) => {
-    const classes = useStyles(styles, props, ['body']);
+    const classes = useStyles(styles, props as any, ['body']);
     const elementProps = { ...props, className: classes.body.className };
     return createElement(as, elementProps, children);
   }
