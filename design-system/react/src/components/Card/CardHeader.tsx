@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createElement } from 'react';
 
 import {
@@ -15,7 +16,7 @@ import { useStyles } from '~/hooks';
 const _CardHeader = _unstable_createComponent<CardHeaderDef>(
   Components.CardHeader,
   ({ as = 'header', children, space = 'normal', ...props }) => {
-    const classes = useStyles(styles, props, ['header']);
+    const classes = useStyles(styles, props as any, ['header']);
     const elementProps = {
       ...props,
       className: classes.header.className,

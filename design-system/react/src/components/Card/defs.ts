@@ -7,12 +7,13 @@ import type { CardFooter } from './CardFooter';
 import type { CardHeader } from './CardHeader';
 
 import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
+import type { CreateComponent, HTMLProps, PressProps } from '~/utils';
 
-export type CardProps = {
-  withDividers?: boolean;
-  variant?: Exclude<Exclude<LayerVariant, 'link'>, 'solid'>;
-};
+export type CardProps = HTMLProps['article'] &
+  PressProps & {
+    withDividers?: boolean;
+    variant?: Exclude<Exclude<LayerVariant, 'link'>, 'solid'>;
+  };
 
 type CardNS = {
   id: string;
@@ -21,13 +22,12 @@ type CardNS = {
   Footer: typeof CardFooter;
 };
 
-export type CardBodyProps = BoxProps;
-
-export type CardFooterProps = FlexProps;
-
-export type CardHeaderProps = FlexProps & {
-  space?: 'normal' | 'compact';
-};
+export type CardBodyProps = HTMLProps['div'] & BoxProps;
+export type CardFooterProps = HTMLProps['footer'] & FlexProps;
+export type CardHeaderProps = HTMLProps['header'] &
+  FlexProps & {
+    space?: 'normal' | 'compact';
+  };
 
 export type CardDef = CreateComponent<{
   type: 'div';
@@ -46,14 +46,14 @@ export type CardBodyDef = CreateComponent<{
 }>;
 
 export type CardFooterDef = CreateComponent<{
-  type: 'div';
+  type: 'footer';
   component: Components.CardFooter;
   element: HTMLDivElement;
   props: CardFooterProps;
 }>;
 
 export type CardHeaderDef = CreateComponent<{
-  type: 'div';
+  type: 'header';
   component: Components.CardHeader;
   element: HTMLDivElement;
   props: CardHeaderProps;

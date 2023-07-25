@@ -1,3 +1,4 @@
+import { mergeRefs } from '@react-aria/utils';
 import { createElement } from 'react';
 
 import {
@@ -12,21 +13,48 @@ import type { CardDef } from './defs';
 import { styles } from './styles';
 
 import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
+import { useElementProps, useStyles } from '~/hooks';
+import { useOnPress } from '~/hooks/useOnPress';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const _Card = _unstable_createComponent<CardDef>(
   Components.Card,
-  ({ as = 'article', variant = 'ghost', withDividers, children, ...props }) => {
-    const classes = useStyles(styles, { ...props, variant });
+  ({
+    as = 'article',
+    ref,
+    variant = 'ghost',
+    withDividers,
+    children,
+    ...props
+  }) => {
+    const classes = useStyles(styles, props);
+    const { buttonProps, ref: cardRef } = useOnPress<
+      CardDef['props'],
+      CardDef['element']
+    >(props, {
+      elementType: as,
+    });
+
+    const isClickable = Boolean(props.onPress);
     const elementProps = {
       ...props,
-      direction: 'column',
+      ref: mergeRefs(cardRef, ref),
       className: classes.root.className,
+      'data-is-clickable': isClickable,
       'data-dividers': withDividers,
+      'data-variant': variant,
+      ...(isClickable && {
+        tabIndex: 0,
+        role: 'button',
+      }),
     };
 
-    return createElement(as, elementProps, children);
+    const finalProps = useElementProps(
+      elementProps,
+      isClickable ? buttonProps : {}
+    );
+
+    return createElement(as, finalProps, children);
   }
 );
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createElement } from 'react';
 
 import {
@@ -15,7 +16,7 @@ import { useStyles } from '~/hooks';
 const _CardFooter = _unstable_createComponent<CardFooterDef>(
   Components.CardFooter,
   ({ as = 'footer', children, ...props }) => {
-    const classes = useStyles(styles, props, ['footer']);
+    const classes = useStyles(styles, props as any, ['footer']);
     const elementProps = { ...props, className: classes.footer.className };
     return createElement(as, elementProps, children);
   }
