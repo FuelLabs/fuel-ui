@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/test-utils",
-  "version": "0.16.1",
+  "version": "0.16.2",
   "license": "Apache-2.0",
   "main": "./src/index.ts",
   "publishConfig": {
