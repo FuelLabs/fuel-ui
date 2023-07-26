@@ -1,5 +1,12 @@
 # @fuel-ui/react
 
+## 0.16.2
+
+### Patch Changes
+
+- 🐞 Fix card list item to use upgraded design system functions, by [@matt-user](https://github.com/matt-user) (See [#285](https://github.com/FuelLabs/fuel-ui/pull/285))
+- Add a changeset in order to get a dev release on npm, by [@matt-user](https://github.com/matt-user) (See [#282](https://github.com/FuelLabs/fuel-ui/pull/282))
+
 ## 0.16.1
 
 ### Patch Changes

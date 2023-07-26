@@ -1,5 +1,11 @@
 # @fuel-ui/config
 
+## 0.16.2
+
+### Patch Changes
+
+- Add a changeset in order to get a dev release on npm, by [@matt-user](https://github.com/matt-user) (See [#282](https://github.com/FuelLabs/fuel-ui/pull/282))
+
 ## 0.16.1
 
 ## 0.16.0
