@@ -7,6 +7,7 @@ import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 import type { PopoverProps } from '../Popover';
 import { Popover } from '../Popover';
+import { Spinner } from '../Spinner';
 import { Text } from '../Text';
 
 import { StrengthIndicator } from './StrengthIndicator';
@@ -31,6 +32,7 @@ export const PasswordStrength = createComponent<
   ObjProps
 >(({ password, children, minLength = 6, onChangeStrength, ...props }) => {
   const {
+    loading,
     strength,
     label,
     checker: {
@@ -45,7 +47,9 @@ export const PasswordStrength = createComponent<
     onChangeStrength?.(strength);
   }, [strength, onChangeStrength]);
 
-  const popoverContent = (
+  const popoverContent = loading ? (
+    <Spinner />
+  ) : (
     <>
       <Flex css={styles.popoverContainer}>
         <Heading as="h5" css={styles.heading}>
