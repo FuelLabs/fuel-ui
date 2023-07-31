@@ -2,14 +2,19 @@ name: Release to @pr-<number> tag on npm
 on:
   workflow_dispatch:
     inputs:
+      pr_id:
+        description: 'Pull request ID'
+        required: true
       jobToRun:
         description: 'Job to run'
         required: true
+        default: 'release'
+        type: choice
         options:
-          - 'release'
-          - 'clean-tag-dev'
-          - 'clean-tag-next'
-          - 'clean-tag-pr'
+        - 'release'
+        - 'clean-tag-dev'
+        - 'clean-tag-next'
+        - 'clean-tag-pr'
   pull_request:
     types:
       - closed
@@ -23,9 +28,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Get PR info
+        id: pr
+        run: |
+          PR_API_RESPONSE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.inputs.pr_id }}")
+
+          echo "::set-output name=pr_info::$PR_API_RESPONSE"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: CI Setup
         uses: ./.github/actions/ci-setup
@@ -38,13 +50,13 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Release to @pr-${{ github.event.pull_request.number }} tag on npm
+      - name: Release to @pr-${{ github.event.inputs.pr_id }} tag on npm
         id: release
         run: |
           pnpm changeset:next
           git add .changeset/fuel-labs-ci.md
-          pnpm changeset version --snapshot pr-${{ github.event.pull_request.number }}
-          echo ::set-output name=version::$(pnpm changeset publish --tag pr-${{ github.event.pull_request.number }})
+          pnpm changeset version --snapshot pr-${{ github.event.inputs.pr_id }}
+          echo ::set-output name=version::$(pnpm changeset publish --tag pr-${{ github.event.inputs.pr_id }})
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
