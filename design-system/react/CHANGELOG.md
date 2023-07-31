@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.17.0
+
+### Minor Changes
+
+- 🐞 Fix Card and Card.Item layout, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#287](https://github.com/FuelLabs/fuel-ui/pull/287))
+
 ## 0.16.2
 
 ### Patch Changes
