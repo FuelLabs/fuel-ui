@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-nested-ternary */
 import type { DependencyList } from 'react';
 import { useMemo } from 'react';
 
@@ -35,7 +33,7 @@ export const useKey = <T extends UseEventTarget>(
   key: KeyFilter,
   fn: Handler = noop,
   opts: UseKeyOptions<T> = {},
-  deps: DependencyList = [key]
+  deps: DependencyList = [key],
 ) => {
   const { event = 'keydown', target, options } = opts;
   const useMemoHandler = useMemo(() => {

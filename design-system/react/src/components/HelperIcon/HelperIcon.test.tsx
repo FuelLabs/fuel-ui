@@ -1,4 +1,4 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from '@fuels/jest';
 
 import { HelperIcon } from './HelperIcon';
 
@@ -7,7 +7,7 @@ describe('HelperIcon', () => {
     await testA11y(
       <HelperIcon message="This is a helper message">
         Some information
-      </HelperIcon>
+      </HelperIcon>,
     );
   });
 });

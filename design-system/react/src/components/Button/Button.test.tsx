@@ -1,4 +1,4 @@
-import { render, testA11y, screen } from '@fuel-ui/test-utils';
+import { render, testA11y, screen } from '@fuels/jest';
 
 import { Button } from './Button';
 
@@ -39,7 +39,7 @@ describe('Button', () => {
     render(
       <Button leftIcon="Calendar" leftIconAriaLabel="calendar">
         Click
-      </Button>
+      </Button>,
     );
     expect(screen.getByRole('button')).toBeInTheDocument();
     expect(screen.getByText('calendar')).toBeInTheDocument();
@@ -49,7 +49,7 @@ describe('Button', () => {
     render(
       <Button rightIcon="Calendar" rightIconAriaLabel="calendar">
         Click
-      </Button>
+      </Button>,
     );
     expect(screen.getByRole('button')).toBeInTheDocument();
     expect(screen.getByText('calendar')).toBeInTheDocument();

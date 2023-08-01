@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -9,9 +10,6 @@ import {
 import type * as t from './defs';
 import { useFlexProps } from './useFlexProps';
 
-import { Components } from '~/defs';
-import { useElementProps } from '~/hooks';
-
 export type FlexProps = t.FlexProps;
 
 const _Flex = _unstable_createComponent<t.FlexDef>(
@@ -20,7 +18,7 @@ const _Flex = _unstable_createComponent<t.FlexDef>(
     const classes = useFlexProps(props, css);
     const elementProps = useElementProps(props, classes.flex);
     return createElement(as, elementProps);
-  }
+  },
 );
 
 export const Flex = createPolymorphicComponent<t.FlexDef>(_Flex);

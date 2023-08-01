@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import chroma from 'chroma-js';
 import _ from 'lodash';
 import fs from 'node:fs';
@@ -118,7 +117,7 @@ function renameKey(key) {
     const num = colorType[3];
     val = val.replace(
       colorType[0],
-      `${color}${theme === 'dark' ? _.capitalize(theme) : ''}${num}`
+      `${color}${theme === 'dark' ? _.capitalize(theme) : ''}${num}`,
     );
   }
   val = `--f-${val}`;
@@ -196,7 +195,7 @@ async function main() {
   const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
   const buildDir = path.join(__dirname, BUILD_DIR);
   const tsFilepath = path.join(buildDir, '/tokens-raw.ts');
-  const jsonFile = createJSFile(final);
+  const jsonFile = await createJSFile(final);
 
   if (fs.existsSync(buildDir)) {
     fs.rmSync(path.join(buildDir), { recursive: true });

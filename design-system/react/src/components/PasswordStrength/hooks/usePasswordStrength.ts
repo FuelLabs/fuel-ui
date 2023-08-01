@@ -14,12 +14,12 @@ export function usePasswordStrength({
 }: PasswordStrengthOptions) {
   const checker = useMemo(
     () => passwordChecker(password, minLength),
-    [password, minLength]
+    [password, minLength],
   );
 
   const strength = useMemo(
     () => passwordStrengthCalculator(password, minLength),
-    [password, minLength]
+    [password, minLength],
   );
 
   return {

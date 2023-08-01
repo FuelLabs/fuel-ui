@@ -1,5 +1,4 @@
 import { lightColors, darkColors, keyframes } from '@fuel-ui/css';
-
 import { Components } from '~/defs';
 import { createStyle, darkTheme, lightTheme } from '~/hooks';
 

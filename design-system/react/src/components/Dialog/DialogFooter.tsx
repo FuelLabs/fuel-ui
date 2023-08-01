@@ -1,7 +1,7 @@
 import { cx } from '@fuel-ui/css';
 
 import type { HTMLProps } from '../../utils';
-import { createStyledElement, createComponent } from '../../utils';
+import { useCreateStyledElement, createComponent } from '../../utils';
 
 import * as styles from './styles';
 
@@ -12,12 +12,12 @@ export type DialogFooterProps = HTMLProps['footer'] & {
 export const DialogFooter = createComponent<DialogFooterProps>(
   ({ as = 'footer', align, className, children, ...props }) => {
     const classes = cx('fuel_DialogFooter', className);
-    return createStyledElement(
+    return useCreateStyledElement(
       as,
       styles.footer,
       { align },
       { ...props, className: classes },
-      children
+      children,
     );
-  }
+  },
 );

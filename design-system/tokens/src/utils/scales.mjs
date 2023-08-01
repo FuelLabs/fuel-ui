@@ -31,13 +31,13 @@ export function createAlphaScales(isLight) {
       'color',
       radixColors.whiteA,
       (v) => v,
-      (k) => k.replace('whiteA', '')
+      (k) => k.replace('whiteA', ''),
     ),
     blackA: createDef(
       'color',
       radixColors.blackA,
       (v) => v,
-      (k) => k.replace('blackA', '')
+      (k) => k.replace('blackA', ''),
     ),
     inverseA: createFrom(isLight ? 'blackA' : 'whiteA'),
   };

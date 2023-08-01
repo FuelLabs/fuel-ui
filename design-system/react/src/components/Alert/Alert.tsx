@@ -6,6 +6,8 @@ import {
   createElement,
   useContext,
 } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 import { Box } from '../Box';
@@ -19,9 +21,6 @@ import { AlertDescription } from './AlertDescription';
 import { AlertTitle } from './AlertTitle';
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 type ContextProps = {
   status?: t.AlertStatus;
@@ -63,11 +62,11 @@ export const Alert = _unstable_createComponent<t.AlertDef>(
           </Box>
         )}
         <Flex className={classes.content.className}>{items}</Flex>
-      </>
+      </>,
     );
 
     return <ctx.Provider value={{ status }}>{element}</ctx.Provider>;
-  }
+  },
 );
 
 Alert.id = 'Alert';

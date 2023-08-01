@@ -1,6 +1,6 @@
 import type { BN } from '@fuel-ts/math';
 import { bn } from '@fuel-ts/math';
-import { fireEvent, render, screen, testA11y } from '@fuel-ui/test-utils';
+import { fireEvent, render, screen, testA11y } from '@fuels/jest';
 import { useState } from 'react';
 
 import type { InputAmountProps } from './InputAmount';
@@ -54,7 +54,7 @@ describe('InputAmount', () => {
       fireEvent.input(input, { target: { value: INPUT_VALUE } });
       expect(input.getAttribute('value')).toBe(INPUT_VALUE);
       expect(onChange).toBeCalledWith(bn.parseUnits(INPUT_VALUE, units));
-    }
+    },
   );
 
   it.each([DECIMAL_UNITS, 18])(
@@ -67,7 +67,7 @@ describe('InputAmount', () => {
       fireEvent.input(input, { target: { value: '.5' } });
       expect(input.getAttribute('value')).toBe(INPUT_VALUE);
       expect(onChange).toBeCalledWith(bn.parseUnits(INPUT_VALUE, units));
-    }
+    },
   );
 
   it.each([DECIMAL_UNITS, 18])(
@@ -83,7 +83,7 @@ describe('InputAmount', () => {
       fireEvent.input(input, { target: { value: INPUT_VALUE } });
       expect(input.getAttribute('value')).toBe(INPUT_VALUE);
       expect(onChange).toBeCalledWith(bn.parseUnits(INPUT_VALUE, units));
-    }
+    },
   );
 
   it.each([DECIMAL_UNITS, 18])(
@@ -96,7 +96,7 @@ describe('InputAmount', () => {
       fireEvent.input(input, { target: { value: INPUT_VALUE } });
       expect(input.getAttribute('value')).toBe(INPUT_VALUE);
       expect(onChange).toBeCalledWith(bn.parseUnits(INPUT_VALUE, units));
-    }
+    },
   );
 
   it('should show placeholder', () => {
@@ -123,9 +123,9 @@ describe('InputAmount', () => {
         .format({ precision: 3, units });
       render(<InputAmount balance={balance} units={units} />);
       expect(
-        screen.getByLabelText(`Balance: ${formattedBalance}`)
+        screen.getByLabelText(`Balance: ${formattedBalance}`),
       ).toBeInTheDocument();
-    }
+    },
   );
 
   it.each([DECIMAL_UNITS, 18])(
@@ -137,9 +137,9 @@ describe('InputAmount', () => {
         .format({ precision: 3, units });
       render(<InputAmount balance={balance} units={units} />);
       expect(
-        screen.getByLabelText(`Balance: ${formattedBalance}`)
+        screen.getByLabelText(`Balance: ${formattedBalance}`),
       ).toBeInTheDocument();
-    }
+    },
   );
 
   it('should display balance in input when click on max button', async () => {
@@ -149,7 +149,7 @@ describe('InputAmount', () => {
     await user.click(maxBtn);
     expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
     expect(
-      screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`)
+      screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`),
     ).toBeInTheDocument();
   });
 

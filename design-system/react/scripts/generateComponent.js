@@ -36,7 +36,7 @@ function generateComponentFiles(argv) {
 
     fs.outputFile(
       newFilePath,
-      prettier.format(newRawFile, { parser: 'typescript' })
+      prettier.format(newRawFile, { parser: 'typescript' }),
     );
   }
 }
@@ -51,7 +51,7 @@ function generateComponentsIndex() {
 
   fs.outputFile(
     filepath,
-    prettier.format(exportAll.join('\n'), { parser: 'typescript' })
+    prettier.format(exportAll.join('\n'), { parser: 'typescript' }),
   );
 }
 

@@ -1,4 +1,4 @@
-import { act, render, screen, waitFor } from '@fuel-ui/test-utils';
+import { act, render, screen, waitFor } from '@fuels/jest';
 import { useRef } from 'react';
 
 import { Box } from '../Box';

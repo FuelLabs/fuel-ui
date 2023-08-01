@@ -1,9 +1,9 @@
+import { createComponent } from '~/utils';
+
 import type { MenuProps } from '../Menu';
 import { Menu } from '../Menu';
 
 import { useDropdown } from './Dropdown';
-
-import { createComponent } from '~/utils';
 
 export type DropdownMenuProps = MenuProps;
 type ObjProps = {
@@ -24,7 +24,7 @@ export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
         }}
       />
     );
-  }
+  },
 );
 
 DropdownMenu.id = 'DropdownMenu';

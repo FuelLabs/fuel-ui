@@ -30,7 +30,7 @@ export type CSS<
   Media = {},
   Theme = {},
   ThemeMap = Config.DefaultThemeMap,
-  Utils = {}
+  Utils = {},
 > =
   // nested at-rule css styles
   {

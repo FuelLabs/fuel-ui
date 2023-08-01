@@ -1,9 +1,8 @@
 import type { IContentLoaderProps } from 'react-content-loader';
 import RectContentLoader from 'react-content-loader';
+import { useFuelTheme } from '~/hooks';
 
 import { Rect } from './ContentLoaderRect';
-
-import { useFuelTheme } from '~/hooks';
 
 export type ContentLoaderProps = IContentLoaderProps & {
   isFullWidth?: boolean;

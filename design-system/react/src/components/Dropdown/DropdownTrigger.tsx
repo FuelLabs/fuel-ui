@@ -2,13 +2,12 @@ import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
+import { createComponent } from '~/utils';
 
 import type { ButtonProps } from '..';
 import { Icon, Button } from '..';
 
 import { useDropdown } from '.';
-
-import { createComponent } from '~/utils';
 
 type ElementType = 'button';
 type DropdownTriggerProps = ButtonProps & {

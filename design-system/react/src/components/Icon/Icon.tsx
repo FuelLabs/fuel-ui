@@ -3,13 +3,12 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import * as TablerIcons from '@tabler/icons-react';
 import type { ReactElement } from 'react';
 import { createElement, useMemo, cloneElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 export const Icon = _unstable_createComponent<t.IconDef>(
   Components.Icon,
@@ -45,7 +44,7 @@ export const Icon = _unstable_createComponent<t.IconDef>(
         }
         return icon;
       }) as () => ReactElement,
-      [icon]
+      [icon],
     );
 
     let label = initialLabel || props['aria-label'];
@@ -73,9 +72,9 @@ export const Icon = _unstable_createComponent<t.IconDef>(
       <>
         {cloneElement(iconElement, iconProps)}
         <VisuallyHidden.Root>{label || icon}</VisuallyHidden.Root>
-      </>
+      </>,
     );
-  }
+  },
 );
 
 const iconList = Object.keys(TablerIcons) as t.Icons[];

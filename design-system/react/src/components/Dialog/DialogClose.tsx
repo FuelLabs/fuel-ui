@@ -2,13 +2,12 @@ import { css, cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
+import { createComponent } from '~/utils';
 
 import { Icon, IconButton, useDialog } from '..';
 import type { ButtonProps, IconButtonProps } from '..';
 
 import * as styles from './styles';
-
-import { createComponent } from '~/utils';
 
 type ElementType = 'button';
 

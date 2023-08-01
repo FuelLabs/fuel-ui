@@ -2,7 +2,6 @@
 import type { ElementRef } from 'react';
 import { useRef } from 'react';
 import { mergeProps, useButton } from 'react-aria';
-
 import { omit } from '~/utils';
 
 type UseButtonOptions = Parameters<typeof useButton>[0];
@@ -27,13 +26,13 @@ function getDefProps(props: any) {
 
 export function useOnPress<
   T extends Record<any, any>,
-  E = ElementRef<'button'>
+  E = ElementRef<'button'>,
 >(props: T, customAriaProps?: UseButtonOptions) {
   const innerRef = useRef<E>(null);
   const defaultProps = getDefProps(props);
   const { buttonProps, isPressed } = useButton(
     { ...defaultProps, ...(customAriaProps || {}) },
-    innerRef as any
+    innerRef as any,
   );
 
   const role = props.role || buttonProps.role || 'button';

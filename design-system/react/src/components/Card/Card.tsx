@@ -1,5 +1,8 @@
 import { mergeRefs } from '@react-aria/utils';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+import { useOnPress } from '~/hooks/useOnPress';
 
 import {
   _unstable_createComponent,
@@ -12,11 +15,6 @@ import { CardHeader } from './CardHeader';
 import type { CardDef } from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
-import { useOnPress } from '~/hooks/useOnPress';
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const _Card = _unstable_createComponent<CardDef>(
   Components.Card,
   ({
@@ -51,11 +49,11 @@ const _Card = _unstable_createComponent<CardDef>(
 
     const finalProps = useElementProps(
       elementProps,
-      isClickable ? buttonProps : {}
+      isClickable ? buttonProps : {},
     );
 
     return createElement(as, finalProps, children);
-  }
+  },
 );
 
 export const Card = createPolymorphicComponent<CardDef>(_Card);

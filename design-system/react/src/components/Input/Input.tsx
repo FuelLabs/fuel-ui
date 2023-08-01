@@ -1,7 +1,7 @@
 import { cx } from '@fuel-ui/css';
 import { createContext, useContext } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
 
 import { InputAddonLeft, InputAddonRight } from './InputAddon';
@@ -83,16 +83,16 @@ export const Input = createComponent<InputProps, ObjProps>(
 
     return (
       <ctx.Provider value={providerProps}>
-        {createStyledElement(
+        {useCreateStyledElement(
           'div',
           styles.input,
           styleProps,
           inputProps,
-          children
+          children,
         )}
       </ctx.Provider>
     );
-  }
+  },
 );
 
 Input.id = 'Input';

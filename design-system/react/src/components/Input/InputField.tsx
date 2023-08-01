@@ -3,7 +3,7 @@ import { mergeRefs } from '@react-aria/utils';
 import { useRef } from 'react';
 import { mergeProps, useFocusable } from 'react-aria';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 import type { HTMLProps } from '../../utils';
 
 import { useInputProps } from './Input';
@@ -53,12 +53,12 @@ export const InputField = createComponent<InputFieldProps, ObjProps, OmitProps>(
     const { focusableProps } = useFocusable(props as any, ref);
     const customProps = mergeProps(inputProps, focusableProps);
 
-    return createStyledElement('input', styles.field, null, {
+    return useCreateStyledElement('input', styles.field, null, {
       ...customProps,
       className: classes,
       ref: mergeRefs(ref, props.ref!),
     });
-  }
+  },
 );
 
 InputField.id = 'InputField';

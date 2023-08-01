@@ -15,7 +15,7 @@ describe('Composition', () => {
     const bold = styled({ fontWeight: 'bold' });
     const title = styled(red, size14, bold, { fontFamily: 'monospace' });
     expect(`${title}`).toBe(
-      '.fuel_gmqXFB:where(.fuel_hzkWus.fuel_cQFdVt.fuel_kngyIZ)'
+      '.fuel_gmqXFB:where(.fuel_hzkWus.fuel_cQFdVt.fuel_kngyIZ)',
     );
     expect(getCssText()).toBe('');
   });
@@ -27,10 +27,10 @@ describe('Composition', () => {
     const bold = styled({ fontWeight: 'bold' });
     const title = styled(red, size14, bold, { fontFamily: 'monospace' });
     expect(title.render().props.className).toBe(
-      'fuel_gmqXFB fuel_hzkWus fuel_cQFdVt fuel_kngyIZ'
+      'fuel_gmqXFB fuel_hzkWus fuel_cQFdVt fuel_kngyIZ',
     );
     expect(getCssText()).toBe(
-      '--sxs{--sxs:2 fuel_gmqXFB fuel_hzkWus fuel_cQFdVt fuel_kngyIZ}@media{.fuel_gmqXFB{color:red}.fuel_hzkWus{font-size:14px}.fuel_cQFdVt{font-weight:bold}.fuel_kngyIZ{font-family:monospace}}'
+      '--sxs{--sxs:2 fuel_gmqXFB fuel_hzkWus fuel_cQFdVt fuel_kngyIZ}@media{.fuel_gmqXFB{color:red}.fuel_hzkWus{font-size:14px}.fuel_cQFdVt{font-weight:bold}.fuel_kngyIZ{font-family:monospace}}',
     );
   });
 });

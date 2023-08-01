@@ -1,11 +1,10 @@
 import type * as AC from '@radix-ui/react-accordion';
+import type { Components } from '~/defs';
+import type { CreateComponent } from '~/utils';
 
 import type { AccordionContent } from './AccordionContent';
 import type { AccordionItem } from './AccordionItem';
 import type { AccordionTrigger } from './AccordionTrigger';
-
-import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
 
 export type AccordionBaseProps =
   | AC.AccordionSingleProps

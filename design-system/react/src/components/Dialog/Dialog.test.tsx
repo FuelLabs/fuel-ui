@@ -1,4 +1,4 @@
-import { act, render, screen, testA11y } from '@fuel-ui/test-utils';
+import { act, render, screen, testA11y } from '@fuels/jest';
 
 import { Button } from '../Button';
 

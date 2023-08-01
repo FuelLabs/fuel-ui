@@ -1,14 +1,13 @@
 import * as RAvatar from '@radix-ui/react-avatar';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
 import { AvatarGenerated } from './AvatarGenerated';
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 export const Avatar = _unstable_createComponent<t.AvatarDef>(
   Components.Avatar,
@@ -28,7 +27,7 @@ export const Avatar = _unstable_createComponent<t.AvatarDef>(
     );
     const wrapperProps = useElementProps(classes.root, { css });
     return createElement(RAvatar.Root, wrapperProps, children);
-  }
+  },
 );
 
 Avatar.Generated = AvatarGenerated;

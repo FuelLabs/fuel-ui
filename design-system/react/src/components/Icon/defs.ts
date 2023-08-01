@@ -1,11 +1,10 @@
 import type { Colors } from '@fuel-ui/css';
 import type * as TablerIcons from '@tabler/icons-react';
 import type { ReactNode } from 'react';
-
-import type { FlexProps } from '../Box/defs';
-
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+
+import type { FlexProps } from '../Box/defs';
 
 type ToOmit = 'createReactComponent';
 type WithoutIconPrefix<T extends string> = T extends `Icon${infer S}`

@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { render, screen, testA11y } from '@fuels/jest';
 
 import { Box } from './Box';
 
@@ -18,7 +18,7 @@ describe('Box', () => {
     const { container } = render(
       <Box role="region" as="article">
         Text
-      </Box>
+      </Box>,
     );
     expect(container.querySelector('article')).toBeInTheDocument();
     expect(screen.getByRole('region')).toBeInTheDocument();

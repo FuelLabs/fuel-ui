@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 const SIZES = {
   xsm: 24,
   sm: 32,

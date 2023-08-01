@@ -1,7 +1,8 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createElement } from 'react';
 import { useLink } from 'react-aria';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -10,9 +11,6 @@ import {
 import { Icon } from '../Icon';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 const _Link = _unstable_createComponent<t.LinkDef>(
   Components.Link,
@@ -35,7 +33,7 @@ const _Link = _unstable_createComponent<t.LinkDef>(
       props,
       classes.root,
       customProps,
-      linkProps
+      linkProps,
     );
 
     return createElement(
@@ -43,9 +41,9 @@ const _Link = _unstable_createComponent<t.LinkDef>(
       elementProps,
       <>
         {children} {isExternal && <Icon icon="Link" color="textIcon" />}
-      </>
+      </>,
     );
-  }
+  },
 );
 
 export const Link = createPolymorphicComponent<t.LinkDef>(_Link);

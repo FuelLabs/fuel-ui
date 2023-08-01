@@ -1,4 +1,4 @@
-import { render, screen } from '@fuel-ui/test-utils';
+import { render, screen } from '@fuels/jest';
 
 import { InputPassword } from './InputPassword';
 

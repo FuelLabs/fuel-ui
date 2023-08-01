@@ -19,7 +19,7 @@ export function createDef(
   type,
   obj,
   getValue = (value) => value,
-  getKey = (key) => key
+  getKey = (key) => key,
 ) {
   return Object.entries(obj).reduce((obj, [key, value]) => {
     obj[getKey(key)] = {

@@ -3,7 +3,7 @@ import { generatePages } from './helpers';
 function generate(
   pagesCount: number = 10,
   currentPage: number = 5,
-  pagesToDisplay: number = 10
+  pagesToDisplay: number = 10,
 ) {
   const res = generatePages({
     pagesCount,
@@ -39,7 +39,7 @@ function generateMiddle(a: number, b: number, c: number) {
   } else {
     const m = c - 2 * 2;
     expect(result).toBe(
-      `1,-1,${list.slice(b - 2, b + m - 2).join(',')},-2,${a}`
+      `1,-1,${list.slice(b - 2, b + m - 2).join(',')},-2,${a}`,
     );
   }
 }

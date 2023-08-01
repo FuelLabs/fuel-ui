@@ -1,13 +1,12 @@
 import * as RAlertDialog from '@radix-ui/react-alert-dialog';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
 import type { AlertDialogDescriptionDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 export type AlertDialogDescriptionProps =
   RAlertDialog.AlertDialogDescriptionProps;
@@ -21,7 +20,7 @@ export const AlertDialogDescription =
       return createElement(
         RAlertDialog.AlertDialogDescription,
         elementProps,
-        children
+        children,
       );
-    }
+    },
   );

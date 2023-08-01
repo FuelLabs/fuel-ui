@@ -172,7 +172,7 @@ export const Box = _unstable_createComponent<BoxProps>(
   ({ className, children, ...props }) => {
     const classes = cx('fuel_Box', className);
     return createElement(Root, { ...props, className: classes }, children);
-  }
+  },
 );
 ```
 
@@ -186,12 +186,12 @@ $ pnpm add:component --name NameOfYourComponent
 
 ### ✅&nbsp; Testing Components
 
-It's extremelly important that all components that has custom behaviors and settings are tested. So, we have `@fuel-ui/test-utils` package that will help you to test using React Testing Library with some cool patches and modifications for accessibility tests as well (this package is a copy of ChakraUI [test utils](https://github.com/chakra-ui/chakra-ui/blob/next/tooling/test-utils) package).
+It's extremelly important that all components that has custom behaviors and settings are tested. So, we have `@fuels/jest` package that will help you to test using React Testing Library with some cool patches and modifications for accessibility tests as well (this package is a copy of ChakraUI [test utils](https://github.com/chakra-ui/chakra-ui/blob/next/tooling/test-utils) package).
 
 A base test of some component always include `a11y` test as first case:
 
 ```jsx
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from '@fuels/jest';
 import { MyComponent } from './MyComponent';
 
 describe('MyComponent', () => {
@@ -204,7 +204,7 @@ describe('MyComponent', () => {
 With test utils package you can run some triggers in order to test accessibility as well. Keyboard commands like `Tab` and `ArrowDown` is very easy by using `press` helper:
 
 ```jsx
-import { press, render, screen } from '@fuel-ui/test-utils';
+import { press, render, screen } from '@fuels/jest';
 import { RadioGroup } from './RadioGroup';
 
 describe('RadioGroup', () => {

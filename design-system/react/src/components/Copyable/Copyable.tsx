@@ -1,3 +1,6 @@
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+
 import { _unstable_createComponent } from '../../utils';
 import { Flex } from '../Box/Flex';
 import { Icon } from '../Icon';
@@ -6,9 +9,6 @@ import { toast } from '../Toast';
 
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
 
 export const Copyable = _unstable_createComponent<t.CopyableDef>(
   Components.Copyable,
@@ -47,5 +47,5 @@ export const Copyable = _unstable_createComponent<t.CopyableDef>(
         />
       </Flex>
     );
-  }
+  },
 );

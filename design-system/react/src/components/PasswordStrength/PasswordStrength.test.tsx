@@ -1,4 +1,4 @@
-import { render } from '@fuel-ui/test-utils';
+import { render } from '@fuels/jest';
 import { useState } from 'react';
 
 import { Stack } from '../Box/Stack';
@@ -18,16 +18,16 @@ describe('PasswordStrength', () => {
     const { findByText } = render(
       <PasswordStrength password={weakPassword} open>
         <Button></Button>
-      </PasswordStrength>
+      </PasswordStrength>,
     );
 
     expect(PasswordDictionary[passwordStrengthCalculator(weakPassword)]).toBe(
-      'Weak'
+      'Weak',
     );
     expect(
       await findByText(
-        PasswordDictionary[passwordStrengthCalculator(weakPassword)]
-      )
+        PasswordDictionary[passwordStrengthCalculator(weakPassword)],
+      ),
     ).toBeDefined();
   });
 
@@ -35,16 +35,16 @@ describe('PasswordStrength', () => {
     const { findByText } = render(
       <PasswordStrength password="123456" open>
         <Button></Button>
-      </PasswordStrength>
+      </PasswordStrength>,
     );
 
     expect(PasswordDictionary[passwordStrengthCalculator(weakPassword)]).toBe(
-      'Weak'
+      'Weak',
     );
     expect(
       await findByText(
-        PasswordDictionary[passwordStrengthCalculator(weakPassword)]
-      )
+        PasswordDictionary[passwordStrengthCalculator(weakPassword)],
+      ),
     ).toBeDefined();
   });
 
@@ -52,16 +52,16 @@ describe('PasswordStrength', () => {
     const { findByText } = render(
       <PasswordStrength password={averagePassword} open>
         <Button></Button>
-      </PasswordStrength>
+      </PasswordStrength>,
     );
 
     expect(
-      PasswordDictionary[passwordStrengthCalculator(averagePassword)]
+      PasswordDictionary[passwordStrengthCalculator(averagePassword)],
     ).toBe('Average');
     expect(
       await findByText(
-        PasswordDictionary[passwordStrengthCalculator(averagePassword)]
-      )
+        PasswordDictionary[passwordStrengthCalculator(averagePassword)],
+      ),
     ).toBeDefined();
   });
 
@@ -69,16 +69,16 @@ describe('PasswordStrength', () => {
     const { findByText } = render(
       <PasswordStrength password={strongPassword} open>
         <Button></Button>
-      </PasswordStrength>
+      </PasswordStrength>,
     );
 
     expect(PasswordDictionary[passwordStrengthCalculator(strongPassword)]).toBe(
-      'Strong'
+      'Strong',
     );
     expect(
       await findByText(
-        PasswordDictionary[passwordStrengthCalculator(strongPassword)]
-      )
+        PasswordDictionary[passwordStrengthCalculator(strongPassword)],
+      ),
     ).toBeDefined();
   });
 

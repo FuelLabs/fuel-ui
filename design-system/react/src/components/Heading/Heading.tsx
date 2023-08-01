@@ -1,7 +1,8 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { allColors, utils } from '@fuel-ui/css';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -10,9 +11,6 @@ import {
 import { createIcon } from '../Button';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 function getIconSize(as: t.HeadingProps['as'], iconSize?: number) {
   if (iconSize) return iconSize;
@@ -42,13 +40,13 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
       leftIcon,
       leftIconAriaLabel,
       iconSize,
-      iconColor
+      iconColor,
     );
     const iconRight = createIcon(
       rightIcon,
       rightIconAriaLabel,
       iconSize,
-      iconColor
+      iconColor,
     );
     const withIcon = Boolean(leftIcon || rightIcon);
     const classes = useStyles(styles, {
@@ -71,9 +69,9 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
       elementProps,
       <>
         {iconLeft} {children} {iconRight}
-      </>
+      </>,
     );
-  }
+  },
 );
 
 export const Heading = createPolymorphicComponent<t.HeadingDef>(_Heading);
@@ -91,12 +89,12 @@ const styles = createStyle(Components.Heading, {
       // FIX: adjust type type
       fontSize: (utils.textSize.__keys as any[]).reduce(
         (obj, key) => ({ ...obj, [key]: { textSize: key } }),
-        {}
+        {},
       ),
       // FIX: adjust type type
       fontColor: (allColors as any[]).reduce(
         (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
-        {}
+        {},
       ),
       as: {
         h1: {

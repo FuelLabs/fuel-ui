@@ -39,7 +39,7 @@ describe('Issue #555', () => {
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 fuel_jEKtXH}@media{.fuel_jEKtXH{color:dodgerblue}}`
+      `--sxs{--sxs:2 fuel_jEKtXH}@media{.fuel_jEKtXH{color:dodgerblue}}`,
     );
   });
 
@@ -58,7 +58,7 @@ describe('Issue #555', () => {
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 fuel_jEKtXH fuel_PJLV}@media{.fuel_jEKtXH{color:dodgerblue}}`
+      `--sxs{--sxs:2 fuel_jEKtXH fuel_PJLV}@media{.fuel_jEKtXH{color:dodgerblue}}`,
     );
   });
 });

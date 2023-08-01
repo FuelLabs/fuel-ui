@@ -56,7 +56,7 @@ export function usePagination(opts: UsePaginationOpts) {
             opts.onPageChange?.(ctx.currentPage!);
           },
         },
-      })
+      }),
   );
 
   const context = useSelector(service, selectors.context);

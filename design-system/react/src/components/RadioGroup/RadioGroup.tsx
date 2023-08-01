@@ -3,7 +3,7 @@ import { cx } from '@fuel-ui/css';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { Children, cloneElement } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
 
 import { RadioGroupItem } from './RadioGroupItem';
@@ -65,14 +65,14 @@ export const RadioGroup = createComponent<RadioGroupProps, ObjProps>(
       return child;
     });
 
-    return createStyledElement(
+    return useCreateStyledElement(
       RadioGroupPrimitive.Root,
       styles.root,
       null,
       customProps,
-      customChildren
+      customChildren,
     );
-  }
+  },
 );
 
 RadioGroup.id = 'RadioGroup';

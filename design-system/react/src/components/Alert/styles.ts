@@ -1,5 +1,4 @@
 import { toCamelCase } from '@fuel-ui/css';
-
 import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
 

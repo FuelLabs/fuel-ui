@@ -28,7 +28,7 @@ export const passwordChecker = (password: string, minLength: number = 6) => {
 /** @description - This will check if the password is weak | strong | average */
 export const passwordStrengthCalculator = (
   password: string,
-  minLength: number = 6
+  minLength: number = 6,
 ): PasswordStrength => {
   const {
     symbolsAndDigitsChecker,

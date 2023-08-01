@@ -19,7 +19,7 @@ const textDecorations = createDef('textDecoration', tokens.textDecorations);
 const fontFamilies = createDef(
   'fontFamilies',
   tokens.fonts,
-  (value) => value.fontFamily
+  (value) => value.fontFamily,
 );
 
 const body = createBody(tokens.fonts);

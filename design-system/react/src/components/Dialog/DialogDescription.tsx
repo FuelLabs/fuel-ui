@@ -1,6 +1,6 @@
 import { cx } from '@fuel-ui/css';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 
 import * as styles from './styles';
 
@@ -11,12 +11,12 @@ export type DialogDescriptionProps = {
 export const DialogDescription = createComponent<DialogDescriptionProps>(
   ({ as = 'div', className, children, ...props }) => {
     const classes = cx('fuel_DialogDescription', className);
-    return createStyledElement(
+    return useCreateStyledElement(
       as,
       styles.description,
       null,
       { ...props, className: classes },
-      children
+      children,
     );
-  }
+  },
 );

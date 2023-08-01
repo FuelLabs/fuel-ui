@@ -20,7 +20,7 @@ describe('Issue #788', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:1 gllaiB}` + `@media{p{` + `color:red` + `}}`
+      `--sxs{--sxs:1 gllaiB}` + `@media{p{` + `color:red` + `}}`,
     );
   });
 
@@ -47,7 +47,7 @@ describe('Issue #788', () => {
         `padding-bottom:10px;` +
         `padding-left:10px;` +
         `padding-right:10px` +
-        `}}`
+        `}}`,
     );
   });
 });

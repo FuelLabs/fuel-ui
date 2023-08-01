@@ -1,13 +1,12 @@
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 import { Icon } from '../Icon';
 import { Tooltip } from '../Tooltip';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 export const HelperIcon = _unstable_createComponent<t.HelperIconDef>(
   Components.HelperIcon,
@@ -27,9 +26,9 @@ export const HelperIcon = _unstable_createComponent<t.HelperIconDef>(
             size={iconSize}
           />
         </Tooltip>
-      </>
+      </>,
     );
-  }
+  },
 );
 
 const styles = createStyle(Components.HelperIcon, {

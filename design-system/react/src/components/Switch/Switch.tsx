@@ -1,7 +1,7 @@
 import { cx } from '@fuel-ui/css';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 
 import * as styles from './styles';
 
@@ -12,12 +12,12 @@ export type SwitchProps = SwitchPrimitive.SwitchProps & {
 export const Switch = createComponent<SwitchProps>(
   ({ size = 'md', className, ...props }) => {
     const classes = cx('fuel_Switch', className);
-    return createStyledElement(
+    return useCreateStyledElement(
       SwitchPrimitive.Root,
       styles.root,
       { size },
       { ...props, className: classes },
-      <SwitchPrimitive.SwitchThumb className={styles.thumb({ size })} />
+      <SwitchPrimitive.SwitchThumb className={styles.thumb({ size })} />,
     );
-  }
+  },
 );

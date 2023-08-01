@@ -8,7 +8,7 @@ export interface StyledComponent<
   Type = 'span',
   Props = {},
   Media = {},
-  CSS = {}
+  CSS = {},
 > extends React.ForwardRefExoticComponent<
     Util.Assign<
       Type extends IntrinsicElementsKeys | React.ComponentType<any>
@@ -26,7 +26,7 @@ export interface StyledComponent<
         as?: never;
         css?: CSS;
       }
-    >
+    >,
   ): React.ReactElement | null;
 
   <
@@ -36,7 +36,9 @@ export interface StyledComponent<
       | React.ComponentType<any>
       ? Type
       : any,
-    InnerProps = Type extends StyledComponent<any, infer IP, any, any> ? IP : {}
+    InnerProps = Type extends StyledComponent<any, infer IP, any, any>
+      ? IP
+      : {},
   >(
     props: Util.Assign<
       React.ComponentPropsWithRef<
@@ -48,7 +50,7 @@ export interface StyledComponent<
           [K in keyof C]: K extends keyof CSS ? CSS[K] : never;
         };
       }
-    >
+    >,
   ): React.ReactElement | null;
 
   className: string;
@@ -66,7 +68,7 @@ export interface CssComponent<Type = 'span', Props = {}, Media = {}, CSS = {}> {
       css?: CSS;
     } & {
       [name in number | string]: any;
-    }
+    },
   ): string & {
     className: string;
     selector: string;

@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { FocusScope, mergeProps } from 'react-aria';
 
 import { useDialog } from '..';
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 
 import * as styles from './styles';
 
@@ -30,22 +30,22 @@ export const DialogContent = createComponent<DialogContentProps, ObjProps>(
         props,
         dialogProps.overlayProps!,
         dialogProps.dialogProps!,
-        dialogProps.modalProps!
+        dialogProps.modalProps!,
       ),
       ref: dialogProps.triggerRef,
       className: classes,
     };
 
-    return createStyledElement(
+    return useCreateStyledElement(
       as,
       styles.content,
       null,
       nextProps,
       <FocusScope contain autoFocus>
         {children}
-      </FocusScope>
+      </FocusScope>,
     );
-  }
+  },
 );
 
 DialogContent.id = 'DialogContent';

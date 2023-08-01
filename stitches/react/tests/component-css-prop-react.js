@@ -44,7 +44,7 @@ describe('React Component with CSS prop', () => {
     });
 
     expect(toString()).toBe(
-      '--sxs{--sxs:2 fuel_bMUtqP}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}}'
+      '--sxs{--sxs:2 fuel_bMUtqP}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}}',
     );
 
     const Title = React.forwardRef((props, forwardedRef) =>
@@ -62,7 +62,7 @@ describe('React Component with CSS prop', () => {
             ...props.css?.['@bp2'],
           },
         },
-      })
+      }),
     );
 
     expect(
@@ -77,8 +77,8 @@ describe('React Component with CSS prop', () => {
             },
           },
         },
-        'Radix UI test suite'
-      )
+        'Radix UI test suite',
+      ),
     ).toEqual({
       type: 'span',
       props: {
@@ -88,7 +88,7 @@ describe('React Component with CSS prop', () => {
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 fuel_bMUtqP}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}}--sxs{--sxs:6 fuel_bMUtqP-ieTXEfC-css}@media{.fuel_bMUtqP-ieTXEfC-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px;text-align:center;margin-bottom:var(--space-3)}@media (min-width: 900px){.fuel_bMUtqP-ieTXEfC-css{line-height:55px;color:red}}}`
+      `--sxs{--sxs:2 fuel_bMUtqP}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}}--sxs{--sxs:6 fuel_bMUtqP-ieTXEfC-css}@media{.fuel_bMUtqP-ieTXEfC-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px;text-align:center;margin-bottom:var(--space-3)}@media (min-width: 900px){.fuel_bMUtqP-ieTXEfC-css{line-height:55px;color:red}}}`,
     );
 
     // ...
@@ -107,7 +107,7 @@ describe('React Component with CSS prop', () => {
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 fuel_bMUtqP fuel_dnnagC}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}.fuel_dnnagC .fuel_bMUtqP{color:inherit}}--sxs{--sxs:6 fuel_bMUtqP-ieTXEfC-css}@media{.fuel_bMUtqP-ieTXEfC-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px;text-align:center;margin-bottom:var(--space-3)}@media (min-width: 900px){.fuel_bMUtqP-ieTXEfC-css{line-height:55px;color:red}}}`
+      `--sxs{--sxs:2 fuel_bMUtqP fuel_dnnagC}@media{.fuel_bMUtqP{line-height:1;margin:0;font-weight:400;font-variant-numeric:tabular-nums;display:block}.fuel_dnnagC .fuel_bMUtqP{color:inherit}}--sxs{--sxs:6 fuel_bMUtqP-ieTXEfC-css}@media{.fuel_bMUtqP-ieTXEfC-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px;text-align:center;margin-bottom:var(--space-3)}@media (min-width: 900px){.fuel_bMUtqP-ieTXEfC-css{line-height:55px;color:red}}}`,
     );
   });
 });

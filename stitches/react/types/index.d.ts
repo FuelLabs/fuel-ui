@@ -27,7 +27,7 @@ export type CSS<
     theme: {};
     themeMap: {};
     utils: {};
-  }
+  },
 > = CSSUtil.CSS<
   Config['media'],
   Config['theme'],
@@ -52,7 +52,7 @@ export type CSSFull<
     Config['theme'],
     Config['themeMap'],
     Config['utils']
-  >
+  >,
 > = CSSDefs & {
   variants?: ComposerVariants<{}, CSSDefs>;
   compoundVariants?: CompoundVariants<{}, CSSDefs>;
@@ -69,7 +69,7 @@ export type ComponentProps<Component> = Component extends (
 /** Returns a type that expects a value to be a kind of CSS property value. */
 export type PropertyValue<
   Property extends keyof CSSUtil.CSSProperties,
-  Config = null
+  Config = null,
 > = Config extends null
   ? CSSUtil.WithPropertyValue<Property>
   : Config extends { [K: string]: any }

@@ -162,7 +162,7 @@ it.each(possibleSymbols)(
     const { symbolsAndDigitsChecker } = passwordChecker(passSymbol);
 
     expect(symbolsAndDigitsChecker).toBeTruthy();
-  }
+  },
 );
 
 describe('passwordStrength tests', () => {
@@ -172,13 +172,13 @@ describe('passwordStrength tests', () => {
 
   it('should calculate as average with lowercase/uppercase and symbols/digits', () => {
     expect(
-      passwordStrengthCalculator(averageCharactersAndSymbolsPassword)
+      passwordStrengthCalculator(averageCharactersAndSymbolsPassword),
     ).toBe('average');
   });
 
   it('should calculate as average with lowercase/uppercase and 6+ digits', () => {
     expect(
-      passwordStrengthCalculator(averageCharactersAndSixDigitsPassword)
+      passwordStrengthCalculator(averageCharactersAndSixDigitsPassword),
     ).toBe('average');
   });
 

@@ -38,7 +38,6 @@ type GlobalStylesProps = {
 };
 
 export const GlobalStyles = ({ withFonts }: GlobalStylesProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   withFonts && fonts();
   styles();
   return null;

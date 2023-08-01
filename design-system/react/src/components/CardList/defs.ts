@@ -1,12 +1,11 @@
 import { createContext, useContext } from 'react';
+import type { Components } from '~/defs';
+import type { CreateComponent, HTMLProps } from '~/utils';
 
 import type { StackProps } from '../Box';
 import type { CardProps } from '../Card/defs';
 
 import type { CardListItem } from './CardListItem';
-
-import type { Components } from '~/defs';
-import type { CreateComponent, HTMLProps } from '~/utils';
 
 export type CardListNS = {
   id: string;
@@ -14,7 +13,7 @@ export type CardListNS = {
 };
 
 export const CardListContext = createContext<ICardListContext>(
-  {} as ICardListContext
+  {} as ICardListContext,
 );
 
 export function useCardListContext() {

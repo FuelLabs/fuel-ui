@@ -35,7 +35,7 @@ export const FocusArrowNavigator = createComponent<FocusArrowNavigatorProps>(
     <FocusScope {...props}>
       <GroupChildren>{children}</GroupChildren>
     </FocusScope>
-  )
+  ),
 );
 
 export function useFocusNavigator() {

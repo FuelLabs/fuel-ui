@@ -63,7 +63,7 @@ export function createBody(fonts) {
 
 export function createHeadings(fonts) {
   const selected = Object.entries(fonts).filter(
-    ([key]) => key === 'headings'
+    ([key]) => key === 'headings',
   )[0];
 
   const sizes = selected[1].sizes;

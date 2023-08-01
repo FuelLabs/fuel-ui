@@ -206,7 +206,7 @@ export type CreateStitches = {
     Media extends {} = {},
     Theme extends {} = {},
     ThemeMap extends {} = DefaultThemeMap,
-    Utils extends {} = {}
+    Utils extends {} = {},
   >(config?: {
     prefix?: ConfigType.Prefix<Prefix>;
     media?: ConfigType.Media<Media>;

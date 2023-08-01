@@ -3,7 +3,7 @@ export const toResolvedSelectors = (
   /** @type {string[]} Parent selectors (e.g. `["a", "button"]`). */
   parentSelectors,
   /** @type {string[]} Nested selectors (e.g. `["&:hover", "&:focus"]`). */
-  nestedSelectors
+  nestedSelectors,
 ) =>
   parentSelectors.length
     ? parentSelectors.reduce((resolvedSelectors, parentSelector) => {
@@ -14,10 +14,10 @@ export const toResolvedSelectors = (
                   /&/g,
                   /[ +>|~]/.test(parentSelector) && /&.*&/.test(selector)
                     ? `:is(${parentSelector})`
-                    : parentSelector
+                    : parentSelector,
                 )
-              : parentSelector + ' ' + selector
-          )
+              : parentSelector + ' ' + selector,
+          ),
         );
 
         return resolvedSelectors;
