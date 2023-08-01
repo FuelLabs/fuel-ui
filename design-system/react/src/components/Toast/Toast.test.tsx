@@ -1,4 +1,4 @@
-import { render, screen } from '@fuels/jest';
+import { fireEvent, render, screen } from '@fuels/jest';
 
 import { Button } from '../Button';
 import { ThemeProvider } from '../ThemeProvider';
@@ -7,7 +7,7 @@ import { toast } from './Toast';
 
 describe('Toast', () => {
   it('should be visible after call toast() function', async () => {
-    const { user } = render(
+    render(
       <ThemeProvider>
         <Button onPress={() => toast('Hello world')}>Show toast</Button>
       </ThemeProvider>,
@@ -16,7 +16,7 @@ describe('Toast', () => {
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
 
-    await user.click(button);
+    fireEvent.click(button);
     expect(screen.getByText('Hello world')).toBeInTheDocument();
   });
 });
