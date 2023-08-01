@@ -30,7 +30,7 @@
     "changeset": "changeset",
     "changeset:release": "changeset publish --no-git-tag",
     "changeset:version": "changeset version",
-    "changeset:check": "changeset status --since=master",
+    "changeset:check": "changeset status --since=origin/master",
     "changeset:next": "node ./scripts/changesets/next.mjs",
     "dev": "turbo run dev --parallel",
     "deps:update": "updates -gu && pnpm -r exec updates -gu",
