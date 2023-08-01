@@ -33,6 +33,7 @@ jobs:
   pr_info:
     name: Fetching PR Head Ref
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
     outputs:
       ref: ${{ steps.pr_info.outputs.result }}
     steps:
@@ -51,7 +52,7 @@ jobs:
   validate_changeset:
     name: Validating Changeset
     needs: pr_info
-    if: ${{ github.head_ref != 'changeset-release/master' }}
+    if: github.event_name == 'workflow_dispatch' && github.head_ref != 'changeset-release/master'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -70,7 +71,7 @@ jobs:
     needs: [pr_info, validate_changeset]
     runs-on: ubuntu-latest
     permissions: write-all
-    if: ${{ github.event.action != 'closed' || github.event.inputs.job_to_run == 'release' }}
+    if: github.event_name == 'workflow_dispatch' && github.event.action != 'closed' || github.event.inputs.job_to_run == 'release'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -126,7 +127,7 @@ jobs:
     needs: validate_changeset
     name: 'Clean PR releases'
     runs-on: ubuntu-latest
-    if: ${{ github.event.action == 'closed' }}
+    if: github.event_name == 'workflow_dispatch' && github.event.action == 'closed'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
