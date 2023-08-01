@@ -56,7 +56,7 @@ async function deletePackageVersions(filterFn) {
             const errMessage = String(e);
             if (
               errMessage?.contains(
-                'Cannot publish over previously published version'
+                'Cannot publish over previously published version',
               )
             ) {
               await deletePackageVersions(filterFn);
