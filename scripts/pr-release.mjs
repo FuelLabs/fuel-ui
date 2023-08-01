@@ -88,7 +88,7 @@ async function cleanPrerelease(tag) {
 
 async function postReleaseMsg(version, prNumber) {
   const packages = await getAllPackages();
-  let msg = `🚀 Packages release as \`pr-${prNumber}\` tag on NPM:\n`;
+  let msg = `🚀 Packages released as \`pr-${prNumber}\` tag on NPM:\n`;
   for (const pkg of packages) {
     msg += `- [${pkg}](https://www.npmjs.com/package/${pkg}/v/${version})\n`;
   }
