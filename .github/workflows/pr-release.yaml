@@ -10,10 +10,10 @@ on:
         description: 'Job to run'
         required: true
         options:
-          - 'release'
-          - 'clean-tag-dev'
-          - 'clean-tag-next'
-          - 'clean-tag-pr'
+        - 'release'
+        - 'clean-tag-dev'
+        - 'clean-tag-next'
+        - 'clean-tag-pr'
   pull_request:
     types: [closed]
 
