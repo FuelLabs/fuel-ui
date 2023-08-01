@@ -81,7 +81,11 @@ jobs:
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
 
-      - run: pnpm build
+      - name: Build
+        run: |
+          pnpm lint
+          pnpm build
+
       - name: Release to @pr-<ID> tag on npm
         id: release
         run: |
