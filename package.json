@@ -46,7 +46,7 @@
     "test:ci": "pnpm build && turbo run test -- --ci --testLocationInResults --json --coverage",
     "ts:check": "pnpm -r run ts:check",
     "prepare": "husky install",
-    "pr:clean-releases": "node ./scripts/pr-release.mjs"
+    "pr:release": "node ./scripts/pr-release.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.22.9",
