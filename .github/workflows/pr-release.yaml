@@ -92,6 +92,7 @@ jobs:
       - name: Release to @pr-<ID> tag on npm
         id: release
         run: |
+          pnpm changeset:next
           pnpm changeset version --snapshot pr-${{ env.PR_ID }}
           echo ::set-output name=version::$(pnpm changeset publish --tag pr-${{ env.PR_ID }})
           git checkout .
