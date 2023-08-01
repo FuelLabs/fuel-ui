@@ -9,6 +9,8 @@ on:
       job_to_run:
         description: 'Job to run'
         required: true
+        default: 'release'
+        type: 'choice'
         options:
         - 'release'
         - 'clean-tag-dev'
