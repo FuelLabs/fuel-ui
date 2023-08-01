@@ -17,6 +17,6 @@ describe('Toast', () => {
     expect(button).toBeInTheDocument();
 
     fireEvent.click(button);
-    expect(screen.getByText('Hello world')).toBeInTheDocument();
+    expect(await screen.findByText('Hello world')).toBeInTheDocument();
   });
 });
