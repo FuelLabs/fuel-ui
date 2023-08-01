@@ -48,8 +48,6 @@ export const trigger = css({
         textSize: 'xl',
         color: '$textColor',
         userSelect: 'none',
-        fontFamily: '$mono',
-        letterSpacing: '-0.08em',
 
         '&:after': {
           position: 'absolute',

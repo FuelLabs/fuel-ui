@@ -1,32 +1,56 @@
-import { css } from '@fuel-ui/css';
+import { Components } from '~/defs';
+import { createStyle } from '~/hooks';
 
-export const header = css({
-  px: '$4',
-  py: '$4',
-  borderBottom: '1px solid $bodyBg',
+export const styles = createStyle(Components.Card, {
+  root: {
+    layer: 'layer-card',
 
-  '& .fuel_Heading': {
-    margin: 0,
+    display: 'flex',
+    flexDirection: 'column',
+
+    '&:focus-visible': {
+      outline: 'none',
+    },
+
+    '&[data-is-clickable=true]:focus-visible': {
+      outline: '1px solid $intentsBase1',
+      outlineOffset: 1,
+    },
+
+    '&[data-variant="outlined"]': {
+      background: 'transparent',
+      border: '1px solid $border',
+
+      '&[data-is-clickable=true]:focus-visible': {
+        outline: '2px solid $intentsBase1',
+      },
+    },
   },
-
-  '&[data-space=compact]': {
-    py: '$2',
-    fontSize: '$sm',
+  body: {
+    px: '$4',
+    py: '$4',
   },
-});
+  footer: {
+    px: '$4',
+    pb: '$4',
+    pt: '$4',
+    borderTop: '1px solid $border',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    gap: '$3',
+  },
+  header: {
+    px: '$4',
+    py: '$4',
+    borderBottom: '1px solid $border',
 
-export const body = css({
-  px: '$4',
-  py: '$4',
-});
+    '& .fuel_Heading': {
+      margin: 0,
+    },
 
-export const footer = css({
-  px: '$4',
-  pb: '$4',
-  pt: '$4',
-  borderTop: '1px solid $bodyBg',
-});
-
-export const card = css({
-  layer: 'layer-card',
+    '&[data-space=compact]': {
+      py: '$2',
+      fontSize: '$sm',
+    },
+  },
 });

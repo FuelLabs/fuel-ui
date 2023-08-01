@@ -15,9 +15,9 @@ export const MOCK_ASSET = {
 };
 
 function Content({ onChange, ...props }: Partial<InputAmountProps>) {
-  const [val, setVal] = useState<BN>(bn(0));
+  const [val, setVal] = useState<BN | null>(bn(0));
 
-  function handleChange(val: BN) {
+  function handleChange(val: BN | null) {
     onChange?.(val);
     setVal(val);
   }
@@ -101,6 +101,16 @@ describe('InputAmount', () => {
 
   it('should show placeholder', () => {
     render(<InputAmount value={bn(0)} />);
+    expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
+  });
+
+  it('should show placeholder after getting set to undefined', () => {
+    render(<Content onChange={onChange} />);
+    expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
+    const input = screen.getByLabelText(FIELD_NAME);
+    fireEvent.input(input, { target: { value: 0.5 } });
+    expect(input.getAttribute('value')).toBe('0.5');
+    fireEvent.input(input, { target: { value: undefined } });
     expect(screen.getByPlaceholderText('0.00')).toBeInTheDocument();
   });
 

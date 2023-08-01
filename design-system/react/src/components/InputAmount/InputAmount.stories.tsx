@@ -113,6 +113,7 @@ WithAssetOnClick.args = {
     imageUrl: './assets/eth.svg',
   },
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClickAsset: () => {},
 };
 
