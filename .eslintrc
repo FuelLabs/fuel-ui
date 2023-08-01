@@ -2,6 +2,7 @@
   "extends": ["plugin:@fuels/base"],
   "rules": {
     "react/display-name": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "eslint-comments/no-unused-disable": "off"
   }
 }

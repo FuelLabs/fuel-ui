@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export const noop = () => {};
 
