@@ -48,7 +48,6 @@ const categories = {
   link(name, isLight) {
     const isBright = isIntentLight(name, isLight);
     const { color, hoverColor } = getLinkColor(name, isLight);
-    console.log(color);
 
     return {
       bg: createColor('{transparent}'),
