@@ -41,8 +41,8 @@ const categories = {
       'hover-placeholder': createColor(hoverColor),
       'disabled-bg': createColor(bg.disabled),
       'disabled-border': createColor('{transparent}'),
-      'disabled-color': createColor(isBright ? `{blackA.10}` : `{whiteA.10}`),
-      'disabled-icon': createColor(isBright ? `{blackA.10}` : `{whiteA.10}`),
+      'disabled-color': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
+      'disabled-icon': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
     };
   },
   link(name, isLight) {
@@ -63,8 +63,8 @@ const categories = {
       'hover-placeholder': createColor(hoverColor),
       'disabled-bg': createColor('{transparent}'),
       'disabled-border': createColor('{transparent}'),
-      'disabled-color': createColor(isBright ? `{blackA.10}` : `{whiteA.10}`),
-      'disabled-icon': createColor(isBright ? `{blackA.10}` : `{whiteA.10}`),
+      'disabled-color': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
+      'disabled-icon': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
     };
   },
   ghost(name, isLight) {
@@ -86,8 +86,8 @@ const categories = {
       'hover-placeholder': createColor(hoverColor),
       'disabled-bg': createColor(bg.disabled),
       'disabled-border': createColor('{transparent}'),
-      'disabled-color': createColor(isBright ? `{blackA.10}` : `{whiteA.10}`),
-      'disabled-icon': createColor(isBright ? `{blackA.10}` : `{whiteA.10}`),
+      'disabled-color': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
+      'disabled-icon': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
     };
   },
   outlined(name, isLight) {
@@ -108,8 +108,8 @@ const categories = {
       'hover-placeholder': createColor(hoverColor),
       'disabled-bg': createColor('{transparent}'),
       'disabled-border': createColor(disabled),
-      'disabled-color': createColor(isBright ? `{blackA.10}` : `{whiteA.10}`),
-      'disabled-icon': createColor(isBright ? `{blackA.10}` : `{whiteA.10}`),
+      'disabled-color': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
+      'disabled-icon': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
     };
   },
 };
@@ -132,7 +132,7 @@ export function createSemantics(isLight) {
     white: createColor('#ffffff'),
     black: createColor('#000000'),
     'body-bg': createColor(isLight ? '{intents.base.1}' : '{black}'),
-    'body-inverse': createColor(isLight ? '{black}' : '{}'),
+    'body-inverse': createColor(isLight ? '{black}' : '{intents.base.1}'),
     'card-bg': createColor(isLight ? '{white}' : intent('base', 2)),
     'overlay-bg': createColor(isLight ? intent('base', 5) : '{card-bg}'),
     'overlay-text': createColor(intent('base', isLight ? 12 : 11)),
