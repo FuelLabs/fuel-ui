@@ -233,6 +233,10 @@
   },
   "sizing": {
     "0": {
+      "5": {
+        "value": "0.125rem",
+        "type": "sizing"
+      },
       "value": "0rem",
       "type": "sizing"
     },
@@ -370,10 +374,6 @@
     },
     "xl": {
       "value": "{sizing.14}",
-      "type": "sizing"
-    },
-    "0.5": {
-      "value": "0.125rem",
       "type": "sizing"
     },
     "auto": {
