@@ -25,7 +25,7 @@
   },
   "overlay-bg": {
     "type": "color",
-    "value": "{intents.base.2}"
+    "value": "{card-bg}"
   },
   "overlay-text": {
     "type": "color",
@@ -37,7 +37,7 @@
   },
   "input-bg": {
     "type": "color",
-    "value": "{intents.base.2}"
+    "value": "{white}"
   },
   "border": {
     "type": "color",
