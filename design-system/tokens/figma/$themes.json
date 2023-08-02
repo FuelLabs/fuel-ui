@@ -3,9 +3,9 @@
     "id": "fba5ea6aa89b6034ec95a3e896bedb8a14c71dcb",
     "name": "dark",
     "selectedTokenSets": {
-      "global": "enabled",
-      "colors-dark": "enabled",
-      "radix": "source"
+      "core/global": "enabled",
+      "core/radix": "source",
+      "themes/colors-dark": "enabled"
     },
     "$figmaStyleReferences": {
       "whiteA.whiteA1": "S:d78b9d77502c5f842217525d62c87a95e865df6b,",
@@ -1658,7 +1658,6 @@
       "bronze / light.11": "S:cb646d5fe3adf608703ce090be906b513b3a153b,",
       "bronze / light.12": "S:4fe336bc72d3c74494663fa2269dca5f8a21b0bc,"
     },
-    "group": "themes",
     "$figmaCollectionId": "VariableCollectionId:504:10834",
     "$figmaModeId": "506:2",
     "$figmaVariableReferences": {
@@ -2429,15 +2428,16 @@
       "borderRadius.3xl": "b554c1209477c6f5bc26ea5633ad9395b8fd6b54",
       "borderRadius.full": "9fee78984976af73c96543a59dfc5f59dd615877",
       "borderRadius.default": "e2cdef9166a36d4029d810466fed171e2bcb47eb"
-    }
+    },
+    "group": "themes"
   },
   {
     "id": "aea7f5af62b992ec8329ad83346eb4afe85e63a9",
     "name": "light",
     "selectedTokenSets": {
-      "global": "enabled",
-      "colors-light": "enabled",
-      "radix": "source"
+      "core/global": "enabled",
+      "core/radix": "source",
+      "themes/colors-light": "enabled"
     },
     "$figmaStyleReferences": {
       "whiteA.whiteA1": "S:d78b9d77502c5f842217525d62c87a95e865df6b,",
@@ -4222,7 +4222,6 @@
       "semantic.ghost.success.disabled-bg": "S:26d7b4bdeeb669b2e8c39b1a4a5872b3fc3a4b89,",
       "semantic.ghost.error.disabled-bg": "S:2007de6ee3cdf3d293751fed0d2ec7880c6dfea0,"
     },
-    "group": "themes",
     "$figmaCollectionId": "VariableCollectionId:504:10834",
     "$figmaModeId": "504:0",
     "$figmaVariableReferences": {
@@ -4993,6 +4992,7 @@
       "borderRadius.3xl": "b554c1209477c6f5bc26ea5633ad9395b8fd6b54",
       "borderRadius.full": "9fee78984976af73c96543a59dfc5f59dd615877",
       "borderRadius.default": "e2cdef9166a36d4029d810466fed171e2bcb47eb"
-    }
+    },
+    "group": "themes"
   }
 ]
