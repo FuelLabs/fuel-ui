@@ -119,12 +119,12 @@ export function createBody(fonts) {
       return {
         ...obj,
         [key]: Object.entries(font.sizes).reduce((obj, [size, sizeItem]) => {
-          const weights = font.weights.filter((w) => w !== 'regular');
+          const weights = font.weights;
           return {
             ...obj,
             [size]: createTypographValue({
               fontFamily: key,
-              fontWeight: `normal`,
+              fontWeight: `Regular`,
               lineHeight: sizeItem.lineHeight,
               fontSize: size,
               letterSpacing: 'default',
@@ -158,14 +158,14 @@ export function createHeadings(fonts) {
   )[0];
 
   const sizes = selected[1].sizes;
-  const weights = selected[1].weights.filter((w) => w !== 'regular');
+  const weights = selected[1].weights;
 
   return Object.entries(sizes).reduce((obj, [key, size]) => {
     return {
       ...obj,
       [key]: createTypographValue({
         fontFamily: 'headings',
-        fontWeight: `normal`,
+        fontWeight: `Regular`,
         lineHeight: size.lineHeight,
         fontSize: size.fontSize,
         letterSpacing: size.letterSpacing,

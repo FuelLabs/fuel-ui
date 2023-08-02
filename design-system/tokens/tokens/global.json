@@ -663,7 +663,7 @@
   },
   "fontFamilies": {
     "body": {
-      "value": "Px Grotesk",
+      "value": "Inter",
       "type": "fontFamilies"
     },
     "headings": {
@@ -682,7 +682,7 @@
   "body": {
     "xs": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.tight}",
         "fontSize": "{fontSizes.xs}",
@@ -730,7 +730,7 @@
     },
     "sm": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.tight}",
         "fontSize": "{fontSizes.sm}",
@@ -778,7 +778,7 @@
     },
     "md": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.md}",
@@ -826,7 +826,7 @@
     },
     "lg": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.lg}",
@@ -874,7 +874,7 @@
     },
     "xl": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.xl}",
@@ -922,7 +922,7 @@
     },
     "2xl": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.2xl}",
@@ -970,7 +970,7 @@
     },
     "3xl": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.3xl}",
@@ -1018,7 +1018,7 @@
     },
     "4xl": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.4xl}",
@@ -1066,7 +1066,7 @@
     },
     "6xl": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.6xl}",
@@ -1114,7 +1114,7 @@
     },
     "7xl": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.body}",
         "lineHeight": "{lineHeights.normal}",
         "fontSize": "{fontSizes.7xl}",
@@ -1164,7 +1164,7 @@
   "headings": {
     "H1": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.headings}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h1}",
@@ -1212,7 +1212,7 @@
     },
     "H2": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.headings}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h2}",
@@ -1260,7 +1260,7 @@
     },
     "H3": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.headings}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h3}",
@@ -1308,7 +1308,7 @@
     },
     "H4": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.headings}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h4}",
@@ -1356,7 +1356,7 @@
     },
     "H5": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.headings}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h5}",
@@ -1404,7 +1404,7 @@
     },
     "H6": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.headings}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h6}",
@@ -1452,7 +1452,7 @@
     },
     "sectionHead": {
       "value": {
-        "fontWeight": "normal",
+        "fontWeight": "Regular",
         "fontFamily": "{fontFamilies.headings}",
         "lineHeight": "{lineHeights.none}",
         "fontSize": "{fontSizes.h1}",

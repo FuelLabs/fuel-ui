@@ -192,7 +192,7 @@ export const fontWeights = {
 
 export const fonts = {
   body: {
-    fontFamily: 'Px Grotesk',
+    fontFamily: 'Inter',
     weights: ['Light', 'Regular', 'Bold'],
     sizes: {
       xs: {
@@ -243,14 +243,14 @@ export const fonts = {
     sizes: {
       H1: {
         fontSize: 'h1',
-        fontWeight: 'normal',
+        fontWeight: 'Regular',
         textCase: 'uppercase',
         letterSpacing: 'tight',
         lineHeight: 'none',
       },
       H2: {
         fontSize: 'h2',
-        fontWeight: 'normal',
+        fontWeight: 'Regular',
         textCase: 'uppercase',
         letterSpacing: 'tight',
         lineHeight: 'none',
@@ -285,7 +285,7 @@ export const fonts = {
       },
       sectionHead: {
         fontSize: 'h1',
-        fontWeight: 'normal',
+        fontWeight: 'Regular',
         textCase: 'normal',
         letterSpacing: 'tight',
         lineHeight: 'none',
@@ -319,7 +319,7 @@ export const fonts = {
   },
   display: {
     fontFamily: 'Px Grotesk',
-    weights: ['light', 'regular', 'bold'],
+    weights: ['Light', 'Regular', 'Bold'],
     sizes: {
       xs: {
         fontSize: 'xs',
