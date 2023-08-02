@@ -13,7 +13,7 @@
   },
   "body-bg": {
     "type": "color",
-    "value": "{white}"
+    "value": "{intents.base.1}"
   },
   "body-inverse": {
     "type": "color",
@@ -21,15 +21,15 @@
   },
   "card-bg": {
     "type": "color",
-    "value": "{intents.base.3}"
+    "value": "{white}"
   },
   "overlay-bg": {
     "type": "color",
-    "value": "{card-bg}"
+    "value": "{intents.base.5}"
   },
   "overlay-text": {
     "type": "color",
-    "value": "{intents.base.11}"
+    "value": "{intents.base.12}"
   },
   "dialog-bg": {
     "type": "color",
