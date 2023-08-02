@@ -233,10 +233,6 @@
   },
   "sizing": {
     "0": {
-      "5": {
-        "value": "0.125rem",
-        "type": "sizing"
-      },
       "value": "0rem",
       "type": "sizing"
     },
