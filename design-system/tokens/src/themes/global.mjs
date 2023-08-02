@@ -1,5 +1,5 @@
-import * as tokens from '../base-tokens.mjs';
-import { createBody, createDef, createHeadings } from '../utils/index.mjs';
+import * as tokens from '../definitions/base-tokens.mjs';
+import { createBody, createDef, createHeadings } from '../utils/helpers.mjs';
 
 const fontSizes = createDef('fontSizes', tokens.fontSizes);
 const fontWeights = createDef('fontWeights', tokens.fontWeights);

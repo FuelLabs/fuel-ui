@@ -47,7 +47,6 @@ export const sizing = {
   xl: '{sizing.14}',
 
   0: '0rem', // 0px,
-  0.5: '0.125rem', // 2px,
   1: '0.25rem', // 4px,
   2: '0.5rem', // 8px,
   3: '0.75rem', // 12px,

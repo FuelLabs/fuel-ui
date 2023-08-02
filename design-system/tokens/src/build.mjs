@@ -5,8 +5,8 @@ import path from 'path';
 import prettier from 'prettier';
 import * as url from 'url';
 
-import { dark } from './defs/dark.mjs';
-import { light } from './defs/light.mjs';
+import { dark } from './themes/dark.mjs';
+import { light } from './themes/light.mjs';
 
 function readJSON(filepath) {
   const __dirname = url.fileURLToPath(new URL('.', import.meta.url));

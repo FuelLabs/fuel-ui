@@ -18,7 +18,7 @@ const JSON_SET_MAP = {
 (async () => {
   const argv = process.argv.slice(2);
   const set = argv[0].replace('--', '');
-  const file = await import(`./defs/${set}.mjs`);
+  const file = await import(`./themes/${set}.mjs`);
   copyToFigma(set, file[set]);
 
   const path = `${__dirname}/../tokens/${JSON_SET_MAP[set]}.json`;

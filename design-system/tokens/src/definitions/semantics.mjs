@@ -1,4 +1,4 @@
-import { createColor } from './helpers.mjs';
+import { createColor } from '../utils/helpers.mjs';
 
 function inputColor(name) {
   return {
