@@ -132,7 +132,7 @@ export function createSemantics(isLight) {
     white: createColor('#ffffff'),
     black: createColor('#000000'),
     'body-bg': createColor(isLight ? '{intents.base.1}' : '{black}'),
-    'body-inverse': createColor(isLight ? '{black}' : '{intents.base.1}'),
+    'body-inverse': createColor(isLight ? '{black}' : '{white}'),
     'card-bg': createColor(isLight ? '{white}' : intent('base', 2)),
     'card-border': createColor(isLight ? '{border}' : '{transparent}'),
     'overlay-bg': createColor(isLight ? intent('base', 5) : '{card-bg}'),
@@ -144,7 +144,7 @@ export function createSemantics(isLight) {
     brand: createColor(isLight ? intent('primary', 10) : intent('primary', 9)),
     text: {
       color: createColor(intent('base', 11)),
-      heading: createColor(intent('base', 12)),
+      heading: createColor('{body-inverse}'),
       subtext: createColor(intent('base', 10)),
       muted: createColor(intent('base', 8)),
       icon: createColor(intent('base', 9)),

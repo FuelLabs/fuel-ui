@@ -17,7 +17,7 @@
   },
   "body-inverse": {
     "type": "color",
-    "value": "{intents.base.1}"
+    "value": "{white}"
   },
   "card-bg": {
     "type": "color",
@@ -62,7 +62,7 @@
     },
     "heading": {
       "type": "color",
-      "value": "{intents.base.12}"
+      "value": "{body-inverse}"
     },
     "subtext": {
       "type": "color",

@@ -62,7 +62,7 @@
     },
     "heading": {
       "type": "color",
-      "value": "{intents.base.12}"
+      "value": "{body-inverse}"
     },
     "subtext": {
       "type": "color",
