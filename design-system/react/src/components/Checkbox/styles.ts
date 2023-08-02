@@ -3,6 +3,7 @@ import { createStyle } from '~/hooks';
 
 export const styles = createStyle(Components.Checkbox, {
   root: {
+    is: ['display'],
     all: 'unset',
     cursor: 'pointer',
     overflow: 'clip',

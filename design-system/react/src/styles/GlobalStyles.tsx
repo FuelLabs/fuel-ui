@@ -9,7 +9,6 @@ const customStyles = {
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
     margin: '0',
-    letterSpacing: '$tight',
     textSize: 'base' as any,
     color: '$textColor',
     background: '$bodyColor',
@@ -19,9 +18,12 @@ const customStyles = {
 const fontStyles = {
   body: {
     fontFamily: '$sans',
-    letterSpacing: '$tight',
+    letterSpacing: '$normal',
   },
   '@font-face': fontFaces,
+  '@import': [
+    'url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap)',
+  ],
 };
 
 function styles() {

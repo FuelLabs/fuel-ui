@@ -9,6 +9,7 @@ export const root = css({
 });
 
 export const item = css({
+  is: ['display'],
   all: 'unset',
   cursor: 'pointer',
   overflow: 'clip',

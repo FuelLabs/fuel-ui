@@ -80,7 +80,7 @@ const styles = createStyle(Components.Heading, {
   root: {
     mt: '0.5rem',
     mb: '1.25rem',
-    letterSpacing: '-0.02em',
+    letterSpacing: '$tight',
     color: '$intentsBase12',
     fontFamily: '$heading',
     fontWeight: '$normal',
