@@ -1,5 +1,4 @@
 **/*.template
-design-system/tokens/figma
 .changeset
 .coverage_*
 .github
