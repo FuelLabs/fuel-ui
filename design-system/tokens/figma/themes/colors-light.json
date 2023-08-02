@@ -45,11 +45,11 @@
   },
   "border": {
     "type": "color",
-    "value": "{scales.gray.6}"
+    "value": "{scales.gray.7}"
   },
   "borderHover": {
     "type": "color",
-    "value": "{scales.gray.8}"
+    "value": "{scales.gray.9}"
   },
   "brand": {
     "type": "color",

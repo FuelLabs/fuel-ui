@@ -139,8 +139,8 @@ export function createSemantics(isLight) {
     'overlay-text': createColor(intent('base', isLight ? 12 : 11)),
     'dialog-bg': createColor('{card-bg}'),
     'input-bg': createColor(isLight ? '{white}' : '{blackA.12}'),
-    border: createColor('{scales.gray.6}'),
-    borderHover: createColor('{scales.gray.8}'),
+    border: createColor(isLight ? '{scales.gray.7}' : '{scales.gray.6}'),
+    borderHover: createColor('{scales.gray.9}'),
     brand: createColor(isLight ? intent('primary', 10) : intent('primary', 9)),
     text: {
       color: createColor(intent('base', 11)),
