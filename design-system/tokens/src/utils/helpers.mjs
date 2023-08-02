@@ -204,3 +204,72 @@ export function createIntents() {
     },
   };
 }
+
+export function intentColor(name, scale) {
+  return `{intents.${name}.${scale}}`;
+}
+
+export function isIntentLight(name, isLightTheme) {
+  return [
+    ...(isLightTheme ? ['base'] : []),
+    'primary',
+    'warning',
+    'error',
+    'success',
+  ].some((i) => i === name);
+}
+
+function getScaledColors(first, second, { name, isLight }) {
+  const isBright = isIntentLight(name, isLight);
+  let colors = [intentColor(name, first), intentColor(name, second)];
+  if (isLight) colors = colors.reverse();
+  return isBright ? colors[0] : colors[1];
+}
+
+export function getSolidColors(name, isLight) {
+  const color = getScaledColors(1, 12, { name, isLight });
+  const hoverColor = getScaledColors(2, 12, { name, isLight });
+  return { color, hoverColor };
+}
+
+export function getSolidBg(name) {
+  const isBase = name === 'base';
+  const base = isBase ? intentColor('base', 7) : intentColor(name, 9);
+  const hover = isBase ? intentColor('base', 8) : intentColor(name, 10);
+  const disabled = isBase ? intentColor('base', 6) : intentColor(name, 7);
+  const focus = intentColor(name, 6);
+  return { base, hover, disabled, focus };
+}
+
+export function getLinkColor(name, isLight) {
+  const isBright = isIntentLight(name, isLight);
+  const lightColor = isBright ? intentColor(name, 8) : intentColor(name, 10);
+  const darkColor = intentColor(name, 9);
+  const color = isLight ? lightColor : darkColor;
+  const hoverColor = color;
+  return { color, hoverColor };
+}
+
+export function getGhostColors(name, isLight) {
+  const isBright = isIntentLight(name, isLight);
+  const color = intentColor(name, isBright ? 12 : 11);
+  const hoverColor = color;
+  return { color, hoverColor };
+}
+
+export function getGhostBg(name) {
+  const isBase = name === 'base';
+  const base = isBase ? intentColor('base', 3) : intentColor(name, 5);
+  const hover = isBase ? intentColor('base', 4) : intentColor(name, 6);
+  const disabled = isBase ? intentColor('base', 2) : intentColor(name, 3);
+  const focus = intentColor(name, 6);
+  return { base, hover, disabled, focus };
+}
+
+export function getOutlinedColors(name, isLight) {
+  const isBright = isIntentLight(name, isLight) || name === 'base';
+  const color = intentColor(name, isBright ? 11 : 9);
+  const hoverColor = intentColor(name, isBright ? 10 : 8);
+  const disabled = intentColor(name, isBright ? 9 : 7);
+  return { color, hoverColor, disabled };
+}
