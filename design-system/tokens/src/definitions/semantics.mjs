@@ -134,6 +134,7 @@ export function createSemantics(isLight) {
     'body-bg': createColor(isLight ? '{intents.base.1}' : '{black}'),
     'body-inverse': createColor(isLight ? '{black}' : '{intents.base.1}'),
     'card-bg': createColor(isLight ? '{white}' : intent('base', 2)),
+    'card-border': createColor(isLight ? '{border}' : '{transparent}'),
     'overlay-bg': createColor(isLight ? intent('base', 5) : '{card-bg}'),
     'overlay-text': createColor(intent('base', isLight ? 12 : 11)),
     'dialog-bg': createColor('{card-bg}'),

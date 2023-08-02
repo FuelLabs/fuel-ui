@@ -23,6 +23,10 @@
     "type": "color",
     "value": "{intents.base.2}"
   },
+  "card-border": {
+    "type": "color",
+    "value": "{transparent}"
+  },
   "overlay-bg": {
     "type": "color",
     "value": "{card-bg}"
