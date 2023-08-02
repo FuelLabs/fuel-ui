@@ -51,6 +51,10 @@ export const item = css({
 
   '&[aria-disabled=true]': {
     cursor: 'default',
+
+    '& span::after': {
+      backgroundColor: '$inputDisabledColor !important',
+    },
   },
 
   '&[aria-disabled=true]:not([data-state="unchecked"])': {

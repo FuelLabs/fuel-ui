@@ -47,6 +47,10 @@ export const styles = createStyle(Components.Checkbox, {
       cursor: 'default',
       background: '$inputDisabledBorder',
       borderColor: '$inputDisabledBorder',
+
+      '& .fuel_Checkbox-indicator': {
+        color: '$inputDisabledColor !important',
+      },
     },
   },
   indicator: {
