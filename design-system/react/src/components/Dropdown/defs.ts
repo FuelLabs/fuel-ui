@@ -5,6 +5,8 @@ import type {
   MenuTriggerProps,
   ItemProps,
 } from 'react-stately';
+import type { Components } from '~/defs';
+import type { CreateComponent } from '~/utils';
 
 import type { ButtonProps } from '../Button';
 import type { MenuItemProps, MenuProps } from '../Menu';
@@ -12,9 +14,6 @@ import type { MenuItemProps, MenuProps } from '../Menu';
 import type { DropdownMenu } from './DropdownMenu';
 import type { DropdownMenuItem } from './DropdownMenuItem';
 import type { DropdownTrigger } from './DropdownTrigger';
-
-import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
 
 // ----------------------------------------------------------------------------
 // Context
@@ -47,7 +46,6 @@ export type DropdownDef = CreateComponent<{
   props: DropdownProps;
   element: HTMLDivElement;
   namespace: DropdownNS;
-  omit: 'as';
   styles: 'root' | 'trigger' | 'menu' | 'menuItem';
 }>;
 

@@ -12,7 +12,10 @@ import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
 import { useKeyPressEvent } from '../../hooks/useKeyPressEvent';
-import { _unstable_createComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { Popover } from '../Popover';
 
 import { DropdownMenu } from './DropdownMenu';
@@ -29,9 +32,9 @@ export function useDropdown() {
   return useContext(DropdownCtx);
 }
 
-export const Dropdown = _unstable_createComponent<DropdownDef>(
+const _Dropdown = _unstable_createComponent<DropdownDef>(
   Components.Dropdown,
-  ({ children, css, popoverProps, ...props }) => {
+  ({ as = 'div', children, css, popoverProps, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
     const state = useMenuTriggerState(props);
     const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref);
@@ -74,12 +77,14 @@ export const Dropdown = _unstable_createComponent<DropdownDef>(
     });
 
     return createElement(
-      'div',
+      as,
       { className: classes.root.className },
       customChildren,
     );
   },
 );
+
+export const Dropdown = createPolymorphicComponent<DropdownDef>(_Dropdown);
 
 Dropdown.Trigger = DropdownTrigger;
 Dropdown.Menu = DropdownMenu;

@@ -1,7 +1,7 @@
 import { cx } from '@fuel-ui/css';
-import { mergeRefs } from '@react-aria/utils';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { ReactElement } from 'react';
-import { Children, cloneElement, createElement } from 'react';
+import { Children, cloneElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { _unstable_createComponent } from '~/utils';
@@ -17,6 +17,9 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
   ({ ref, className, asChild = true, children, ...props }) => {
     const classes = useStyles(styles, props, ['trigger']);
     const { state, triggerRef } = useDropdown();
+    const rightIcon = state?.isOpen
+      ? Icon.is('ChevronUp')
+      : Icon.is('ChevronDown');
 
     function handleToggle() {
       state?.toggle();
@@ -26,27 +29,29 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
       return (
         <>
           {Children.toArray(Children.only(children)).map((child) => {
-            return cloneElement(child as ReactElement, {
-              ref: mergeRefs(ref, triggerRef as never),
-              onPress: handleToggle,
-              className: cx(classes.trigger.className, className),
-            });
+            return cloneElement(
+              child as ReactElement,
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              mergeProps((child as any).props, {
+                ref: mergeRefs(ref, triggerRef as never),
+                onPress: handleToggle,
+                className: cx(classes.trigger.className, className),
+                rightIcon,
+              }),
+            );
           })}
         </>
       );
     }
 
-    return createElement(
-      Button,
-      {
-        ...props,
-        ref: mergeRefs(ref, triggerRef as never),
-        onPress: handleToggle,
-        rightIcon: state?.isOpen
-          ? Icon.is('ChevronUp')
-          : Icon.is('ChevronDown'),
-      },
-      children,
+    return (
+      <Button
+        {...props}
+        ref={mergeRefs(ref, triggerRef as never)}
+        rightIcon={rightIcon}
+      >
+        {children}
+      </Button>
     );
   },
 );
