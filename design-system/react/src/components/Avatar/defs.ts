@@ -7,7 +7,7 @@ import type { AvatarGenerated } from './AvatarGenerated';
 export type AvatarProps = RAvatar.AvatarImageProps & {
   name: string;
   fallback?: string;
-  size?: 'xsm' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+  size?: 'xsm' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
 };
 
 export type AvatarDef = CreateComponent<{
