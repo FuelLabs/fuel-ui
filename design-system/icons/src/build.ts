@@ -24,7 +24,7 @@ function pascalCase(inputString: string) {
   const spritePath = '../node_modules/@tabler/icons/tabler-sprite.svg';
   const svgPath = resolveRoot(spritePath);
   const svg = await fs.readFile(svgPath, 'utf-8');
-  let formatted = prettier.format(svg, { parser: 'html' });
+  let formatted = await prettier.format(svg, { parser: 'html' });
 
   formatted = formatted.replaceAll(/id="(.+)"/g, (_, id) => {
     return `id="${pascalCase(id.replace('tabler-', ''))}"`;
@@ -64,7 +64,7 @@ function pascalCase(inputString: string) {
   const typesPath = resolveRoot(ICONS_OUTPUT, 'index.d.ts');
   await fs.writeFile(
     typesPath,
-    prettier.format(typesFile, { parser: 'typescript' }),
+    await prettier.format(typesFile, { parser: 'typescript' }),
   );
 
   await fs.writeFile(

@@ -19,7 +19,6 @@
     ]
   },
   "scripts": {
-    "add:component": "node ./scripts/generateComponent",
     "build:storybook": "pnpm ts:check && storybook build",
     "build": "pnpm ts:check && tsup --dts",
     "dev": "storybook dev -p 6006",
