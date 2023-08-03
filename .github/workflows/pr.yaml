@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  COVERAGE_FILE: ./coverage/report.json
+  COVERAGE_FILE: ./design-system/react/coverage/report.json
 
 jobs:
   validate-title:
@@ -90,7 +90,6 @@ jobs:
           package-manager: pnpm
           annotations: failed-tests
           test-script: pnpm test:ci
-          working-directory: ./design-system/react
           prnumber: ${{ github.event.pull_request.number }}
           skip-test: all
           coverage-file: ${{ env.COVERAGE_FILE }}
