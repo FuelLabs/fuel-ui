@@ -21,7 +21,7 @@ export const toPolyfilledValue = {
       d.includes('"') ||
       d.includes("'") ||
       /^([A-Za-z]+\([^]*|[^]*-quote|inherit|initial|none|normal|revert|unset)$/.test(
-        d
+        d,
       )
         ? d
         : `"${d}"`,

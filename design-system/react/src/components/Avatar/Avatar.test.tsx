@@ -1,11 +1,4 @@
-import {
-  screen,
-  mocks,
-  testA11y,
-  render,
-  waitFor,
-  act,
-} from '@fuel-ui/test-utils';
+import { screen, mocks, testA11y, render, waitFor, act } from '@fuels/jest';
 
 import { Avatar } from './Avatar';
 
@@ -23,7 +16,7 @@ describe('Avatar', () => {
       <Avatar
         name="Colm Tuite"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-      />
+      />,
     );
   });
 
@@ -33,8 +26,8 @@ describe('Avatar', () => {
         <Avatar
           name="Colm Tuite"
           src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-        />
-      )
+        />,
+      ),
     );
   });
 
@@ -47,7 +40,7 @@ describe('Avatar', () => {
       <Avatar
         name="Colm"
         src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
-      />
+      />,
     );
     expect(screen.getByText('C')).toBeInTheDocument();
   });

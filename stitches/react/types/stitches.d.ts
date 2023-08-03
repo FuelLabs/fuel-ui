@@ -20,17 +20,16 @@ export type ComposerVariants<Composer, CSS> = {
 };
 
 // Type for compound variants
-export type CompoundVariants<Composer, CSS> = (
-  | ('variants' extends keyof Composer
-      ? {
-          [Name in keyof Composer['variants']]?:
-            | Util.Widen<keyof Composer['variants'][Name]>
-            | Util.String;
-        }
-      : Util.WideObject) & {
-      css: CSS;
-    }
-)[];
+export type CompoundVariants<Composer, CSS> =
+  (('variants' extends keyof Composer
+    ? {
+        [Name in keyof Composer['variants']]?:
+          | Util.Widen<keyof Composer['variants'][Name]>
+          | Util.String;
+      }
+    : Util.WideObject) & {
+    css: CSS;
+  })[];
 
 // Type for default variants
 export type DefaultVariants<Composer> = 'variants' extends keyof Composer
@@ -45,7 +44,7 @@ export interface CssFunctionType<
   Media extends {} = {},
   Theme extends {} = {},
   ThemeMap extends {} = {},
-  Utils extends {} = {}
+  Utils extends {} = {},
 > {
   <
     Composers extends (
@@ -55,7 +54,7 @@ export interface CssFunctionType<
           [name: string]: unknown;
         }
     )[],
-    CSS = CSSUtil.CSS<Media, Theme, ThemeMap, Utils>
+    CSS = CSSUtil.CSS<Media, Theme, ThemeMap, Utils>,
   >(
     ...composers: {
       [K in keyof Composers]: string extends Composers[K] // Strings and Functions can be skipped over
@@ -101,7 +100,7 @@ export interface StyledFunctionType<
   Media extends {} = {},
   Theme extends {} = {},
   ThemeMap extends {} = {},
-  Utils extends {} = {}
+  Utils extends {} = {},
 > {
   <
     Type extends
@@ -115,7 +114,7 @@ export interface StyledFunctionType<
           [name: string]: unknown;
         }
     )[],
-    CSS = CSSUtil.CSS<Media, Theme, ThemeMap, Utils>
+    CSS = CSSUtil.CSS<Media, Theme, ThemeMap, Utils>,
   >(
     type: Type,
     ...composers: {
@@ -164,7 +163,7 @@ export default interface Stitches<
   Media extends {} = {},
   Theme extends {} = {},
   ThemeMap extends {} = {},
-  Utils extends {} = {}
+  Utils extends {} = {},
 > {
   config: {
     prefix: Prefix;
@@ -234,10 +233,10 @@ export default interface Stitches<
             [scale in string]: {
               [token in number | string]: boolean | number | string;
             };
-          })
+          }),
     >(
       nameOrScalesArg0: Argument0,
-      nameOrScalesArg1?: Argument1
+      nameOrScalesArg1?: Argument1,
     ): string & {
       className: string;
       selector: string;
@@ -269,7 +268,7 @@ export default interface Stitches<
       componentId?: string;
       displayName?: string;
       shouldForwardStitchesProp?: (
-        prop: 'css' | (string & {})
+        prop: 'css' | (string & {}),
       ) => boolean | void;
     }) => CssFunctionType<Media, Theme, ThemeMap, Utils>;
   } & CssFunctionType<Media, Theme, ThemeMap, Utils>;
@@ -278,7 +277,7 @@ export default interface Stitches<
       componentId?: string;
       displayName?: string;
       shouldForwardStitchesProp?: (
-        prop: 'css' | (string & {})
+        prop: 'css' | (string & {}),
       ) => boolean | void;
     }) => StyledFunctionType<Media, Theme, ThemeMap, Utils>;
   } & StyledFunctionType<Media, Theme, ThemeMap, Utils>;

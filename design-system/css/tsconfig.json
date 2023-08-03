@@ -1,9 +1,9 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "@fuels/ts-config/base.json",
   "compilerOptions": {
     "outDir": "./dist",
     "baseUrl": ".",
     "rootDir": "."
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["src"]
 }

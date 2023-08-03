@@ -13,7 +13,7 @@ describe('Nesting', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:1 hXsVBR}@media{body > a:not(:hover){text-decoration:none}}`
+      `--sxs{--sxs:1 hXsVBR}@media{body > a:not(:hover){text-decoration:none}}`,
     );
   });
 
@@ -27,7 +27,7 @@ describe('Nesting', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 fuel_dweUti}@media{.fuel_dweUti:not(:hover){text-decoration:none}}`
+      `--sxs{--sxs:2 fuel_dweUti}@media{.fuel_dweUti:not(:hover){text-decoration:none}}`,
     );
   });
 
@@ -44,7 +44,7 @@ describe('Nesting', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:1 gkqgGk}@media{p{margin:0}p ~ p{margin-top:0}}`
+      `--sxs{--sxs:1 gkqgGk}@media{p{margin:0}p ~ p{margin-top:0}}`,
     );
   });
 
@@ -59,7 +59,7 @@ describe('Nesting', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 fuel_fuGzNQ}@media{.fuel_fuGzNQ{margin:0}.fuel_fuGzNQ ~ .fuel_fuGzNQ{margin-top:0}}`
+      `--sxs{--sxs:2 fuel_fuGzNQ}@media{.fuel_fuGzNQ{margin:0}.fuel_fuGzNQ ~ .fuel_fuGzNQ{margin-top:0}}`,
     );
   });
 
@@ -79,7 +79,7 @@ describe('Nesting', () => {
     const nestingCssRule = `:is(body > p) ~ :is(body > p),:is(body > ul) ~ :is(body > ul){margin-top:0}`;
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:1 cugdJ}@media{${parentCssRule + nestingCssRule}}`
+      `--sxs{--sxs:1 cugdJ}@media{${parentCssRule + nestingCssRule}}`,
     );
   });
 
@@ -99,7 +99,7 @@ describe('Nesting', () => {
     const nestingCssRule = `:is(.fuel_iJLHRt > p) ~ :is(.fuel_iJLHRt > p),:is(.fuel_iJLHRt > ul) ~ :is(.fuel_iJLHRt > ul){margin-top:0}`;
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:2 fuel_iJLHRt}@media{${parentCssRule + nestingCssRule}}`
+      `--sxs{--sxs:2 fuel_iJLHRt}@media{${parentCssRule + nestingCssRule}}`,
     );
   });
 });

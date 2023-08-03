@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export const noop = () => {};
 
 export function on<T extends Window | Document | HTMLElement | EventTarget>(
@@ -8,7 +9,7 @@ export function on<T extends Window | Document | HTMLElement | EventTarget>(
 ): void {
   if (obj && obj.addEventListener) {
     obj.addEventListener(
-      ...(args as Parameters<HTMLElement['addEventListener']>)
+      ...(args as Parameters<HTMLElement['addEventListener']>),
     );
   }
 }
@@ -21,7 +22,7 @@ export function off<T extends Window | Document | HTMLElement | EventTarget>(
 ): void {
   if (obj && obj.removeEventListener) {
     obj.removeEventListener(
-      ...(args as Parameters<HTMLElement['removeEventListener']>)
+      ...(args as Parameters<HTMLElement['removeEventListener']>),
     );
   }
 }

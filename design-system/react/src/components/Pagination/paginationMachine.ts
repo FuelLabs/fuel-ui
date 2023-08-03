@@ -72,7 +72,7 @@ export const paginationMachine = createMachine(
           }),
       }),
     },
-  }
+  },
 );
 
 export type PaginationMachine = typeof paginationMachine;

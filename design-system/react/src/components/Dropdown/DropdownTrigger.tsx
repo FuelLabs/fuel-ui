@@ -2,16 +2,15 @@ import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement } from 'react';
 import { Children, cloneElement, createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
 import { Icon, Button } from '..';
 
 import { useDropdown } from './Dropdown';
 import type { DropdownTriggerDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
 
 export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
   Components.DropdownTrigger,
@@ -47,9 +46,9 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
           ? Icon.is('ChevronUp')
           : Icon.is('ChevronDown'),
       },
-      children
+      children,
     );
-  }
+  },
 );
 
 DropdownTrigger.id = 'DropdownTrigger';

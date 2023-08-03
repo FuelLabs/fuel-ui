@@ -1,12 +1,11 @@
 import { createElement } from 'react';
 import RectContentLoader from 'react-content-loader';
-
-import { Rect } from './ContentLoaderRect';
-import type { ContentLoaderProps } from './defs';
-
 import { Components } from '~/defs';
 import { useFuelTheme } from '~/hooks';
 import { _unstable_createComponent } from '~/utils';
+
+import { Rect } from './ContentLoaderRect';
+import type { ContentLoaderProps } from './defs';
 
 export const ContentLoader = _unstable_createComponent(
   Components.ContentLoader,
@@ -31,7 +30,7 @@ export const ContentLoader = _unstable_createComponent(
     };
 
     return createElement(RectContentLoader, elementProps, children);
-  }
+  },
 );
 
 ContentLoader.Rect = Rect;

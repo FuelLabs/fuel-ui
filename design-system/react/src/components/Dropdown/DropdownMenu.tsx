@@ -1,4 +1,7 @@
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
 import type { MenuProps } from '../Menu';
 import { Menu } from '../Menu';
@@ -6,10 +9,6 @@ import { Menu } from '../Menu';
 import { useDropdown } from './Dropdown';
 import type { DropdownMenuDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
 
 export const DropdownMenu = _unstable_createComponent<DropdownMenuDef>(
   Components.DropdownMenu,
@@ -25,7 +24,7 @@ export const DropdownMenu = _unstable_createComponent<DropdownMenuDef>(
           ...props.css,
         },
       },
-      ['menu']
+      ['menu'],
     );
 
     const elementProps = useElementProps(props, classes.menu);
@@ -34,7 +33,7 @@ export const DropdownMenu = _unstable_createComponent<DropdownMenuDef>(
       ...elementProps,
       ...(menuProps as MenuProps),
     });
-  }
+  },
 );
 
 DropdownMenu.id = 'DropdownMenu';

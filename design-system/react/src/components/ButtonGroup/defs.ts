@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react';
-
-import type { ButtonBaseProps, ButtonProps } from '../Button/defs';
-
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+
+import type { ButtonBaseProps, ButtonProps } from '../Button/defs';
 
 export type GroupChildrenProps = {
   childrenProps: ButtonBaseProps;

@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  COVERAGE_FILE: ./coverage/report.json
+  COVERAGE_FILE: report.json
 
 jobs:
   validate-title:
@@ -21,18 +21,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  changesets:
-    name: Changeset Checks
-    if: ${{ github.head_ref != 'changeset-release/master' && needs.check-packages-changed.outputs.changed == 'true' }}
+  validate-changeset:
+    name: Validate PR Changeset
+    if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          # need this to get full git-history/clone in order to build changelogs and check changesets
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
 
-      - uses: ./.github/actions/ci-setup
-      - run: pnpm changeset status --since=origin/master
+      - uses: ./.github/actions/setup-node
+
+      - name: Validate Changeset
+        run: pnpm changeset:check
 
   audit:
     name: Audit
@@ -40,8 +43,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/ci-setup
-      - run: pnpm audit --prod
+      - uses: ./.github/actions/setup-node
+
+      - name: Run Audit
+        run: pnpm audit --prod
 
   lint-and-test:
     name: Lint
@@ -49,10 +54,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/ci-setup
-      - run: |
-          pnpm lint
-          pnpm build
+      - uses: ./.github/actions/setup-node
+
+      - name: Run lint & ts:check
+        run: |
+          pnpm lint:ci
+          pnpm ts:check
 
   test:
     name: Tests with coverage
@@ -60,25 +67,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/ci-setup
-      - name: Checking PR Number
-        uses: jwalton/gh-find-current-pr@v1
-        id: findPr
+      - uses: ./.github/actions/setup-node
 
-      - name: Run Jest Tests
+      - name: Run build & jest
         run: |
-          pnpm test:ci --outputFile="${{ env.COVERAGE_FILE }}"
+          pnpm build
+          pnpm test:ci --outputFile="../../${{ env.COVERAGE_FILE }}"
 
       - name: Publish coverage
         uses: artiomtr/jest-coverage-report-action@v2.0.5
-        if: ${{ steps.findPr.outputs.number }}
+        if: ${{ github.event.pull_request.number }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: pnpm
           annotations: failed-tests
           test-script: pnpm test:ci
-          working-directory: ./design-system/react
-          prnumber: ${{ steps.findPr.outputs.number }}
+          prnumber: ${{ github.event.pull_request.number }}
           skip-test: all
           coverage-file: ${{ env.COVERAGE_FILE }}
           base-coverage-file: ${{ env.COVERAGE_FILE }}

@@ -1,12 +1,11 @@
 import * as AspectRatioPrimitive from '@radix-ui/react-aspect-ratio';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 export const AspectRatio = _unstable_createComponent<t.AspectRatioDef>(
   Components.AspectRatio,
@@ -14,7 +13,7 @@ export const AspectRatio = _unstable_createComponent<t.AspectRatioDef>(
     const classes = useStyles(styles);
     const elementProps = useElementProps(props, classes.root);
     return createElement(AspectRatioPrimitive.Root, elementProps);
-  }
+  },
 );
 
 const styles = createStyle(Components.AspectRatio, {

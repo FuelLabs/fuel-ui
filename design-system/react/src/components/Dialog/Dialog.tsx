@@ -13,6 +13,7 @@ import {
 } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 import { useOverlayTriggerState } from 'react-stately';
+import { createComponent, useCreateStyledElement } from '~/utils';
 
 import { DialogClose } from './DialogClose';
 import { DialogContent } from './DialogContent';
@@ -21,8 +22,6 @@ import { DialogFooter } from './DialogFooter';
 import { DialogHeading } from './DialogHeading';
 import { DialogTrigger } from './DialogTrigger';
 import * as styles from './styles';
-
-import { createComponent, createStyledElement } from '~/utils';
 
 // ----------------------------------------------------------------------------
 // Context
@@ -70,7 +69,7 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
         isOpen: isBlocked ? true : state.isOpen,
         onClose: state.close,
       },
-      ref
+      ref,
     );
 
     usePreventScroll({ isDisabled: !state.isOpen });
@@ -102,16 +101,16 @@ const DialogInternal = createComponent<DialogProps, ObjProps>(
       return child;
     });
 
-    return createStyledElement(
+    return useCreateStyledElement(
       'div',
       null,
       null,
       { className: classes },
       <div {...underlayProps}>
         <ctx.Provider value={ctxProps}>{customChildren}</ctx.Provider>
-      </div>
+      </div>,
     );
-  }
+  },
 );
 
 // ----------------------------------------------------------------------------

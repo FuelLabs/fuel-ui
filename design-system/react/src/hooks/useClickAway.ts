@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { RefObject } from 'react';
 import { useEffect, useRef } from 'react';
@@ -11,7 +9,7 @@ const defaultEvents = ['mousedown', 'touchstart'];
 export const useClickAway = <E extends Event = Event>(
   ref: RefObject<HTMLElement | null>,
   onClickAway: (event: E) => void,
-  events: string[] = defaultEvents
+  events: string[] = defaultEvents,
 ) => {
   const savedCallback = useRef(onClickAway);
   useEffect(() => {

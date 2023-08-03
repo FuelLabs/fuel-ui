@@ -11,11 +11,11 @@ describe('Prefix', () => {
     const hash = 'iknykm';
 
     expect(createTheme({ colors: { red: 'tomato' } }).toString()).toBe(
-      `${prefix}-t-${hash}`
+      `${prefix}-t-${hash}`,
     );
 
     expect(toString()).toBe(
-      `--sxs{--sxs:0 fusion-t-iknykm}@media{.${prefix}-t-${hash}{--fusion-colors-red:tomato}}`
+      `--sxs{--sxs:0 fusion-t-iknykm}@media{.${prefix}-t-${hash}{--fusion-colors-red:tomato}}`,
     );
   });
 
@@ -31,7 +31,7 @@ describe('Prefix', () => {
     expect(myTheme.toString()).toBe(`${themeName}`);
 
     expect(toString()).toBe(
-      `--sxs{--sxs:0 my-theme-name}@media{.${themeName}{--fusion-colors-red:tomato}}`
+      `--sxs{--sxs:0 my-theme-name}@media{.${themeName}{--fusion-colors-red:tomato}}`,
     );
   });
 
@@ -47,7 +47,7 @@ describe('Prefix', () => {
     component.toString();
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 fusion-fuel_gmqXFB}@media{.fusion-fuel_gmqXFB{color:red}}`
+      `--sxs{--sxs:2 fusion-fuel_gmqXFB}@media{.fusion-fuel_gmqXFB{color:red}}`,
     );
   });
 });

@@ -1,9 +1,8 @@
 import type { utils, Colors } from '@fuel-ui/css';
-
-import type { IconProps } from '../Icon';
-
 import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
+
+import type { IconProps } from '../Icon';
 
 export type HeadingProps = HTMLProps['h1'] & {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | string;

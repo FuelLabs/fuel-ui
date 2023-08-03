@@ -1,12 +1,11 @@
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
+import type { Components } from '~/defs';
+import type { CreateComponent, HTMLProps } from '~/utils';
 
 import type { BoxCentered } from './BoxCentered';
 import type { Container } from './Container';
 import type { Flex } from './Flex';
 import type { Stack } from './Stack';
-
-import type { Components } from '~/defs';
-import type { CreateComponent, HTMLProps } from '~/utils';
 
 export type BoxProps = HTMLProps['div'];
 

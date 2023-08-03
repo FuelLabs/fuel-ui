@@ -1,14 +1,13 @@
 import { cx } from '@fuel-ui/css';
 import * as RAlertDialog from '@radix-ui/react-alert-dialog';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
 import type { AlertDialogContentDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
 
 export const AlertDialogContent =
   _unstable_createComponent<AlertDialogContentDef>(
@@ -31,5 +30,5 @@ export const AlertDialogContent =
       );
 
       return createElement(RAlertDialog.Portal, props, contentChildren);
-    }
+    },
   );

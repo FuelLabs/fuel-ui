@@ -77,7 +77,7 @@ export const Menu = createComponent<MenuProps, ObjProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
 Menu.Item = Item;

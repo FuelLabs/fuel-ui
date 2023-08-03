@@ -1,3 +1,5 @@
+import unsafePasswords from '../constants/unsafe-passwords.json';
+
 import {
   passwordStrengthCalculator,
   passwordChecker,
@@ -49,7 +51,7 @@ describe('passwordChecker', () => {
       lengthChecker,
       symbolsAndDigitsChecker,
       commonChecker,
-    } = passwordChecker(strongPassword);
+    } = passwordChecker(strongPassword, unsafePasswords);
 
     expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeTruthy();
@@ -63,7 +65,7 @@ describe('passwordChecker', () => {
       lengthChecker,
       symbolsAndDigitsChecker,
       commonChecker,
-    } = passwordChecker(strongPasswordStartingWithSymbol);
+    } = passwordChecker(strongPasswordStartingWithSymbol, unsafePasswords);
 
     expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeTruthy();
@@ -77,7 +79,7 @@ describe('passwordChecker', () => {
       lengthChecker,
       symbolsAndDigitsChecker,
       commonChecker,
-    } = passwordChecker(averageCharactersAndSymbolsPassword);
+    } = passwordChecker(averageCharactersAndSymbolsPassword, unsafePasswords);
 
     expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeFalsy();
@@ -91,7 +93,7 @@ describe('passwordChecker', () => {
       lengthChecker,
       symbolsAndDigitsChecker,
       commonChecker,
-    } = passwordChecker(averageCharactersAndSixDigitsPassword);
+    } = passwordChecker(averageCharactersAndSixDigitsPassword, unsafePasswords);
 
     expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeTruthy();
@@ -105,7 +107,7 @@ describe('passwordChecker', () => {
       lengthChecker,
       symbolsAndDigitsChecker,
       commonChecker,
-    } = passwordChecker(weakPassword);
+    } = passwordChecker(weakPassword, unsafePasswords);
 
     expect(casingChecker).toBeFalsy();
     expect(lengthChecker).toBeTruthy();
@@ -119,7 +121,7 @@ describe('passwordChecker', () => {
       lengthChecker,
       symbolsAndDigitsChecker,
       commonChecker,
-    } = passwordChecker(commonPassword);
+    } = passwordChecker(commonPassword, unsafePasswords);
 
     expect(casingChecker).toBeTruthy();
     expect(lengthChecker).toBeTruthy();
@@ -133,7 +135,7 @@ describe('passwordChecker', () => {
       lengthChecker,
       symbolsAndDigitsChecker,
       commonChecker,
-    } = passwordChecker(weakPassword, 8);
+    } = passwordChecker(weakPassword, unsafePasswords, 8);
 
     expect(casingChecker).toBeFalsy();
     expect(lengthChecker).toBeFalsy();
@@ -148,7 +150,7 @@ it('should be falsy for every rule if empty pass is provided', () => {
     lengthChecker,
     symbolsAndDigitsChecker,
     commonChecker,
-  } = passwordChecker(' ', 8);
+  } = passwordChecker(' ', unsafePasswords, 8);
 
   expect(casingChecker).toBeFalsy();
   expect(lengthChecker).toBeFalsy();
@@ -159,30 +161,43 @@ it('should be falsy for every rule if empty pass is provided', () => {
 it.each(possibleSymbols)(
   'should symbol checker be true for every possible symbol',
   (passSymbol) => {
-    const { symbolsAndDigitsChecker } = passwordChecker(passSymbol);
+    const { symbolsAndDigitsChecker } = passwordChecker(
+      passSymbol,
+      unsafePasswords,
+    );
 
     expect(symbolsAndDigitsChecker).toBeTruthy();
-  }
+  },
 );
 
 describe('passwordStrength tests', () => {
   it('should calculate as strong', () => {
-    expect(passwordStrengthCalculator(strongPassword)).toBe('strong');
+    expect(passwordStrengthCalculator(strongPassword, unsafePasswords)).toBe(
+      'strong',
+    );
   });
 
   it('should calculate as average with lowercase/uppercase and symbols/digits', () => {
     expect(
-      passwordStrengthCalculator(averageCharactersAndSymbolsPassword)
+      passwordStrengthCalculator(
+        averageCharactersAndSymbolsPassword,
+        unsafePasswords,
+      ),
     ).toBe('average');
   });
 
   it('should calculate as average with lowercase/uppercase and 6+ digits', () => {
     expect(
-      passwordStrengthCalculator(averageCharactersAndSixDigitsPassword)
+      passwordStrengthCalculator(
+        averageCharactersAndSixDigitsPassword,
+        unsafePasswords,
+      ),
     ).toBe('average');
   });
 
   it('should calculate as weak', () => {
-    expect(passwordStrengthCalculator(weakPassword)).toBe('weak');
+    expect(passwordStrengthCalculator(weakPassword, unsafePasswords)).toBe(
+      'weak',
+    );
   });
 });

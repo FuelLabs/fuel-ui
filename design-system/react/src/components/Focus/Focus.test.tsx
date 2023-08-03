@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { render, screen, testA11y } from '@fuels/jest';
 
 import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
@@ -14,7 +14,7 @@ describe('Focus', () => {
           <Button>Second</Button>
           <Button>Third</Button>
         </Stack>
-      </Focus.ArrowNavigator>
+      </Focus.ArrowNavigator>,
     );
   });
 
@@ -26,7 +26,7 @@ describe('Focus', () => {
           <Button>Second</Button>
           <Button>Third</Button>
         </Stack>
-      </Focus.ArrowNavigator>
+      </Focus.ArrowNavigator>,
     );
 
     expect(await screen.findByText('First')).toHaveFocus();

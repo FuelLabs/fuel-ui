@@ -1,31 +1,24 @@
 import type { Colors } from '@fuel-ui/css';
-import type * as TablerIcons from '@tabler/icons-react';
-import type { ReactNode } from 'react';
-
-import type { FlexProps } from '../Box/defs';
-
+import type { IconName } from '@fuel-ui/icons';
+import type { ReactNode, SVGProps } from 'react';
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
 
-type ToOmit = 'createReactComponent';
-type WithoutIconPrefix<T extends string> = T extends `Icon${infer S}`
-  ? S
-  : never;
+export type Icons = IconName;
 
-export type Icons = WithoutIconPrefix<keyof Omit<typeof TablerIcons, ToOmit>>;
-
-export type IconProps = FlexProps & {
-  icon: Icons | ReactNode;
+export type IconProps = {
+  icon: IconName | ReactNode;
   wrapperClassName?: string;
   color?: Colors;
   inline?: boolean;
   label?: string;
   size?: number;
   stroke?: number;
+  svgProps?: SVGProps<SVGSVGElement>;
 };
 
 export type IconDef = CreateComponent<{
-  type: 'div';
+  type: 'i';
   props: IconProps;
   element: HTMLDivElement;
   component: Components.Icon;

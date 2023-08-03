@@ -1,18 +1,17 @@
 import { toCamelCase } from '@fuel-ui/css';
-
 import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
 
 function createVariantStyle(key: string) {
   const color = `$${toCamelCase(`semantic-ghost-${key}-color`)}`;
   const iconColor = `$${toCamelCase(`semantic-ghost-${key}-icon`)}`;
-  const background = `$${toCamelCase(`semantic-solid-${key}-bg`)}`;
+  const background = `$${toCamelCase(`semantic-ghost-${key}-disabled-bg`)}`;
 
   return {
     color,
+    background,
 
     '& .fuel_Heading': {
-      fontWeight: '$normal',
       color,
     },
 
@@ -24,18 +23,6 @@ function createVariantStyle(key: string) {
       p: 0,
       fontWeight: '$normal',
       color,
-    },
-
-    '&:before': {
-      position: 'absolute',
-      display: 'block',
-      content: '""',
-      top: 0,
-      left: 0,
-      width: 4,
-      height: '100%',
-      background,
-      borderRadius: '$default 0 0 $default',
     },
   };
 }
@@ -54,13 +41,7 @@ export const styles = createStyle(Components.Alert, {
 
     '.fuel_Alert-content': {
       flex: 1,
-      gap: '$3',
-    },
-
-    '& .fuel_Heading': {
-      fontWeight: '$normal',
-      textSize: 'lg',
-      margin: 0,
+      gap: '$2',
     },
 
     variants: {
@@ -104,14 +85,18 @@ export const styles = createStyle(Components.Alert, {
   title: {
     display: 'flex',
 
-    '& h3': {
+    '.fuel_Heading': {
       m: 0,
-      fontSize: '$base',
+      fontWeight: '$semibold',
+      fontSize: '$md',
+      lineHeight: '$tight',
     },
   },
   description: {
     flex: 1,
     margin: 0,
+    fontSize: '$sm',
+    lineHeight: '$snug',
   },
   actions: {
     display: 'flex',

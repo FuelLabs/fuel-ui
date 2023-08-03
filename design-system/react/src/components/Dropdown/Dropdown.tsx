@@ -8,6 +8,8 @@ import {
 } from 'react';
 import { useMenuTrigger } from 'react-aria';
 import { useMenuTriggerState } from 'react-stately';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import { useKeyPressEvent } from '../../hooks/useKeyPressEvent';
 import { _unstable_createComponent } from '../../utils';
@@ -19,11 +21,8 @@ import { DropdownTrigger } from './DropdownTrigger';
 import type { DropdownContext, DropdownDef } from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-
 export const DropdownCtx = createContext<DropdownContext>(
-  {} as DropdownContext
+  {} as DropdownContext,
 );
 
 export function useDropdown() {
@@ -46,11 +45,11 @@ export const Dropdown = _unstable_createComponent<DropdownDef>(
     };
 
     const trigger = Children.toArray(children).find(
-      (child: any) => child?.type.id === 'DropdownTrigger'
+      (child: any) => child?.type.id === 'DropdownTrigger',
     );
 
     const menu = Children.toArray(children).find(
-      (child: any) => child?.type.id === 'DropdownMenu'
+      (child: any) => child?.type.id === 'DropdownMenu',
     );
 
     const customChildren = (
@@ -77,9 +76,9 @@ export const Dropdown = _unstable_createComponent<DropdownDef>(
     return createElement(
       'div',
       { className: classes.root.className },
-      customChildren
+      customChildren,
     );
-  }
+  },
 );
 
 Dropdown.Trigger = DropdownTrigger;

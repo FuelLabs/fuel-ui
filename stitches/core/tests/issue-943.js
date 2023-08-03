@@ -18,7 +18,7 @@ describe('Issue #943', () => {
     })();
 
     expect(getCssText()).toBe(
-      '--sxs{--sxs:1 jGZRm}@media{@font-face{font-family:fallback-font;ascent-override:83.6%;descent-override:20.5%;line-gap-override:0%;advance-override:10;src:local(Arial)}}'
+      '--sxs{--sxs:1 jGZRm}@media{@font-face{font-family:fallback-font;ascent-override:83.6%;descent-override:20.5%;line-gap-override:0%;advance-override:10;src:local(Arial)}}',
     );
   });
 });
