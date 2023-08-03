@@ -22,7 +22,7 @@ export const Icon = _unstable_createComponent<t.IconDef>(
     wrapperClassName,
     css,
     size = 18,
-    stroke = 2,
+    stroke = 1.5,
     ...props
   }) => {
     const iconProps = {

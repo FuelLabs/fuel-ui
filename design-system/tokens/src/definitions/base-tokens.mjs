@@ -47,7 +47,6 @@ export const sizing = {
   xl: '{sizing.14}',
 
   0: '0rem', // 0px,
-  0.5: '0.125rem', // 2px,
   1: '0.25rem', // 4px,
   2: '0.5rem', // 8px,
   3: '0.75rem', // 12px,
@@ -193,7 +192,7 @@ export const fontWeights = {
 
 export const fonts = {
   body: {
-    fontFamily: 'Px Grotesk',
+    fontFamily: 'Inter',
     weights: ['Light', 'Regular', 'Bold'],
     sizes: {
       xs: {
@@ -244,14 +243,14 @@ export const fonts = {
     sizes: {
       H1: {
         fontSize: 'h1',
-        fontWeight: 'normal',
+        fontWeight: 'Regular',
         textCase: 'uppercase',
         letterSpacing: 'tight',
         lineHeight: 'none',
       },
       H2: {
         fontSize: 'h2',
-        fontWeight: 'normal',
+        fontWeight: 'Regular',
         textCase: 'uppercase',
         letterSpacing: 'tight',
         lineHeight: 'none',
@@ -286,7 +285,7 @@ export const fonts = {
       },
       sectionHead: {
         fontSize: 'h1',
-        fontWeight: 'normal',
+        fontWeight: 'Regular',
         textCase: 'normal',
         letterSpacing: 'tight',
         lineHeight: 'none',
@@ -320,7 +319,7 @@ export const fonts = {
   },
   display: {
     fontFamily: 'Px Grotesk',
-    weights: ['light', 'regular', 'bold'],
+    weights: ['Light', 'Regular', 'Bold'],
     sizes: {
       xs: {
         fontSize: 'xs',

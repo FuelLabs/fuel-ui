@@ -32,7 +32,7 @@
     "copy-set:dark": "pnpm copy-set --dark",
     "copy-set:light": "pnpm copy-set --light",
     "copy-sets": "run-p copy-set:*",
-    "ts:check": "tsc --noEmit",
+    "ts:check": "pnpm build-tokens && tsc --noEmit",
     "build-tokens": "node ./src/build.mjs",
     "build": "pnpm build-tokens && tsup --dts",
     "update:tokens": "pnpm build && pnpm copy-sets"

@@ -61,8 +61,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ needs.pr_info.outputs.ref }}
 
-      - uses: FuelLabs/github-actions/setups/node@master
-
+      - uses: ./.github/actions/setup-node
       - name: Validate Changeset
         run: pnpm changeset:check
 
@@ -79,15 +78,17 @@ jobs:
           fetch-depth: 0
           ref: ${{ needs.pr_info.outputs.ref }}
 
-      - uses: FuelLabs/github-actions/setups/node@master
+      - uses: ./.github/actions/setup-node
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
 
       - name: Build
         run: |
-          pnpm lint
+          pnpm lint:ci
+          pnpm ts:check
           pnpm build
+
 
       - name: Release to @pr-<ID> tag on npm
         id: release
@@ -133,7 +134,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: FuelLabs/github-actions/setups/node@master
+      - uses: ./.github/actions/setup-node
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
@@ -153,7 +154,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: FuelLabs/github-actions/setups/node@master
+      - uses: ./.github/actions/setup-node
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}

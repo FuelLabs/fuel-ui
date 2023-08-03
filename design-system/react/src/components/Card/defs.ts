@@ -1,4 +1,3 @@
-import type { LayerVariant } from '@fuel-ui/css';
 import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps, PressProps } from '~/utils';
 
@@ -11,7 +10,6 @@ import type { CardHeader } from './CardHeader';
 export type CardProps = HTMLProps['article'] &
   PressProps & {
     withDividers?: boolean;
-    variant?: Exclude<Exclude<LayerVariant, 'link'>, 'solid'>;
   };
 
 type CardNS = {

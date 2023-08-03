@@ -5,8 +5,8 @@ import path from 'path';
 import prettier from 'prettier';
 import * as url from 'url';
 
-import { dark } from './defs/dark.mjs';
-import { light } from './defs/light.mjs';
+import { dark } from './themes/dark.mjs';
+import { light } from './themes/light.mjs';
 
 function readJSON(filepath) {
   const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -179,10 +179,10 @@ function createJSFile(obj) {
 }
 
 const BUILD_DIR = '../build';
-const TOKENS_DIR = '../tokens';
+const TOKENS_DIR = '../figma';
 
 async function main() {
-  const radix = readJSON(`${TOKENS_DIR}/radix.json`);
+  const radix = readJSON(`${TOKENS_DIR}/core/radix.json`);
   const withPaths = parsePath({
     light,
     dark,

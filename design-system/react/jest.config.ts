@@ -8,6 +8,20 @@ const config: Config = {
   rootDir: __dirname,
   displayName: pkg.name,
   setupFilesAfterEnv: ['@fuels/jest/setup', './jest.setup.ts'],
+  transform: {
+    '.*\\.(tsx?)$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+  },
 };
 
 export default config;
