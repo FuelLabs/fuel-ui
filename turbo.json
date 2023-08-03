@@ -12,11 +12,8 @@
     },
     "test": {
       "outputs": ["**/**/report.json", "coverage/**"],
-      "dependsOn": [],
+      "dependsOn": ["build"],
       "outputMode": "full"
-    },
-    "ts:check": {
-      "cache": true
     },
     "dev": {
       "cache": false
