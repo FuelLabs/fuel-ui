@@ -60,7 +60,6 @@ jobs:
         run: |
           pnpm lint:ci
           pnpm ts:check
-          pnpm build
 
   test:
     name: Tests with coverage
@@ -72,6 +71,7 @@ jobs:
 
       - name: Run Lint, Build e Jest
         run: |
+          pnpm build
           pnpm test:ci --outputFile="../../${{ env.COVERAGE_FILE }}"
 
       - name: Publish coverage
