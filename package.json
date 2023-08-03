@@ -24,8 +24,8 @@
     "./stitches/*"
   ],
   "scripts": {
-    "build": "turbo run build --filter=!custom-theme",
-    "build:storybook": "turbo run build:storybook --filter=!custom-theme",
+    "build": "turbo run build --filter=!custom-theme --cache-dir=.turbo",
+    "build:storybook": "turbo run build:storybook --filter=!custom-theme --cache-dir=.turbo",
     "build:watch": "pnpm -r --filter './design-system/*' --parallel build --watch",
     "changeset": "changeset",
     "changeset:check": "changeset status --since=origin/master",
@@ -39,11 +39,11 @@
     "lint": "run-s lint:check prettier:check",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
-    "test": "turbo run test",
-    "test:watch": "turbo run test -- --watch",
-    "test:coverage": "turbo run test -- --coverage",
-    "test:clear": "turbo run test -- --clearCache",
-    "test:ci": "turbo run test -- --ci --testLocationInResults --json --coverage",
+    "test": "turbo run test --cache-dir=.turbo",
+    "test:watch": "pnpm test -- -- --watch",
+    "test:coverage": "pnpm test -- -- --coverage",
+    "test:clear": "pnpm test -- -- --clearCache",
+    "test:ci": "pnpm test -- -- --ci --testLocationInResults --json --coverage",
     "ts:check": "pnpm -r ts:check",
     "prepare": "husky install",
     "pr:release": "node ./scripts/pr-release.mjs"
