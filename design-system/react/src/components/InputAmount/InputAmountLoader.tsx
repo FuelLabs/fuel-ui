@@ -2,7 +2,7 @@ import { darkColors } from '@fuel-ui/css';
 
 import { Card } from '../Card';
 import { ContentLoader } from '../ContentLoader';
-import type { ContentLoaderProps } from '../ContentLoader';
+import type { ContentLoaderProps } from '../ContentLoader/defs';
 
 export const InputAmountLoader = (props: ContentLoaderProps) => (
   <Card css={{ p: '$0' }}>

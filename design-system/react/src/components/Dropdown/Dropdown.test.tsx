@@ -3,13 +3,13 @@ import { render, testA11y, screen, waitFor, act } from '@fuels/jest';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 
-import type { DropdownProps } from './Dropdown';
 import { Dropdown } from './Dropdown';
+import type { DropdownProps } from './defs';
 
 const Content = (props: Partial<DropdownProps>) => {
   return (
     <Dropdown {...props}>
-      <Dropdown.Trigger>
+      <Dropdown.Trigger asChild>
         <Button>Click here</Button>
       </Dropdown.Trigger>
       <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
