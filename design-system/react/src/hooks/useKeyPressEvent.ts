@@ -5,7 +5,7 @@ import { useUpdateEffect } from './useUpdateEffect';
 export const useKeyPressEvent = (
   key: string | KeyFilter,
   keydown?: Handler | null | undefined,
-  keyup?: Handler | null | undefined
+  keyup?: Handler | null | undefined,
 ) => {
   const [pressed, event] = useKeyPress(key);
   useUpdateEffect(() => {

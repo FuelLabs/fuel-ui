@@ -3,6 +3,7 @@ import { createStyle } from '~/hooks';
 
 export const styles = createStyle(Components.Checkbox, {
   root: {
+    is: ['display'],
     all: 'unset',
     cursor: 'pointer',
     overflow: 'clip',
@@ -46,6 +47,10 @@ export const styles = createStyle(Components.Checkbox, {
       cursor: 'default',
       background: '$inputDisabledBorder',
       borderColor: '$inputDisabledBorder',
+
+      '& .fuel_Checkbox-indicator': {
+        color: '$inputDisabledColor !important',
+      },
     },
   },
   indicator: {

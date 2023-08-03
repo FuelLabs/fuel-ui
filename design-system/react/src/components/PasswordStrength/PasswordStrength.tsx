@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
+import { createComponent } from '~/utils';
 
 import { Flex } from '../Box/Flex';
 import { Stack } from '../Box/Stack';
@@ -14,8 +15,6 @@ import { StrengthIndicator } from './StrengthIndicator';
 import type { PasswordDictionary } from './constants';
 import { usePasswordStrength } from './hooks';
 import { styles } from './styles';
-
-import { createComponent } from '~/utils';
 
 export type PasswordStrengthProps = {
   password: string;

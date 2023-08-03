@@ -1,5 +1,5 @@
 import { darkColors } from '@fuel-ui/css';
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from '@fuels/jest';
 
 import { ContentLoader } from './ContentLoader';
 
@@ -23,7 +23,7 @@ describe('ContentLoader', () => {
           height="30"
           rx="4"
         />
-      </ContentLoader>
+      </ContentLoader>,
     );
   });
 });

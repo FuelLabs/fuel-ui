@@ -1,5 +1,8 @@
 import { mergeRefs } from '@react-aria/utils';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+import { useOnPress } from '~/hooks/useOnPress';
 
 import {
   _unstable_createComponent,
@@ -12,21 +15,9 @@ import { CardHeader } from './CardHeader';
 import type { CardDef } from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
-import { useOnPress } from '~/hooks/useOnPress';
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const _Card = _unstable_createComponent<CardDef>(
   Components.Card,
-  ({
-    as = 'article',
-    ref,
-    variant = 'ghost',
-    withDividers,
-    children,
-    ...props
-  }) => {
+  ({ as = 'article', ref, withDividers, children, ...props }) => {
     const classes = useStyles(styles, props);
     const { buttonProps, ref: cardRef } = useOnPress<
       CardDef['props'],
@@ -42,7 +33,6 @@ const _Card = _unstable_createComponent<CardDef>(
       className: classes.root.className,
       'data-is-clickable': isClickable,
       'data-dividers': withDividers,
-      'data-variant': variant,
       ...(isClickable && {
         tabIndex: 0,
         role: 'button',
@@ -51,11 +41,11 @@ const _Card = _unstable_createComponent<CardDef>(
 
     const finalProps = useElementProps(
       elementProps,
-      isClickable ? buttonProps : {}
+      isClickable ? buttonProps : {},
     );
 
     return createElement(as, finalProps, children);
-  }
+  },
 );
 
 export const Card = createPolymorphicComponent<CardDef>(_Card);

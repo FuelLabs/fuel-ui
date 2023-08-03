@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -9,10 +11,6 @@ import {
 import type { CardHeaderDef } from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const _CardHeader = _unstable_createComponent<CardHeaderDef>(
   Components.CardHeader,
   ({ as = 'header', children, space = 'normal', ...props }) => {
@@ -23,7 +21,7 @@ const _CardHeader = _unstable_createComponent<CardHeaderDef>(
       dataSpace: space,
     };
     return createElement(as, elementProps, children);
-  }
+  },
 );
 
 export const CardHeader =

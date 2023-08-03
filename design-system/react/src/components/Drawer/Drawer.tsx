@@ -98,7 +98,7 @@ export const Drawer = createComponent<
           state.close();
         },
       },
-      ref
+      ref,
     );
 
     const ctxProps = {
@@ -137,7 +137,7 @@ export const Drawer = createComponent<
     }, [containerRef?.current]);
 
     return <ctx.Provider value={ctxProps}>{customChildren}</ctx.Provider>;
-  }
+  },
 );
 
 Drawer.Body = DrawerBody;

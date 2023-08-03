@@ -51,7 +51,7 @@ export const Tooltip = createComponent<TooltipProps>(
           </RTooltip.Content>
         </RTooltip.Root>
       </RTooltip.Provider>
-    )
+    ),
 );
 
 const CLASSES = {

@@ -7,7 +7,7 @@ import type { MenuTriggerProps, MenuTriggerState } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
 import { useKeyPressEvent } from '../../hooks/useKeyPressEvent';
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 import type { PopoverProps } from '../Popover';
 import { Popover } from '../Popover';
 
@@ -61,11 +61,11 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
     };
 
     const trigger = Children.toArray(children).find(
-      (child: any) => child?.type.id === 'DropdownTrigger'
+      (child: any) => child?.type.id === 'DropdownTrigger',
     );
 
     const menu = Children.toArray(children).find(
-      (child: any) => child?.type.id === 'DropdownMenu'
+      (child: any) => child?.type.id === 'DropdownMenu',
     );
 
     const customChildren = (
@@ -89,14 +89,14 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
       }
     });
 
-    return createStyledElement(
+    return useCreateStyledElement(
       'div',
       null,
       null,
       { className: classes },
-      customChildren
+      customChildren,
     );
-  }
+  },
 );
 
 Dropdown.Trigger = DropdownTrigger;

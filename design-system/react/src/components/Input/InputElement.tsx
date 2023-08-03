@@ -2,7 +2,7 @@ import { cx } from '@fuel-ui/css';
 import type { ReactNode } from 'react';
 import { Children, cloneElement } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 
 import { useInputProps } from './Input';
 import * as styles from './styles';
@@ -50,17 +50,17 @@ const InputElement = createComponent<InputElementProps>(
           });
         }
         return child;
-      }
+      },
     );
 
-    return createStyledElement(
+    return useCreateStyledElement(
       'div',
       styles.element,
       { size },
       { ...props, className: classes },
-      customChildren
+      customChildren,
     );
-  }
+  },
 );
 
 type InputElementObjProps = {

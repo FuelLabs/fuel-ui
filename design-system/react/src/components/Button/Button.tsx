@@ -1,10 +1,12 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-
 import type { Colors } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
 import { createElement, cloneElement } from 'react';
 import { mergeProps } from 'react-aria';
+import { Components } from '~/defs';
+import { useOnPress } from '~/hooks/useOnPress';
+import { useElementProps, useStyles } from '~/hooks/useStore';
+import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
 
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
@@ -12,16 +14,11 @@ import { Spinner } from '../Spinner';
 import type * as t from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useOnPress } from '~/hooks/useOnPress';
-import { useElementProps, useStyles } from '~/hooks/useStore';
-import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
-
 export function createIcon(
   icon: string | ReactNode,
   iconAriaLabel?: string,
   iconSize?: number,
-  color?: Colors
+  color?: Colors,
 ) {
   if (typeof icon === 'string') {
     return (
@@ -135,9 +132,9 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
         children,
         iconLeft,
         iconRight,
-      })
+      }),
     );
-  }
+  },
 );
 
 export const Button = createPolymorphicComponent<t.ButtonDef>(_Button);

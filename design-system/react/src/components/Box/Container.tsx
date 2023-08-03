@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 import type { HTMLProps } from '../../utils';
 import {
@@ -9,9 +10,6 @@ import {
 
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 export type ContainerSizes = 'sm' | 'md' | 'lg' | 'xl';
 export type ContainerProps = HTMLProps['div'] & {
@@ -24,7 +22,7 @@ const _Container = _unstable_createComponent<t.ContainerDef>(
     const classes = useStyles(styles, props, ['container']);
     const elementProps = useElementProps(props, classes.container);
     return createElement(as, elementProps);
-  }
+  },
 );
 
 export const Container = createPolymorphicComponent<t.ContainerDef>(_Container);

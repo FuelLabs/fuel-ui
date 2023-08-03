@@ -36,11 +36,11 @@ describe('Issue #737', () => {
               key: 1,
               variant: { '@initial': 'red' },
             }),
-          ])
+          ]),
         );
       });
       expect(getCssText()).toBe(
-        `--sxs{--sxs:3 fuel_PJLV-gmqXFB-variant-red}@media{.fuel_PJLV-gmqXFB-variant-red{color:red}}--sxs{--sxs:4 fuel_PJLV-iOPXJy-variant-red}@media{@media (min-width: 768px){.fuel_PJLV-iOPXJy-variant-red{color:red}}}`
+        `--sxs{--sxs:3 fuel_PJLV-gmqXFB-variant-red}@media{.fuel_PJLV-gmqXFB-variant-red{color:red}}--sxs{--sxs:4 fuel_PJLV-iOPXJy-variant-red}@media{@media (min-width: 768px){.fuel_PJLV-iOPXJy-variant-red{color:red}}}`,
       );
     });
   }

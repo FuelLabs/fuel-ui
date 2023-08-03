@@ -1,4 +1,4 @@
-import { render, testA11y, screen, waitFor, act } from '@fuel-ui/test-utils';
+import { render, testA11y, screen, waitFor, act } from '@fuels/jest';
 
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -62,7 +62,7 @@ describe('Dropdown', () => {
       <>
         <Content />
         <Button>Foo</Button>
-      </>
+      </>,
     );
 
     const trigger = screen.getByText('Click here');

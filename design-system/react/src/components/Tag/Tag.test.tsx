@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { render, screen, testA11y } from '@fuels/jest';
 
 import { Tag } from './Tag';
 
@@ -16,7 +16,7 @@ describe('Tag', () => {
     const { container } = render(
       <Tag leftIcon="Trash" leftIconAriaLabel="delete">
         Text
-      </Tag>
+      </Tag>,
     );
     expect(container.querySelector('span')).toBeInTheDocument();
     expect(screen.getByText('delete')).toBeInTheDocument();
@@ -26,7 +26,7 @@ describe('Tag', () => {
     const { container } = render(
       <Tag rightIcon="Trash" rightIconAriaLabel="delete">
         Text
-      </Tag>
+      </Tag>,
     );
     expect(container.querySelector('span')).toBeInTheDocument();
     expect(screen.getByText('delete')).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe('Tag', () => {
     const { container } = render(
       <Tag>
         Text <Tag.CloseButton />
-      </Tag>
+      </Tag>,
     );
     expect(container.querySelector('span')).toBeInTheDocument();
     expect(container.querySelector('button')).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe('Tag', () => {
         rightIconAriaLabel="delete"
       >
         Text <Tag.CloseButton />
-      </Tag>
+      </Tag>,
     );
 
     expect(container.querySelector('span')).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe('Tag', () => {
     const { user } = render(
       <Tag>
         Text <Tag.CloseButton />
-      </Tag>
+      </Tag>,
     );
 
     expect(screen.getByRole('button')).not.toHaveFocus();

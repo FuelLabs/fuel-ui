@@ -22,5 +22,5 @@ export const IconButton = createComponent<IconButtonProps, unknown, OmitProps>(
       <Button {...props} justIcon className={classes} leftIcon={icon} />
     );
     return tooltip ? <Tooltip content={tooltip}>{content}</Tooltip> : content;
-  }
+  },
 );

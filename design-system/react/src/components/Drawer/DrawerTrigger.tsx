@@ -1,13 +1,12 @@
 import { cx } from '@fuel-ui/css';
 import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
+import { createComponent } from '~/utils';
 
 import type { ButtonProps } from '..';
 import { Button } from '..';
 
 import { useDrawer } from '.';
-
-import { createComponent } from '~/utils';
 
 type ElementType = 'button';
 type DrawerTriggerProps = ButtonProps & {

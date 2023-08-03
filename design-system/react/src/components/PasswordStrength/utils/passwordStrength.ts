@@ -4,7 +4,7 @@ import type { PasswordStrength } from '../types';
 export const passwordChecker = (
   password: string,
   unsafeList: string[],
-  minLength: number = 6
+  minLength: number = 6,
 ) => {
   const symbolsAndDigitsChecker =
     /(?=.*[\d]).+/g.exec(password) !== null &&
@@ -32,7 +32,7 @@ export const passwordChecker = (
 export const passwordStrengthCalculator = (
   password: string,
   unsafeList: string[],
-  minLength: number = 6
+  minLength: number = 6,
 ): PasswordStrength => {
   const {
     symbolsAndDigitsChecker,

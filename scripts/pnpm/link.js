@@ -45,7 +45,7 @@ async function main() {
       files.map(async (file) => {
         await fs.copy(
           path.resolve(project, file),
-          path.resolve(storeProjectPath, file)
+          path.resolve(storeProjectPath, file),
         );
 
         const pkgJSONPath = path.resolve(storeProjectPath, 'package.json');
@@ -56,10 +56,10 @@ async function main() {
             ...omit(['publishConfig'], pkgJSON),
             ...publishConfig,
           }),
-          { parser: 'json' }
+          { parser: 'json' },
         );
         fs.outputFileSync(pkgJSONPath, formatted, 'utf-8');
-      })
+      }),
     );
   }
 }

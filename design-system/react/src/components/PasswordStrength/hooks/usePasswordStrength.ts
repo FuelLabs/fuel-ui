@@ -17,12 +17,12 @@ export function usePasswordStrength({
 
   const checker = useMemo(
     () => passwordChecker(password, unsafeList, minLength),
-    [password, unsafeList, minLength]
+    [password, unsafeList, minLength],
   );
 
   const strength = useMemo(
     () => passwordStrengthCalculator(password, unsafeList, minLength),
-    [password, unsafeList, minLength]
+    [password, unsafeList, minLength],
   );
 
   useEffect(() => {

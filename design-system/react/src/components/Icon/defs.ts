@@ -1,7 +1,6 @@
 import type { Colors } from '@fuel-ui/css';
 import type { IconName } from '@fuel-ui/icons';
 import type { ReactNode, SVGProps } from 'react';
-
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
 

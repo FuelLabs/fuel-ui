@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -8,9 +9,6 @@ import {
 
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 const _BoxCentered = _unstable_createComponent<t.BoxCenteredDef>(
   Components.BoxCentered,
@@ -33,14 +31,14 @@ const _BoxCentered = _unstable_createComponent<t.BoxCenteredDef>(
           ...css,
         },
       },
-      ['centered']
+      ['centered'],
     );
     const elementProps = useElementProps(props, classes.centered, {
       ...(minHS ? { 'data-min-hs': minHS } : {}),
       ...(minWS ? { 'data-min-ws': minWS } : {}),
     });
     return createElement(as, elementProps);
-  }
+  },
 );
 
 export const BoxCentered =

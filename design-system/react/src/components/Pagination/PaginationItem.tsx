@@ -50,7 +50,10 @@ const styles = {
       background: '$intentsBase3',
     },
     '&[data-variant="outlined"]:not([data-selected="true"])': {
-      borderColor: '$intentsBase3',
+      borderColor: '$border',
+      '&:hover': {
+        borderColor: '$borderHover',
+      },
     },
     '&[data-variant="ghost"]:not([data-selected="true"])': {
       background: '$intentsBase3',

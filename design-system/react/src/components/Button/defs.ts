@@ -1,11 +1,10 @@
 import type { LayerIntent, LayerVariant } from '@fuel-ui/css';
 import type { AriaButtonProps } from 'react-aria';
+import type { Components } from '~/defs';
+import type { CreateComponent } from '~/utils';
 
 import type { HTMLProps } from '../../utils/types';
 import type { IconProps } from '../Icon';
-
-import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
 
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link';
 export type ButtonSizes = 'xs' | 'sm' | 'md' | 'lg';

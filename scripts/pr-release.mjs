@@ -56,7 +56,7 @@ async function deletePackageVersions(filterFn) {
             const errMessage = String(e);
             if (
               errMessage?.contains(
-                'Cannot publish over previously published version'
+                'Cannot publish over previously published version',
               )
             ) {
               await deletePackageVersions(filterFn);
@@ -66,7 +66,7 @@ async function deletePackageVersions(filterFn) {
       }
     } else {
       console.log(
-        `No versions match the specified pattern for package ${pkg}.`
+        `No versions match the specified pattern for package ${pkg}.`,
       );
     }
   }
@@ -75,7 +75,7 @@ async function deletePackageVersions(filterFn) {
 async function cleanPr(prNumber) {
   const pattern = `-pr-${prNumber}-[a-f0-9]*`;
   await deletePackageVersions(
-    (version) => semver.valid(version) && new RegExp(pattern).test(version)
+    (version) => semver.valid(version) && new RegExp(pattern).test(version),
   );
 }
 
@@ -88,7 +88,7 @@ async function cleanPrerelease(tag) {
 
 async function postReleaseMsg(version, prNumber) {
   const packages = await getAllPackages();
-  let msg = `🚀 Packages release as \`pr-${prNumber}\` tag on NPM:\n`;
+  let msg = `🚀 Packages released as \`pr-${prNumber}\` tag on NPM:\n`;
   for (const pkg of packages) {
     msg += `- [${pkg}](https://www.npmjs.com/package/${pkg}/v/${version})\n`;
   }

@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react';
+import type { Components } from '~/defs';
+import type { CreateComponent } from '~/utils';
 
 import type { FlexProps } from '../Box';
 import type { IconButtonProps } from '../IconButton';
-
-import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
 
 export type CopyableProps = Omit<FlexProps, 'children'> & {
   value: string;

@@ -1,4 +1,4 @@
-import { testA11y, render, screen } from '@fuel-ui/test-utils';
+import { testA11y, render, screen } from '@fuels/jest';
 
 import { Link } from './Link';
 
@@ -17,7 +17,7 @@ describe('Link', () => {
     const { container } = render(
       <Link href="https://fuel.sh" isExternal>
         Click
-      </Link>
+      </Link>,
     );
 
     expect(container.querySelector('a')).toBeInTheDocument();

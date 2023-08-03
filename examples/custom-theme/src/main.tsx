@@ -49,5 +49,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <ThemeProvider themes={{ custom: customTheme, dark: darkTheme }}>
       <App />
     </ThemeProvider>
-  </StrictMode>
+  </StrictMode>,
 );

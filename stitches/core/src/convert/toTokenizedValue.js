@@ -7,7 +7,7 @@ export const toTokenizedValue = (
   /** @type {string} */
   prefix,
   /** @type {string} */
-  scale
+  scale,
 ) =>
   value.replace(
     /([+-])?((?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][+-]?\d+)?)?(\$|--)([$\w-]+)/g,
@@ -24,5 +24,5 @@ export const toTokenizedValue = (
             ')' +
             (direction || separator == '--'
               ? '*' + (direction || '') + (multiplier || '1') + ')'
-              : ''))
+              : '')),
   );

@@ -163,17 +163,17 @@ it.each(possibleSymbols)(
   (passSymbol) => {
     const { symbolsAndDigitsChecker } = passwordChecker(
       passSymbol,
-      unsafePasswords
+      unsafePasswords,
     );
 
     expect(symbolsAndDigitsChecker).toBeTruthy();
-  }
+  },
 );
 
 describe('passwordStrength tests', () => {
   it('should calculate as strong', () => {
     expect(passwordStrengthCalculator(strongPassword, unsafePasswords)).toBe(
-      'strong'
+      'strong',
     );
   });
 
@@ -181,8 +181,8 @@ describe('passwordStrength tests', () => {
     expect(
       passwordStrengthCalculator(
         averageCharactersAndSymbolsPassword,
-        unsafePasswords
-      )
+        unsafePasswords,
+      ),
     ).toBe('average');
   });
 
@@ -190,14 +190,14 @@ describe('passwordStrength tests', () => {
     expect(
       passwordStrengthCalculator(
         averageCharactersAndSixDigitsPassword,
-        unsafePasswords
-      )
+        unsafePasswords,
+      ),
     ).toBe('average');
   });
 
   it('should calculate as weak', () => {
     expect(passwordStrengthCalculator(weakPassword, unsafePasswords)).toBe(
-      'weak'
+      'weak',
     );
   });
 });

@@ -7,7 +7,7 @@ export interface CssComponent<Type = 'span', Props = {}, Media = {}, CSS = {}> {
       css?: CSS;
     } & {
       [name in number | string]: any;
-    }
+    },
   ): string & {
     className: string;
     selector: string;

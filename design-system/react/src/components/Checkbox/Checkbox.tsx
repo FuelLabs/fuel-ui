@@ -1,5 +1,7 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
@@ -7,9 +9,6 @@ import { Icon } from '../Icon';
 
 import type { CheckboxDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 export const Checkbox = _unstable_createComponent<CheckboxDef>(
   Components.Checkbox,
@@ -39,7 +38,7 @@ export const Checkbox = _unstable_createComponent<CheckboxDef>(
       customProps,
       <CheckboxPrimitive.CheckboxIndicator className={indicatorClass}>
         <Icon icon="Check" />
-      </CheckboxPrimitive.CheckboxIndicator>
+      </CheckboxPrimitive.CheckboxIndicator>,
     );
-  }
+  },
 );

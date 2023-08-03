@@ -27,7 +27,7 @@ export const toCssRules = (style, selectors, conditions, config, onCssText) => {
   const walk = (
     /** @type {Style} Set of CSS styles */ style,
     /** @type {string[]} Selectors that define the elements to which a set of CSS styles apply. */ selectors,
-    /** @type {string[]} Conditions that define the queries to which a set of CSS styles apply. */ conditions
+    /** @type {string[]} Conditions that define the queries to which a set of CSS styles apply. */ conditions,
   ) => {
     /** @type {keyof style} Represents the left-side "name" for the property (the at-rule prelude, style-rule selector, or declaration name). */
     let name;
@@ -92,7 +92,7 @@ export const toCssRules = (style, selectors, conditions, config, onCssText) => {
             name = toResolvedMediaQueryRanges(
               name.slice(1) in config.media
                 ? '@media ' + config.media[name.slice(1)]
-                : name
+                : name,
             );
           }
 
@@ -142,11 +142,11 @@ export const toCssRules = (style, selectors, conditions, config, onCssText) => {
                   toTokenizedValue(
                     toSizingValue(camelName, data == null ? '' : data),
                     config.prefix,
-                    config.themeMap[camelName]
+                    config.themeMap[camelName],
                   );
 
             currentRule[0].push(
-              `${isAtRuleLike ? `${name} ` : `${toHyphenCase(name)}:`}${data}`
+              `${isAtRuleLike ? `${name} ` : `${toHyphenCase(name)}:`}${data}`,
             );
           }
         }
@@ -168,7 +168,7 @@ const toCssString = (declarations, selectors, conditions) =>
   `${conditions.map((condition) => `${condition}{`).join('')}${
     selectors.length ? `${selectors.join(',')}{` : ''
   }${declarations.join(';')}${selectors.length ? `}` : ''}${Array(
-    conditions.length ? conditions.length + 1 : 0
+    conditions.length ? conditions.length + 1 : 0,
   ).join('}')}`;
 
 /** CSS Properties whose number values should be unitless. */

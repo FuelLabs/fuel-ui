@@ -7,7 +7,7 @@ let RenderOf = (...typeThenPropsThenChildren) => {
 
   void renderer.act(() => {
     Rendered = renderer.create(
-      React.createElement(...typeThenPropsThenChildren)
+      React.createElement(...typeThenPropsThenChildren),
     );
   });
 
@@ -41,7 +41,7 @@ describe('Issue #450', () => {
     });
 
     expect(RenderOf(Happy, null).props.className).toBe(
-      `fuel_fEpFmO fuel_fEpFmO-cfZmSQ-fulfilled-positively fuel_fEpFmO-FgYNE-satisfied-definitely`
+      `fuel_fEpFmO fuel_fEpFmO-cfZmSQ-fulfilled-positively fuel_fEpFmO-FgYNE-satisfied-definitely`,
     );
 
     expect(getCssText()).toBe(
@@ -53,7 +53,7 @@ describe('Issue #450', () => {
         `--sxs{--sxs:3 fuel_fEpFmO-cfZmSQ-fulfilled-positively fuel_fEpFmO-FgYNE-satisfied-definitely}@media{` +
         `.fuel_fEpFmO-cfZmSQ-fulfilled-positively{--is-fulfilled-positively:true}` +
         `.fuel_fEpFmO-FgYNE-satisfied-definitely{--is-satisfied-definitely:true}` +
-        `}`
+        `}`,
     );
   });
 
@@ -105,7 +105,7 @@ describe('Issue #450', () => {
 
       void renderer.act(() => {
         Rendered = renderer.create(
-          React.createElement(...typeThenPropsThenChildren)
+          React.createElement(...typeThenPropsThenChildren),
         );
       });
 
@@ -126,29 +126,29 @@ describe('Issue #450', () => {
 
     // renders { appearance: "primary"; color: "lightBlue" }, the { color: "lightBlue" } variant will render
     expect(RenderOf(Tile, { color: 'lightBlue' }).props.className).toBe(
-      `${tileComponentClass} ${variantLightBlueClass}`
+      `${tileComponentClass} ${variantLightBlueClass}`,
     );
 
     // Compound variants
 
     // renders { appearance: "secondary"; color: "lightBlue" }, the { appearance: "secondary" } variant will render
     expect(RenderOf(Tile, { appearance: 'secondary' }).props.className).toBe(
-      `${tileComponentClass} ${variantAppearanceSecondaryClass}`
+      `${tileComponentClass} ${variantAppearanceSecondaryClass}`,
     );
 
     // renders { appearance: "secondary"; color: "lightBlue" }, the { appearance: "secondary" }, { color: "lightBlue" } variants will render
     expect(
       RenderOf(Tile, { appearance: 'secondary', color: 'lightBlue' }).props
-        .className
+        .className,
     ).toBe(
-      `${tileComponentClass} ${variantAppearanceSecondaryClass} ${variantLightBlueClass} ${variantCompoundClass}`
+      `${tileComponentClass} ${variantAppearanceSecondaryClass} ${variantLightBlueClass} ${variantCompoundClass}`,
     );
 
     // Restyled compound variants (compound is activated implicitly by defaultVariants)
 
     // appearance: primary, color: red, +
     expect(RenderOf(RoundedTile).props.className).toBe(
-      `${tileComponentClass} ${roundedTileComponentClass} ${variantAppearanceSecondaryClass} ${variantLightBlueClass} ${variantCompoundClass}`
+      `${tileComponentClass} ${roundedTileComponentClass} ${variantAppearanceSecondaryClass} ${variantLightBlueClass} ${variantCompoundClass}`,
     );
 
     // Restyled compound variants (compound is activated explicitly by props)
@@ -156,9 +156,9 @@ describe('Issue #450', () => {
     // appearance: secondary, compound * 2, +
     expect(
       RenderOf(RoundedTile, { appearance: 'secondary', color: 'lightBlue' })
-        .props.className
+        .props.className,
     ).toBe(
-      `${tileComponentClass} ${roundedTileComponentClass} ${variantAppearanceSecondaryClass} ${variantLightBlueClass} ${variantCompoundClass}`
+      `${tileComponentClass} ${roundedTileComponentClass} ${variantAppearanceSecondaryClass} ${variantLightBlueClass} ${variantCompoundClass}`,
     );
   });
 });

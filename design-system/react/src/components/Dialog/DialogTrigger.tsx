@@ -2,13 +2,12 @@ import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import { Children, cloneElement } from 'react';
 import type { ReactElement } from 'react';
+import { createComponent } from '~/utils';
 
 import { Button } from '../Button';
 import type { ButtonProps } from '../Button';
 
 import { useDialog } from './Dialog';
-
-import { createComponent } from '~/utils';
 
 type ElementType = 'button';
 type DialogTriggerProps = ButtonProps & {

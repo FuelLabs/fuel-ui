@@ -1,6 +1,6 @@
 import { css, cx } from "@fuel-ui/css"
 
-import { createComponent, createStyledElement } from "../../utils"
+import { createComponent, useCreateStyledElement } from "../../utils"
 import type { HTMLProps } from "../../utils";
 
 export type __COMPONENT__Props = HTMLProps["div"] & {
@@ -10,7 +10,7 @@ export type __COMPONENT__Props = HTMLProps["div"] & {
 export const __COMPONENT__ = createComponent<__COMPONENT__Props>(
   ({ customProp, children, className, ...props }) => {
     const classes = cx("fuel_$CLASS$", className)
-    return createStyledElement(
+    return useCreateStyledElement(
       'div',
       styles,
       { customProp },

@@ -1,7 +1,8 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { utils } from '@fuel-ui/css';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -10,9 +11,6 @@ import {
 import { createIcon } from '../Button';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 const _Text = _unstable_createComponent<t.TextDef>(
   Components.Text,
@@ -33,13 +31,13 @@ const _Text = _unstable_createComponent<t.TextDef>(
       leftIcon,
       leftIconAriaLabel,
       iconSize,
-      iconColor
+      iconColor,
     );
     const iconRight = createIcon(
       rightIcon,
       rightIconAriaLabel,
       iconSize,
-      iconColor
+      iconColor,
     );
     const withIcon = Boolean(leftIcon || rightIcon);
     const classes = useStyles(styles, {
@@ -57,7 +55,7 @@ const _Text = _unstable_createComponent<t.TextDef>(
       </>
     );
     return createElement(as, elementProps, customChildren);
-  }
+  },
 );
 
 const styles = createStyle(Components.Text, {
@@ -68,7 +66,7 @@ const styles = createStyle(Components.Text, {
       // TODO: adjust typings
       fontSize: (utils.textSize.__keys as any[]).reduce(
         (obj, key) => ({ ...obj, [key]: { textSize: key } }),
-        {}
+        {},
       ),
       withIcon: {
         true: {

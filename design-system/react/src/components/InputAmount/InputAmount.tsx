@@ -56,7 +56,7 @@ export const InputAmount: InputAmountComponent = ({
 }) => {
   const formatOpts = { units, precision: units };
   const [assetAmount, setAssetAmount] = useState<string>(
-    !value || value.eq(0) ? '' : value.format(formatOpts)
+    !value || value.eq(0) ? '' : value.format(formatOpts),
   );
 
   const balance = initialBalance ?? bn(initialBalance);
@@ -73,7 +73,7 @@ export const InputAmount: InputAmountComponent = ({
     const { text: newText, amount } = createAmount(text, formatOpts.units);
     const { amount: currentAmount } = createAmount(
       assetAmount,
-      formatOpts.units
+      formatOpts.units,
     );
     if (!currentAmount.eq(amount)) {
       onChange?.(newText.length ? amount : null);

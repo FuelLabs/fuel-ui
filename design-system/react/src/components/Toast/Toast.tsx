@@ -40,7 +40,7 @@ export const ToastProvider = createComponent<ToastProps>(
         )}
       </Root>
     );
-  }
+  },
 );
 
 export { toast };

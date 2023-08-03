@@ -1,3 +1,6 @@
+import type { Components } from '~/defs';
+import type { CreateComponent } from '~/utils';
+
 import type { BoxProps } from '../Box';
 import type { FlexProps } from '../Box/Flex';
 import type { ButtonProps } from '../Button';
@@ -6,9 +9,6 @@ import type { AlertActions } from './AlertActions';
 import type { AlertButton } from './AlertButton';
 import type { AlertDescription } from './AlertDescription';
 import type { AlertTitle } from './AlertTitle';
-
-import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
 
 export type AlertStatus = 'info' | 'warning' | 'success' | 'error';
 

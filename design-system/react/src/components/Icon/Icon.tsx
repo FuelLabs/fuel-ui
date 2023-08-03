@@ -4,13 +4,12 @@ import sprite from '@fuel-ui/icons/sprite.svg';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import type { ReactElement } from 'react';
 import { Fragment, cloneElement, createElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useElementProps, useStyles } from '~/hooks/useStore';
 
 import { _unstable_createComponent, omit } from '../../utils';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 export const Icon = _unstable_createComponent<t.IconDef>(
   Components.Icon,
@@ -85,9 +84,9 @@ export const Icon = _unstable_createComponent<t.IconDef>(
     return createElement(
       typeof icon === 'string' ? Fragment : as,
       elementProps,
-      renderElement()
+      renderElement(),
     );
-  }
+  },
 );
 
 Icon.id = 'Icon';

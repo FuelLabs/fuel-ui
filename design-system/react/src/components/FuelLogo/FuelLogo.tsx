@@ -24,5 +24,5 @@ export const FuelLogo = createComponent<FuelLogoProps>(
         />
       </Svg>
     );
-  }
+  },
 );

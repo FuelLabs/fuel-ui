@@ -13,13 +13,13 @@ export interface Token<
   /** Token scale. */
   ScaleType extends string | void = void,
   /** Token prefix. */
-  PrefixType extends string | void = void
+  PrefixType extends string | void = void,
 > extends ScaleValue {
   new (
     name: NameType,
     value: ValueType,
     scale?: ScaleType,
-    prefix?: PrefixType
+    prefix?: PrefixType,
   ): this;
 
   /** Name of the token. */

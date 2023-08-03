@@ -21,12 +21,12 @@ describe('Variants', () => {
 
     const expression1 = component.render();
     expect(expression1.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-kydkiA-color-blue'
+      'fuel_PJLV fuel_PJLV-kydkiA-color-blue',
     );
 
     const expression3 = component.render({ color: undefined });
     expect(expression3.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-kydkiA-color-blue'
+      'fuel_PJLV fuel_PJLV-kydkiA-color-blue',
     );
   });
 
@@ -53,17 +53,17 @@ describe('Variants', () => {
 
     const expression1 = component.render();
     expect(expression1.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-kydkiA-color-blue'
+      'fuel_PJLV fuel_PJLV-kydkiA-color-blue',
     );
 
     const expression2 = component.render({ color: 'red' });
     expect(expression2.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-gmqXFB-color-red'
+      'fuel_PJLV fuel_PJLV-gmqXFB-color-red',
     );
 
     const expression3 = component.render({ color: undefined });
     expect(expression3.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-hzqlOY-color-undefined'
+      'fuel_PJLV fuel_PJLV-hzqlOY-color-undefined',
     );
   });
 });

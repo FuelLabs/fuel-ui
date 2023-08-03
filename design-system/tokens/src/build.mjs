@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import chroma from 'chroma-js';
 import _ from 'lodash';
 import fs from 'node:fs';
@@ -6,8 +5,8 @@ import path from 'path';
 import prettier from 'prettier';
 import * as url from 'url';
 
-import { dark } from './defs/dark.mjs';
-import { light } from './defs/light.mjs';
+import { dark } from './themes/dark.mjs';
+import { light } from './themes/light.mjs';
 
 function readJSON(filepath) {
   const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -118,7 +117,7 @@ function renameKey(key) {
     const num = colorType[3];
     val = val.replace(
       colorType[0],
-      `${color}${theme === 'dark' ? _.capitalize(theme) : ''}${num}`
+      `${color}${theme === 'dark' ? _.capitalize(theme) : ''}${num}`,
     );
   }
   val = `--f-${val}`;
@@ -180,10 +179,10 @@ function createJSFile(obj) {
 }
 
 const BUILD_DIR = '../build';
-const TOKENS_DIR = '../tokens';
+const TOKENS_DIR = '../figma';
 
 async function main() {
-  const radix = readJSON(`${TOKENS_DIR}/radix.json`);
+  const radix = readJSON(`${TOKENS_DIR}/core/radix.json`);
   const withPaths = parsePath({
     light,
     dark,
@@ -196,7 +195,7 @@ async function main() {
   const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
   const buildDir = path.join(__dirname, BUILD_DIR);
   const tsFilepath = path.join(buildDir, '/tokens-raw.ts');
-  const jsonFile = createJSFile(final);
+  const jsonFile = await createJSFile(final);
 
   if (fs.existsSync(buildDir)) {
     fs.rmSync(path.join(buildDir), { recursive: true });

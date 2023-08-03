@@ -1,3 +1,6 @@
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+
 import {
   _unstable_createComponent,
   createPolymorphicComponent,
@@ -8,10 +11,6 @@ import { Card } from '../Card';
 import type { CardListItemDef } from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export const _CardListItem = _unstable_createComponent<CardListItemDef>(
   Components.CardListItem,
   ({ children, rightEl, isActive, ...props }) => {
@@ -29,7 +28,7 @@ export const _CardListItem = _unstable_createComponent<CardListItemDef>(
         {rightEl}
       </Card>
     );
-  }
+  },
 );
 
 export const CardListItem =

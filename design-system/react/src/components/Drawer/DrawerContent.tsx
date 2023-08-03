@@ -4,15 +4,14 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { AnimationProps } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { FocusScope, usePreventScroll, useDialog, useModal } from 'react-aria';
+import { useClickAway } from '~/hooks/useClickAway';
+import { createComponent } from '~/utils';
 
 import type { BoxProps } from '..';
 import { Box } from '..';
 
 import { useDrawer } from '.';
 import * as styles from './styles';
-
-import { useClickAway } from '~/hooks/useClickAway';
-import { createComponent } from '~/utils';
 
 const MotionBox = motion<any>(Box);
 const SPRING: AnimationProps['transition'] = {
@@ -55,7 +54,7 @@ export const DrawerContent = createComponent<
   const underlayClasses = cx(
     'fuel_DrawerUnderlay',
     className,
-    styles.underlay({ side })
+    styles.underlay({ side }),
   );
 
   usePreventScroll();
