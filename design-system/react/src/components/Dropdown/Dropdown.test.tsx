@@ -9,7 +9,7 @@ import type { DropdownProps } from './defs';
 const Content = (props: Partial<DropdownProps>) => {
   return (
     <Dropdown {...props}>
-      <Dropdown.Trigger>
+      <Dropdown.Trigger asChild>
         <Button>Click here</Button>
       </Dropdown.Trigger>
       <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">

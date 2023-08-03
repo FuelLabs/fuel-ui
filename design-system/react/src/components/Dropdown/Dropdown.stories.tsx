@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 
 import { Stack } from '../Box/Stack';
@@ -15,12 +16,10 @@ export default {
   },
 };
 
-const Content = (props: Partial<DropdownProps>) => {
+const Content = (props: Partial<DropdownProps> & { children: ReactNode }) => {
   return (
     <Dropdown {...props}>
-      <Dropdown.Trigger>
-        <Button onPress={() => console.log('he')}>Click here</Button>
-      </Dropdown.Trigger>
+      {props.children}
       <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
         <Dropdown.MenuItem key="settings" textValue="Settings">
           <Icon icon="Settings" />
@@ -39,9 +38,25 @@ const Content = (props: Partial<DropdownProps>) => {
   );
 };
 
-export const Usage = (args: DropdownProps) => <Content {...args} />;
+export const Usage = (args: DropdownProps) => (
+  <Content {...args}>
+    <Dropdown.Trigger asChild={false}>Click here</Dropdown.Trigger>
+  </Content>
+);
 
 Usage.parameters = {
+  layout: 'centered',
+};
+
+export const AsChild = (args: DropdownProps) => (
+  <Content {...args}>
+    <Dropdown.Trigger asChild>
+      <Button>Click here</Button>
+    </Dropdown.Trigger>
+  </Content>
+);
+
+AsChild.parameters = {
   layout: 'centered',
 };
 
@@ -52,7 +67,9 @@ export const Controlled = (args: DropdownProps) => {
       <Button onPress={() => setOpened(true)} variant="ghost">
         Open
       </Button>
-      <Content {...args} isOpen={opened} onOpenChange={setOpened} />
+      <Content {...args} isOpen={opened} onOpenChange={setOpened}>
+        <Dropdown.Trigger asChild={false}>Click here</Dropdown.Trigger>
+      </Content>
     </Stack>
   );
 };

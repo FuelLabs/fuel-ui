@@ -14,7 +14,7 @@ import { styles } from './styles';
 
 export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
   Components.DropdownTrigger,
-  ({ ref, className, asChild = true, children, ...props }) => {
+  ({ ref, className, asChild, children, ...props }) => {
     const classes = useStyles(styles, props, ['trigger']);
     const { state, triggerRef } = useDropdown();
     const rightIcon = state?.isOpen
@@ -36,7 +36,6 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
                 ref: mergeRefs(ref, triggerRef as never),
                 onPress: handleToggle,
                 className: cx(classes.trigger.className, className),
-                rightIcon,
               }),
             );
           })}
