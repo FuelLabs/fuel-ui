@@ -1,5 +1,5 @@
-import type { RenderResult } from '@fuel-ui/test-utils';
-import { testA11y, render } from '@fuel-ui/test-utils';
+import type { RenderResult } from '@fuels/jest';
+import { testA11y, render } from '@fuels/jest';
 
 import { Avatar } from './Avatar';
 

@@ -75,7 +75,7 @@ const createComposer = (
     ...style
   },
   config,
-  { componentId, displayName }
+  { componentId, displayName },
 ) => {
   /** @type {string} Composer Unique Identifier. @see `{CONFIG_PREFIX}-?fuel_{STYLE_HASH}` */
   const hash = componentId || toHash(style);
@@ -142,7 +142,7 @@ const createRenderer = (
   config,
   internals,
   sheet,
-  { shouldForwardStitchesProp }
+  { shouldForwardStitchesProp },
 ) => {
   const [baseClassName, baseClassNames, prefilledVariants, undefinedVariants] =
     getPreparedDataFromComposers(internals.composers);
@@ -217,20 +217,20 @@ const createRenderer = (
           config,
           (cssText) => {
             injectionTarget.styled.apply(cssText);
-          }
+          },
         );
       }
 
       const singularVariantsToAdd = getTargetVariantsToAdd(
         singularVariants,
         variantProps,
-        config.media
+        config.media,
       );
       const compoundVariantsToAdd = getTargetVariantsToAdd(
         compoundVariants,
         variantProps,
         config.media,
-        true
+        true,
       );
 
       for (const variantToAdd of singularVariantsToAdd) {
@@ -240,7 +240,7 @@ const createRenderer = (
           const variantClassName = getVariantClassName(
             composerBaseClass,
             vStyle,
-            vClass
+            vClass,
           );
 
           classSet.add(variantClassName);
@@ -265,7 +265,7 @@ const createRenderer = (
               config,
               (cssText) => {
                 targetInjectionGroup.apply(cssText);
-              }
+              },
             );
           }
         }
@@ -278,7 +278,7 @@ const createRenderer = (
           const variantClassName = getVariantClassName(
             composerBaseClass,
             vStyle,
-            vClass
+            vClass,
           );
 
           classSet.add(variantClassName);
@@ -293,7 +293,7 @@ const createRenderer = (
               config,
               (cssText) => {
                 injectionTarget.allvar.apply(cssText);
-              }
+              },
             );
           }
         }
@@ -325,7 +325,7 @@ const createRenderer = (
     }
 
     const renderedClassName = (forwardProps.className = [...classSet].join(
-      ' '
+      ' ',
     ));
 
     const renderedToString = () => renderedClassName;
@@ -407,7 +407,7 @@ const getTargetVariantsToAdd = (
   targetVariants,
   variantProps,
   media,
-  isCompoundVariant
+  isCompoundVariant,
 ) => {
   const targetVariantsToAdd = [];
 
@@ -446,7 +446,7 @@ const getTargetVariantsToAdd = (
               (matchedQueries = matchedQueries || []).push(
                 cleanQuery in media
                   ? media[cleanQuery]
-                  : query.replace(/^@media ?/, '')
+                  : query.replace(/^@media ?/, ''),
               );
               isResponsive = true;
             }

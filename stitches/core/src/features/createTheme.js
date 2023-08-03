@@ -29,19 +29,19 @@ export const createCreateThemeFunction = (config, sheet) =>
 
       for (const token in style[scale]) {
         const propertyName = `--${toTailDashed(
-          config.prefix
+          config.prefix,
         )}${scale}-${token}`;
         const propertyValue = toTokenizedValue(
           String(style[scale][token]),
           config.prefix,
-          scale
+          scale,
         );
 
         themeObject[scale][token] = new ThemeToken(
           token,
           propertyValue,
           scale,
-          config.prefix
+          config.prefix,
         );
 
         cssProps.push(`${propertyName}:${propertyValue}`);

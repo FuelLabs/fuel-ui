@@ -1,4 +1,4 @@
-import { render, screen, testA11y, waitFor } from '@fuel-ui/test-utils';
+import { render, screen, testA11y, waitFor } from '@fuels/jest';
 
 import type { PaginationBaseProps } from './Pagination';
 import { Pagination } from './Pagination';

@@ -1,18 +1,25 @@
 {
   "pipeline": {
     "build": {
+      "outputs": ["dist/**", "build/**"],
       "dependsOn": ["^build"],
-      "cache": false
+      "cache": true
     },
     "build:storybook": {
-      "dependsOn": ["build"],
-      "cache": false
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build"],
+      "cache": true
     },
     "test": {
-      "dependsOn": []
+      "outputs": ["**/**/report.json", "coverage/**"],
+      "dependsOn": [],
+      "outputMode": "full"
     },
     "dev": {
       "cache": false
+    },
+    "//#lint": {
+      "cache": true
     }
   }
 }

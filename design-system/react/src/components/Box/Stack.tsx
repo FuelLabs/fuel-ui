@@ -1,4 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+
 import {
   _unstable_createComponent,
   createPolymorphicComponent,
@@ -7,9 +9,6 @@ import {
 import { Flex } from './Flex';
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 export type StackProps = t.StackProps;
 
@@ -45,7 +44,7 @@ const _Stack = _unstable_createComponent<t.StackDef>(
     return (
       <Flex {...elementProps} as={props.as} gap={gap} direction={direction} />
     );
-  }
+  },
 );
 
 export const Stack = createPolymorphicComponent<t.StackDef>(_Stack);

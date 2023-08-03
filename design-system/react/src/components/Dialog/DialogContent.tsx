@@ -1,14 +1,13 @@
 import { createElement } from 'react';
 import { FocusScope, mergeProps } from 'react-aria';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
 import type { DialogContentDef } from './defs';
 import { useDialog } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
 
 export const DialogContent = _unstable_createComponent<DialogContentDef>(
   Components.DialogContent,
@@ -21,7 +20,7 @@ export const DialogContent = _unstable_createComponent<DialogContentDef>(
         props,
         dialogProps.overlayProps!,
         dialogProps.dialogProps!,
-        dialogProps.modalProps!
+        dialogProps.modalProps!,
       ),
       ref: dialogProps.triggerRef,
       className: classes.content.className,
@@ -32,9 +31,9 @@ export const DialogContent = _unstable_createComponent<DialogContentDef>(
       nextProps,
       <FocusScope contain autoFocus>
         {children}
-      </FocusScope>
+      </FocusScope>,
     );
-  }
+  },
 );
 
 DialogContent.id = 'DialogContent';

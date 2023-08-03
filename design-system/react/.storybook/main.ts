@@ -23,8 +23,5 @@ const config: StorybookConfig = {
       plugins: [tsconfigpath()],
     });
   },
-  docs: {
-    autodocs: true,
-  },
 };
 export default config;

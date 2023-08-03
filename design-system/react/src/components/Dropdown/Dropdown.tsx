@@ -1,57 +1,44 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { cx } from '@fuel-ui/css';
-import { Children, createContext, useContext, useRef } from 'react';
-import type { AriaButtonProps, AriaMenuOptions } from 'react-aria';
+import {
+  Children,
+  createContext,
+  createElement,
+  useContext,
+  useRef,
+} from 'react';
 import { useMenuTrigger } from 'react-aria';
-import type { MenuTriggerProps, MenuTriggerState } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
-import { useKeyPressEvent } from 'react-use';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import { createComponent, createStyledElement } from '../../utils';
-import type { PopoverProps } from '../Popover';
+import { useKeyPressEvent } from '../../hooks/useKeyPressEvent';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 import { Popover } from '../Popover';
 
 import { DropdownMenu } from './DropdownMenu';
 import { DropdownMenuItem } from './DropdownMenuItem';
 import { DropdownTrigger } from './DropdownTrigger';
+import type { DropdownContext, DropdownDef } from './defs';
+import { styles } from './styles';
 
-// ----------------------------------------------------------------------------
-// Context
-// ----------------------------------------------------------------------------
-
-export type DropdownContext = {
-  triggerRef: React.MutableRefObject<HTMLButtonElement | null>;
-  state: MenuTriggerState;
-  menuTriggerProps: AriaButtonProps<'button'>;
-  menuProps: AriaMenuOptions<unknown>;
-};
-
-const ctx = createContext<DropdownContext>({} as DropdownContext);
+export const DropdownCtx = createContext<DropdownContext>(
+  {} as DropdownContext,
+);
 
 export function useDropdown() {
-  return useContext(ctx);
+  return useContext(DropdownCtx);
 }
 
-// ----------------------------------------------------------------------------
-// Component
-// ----------------------------------------------------------------------------
-
-type ObjProps = {
-  Trigger: typeof DropdownTrigger;
-  Menu: typeof DropdownMenu;
-  MenuItem: typeof DropdownMenuItem;
-};
-
-export type DropdownProps = Omit<MenuTriggerProps, 'direction'> & {
-  popoverProps?: Partial<PopoverProps>;
-};
-
-export const Dropdown = createComponent<DropdownProps, ObjProps>(
-  ({ children, className, css, popoverProps, ...props }) => {
+const _Dropdown = _unstable_createComponent<DropdownDef>(
+  Components.Dropdown,
+  ({ as = 'div', children, css, popoverProps, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
     const state = useMenuTriggerState(props);
     const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref);
-    const classes = cx('fuel_Dropdown', className);
+    const classes = useStyles(styles, props);
 
     const ctxProps = {
       state,
@@ -61,15 +48,15 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
     };
 
     const trigger = Children.toArray(children).find(
-      (child: any) => child?.type.id === 'DropdownTrigger'
+      (child: any) => child?.type.id === 'DropdownTrigger',
     );
 
     const menu = Children.toArray(children).find(
-      (child: any) => child?.type.id === 'DropdownMenu'
+      (child: any) => child?.type.id === 'DropdownMenu',
     );
 
     const customChildren = (
-      <ctx.Provider value={ctxProps}>
+      <DropdownCtx.Provider value={ctxProps}>
         <Popover
           {...popoverProps}
           css={{ padding: '$0', borderColor: 'transparent', ...css }}
@@ -80,7 +67,7 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
         >
           {trigger}
         </Popover>
-      </ctx.Provider>
+      </DropdownCtx.Provider>
     );
 
     useKeyPressEvent('Esc', () => {
@@ -89,15 +76,15 @@ export const Dropdown = createComponent<DropdownProps, ObjProps>(
       }
     });
 
-    return createStyledElement(
-      'div',
-      null,
-      null,
-      { className: classes },
-      customChildren
+    return createElement(
+      as,
+      { className: classes.root.className },
+      customChildren,
     );
-  }
+  },
 );
+
+export const Dropdown = createPolymorphicComponent<DropdownDef>(_Dropdown);
 
 Dropdown.Trigger = DropdownTrigger;
 Dropdown.Menu = DropdownMenu;

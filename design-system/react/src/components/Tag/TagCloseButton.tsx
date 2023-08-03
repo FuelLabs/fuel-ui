@@ -23,7 +23,7 @@ export const TagCloseButton = createComponent<TagCloseButtonsProp, ObjProps>(
         iconSize={14}
       />
     );
-  }
+  },
 );
 
 TagCloseButton.id = 'TagCloseButton';

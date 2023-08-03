@@ -2,16 +2,15 @@ import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import { Children, cloneElement, createElement } from 'react';
 import type { ReactElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
 import { Button } from '../Button';
 
 import type { DialogTriggerDef } from './defs';
 import { useDialog } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
 
 export const DialogTrigger = _unstable_createComponent<DialogTriggerDef>(
   Components.DialogTrigger,
@@ -44,9 +43,9 @@ export const DialogTrigger = _unstable_createComponent<DialogTriggerDef>(
         ref: mergeRefs(ref, triggerRef as never),
         onPress: handleToggle,
       },
-      children
+      children,
     );
-  }
+  },
 );
 
 DialogTrigger.id = 'DialogTrigger';

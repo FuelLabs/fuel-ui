@@ -1,12 +1,11 @@
 import { cx } from '@fuel-ui/css';
+import { createComponent } from '~/utils';
 
 import type { IconButtonProps } from '..';
 import { Icon, IconButton } from '..';
 
 import { useDrawer } from '.';
 import * as styles from './styles';
-
-import { createComponent } from '~/utils';
 
 type OmitProps = 'children';
 type ElementType = 'button';

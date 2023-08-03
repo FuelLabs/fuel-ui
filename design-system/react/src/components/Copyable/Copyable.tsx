@@ -1,33 +1,26 @@
-import { cssObj, cx } from '@fuel-ui/css';
-import type { ReactNode } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Box/Flex';
+import { _unstable_createComponent } from '../../utils';
 import { Flex } from '../Box/Flex';
 import { Icon } from '../Icon';
-import type { IconButtonProps } from '../IconButton';
 import { IconButton } from '../IconButton';
 import { toast } from '../Toast';
 
-export type CopyableProps = Omit<FlexProps, 'children'> & {
-  value: string;
-  children?: ReactNode;
-  tooltipMessage?: string;
-  iconProps?: Partial<IconButtonProps>;
-};
+import type * as t from './defs';
+import { styles } from './styles';
 
-export const Copyable = createComponent<CopyableProps>(
+export const Copyable = _unstable_createComponent<t.CopyableDef>(
+  Components.Copyable,
   ({
-    css,
     children,
-    className,
     value,
     tooltipMessage = 'Click here to copy to clipboard',
     iconProps,
     ...props
   }) => {
-    const classes = cx('fuel_Copyable', className);
-    const iconClass = cx('fuel_CopyableIcon');
+    const classes = useStyles(styles, props);
+    const iconClass = classes.icon.className;
 
     async function handleCopy() {
       await navigator.clipboard.writeText(value);
@@ -39,8 +32,7 @@ export const Copyable = createComponent<CopyableProps>(
         align="center"
         gap="$2"
         {...props}
-        className={classes}
-        css={{ ...styles.root, ...css }}
+        className={classes.root.className}
       >
         {children}
         <IconButton
@@ -51,22 +43,9 @@ export const Copyable = createComponent<CopyableProps>(
           icon={<Icon icon="Copy" size={16} />}
           aria-label="Copy to clipboard"
           className={iconClass}
-          css={styles.icon}
           {...iconProps}
         />
       </Flex>
     );
-  }
+  },
 );
-
-const styles = {
-  root: cssObj({
-    display: 'inline-flex',
-  }),
-  icon: cssObj({
-    py: '$3',
-    px: '$0',
-    height: '$4',
-    color: '$textIcon',
-  }),
-};

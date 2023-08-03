@@ -8,7 +8,7 @@ import { mergeProps, useButton, useMenuItem } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
 import type { HTMLProps } from '../../utils';
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 import type { ButtonProps } from '../Button';
 
 import * as styles from './styles';
@@ -31,13 +31,13 @@ export const MenuItem = createComponent<MenuItemProps>(
 
     const { buttonProps } = useButton(
       { isDisabled, onPress: item.props.onPress, autoFocus },
-      ref
+      ref,
     );
 
     const { menuItemProps } = useMenuItem(
       { isDisabled, onAction, key: item.key, closeOnSelect: true },
       state,
-      ref
+      ref,
     );
 
     const classes = cx('fuel_MenuListItem', className);
@@ -50,12 +50,12 @@ export const MenuItem = createComponent<MenuItemProps>(
       'aria-label': item.props['aria-label'],
     };
 
-    return createStyledElement(
+    return useCreateStyledElement(
       'li',
       styles.item,
       null,
       mergeProps(customProps, buttonProps, menuItemProps),
-      item.rendered
+      item.rendered,
     );
-  }
+  },
 );

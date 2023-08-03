@@ -2,15 +2,14 @@ import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
 import { Icon, IconButton } from '..';
 
 import { useDialog, type DialogCloseDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
 
 export const DialogClose = _unstable_createComponent<DialogCloseDef>(
   Components.DialogClose,
@@ -49,7 +48,7 @@ export const DialogClose = _unstable_createComponent<DialogCloseDef>(
     };
 
     return <IconButton {...elementProps} />;
-  }
+  },
 );
 
 DialogClose.id = 'DialogClose';

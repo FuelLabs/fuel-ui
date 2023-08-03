@@ -25,7 +25,7 @@ describe('Composition', () => {
         `.fuel_hzkWus{font-size:14px}` +
         `.fuel_cQFdVt{font-weight:bold}` +
         `.fuel_kngyIZ{font-family:monospace}` +
-        `}`
+        `}`,
     );
   });
 
@@ -37,7 +37,7 @@ describe('Composition', () => {
     const title = css(red, size14, bold, { fontFamily: 'monospace' });
 
     expect(title().className).toBe(
-      'fuel_gmqXFB fuel_hzkWus fuel_cQFdVt fuel_kngyIZ'
+      'fuel_gmqXFB fuel_hzkWus fuel_cQFdVt fuel_kngyIZ',
     );
     expect(toString()).toBe(
       `--sxs{--sxs:2 fuel_gmqXFB fuel_hzkWus fuel_cQFdVt fuel_kngyIZ}@media{` +
@@ -45,7 +45,7 @@ describe('Composition', () => {
         `.fuel_hzkWus{font-size:14px}` +
         `.fuel_cQFdVt{font-weight:bold}` +
         `.fuel_kngyIZ{font-family:monospace}` +
-        `}`
+        `}`,
     );
   });
 });

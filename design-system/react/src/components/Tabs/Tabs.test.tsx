@@ -1,4 +1,4 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from '@fuels/jest';
 
 import { Tabs } from './Tabs';
 
@@ -16,7 +16,7 @@ describe('Tabs', () => {
         <Tabs.Content value="password">
           <div>Password</div>
         </Tabs.Content>
-      </Tabs>
+      </Tabs>,
     );
   });
 });

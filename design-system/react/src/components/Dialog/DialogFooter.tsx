@@ -1,12 +1,11 @@
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
 import type { DialogFooterDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
 
 export const DialogFooter = _unstable_createComponent<DialogFooterDef>(
   Components.DialogFooter,
@@ -15,7 +14,7 @@ export const DialogFooter = _unstable_createComponent<DialogFooterDef>(
     return createElement(
       as,
       { ...props, className: classes.footer.className },
-      children
+      children,
     );
-  }
+  },
 );

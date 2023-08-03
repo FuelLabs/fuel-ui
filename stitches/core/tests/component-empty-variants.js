@@ -54,7 +54,7 @@ describe('Empty Variants', () => {
     expect(getCssText()).toBe(
       `--sxs{--sxs:5 fuel_PJLV-lhHHWD-cv}@media{` +
         `.fuel_PJLV-lhHHWD-cv{font-size:24px;color:black}` +
-        `}`
+        `}`,
     );
   });
 });

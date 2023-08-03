@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { assign, createMachine } from 'xstate';
-
 import { useStore } from '~/hooks/useStore';
 import type { ThemesObj } from '~/hooks/useTheme';
 import { THEME_STORAGE_KEY } from '~/hooks/useTheme';

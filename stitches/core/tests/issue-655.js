@@ -14,7 +14,7 @@ describe('Issue #655', () => {
         `@media{.fuel_dAAqmb{` +
         `max-width:-moz-fit-content;max-width:fit-content;` +
         `min-width:-moz-fit-content;min-width:fit-content` +
-        `}}`
+        `}}`,
     );
   });
 });

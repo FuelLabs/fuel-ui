@@ -156,7 +156,7 @@ const inputLayers = inputVariants.reduce((obj, variant) => {
 const layerCard = {
   background: '$cardBg',
   borderRadius: '$default',
-  border: '1px solid $cardBg',
+  border: '1px solid $cardBorder',
 };
 
 const layerDialog = {

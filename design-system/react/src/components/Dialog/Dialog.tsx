@@ -9,6 +9,9 @@ import {
   OverlayProvider,
 } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
 import { DialogClose } from './DialogClose';
 import { DialogContent } from './DialogContent';
@@ -18,10 +21,6 @@ import { DialogHeading } from './DialogHeading';
 import { DialogTrigger } from './DialogTrigger';
 import { DialogCtx, type DialogDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
 
 // ----------------------------------------------------------------------------
 // DialogInternal
@@ -43,7 +42,7 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
         isOpen: isBlocked ? true : state.isOpen,
         onClose: state.close,
       },
-      ref
+      ref,
     );
 
     usePreventScroll({ isDisabled: !state.isOpen });
@@ -84,7 +83,7 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
     );
 
     return createElement('div', props, renderDialogInternal);
-  }
+  },
 );
 
 // ----------------------------------------------------------------------------
@@ -99,7 +98,7 @@ export const Dialog = _unstable_createComponent<DialogDef>(
         <DialogInternal {...props} />
       </OverlayProvider>
     );
-  }
+  },
 );
 
 Dialog.Content = DialogContent;

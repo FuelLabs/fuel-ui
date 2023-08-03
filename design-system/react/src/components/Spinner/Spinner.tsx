@@ -1,14 +1,13 @@
 import type { ColorKeys, Colors } from '@fuel-ui/css';
 import { css, darkColors, keyframes, cx } from '@fuel-ui/css';
 import { createElement, useMemo } from 'react';
+import { Components } from '~/defs';
+import { useElementProps } from '~/hooks';
+import { fClass } from '~/utils/css';
 
 import { _unstable_createComponent } from '../../utils';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { useElementProps } from '~/hooks';
-import { fClass } from '~/utils/css';
 
 export const Spinner = _unstable_createComponent<t.SpinnerDef>(
   Components.Spinner,
@@ -31,14 +30,14 @@ export const Spinner = _unstable_createComponent<t.SpinnerDef>(
           r={size * 0.4}
           className="animated"
         />
-      </>
+      </>,
     );
-  }
+  },
 );
 
 function getStyles(size: number, color: Colors | ColorKeys | string) {
   const strokeColor = String(
-    darkColors[color] || darkColors[`${color}`] || color
+    darkColors[color] || darkColors[`${color}`] || color,
   );
 
   const animation = keyframes({

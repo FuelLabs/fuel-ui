@@ -48,7 +48,7 @@ describe('Issue #416: Composition versus Descendancy', () => {
         React.createElement(BoxA, { foo: 'bar' }),
         React.createElement(BoxB, { foo: 'bar' }),
         React.createElement(GenY, { foo: 'bar' }),
-        React.createElement(BoxZ, { foo: 'bar' })
+        React.createElement(BoxZ, { foo: 'bar' }),
       );
     };
 
@@ -71,12 +71,12 @@ describe('Issue #416: Composition versus Descendancy', () => {
 
     test('Box B has an active variant, plus the active variant of Box A', () =>
       expect(boxB.props.className).toBe(
-        `${baselineClass} ${variantAClass} ${variantBClass}`
+        `${baselineClass} ${variantAClass} ${variantBClass}`,
       ));
 
     test('Gen Y has no variant, but activates the variants of Box A and Box B', () =>
       expect(genY.props.className).toBe(
-        `${baselineClass} ${variantAClass} ${variantBClass}`
+        `${baselineClass} ${variantAClass} ${variantBClass}`,
       ));
 
     test('Box Z has an active variant, but does not activate the variants of Box A or Box B', () =>
@@ -88,7 +88,7 @@ describe('Issue #416: Composition versus Descendancy', () => {
           `.fuel_PJLV-kgptgY-foo-bar{--box-a:foo-bar}` +
           `.fuel_PJLV-cHNUhn-foo-bar{--box-b:foo-bar}` +
           `.fuel_PJLV-vFFMz-foo-bar{--box-z:foo-bar}` +
-          `}`
+          `}`,
       ));
   }
 });

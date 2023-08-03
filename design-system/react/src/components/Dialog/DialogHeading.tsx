@@ -1,12 +1,11 @@
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
 import { useDialog, type DialogHeadingDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
 
 export const DialogHeading = _unstable_createComponent<DialogHeadingDef>(
   Components.DialogHeading,
@@ -19,5 +18,5 @@ export const DialogHeading = _unstable_createComponent<DialogHeadingDef>(
       className: classes.heading.className,
     };
     return createElement(as, nextProps, children);
-  }
+  },
 );

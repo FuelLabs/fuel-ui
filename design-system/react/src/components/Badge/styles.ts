@@ -1,7 +1,7 @@
-import * as buttonVariants from '../Button/variants';
-
 import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
+
+import * as buttonVariants from '../Button/variants';
 
 export const styles = createStyle(Components.Badge, {
   root: {

@@ -94,7 +94,7 @@ export const Grid = createComponent<GridProps, ObjProps>(
         }}
       />
     );
-  }
+  },
 );
 
 Grid.Item = GridItem;

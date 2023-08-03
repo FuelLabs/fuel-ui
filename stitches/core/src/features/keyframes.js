@@ -14,7 +14,7 @@ const createKeyframesFunctionMap = createMemo();
 /** Returns a function that applies a keyframes rule. */
 export const createKeyframesFunction = (
   /** @type {Config} */ config,
-  /** @type {GroupSheet} */ sheet
+  /** @type {GroupSheet} */ sheet,
 ) =>
   createKeyframesFunctionMap(config, () => (style) => {
     /** @type {string} Keyframes Unique Identifier. @see `{CONFIG_PREFIX}-?k-{KEYFRAME_UUID}` */

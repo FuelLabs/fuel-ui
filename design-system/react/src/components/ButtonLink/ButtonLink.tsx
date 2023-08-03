@@ -1,28 +1,36 @@
-import { cx } from '@fuel-ui/css';
+import type { LayerVariant } from '@fuel-ui/css';
+import { createElement } from 'react';
+import { mergeProps } from 'react-aria';
+import { Components } from '~/defs';
+import { useStyles, useElementProps, createStyle } from '~/hooks';
 
-import { createComponent } from '../../utils';
-import type { HTMLProps } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 import type { ButtonProps } from '../Button';
 import { Button } from '../Button';
 
-export type ButtonLinkProps = ButtonProps &
-  HTMLProps['a'] & {
-    isExternal?: boolean;
-  };
+import type * as t from './defs';
 
-export const ButtonLink = createComponent<ButtonLinkProps>(
-  ({ as = 'a', role = 'link', isExternal, className, ...props }) => {
-    const customProps = {
-      ...props,
-      className: cx('fuel_ButtonLink', className),
+export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
+  Components.ButtonLink,
+  ({ isExternal, as = 'a', role = 'link', size, ...props }) => {
+    const classes = useStyles(styles, props);
+    const elementProps = useElementProps(props, classes.root);
+    const allprops = mergeProps(elementProps, {
       ...(isExternal && {
         target: '_blank',
         rel: 'noopener noreferrer',
         rightIcon: 'Link' as ButtonProps['rightIcon'],
       }),
-    };
-    return (
-      <Button as={as} {...customProps} variant="link" role={role} isLink />
-    );
-  }
+      variant: 'link' as LayerVariant,
+      isLink: true,
+      as,
+      role,
+      size,
+    });
+    return createElement(Button, allprops);
+  },
 );
+
+const styles = createStyle(Components.ButtonLink, {
+  root: {},
+});

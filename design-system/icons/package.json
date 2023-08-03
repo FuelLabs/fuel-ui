@@ -1,0 +1,43 @@
+{
+  "name": "@fuel-ui/icons",
+  "version": "0.17.0",
+  "license": "Apache-2",
+  "access": "public",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    },
+    "./sprite.svg": {
+      "require": "./dist/sprite.svg",
+      "default": "./dist/sprite.svg"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint:check": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "pnpm lint:check --fix",
+    "lint": "run-s lint:check prettier:check",
+    "prettier:check": "prettier --check .",
+    "prettier:format": "prettier --write .",
+    "ts:check": "pnpm build-icons && tsc --noEmit",
+    "build-icons": "tsx src/build.ts",
+    "build": "pnpm build-icons"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.196",
+    "lodash": "^4.17.21",
+    "tsx": "^3.12.7"
+  },
+  "dependencies": {
+    "@tabler/icons": "^2.30.0",
+    "prettier": "^3.0.1",
+    "svgo": "^3.0.2"
+  }
+}

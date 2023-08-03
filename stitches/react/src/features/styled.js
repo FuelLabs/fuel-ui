@@ -15,7 +15,7 @@ export const createStyledFunction = ({ config, sheet }) =>
     const _styled = (
       args,
       css = cssFunction,
-      { displayName, shouldForwardStitchesProp } = {}
+      { displayName, shouldForwardStitchesProp } = {},
     ) => {
       const cssComponent = css(...args);
       const DefaultType = cssComponent[internal].type;
@@ -37,7 +37,7 @@ export const createStyledFunction = ({ config, sheet }) =>
             React.Fragment,
             null,
             React.createElement(Type, forwardProps),
-            React.createElement(deferredInjector, null)
+            React.createElement(deferredInjector, null),
           );
         }
 

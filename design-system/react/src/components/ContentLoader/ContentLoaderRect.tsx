@@ -1,4 +1,7 @@
+import { createElement } from 'react';
 import { toCSSValue } from '~/utils/css';
+
+import type { ContentLoaderRectProps } from './defs';
 
 export function Rect({
   x,
@@ -6,10 +9,7 @@ export function Rect({
   stickX,
   stickY,
   ...props
-}: React.SVGProps<SVGRectElement> & {
-  stickX?: 'right' | 'left';
-  stickY?: 'top' | 'bottom';
-}) {
+}: ContentLoaderRectProps) {
   const xValue = toCSSValue(x);
   const yValue = toCSSValue(y);
   let finalX = x;
@@ -20,5 +20,9 @@ export function Rect({
   if (stickY === 'bottom') {
     finalY = `calc(100% - ${yValue} - ${toCSSValue(props.height)})`;
   }
-  return <rect x={finalX} y={finalY} {...props} />;
+  return createElement('rect', {
+    x: finalX,
+    y: finalY,
+    ...props,
+  });
 }

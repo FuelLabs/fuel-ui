@@ -48,7 +48,7 @@ export const InputNumber = createComponent<
       isInvalid,
       isDisabled,
       isReadOnly,
-    })
+    }),
   );
 
   const inputProps = {

@@ -78,7 +78,7 @@ export const Popover = createComponent<PopoverProps>(
         {content}
       </Content>
     </RPopover.Root>
-  )
+  ),
 );
 
 const CLASSES = {

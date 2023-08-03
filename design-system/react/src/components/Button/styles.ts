@@ -1,8 +1,8 @@
+import { Components } from '~/defs';
+
 import { createStyle } from '../../hooks/useStore';
 
 import * as variants from './variants';
-
-import { Components } from '~/defs';
 
 export const styles = createStyle(Components.Button, {
   root: {

@@ -1,4 +1,6 @@
 import type * as RAL from '@radix-ui/react-alert-dialog';
+import type { Components } from '~/defs';
+import type { CreateComponent, HTMLProps } from '~/utils';
 
 import type { AlertDialogAction } from './AlertDialogAction';
 import type { AlertDialogCancel } from './AlertDialogCancel';
@@ -7,9 +9,6 @@ import type { AlertDialogDescription } from './AlertDialogDescription';
 import type { AlertDialogFooter } from './AlertDialogFooter';
 import type { AlertDialogHeading } from './AlertDialogHeading';
 import type { AlertDialogTrigger } from './AlertDialogTrigger';
-
-import type { Components } from '~/defs';
-import type { CreateComponent, HTMLProps } from '~/utils';
 
 export type AlertDialogNS = {
   id: string;

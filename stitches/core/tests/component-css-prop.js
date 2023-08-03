@@ -24,7 +24,7 @@ describe('Component with CSS prop', () => {
         `}` +
         `--sxs{--sxs:6 fuel_hhyRYU-ilhKMMn-css}@media{` +
         `.fuel_hhyRYU-ilhKMMn-css{order:2}` +
-        `}`
+        `}`,
     );
   });
 });

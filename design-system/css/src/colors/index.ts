@@ -12,7 +12,7 @@ function fromColors(name: string, rename?: string) {
       const key = `${rename || name}${idx}`;
       const prop = `${name}${idx}`;
       return [key, tokens.colors[prop]];
-    })
+    }),
   ) as Record<`${BaseColor}${ColorStep}`, string>;
 }
 

@@ -50,7 +50,7 @@ export const createSheet = (/** @type {DocumentOrShadowRoot} */ root) => {
         if (
           cssRules[cssRuleIndex - 1] &&
           (lastRuleCssText = cssRules[cssRuleIndex - 1].cssText).startsWith(
-            '--sxs'
+            '--sxs',
           )
         ) {
           if (!cssRule.cssRules.length) return '';
@@ -58,7 +58,7 @@ export const createSheet = (/** @type {DocumentOrShadowRoot} */ root) => {
           for (const name in groupSheet.rules) {
             if (groupSheet.rules[name].group === cssRule) {
               return `--sxs{--sxs:${[...groupSheet.rules[name].cache].join(
-                ' '
+                ' ',
               )}}${cssText}`;
             }
           }
@@ -137,7 +137,7 @@ export const createSheet = (/** @type {DocumentOrShadowRoot} */ root) => {
     if (!groupSheet) {
       const createCSSMediaRule = (
         /** @type {string} */ sourceCssText,
-        type
+        type,
       ) => {
         return /** @type {CSSMediaRule} */ ({
           type,
@@ -151,8 +151,8 @@ export const createSheet = (/** @type {DocumentOrShadowRoot} */ root) => {
                 {
                   import: 3,
                   undefined: 1,
-                }[(cssText.toLowerCase().match(/^@([a-z]+)/) || [])[1]] || 4
-              )
+                }[(cssText.toLowerCase().match(/^@([a-z]+)/) || [])[1]] || 4,
+              ),
             );
           },
           get cssText() {
@@ -257,7 +257,7 @@ export const createRulesInjectionDeferrer = (globalSheet) => {
     (sheetName) =>
       (injector.rules[sheetName] = {
         apply: (rule) => injector[$pr].push([sheetName, rule]),
-      })
+      }),
   );
   return injector;
 };

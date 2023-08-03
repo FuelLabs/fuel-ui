@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { Children, cloneElement, createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -9,9 +10,6 @@ import {
 import { useAlertProps } from './Alert';
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 const BUTTON_COLORS = {
   info: 'blue',
@@ -36,7 +34,7 @@ const _AlertActions = _unstable_createComponent<t.AlertActionsDef>(
     });
 
     return createElement(as, elementProps, <>{customChildren}</>);
-  }
+  },
 );
 
 export const AlertActions =

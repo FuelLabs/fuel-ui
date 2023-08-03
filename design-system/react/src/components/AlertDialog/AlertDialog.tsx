@@ -1,5 +1,8 @@
 import * as AD from '@radix-ui/react-alert-dialog';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
 import { AlertDialogAction } from './AlertDialogAction';
 import { AlertDialogCancel } from './AlertDialogCancel';
@@ -11,17 +14,13 @@ import { AlertDialogTrigger } from './AlertDialogTrigger';
 import type * as t from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
-
 export const AlertDialog = _unstable_createComponent<t.AlertDialogDef>(
   Components.AlertDialog,
   (props) => {
     const classes = useStyles(styles, props);
     const elementProps = useElementProps(props, classes.root);
     return createElement(AD.Root, elementProps);
-  }
+  },
 );
 
 AlertDialog.Content = AlertDialogContent;

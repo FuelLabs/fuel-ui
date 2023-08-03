@@ -1,4 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
+
 import {
   _unstable_createComponent,
   createPolymorphicComponent,
@@ -7,9 +9,6 @@ import { Button } from '../Button';
 
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 const _AlertButton = _unstable_createComponent<t.AlertButtonDef>(
   Components.AlertButton,
@@ -22,7 +21,7 @@ const _AlertButton = _unstable_createComponent<t.AlertButtonDef>(
         {children}
       </Button>
     );
-  }
+  },
 );
 
 export const AlertButton =

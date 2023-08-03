@@ -3,6 +3,8 @@ import type { ReactNode } from 'react';
 import { createContext, useContext } from 'react';
 import type { AriaOverlayProps, AriaDialogProps, ModalAria } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
+import type { Components } from '~/defs';
+import type { CreateComponent, HTMLProps } from '~/utils';
 
 import type { ButtonProps } from '../Button';
 
@@ -12,9 +14,6 @@ import type { DialogDescription } from './DialogDescription';
 import type { DialogFooter } from './DialogFooter';
 import type { DialogHeading } from './DialogHeading';
 import type { DialogTrigger } from './DialogTrigger';
-
-import type { Components } from '~/defs';
-import type { CreateComponent, HTMLProps } from '~/utils';
 
 // ----------------------------------------------------------------------------
 // Context
