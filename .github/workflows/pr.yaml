@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  COVERAGE_FILE: ./design-system/react/coverage/report.json
+  COVERAGE_FILE: ./coverage/report.json
 
 jobs:
   validate-title:
