@@ -67,7 +67,7 @@ jobs:
           pnpm lint:ci
           pnpm ts:check
           pnpm build
-          pnpm test:ci --outputFile="${{ env.COVERAGE_FILE }}"
+          pnpm test:ci --outputFile="../../${{ env.COVERAGE_FILE }}"
 
       - name: Publish coverage
         uses: artiomtr/jest-coverage-report-action@v2.0.5
