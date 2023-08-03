@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  COVERAGE_FILE: ./coverage/report.json
+  COVERAGE_FILE: report.json
 
 jobs:
   validate-title:
