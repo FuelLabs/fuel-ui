@@ -23,7 +23,7 @@ export const Usage = (args: IconProps) => (
     align="flex-start"
     direction="column"
   >
-    <Icon {...args} icon="User" inline />
+    <Icon {...args} icon={<Icon icon="User" />} className="hi" inline />
     <Text fontSize="sm" as="div">
       We&apos;re using{' '}
       <Link isExternal href="https://tabler-icons.io/">

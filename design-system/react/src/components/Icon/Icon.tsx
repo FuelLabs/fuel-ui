@@ -3,11 +3,11 @@ import { cx } from '@fuel-ui/css';
 import sprite from '@fuel-ui/icons/sprite.svg';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import type { ReactElement } from 'react';
-import { Fragment, cloneElement, createElement } from 'react';
+import { Fragment, cloneElement, createElement, useMemo } from 'react';
 import { Components } from '~/defs';
 import { createStyle, useElementProps, useStyles } from '~/hooks/useStore';
 
-import { _unstable_createComponent, omit } from '../../utils';
+import { _unstable_createComponent } from '../../utils';
 
 import type * as t from './defs';
 
@@ -15,7 +15,7 @@ export const Icon = _unstable_createComponent<t.IconDef>(
   Components.Icon,
   (props) => {
     const {
-      as = 'i',
+      as = 'span',
       label: initialLabel,
       inline,
       icon,
@@ -58,7 +58,7 @@ export const Icon = _unstable_createComponent<t.IconDef>(
       className: wrapperClassName,
     });
 
-    function renderElement() {
+    const children = useMemo(() => {
       if (typeof icon === 'string') {
         return (
           <>
@@ -75,13 +75,12 @@ export const Icon = _unstable_createComponent<t.IconDef>(
           </>
         );
       }
+      return cloneElement(icon as ReactElement, elementProps);
+    }, [icon]);
 
-      return cloneElement(icon as any, {
-        ...omit(['icon'], props),
-      });
-    }
-
-    return createElement(as, elementProps, renderElement());
+    return typeof icon === 'string'
+      ? createElement(as, elementProps, children)
+      : createElement(Fragment, null, children);
   },
 );
 
