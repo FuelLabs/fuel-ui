@@ -10,11 +10,7 @@ on:
         description: 'Job to run'
         required: true
         default: 'release'
-<<<<<<< HEAD
-        type: choice
-=======
         type: 'choice'
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
         options:
         - 'release'
         - 'clean-tag-dev'
@@ -37,10 +33,7 @@ jobs:
   pr_info:
     name: Fetching PR Head Ref
     runs-on: ubuntu-latest
-<<<<<<< HEAD
-=======
     if: github.event_name == 'workflow_dispatch'
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
     outputs:
       ref: ${{ steps.pr_info.outputs.result }}
     steps:
@@ -59,11 +52,7 @@ jobs:
   validate_changeset:
     name: Validating Changeset
     needs: pr_info
-<<<<<<< HEAD
-    if: ${{ github.head_ref != 'changeset-release/master' }}
-=======
     if: github.event_name == 'workflow_dispatch' && github.head_ref != 'changeset-release/master'
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -72,28 +61,16 @@ jobs:
           fetch-depth: 0
           ref: ${{ needs.pr_info.outputs.ref }}
 
-<<<<<<< HEAD
-      - uses: FuelLabs/github-actions/setups/node@master
-
-      - name: Validate Changeset
-        run: pnpm changeset status --since=origin/main
-
-=======
       - uses: ./.github/actions/setup-node
       - name: Validate Changeset
         run: pnpm changeset:check
 
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
   release_pr:
     name: 'Releasing packages'
     needs: [pr_info, validate_changeset]
     runs-on: ubuntu-latest
     permissions: write-all
-<<<<<<< HEAD
-    if: ${{ github.event.action != 'closed' || github.event.inputs.job_to_run == 'release' }}
-=======
     if: github.event_name == 'workflow_dispatch' && github.event.action != 'closed' || github.event.inputs.job_to_run == 'release'
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -101,20 +78,11 @@ jobs:
           fetch-depth: 0
           ref: ${{ needs.pr_info.outputs.ref }}
 
-<<<<<<< HEAD
-      - uses: FuelLabs/github-actions/setups/node@master
-=======
       - uses: ./.github/actions/setup-node
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
 
-<<<<<<< HEAD
-      - name: Release to @pr-<ID> tag on npm
-        id: release
-        run: |
-=======
       - name: Build
         run: |
           pnpm lint:ci
@@ -126,7 +94,6 @@ jobs:
         id: release
         run: |
           pnpm changeset:next
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
           pnpm changeset version --snapshot pr-${{ env.PR_ID }}
           echo ::set-output name=version::$(pnpm changeset publish --tag pr-${{ env.PR_ID }})
           git checkout .
@@ -162,20 +129,12 @@ jobs:
     needs: validate_changeset
     name: 'Clean PR releases'
     runs-on: ubuntu-latest
-<<<<<<< HEAD
-    if: ${{ github.event.action == 'closed' }}
-=======
     if: github.event_name == 'workflow_dispatch' && github.event.action == 'closed'
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-<<<<<<< HEAD
-      - uses: FuelLabs/github-actions/setups/node@master
-=======
       - uses: ./.github/actions/setup-node
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
@@ -195,11 +154,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-<<<<<<< HEAD
-      - uses: FuelLabs/github-actions/setups/node@master
-=======
       - uses: ./.github/actions/setup-node
->>>>>>> 327b756a22e5152d8617eec60c6916aeb8b09e51
       - uses: FuelLabs/github-actions/setups/npm@master
         with:
           npm-token: ${{ secrets.NPM_TOKEN }}
