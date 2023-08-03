@@ -9,5 +9,4 @@ fi
 args=("${@:2}")
 
 # Run pnpm turbo with the same arguments and cache directory
-echo "${args[@]}"
 pnpm turbo run "$1" --cache-dir=".turbo" "${args[@]}"
