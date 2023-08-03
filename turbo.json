@@ -15,6 +15,9 @@
       "dependsOn": [],
       "outputMode": "full"
     },
+    "ts:check": {
+      "cache": true
+    },
     "dev": {
       "cache": false
     },

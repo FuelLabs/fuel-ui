@@ -10,7 +10,6 @@ args=("${@:2}")
 
 # Set cache directory from environment variable or default to .turbo
 CACHE_DIR=${TURBO_CACHE_DIR:-.turbo}
-echo "$CACHE_DIR"
 
 # Run pnpm turbo with the same arguments and cache directory
 pnpm turbo run "$1" --cache-dir="$CACHE_DIR" "${args[@]}"
