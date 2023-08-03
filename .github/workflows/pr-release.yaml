@@ -85,7 +85,7 @@ jobs:
 
       - name: Build
         run: |
-          pnpm turbo run lint --cache_dir=.turbo
+          pnpm lint:ci
           pnpm ts:check
           pnpm build
 
