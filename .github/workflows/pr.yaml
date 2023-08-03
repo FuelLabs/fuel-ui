@@ -56,7 +56,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-node
 
-      - name: Run Lint, Build e Jest
+      - name: Run lint & ts:check
         run: |
           pnpm lint:ci
           pnpm ts:check
@@ -69,10 +69,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-node
 
-      - name: Run Lint, Build e Jest
+      - name: Run build
         run: |
           pnpm build
-          pnpm test:ci --outputFile="../../${{ env.COVERAGE_FILE }}"
 
       - name: Publish coverage
         uses: artiomtr/jest-coverage-report-action@v2.0.5
@@ -83,6 +82,6 @@ jobs:
           annotations: failed-tests
           test-script: pnpm test:ci
           prnumber: ${{ github.event.pull_request.number }}
-          skip-test: all
+          skip-test: install
           coverage-file: ${{ env.COVERAGE_FILE }}
           base-coverage-file: ${{ env.COVERAGE_FILE }}
