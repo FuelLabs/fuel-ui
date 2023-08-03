@@ -47,11 +47,11 @@ function hashToGradient(hash: string): string {
 
 type UseAvatarGeneratedProps = {
   hash?: string;
-  size: string;
+  size: string | number;
 };
 
 export function useAvatarGenerated({ hash, size }: UseAvatarGeneratedProps) {
-  const totalSize = SIZES[size];
+  const totalSize = SIZES[size] ?? size;
   const background = hashToGradient(hash!);
 
   return {
