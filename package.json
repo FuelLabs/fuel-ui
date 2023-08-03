@@ -44,7 +44,7 @@
     "test:coverage": "turbo run test -- --coverage",
     "test:clear": "turbo run test -- --clearCache",
     "test:ci": "pnpm build && turbo run test -- --ci --testLocationInResults --json --coverage",
-    "ts:check": "pnpm -r run ts:check",
+    "ts:check": "turbo run ts:check",
     "prepare": "husky install",
     "pr:release": "node ./scripts/pr-release.mjs"
   },
@@ -55,6 +55,7 @@
     "@changesets/get-github-info": "^0.5.2",
     "@jest/types": "^29.6.1",
     "@manypkg/get-packages": "^2.2.0",
+    "@swc/jest": "^0.2.27",
     "@types/jest": "^29.5.3",
     "@types/node": "^20.4.5",
     "@types/react": "^18.2.18",

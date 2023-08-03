@@ -9,10 +9,13 @@
       "cache": false
     },
     "test": {
-      "dependsOn": []
+      "dependsOn": ["ts:check"]
     },
     "dev": {
       "cache": false
+    },
+    "ts:check": {
+      "cache": true
     }
   }
 }

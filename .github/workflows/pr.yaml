@@ -46,7 +46,7 @@ jobs:
       - uses: FuelLabs/github-actions/setups/node@master
       - run: pnpm audit --prod
 
-  lint-and-test:
+  lint-and-build:
     name: Lint
     if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
@@ -68,9 +68,15 @@ jobs:
         uses: jwalton/gh-find-current-pr@v1
         id: findPr
 
+      - name: Get last commit
+        id: last_commit
+        run: |
+          git fetch origin master
+          echo ::set-output name=sha::$(git rev-parse origin/master)
+
       - name: Run Jest Tests
         run: |
-          pnpm test:ci --outputFile="${{ env.COVERAGE_FILE }}"
+          pnpm test:ci --outputFile="${{ env.COVERAGE_FILE }}" --changedSince="${{ steps.last_commit.outputs.sha }}"
 
       - name: Publish coverage
         uses: artiomtr/jest-coverage-report-action@v2.0.5
