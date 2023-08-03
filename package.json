@@ -43,8 +43,8 @@
     "test:watch": "turbo run test -- --watch",
     "test:coverage": "turbo run test -- --coverage",
     "test:clear": "turbo run test -- --clearCache",
-    "test:ci": "pnpm build && turbo run test -- --ci --testLocationInResults --json --coverage",
-    "ts:check": "turbo run ts:check",
+    "test:ci": "turbo run test -- --ci --testLocationInResults --json --coverage",
+    "ts:check": "pnpm -r ts:check",
     "prepare": "husky install",
     "pr:release": "node ./scripts/pr-release.mjs"
   },

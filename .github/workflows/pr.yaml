@@ -32,7 +32,8 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
 
-      - uses: FuelLabs/github-actions/setups/node@master
+      - name: NodeJS & PNPM Setup
+        uses: ./.github/actions/setup-node
 
       - name: Validate Changeset
         run: pnpm changeset:check
@@ -43,30 +44,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: FuelLabs/github-actions/setups/node@master
-      - run: pnpm audit --prod
 
-  lint-and-build:
-    name: Lint
+      - name: NodeJS & PNPM Setup
+        uses: ./.github/actions/setup-node
+
+      - name: Run Audit
+        run: pnpm audit --prod
+
+  lint-and-test:
+    name: Lint & Test
     if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: FuelLabs/github-actions/setups/node@master
-      - run: |
-          pnpm lint
-          pnpm build
 
-  test:
-    name: Tests with coverage
-    if: ${{ github.head_ref != 'changeset-release/master' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: FuelLabs/github-actions/setups/node@master
-      - name: Checking PR Number
-        uses: jwalton/gh-find-current-pr@v1
-        id: findPr
+      - name: Cache turbo build setup
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: NodeJS & PNPM Setup
+        uses: ./.github/actions/setup-node
 
       - name: Get last commit
         id: last_commit
@@ -74,20 +75,23 @@ jobs:
           git fetch origin master
           echo ::set-output name=sha::$(git rev-parse origin/master)
 
-      - name: Run Jest Tests
+      - name: Run Lint, Build e Jest
         run: |
+          pnpm turbo run lint
+          pnpm ts:check
+          pnpm build
           pnpm test:ci --outputFile="${{ env.COVERAGE_FILE }}" --changedSince="${{ steps.last_commit.outputs.sha }}"
 
       - name: Publish coverage
         uses: artiomtr/jest-coverage-report-action@v2.0.5
-        if: ${{ steps.findPr.outputs.number }}
+        if: ${{ github.event.pull_request.number }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: pnpm
           annotations: failed-tests
           test-script: pnpm test:ci
           working-directory: ./design-system/react
-          prnumber: ${{ steps.findPr.outputs.number }}
+          prnumber: ${{ github.event.pull_request.number }}
           skip-test: all
           coverage-file: ${{ env.COVERAGE_FILE }}
           base-coverage-file: ${{ env.COVERAGE_FILE }}

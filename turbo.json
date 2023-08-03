@@ -1,20 +1,22 @@
 {
   "pipeline": {
     "build": {
+      "outputs": ["dist/**"],
       "dependsOn": ["^build"],
-      "cache": false
+      "cache": true
     },
     "build:storybook": {
+      "outputs": ["storybook-static/**"],
       "dependsOn": ["build"],
-      "cache": false
+      "cache": true
     },
     "test": {
-      "dependsOn": ["ts:check"]
+      "dependsOn": []
     },
     "dev": {
       "cache": false
     },
-    "ts:check": {
+    "//#lint": {
       "cache": true
     }
   }
