@@ -36,6 +36,21 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
+    - name: Turbo Cache
+      id: turbo-cache
+      uses: actions/cache@v2
+      with:
+          path: |
+            .turbo
+            design-system/react/.turbo
+            design-system/css/.turbo
+            design-system/tokens/.turbo
+            stitches/core/.turbo
+            stitches/react/.turbo
+          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          restore-keys: |
+              turbo-${{ github.job }}-${{ github.ref_name }}-
+
     - name: Install dependencies
       run: pnpm install
       shell: bash
