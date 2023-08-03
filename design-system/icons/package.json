@@ -26,7 +26,7 @@
     "lint": "run-s lint:check prettier:check",
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
-    "ts:check": "tsc --noEmit",
+    "ts:check": "pnpm build-icons && tsc --noEmit",
     "build-icons": "tsx src/build.ts",
     "build": "pnpm build-icons"
   },
