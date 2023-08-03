@@ -11,7 +11,9 @@
       "cache": true
     },
     "test": {
-      "dependsOn": []
+      "outputs": ["coverage/**"],
+      "dependsOn": [],
+      "outputMode": "full"
     },
     "dev": {
       "cache": false
