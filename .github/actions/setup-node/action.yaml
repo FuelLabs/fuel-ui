@@ -36,6 +36,7 @@ runs:
         path: ${{ env.TURBO_CACHE_DIR }}
         key: ${{ runner.os }}-turbo-${{ github.event.pull_request.number || github.ref }}
         restore-keys: |
+          ${{ runner.os }}-turbo-${{ github.event.pull_request.number || github.ref }}
           ${{ runner.os }}-turbo-
 
     - uses: actions/cache@v3
@@ -44,6 +45,7 @@ runs:
         path: ${{ env.STORE_PATH }}
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
+          ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           ${{ runner.os }}-pnpm-store-
 
     - name: Install dependencies
