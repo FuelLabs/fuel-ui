@@ -12,6 +12,14 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Cache turbo build setup
+      uses: actions/cache@v3
+      with:
+        path: .turbo
+        key: ${{ runner.os }}-turbo-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-turbo-
+
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
@@ -35,14 +43,6 @@ runs:
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
-
-    - name: Cache turbo build setup
-      uses: actions/cache@v3
-      with:
-        path: .turbo
-        key: ${{ runner.os }}-turbo-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-turbo-
 
     - name: Install dependencies
       run: pnpm install
