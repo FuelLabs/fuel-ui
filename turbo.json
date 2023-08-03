@@ -1,13 +1,13 @@
 {
   "pipeline": {
     "build": {
-      "outputs": ["dist/**"],
+      "outputs": ["dist/**", "build/**"],
       "dependsOn": ["^build"],
       "cache": true
     },
     "build:storybook": {
       "outputs": ["storybook-static/**"],
-      "dependsOn": ["build"],
+      "dependsOn": ["^build"],
       "cache": true
     },
     "test": {
