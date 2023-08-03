@@ -1,5 +1,4 @@
 import type { IContentLoaderProps } from 'react-content-loader';
-
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
 

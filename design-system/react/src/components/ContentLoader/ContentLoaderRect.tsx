@@ -1,8 +1,7 @@
 import { createElement } from 'react';
+import { toCSSValue } from '~/utils/css';
 
 import type { ContentLoaderRectProps } from './defs';
-
-import { toCSSValue } from '~/utils/css';
 
 export function Rect({
   x,
