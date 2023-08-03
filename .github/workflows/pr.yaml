@@ -49,7 +49,21 @@ jobs:
         run: pnpm audit --prod
 
   lint-and-test:
-    name: Lint & Test
+    name: Lint
+    if: ${{ github.head_ref != 'changeset-release/master' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-node
+
+      - name: Run Lint, Build e Jest
+        run: |
+          pnpm lint:ci
+          pnpm ts:check
+          pnpm build
+
+  test:
+    name: Tests with coverage
     if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
@@ -64,10 +78,7 @@ jobs:
 
       - name: Run Lint, Build e Jest
         run: |
-          pnpm lint:ci
-          pnpm ts:check
-          pnpm build
-          pnpm test:ci --outputFile="../../${{ env.COVERAGE_FILE }}"
+          pnpm test:ci --outputFile="../../${{ env.COVERAGE_FILE }}" --changedSince="${{ steps.last_commit.outputs.sha }}"
 
       - name: Publish coverage
         uses: artiomtr/jest-coverage-report-action@v2.0.5
