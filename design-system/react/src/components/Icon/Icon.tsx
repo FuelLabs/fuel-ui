@@ -81,11 +81,7 @@ export const Icon = _unstable_createComponent<t.IconDef>(
       });
     }
 
-    return createElement(
-      typeof icon === 'string' ? Fragment : as,
-      elementProps,
-      renderElement(),
-    );
+    return createElement(as, elementProps, renderElement());
   },
 );
 

@@ -55,7 +55,7 @@ function pascalCase(inputString: string) {
   const nodes = await fs.readFile(resolveRoot(nodesPath), 'utf-8');
   const nodeJson = JSON.parse(nodes);
   const allIcons = Object.keys(nodeJson).map((key) =>
-    pascalCase(key.replace('tabler-', ''))
+    pascalCase(key.replace('tabler-', '')),
   );
 
   const typesFile = `
@@ -64,15 +64,15 @@ function pascalCase(inputString: string) {
   const typesPath = resolveRoot(ICONS_OUTPUT, 'index.d.ts');
   await fs.writeFile(
     typesPath,
-    prettier.format(typesFile, { parser: 'typescript' })
+    prettier.format(typesFile, { parser: 'typescript' }),
   );
 
   await fs.writeFile(
     resolveRoot(ICONS_OUTPUT, 'index.js'),
-    `module.exports = {}`
+    `module.exports = {}`,
   );
   await fs.writeFile(
     resolveRoot(ICONS_OUTPUT, 'index.mjs'),
-    `export default {}`
+    `export default {}`,
   );
 })();
