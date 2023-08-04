@@ -8,8 +8,8 @@ import {
   createPolymorphicComponent,
 } from '../../utils';
 
+import { useDialog } from './Dialog';
 import type { DialogContentDef } from './defs';
-import { useDialog } from './defs';
 import { styles } from './styles';
 
 const _DialogContent = _unstable_createComponent<DialogContentDef>(

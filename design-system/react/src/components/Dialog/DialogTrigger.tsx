@@ -8,8 +8,8 @@ import { _unstable_createComponent } from '~/utils';
 
 import { Button } from '../Button';
 
+import { useDialog } from './Dialog';
 import type { DialogTriggerDef } from './defs';
-import { useDialog } from './defs';
 import { styles } from './styles';
 
 export const DialogTrigger = _unstable_createComponent<DialogTriggerDef>(

@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Children, createElement, useRef } from 'react';
+import {
+  Children,
+  createContext,
+  createElement,
+  useContext,
+  useRef,
+} from 'react';
 import {
   useOverlay,
   useModal,
@@ -19,8 +25,18 @@ import { DialogDescription } from './DialogDescription';
 import { DialogFooter } from './DialogFooter';
 import { DialogHeading } from './DialogHeading';
 import { DialogTrigger } from './DialogTrigger';
-import { DialogCtx, type DialogDef } from './defs';
+import type { DialogContext, DialogDef } from './defs';
 import { styles } from './styles';
+
+// ----------------------------------------------------------------------------
+// Context
+// ----------------------------------------------------------------------------
+
+export const DialogCtx = createContext<DialogContext>({} as DialogContext);
+
+export function useDialog() {
+  return useContext(DialogCtx);
+}
 
 // ----------------------------------------------------------------------------
 // DialogInternal

@@ -7,7 +7,8 @@ import {
   createPolymorphicComponent,
 } from '../../utils';
 
-import { useDialog, type DialogHeadingDef } from './defs';
+import { useDialog } from './Dialog';
+import type { DialogHeadingDef } from './defs';
 import { styles } from './styles';
 
 const _DialogHeading = _unstable_createComponent<DialogHeadingDef>(

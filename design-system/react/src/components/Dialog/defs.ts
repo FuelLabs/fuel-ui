@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ReactNode } from 'react';
-import { createContext, useContext } from 'react';
 import type { AriaOverlayProps, AriaDialogProps, ModalAria } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 import type { Components } from '~/defs';
@@ -29,12 +28,6 @@ export type DialogContext = {
   headingProps?: React.HTMLAttributes<HTMLElement>;
   isBlocked?: boolean;
 };
-
-export const DialogCtx = createContext<DialogContext>({} as DialogContext);
-
-export function useDialog() {
-  return useContext(DialogCtx);
-}
 
 // ----------------------------------------------------------------------------
 // Dialog
