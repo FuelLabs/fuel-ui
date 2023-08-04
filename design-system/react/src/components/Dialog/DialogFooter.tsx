@@ -2,15 +2,18 @@ import { createElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
-import { _unstable_createComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
-import type { DialogFooterDef } from './defs';
+import type { DialogDescriptionDef, DialogFooterDef } from './defs';
 import { styles } from './styles';
 
-export const DialogFooter = _unstable_createComponent<DialogFooterDef>(
+const _DialogFooter = _unstable_createComponent<DialogFooterDef>(
   Components.DialogFooter,
   ({ as = 'footer', children, ...props }) => {
-    const classes = useStyles(styles, {}, ['footer']);
+    const classes = useStyles(styles, props, ['footer']);
     return createElement(
       as,
       { ...props, className: classes.footer.className },
@@ -18,3 +21,6 @@ export const DialogFooter = _unstable_createComponent<DialogFooterDef>(
     );
   },
 );
+
+export const DialogFooter =
+  createPolymorphicComponent<DialogDescriptionDef>(_DialogFooter);

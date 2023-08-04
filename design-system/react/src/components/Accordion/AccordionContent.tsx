@@ -12,7 +12,7 @@ export const AccordionContent =
   _unstable_createComponent<t.AccordionContentDef>(
     Components.AccordionContent,
     (props) => {
-      const classes = useStyles(styles, {}, ['content']);
+      const classes = useStyles(styles, props, ['content']);
       const elementProps = useElementProps(props, classes.content);
       return createElement(AC.AccordionContent, elementProps);
     },

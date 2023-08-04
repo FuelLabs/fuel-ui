@@ -11,7 +11,7 @@ import {
 import { useOverlayTriggerState } from 'react-stately';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
+import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
 
 import { DialogClose } from './DialogClose';
 import { DialogContent } from './DialogContent';
@@ -28,7 +28,7 @@ import { styles } from './styles';
 
 const DialogInternal = _unstable_createComponent<DialogDef>(
   Components.Dialog,
-  ({ children, isBlocked, isOpen, onOpenChange, ...props }) => {
+  ({ as = 'div', children, isBlocked, isOpen, onOpenChange, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
     const state = useOverlayTriggerState({
       isOpen: isBlocked || isOpen,
@@ -82,7 +82,7 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
       </div>
     );
 
-    return createElement('div', props, renderDialogInternal);
+    return createElement(as, props, renderDialogInternal);
   },
 );
 
@@ -90,7 +90,7 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
 // Dialog
 // ----------------------------------------------------------------------------
 
-export const Dialog = _unstable_createComponent<DialogDef>(
+const _Dialog = _unstable_createComponent<DialogDef>(
   Components.Dialog,
   (props) => {
     return (
@@ -100,6 +100,8 @@ export const Dialog = _unstable_createComponent<DialogDef>(
     );
   },
 );
+
+export const Dialog = createPolymorphicComponent<DialogDef>(_Dialog);
 
 Dialog.Content = DialogContent;
 Dialog.Trigger = DialogTrigger;

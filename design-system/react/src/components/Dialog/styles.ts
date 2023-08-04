@@ -1,5 +1,4 @@
 import { keyframes } from '@fuel-ui/css';
-
 import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
 
@@ -86,10 +85,8 @@ export const styles = createStyle(Components.Dialog, {
   heading: {
     p: '$0',
     m: '$0',
-    color: '$intentsBase12',
+    color: '$textHeading',
     fontFamily: '$heading',
-    fontWeight: '$normal',
-    fontSize: '$xl',
   },
   overlay: {
     inset: 0,

@@ -7,6 +7,7 @@ import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
 
 import type { ButtonProps } from '../Button';
+import type { HeadingProps } from '../Heading';
 
 import type { DialogClose } from './DialogClose';
 import type { DialogContent } from './DialogContent';
@@ -93,7 +94,6 @@ export type DialogContentDef = CreateComponent<{
   element: HTMLDivElement;
   props: DialogContentProps;
   namespace: DialogContentNS;
-  styles: 'content';
 }>;
 
 // ----------------------------------------------------------------------------
@@ -113,15 +113,13 @@ export type DialogTriggerDef = CreateComponent<{
   element: HTMLButtonElement;
   props: DialogTriggerProps;
   namespace: DialogTriggerNS;
+  omit: 'as';
 }>;
 
 // ----------------------------------------------------------------------------
 // DialogHeading
 // ----------------------------------------------------------------------------
-export type DialogHeadingProps = {
-  children?: ReactNode;
-  className?: string;
-};
+export type DialogHeadingProps = HeadingProps;
 
 export type DialogHeadingDef = CreateComponent<{
   type: 'h2';
@@ -158,7 +156,6 @@ export type DialogFooterDef = CreateComponent<{
   component: Components.DialogFooter;
   element: HTMLDivElement;
   props: DialogFooterProps;
-  styles: 'footer';
 }>;
 
 // ----------------------------------------------------------------------------

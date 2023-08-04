@@ -90,7 +90,7 @@ export function createStyle<K extends DefKeys>(
 
 export function useStyles<K extends DefKeys, F>(
   style: Style<K>,
-  props: Partial<Props<K>> = {},
+  props: Record<any, any> = {},
   filter?: F extends string[] ? F : any[],
 ) {
   type Classes = StoreDefs[K]['styles'] extends string

@@ -33,6 +33,7 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
               child as ReactElement,
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               mergeProps((child as any).props, {
+                ...props,
                 ref: mergeRefs(ref, triggerRef as never),
                 onPress: handleToggle,
                 className: cx(classes.trigger.className, className),

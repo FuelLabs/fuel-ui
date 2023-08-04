@@ -11,7 +11,7 @@ export const AlertDialogTrigger =
   _unstable_createComponent<t.AlertDialogTriggerDef>(
     Components.AlertDialogTrigger,
     (props) => {
-      const classes = useStyles(styles, {}, ['trigger']);
+      const classes = useStyles(styles, props, ['trigger']);
       const elementProps = useElementProps(props, classes.trigger);
       return createElement(RAlertDialog.AlertDialogTrigger, elementProps);
     },

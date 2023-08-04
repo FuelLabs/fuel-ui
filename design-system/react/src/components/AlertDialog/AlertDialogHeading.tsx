@@ -14,7 +14,7 @@ export const AlertDialogHeading =
   _unstable_createComponent<t.AlertDialogHeadingDef>(
     Components.AlertDialogHeading,
     (props) => {
-      const classes = useStyles(styles, {}, ['heading']);
+      const classes = useStyles(styles, props, ['heading']);
       const elementProps = useElementProps(props, classes.heading);
       return createElement(RAlertDialog.AlertDialogTitle, elementProps);
     },

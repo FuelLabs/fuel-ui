@@ -1,5 +1,5 @@
 import { cx } from '@fuel-ui/css';
-import { mergeRefs } from '@react-aria/utils';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
 import { Components } from '~/defs';
@@ -14,7 +14,7 @@ import { styles } from './styles';
 export const DialogClose = _unstable_createComponent<DialogCloseDef>(
   Components.DialogClose,
   ({ ref, asChild, children, className, css, ...props }) => {
-    const classes = useStyles(styles, {}, ['close']);
+    const classes = useStyles(styles, props, ['close']);
     const { state, triggerRef } = useDialog();
 
     function handleToggle() {
@@ -25,11 +25,16 @@ export const DialogClose = _unstable_createComponent<DialogCloseDef>(
       return (
         <>
           {Children.toArray(Children.only(children)).map((child) => {
-            return cloneElement(child as ReactElement, {
-              ref: mergeRefs(ref, triggerRef as never),
-              onPress: handleToggle,
-              className,
-            });
+            return cloneElement(
+              child as ReactElement,
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              mergeProps((child as any).props, {
+                ...props,
+                ref: mergeRefs(ref, triggerRef as never),
+                onPress: handleToggle,
+                className,
+              }),
+            );
           })}
         </>
       );
