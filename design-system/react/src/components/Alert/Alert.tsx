@@ -1,15 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Children,
-  cloneElement,
-  createContext,
-  createElement,
-  useContext,
-} from 'react';
+import { Children, cloneElement, createContext, useContext } from 'react';
 import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useStyles } from '~/hooks';
 
-import { _unstable_createComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '../../utils';
 import { Box } from '../Box';
 import { Flex } from '../Box/Flex';
 import type { Icons } from '../Icon';
@@ -19,11 +17,11 @@ import { AlertActions } from './AlertActions';
 import { AlertButton } from './AlertButton';
 import { AlertDescription } from './AlertDescription';
 import { AlertTitle } from './AlertTitle';
-import type * as t from './defs';
+import type { AlertDef, AlertStatus } from './defs';
 import { styles } from './styles';
 
 type ContextProps = {
-  status?: t.AlertStatus;
+  status?: AlertStatus;
 };
 
 const ctx = createContext<ContextProps>({});
@@ -38,13 +36,12 @@ const STATUS_ICONS: Record<string, { icon: Icons }> = {
   error: { icon: 'X' },
 };
 
-export const Alert = _unstable_createComponent<t.AlertDef>(
+const _Alert = _unstable_createComponent<AlertDef>(
   Components.Alert,
-  ({ hideIcon, children, ...props }) => {
+  ({ as = 'div', hideIcon, children, ...props }) => {
     const classes = useStyles(styles, props);
-    const elementProps = useElementProps(props, classes.root);
+    const itemProps = { ...props, ...classes.root };
     const { status = 'info' } = props;
-
     const items = Children.toArray(children).map((child: any) => {
       if (child?.type?.id === 'AlertActions') {
         return cloneElement(child);
@@ -52,22 +49,24 @@ export const Alert = _unstable_createComponent<t.AlertDef>(
       return child;
     });
 
-    const element = createElement(
-      'div',
-      elementProps,
+    const element = _unstable_createEl(
+      as,
+      itemProps,
       <>
         {!hideIcon && (
-          <Box className={classes.icon.className}>
+          <Box {...classes.icon}>
             <Icon {...STATUS_ICONS[status]} />
           </Box>
         )}
-        <Flex className={classes.content.className}>{items}</Flex>
+        <Flex {...classes.content}>{items}</Flex>
       </>,
     );
 
     return <ctx.Provider value={{ status }}>{element}</ctx.Provider>;
   },
 );
+
+export const Alert = createPolymorphicComponent<AlertDef>(_Alert);
 
 Alert.id = 'Alert';
 Alert.Title = AlertTitle;

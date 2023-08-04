@@ -1,11 +1,11 @@
-import { mergeRefs } from '@react-aria/utils';
-import { createElement } from 'react';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
 import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useStyles } from '~/hooks';
 import { useOnPress } from '~/hooks/useOnPress';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -39,12 +39,8 @@ const _Card = _unstable_createComponent<CardDef>(
       }),
     };
 
-    const finalProps = useElementProps(
-      elementProps,
-      isClickable ? buttonProps : {},
-    );
-
-    return createElement(as, finalProps, children);
+    const finalProps = mergeProps(elementProps, isClickable ? buttonProps : {});
+    return _unstable_createEl(as, finalProps, children);
   },
 );
 

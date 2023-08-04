@@ -40,7 +40,7 @@ const Content = (props: Partial<DropdownProps> & { children: ReactNode }) => {
 
 export const Usage = (args: DropdownProps) => (
   <Content {...args}>
-    <Dropdown.Trigger asChild={false}>Click here</Dropdown.Trigger>
+    <Dropdown.Trigger>Click here</Dropdown.Trigger>
   </Content>
 );
 

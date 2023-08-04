@@ -1,43 +1,35 @@
-import { cx } from '@fuel-ui/css';
-import { createComponent } from '~/utils';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
-import type { IconButtonProps } from '..';
 import { Icon, IconButton } from '..';
 
-import { useDrawer } from '.';
-import * as styles from './styles';
+import { useDrawer } from './Drawer';
+import type { DrawerCloseDef } from './defs';
+import { styles } from './styles';
 
-type OmitProps = 'children';
-type ElementType = 'button';
-type DrawerCloseProps = Omit<IconButtonProps, 'aria-label' | 'icon'> & {
-  icon?: IconButtonProps['icon'];
-  ['aria-label']?: IconButtonProps['aria-label'];
-};
+export const DrawerClose = _unstable_createComponent<DrawerCloseDef>(
+  Components.DrawerClose,
+  ({ css, ...props }) => {
+    const classes = useStyles(styles, props, ['close']);
+    const { state } = useDrawer();
 
-export const DrawerClose = createComponent<
-  DrawerCloseProps,
-  unknown,
-  OmitProps,
-  ElementType
->(({ css, className, ...props }) => {
-  const classes = cx('fuel_DrawerClose', className);
-  const { state } = useDrawer();
+    function handleClose() {
+      state?.setOpen(false);
+    }
 
-  function handleClose() {
-    state?.setOpen(false);
-  }
-
-  return (
-    <IconButton
-      {...props}
-      css={{ ...styles.close, ...css }}
-      icon={props.icon || Icon.is('X')}
-      iconSize={20}
-      aria-label={props['aria-label'] || 'Close'}
-      variant={props.variant || 'link'}
-      color={props.color || 'gray'}
-      className={classes}
-      onPress={handleClose}
-    />
-  );
-});
+    return (
+      <IconButton
+        {...props}
+        css={css}
+        icon={props.icon || Icon.is('X')}
+        iconSize={20}
+        aria-label={props['aria-label'] || 'Close'}
+        variant={props.variant || 'link'}
+        color={props.color || 'gray'}
+        className={classes.close.className}
+        onPress={handleClose}
+      />
+    );
+  },
+);

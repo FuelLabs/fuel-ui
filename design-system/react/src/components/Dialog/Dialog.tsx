@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Children,
-  createContext,
-  createElement,
-  useContext,
-  useRef,
-} from 'react';
+import { Children, createContext, useContext, useRef } from 'react';
 import {
   useOverlay,
   useModal,
@@ -17,7 +11,11 @@ import {
 import { useOverlayTriggerState } from 'react-stately';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
-import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '~/utils';
 
 import { DialogClose } from './DialogClose';
 import { DialogContent } from './DialogContent';
@@ -32,10 +30,10 @@ import { styles } from './styles';
 // Context
 // ----------------------------------------------------------------------------
 
-export const DialogCtx = createContext<DialogContext>({} as DialogContext);
+const ctx = createContext<DialogContext>({} as DialogContext);
 
 export function useDialog() {
-  return useContext(DialogCtx);
+  return useContext(ctx);
 }
 
 // ----------------------------------------------------------------------------
@@ -45,7 +43,7 @@ export function useDialog() {
 const DialogInternal = _unstable_createComponent<DialogDef>(
   Components.Dialog,
   ({ as = 'div', children, isBlocked, isOpen, onOpenChange, ...props }) => {
-    const ref = useRef<HTMLButtonElement>(null);
+    const triggerRef = useRef<HTMLButtonElement>(null);
     const state = useOverlayTriggerState({
       isOpen: isBlocked || isOpen,
       onOpenChange,
@@ -58,16 +56,16 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
         isOpen: isBlocked ? true : state.isOpen,
         onClose: state.close,
       },
-      ref,
+      triggerRef,
     );
 
     usePreventScroll({ isDisabled: !state.isOpen });
     const { modalProps } = useModal();
-    const { dialogProps, titleProps } = useReactAriaDialog(props, ref);
+    const { dialogProps, titleProps } = useReactAriaDialog(props, triggerRef);
     const classes = useStyles(styles, props);
 
     const ctxProps = {
-      ref,
+      triggerRef,
       state,
       overlayProps,
       modalProps,
@@ -81,7 +79,7 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
         return (
           <OverlayContainer
             key={child?.type.id}
-            {...(state.isOpen && { className: classes.overlay.className })}
+            {...(state.isOpen && classes.overlay)}
           >
             {state.isOpen && <>{child}</>}
           </OverlayContainer>
@@ -92,13 +90,11 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
 
     const renderDialogInternal = (
       <div {...underlayProps}>
-        <DialogCtx.Provider value={ctxProps}>
-          {customChildren}
-        </DialogCtx.Provider>
+        <ctx.Provider value={ctxProps}>{customChildren}</ctx.Provider>
       </div>
     );
 
-    return createElement(as, props, renderDialogInternal);
+    return _unstable_createEl(as, classes.root, renderDialogInternal);
   },
 );
 

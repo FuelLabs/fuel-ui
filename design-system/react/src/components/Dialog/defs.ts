@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ReactNode } from 'react';
+import type { ForwardedRef, ReactNode } from 'react';
 import type { AriaOverlayProps, AriaDialogProps, ModalAria } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 import type { Components } from '~/defs';
-import type { CreateComponent, HTMLProps } from '~/utils';
+import type { AsChildProps, CreateComponent, HTMLProps } from '~/utils';
 
 import type { ButtonProps } from '../Button';
 import type { HeadingProps } from '../Heading';
@@ -21,11 +21,11 @@ import type { DialogTrigger } from './DialogTrigger';
 
 export type DialogContext = {
   state: OverlayTriggerState;
-  triggerRef?: React.MutableRefObject<HTMLDivElement | null>;
-  overlayProps?: React.HTMLAttributes<HTMLElement>;
-  modalProps?: ModalAria['modalProps'];
-  dialogProps?: React.HTMLAttributes<HTMLElement>;
-  headingProps?: React.HTMLAttributes<HTMLElement>;
+  triggerRef: ForwardedRef<HTMLButtonElement>;
+  overlayProps: React.HTMLAttributes<HTMLElement>;
+  modalProps: ModalAria['modalProps'];
+  dialogProps: React.HTMLAttributes<HTMLElement>;
+  headingProps: React.HTMLAttributes<HTMLElement>;
   isBlocked?: boolean;
 };
 
@@ -72,8 +72,6 @@ export type DialogContentProps = {
   overlayClassName?: string;
   closeClassName?: string;
   hideCloseButton?: boolean;
-  children: ReactNode;
-  className?: string;
   onClose?: () => void;
 };
 
@@ -92,9 +90,7 @@ export type DialogContentDef = CreateComponent<{
 // ----------------------------------------------------------------------------
 // DialogTrigger
 // ----------------------------------------------------------------------------
-export type DialogTriggerProps = ButtonProps & {
-  asChild?: boolean;
-};
+export type DialogTriggerProps = AsChildProps<ButtonProps>;
 
 export type DialogTriggerNS = {
   id: string;

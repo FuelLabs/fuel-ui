@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { allColors, utils } from '@fuel-ui/css';
-import { createElement } from 'react';
 import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
+import { createStyle, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 import { createIcon } from '../Button';
@@ -60,13 +60,10 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
       },
     } as any);
 
-    const elementProps = useElementProps(props, classes.root, {
-      role: 'heading',
-    });
-
-    return createElement(
+    const itemProps = { ...props, ...classes.root, role: 'heading' };
+    return _unstable_createEl(
       as,
-      elementProps,
+      itemProps,
       <>
         {iconLeft} {children} {iconRight}
       </>,

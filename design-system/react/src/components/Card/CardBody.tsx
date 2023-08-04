@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -14,9 +14,9 @@ import { styles } from './styles';
 const _CardBody = _unstable_createComponent<CardBodyDef>(
   Components.CardBody,
   ({ as = 'div', children, ...props }) => {
-    const classes = useStyles(styles, props as any, ['body']);
-    const elementProps = { ...props, className: classes.body.className };
-    return createElement(as, elementProps, children);
+    const classes = useStyles(styles, props, ['body']);
+    const elementProps = { ...props, ...classes.body };
+    return _unstable_createEl(as, elementProps, children);
   },
 );
 

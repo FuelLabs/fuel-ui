@@ -171,7 +171,7 @@ const Root = styled('div');
 export const Box = _unstable_createComponent<BoxProps>(
   ({ className, children, ...props }) => {
     const classes = cx('fuel_Box', className);
-    return createElement(Root, { ...props, className: classes }, children);
+    return _unstable_createEl(Root, { ...props, className: classes }, children);
   },
 );
 ```

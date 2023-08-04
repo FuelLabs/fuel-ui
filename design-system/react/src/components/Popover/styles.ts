@@ -1,7 +1,5 @@
 import { keyframes, css } from '@fuel-ui/css';
 
-import { close } from '../Drawer/styles';
-
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(2px)' },
   '100%': { opacity: 1, transform: 'translateY(0)' },
@@ -48,4 +46,13 @@ export const content = css({
   },
 });
 
-export const closeButton = css(close);
+export const closeButton = css({
+  position: 'absolute',
+  top: '$3',
+  right: '$3',
+  padding: '$0',
+
+  '.fuel_Icon': {
+    color: '$textInverse',
+  },
+});

@@ -1,8 +1,7 @@
-import { createElement } from 'react';
 import RectContentLoader from 'react-content-loader';
 import { Components } from '~/defs';
 import { useFuelTheme } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
+import { _unstable_createComponent, _unstable_createEl } from '~/utils';
 
 import { Rect } from './ContentLoaderRect';
 import type { ContentLoaderProps } from './defs';
@@ -29,7 +28,7 @@ export const ContentLoader = _unstable_createComponent(
       ...props,
     };
 
-    return createElement(RectContentLoader, elementProps, children);
+    return _unstable_createEl(RectContentLoader, elementProps, children);
   },
 );
 

@@ -56,6 +56,13 @@ import type {
   DialogTriggerDef,
 } from './components/Dialog/defs';
 import type {
+  DrawerBodyDef,
+  DrawerCloseDef,
+  DrawerContentDef,
+  DrawerDef,
+  DrawerTriggerDef,
+} from './components/Drawer/defs';
+import type {
   DropdownDef,
   DropdownMenuDef,
   DropdownMenuItemDef,
@@ -213,6 +220,11 @@ export type StoreDefs = {
   Checkbox: CheckboxDef;
   Copyable: CopyableDef;
   Container: ContainerDef;
+  Drawer: DrawerDef;
+  DrawerBody: DrawerBodyDef;
+  DrawerClose: DrawerCloseDef;
+  DrawerContent: DrawerContentDef;
+  DrawerTrigger: DrawerTriggerDef;
   Dialog: DialogDef;
   DialogContent: DialogContentDef;
   DialogTrigger: DialogTriggerDef;

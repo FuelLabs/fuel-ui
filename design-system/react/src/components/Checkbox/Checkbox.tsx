@@ -1,9 +1,8 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { createElement } from 'react';
 import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useStyles } from '~/hooks';
 
-import { _unstable_createComponent } from '../../utils';
+import { _unstable_createComponent, _unstable_createEl } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
 import { Icon } from '../Icon';
 
@@ -23,17 +22,16 @@ export const Checkbox = _unstable_createComponent<CheckboxDef>(
     const readonly = isReadOnly || formControlProps.isReadOnly;
     const classes = useStyles(styles, props);
     const indicatorClass = classes.indicator.className;
-    const elementProps = useElementProps(props, classes.root);
-
     const customProps = {
-      ...elementProps,
+      ...props,
+      ...classes.root,
       disabled,
       'aria-disabled': disabled,
       'aria-readonly': readonly,
       required: props.required || formControlProps.isRequired,
     };
 
-    return createElement(
+    return _unstable_createEl(
       CheckboxPrimitive.Root,
       customProps,
       <CheckboxPrimitive.CheckboxIndicator className={indicatorClass}>

@@ -1,47 +1,25 @@
-import { cx } from '@fuel-ui/css';
-import type { ReactElement } from 'react';
-import { Children, cloneElement } from 'react';
-import { createComponent } from '~/utils';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { useAsChild } from '~/hooks/useAsChild';
+import { _unstable_createComponent } from '~/utils';
 
-import type { ButtonProps } from '..';
-import { Button } from '..';
+import { useDrawer } from './Drawer';
+import type { DrawerTriggerDef } from './defs';
+import { styles } from './styles';
 
-import { useDrawer } from '.';
+export const DrawerTrigger = _unstable_createComponent<DrawerTriggerDef>(
+  Components.DrawerTrigger,
+  (props) => {
+    const classes = useStyles(styles, props, ['trigger']);
+    const { state } = useDrawer();
+    return useAsChild({
+      ...props,
+      ...classes.trigger,
+      onPress: state?.toggle,
+    });
+  },
+);
 
-type ElementType = 'button';
-type DrawerTriggerProps = ButtonProps & {
-  asChild?: boolean;
+DrawerTrigger.defaultProps = {
+  asChild: true,
 };
-
-export const DrawerTrigger = createComponent<
-  DrawerTriggerProps,
-  unknown,
-  unknown,
-  ElementType
->(({ className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_DrawerTrigger', className);
-  const { state } = useDrawer();
-
-  function handleToggle() {
-    state?.toggle();
-  }
-
-  if (asChild) {
-    return (
-      <>
-        {Children.toArray(Children.only(children)).map((child) => {
-          return cloneElement(child as ReactElement, {
-            onPress: handleToggle,
-            className: classes,
-          });
-        })}
-      </>
-    );
-  }
-
-  return (
-    <Button {...props} onPress={handleToggle}>
-      {children}
-    </Button>
-  );
-});

@@ -22,23 +22,18 @@ export type AlertDialogNS = {
 };
 
 export type AlertDialogProps = RAL.AlertDialogProps;
-
 export type AlertDialogActionProps = RAL.AlertDialogActionProps;
-
 export type AlertDialogCancelProps = RAL.AlertDialogCancelProps;
-
 export type AlertDialogContentProps = RAL.AlertDialogContentProps & {
   overlayClassName?: string;
 };
 
 export type AlertDialogDescriptionProps = RAL.AlertDialogDescriptionProps;
-
 export type AlertDialogFooterProps = HTMLProps['footer'] & {
   align?: 'start' | 'end';
 };
 
 export type AlertDialogHeadingProps = RAL.AlertDialogTitleProps;
-
 export type AlertDialogTriggerProps = RAL.AlertDialogTriggerProps;
 
 export type AlertDialogDef = CreateComponent<{
@@ -47,6 +42,7 @@ export type AlertDialogDef = CreateComponent<{
   element: HTMLDivElement;
   props: AlertDialogProps;
   namespace: AlertDialogNS;
+  omit: 'as';
   styles:
     | 'root'
     | 'description'
@@ -57,7 +53,6 @@ export type AlertDialogDef = CreateComponent<{
     | 'overlay'
     | 'cancel'
     | 'action';
-  omit: 'as';
 }>;
 
 export type AlertDialogActionDef = CreateComponent<{
