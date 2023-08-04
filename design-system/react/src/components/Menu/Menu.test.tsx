@@ -1,4 +1,4 @@
-import { render, testA11y, screen } from '@fuel-ui/test-utils';
+import { render, testA11y, screen } from '@fuels/jest';
 import React from 'react';
 
 import type { MenuProps } from './Menu';
@@ -40,7 +40,7 @@ describe('Menu', () => {
         onAction={(key: React.Key) => {
           item = key;
         }}
-      />
+      />,
     );
 
     await user.press('Enter');
@@ -54,7 +54,7 @@ describe('Menu', () => {
         onAction={(key: React.Key) => {
           item = key;
         }}
-      />
+      />,
     );
 
     await user.press('ArrowDown');
@@ -69,7 +69,7 @@ describe('Menu', () => {
         onAction={(key: React.Key) => {
           item = key;
         }}
-      />
+      />,
     );
 
     await user.press('ArrowDown');

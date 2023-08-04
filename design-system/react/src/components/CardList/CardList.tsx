@@ -1,3 +1,6 @@
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+
 import { _unstable_createComponent } from '../../utils';
 import { Box } from '../Box';
 import { Focus } from '../Focus';
@@ -6,9 +9,6 @@ import { CardListItem } from './CardListItem';
 import type * as t from './defs';
 import { CardListContext } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
 
 export const CardList = _unstable_createComponent<t.CardListDef>(
   Components.CardList,
@@ -28,7 +28,7 @@ export const CardList = _unstable_createComponent<t.CardListDef>(
         </Box.Stack>
       </CardListContext.Provider>
     );
-  }
+  },
 );
 
 CardList.Item = CardListItem;

@@ -1,12 +1,12 @@
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
+
 import { Icon, IconButton } from '..';
 
 import { useDrawer } from './Drawer';
 import type { DrawerCloseDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
 
 export const DrawerClose = _unstable_createComponent<DrawerCloseDef>(
   Components.DrawerClose,
@@ -31,5 +31,5 @@ export const DrawerClose = _unstable_createComponent<DrawerCloseDef>(
         onPress={handleClose}
       />
     );
-  }
+  },
 );

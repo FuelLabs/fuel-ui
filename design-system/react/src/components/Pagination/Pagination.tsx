@@ -85,7 +85,7 @@ export const Pagination = createComponent<PaginationProps, ObjProps>(
         </Focus.ArrowNavigator>
       </ctx.Provider>
     );
-  }
+  },
 );
 
 Pagination.Items = PaginationItems;

@@ -3,8 +3,8 @@ import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 
-import type { CardProps } from './Card';
 import { Card } from './Card';
+import type { CardProps } from './defs';
 
 export default {
   component: Card,

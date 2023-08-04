@@ -1,5 +1,7 @@
 import * as AC from '@radix-ui/react-accordion';
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useElementProps, useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 import { Icon } from '../Icon';
@@ -7,14 +9,11 @@ import { Icon } from '../Icon';
 import type * as t from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
-
 export const AccordionTrigger =
   _unstable_createComponent<t.AccordionTriggerDef>(
     Components.AccordionTrigger,
     ({ children, ...props }) => {
-      const classes = useStyles(styles, {}, [
+      const classes = useStyles(styles, props, [
         'header',
         'root',
         'icon',
@@ -32,7 +31,7 @@ export const AccordionTrigger =
             aria-hidden
             className={classes.icon.className}
           />
-        </AC.AccordionTrigger>
+        </AC.AccordionTrigger>,
       );
-    }
+    },
   );

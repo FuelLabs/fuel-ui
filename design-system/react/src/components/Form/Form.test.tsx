@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { render, screen, testA11y } from '@fuels/jest';
 import type { PropsWithChildren } from 'react';
 
 import { Input } from '../Input';
@@ -41,7 +41,7 @@ describe('Form', () => {
     const { container } = render(
       <FormComponent>
         <Form.HelperText>We will never share your email</Form.HelperText>
-      </FormComponent>
+      </FormComponent>,
     );
 
     const input = container.querySelector('input');
@@ -53,7 +53,7 @@ describe('Form', () => {
       <FormComponent isInvalid>
         <Form.HelperText>We will never share your email</Form.HelperText>
         <Form.ErrorMessage>Wrong Format</Form.ErrorMessage>
-      </FormComponent>
+      </FormComponent>,
     );
 
     const input = container.querySelector('input');
@@ -65,11 +65,11 @@ describe('Form', () => {
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-required',
-      'true'
+      'true',
     );
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-disabled',
-      'true'
+      'true',
     );
   });
 
@@ -78,7 +78,7 @@ describe('Form', () => {
       <FormComponent isInvalid>
         <Form.HelperText>We will never share your email</Form.HelperText>
         <Form.ErrorMessage>Wrong Format</Form.ErrorMessage>
-      </FormComponent>
+      </FormComponent>,
     );
 
     const helperText = container.querySelector('.fuel_FormHelperText');
@@ -93,7 +93,7 @@ describe('Form', () => {
       <FormComponent>
         <Form.HelperText>We will never share your email</Form.HelperText>
         <Form.ErrorMessage>Wrong Format</Form.ErrorMessage>
-      </FormComponent>
+      </FormComponent>,
     );
 
     const helperText = container.querySelector('.fuel_FormHelperText');

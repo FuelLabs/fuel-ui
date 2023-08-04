@@ -4,7 +4,9 @@ import { createStyle } from '~/hooks';
 export const styles = createStyle(Components.CardList, {
   root: {},
   item: {
+    is: ['centered'],
     layer: 'layer-card',
+    flexDirection: 'row',
     position: 'relative',
     overflow: 'hidden',
     padding: '$4 !important',

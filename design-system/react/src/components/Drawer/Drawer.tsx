@@ -10,6 +10,8 @@ import {
 } from 'react';
 import { OverlayContainer, useOverlay } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import { _unstable_createComponent } from '../../utils';
 
@@ -19,9 +21,6 @@ import { DrawerContent } from './DrawerContent';
 import { DrawerTrigger } from './DrawerTrigger';
 import type { DrawerContext, DrawerDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
 
 export const DrawerCtx = createContext<DrawerContext>({} as DrawerContext);
 
@@ -56,7 +55,7 @@ export const Drawer = _unstable_createComponent<DrawerDef>(
           state.close();
         },
       },
-      ref
+      ref,
     );
 
     const ctxProps = {
@@ -98,7 +97,7 @@ export const Drawer = _unstable_createComponent<DrawerDef>(
     return (
       <DrawerCtx.Provider value={ctxProps}>{customChildren}</DrawerCtx.Provider>
     );
-  }
+  },
 );
 
 Drawer.Body = DrawerBody;

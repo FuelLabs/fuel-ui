@@ -3,17 +3,16 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { AnimationProps } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { FocusScope, usePreventScroll, useDialog, useModal } from 'react-aria';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { useClickAway } from '~/hooks/useClickAway';
+import { _unstable_createComponent } from '~/utils';
 
 import { Box } from '..';
 
 import { useDrawer } from './Drawer';
 import type { DrawerContentDef } from './defs';
 import { getSize, styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-import { useClickAway } from '~/hooks/useClickAway';
-import { _unstable_createComponent } from '~/utils';
 
 const MotionBox = motion<any>(Box);
 const SPRING: AnimationProps['transition'] = {
@@ -68,7 +67,7 @@ export const DrawerContent = _unstable_createComponent<DrawerContentDef>(
         </FocusScope>
       </Box>
     );
-  }
+  },
 );
 
 DrawerContent.id = 'DrawerContent';

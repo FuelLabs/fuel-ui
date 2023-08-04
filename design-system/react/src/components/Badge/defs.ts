@@ -1,5 +1,4 @@
 import type { LayerIntent } from '@fuel-ui/css';
-
 import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
 

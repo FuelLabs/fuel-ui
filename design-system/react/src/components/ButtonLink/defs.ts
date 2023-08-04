@@ -1,7 +1,7 @@
-import type { ButtonProps } from '../Button/defs';
-
 import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
+
+import type { ButtonProps } from '../Button/defs';
 
 type PropsToOmit = 'isLink' | 'variant';
 

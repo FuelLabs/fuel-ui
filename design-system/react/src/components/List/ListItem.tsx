@@ -41,7 +41,7 @@ export const ListItem = createComponent<ListProps>(
         {children}
       </Text>
     );
-  }
+  },
 );
 
 const style = css({

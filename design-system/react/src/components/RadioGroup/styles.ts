@@ -9,6 +9,7 @@ export const root = css({
 });
 
 export const item = css({
+  is: ['display'],
   all: 'unset',
   cursor: 'pointer',
   overflow: 'clip',
@@ -50,6 +51,10 @@ export const item = css({
 
   '&[aria-disabled=true]': {
     cursor: 'default',
+
+    '& span::after': {
+      backgroundColor: '$inputDisabledColor !important',
+    },
   },
 
   '&[aria-disabled=true]:not([data-state="unchecked"])': {

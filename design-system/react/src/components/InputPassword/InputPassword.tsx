@@ -66,5 +66,5 @@ export const InputPassword = createComponent<InputPasswordProps>(
         />
       </Input>
     );
-  }
+  },
 );

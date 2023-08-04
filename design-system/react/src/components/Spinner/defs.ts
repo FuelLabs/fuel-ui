@@ -1,5 +1,4 @@
 import type { ColorKeys, Colors } from '@fuel-ui/css';
-
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
 

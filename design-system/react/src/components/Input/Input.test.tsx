@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuel-ui/test-utils';
+import { render, screen, testA11y } from '@fuels/jest';
 
 import { Button } from '../Button';
 
@@ -15,7 +15,7 @@ describe('Input', () => {
     await testA11y(
       <Input>
         <Input.Field {...FIELD_ARGS} />
-      </Input>
+      </Input>,
     );
   });
 
@@ -23,7 +23,7 @@ describe('Input', () => {
     const { container } = render(
       <Input>
         <Input.Field {...FIELD_ARGS} />
-      </Input>
+      </Input>,
     );
 
     expect(container.querySelector('input')).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe('Input', () => {
         <Input.AddonLeft>https://</Input.AddonLeft>
         <Input.Field {...FIELD_ARGS} />
         <Input.AddonRight>.com</Input.AddonRight>
-      </Input>
+      </Input>,
     );
 
     expect(screen.getByRole('textbox')).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe('Input', () => {
     render(
       <Input isInvalid>
         <Input.Field {...FIELD_ARGS} />
-      </Input>
+      </Input>,
     );
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
   });
@@ -57,11 +57,11 @@ describe('Input', () => {
     render(
       <Input isDisabled>
         <Input.Field {...FIELD_ARGS} />
-      </Input>
+      </Input>,
     );
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-disabled',
-      'true'
+      'true',
     );
   });
 
@@ -69,11 +69,11 @@ describe('Input', () => {
     render(
       <Input isReadOnly>
         <Input.Field {...FIELD_ARGS} />
-      </Input>
+      </Input>,
     );
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-readonly',
-      'true'
+      'true',
     );
   });
 
@@ -81,7 +81,7 @@ describe('Input', () => {
     render(
       <Input>
         <Input.Number placeholder="0.0" />
-      </Input>
+      </Input>,
     );
     expect(screen.getByRole('textbox')).toHaveAttribute('inputmode', 'numeric');
   });
@@ -91,7 +91,7 @@ describe('Input', () => {
       <Input isDisabled>
         <Input.Field {...FIELD_ARGS} />
         <Input.ElementRight element={<Button>Click</Button>} />
-      </Input>
+      </Input>,
     );
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
@@ -103,7 +103,7 @@ describe('Input', () => {
         <Input.ElementRight>
           <Button>Click</Button>
         </Input.ElementRight>
-      </Input>
+      </Input>,
     );
 
     expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
@@ -116,7 +116,7 @@ describe('Input', () => {
         <Input.ElementRight>
           <Button>Click</Button>
         </Input.ElementRight>
-      </Input>
+      </Input>,
     );
 
     expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
@@ -129,7 +129,7 @@ describe('Input', () => {
         <Input.ElementRight>
           <Button>Click</Button>
         </Input.ElementRight>
-      </Input>
+      </Input>,
     );
 
     await user.tab();

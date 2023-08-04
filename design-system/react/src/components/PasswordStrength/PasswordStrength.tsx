@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
+import { createComponent } from '~/utils';
 
 import { Flex } from '../Box/Flex';
 import { Stack } from '../Box/Stack';
@@ -7,14 +8,13 @@ import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 import type { PopoverProps } from '../Popover';
 import { Popover } from '../Popover';
+import { Spinner } from '../Spinner';
 import { Text } from '../Text';
 
 import { StrengthIndicator } from './StrengthIndicator';
 import type { PasswordDictionary } from './constants';
 import { usePasswordStrength } from './hooks';
 import { styles } from './styles';
-
-import { createComponent } from '~/utils';
 
 export type PasswordStrengthProps = {
   password: string;
@@ -31,6 +31,7 @@ export const PasswordStrength = createComponent<
   ObjProps
 >(({ password, children, minLength = 6, onChangeStrength, ...props }) => {
   const {
+    loading,
     strength,
     label,
     checker: {
@@ -45,7 +46,9 @@ export const PasswordStrength = createComponent<
     onChangeStrength?.(strength);
   }, [strength, onChangeStrength]);
 
-  const popoverContent = (
+  const popoverContent = loading ? (
+    <Spinner />
+  ) : (
     <>
       <Flex css={styles.popoverContainer}>
         <Heading as="h5" css={styles.heading}>

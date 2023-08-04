@@ -4,12 +4,11 @@ import type { ThemeUtilsCSS, CSSFnParams } from '@fuel-ui/css';
 import { useMemo } from 'react';
 import { mergeProps } from 'react-aria';
 import { create } from 'zustand';
-
-import { useFuelTheme } from './useTheme';
-
 import type { StoreDefs } from '~/defs';
 import { fClass } from '~/utils/css';
 import { mergeDeep, omit } from '~/utils/helpers';
+
+import { useFuelTheme } from './useTheme';
 
 type DefKeys = keyof StoreDefs;
 type CSSFnReturn = ReturnType<typeof css>;
@@ -81,7 +80,7 @@ export function createStyle<K extends DefKeys>(
   name: K,
   styles: StoreDefs[K]['styles'] extends string
     ? Record<StoreDefs[K]['styles'], CSSFnParams>
-    : never
+    : never,
 ) {
   const state = useStore.getState();
   const newItem = { name, styles };
@@ -91,8 +90,8 @@ export function createStyle<K extends DefKeys>(
 
 export function useStyles<K extends DefKeys, F>(
   style: Style<K>,
-  props: Partial<Props<K>> = {},
-  filter?: F extends string[] ? F : any[]
+  props: Record<any, any> = {},
+  filter?: F extends string[] ? F : any[],
 ) {
   type Classes = StoreDefs[K]['styles'] extends string
     ? Record<StoreDefs[K]['styles'], { className: string }>

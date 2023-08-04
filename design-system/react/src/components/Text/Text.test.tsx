@@ -1,4 +1,4 @@
-import { render, testA11y } from '@fuel-ui/test-utils';
+import { render, testA11y } from '@fuels/jest';
 
 import { Text } from './Text';
 

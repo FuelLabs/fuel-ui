@@ -24,7 +24,7 @@ describe('Support @import', () => {
     })();
 
     expect(getCssText()).toBe(
-      `@import "${importURL1}";@import "${importURL2}";`
+      `@import "${importURL1}";@import "${importURL2}";`,
     );
   });
 
@@ -73,7 +73,7 @@ describe('Support @font-face', () => {
         `font-weight:400;` +
         `src:local(".SFNS-Regular"),local(".SFNSText-Regular"),local(".HelveticaNeueDeskInterface-Regular"),local(".LucidaGrandeUI"),local("Segoe UI"),local("Ubuntu"),local("Roboto-Regular"),local("DroidSans"),local("Tahoma")` +
         `}` +
-        `}`
+        `}`,
     );
   });
 
@@ -132,7 +132,7 @@ describe('Support @font-face', () => {
         `font-weight:400;` +
         `src:local(".SFNS-Italic"),local(".SFNSText-Italic"),local(".HelveticaNeueDeskInterface-Italic"),local(".LucidaGrandeUI"),local("Segoe UI Italic"),local("Ubuntu Italic"),local("Roboto-Italic"),local("DroidSans"),local("Tahoma")` +
         `}` +
-        `}`
+        `}`,
     );
   });
 });

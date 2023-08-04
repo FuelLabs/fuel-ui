@@ -1,4 +1,4 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from '@fuels/jest';
 
 import { Button } from '../Button';
 
@@ -9,7 +9,7 @@ describe('Popover', () => {
     await testA11y(
       <Popover content={<div>Hello world</div>}>
         <Button>Click here</Button>
-      </Popover>
+      </Popover>,
     );
   });
 });

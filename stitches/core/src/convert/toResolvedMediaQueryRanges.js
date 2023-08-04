@@ -3,7 +3,7 @@ const mqunit = /([\d.]+)([^]*)/;
 /** Returns a media query with polyfilled ranges. */
 export const toResolvedMediaQueryRanges = (
   /** @type {string} */
-  media
+  media,
 ) =>
   media.replace(
     /\(\s*([\w-]+)\s*(=|<|<=|>|>=)\s*([\w-]+)\s*(?:(<|<=|>|>=)\s*([\w-]+)\s*)?\)/g,
@@ -18,7 +18,7 @@ export const toResolvedMediaQueryRanges = (
       /** @type {string} Optional 2nd operator. */
       o2,
       /** @type {string} Optional 3rd param, always a value in the query.*/
-      p3
+      p3,
     ) => {
       /** Whether the first param is a value. */
       const isP1Value = mqunit.test(p1);
@@ -36,7 +36,7 @@ export const toResolvedMediaQueryRanges = (
         (o1[0] !== '=' && o1.length === 1
           ? value.replace(
               mqunit,
-              (_, v, u) => Number(v) + shift * (o1 === '>' ? 1 : -1) + u
+              (_, v, u) => Number(v) + shift * (o1 === '>' ? 1 : -1) + u,
             )
           : value) +
         (o2
@@ -47,11 +47,11 @@ export const toResolvedMediaQueryRanges = (
               (o2.length === 1
                 ? p3.replace(
                     mqunit,
-                    (_, v, u) => Number(v) + shift * (o2 === '>' ? -1 : 1) + u
+                    (_, v, u) => Number(v) + shift * (o2 === '>' ? -1 : 1) + u,
                   )
                 : p3))
           : '') +
         ')'
       );
-    }
+    },
   );

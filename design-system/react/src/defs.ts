@@ -36,9 +36,25 @@ import type {
 import type { ButtonDef } from './components/Button/defs';
 import type { ButtonGroupDef } from './components/ButtonGroup/defs';
 import type { ButtonLinkDef } from './components/ButtonLink/defs';
+import type {
+  CardBodyDef,
+  CardDef,
+  CardFooterDef,
+  CardHeaderDef,
+} from './components/Card/defs';
 import type { CardListDef, CardListItemDef } from './components/CardList/defs';
 import type { CheckboxDef } from './components/Checkbox/defs';
+import type { ContentLoaderDef } from './components/ContentLoader/defs';
 import type { CopyableDef } from './components/Copyable/defs';
+import type {
+  DialogCloseDef,
+  DialogContentDef,
+  DialogDef,
+  DialogDescriptionDef,
+  DialogFooterDef,
+  DialogHeadingDef,
+  DialogTriggerDef,
+} from './components/Dialog/defs';
 import type {
   DrawerBodyDef,
   DrawerCloseDef,
@@ -46,6 +62,12 @@ import type {
   DrawerDef,
   DrawerTriggerDef,
 } from './components/Drawer/defs';
+import type {
+  DropdownDef,
+  DropdownMenuDef,
+  DropdownMenuItemDef,
+  DropdownTriggerDef,
+} from './components/Dropdown/defs';
 import type { HeadingDef } from './components/Heading/defs';
 import type { HelperIconDef } from './components/HelperIcon/defs';
 import type { IconDef } from './components/Icon/defs';
@@ -188,6 +210,10 @@ export type StoreDefs = {
   BoxCentered: BoxCenteredDef;
   Button: ButtonDef;
   ButtonGroup: ButtonGroupDef;
+  Card: CardDef;
+  CardBody: CardBodyDef;
+  CardFooter: CardFooterDef;
+  CardHeader: CardHeaderDef;
   ButtonLink: ButtonLinkDef;
   CardList: CardListDef;
   CardListItem: CardListItemDef;
@@ -199,6 +225,18 @@ export type StoreDefs = {
   DrawerClose: DrawerCloseDef;
   DrawerContent: DrawerContentDef;
   DrawerTrigger: DrawerTriggerDef;
+  Dialog: DialogDef;
+  DialogContent: DialogContentDef;
+  DialogTrigger: DialogTriggerDef;
+  DialogHeading: DialogHeadingDef;
+  DialogDescription: DialogDescriptionDef;
+  DialogFooter: DialogFooterDef;
+  DialogClose: DialogCloseDef;
+  ContentLoader: ContentLoaderDef;
+  Dropdown: DropdownDef;
+  DropdownTrigger: DropdownTriggerDef;
+  DropdownMenu: DropdownMenuDef;
+  DropdownMenuItem: DropdownMenuItemDef;
   Image: ImageDef;
   Flex: FlexDef;
   Heading: HeadingDef;

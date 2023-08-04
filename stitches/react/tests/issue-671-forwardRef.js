@@ -8,11 +8,11 @@ describe('Issue #671 - forwardRef', () => {
 
     const StyledBase = styled('div', { color: 'black' });
     const ForwardRefReactComponent = React.forwardRef((props, ref) =>
-      React.createElement(StyledBase, { ...props, ref })
+      React.createElement(StyledBase, { ...props, ref }),
     );
     const StitshcesComponentExtendingForwardRefReactComponent = styled(
       ForwardRefReactComponent,
-      { color: 'white' }
+      { color: 'white' },
     );
 
     const App = () => {
@@ -21,8 +21,8 @@ describe('Issue #671 - forwardRef', () => {
         null,
         React.createElement(
           StitshcesComponentExtendingForwardRefReactComponent,
-          {}
-        )
+          {},
+        ),
       );
     };
 
@@ -32,7 +32,7 @@ describe('Issue #671 - forwardRef', () => {
 
     test('a stitches component extending a forwardRef react component will inject the styles in the correct order', () => {
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 fuel_fjEkWJ fuel_bjcmt}@media{.fuel_bjcmt{color:black}.fuel_fjEkWJ{color:white}}`
+        `--sxs{--sxs:2 fuel_fjEkWJ fuel_bjcmt}@media{.fuel_bjcmt{color:black}.fuel_fjEkWJ{color:white}}`,
       );
     });
   }

@@ -1,9 +1,8 @@
 import type { Colors, utils } from '@fuel-ui/css';
-
-import type { IconProps } from '../Icon';
-
 import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
+
+import type { IconProps } from '../Icon';
 
 export type TextProps = HTMLProps['p'] & {
   fontSize?: utils.TextSizes;

@@ -3,7 +3,7 @@ import { toHyphenCase } from './toHyphenCase.js';
 /** Returns a declaration sizing value with polyfilled sizing keywords. */
 export const toSizingValue = (
   /** @type {string} */ declarationName,
-  /** @type {string} */ declarationValue
+  /** @type {string} */ declarationValue,
 ) =>
   declarationName in sizeProps && typeof declarationValue === 'string'
     ? declarationValue.replace(
@@ -12,12 +12,12 @@ export const toSizingValue = (
           lead +
           (main === 'stretch'
             ? `-moz-available${tail};${toHyphenCase(
-                declarationName
+                declarationName,
               )}:${lead}-webkit-fill-available`
             : `-moz-fit-content${tail};${toHyphenCase(
-                declarationName
+                declarationName,
               )}:${lead}fit-content`) +
-          tail
+          tail,
       )
     : String(declarationValue);
 

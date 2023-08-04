@@ -35,7 +35,7 @@ describe('Basic', () => {
     expect(component2of2).toBeInstanceOf(Function);
     expect(className2of2).toBe('fuel_dataoT');
     expect(cssString2of2).toBe(
-      `--sxs{--sxs:2 PJLV fuel_dataoT}@media{.fuel_dataoT{color:DodgerBlue}}`
+      `--sxs{--sxs:2 PJLV fuel_dataoT}@media{.fuel_dataoT{color:DodgerBlue}}`,
     );
   });
 
@@ -88,7 +88,7 @@ describe('Basic', () => {
     expect(rendering1of1).toBeInstanceOf(Function);
     expect(className1of1).toBe('k-jOrSYg');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:1 k-jOrSYg}@media{@keyframes k-jOrSYg{0%{color:Black}100%{color:White}}}`
+      `--sxs{--sxs:1 k-jOrSYg}@media{@keyframes k-jOrSYg{0%{color:Black}100%{color:White}}}`,
     );
   });
 
@@ -108,7 +108,7 @@ describe('Basic', () => {
     expect(rendering1of1).toBeInstanceOf(Object);
     expect(className1of1).toBe('t-kfidiM');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:0 t-kfidiM}@media{.t-kfidiM{--colors-red:Crimson;--colors-blue:DodgerBlue}}`
+      `--sxs{--sxs:0 t-kfidiM}@media{.t-kfidiM{--colors-red:Crimson;--colors-blue:DodgerBlue}}`,
     );
   });
 
@@ -127,7 +127,7 @@ describe('Basic', () => {
         `}` +
         `--sxs{--sxs:6 fuel_dataoT-icaIZdx-css}@media{` +
         `.fuel_dataoT-icaIZdx-css{color:Crimson}` +
-        `}`
+        `}`,
     );
   });
 
@@ -153,7 +153,7 @@ describe('Basic', () => {
     expect(component1of1).toBeInstanceOf(Function);
     expect(className1of1).toBe('fuel_imTdEZ fuel_imTdEZ-caIZdx-shade-red');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 fuel_imTdEZ}@media{.fuel_imTdEZ{font-size:100%}}--sxs{--sxs:3 fuel_imTdEZ-caIZdx-shade-red}@media{.fuel_imTdEZ-caIZdx-shade-red{color:Crimson}}`
+      `--sxs{--sxs:2 fuel_imTdEZ}@media{.fuel_imTdEZ{font-size:100%}}--sxs{--sxs:3 fuel_imTdEZ-caIZdx-shade-red}@media{.fuel_imTdEZ-caIZdx-shade-red{color:Crimson}}`,
     );
   });
 
@@ -175,7 +175,7 @@ describe('Basic', () => {
 
     expect(className1of1).toBe('fuel_bStdfw');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 fuel_bStdfw}@media{.fuel_bStdfw{-webkit-user-selector:none;user-select:none}}`
+      `--sxs{--sxs:2 fuel_bStdfw}@media{.fuel_bStdfw{-webkit-user-selector:none;user-select:none}}`,
     );
   });
 
@@ -190,7 +190,7 @@ describe('Basic', () => {
 
     expect(className1of1).toBe('fuel_eBcQxc');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 fuel_eBcQxc}@media{.fuel_eBcQxc{width:100px}}`
+      `--sxs{--sxs:2 fuel_eBcQxc}@media{.fuel_eBcQxc{width:100px}}`,
     );
   });
 
@@ -206,7 +206,7 @@ describe('Basic', () => {
 
     expect(className1of1).toBe('fuel_lpaZZu');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 fuel_lpaZZu}@media{.fuel_lpaZZu{width:var(--sizes-brand)}}`
+      `--sxs{--sxs:2 fuel_lpaZZu}@media{.fuel_lpaZZu{width:var(--sizes-brand)}}`,
     );
   });
 
@@ -223,7 +223,7 @@ describe('Basic', () => {
 
     expect(className1of1).toBe('fuel_elRGCe');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 fuel_elRGCe}@media{.fuel_elRGCe{---brand:500px;width:var(---brand)}}`
+      `--sxs{--sxs:2 fuel_elRGCe}@media{.fuel_elRGCe{---brand:500px;width:var(---brand)}}`,
     );
   });
 
@@ -242,7 +242,7 @@ describe('Basic', () => {
 
     expect(className1of1).toBe('fusion-fuel_elRGCe');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 fusion-fuel_elRGCe}@media{.fusion-fuel_elRGCe{--fusion--brand:500px;width:var(--fusion--brand)}}`
+      `--sxs{--sxs:2 fusion-fuel_elRGCe}@media{.fusion-fuel_elRGCe{--fusion--brand:500px;width:var(--fusion--brand)}}`,
     );
   });
 
@@ -266,7 +266,7 @@ describe('Basic', () => {
 
     expect(className1of1).toBe('fuel_brAtkJ');
     expect(cssString1of1).toBe(
-      `--sxs{--sxs:2 fuel_brAtkJ}@media{.fuel_brAtkJ{---blur:test;-webkit-backdrop-filter:var(---blur);backdrop-filter:var(---blur)}}`
+      `--sxs{--sxs:2 fuel_brAtkJ}@media{.fuel_brAtkJ{---blur:test;-webkit-backdrop-filter:var(---blur);backdrop-filter:var(---blur)}}`,
     );
   });
 
@@ -281,7 +281,7 @@ describe('Basic', () => {
     });
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:0 t-kfidiM}@media{:root,.t-kfidiM{--colors-red:Crimson;--colors-blue:DodgerBlue}}`
+      `--sxs{--sxs:0 t-kfidiM}@media{:root,.t-kfidiM{--colors-red:Crimson;--colors-blue:DodgerBlue}}`,
     );
   });
 });

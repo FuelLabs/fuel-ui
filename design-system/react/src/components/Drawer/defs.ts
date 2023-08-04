@@ -4,6 +4,8 @@ import type { AnimationProps } from 'framer-motion';
 import type { DOMAttributes, MutableRefObject } from 'react';
 import type { AriaOverlayProps } from 'react-aria';
 import type { OverlayTriggerProps, OverlayTriggerState } from 'react-stately';
+import type { Components } from '~/defs';
+import type { CreateComponent } from '~/utils';
 
 import type { BoxProps } from '../Box';
 import type { ButtonProps } from '../Button';
@@ -13,9 +15,6 @@ import type { DrawerBody } from './DrawerBody';
 import type { DrawerClose } from './DrawerClose';
 import type { DrawerContent } from './DrawerContent';
 import type { DrawerTrigger } from './DrawerTrigger';
-
-import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
 
 type DrawerSide = 'right' | 'left';
 type DrawerSize = 'sm' | 'md' | 'lg';

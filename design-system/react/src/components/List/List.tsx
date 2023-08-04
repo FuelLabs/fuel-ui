@@ -58,7 +58,7 @@ export const List = createComponent<ListProps, ObjProps>(
       className,
       styles({
         ...((type ? { type } : { type: false }) as any),
-      })
+      }),
     );
     return (
       <ctx.Provider value={{ icon, iconSize, iconColor, iconAriaLabel }}>
@@ -71,7 +71,7 @@ export const List = createComponent<ListProps, ObjProps>(
         </Root>
       </ctx.Provider>
     );
-  }
+  },
 );
 
 List.Item = ListItem;

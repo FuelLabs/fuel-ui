@@ -21,7 +21,7 @@ export const FormErrorMessage = createComponent<
   const classes = cx(
     'fuel_FormErrorMessage',
     className,
-    styles.errorMessage({})
+    styles.errorMessage({}),
   );
 
   const customProps = {

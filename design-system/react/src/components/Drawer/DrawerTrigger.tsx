@@ -1,15 +1,14 @@
 import type { ReactElement } from 'react';
 import { Children, cloneElement, createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent } from '~/utils';
 
 import { Button } from '..';
 
 import { useDrawer } from './Drawer';
 import type { DrawerTriggerDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
 
 export const DrawerTrigger = _unstable_createComponent<DrawerTriggerDef>(
   Components.DrawerTrigger,
@@ -35,5 +34,5 @@ export const DrawerTrigger = _unstable_createComponent<DrawerTriggerDef>(
     }
 
     return createElement(Button, { ...props, onPress: handleToggle }, children);
-  }
+  },
 );

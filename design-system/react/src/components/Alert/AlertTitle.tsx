@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles, useElementProps } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -10,9 +11,6 @@ import { Heading } from '../Heading';
 import type * as t from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useStyles, useElementProps } from '~/hooks';
-
 const _AlertTitle = _unstable_createComponent<t.AlertTitleDef>(
   Components.AlertTitle,
   ({ as = 'header', children, ...props }) => {
@@ -21,9 +19,9 @@ const _AlertTitle = _unstable_createComponent<t.AlertTitleDef>(
     return createElement(
       as,
       elementProps,
-      <Heading as="h2">{children}</Heading>
+      <Heading as="h2">{children}</Heading>,
     );
-  }
+  },
 );
 
 export const AlertTitle =

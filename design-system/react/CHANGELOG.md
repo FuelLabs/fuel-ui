@@ -1,5 +1,18 @@
 # @fuel-ui/react
 
+## 0.17.0
+
+### Minor Changes
+
+- 🐞 Fix Card and Card.Item layout, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#287](https://github.com/FuelLabs/fuel-ui/pull/287))
+
+## 0.16.2
+
+### Patch Changes
+
+- 🐞 Fix card list item to use upgraded design system functions, by [@matt-user](https://github.com/matt-user) (See [#285](https://github.com/FuelLabs/fuel-ui/pull/285))
+- Add a changeset in order to get a dev release on npm, by [@matt-user](https://github.com/matt-user) (See [#282](https://github.com/FuelLabs/fuel-ui/pull/282))
+
 ## 0.16.1
 
 ### Patch Changes
@@ -306,7 +319,7 @@
 - 🐞 Fix: pass machine for useMachine on ThemeProvider in a right way, by [@pedronauck](https://github.com/pedronauck) (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
 - Updated dependencies (See [#105](https://github.com/FuelLabs/fuel-ui/pull/105), [#105](https://github.com/FuelLabs/fuel-ui/pull/105), and [#105](https://github.com/FuelLabs/fuel-ui/pull/105))
   - @fuel-ui/css@0.2.0
-  - @fuel-ui/test-utils@0.2.0
+  - @fuels/jest@0.2.0
 
 ## 0.1.1
 
@@ -416,5 +429,5 @@
   ```
 - ⚠️ Fix default <Button> props when merge with useButton() props using mergeProps from react-aria, by [@pedronauck](https://github.com/pedronauck) (See [#82](https://github.com/FuelLabs/fuel-ui/pull/82))
 - Updated dependencies (See [#46](https://github.com/FuelLabs/fuel-ui/pull/46))
-  - @fuel-ui/test-utils@0.0.2
+  - @fuels/jest@0.0.2
   - @fuel-ui/css@0.0.2
