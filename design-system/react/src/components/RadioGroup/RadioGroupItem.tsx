@@ -3,7 +3,7 @@ import { cx } from '@fuel-ui/css';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import { useId } from 'react';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 import { Flex } from '../Box/Flex';
 import { Form } from '../Form';
 
@@ -49,7 +49,7 @@ export const RadioGroupItem = createComponent<
       ...(label && { 'aria-describedby': labelId }),
     };
 
-    const element = createStyledElement(
+    const element = useCreateStyledElement(
       RadioGroupPrimitive.Item,
       styles.item,
       null,
@@ -57,7 +57,7 @@ export const RadioGroupItem = createComponent<
       <RadioGroupPrimitive.Indicator
         aria-disabled={disabled}
         className={styles.indicator()}
-      />
+      />,
     );
 
     return (
@@ -73,7 +73,7 @@ export const RadioGroupItem = createComponent<
         </Form.Label>
       </Flex>
     );
-  }
+  },
 );
 
 RadioGroupItem.id = 'RadioGroupItem';

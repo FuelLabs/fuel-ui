@@ -1,30 +1,36 @@
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { _unstable_createComponent, _unstable_createEl } from '~/utils';
+
 import type { MenuProps } from '../Menu';
 import { Menu } from '../Menu';
 
 import { useDropdown } from './Dropdown';
+import type { DropdownMenuDef } from './defs';
+import { styles } from './styles';
 
-import { createComponent } from '~/utils';
-
-export type DropdownMenuProps = MenuProps;
-type ObjProps = {
-  id: string;
-};
-
-export const DropdownMenu = createComponent<DropdownMenuProps, ObjProps>(
+export const DropdownMenu = _unstable_createComponent<DropdownMenuDef>(
+  Components.DropdownMenu,
   (props) => {
     const { menuProps } = useDropdown();
-    return (
-      <Menu
-        {...props}
-        {...(menuProps as MenuProps)}
-        data-overlay
-        css={{
+    const classes = useStyles(
+      styles,
+      {
+        ...props,
+        css: {
           boxSizing: 'border-box',
           ...props.css,
-        }}
-      />
+        },
+      },
+      ['menu'],
     );
-  }
+
+    return _unstable_createEl(Menu, {
+      ...props,
+      ...classes.menu,
+      ...(menuProps as MenuProps),
+    });
+  },
 );
 
 DropdownMenu.id = 'DropdownMenu';

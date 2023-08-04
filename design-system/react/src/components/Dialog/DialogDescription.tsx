@@ -1,22 +1,22 @@
-import { cx } from '@fuel-ui/css';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import { createComponent, createStyledElement } from '../../utils';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '../../utils';
 
-import * as styles from './styles';
+import type { DialogDescriptionDef } from './defs';
+import { styles } from './styles';
 
-export type DialogDescriptionProps = {
-  className?: string;
-};
-
-export const DialogDescription = createComponent<DialogDescriptionProps>(
-  ({ as = 'div', className, children, ...props }) => {
-    const classes = cx('fuel_DialogDescription', className);
-    return createStyledElement(
-      as,
-      styles.description,
-      null,
-      { ...props, className: classes },
-      children
-    );
-  }
+const _DialogDescription = _unstable_createComponent<DialogDescriptionDef>(
+  Components.DialogDescription,
+  ({ as = 'div', ...props }) => {
+    const classes = useStyles(styles, props, ['description']);
+    return _unstable_createEl(as, { ...props, ...classes.description });
+  },
 );
+
+export const DialogDescription =
+  createPolymorphicComponent<DialogDescriptionDef>(_DialogDescription);

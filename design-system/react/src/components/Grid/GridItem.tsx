@@ -67,5 +67,5 @@ export const GridItem = createComponent<GridItemProps>(
         ...css,
       }}
     />
-  )
+  ),
 );

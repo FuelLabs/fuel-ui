@@ -1,61 +1,38 @@
-import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
-import type { ReactElement } from 'react';
-import { Children, cloneElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { useAsChild } from '~/hooks/useAsChild';
+import { _unstable_createComponent, omit } from '~/utils';
 
-import type { ButtonProps } from '..';
 import { Icon, Button } from '..';
 
-import { useDropdown } from '.';
+import { useDropdown } from './Dropdown';
+import type { DropdownTriggerDef } from './defs';
+import { styles } from './styles';
 
-import { createComponent } from '~/utils';
+export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
+  Components.DropdownTrigger,
+  ({ ref, ...props }) => {
+    const classes = useStyles(styles, props, ['trigger']);
+    const { state, triggerRef, menuTriggerProps } = useDropdown();
+    const rightIcon = state?.isOpen
+      ? Icon.is('ChevronUp')
+      : Icon.is('ChevronDown');
 
-type ElementType = 'button';
-type DropdownTriggerProps = ButtonProps & {
-  asChild?: boolean;
-};
+    const itemProps = {
+      ...props,
+      ...omit(['onPressStart'], menuTriggerProps),
+      ...classes.trigger,
+      ref: mergeRefs(ref, triggerRef),
+    };
 
-type ObjProps = {
-  id: string;
-};
-
-export const DropdownTrigger = createComponent<
-  DropdownTriggerProps,
-  ObjProps,
-  unknown,
-  ElementType
->(({ ref, className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_DropdownTrigger', className);
-  const { state, triggerRef } = useDropdown();
-
-  function handleToggle() {
-    state?.toggle();
-  }
-
-  if (asChild) {
-    return (
-      <>
-        {Children.toArray(Children.only(children)).map((child) => {
-          return cloneElement(child as ReactElement, {
-            ref: mergeRefs(ref, triggerRef as never),
-            onPress: handleToggle,
-            className: classes,
-          });
-        })}
-      </>
+    return useAsChild(
+      itemProps,
+      <Button {...itemProps} rightIcon={rightIcon}>
+        {props.children}
+      </Button>,
     );
-  }
-
-  return (
-    <Button
-      {...props}
-      ref={mergeRefs(ref, triggerRef as never)}
-      onPress={handleToggle}
-      rightIcon={state?.isOpen ? Icon.is('ChevronUp') : Icon.is('ChevronDown')}
-    >
-      {children}
-    </Button>
-  );
-});
+  },
+);
 
 DropdownTrigger.id = 'DropdownTrigger';

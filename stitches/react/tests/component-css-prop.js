@@ -13,7 +13,7 @@ describe('React Component with CSS prop', () => {
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 fuel_hhyRYU}@media{.fuel_hhyRYU{order:1}}--sxs{--sxs:6 fuel_hhyRYU-ilhKMMn-css}@media{.fuel_hhyRYU-ilhKMMn-css{order:2}}`
+      `--sxs{--sxs:2 fuel_hhyRYU}@media{.fuel_hhyRYU{order:1}}--sxs{--sxs:6 fuel_hhyRYU-ilhKMMn-css}@media{.fuel_hhyRYU-ilhKMMn-css{order:2}}`,
     );
   });
 
@@ -43,7 +43,7 @@ describe('React Component with CSS prop', () => {
     });
 
     expect(toString()).toBe(
-      `--sxs{--sxs:2 fuel_bHwuwj}@media{.fuel_bHwuwj{color:inherit}}--sxs{--sxs:6 fuel_bHwuwj-ibwrayD-css}@media{.fuel_bHwuwj-ibwrayD-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px}@media (min-width: 900px){.fuel_bHwuwj-ibwrayD-css{line-height:55px;color:red}}}`
+      `--sxs{--sxs:2 fuel_bHwuwj}@media{.fuel_bHwuwj{color:inherit}}--sxs{--sxs:6 fuel_bHwuwj-ibwrayD-css}@media{.fuel_bHwuwj-ibwrayD-css{font-weight:500;font-variant-numeric:proportional-nums;line-height:35px}@media (min-width: 900px){.fuel_bHwuwj-ibwrayD-css{line-height:55px;color:red}}}`,
     );
   });
 });

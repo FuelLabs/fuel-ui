@@ -1,19 +1,25 @@
-import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import { _unstable_createComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '../../utils';
 
-import type * as t from './defs';
+import type { AlertDialogFooterDef } from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+const _AlertDialogFooter = _unstable_createComponent<AlertDialogFooterDef>(
+  Components.AlertDialogFooter,
+  ({ as = 'footer', ...props }) => {
+    const classes = useStyles(styles, props, ['footer']);
+    return _unstable_createEl(as, {
+      ...props,
+      ...classes.footer,
+    });
+  },
+);
 
 export const AlertDialogFooter =
-  _unstable_createComponent<t.AlertDialogFooterDef>(
-    Components.AlertDialogFooter,
-    (props) => {
-      const classes = useStyles(styles, props, ['footer']);
-      const elementProps = useElementProps(props, classes.footer);
-      return createElement('footer', elementProps);
-    }
-  );
+  createPolymorphicComponent<AlertDialogFooterDef>(_AlertDialogFooter);

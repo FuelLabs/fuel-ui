@@ -21,7 +21,7 @@ describe('Tokens', () => {
         `:root,.t-iknykm{--colors-red:tomato}` +
         `}--sxs{--sxs:1 fMIGFF}@media{` +
         `article{color:var(--colors-red)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -45,7 +45,7 @@ describe('Tokens', () => {
         `:root,.t-daOLKV{--shadows-red:tomato}` +
         `}--sxs{--sxs:1 bstpNq}@media{` +
         `article{box-shadow:0 0 0 1px var(--shadows-red)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -70,7 +70,7 @@ describe('Tokens', () => {
         `:root,.t-eZaaph{--colors-red:tomato;--colors-red500:var(--colors-red)}` +
         `}--sxs{--sxs:1 fdgxsg}@media{` +
         `article{color:var(--colors-red500)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -97,7 +97,7 @@ describe('Tokens', () => {
         `}` +
         `--sxs{--sxs:1 kyFUgb}@media{` +
         `article{box-shadow:0 0 0 1px var(--shadows-red500)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -122,7 +122,7 @@ describe('Tokens', () => {
         `}` +
         `--sxs{--sxs:1 hNRkrs}@media{` +
         `article{box-shadow:0 0 0 1px var(--colors-red)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -147,7 +147,7 @@ describe('Tokens', () => {
         `}` +
         `--sxs{--sxs:1 hNRkrs}@media{` +
         `article{box-shadow:0 0 0 1px var(--colors-red)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -174,7 +174,7 @@ describe('Tokens', () => {
         `}` +
         `--sxs{--sxs:1 kTSGli}@media{` +
         `article{margin-left:calc(var(--space-sp1)*-1);margin-top:calc(var(--space-sp2)*-1)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -202,7 +202,7 @@ describe('Tokens', () => {
         `}` +
         `--sxs{--sxs:1 kuTEdV}@media{` +
         `article{margin-left:calc(var(--sizes-sp1)*-1);width:var(--sizes-sp1)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -229,7 +229,7 @@ describe('Tokens', () => {
         `}` +
         `--sxs{--sxs:1 lcIUgV}@media{` +
         `article{margin-left:var(--space-sp1);margin-top:var(--space-sp2)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -251,7 +251,7 @@ describe('Tokens', () => {
     })();
 
     expect(getCssText()).toBe(
-      `--sxs{--sxs:1 lcIUgV}@media{article{margin-left:var(--space-sp1);margin-top:var(--space-sp2)}}`
+      `--sxs{--sxs:1 lcIUgV}@media{article{margin-left:var(--space-sp1);margin-top:var(--space-sp2)}}`,
     );
 
     void `${mytheme}`;
@@ -261,7 +261,7 @@ describe('Tokens', () => {
         `.my-theme{--space-sp1:100px;--space-sp2:200px}` +
         `}--sxs{--sxs:1 lcIUgV}@media{` +
         `article{margin-left:var(--space-sp1);margin-top:var(--space-sp2)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -288,7 +288,7 @@ describe('Tokens', () => {
         `}` +
         `--sxs{--sxs:1 lcIUgV}@media{` +
         `article{margin-left:var(--space-sp1);margin-top:var(--space-sp2)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -303,13 +303,13 @@ describe('Tokens', () => {
     });
 
     expect(`<div class="${theme}"></div>`).toBe(
-      `<div class="pedro-t-jPkpUS"></div>`
+      `<div class="pedro-t-jPkpUS"></div>`,
     );
 
     expect(getCssText()).toBe(
       `--sxs{--sxs:0 pedro-t-jPkpUS}@media{` +
         `:root,.pedro-t-jPkpUS{--pedro-colors-blue:dodgerblue}` +
-        `}`
+        `}`,
     );
   });
 
@@ -333,7 +333,7 @@ describe('Tokens', () => {
         `:root,.t-bhZLEQ{--sizes-five:5px}` +
         `}--sxs{--sxs:1 gvABwA}@media{` +
         `body{margin-left:calc(var(--sizes-five)*5)}` +
-        `}`
+        `}`,
     );
   });
 });

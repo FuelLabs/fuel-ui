@@ -1,11 +1,12 @@
+import type { ElementRef } from 'react';
 import { useRef, useState } from 'react';
 
 import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { Card } from '../Card';
 
-import type { DrawerProps } from './Drawer';
 import { Drawer } from './Drawer';
+import type { DrawerProps } from './defs';
 
 export default {
   component: Drawer,
@@ -82,7 +83,7 @@ CustomSize.parameters = {
 };
 
 export const CustomContainer = (args: DrawerProps) => {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<ElementRef<'div'>>(null);
   return (
     <Card
       ref={ref}
@@ -111,7 +112,7 @@ CustomContainer.parameters = {
 };
 
 export const StateControlled = (args: DrawerProps) => {
-  const ref = useRef<HTMLDivElement>();
+  const ref = useRef<ElementRef<'div'>>(null);
   const [open, setOpen] = useState(false);
 
   return (

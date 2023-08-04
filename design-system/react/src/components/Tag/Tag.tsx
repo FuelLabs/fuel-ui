@@ -39,9 +39,9 @@ function getChildren({
     );
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const hasCloseBtn = Children.toArray(children).some((child: any) =>
-    child.type?.id?.includes('TagCloseButton')
+  const hasCloseBtn = Children.toArray(children).some(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (child: any) => child.type?.id?.includes('TagCloseButton'),
   );
   return (
     <>
@@ -94,7 +94,7 @@ export const Tag = createComponent<TagProps, ObjProps>(
         variant,
         disabled,
         intent,
-      })
+      }),
     );
 
     const customChildren = getChildren({
@@ -115,7 +115,7 @@ export const Tag = createComponent<TagProps, ObjProps>(
         {customChildren}
       </Box>
     );
-  }
+  },
 );
 
 Tag.CloseButton = TagCloseButton;

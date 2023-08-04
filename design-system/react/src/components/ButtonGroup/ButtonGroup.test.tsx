@@ -1,4 +1,4 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from '@fuels/jest';
 
 import { Button } from '../Button';
 
@@ -11,7 +11,7 @@ describe('ButtonGroup', () => {
         <Button>First</Button>
         <Button leftIcon="Calendar">Second</Button>
         <Button>Third</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
   });
 });

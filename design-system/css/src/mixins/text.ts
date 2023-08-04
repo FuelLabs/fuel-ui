@@ -5,6 +5,6 @@ export const truncate = {
 };
 
 export const display = {
-  letterSpacing: '$tight',
   fontFamily: '$display',
+  letterSpacing: '$tight',
 };

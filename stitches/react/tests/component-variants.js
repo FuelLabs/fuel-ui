@@ -58,10 +58,10 @@ describe('Variants', () => {
     const expression1CssText = '.fuel_PJLV-Gaggi-size-small{font-size:16px}';
 
     expect(expression1.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-Gaggi-size-small'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small',
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${expression1CssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${expression1CssText}}`,
     );
 
     const expression2 = component.render({ color: 'blue' });
@@ -70,10 +70,10 @@ describe('Variants', () => {
       '.fuel_PJLV-kaCQqN-color-blue{background-color:dodgerblue;color:white}';
 
     expect(expression2.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue'
+      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue',
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-kaCQqN-color-blue}@media{${expression1CssText}${expression2CssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-kaCQqN-color-blue}@media{${expression1CssText}${expression2CssText}}`,
     );
   });
 
@@ -83,7 +83,7 @@ describe('Variants', () => {
     const expression = component.render({ size: 'small', level: 1 });
 
     expect(expression.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1',
     );
 
     const expressionSizeSmallCssText =
@@ -91,7 +91,7 @@ describe('Variants', () => {
     const expressionLevel1CssText = '.fuel_PJLV-iRwLiB-level-1{padding:0.5em}';
 
     expect(toString()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{${expressionSizeSmallCssText}${expressionLevel1CssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{${expressionSizeSmallCssText}${expressionLevel1CssText}}`,
     );
   });
 
@@ -108,7 +108,7 @@ describe('Variants', () => {
       '.fuel_PJLV-cChFtv-cv{transform:scale(1.2)}';
 
     expect(expression.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv'
+      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv',
     );
     expect(toString()).toBe(
       `--sxs{--sxs:3 fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small}@media{` +
@@ -116,7 +116,7 @@ describe('Variants', () => {
         expressionSizeSmallCssText +
         `}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{` +
         expressionCompoundCssText +
-        `}`
+        `}`,
     );
   });
 });
@@ -171,10 +171,10 @@ describe('Variants with defaults', () => {
     const expression = component.render();
 
     expect(expression.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-Gaggi-size-small'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small',
     );
     expect(toString()).toBe(
-      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}'
+      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}',
     );
   });
 
@@ -184,10 +184,10 @@ describe('Variants with defaults', () => {
     const expression = component.render({ size: 'small' });
 
     expect(expression.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-Gaggi-size-small'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small',
     );
     expect(toString()).toBe(
-      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}'
+      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}',
     );
   });
 
@@ -197,10 +197,10 @@ describe('Variants with defaults', () => {
     const expression = component.render({ size: 'large' });
 
     expect(expression.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-hsYHIj-size-large'
+      'fuel_PJLV fuel_PJLV-hsYHIj-size-large',
     );
     expect(toString()).toBe(
-      '--sxs{--sxs:3 fuel_PJLV-hsYHIj-size-large}@media{.fuel_PJLV-hsYHIj-size-large{font-size:24px}}'
+      '--sxs{--sxs:3 fuel_PJLV-hsYHIj-size-large}@media{.fuel_PJLV-hsYHIj-size-large{font-size:24px}}',
     );
   });
 
@@ -210,7 +210,7 @@ describe('Variants with defaults', () => {
     const expression = component.render({ level: 1 });
 
     expect(expression.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1',
     );
     expect(toString()).toBe(
       `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{` +
@@ -218,7 +218,7 @@ describe('Variants with defaults', () => {
         `.fuel_PJLV-Gaggi-size-small{font-size:16px}` +
         // explicit level:1
         `.fuel_PJLV-iRwLiB-level-1{padding:0.5em}` +
-        `}`
+        `}`,
     );
   });
 
@@ -228,7 +228,7 @@ describe('Variants with defaults', () => {
     const expression = component.render({ color: 'blue' });
 
     expect(expression.props.className).toBe(
-      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv'
+      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv',
     );
     expect(toString()).toBe(
       `--sxs{--sxs:3 fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small}@media{` +
@@ -239,7 +239,7 @@ describe('Variants with defaults', () => {
         `}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{` +
         // compound color:blue + size:small
         `.fuel_PJLV-cChFtv-cv{transform:scale(1.2)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -319,10 +319,10 @@ describe('Conditional variants', () => {
     const componentSmallCssText = `.${componentSmallClassName}{font-size:16px}`;
 
     expect(component.render({ size: 'small' }).props.className).toBe(
-      [componentClassName, componentSmallClassName].join(' ')
+      [componentClassName, componentSmallClassName].join(' '),
     );
     expect(toString()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${componentSmallCssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${componentSmallCssText}}`,
     );
   });
 
@@ -334,12 +334,12 @@ describe('Conditional variants', () => {
     const componentSmallBp1CssText = `@media (max-width: 767px){.${componentSmallBp1ClassName}{font-size:16px}}`;
 
     expect(
-      component.render({ size: { '@bp1': 'small' } }).props.className
+      component.render({ size: { '@bp1': 'small' } }).props.className,
     ).toBe([componentClassName, componentSmallBp1ClassName].join(' '));
     expect(toString()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small}@media{` +
         componentSmallBp1CssText +
-        `}`
+        `}`,
     );
   });
 
@@ -354,19 +354,19 @@ describe('Conditional variants', () => {
 
     expect(
       component.render({ size: { '@bp1': 'small', '@bp2': 'large' } }).props
-        .className
+        .className,
     ).toBe(
       [
         componentClassName,
         componentSmallBp1ClassName,
         componentLargeBp2ClassName,
-      ].join(' ')
+      ].join(' '),
     );
     expect(toString()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         componentSmallBp1CssText +
         componentLargeBp2CssText +
-        `}`
+        `}`,
     );
   });
 
@@ -381,47 +381,47 @@ describe('Conditional variants', () => {
 
     expect(
       component.render({ size: { '@bp1': 'small', '@bp2': 'large' } }).props
-        .className
+        .className,
     ).toBe(
       [
         componentClassName,
         componentSmallBp1ClassName,
         componentLargeBp2ClassName,
-      ].join(' ')
+      ].join(' '),
     );
     expect(toString()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         componentSmallBp1CssText +
         componentLargeBp2CssText +
-        `}`
+        `}`,
     );
 
     expect(
       component.render({ size: { '@bp1': 'small', '@bp2': 'large' } }).props
-        .className
+        .className,
     ).toBe(
       [
         componentClassName,
         componentSmallBp1ClassName,
         componentLargeBp2ClassName,
-      ].join(' ')
+      ].join(' '),
     );
     expect(toString()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
         `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
-        `}`
+        `}`,
     );
 
     expect(
       component.render({ size: { '@bp1': 'small', '@bp2': 'large' } }).props
-        .className
+        .className,
     ).toBe(`fuel_PJLV fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large`);
     expect(toString()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
         `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
-        `}`
+        `}`,
     );
   });
 });

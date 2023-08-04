@@ -1,24 +1,21 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
-import type * as t from './defs';
+import type { BadgeDef } from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
-
-const _Badge = _unstable_createComponent<t.BadgeDef>(
+const _Badge = _unstable_createComponent<BadgeDef>(
   Components.Badge,
   ({ as = 'span', ...props }) => {
     const classes = useStyles(styles, props);
-    const elementProps = useElementProps(props, classes.root);
-    return createElement(as, elementProps);
-  }
+    return _unstable_createEl(as, { ...props, ...classes.root });
+  },
 );
 
-export const Badge = createPolymorphicComponent<t.BadgeDef>(_Badge);
+export const Badge = createPolymorphicComponent<BadgeDef>(_Badge);

@@ -1,4 +1,4 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from '@fuels/jest';
 
 import { Accordion } from './Accordion';
 
@@ -16,7 +16,7 @@ describe('Accordion', () => {
           <Accordion.Trigger>Is really fast?</Accordion.Trigger>
           <Accordion.Content>Yes, blazingly fast!</Accordion.Content>
         </Accordion.Item>
-      </Accordion>
+      </Accordion>,
     );
   });
 });

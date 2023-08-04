@@ -15,7 +15,7 @@ describe('styled.withConfig', () => {
 
     expect(className).toBe('fuel_dataoT');
     expect(cssString).toBe(
-      `--sxs{--sxs:2 fuel_dataoT}@media{.fuel_dataoT{color:DodgerBlue}}`
+      `--sxs{--sxs:2 fuel_dataoT}@media{.fuel_dataoT{color:DodgerBlue}}`,
     );
   });
 
@@ -34,7 +34,7 @@ describe('styled.withConfig', () => {
 
     expect(className).toBe('fuel_cool-id');
     expect(cssString).toBe(
-      `--sxs{--sxs:2 fuel_cool-id}@media{.fuel_cool-id{color:red}}`
+      `--sxs{--sxs:2 fuel_cool-id}@media{.fuel_cool-id{color:red}}`,
     );
   });
 
@@ -53,7 +53,7 @@ describe('styled.withConfig', () => {
 
     expect(className).toBe('fuel_my-cool-display-name-gmqXFB');
     expect(cssString).toBe(
-      `--sxs{--sxs:2 fuel_my-cool-display-name-gmqXFB}@media{.fuel_my-cool-display-name-gmqXFB{color:red}}`
+      `--sxs{--sxs:2 fuel_my-cool-display-name-gmqXFB}@media{.fuel_my-cool-display-name-gmqXFB{color:red}}`,
     );
   });
 
@@ -73,7 +73,7 @@ describe('styled.withConfig', () => {
 
     expect(className).toBe('fuel_my-cool-display-name-cool-id');
     expect(cssString).toBe(
-      `--sxs{--sxs:2 fuel_my-cool-display-name-cool-id}@media{.fuel_my-cool-display-name-cool-id{color:red}}`
+      `--sxs{--sxs:2 fuel_my-cool-display-name-cool-id}@media{.fuel_my-cool-display-name-cool-id{color:red}}`,
     );
   });
 
@@ -105,10 +105,10 @@ describe('styled.withConfig', () => {
     const cssString = getCssText();
 
     expect(className).toBe(
-      'fuel_component-to-extend-id fuel_cool-component-id'
+      'fuel_component-to-extend-id fuel_cool-component-id',
     );
     expect(cssString).toBe(
-      `--sxs{--sxs:2 fuel_component-to-extend-id fuel_cool-component-id}@media{.fuel_component-to-extend-id{color:red}.fuel_cool-component-id{color:blue}}`
+      `--sxs{--sxs:2 fuel_component-to-extend-id fuel_cool-component-id}@media{.fuel_component-to-extend-id{color:red}.fuel_cool-component-id{color:blue}}`,
     );
   });
 });
@@ -134,13 +134,13 @@ describe('shouldForwardStitchesProp', () => {
             false: { background: 'blue' },
           },
         },
-      }
+      },
     );
 
     let Rendered;
     renderer.act(() => {
       Rendered = renderer.create(
-        React.createElement(StitchesComponent, { isOpen: true })
+        React.createElement(StitchesComponent, { isOpen: true }),
       );
     });
 
@@ -160,13 +160,13 @@ describe('shouldForwardStitchesProp', () => {
 
     const StitchesComponent = styled.withConfig(componentOneConfig)(
       ReactComponent,
-      {}
+      {},
     );
 
     let Rendered;
     renderer.act(() => {
       Rendered = renderer.create(
-        React.createElement(StitchesComponent, { as: 'a' }, ['comp'])
+        React.createElement(StitchesComponent, { as: 'a' }, ['comp']),
       );
     });
 
@@ -185,7 +185,7 @@ describe('shouldForwardStitchesProp', () => {
     };
     const StitchesComponent = styled.withConfig(componentOneConfig)(
       ReactComponent,
-      {}
+      {},
     );
 
     let Rendered;

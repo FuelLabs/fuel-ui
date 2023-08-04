@@ -1,11 +1,10 @@
 import type * as AC from '@radix-ui/react-accordion';
+import type { Components } from '~/defs';
+import type { CreateComponent } from '~/utils';
 
 import type { AccordionContent } from './AccordionContent';
 import type { AccordionItem } from './AccordionItem';
 import type { AccordionTrigger } from './AccordionTrigger';
-
-import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
 
 export type AccordionBaseProps =
   | AC.AccordionSingleProps
@@ -13,7 +12,6 @@ export type AccordionBaseProps =
 
 export type AccordionProps = Omit<AccordionBaseProps, 'value'> & {
   value?: string;
-  className?: string;
 };
 
 export type AccordionNS = {
@@ -22,17 +20,9 @@ export type AccordionNS = {
   Content: typeof AccordionContent;
 };
 
-export type AccordionContentProps = AC.AccordionContentProps & {
-  className?: string;
-};
-
-export type AccordionItemProps = AC.AccordionItemProps & {
-  className?: string;
-};
-
-export type AccordionTriggerProps = AC.AccordionTriggerProps & {
-  className?: string;
-};
+export type AccordionContentProps = AC.AccordionContentProps;
+export type AccordionItemProps = AC.AccordionItemProps;
+export type AccordionTriggerProps = AC.AccordionTriggerProps;
 
 export type AccordionDef = CreateComponent<{
   type: 'div';

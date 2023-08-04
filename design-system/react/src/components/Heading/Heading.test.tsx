@@ -1,4 +1,4 @@
-import { testA11y, render, screen } from '@fuel-ui/test-utils';
+import { testA11y, render, screen } from '@fuels/jest';
 
 import { Heading } from './Heading';
 

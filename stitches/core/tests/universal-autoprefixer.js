@@ -11,7 +11,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 kozGVo}@media{x-element{-webkit-appearance:none;appearance:none}}'
+      '--sxs{--sxs:1 kozGVo}@media{x-element{-webkit-appearance:none;appearance:none}}',
     );
   });
 
@@ -25,7 +25,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 gaCVoe}@media{x-element{-webkit-backface-visibility:visible;backface-visibility:visible}}'
+      '--sxs{--sxs:1 gaCVoe}@media{x-element{-webkit-backface-visibility:visible;backface-visibility:visible}}',
     );
   });
 
@@ -39,7 +39,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 gIcRdw}@media{x-element{-webkit-background-clip:border-box;background-clip:border-box}}'
+      '--sxs{--sxs:1 gIcRdw}@media{x-element{-webkit-background-clip:border-box;background-clip:border-box}}',
     );
   });
 
@@ -53,7 +53,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 ccZNl}@media{x-element{-webkit-clip-path:circle(40%);clip-path:circle(40%)}}'
+      '--sxs{--sxs:1 ccZNl}@media{x-element{-webkit-clip-path:circle(40%);clip-path:circle(40%)}}',
     );
   });
 
@@ -67,7 +67,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 cRggdz}@media{x-element{-webkit-hyphens:none;hyphens:none}}'
+      '--sxs{--sxs:1 cRggdz}@media{x-element{-webkit-hyphens:none;hyphens:none}}',
     );
   });
 
@@ -81,7 +81,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 eNBesV}@media{x-element{-webkit-mask-image:none;mask-image:none}}'
+      '--sxs{--sxs:1 eNBesV}@media{x-element{-webkit-mask-image:none;mask-image:none}}',
     );
   });
 
@@ -95,7 +95,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 kPCdtQ}@media{x-element{tab-size:none}}'
+      '--sxs{--sxs:1 kPCdtQ}@media{x-element{tab-size:none}}',
     );
   });
 
@@ -109,7 +109,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 gVFtip}@media{x-element{-webkit-text-size-adjust:100%;text-size-adjust:100%}}'
+      '--sxs{--sxs:1 gVFtip}@media{x-element{-webkit-text-size-adjust:100%;text-size-adjust:100%}}',
     );
   });
 
@@ -123,7 +123,7 @@ describe('Autoprefixer', () => {
     })();
 
     expect(toString()).toBe(
-      '--sxs{--sxs:1 kEUokv}@media{x-element{-webkit-user-select:none;user-select:none}}'
+      '--sxs{--sxs:1 kEUokv}@media{x-element{-webkit-user-select:none;user-select:none}}',
     );
   });
 });

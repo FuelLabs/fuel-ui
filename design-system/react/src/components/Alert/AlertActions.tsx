@@ -1,17 +1,16 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { Children, cloneElement, createElement } from 'react';
+import { Children, cloneElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
 import { useAlertProps } from './Alert';
 import type * as t from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 const BUTTON_COLORS = {
   info: 'blue',
@@ -24,8 +23,8 @@ const _AlertActions = _unstable_createComponent<t.AlertActionsDef>(
   Components.AlertActions,
   ({ as = 'footer', children, ...props }) => {
     const classes = useStyles(styles);
-    const elementProps = useElementProps(props, classes.actions);
     const { status = 'info' } = useAlertProps();
+    const itemProps = { ...props, ...classes.actions };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const customChildren = Children.toArray(children).map((child: any) => {
@@ -35,8 +34,8 @@ const _AlertActions = _unstable_createComponent<t.AlertActionsDef>(
       return child;
     });
 
-    return createElement(as, elementProps, <>{customChildren}</>);
-  }
+    return _unstable_createEl(as, itemProps, <>{customChildren}</>);
+  },
 );
 
 export const AlertActions =

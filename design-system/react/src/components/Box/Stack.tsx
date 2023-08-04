@@ -1,51 +1,27 @@
-/* eslint-disable @typescript-eslint/naming-convention */
+import { Components } from '~/defs';
+
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
-import { Flex } from './Flex';
 import type * as t from './defs';
-import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useFlexProps } from './useFlexProps';
 
 export type StackProps = t.StackProps;
 
 const _Stack = _unstable_createComponent<t.StackDef>(
   Components.Stack,
-  (props) => {
-    const {
-      direction = 'column',
-      align,
-      justify,
-      wrap,
-      basis,
-      grow,
-      shrink,
-      gap = '$2',
-    } = props;
-    const classes = useStyles(styles, {
-      ...props,
-      css: {
-        gap,
-        flexDirection: direction,
-        alignItems: align,
-        justifyContent: justify,
-        flexWrap: wrap,
-        flexBasis: basis,
-        flexGrow: grow,
-        flexShrink: shrink,
-        display: 'flex',
-        ...props.css,
-      },
-    });
-    const elementProps = useElementProps(props, classes.stack);
-    return (
-      <Flex {...elementProps} as={props.as} gap={gap} direction={direction} />
-    );
-  }
+  ({ as = 'div', ...props }) => {
+    const classes = useFlexProps(props, props.css);
+    return _unstable_createEl(as, { ...props, ...classes.stack });
+  },
 );
 
 export const Stack = createPolymorphicComponent<t.StackDef>(_Stack);
+
+Stack.defaultProps = {
+  gap: '$2',
+  direction: 'column',
+};

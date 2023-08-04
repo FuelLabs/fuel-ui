@@ -31,13 +31,13 @@ describe('Issue #492', () => {
     const rendering1 = component();
 
     expect(rendering1.className).toBe(
-      `${componentClassName} ${variantSweetCarolineClassName}`
+      `${componentClassName} ${variantSweetCarolineClassName}`,
     );
 
     expect(getCssText()).toBe(
       `--sxs{--sxs:3 ${variantSweetCarolineClassName}}@media{` +
         `.${variantSweetCarolineClassName}{--sweet-caroline:true}` +
-        `}`
+        `}`,
     );
 
     /** Rendering of the component as-is. */
@@ -48,7 +48,7 @@ describe('Issue #492', () => {
     });
 
     expect(rendering2.className).toBe(
-      `${componentClassName} ${variantSweetCarolineClassName} ${variantResponsiveSweetDreamsClassName}`
+      `${componentClassName} ${variantSweetCarolineClassName} ${variantResponsiveSweetDreamsClassName}`,
     );
 
     expect(getCssText()).toBe(
@@ -56,7 +56,7 @@ describe('Issue #492', () => {
         `@media{.${variantSweetCarolineClassName}{--sweet-caroline:true}}` +
         `--sxs{--sxs:4 ${variantResponsiveSweetDreamsClassName}}@media{` +
         `@media (min-width: 640px){.${variantResponsiveSweetDreamsClassName}{--sweet-dreams:true}}` +
-        `}`
+        `}`,
     );
 
     /** Rendering of the component as-is. */
@@ -68,7 +68,7 @@ describe('Issue #492', () => {
     });
 
     expect(rendering3.className).toBe(
-      `${componentClassName} ${variantSweetDreamsClassName} ${variantResponsiveSweetCarolineClassName}`
+      `${componentClassName} ${variantSweetDreamsClassName} ${variantResponsiveSweetCarolineClassName}`,
     );
 
     expect(getCssText()).toBe(
@@ -79,7 +79,7 @@ describe('Issue #492', () => {
         `--sxs{--sxs:4 ${variantResponsiveSweetDreamsClassName} ${variantResponsiveSweetCarolineClassName}}@media{` +
         `@media (min-width: 640px){.${variantResponsiveSweetDreamsClassName}{--sweet-dreams:true}}` +
         `@media (min-width: 640px){.${variantResponsiveSweetCarolineClassName}{--sweet-caroline:true}}` +
-        `}`
+        `}`,
     );
   });
 
@@ -113,11 +113,11 @@ describe('Issue #492', () => {
     const variantMinWidth640LedZeppelin = `fuel_evVBJo-lgYcvN-heavy-led-zeppelin`;
 
     expect(rendering1.className).toBe(
-      `${componentClassName} ${variantInitialHeavyIronButterfly} ${variantMinWidth640LedZeppelin}`
+      `${componentClassName} ${variantInitialHeavyIronButterfly} ${variantMinWidth640LedZeppelin}`,
     );
 
     expect(getCssText()).toBe(
-      '--sxs{--sxs:2 fuel_evVBJo}@media{.fuel_evVBJo{--rock:true}}--sxs{--sxs:3 fuel_evVBJo-kiVNrc-heavy-iron-butterfly}@media{.fuel_evVBJo-kiVNrc-heavy-iron-butterfly{--weight-iron-butterfly:true}}--sxs{--sxs:4 fuel_evVBJo-lgYcvN-heavy-led-zeppelin}@media{@media (min-width: 640px){.fuel_evVBJo-lgYcvN-heavy-led-zeppelin{--weight-led-zeppelin:true}}}'
+      '--sxs{--sxs:2 fuel_evVBJo}@media{.fuel_evVBJo{--rock:true}}--sxs{--sxs:3 fuel_evVBJo-kiVNrc-heavy-iron-butterfly}@media{.fuel_evVBJo-kiVNrc-heavy-iron-butterfly{--weight-iron-butterfly:true}}--sxs{--sxs:4 fuel_evVBJo-lgYcvN-heavy-led-zeppelin}@media{@media (min-width: 640px){.fuel_evVBJo-lgYcvN-heavy-led-zeppelin{--weight-led-zeppelin:true}}}',
     );
   });
 });

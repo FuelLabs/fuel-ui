@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import type { CSS, CSSFull } from '@fuel-stitches/react';
 import { createStitches } from '@fuel-stitches/react';
 

@@ -34,7 +34,7 @@ export const FormHelperText = createComponent<FormHelperTextProps, ObjProps>(
         {children}
       </Text>
     );
-  }
+  },
 );
 
 FormHelperText.id = 'FormHelperText';

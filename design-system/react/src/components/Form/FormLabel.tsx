@@ -1,7 +1,7 @@
 import { cx } from '@fuel-ui/css';
 import * as Label from '@radix-ui/react-label';
 
-import { createComponent, createStyledElement } from '../../utils';
+import { createComponent, useCreateStyledElement } from '../../utils';
 
 import { useFormControlProps } from './FormControl';
 import * as styles from './styles';
@@ -24,14 +24,14 @@ export const FormLabel = createComponent<FormLabelProps, ObjProps>(
       className: classes,
     };
 
-    return createStyledElement(
+    return useCreateStyledElement(
       Label.Root,
       styles.label,
       { required: parentProps?.isRequired },
       customProps,
-      children
+      children,
     );
-  }
+  },
 );
 
 FormLabel.id = 'FormLabel';

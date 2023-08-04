@@ -1,18 +1,16 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { allColors, utils } from '@fuel-ui/css';
-import { createElement } from 'react';
+import { Components } from '~/defs';
+import { createStyle, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 import { createIcon } from '../Button';
 
 import type * as t from './defs';
-
-import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
 
 function getIconSize(as: t.HeadingProps['as'], iconSize?: number) {
   if (iconSize) return iconSize;
@@ -42,13 +40,13 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
       leftIcon,
       leftIconAriaLabel,
       iconSize,
-      iconColor
+      iconColor,
     );
     const iconRight = createIcon(
       rightIcon,
       rightIconAriaLabel,
       iconSize,
-      iconColor
+      iconColor,
     );
     const withIcon = Boolean(leftIcon || rightIcon);
     const classes = useStyles(styles, {
@@ -62,18 +60,15 @@ const _Heading = _unstable_createComponent<t.HeadingDef>(
       },
     } as any);
 
-    const elementProps = useElementProps(props, classes.root, {
-      role: 'heading',
-    });
-
-    return createElement(
+    const itemProps = { ...props, ...classes.root, role: 'heading' };
+    return _unstable_createEl(
       as,
-      elementProps,
+      itemProps,
       <>
         {iconLeft} {children} {iconRight}
-      </>
+      </>,
     );
-  }
+  },
 );
 
 export const Heading = createPolymorphicComponent<t.HeadingDef>(_Heading);
@@ -82,7 +77,7 @@ const styles = createStyle(Components.Heading, {
   root: {
     mt: '0.5rem',
     mb: '1.25rem',
-    letterSpacing: '-0.02em',
+    letterSpacing: '$tight',
     color: '$intentsBase12',
     fontFamily: '$heading',
     fontWeight: '$normal',
@@ -91,12 +86,12 @@ const styles = createStyle(Components.Heading, {
       // FIX: adjust type type
       fontSize: (utils.textSize.__keys as any[]).reduce(
         (obj, key) => ({ ...obj, [key]: { textSize: key } }),
-        {}
+        {},
       ),
       // FIX: adjust type type
       fontColor: (allColors as any[]).reduce(
         (obj, key) => ({ ...obj, [key]: { color: `$${key}` } }),
-        {}
+        {},
       ),
       as: {
         h1: {

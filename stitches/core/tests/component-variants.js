@@ -59,7 +59,7 @@ describe('Variants', () => {
 
     expect(expression1.className).toBe('fuel_PJLV fuel_PJLV-Gaggi-size-small');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${expression1CssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${expression1CssText}}`,
     );
 
     const expression2 = component({ color: 'blue' });
@@ -71,7 +71,7 @@ describe('Variants', () => {
     expect(getCssText()).toBe(
       `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-kaCQqN-color-blue}@media{${
         expression1CssText + expression2CssText
-      }}`
+      }}`,
     );
   });
 
@@ -100,7 +100,7 @@ describe('Variants', () => {
     const expression = component({ size: 'small', level: 1 });
 
     expect(expression.className).toBe(
-      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1',
     );
 
     const expressionSizeSmallCssText =
@@ -110,7 +110,7 @@ describe('Variants', () => {
     expect(getCssText()).toBe(
       `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{${
         expressionSizeSmallCssText + expressionLevel1CssText
-      }}`
+      }}`,
     );
   });
 
@@ -127,12 +127,12 @@ describe('Variants', () => {
       '.fuel_PJLV-cChFtv-cv{transform:scale(1.2)}';
 
     expect(expression.className).toBe(
-      `fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv`
+      `fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv`,
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:3 fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small}@media{${
         expressionColorBlueCssText + expressionSizeSmallCssText
-      }}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{${expressionCompoundCssText}}`
+      }}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{${expressionCompoundCssText}}`,
     );
   });
 });
@@ -188,7 +188,7 @@ describe('Variants with defaults', () => {
 
     expect(expression.className).toBe('fuel_PJLV fuel_PJLV-Gaggi-size-small');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}`,
     );
   });
 
@@ -199,7 +199,7 @@ describe('Variants with defaults', () => {
 
     expect(expression.className).toBe('fuel_PJLV fuel_PJLV-Gaggi-size-small');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}`,
     );
   });
 
@@ -210,7 +210,7 @@ describe('Variants with defaults', () => {
 
     expect(expression.className).toBe('fuel_PJLV fuel_PJLV-hsYHIj-size-large');
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-hsYHIj-size-large}@media{.fuel_PJLV-hsYHIj-size-large{font-size:24px}}`
+      `--sxs{--sxs:3 fuel_PJLV-hsYHIj-size-large}@media{.fuel_PJLV-hsYHIj-size-large{font-size:24px}}`,
     );
   });
 
@@ -220,7 +220,7 @@ describe('Variants with defaults', () => {
     const expression = component({ level: 1 });
 
     expect(expression.className).toBe(
-      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1'
+      'fuel_PJLV fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1',
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small fuel_PJLV-iRwLiB-level-1}@media{` +
@@ -228,7 +228,7 @@ describe('Variants with defaults', () => {
         `.fuel_PJLV-Gaggi-size-small{font-size:16px}` +
         // explicit level:1
         `.fuel_PJLV-iRwLiB-level-1{padding:0.5em}` +
-        `}`
+        `}`,
     );
   });
 
@@ -238,7 +238,7 @@ describe('Variants with defaults', () => {
     const expression = component({ color: 'blue' });
 
     expect(expression.className).toBe(
-      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv'
+      'fuel_PJLV fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small fuel_PJLV-cChFtv-cv',
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:3 fuel_PJLV-kaCQqN-color-blue fuel_PJLV-Gaggi-size-small}@media{` +
@@ -249,7 +249,7 @@ describe('Variants with defaults', () => {
         `}--sxs{--sxs:5 fuel_PJLV-cChFtv-cv}@media{` +
         // compound color:blue + size:small
         `.fuel_PJLV-cChFtv-cv{transform:scale(1.2)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -260,7 +260,7 @@ describe('Variants with defaults', () => {
 
     expect(className).toBe('fuel_PJLV');
     expect(getCssText()).toBe(
-      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}'
+      '--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{.fuel_PJLV-Gaggi-size-small{font-size:16px}}',
     );
   });
 });
@@ -331,10 +331,10 @@ describe('Conditional variants', () => {
     const componentSmallCssText = `.${componentSmallClassName}{font-size:16px}`;
 
     expect(component({ size: 'small' }).className).toBe(
-      [componentClassName, componentSmallClassName].join(' ')
+      [componentClassName, componentSmallClassName].join(' '),
     );
     expect(getCssText()).toBe(
-      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${componentSmallCssText}}`
+      `--sxs{--sxs:3 fuel_PJLV-Gaggi-size-small}@media{${componentSmallCssText}}`,
     );
   });
 
@@ -343,12 +343,12 @@ describe('Conditional variants', () => {
     const component = css(componentConfig);
 
     expect(component({ size: { '@bp1': 'small' } }).className).toBe(
-      `fuel_PJLV fuel_PJLV-fHtTAQ-size-small`
+      `fuel_PJLV fuel_PJLV-fHtTAQ-size-small`,
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small}@media{` +
         `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
-        `}`
+        `}`,
     );
   });
 
@@ -362,19 +362,19 @@ describe('Conditional variants', () => {
     const componentLargeBp2CssText = `@media (min-width: 768px){.${componentLargeBp2ClassName}{font-size:24px}}`;
 
     expect(
-      component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className
+      component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className,
     ).toBe(
       [
         componentClassName,
         componentSmallBp1ClassName,
         componentLargeBp2ClassName,
-      ].join(' ')
+      ].join(' '),
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         componentSmallBp1CssText +
         componentLargeBp2CssText +
-        `}`
+        `}`,
     );
   });
 
@@ -383,33 +383,33 @@ describe('Conditional variants', () => {
     const component = css(componentConfig);
 
     expect(
-      component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className
+      component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className,
     ).toBe(`fuel_PJLV fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large`);
     expect(getCssText()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
         `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
-        `}`
+        `}`,
     );
 
     expect(
-      component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className
+      component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className,
     ).toBe(`fuel_PJLV fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large`);
     expect(getCssText()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
         `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
-        `}`
+        `}`,
     );
 
     expect(
-      component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className
+      component({ size: { '@bp1': 'small', '@bp2': 'large' } }).className,
     ).toBe(`fuel_PJLV fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large`);
     expect(getCssText()).toBe(
       `--sxs{--sxs:4 fuel_PJLV-fHtTAQ-size-small fuel_PJLV-XwbVw-size-large}@media{` +
         `@media (max-width: 767px){.fuel_PJLV-fHtTAQ-size-small{font-size:16px}}` +
         `@media (min-width: 768px){.fuel_PJLV-XwbVw-size-large{font-size:24px}}` +
-        `}`
+        `}`,
     );
   });
 
@@ -435,16 +435,16 @@ describe('Conditional variants', () => {
             '@media (width < 768px)': 'small',
             '@media (width >= 768px)': 'large',
           },
-        }).className
+        }).className,
       ).toBe(
-        'fuel_PJLV fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large'
+        'fuel_PJLV fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large',
       );
 
       expect(getCssText()).toBe(
         `--sxs{--sxs:4 fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large}@media{` +
           `@media (max-width:767.9375px){.fuel_PJLV-gjWYHE-size-small{font-size:16px}}` +
           `@media (min-width:768px){.fuel_PJLV-fzmUzy-size-large{font-size:24px}}` +
-          `}`
+          `}`,
       );
     }
 
@@ -469,16 +469,16 @@ describe('Conditional variants', () => {
             '@media (width < 768px)': 'small',
             '@media (width >= 768px)': 'large',
           },
-        }).className
+        }).className,
       ).toBe(
-        'fuel_PJLV fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large'
+        'fuel_PJLV fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large',
       );
 
       expect(getCssText()).toBe(
         `--sxs{--sxs:4 fuel_PJLV-gjWYHE-size-small fuel_PJLV-fzmUzy-size-large}@media{` +
           `@media (max-width:767.9375px){.fuel_PJLV-gjWYHE-size-small{font-size:16px}}` +
           `@media (min-width:768px){.fuel_PJLV-fzmUzy-size-large{font-size:24px}}` +
-          `}`
+          `}`,
       );
     }
   });
@@ -508,7 +508,7 @@ describe('Variant pairing types', () => {
     expect(getCssText()).toBe(
       `--sxs{--sxs:2 fuel_foEXqW}@media{` +
         `.fuel_foEXqW{--component:true}` +
-        `}`
+        `}`,
     );
   });
 
@@ -518,7 +518,7 @@ describe('Variant pairing types', () => {
     const rendering = component({ testBoolean: 'true' });
 
     expect(rendering.className).toBe(
-      'fuel_foEXqW fuel_foEXqW-iloXEi-testBoolean-true'
+      'fuel_foEXqW fuel_foEXqW-iloXEi-testBoolean-true',
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:2 fuel_foEXqW}@media{` +
@@ -526,7 +526,7 @@ describe('Variant pairing types', () => {
         `}` +
         `--sxs{--sxs:3 fuel_foEXqW-iloXEi-testBoolean-true}@media{` +
         `.fuel_foEXqW-iloXEi-testBoolean-true{--test-boolean:true}` +
-        `}`
+        `}`,
     );
   });
 
@@ -536,7 +536,7 @@ describe('Variant pairing types', () => {
     const rendering = component({ testBoolean: true });
 
     expect(rendering.className).toBe(
-      'fuel_foEXqW fuel_foEXqW-iloXEi-testBoolean-true'
+      'fuel_foEXqW fuel_foEXqW-iloXEi-testBoolean-true',
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:2 fuel_foEXqW}@media{` +
@@ -544,7 +544,7 @@ describe('Variant pairing types', () => {
         `}` +
         `--sxs{--sxs:3 fuel_foEXqW-iloXEi-testBoolean-true}@media{` +
         `.fuel_foEXqW-iloXEi-testBoolean-true{--test-boolean:true}` +
-        `}`
+        `}`,
     );
   });
 
@@ -556,7 +556,7 @@ describe('Variant pairing types', () => {
     });
 
     expect(rendering.className).toBe(
-      'fuel_foEXqW fuel_foEXqW-brOaTK-testBoolean-true'
+      'fuel_foEXqW fuel_foEXqW-brOaTK-testBoolean-true',
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:2 fuel_foEXqW}@media{` +
@@ -566,7 +566,7 @@ describe('Variant pairing types', () => {
         `@media (min-width: 640px){` +
         `.fuel_foEXqW-brOaTK-testBoolean-true{--test-boolean:true}` +
         `}` +
-        `}`
+        `}`,
     );
   });
 
@@ -578,7 +578,7 @@ describe('Variant pairing types', () => {
     });
 
     expect(rendering.className).toBe(
-      'fuel_foEXqW fuel_foEXqW-brOaTK-testBoolean-true'
+      'fuel_foEXqW fuel_foEXqW-brOaTK-testBoolean-true',
     );
     expect(getCssText()).toBe(
       `--sxs{--sxs:2 fuel_foEXqW}@media{` +
@@ -588,7 +588,7 @@ describe('Variant pairing types', () => {
         `@media (min-width: 640px){` +
         `.fuel_foEXqW-brOaTK-testBoolean-true{--test-boolean:true}` +
         `}` +
-        `}`
+        `}`,
     );
   });
 });

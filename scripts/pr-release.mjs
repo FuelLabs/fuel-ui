@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-
 /* eslint-disable no-restricted-syntax */
-
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { getPackages } from '@manypkg/get-packages';
@@ -10,6 +8,7 @@ import { $ } from 'execa';
 import mm from 'micromatch';
 import minimist from 'minimist';
 import { createRequire } from 'module';
+import { promises as fs } from 'node:fs';
 import { dirname } from 'path';
 import semver from 'semver';
 import { fileURLToPath } from 'url';
@@ -20,11 +19,11 @@ const requirePkg = createRequire(import.meta.url);
 const config = requirePkg(`${__dirname}/../.changeset/config.json`);
 const argv = minimist(process.argv.slice(2));
 
-async function getAllPackages() {
+export async function getAllPackages() {
   const { packages } = await getPackages(process.cwd());
   const pkgNames = packages.map((pkg) => pkg.packageJson.name);
   const ignored = config.ignore || [];
-  return mm.not(pkgNames, ignored);
+  return ignored.length ? mm.not(pkgNames, ignored) : pkgNames;
 }
 
 async function deletePackageVersions(filterFn) {
@@ -49,13 +48,25 @@ async function deletePackageVersions(filterFn) {
 
         if (packageVersion) {
           console.log(`Unpublishing ${fullPackageName}`);
-          const { stdout } = await $`npm unpublish ${fullPackageName} --force`;
-          console.log(stdout);
+          try {
+            const { stdout } =
+              await $`npm unpublish ${fullPackageName} --force`;
+            console.log(stdout);
+          } catch (e) {
+            const errMessage = String(e);
+            if (
+              errMessage?.contains(
+                'Cannot publish over previously published version',
+              )
+            ) {
+              await deletePackageVersions(filterFn);
+            }
+          }
         }
       }
     } else {
       console.log(
-        `No versions match the specified pattern for package ${pkg}.`
+        `No versions match the specified pattern for package ${pkg}.`,
       );
     }
   }
@@ -64,7 +75,7 @@ async function deletePackageVersions(filterFn) {
 async function cleanPr(prNumber) {
   const pattern = `-pr-${prNumber}-[a-f0-9]*`;
   await deletePackageVersions(
-    (version) => semver.valid(version) && new RegExp(pattern).test(version)
+    (version) => semver.valid(version) && new RegExp(pattern).test(version),
   );
 }
 
@@ -75,17 +86,24 @@ async function cleanPrerelease(tag) {
   });
 }
 
-async function main() {
-  if (!argv.pr && !argv.clean) {
-    console.log('Please specify a PR number with --pr');
-    process.exit(1);
+async function postReleaseMsg(version, prNumber) {
+  const packages = await getAllPackages();
+  let msg = `🚀 Packages released as \`pr-${prNumber}\` tag on NPM:\n`;
+  for (const pkg of packages) {
+    msg += `- [${pkg}](https://www.npmjs.com/package/${pkg}/v/${version})\n`;
   }
+  await fs.writeFile('./release-msg.txt', msg);
+}
 
-  if (argv.pr) {
+async function main() {
+  if (argv.action === 'clean' && argv.pr) {
     await cleanPr(argv.pr);
   }
-  if (argv.clean) {
+  if (argv.action === 'clean' && argv.clean) {
     await cleanPrerelease(argv.clean.replace('clean-tag-', ''));
+  }
+  if (argv.action === 'msg' && argv.version && argv.pr) {
+    await postReleaseMsg(argv.version, argv.pr);
   }
 }
 

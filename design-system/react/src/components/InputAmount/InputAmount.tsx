@@ -25,7 +25,7 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   balancePrecision?: number;
   value?: BN | null;
   units?: number;
-  onChange?: (val: BN) => void;
+  onChange?: (val: BN | null) => void;
   hiddenMaxButton?: boolean;
   hiddenBalance?: boolean;
   inputProps?: InputNumberProps;
@@ -56,7 +56,7 @@ export const InputAmount: InputAmountComponent = ({
 }) => {
   const formatOpts = { units, precision: units };
   const [assetAmount, setAssetAmount] = useState<string>(
-    !value || value.eq(0) ? '' : value.format(formatOpts)
+    !value || value.eq(0) ? '' : value.format(formatOpts),
   );
 
   const balance = initialBalance ?? bn(initialBalance);
@@ -73,10 +73,10 @@ export const InputAmount: InputAmountComponent = ({
     const { text: newText, amount } = createAmount(text, formatOpts.units);
     const { amount: currentAmount } = createAmount(
       assetAmount,
-      formatOpts.units
+      formatOpts.units,
     );
     if (!currentAmount.eq(amount)) {
-      onChange?.(amount);
+      onChange?.(newText.length ? amount : null);
       setAssetAmount(newText);
     }
   };
@@ -161,11 +161,11 @@ export const InputAmount: InputAmountComponent = ({
           css={styles.balanceContainer}
           aria-label={`Balance: ${formattedBalance}`}
         >
-          <Box as="span" css={styles.balance}>
+          <Box as="span" css={styles.balanceLabel}>
             Balance:{' '}
           </Box>
           <Tooltip content={format(balance, formatOpts)} sideOffset={-5}>
-            <Box as="span" css={styles.balance}>
+            <Box as="span" css={styles.balanceValue}>
               {formattedBalance}
             </Box>
           </Tooltip>
@@ -179,11 +179,12 @@ InputAmount.Loader = InputAmountLoader;
 
 const styles = {
   input: cssObj({
-    py: '$4',
-    px: '$4',
+    py: '$2',
+    px: '$3',
     display: 'flex',
     flexDirection: 'column',
     height: 'auto',
+    gap: '$2',
 
     input: {
       is: ['display'],
@@ -199,7 +200,6 @@ const styles = {
   }),
   heading: cssObj({
     color: '$intentsBase9',
-    mb: '$1',
     fontSize: '$sm',
     lineHeight: '$tight',
   }),
@@ -248,9 +248,11 @@ const styles = {
     lineHeight: '$tight',
     fontSize: '$sm',
     fontWeight: '$normal',
-    mt: '$1',
   }),
-  balance: cssObj({
+  balanceLabel: cssObj({
+    color: '$intentsBase9',
+  }),
+  balanceValue: cssObj({
     fontFamily: '$mono',
     color: '$intentsBase9',
   }),

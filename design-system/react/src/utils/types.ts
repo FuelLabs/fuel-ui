@@ -1,20 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
+import type { FocusableProps, PressEvents } from '@react-types/shared';
 import type { ReactNode } from 'react';
 
 type Children = ReactNode;
 
-export type BaseProps<O> = {
-  as?: any;
-  css?: ThemeUtilsCSS;
-  className?: string;
-  children?: Children;
-  [index: `data-${string}`]: unknown;
-} & O;
-
-/**
- * TODO: add annotations
- */
 export type HTMLProps = {
   a: React.AnchorHTMLAttributes<HTMLAnchorElement>;
   abbr: React.HTMLAttributes<HTMLElement>;
@@ -93,7 +83,6 @@ export type HTMLProps = {
   option: React.OptionHTMLAttributes<HTMLOptionElement>;
   output: React.OutputHTMLAttributes<HTMLOutputElement>;
   p: React.HTMLAttributes<HTMLParagraphElement>;
-  param: React.ParamHTMLAttributes<HTMLParamElement>;
   picture: React.HTMLAttributes<HTMLElement>;
   pre: React.HTMLAttributes<HTMLPreElement>;
   progress: React.ProgressHTMLAttributes<HTMLProgressElement>;
@@ -118,10 +107,8 @@ export type HTMLProps = {
   table: React.TableHTMLAttributes<HTMLTableElement>;
   template: React.HTMLAttributes<HTMLTemplateElement>;
   tbody: React.HTMLAttributes<HTMLTableSectionElement>;
-  td: React.TdHTMLAttributes<HTMLTableDataCellElement>;
   textarea: React.TextareaHTMLAttributes<HTMLTextAreaElement>;
   tfoot: React.HTMLAttributes<HTMLTableSectionElement>;
-  th: React.ThHTMLAttributes<HTMLTableHeaderCellElement>;
   thead: React.HTMLAttributes<HTMLTableSectionElement>;
   time: React.TimeHTMLAttributes<HTMLTimeElement>;
   title: React.HTMLAttributes<HTMLTitleElement>;
@@ -132,4 +119,26 @@ export type HTMLProps = {
   video: React.VideoHTMLAttributes<HTMLVideoElement>;
   wbr: React.HTMLAttributes<HTMLElement>;
   webview: React.WebViewHTMLAttributes<HTMLWebViewElement>;
+};
+
+export type BaseProps<O> = {
+  as?: any;
+  css?: ThemeUtilsCSS;
+  className?: string;
+  children?: Children;
+  [index: `data-${string}`]: unknown;
+} & O;
+
+export type PressProps = PressEvents &
+  FocusableProps & {
+    /**
+     * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
+     * You're able to use just one or another, don't use onClick and onPress together
+     */
+    onClick?: HTMLProps['button']['onClick'];
+  };
+
+export type AsChildProps<P extends Record<any, any>> = P & {
+  asChild?: boolean;
+  children: ReactNode;
 };

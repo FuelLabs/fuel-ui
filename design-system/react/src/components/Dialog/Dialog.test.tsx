@@ -1,9 +1,9 @@
-import { act, render, screen, testA11y } from '@fuel-ui/test-utils';
+import { act, render, screen, testA11y } from '@fuels/jest';
 
 import { Button } from '../Button';
 
-import type { DialogProps } from './Dialog';
 import { Dialog } from './Dialog';
+import type { DialogProps } from './defs';
 
 function Content(props: Omit<DialogProps, 'children'>) {
   return (

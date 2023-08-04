@@ -1,10 +1,16 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-
 import type { Colors } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
-import { createElement, useRef, cloneElement } from 'react';
-import { mergeProps, useButton } from 'react-aria';
+import { cloneElement } from 'react';
+import { mergeProps } from 'react-aria';
+import { Components } from '~/defs';
+import { useOnPress } from '~/hooks/useOnPress';
+import { useStyles } from '~/hooks/useStore';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '~/utils';
 
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
@@ -12,17 +18,12 @@ import { Spinner } from '../Spinner';
 import type * as t from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks/useStore';
-import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
-import { omit } from '~/utils/helpers';
-
 export function createIcon(
   icon: string | ReactNode,
   iconAriaLabel?: string,
   iconSize?: number,
-  color?: Colors
-) {
+  color?: Colors,
+): ReactElement | null {
   if (typeof icon === 'string') {
     return (
       <Icon
@@ -33,14 +34,13 @@ export function createIcon(
       />
     );
   }
-  return (
-    icon &&
-    cloneElement(icon as ReactElement, {
-      label: iconAriaLabel,
-      size: iconSize,
-      ...(color && { color }),
-    })
-  );
+  return icon
+    ? cloneElement(icon as ReactElement, {
+        label: iconAriaLabel,
+        size: iconSize,
+        ...(color && { color }),
+      })
+    : null;
 }
 
 export function getIconSize(size: t.ButtonSizes, iconSize?: number) {
@@ -51,9 +51,12 @@ export function getIconSize(size: t.ButtonSizes, iconSize?: number) {
 }
 
 type GetChildrenParams = t.ButtonProps & {
-  iconLeft?: ReactNode;
-  iconRight?: ReactNode;
+  iconLeft?: ReactElement | null;
+  iconRight?: ReactElement | null;
+  iconLeftClass?: string;
+  iconRightClass?: string;
 };
+
 function getChildren({
   isLoading,
   loadingText,
@@ -61,6 +64,8 @@ function getChildren({
   children,
   iconLeft,
   iconRight,
+  iconLeftClass,
+  iconRightClass,
 }: GetChildrenParams) {
   if (isLoading) {
     return (
@@ -72,30 +77,11 @@ function getChildren({
   }
   return (
     <>
-      {iconLeft}
+      {iconLeft && cloneElement(iconLeft, { className: iconLeftClass })}
       {children}
-      {iconRight}
+      {iconRight && cloneElement(iconRight, { className: iconRightClass })}
     </>
   );
-}
-
-function getPropsToOmit(props: t.ButtonDef['props']) {
-  const toOmit = [];
-  if (!props.onKeyDown) toOmit.push('onKeyDown');
-  if (!props.onKeyUp) toOmit.push('onKeyUp');
-  if (!props.onKeyPress) toOmit.push('onKeyPress');
-  if (!props.onFocus) toOmit.push('onFocus');
-  if (!props.onBlur) toOmit.push('onBlur');
-  if (!props.onMouseDown) toOmit.push('onMouseDown');
-  if (!props.onDragStart) toOmit.push('onDragStart');
-  if (!props.onPointerDown) toOmit.push('onPointerDown');
-  if (!props.onPointerUp) toOmit.push('onPointerUp');
-  if (!props.onPress) toOmit.push('onPress');
-  if (!props.onPressStart) toOmit.push('onPressStart');
-  if (!props.onPressEnd) toOmit.push('onPressEnd');
-  if (!props.onPressChange) toOmit.push('onPressChange');
-  if (!props.onPressUp) toOmit.push('onPressUp');
-  return toOmit;
 }
 
 export const SPINNER_SIZE = {
@@ -121,56 +107,31 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     } = props;
 
     const disabled = isLoading || isDisabled;
-    const innerRef = useRef<HTMLButtonElement | null>(null);
-    const { buttonProps, isPressed } = useButton(
-      {
-        ...omit(['onClick', 'onPress'], props),
-        isDisabled: disabled,
-        ...(isLink && { elementType: 'a' }),
-        /**
-         * Need this because of triggers components on Radix uses asChild props
-         * to pass handlers directly with onClick instead of onPress
-         */
-      },
-      innerRef
-    );
+    const {
+      buttonProps,
+      isPressed,
+      ref: buttonRef,
+    } = useOnPress(props, {
+      isDisabled: disabled,
+      ...(isLink && { elementType: 'a' }),
+    });
 
     const customProps = {
       as,
-      role: props.role || buttonProps.role || 'button',
-      ref: mergeRefs(ref, innerRef),
+      ref: mergeRefs(buttonRef, ref),
       'aria-busy': isLoading,
       ...(!isLink && { 'aria-pressed': !disabled && isPressed }),
     };
 
-    const propsToOmit = getPropsToOmit(props);
     const allProps = mergeProps(props, buttonProps, customProps);
     const classes = useStyles(styles, allProps);
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const elementProps = useElementProps(
-      omit(propsToOmit, allProps),
-      classes.root
-    );
 
-    function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-      if (
-        typeof props.onClick !== 'undefined' &&
-        typeof props.onPress === 'undefined'
-      ) {
-        props.onClick(e);
-        return;
-      }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      props.onPress?.(e as any);
-    }
-
-    return createElement(
+    return _unstable_createEl(
       as,
-      mergeProps(elementProps, {
-        onClick: handleClick,
-      }),
+      { ...allProps, ...classes.root },
       getChildren({
         size,
         isLoading,
@@ -178,9 +139,11 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
         children,
         iconLeft,
         iconRight,
-      })
+        iconLeftClass: classes.iconLeft.className,
+        iconRightClass: classes.iconRight.className,
+      }),
     );
-  }
+  },
 );
 
 export const Button = createPolymorphicComponent<t.ButtonDef>(_Button);

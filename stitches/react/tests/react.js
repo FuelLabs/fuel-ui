@@ -57,7 +57,7 @@ describe('React', () => {
         `transform:translateY(-2px);` +
         `box-shadow:0 10px 25px rgba(0, 0, 0, .3)` +
         `}` +
-        `}`
+        `}`,
     );
   });
 });

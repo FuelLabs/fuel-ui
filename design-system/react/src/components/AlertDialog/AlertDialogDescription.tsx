@@ -1,13 +1,11 @@
 import * as RAlertDialog from '@radix-ui/react-alert-dialog';
-import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import { _unstable_createComponent } from '../../utils';
+import { _unstable_createComponent, _unstable_createEl } from '../../utils';
 
 import type { AlertDialogDescriptionDef } from './defs';
 import { styles } from './styles';
-
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
 
 export type AlertDialogDescriptionProps =
   RAlertDialog.AlertDialogDescriptionProps;
@@ -15,13 +13,9 @@ export type AlertDialogDescriptionProps =
 export const AlertDialogDescription =
   _unstable_createComponent<AlertDialogDescriptionDef>(
     Components.AlertDialogDescription,
-    ({ children, ...props }) => {
+    (props) => {
       const classes = useStyles(styles, props, ['description']);
-      const elementProps = useElementProps(props, classes.description);
-      return createElement(
-        RAlertDialog.AlertDialogDescription,
-        elementProps,
-        children
-      );
-    }
+      const itemProps = { ...props, ...classes.description };
+      return _unstable_createEl(RAlertDialog.AlertDialogDescription, itemProps);
+    },
   );

@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react';
-
-import type { ButtonBaseProps, ButtonProps } from '../Button/defs';
-
 import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+
+import type { ButtonBaseProps, ButtonProps } from '../Button/defs';
 
 export type GroupChildrenProps = {
   childrenProps: ButtonBaseProps;
@@ -32,5 +31,5 @@ export type ButtonGroupDef = CreateComponent<{
   props: ButtonGroupProps;
   element: HTMLDivElement;
   styles: 'root';
-  omit: 'as' | 'className' | 'css';
+  omit: 'className' | 'css';
 }>;

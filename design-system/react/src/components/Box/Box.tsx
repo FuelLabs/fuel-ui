@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -13,19 +14,16 @@ import { Stack } from './Stack';
 import type * as t from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
-
 const _Box = _unstable_createComponent<t.BoxDef>(
   Components.Box,
   ({ as = 'div', ...props }) => {
     const classes = useStyles(styles, props);
-    const elementProps = useElementProps(props, classes.root);
-    return createElement(as, elementProps);
-  }
+    return _unstable_createEl(as, { ...props, ...classes.root });
+  },
 );
 
 export const Box = createPolymorphicComponent<t.BoxDef>(_Box);
+
 Box.Centered = BoxCentered;
 Box.Flex = Flex;
 Box.Stack = Stack;

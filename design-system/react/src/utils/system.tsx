@@ -1,15 +1,14 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { styled } from '@fuel-ui/css';
+import { cx, styled } from '@fuel-ui/css';
 import type { ForwardedRef, ReactElement, ReactNode } from 'react';
-import { useMemo, forwardRef } from 'react';
+import { createElement, useMemo, forwardRef, cloneElement } from 'react';
+import type { StoreDefs } from '~/defs';
 
+import { useElementProps } from '../hooks/useElementProps';
 import { useComponentProps } from '../hooks/useStore';
 
 import type { BaseProps } from './types';
-
-import type { StoreDefs } from '~/defs';
 
 export function createComponent<
   Props,
@@ -18,24 +17,24 @@ export function createComponent<
   HTMLElement = any,
   FinalProps = ToOmit extends string
     ? Omit<BaseProps<Props>, ToOmit>
-    : BaseProps<Props>
+    : BaseProps<Props>,
 >(
   render: (
-    props: FinalProps & { ref: ForwardedRef<HTMLElement> }
-  ) => ReactElement | null
+    props: FinalProps & { ref: ForwardedRef<HTMLElement> },
+  ) => ReactElement | null,
 ) {
   const Component = forwardRef<HTMLElement, FinalProps>((props, ref) =>
-    render({ ref, ...props })
+    render({ ref, ...props }),
   );
   return Component as typeof Component & ObjProps;
 }
 
-export function createStyledElement(
+export function useCreateStyledElement(
   type: any,
   style: any,
   styleProps: any,
   props: any,
-  children?: ReactNode
+  children?: ReactNode,
 ) {
   const Component = useMemo(() => styled(type, style), []);
   return (
@@ -54,7 +53,7 @@ export type CreateComponent<
     namespace?: Record<string, any> | undefined;
     omit?: string | undefined;
     styles?: string | undefined;
-  }
+  },
 > = {
   type: Item['type'];
   component: Item['component'];
@@ -72,23 +71,40 @@ type GetProps<Def extends CreateComponent<any>> = Def['omit'] extends string
   : BaseProps<StoreDefs[Def['component']]['props']>;
 
 type RenderFn<Def extends CreateComponent<any>> = (
-  props: GetProps<Def> & { ref: ForwardedRef<Def['element']> }
-) => ReactElement | null;
+  props: GetProps<Def> & { ref: ForwardedRef<Def['element']> },
+) => ReactElement<GetProps<Def>> | null;
 
 export function _unstable_createComponent<
   Def extends CreateComponent<any>,
-  Component extends keyof StoreDefs = Def['component']
+  Component extends keyof StoreDefs = Def['component'],
 >(component: Component, render: RenderFn<Def>) {
   const Comp = forwardRef<Def['element'], GetProps<Def>>((initProps, ref) => {
     const props = useComponentProps<Component>(
       component,
-      initProps as GetProps<Def>
+      initProps as GetProps<Def>,
     ) as GetProps<Def>;
-    return render({ ref, ...props });
+    const el = render({ ref, ...props });
+    const className = useMemo(
+      () => cx(el?.props?.className, props.className),
+      [props.className],
+    );
+    return cloneElement(el as any, {
+      ...(el?.props || {}),
+      className,
+    }) as ReturnType<RenderFn<Def>>;
   });
   return Comp as Def['namespace'] extends Record<string, unknown>
     ? typeof Comp & Def['namespace']
     : typeof Comp;
+}
+
+export function _unstable_createEl<
+  E extends React.ElementType,
+  P extends Record<any, any>,
+>(el: E, props: P, children?: ReactNode) {
+  const elProps = useElementProps(props);
+  const child = children ?? elProps?.children;
+  return createElement(el, elProps, child);
 }
 
 type ExtendedProps<Props = {}, OverrideProps = {}> = OverrideProps &
@@ -118,22 +134,27 @@ export type PolymorphicRef<C> = C extends React.ElementType
 
 export type PolymorphicComponentProps<
   C,
-  Props = {}
+  Props = {},
 > = C extends React.ElementType
   ? InheritedProps<C, Props & ComponentProp<C>> & { ref?: PolymorphicRef<C> }
   : Props & { as: React.ElementType };
 
 export function createPolymorphicComponent<Def extends CreateComponent<any>>(
-  component: ReturnType<typeof _unstable_createComponent<Def>>
+  component: ReturnType<typeof _unstable_createComponent<Def>>,
 ) {
   type Props = Omit<GetProps<Def>, 'as'>;
   type ComponentProps<C> = PolymorphicComponentProps<C, Props>;
 
   type _PolymorphicComponent = <C = Def['type']>(
-    props: ComponentProps<C>
-  ) => React.ReactElement;
+    props: ComponentProps<C>,
+  ) => React.ReactElement<Props>;
 
-  const Comp = component as _PolymorphicComponent & typeof component;
+  type ComponentProperties = Omit<React.FunctionComponent<Props>, never>;
+  type PolymorphicComponent = _PolymorphicComponent &
+    ComponentProperties &
+    typeof component;
+
+  const Comp = component as PolymorphicComponent;
   return Comp as Def['namespace'] extends Record<string, unknown>
     ? typeof Comp & Def['namespace']
     : typeof Comp;

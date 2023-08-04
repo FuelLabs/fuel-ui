@@ -17,7 +17,7 @@ describe('Issue #519', () => {
         `@media{` +
         `.fusion-fuel_fjkySu{--fusion--syntax:red}` +
         `.fusion-fuel_fjkySu h1{color:var(--fusion--syntax)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -37,7 +37,7 @@ describe('Issue #519', () => {
         `@media{` +
         `.fuel_fjkySu{---syntax:red}` +
         `.fuel_fjkySu h1{color:var(---syntax)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -62,7 +62,7 @@ describe('Issue #519', () => {
         `.fusion-fuel_lkpaIy{--fusion--syntax:red}` +
         `.fusion-fuel_lkpaIy h1{color:var(--fusion--syntax)}` +
         `.fusion-fuel_lkpaIy h2{color:var(--fusion--syntax)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -87,7 +87,7 @@ describe('Issue #519', () => {
         `.fuel_lkpaIy{---syntax:red}` +
         `.fuel_lkpaIy h1{color:var(---syntax)}` +
         `.fuel_lkpaIy h2{color:var(---syntax)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -117,7 +117,7 @@ describe('Issue #519', () => {
         `.fusion-fuel_kbkiiL h1{color:var(--fusion--syntax)}` +
         `.fusion-fuel_kbkiiL h2{color:var(--fusion--syntax)}` +
         `.fusion-fuel_kbkiiL h3{color:var(--fusion--syntax)}` +
-        `}`
+        `}`,
     );
   });
 
@@ -147,7 +147,7 @@ describe('Issue #519', () => {
         `.fuel_kbkiiL h1{color:var(---syntax)}` +
         `.fuel_kbkiiL h2{color:var(---syntax)}` +
         `.fuel_kbkiiL h3{color:var(---syntax)}` +
-        `}`
+        `}`,
     );
   });
 });

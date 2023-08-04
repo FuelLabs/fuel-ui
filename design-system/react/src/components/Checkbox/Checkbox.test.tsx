@@ -1,4 +1,4 @@
-import { testA11y } from '@fuel-ui/test-utils';
+import { testA11y } from '@fuels/jest';
 
 import { Form } from '../Form';
 
@@ -10,7 +10,7 @@ describe('Checkbox', () => {
       <Form.Control css={{ flexDirection: 'row' }}>
         <Checkbox defaultChecked id="c1" aria-label="Accept terms" />
         <Form.Label htmlFor="c1">Accept terms and condition</Form.Label>
-      </Form.Control>
+      </Form.Control>,
     );
   });
 });

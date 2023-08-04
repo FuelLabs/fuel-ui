@@ -1,4 +1,6 @@
-import { css, cssObj, keyframes } from '@fuel-ui/css';
+import { keyframes } from '@fuel-ui/css';
+import { Components } from '~/defs';
+import { createStyle } from '~/hooks';
 
 const overlayShow = keyframes({
   '0%': {
@@ -20,82 +22,79 @@ const contentShow = keyframes({
   },
 });
 
-export const overlay = css({
-  inset: 0,
-  position: 'fixed',
-  backgroundColor: 'rgba(0,0,0,.5)',
+export const styles = createStyle(Components.Dialog, {
+  root: {},
+  trigger: {},
+  close: {
+    position: 'absolute',
+    top: '$3',
+    right: '$3',
+    padding: '$0',
 
-  '@media (prefers-reduced-motion: no-preference)': {
-    animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
-  },
-});
-
-export const content = css({
-  p: '$4',
-  layer: 'layer-dialog',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '$5',
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  width: '90vw',
-  maxWidth: '450px',
-  maxHeight: '85vh',
-  transform: 'translate(-50%, -50%)',
-
-  '@media (prefers-reduced-motion: no-preference)': {
-    animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
-  },
-
-  '&:focus-visible': {
-    outline: 'none',
-  },
-});
-
-export const heading = css({
-  p: '$0',
-  m: '$0',
-  color: '$intentsBase12',
-  fontFamily: '$heading',
-  fontWeight: '$normal',
-  fontSize: '$xl',
-});
-
-export const description = css({
-  p: '$0',
-  color: '$intentsBase10',
-  textSize: 'base',
-});
-
-export const footer = css({
-  is: ['centered'],
-  gap: '$3',
-  p: '$0',
-
-  variants: {
-    align: {
-      start: {
-        justifyContent: 'flex-start',
-      },
-      end: {
-        justifyContent: 'flex-end',
-      },
+    '.fuel_Icon': {
+      color: '$textInverse',
     },
   },
+  content: {
+    p: '$4',
+    layer: 'layer-dialog',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '$5',
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    width: '90vw',
+    maxWidth: '450px',
+    maxHeight: '85vh',
+    transform: 'translate(-50%, -50%)',
 
-  defaultVariants: {
-    align: 'end',
+    '@media (prefers-reduced-motion: no-preference)': {
+      animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+    },
+
+    '&:focus-visible': {
+      outline: 'none',
+    },
   },
-});
+  description: {
+    p: '$0',
+    color: '$intentsBase10',
+    textSize: 'base',
+  },
+  footer: {
+    is: ['centered'],
+    gap: '$3',
+    p: '$0',
 
-export const close = cssObj({
-  position: 'absolute',
-  top: '$3',
-  right: '$3',
-  padding: '$0',
+    variants: {
+      align: {
+        start: {
+          justifyContent: 'flex-start',
+        },
+        end: {
+          justifyContent: 'flex-end',
+        },
+      },
+    },
 
-  '.fuel_Icon': {
-    color: '$textInverse',
+    defaultVariants: {
+      align: 'end',
+    },
+  },
+  heading: {
+    p: '$0',
+    m: '$0',
+    color: '$textHeading',
+    fontFamily: '$heading',
+  },
+  overlay: {
+    inset: 0,
+    position: 'fixed',
+    backgroundColor: 'rgba(0,0,0,.5)',
+
+    '@media (prefers-reduced-motion: no-preference)': {
+      animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+    },
   },
 });

@@ -1,37 +1,50 @@
-import { cx } from '@fuel-ui/css';
+import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { useOnPress } from '~/hooks/useOnPress';
 
-import { createComponent } from '../../utils';
-import type { FlexProps } from '../Box/Flex';
-import { Flex } from '../Box/Flex';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '../../utils';
 
 import { CardBody } from './CardBody';
 import { CardFooter } from './CardFooter';
 import { CardHeader } from './CardHeader';
-import * as styles from './styles';
+import type { CardDef } from './defs';
+import { styles } from './styles';
 
-export type CardProps = FlexProps & {
-  withDividers?: boolean;
-};
+const _Card = _unstable_createComponent<CardDef>(
+  Components.Card,
+  ({ as = 'article', ref, withDividers, children, ...props }) => {
+    const classes = useStyles(styles, props);
+    const { buttonProps, ref: cardRef } = useOnPress<
+      CardDef['props'],
+      CardDef['element']
+    >(props, {
+      elementType: as,
+    });
 
-type ObjProps = {
-  id: string;
-  Header: typeof CardHeader;
-  Body: typeof CardBody;
-  Footer: typeof CardFooter;
-};
+    const isClickable = Boolean(props.onPress);
+    const elementProps = {
+      ...props,
+      ref: mergeRefs(cardRef, ref),
+      className: classes.root.className,
+      'data-is-clickable': isClickable,
+      'data-dividers': withDividers,
+      ...(isClickable && {
+        tabIndex: 0,
+        role: 'button',
+      }),
+    };
 
-export const Card = createComponent<CardProps, ObjProps>(
-  ({ direction = 'column', withDividers, children, className, ...props }) => {
-    const classes = cx('fuel_Card', className, styles.card());
-    const customProps = { ...props, direction, className: classes };
-
-    return (
-      <Flex as="article" {...customProps} data-dividers={withDividers}>
-        {children}
-      </Flex>
-    );
-  }
+    const finalProps = mergeProps(elementProps, isClickable ? buttonProps : {});
+    return _unstable_createEl(as, finalProps, children);
+  },
 );
+
+export const Card = createPolymorphicComponent<CardDef>(_Card);
 
 Card.id = 'Card';
 Card.Header = CardHeader;

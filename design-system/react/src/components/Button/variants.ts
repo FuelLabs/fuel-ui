@@ -50,14 +50,17 @@ export const size = {
   },
 };
 
-export const intents = layerVariants.reduce((obj, variant) => {
-  return {
-    ...obj,
-    [variant]: layerIntents.map((intent) => ({
-      intent,
-      variant,
-      css: createVariantStyle(variant as LayerVariant, intent as LayerIntent),
-    })),
-  };
+export const intents = layerVariants.reduce(
+  (obj, variant) => {
+    return {
+      ...obj,
+      [variant]: layerIntents.map((intent) => ({
+        intent,
+        variant,
+        css: createVariantStyle(variant as LayerVariant, intent as LayerIntent),
+      })),
+    };
+  },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-}, {} as Record<LayerVariant, any>);
+  {} as Record<LayerVariant, any>,
+);

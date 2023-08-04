@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/design-tokens",
-  "version": "0.16.1",
+  "version": "0.17.0",
   "description": "Scripts used to generate our design tokens",
   "license": "Apache-2",
   "main": "./lib/index.ts",
@@ -27,17 +27,18 @@
     "prettier:check": "prettier --check .",
     "prettier:format": "prettier --write .",
     "copy-set": "node src/copy-set.mjs",
-    "copy-set:global": "node src/copy-set.mjs --global",
-    "copy-set:radix": "node src/copy-set.mjs --radix",
-    "copy-set:dark": "node src/copy-set.mjs --dark",
-    "copy-set:light": "node src/copy-set.mjs --light",
-    "ts:check": "tsc --noEmit",
+    "copy-set:global": "pnpm copy-set --global",
+    "copy-set:radix": "pnpm copy-set --radix",
+    "copy-set:dark": "pnpm copy-set --dark",
+    "copy-set:light": "pnpm copy-set --light",
+    "copy-sets": "run-p copy-set:*",
+    "ts:check": "pnpm build-tokens && tsc --noEmit",
     "build-tokens": "node ./src/build.mjs",
     "build": "pnpm build-tokens && tsup --dts",
-    "update:tokens": "pnpm build && run-p copy-set:*"
+    "update:tokens": "pnpm build && pnpm copy-sets"
   },
   "dependencies": {
-    "@radix-ui/colors": "^1.0.0",
+    "@radix-ui/colors": "^1.0.1",
     "chroma-js": "^2.4.2",
     "copy-to-clipboard": "^3.3.3",
     "lodash": "^4.17.21"

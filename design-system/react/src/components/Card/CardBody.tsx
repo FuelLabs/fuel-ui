@@ -1,15 +1,23 @@
-import { cx } from '@fuel-ui/css';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import { createComponent } from '../../utils';
-import type { BoxProps } from '../Box';
-import { Box } from '../Box';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '../../utils';
 
-import * as styles from './styles';
+import type { CardBodyDef } from './defs';
+import { styles } from './styles';
 
-export const CardBody = createComponent<BoxProps>(
-  ({ children, className, ...props }) => {
-    const classes = cx('fuel_CardBody', className, styles.body());
-    const customProps = { ...props, className: classes };
-    return <Box {...customProps}>{children}</Box>;
-  }
+const _CardBody = _unstable_createComponent<CardBodyDef>(
+  Components.CardBody,
+  ({ as = 'div', children, ...props }) => {
+    const classes = useStyles(styles, props, ['body']);
+    const elementProps = { ...props, ...classes.body };
+    return _unstable_createEl(as, elementProps, children);
+  },
 );
+
+export const CardBody = createPolymorphicComponent<CardBodyDef>(_CardBody);

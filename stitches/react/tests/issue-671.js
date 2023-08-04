@@ -15,7 +15,7 @@ describe('Issue #671', () => {
         'div',
         null,
         // children
-        React.createElement(Bar, {})
+        React.createElement(Bar, {}),
       );
     };
 
@@ -25,7 +25,7 @@ describe('Issue #671', () => {
 
     test('a stitches component extending a react component will inject the styles in the correct order', () => {
       expect(getCssText()).toBe(
-        `--sxs{--sxs:2 fuel_kydkiA fuel_gmqXFB}@media{.fuel_gmqXFB{color:red}.fuel_kydkiA{color:blue}}`
+        `--sxs{--sxs:2 fuel_kydkiA fuel_gmqXFB}@media{.fuel_gmqXFB{color:red}.fuel_kydkiA{color:blue}}`,
       );
     });
   }

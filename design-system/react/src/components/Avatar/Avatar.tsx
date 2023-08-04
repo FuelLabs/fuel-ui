@@ -1,23 +1,27 @@
 import * as RAvatar from '@radix-ui/react-avatar';
-import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import { _unstable_createComponent } from '../../utils';
+import { _unstable_createComponent, _unstable_createEl } from '../../utils';
+import { Box } from '../Box';
 
 import { AvatarGenerated } from './AvatarGenerated';
 import type * as t from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
-
 export const Avatar = _unstable_createComponent<t.AvatarDef>(
   Components.Avatar,
   ({ name, size = 'md', css, ...props }) => {
     const classes = useStyles(styles, { ...props, size });
-    const imageProps = useElementProps(props, classes.image);
+    const imageEl = _unstable_createEl(RAvatar.AvatarImage, {
+      ...props,
+      ...classes.image,
+      alt: props.alt || name,
+    });
+
     const children = (
       <>
-        <RAvatar.AvatarImage {...imageProps} alt={props.alt || name} />
+        {imageEl}
         <RAvatar.AvatarFallback className={classes.fallback.className}>
           {name
             .split(' ')
@@ -26,9 +30,13 @@ export const Avatar = _unstable_createComponent<t.AvatarDef>(
         </RAvatar.AvatarFallback>
       </>
     );
-    const wrapperProps = useElementProps(classes.root, { css });
-    return createElement(RAvatar.Root, wrapperProps, children);
-  }
+
+    return (
+      <Box as={RAvatar.Root} {...classes.root} css={css}>
+        {children}
+      </Box>
+    );
+  },
 );
 
 Avatar.Generated = AvatarGenerated;

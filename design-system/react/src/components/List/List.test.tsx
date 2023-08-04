@@ -1,4 +1,4 @@
-import { render, testA11y, screen } from '@fuel-ui/test-utils';
+import { render, testA11y, screen } from '@fuels/jest';
 
 import { Icon } from '../Icon';
 

@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 
@@ -47,7 +46,7 @@ export const useEvent = <T extends UseEventTarget>(
   name: Parameters<AddEventListener<T>>[0],
   handler?: null | undefined | Parameters<AddEventListener<T>>[1],
   target: null | T | Window = defaultTarget,
-  options?: UseEventOptions<T>
+  options?: UseEventOptions<T>,
 ) => {
   useEffect(() => {
     if (!handler) {

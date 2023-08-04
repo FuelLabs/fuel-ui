@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 import { Heading } from '../Heading';
@@ -10,20 +11,16 @@ import { Heading } from '../Heading';
 import type * as t from './defs';
 import { styles } from './styles';
 
-import { Components } from '~/defs';
-import { useStyles, useElementProps } from '~/hooks';
-
 const _AlertTitle = _unstable_createComponent<t.AlertTitleDef>(
   Components.AlertTitle,
   ({ as = 'header', children, ...props }) => {
-    const classes = useStyles(styles);
-    const elementProps = useElementProps(props, classes.title);
-    return createElement(
+    const classes = useStyles(styles, props, ['title']);
+    return _unstable_createEl(
       as,
-      elementProps,
-      <Heading as="h2">{children}</Heading>
+      { ...props, ...classes.title },
+      <Heading as="h2">{children}</Heading>,
     );
-  }
+  },
 );
 
 export const AlertTitle =

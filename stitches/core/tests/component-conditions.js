@@ -19,7 +19,7 @@ describe('Component Medias', () => {
       `--sxs{--sxs:2 fuel_jEGvho}@media{` +
         `.fuel_jEGvho{font-size:16px}` +
         `@media (min-width:768px){.fuel_jEGvho{font-size:24px}}` +
-        `}`
+        `}`,
     );
   });
 });

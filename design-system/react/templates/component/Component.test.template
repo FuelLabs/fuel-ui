@@ -1,4 +1,4 @@
-import { press, render, testA11y, screen } from "@fuel-ui/test-utils";
+import { press, render, testA11y, screen } from "@fuels/jest";
 
 import { __COMPONENT__ } from "./__COMPONENT__";
 

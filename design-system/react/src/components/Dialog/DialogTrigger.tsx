@@ -1,60 +1,30 @@
 import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
-import { Children, cloneElement } from 'react';
-import type { ReactElement } from 'react';
-
-import { Button } from '../Button';
-import type { ButtonProps } from '../Button';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
+import { useAsChild } from '~/hooks/useAsChild';
+import { _unstable_createComponent } from '~/utils';
 
 import { useDialog } from './Dialog';
+import type { DialogTriggerDef } from './defs';
+import { styles } from './styles';
 
-import { createComponent } from '~/utils';
-
-type ElementType = 'button';
-type DialogTriggerProps = ButtonProps & {
-  asChild?: boolean;
-};
-
-type ObjProps = {
-  id: string;
-};
-
-export const DialogTrigger = createComponent<
-  DialogTriggerProps,
-  ObjProps,
-  unknown,
-  ElementType
->(({ ref, className, asChild = true, children, ...props }) => {
-  const classes = cx('fuel_DialogTrigger', className);
-  const { state, triggerRef } = useDialog();
-
-  function handleToggle() {
-    state?.toggle();
-  }
-
-  if (asChild) {
-    return (
-      <>
-        {Children.toArray(Children.only(children)).map((child) => {
-          return cloneElement(child as ReactElement, {
-            ref: mergeRefs(ref, triggerRef as never),
-            onPress: handleToggle,
-            className: classes,
-          });
-        })}
-      </>
-    );
-  }
-
-  return (
-    <Button
-      {...props}
-      ref={mergeRefs(ref, triggerRef as never)}
-      onPress={handleToggle}
-    >
-      {children}
-    </Button>
-  );
-});
+export const DialogTrigger = _unstable_createComponent<DialogTriggerDef>(
+  Components.DialogTrigger,
+  (props) => {
+    const classes = useStyles(styles, props, ['trigger']);
+    const { state, triggerRef } = useDialog();
+    return useAsChild({
+      ...props,
+      onPress: state?.toggle,
+      ref: mergeRefs(props.ref, triggerRef),
+      className: cx(props.className, classes.trigger.className),
+    });
+  },
+);
 
 DialogTrigger.id = 'DialogTrigger';
+
+DialogTrigger.defaultProps = {
+  asChild: true,
+};

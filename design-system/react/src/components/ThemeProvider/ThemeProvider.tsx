@@ -1,17 +1,16 @@
 import { useMachine } from '@xstate/react';
 import type { FC, ReactNode } from 'react';
-
-import { GlobalStyles } from '../../styles/GlobalStyles';
-import { ToastProvider } from '../Toast';
-
-import { themeProviderMachine } from './machine';
-
-import type { FuelTheme } from '~/hooks/useTheme';
 import {
   themeContext,
   DEFAULT_THEMES,
   getInitialTheme,
 } from '~/hooks/useTheme';
+import type { FuelTheme } from '~/hooks/useTheme';
+
+import { GlobalStyles } from '../../styles/GlobalStyles';
+import { ToastProvider } from '../Toast';
+
+import { themeProviderMachine } from './machine';
 
 export type ThemeProps = {
   withFonts?: boolean;
@@ -32,7 +31,7 @@ export const ThemeProvider: FC<ThemeProps> = ({
       themes: themes as Record<string, FuelTheme>,
       old: curr,
       current: curr,
-    })
+    }),
   );
 
   function setTheme(value: string) {
