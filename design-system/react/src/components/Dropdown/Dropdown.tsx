@@ -80,11 +80,7 @@ const _Dropdown = _unstable_createComponent<DropdownDef>(
       }
     });
 
-    return createElement(
-      as,
-      { className: classes.root.className },
-      customChildren,
-    );
+    return createElement(as, classes.root, customChildren);
   },
 );
 

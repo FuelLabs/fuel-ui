@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { styled } from '@fuel-ui/css';
+import { cx, styled } from '@fuel-ui/css';
 import type { ForwardedRef, ReactElement, ReactNode } from 'react';
-import { useMemo, forwardRef } from 'react';
+import { createElement, useMemo, forwardRef, cloneElement } from 'react';
 import type { StoreDefs } from '~/defs';
 
-import { useComponentProps } from '../hooks/useStore';
+import { useComponentProps, useElementProps } from '../hooks/useStore';
 
 import type { BaseProps } from './types';
 
@@ -82,11 +82,21 @@ export function _unstable_createComponent<
       component,
       initProps as GetProps<Def>,
     ) as GetProps<Def>;
-    return render({ ref, ...props });
+    const el = render({ ref, ...props }) as ReactElement;
+    const className = useMemo(
+      () => cx(el?.props?.className, props.className),
+      [props.className],
+    );
+    return cloneElement(el, { ...(el.props || {}), className });
   });
   return Comp as Def['namespace'] extends Record<string, unknown>
     ? typeof Comp & Def['namespace']
     : typeof Comp;
+}
+
+export function _unstable_createEl(...args: Parameters<typeof createElement>) {
+  const props = useElementProps(args[1]);
+  return createElement(args[0], props, args[2]);
 }
 
 type ExtendedProps<Props = {}, OverrideProps = {}> = OverrideProps &

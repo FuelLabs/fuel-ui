@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { css, cx } from '@fuel-ui/css';
+import { css } from '@fuel-ui/css';
 import type { ThemeUtilsCSS, CSSFnParams } from '@fuel-ui/css';
 import { useMemo } from 'react';
 import { mergeProps } from 'react-aria';
@@ -113,7 +113,7 @@ export function useStyles<K extends DefKeys, F>(
   return useMemo(() => generateClasses(), [props]);
 }
 
-const OMIT_FOR_DOM = [
+export const OMIT_FOR_DOM = [
   'as',
   'direction',
   'align',
@@ -144,17 +144,7 @@ const OMIT_FOR_DOM = [
 ];
 
 export function useElementProps<P extends any[]>(...props: P): P[0] {
-  const allClasses = cx(props.map((p) => p?.className ?? {}));
   const res = omit(OMIT_FOR_DOM, mergeProps<P>(...props) as any) as P[0];
-  const classNameArr = allClasses?.split(' ') ?? [];
-  const className = Array.from(new Set(classNameArr)).join(' ');
   const disabled = props.some((p) => p?.isDisabled || p?.isLoading);
-  return {
-    ...res,
-    className,
-    ...(disabled && {
-      'aria-disabled': true,
-      disabled: true,
-    }),
-  };
+  return { ...res, ...(disabled && { 'aria-disabled': true, disabled: true }) };
 }
