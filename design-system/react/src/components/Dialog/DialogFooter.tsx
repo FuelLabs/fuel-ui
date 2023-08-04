@@ -1,23 +1,26 @@
-import { cx } from '@fuel-ui/css';
+import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import type { HTMLProps } from '../../utils';
-import { useCreateStyledElement, createComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
-import * as styles from './styles';
+import type { DialogDescriptionDef, DialogFooterDef } from './defs';
+import { styles } from './styles';
 
-export type DialogFooterProps = HTMLProps['footer'] & {
-  align?: 'start' | 'end';
-};
-
-export const DialogFooter = createComponent<DialogFooterProps>(
-  ({ as = 'footer', align, className, children, ...props }) => {
-    const classes = cx('fuel_DialogFooter', className);
-    return useCreateStyledElement(
+const _DialogFooter = _unstable_createComponent<DialogFooterDef>(
+  Components.DialogFooter,
+  ({ as = 'footer', children, ...props }) => {
+    const classes = useStyles(styles, props, ['footer']);
+    return createElement(
       as,
-      styles.footer,
-      { align },
-      { ...props, className: classes },
+      { ...props, className: classes.footer.className },
       children,
     );
   },
 );
+
+export const DialogFooter =
+  createPolymorphicComponent<DialogDescriptionDef>(_DialogFooter);

@@ -1,6 +1,6 @@
 import { keyframes, css } from '@fuel-ui/css';
 
-import { close } from '../Dialog/styles';
+import { close } from '../Drawer/styles';
 
 const slideUpAndFade = keyframes({
   '0%': { opacity: 0, transform: 'translateY(2px)' },

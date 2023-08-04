@@ -1,27 +1,31 @@
-import { cx } from '@fuel-ui/css';
-import type { ReactNode } from 'react';
+import { createElement } from 'react';
+import { Components } from '~/defs';
+import { useStyles } from '~/hooks';
 
-import { useDialog } from '..';
-import { createComponent, useCreateStyledElement } from '../../utils';
+import {
+  _unstable_createComponent,
+  createPolymorphicComponent,
+} from '../../utils';
 
-import * as styles from './styles';
+import { useDialog } from './Dialog';
+import type { DialogHeadingDef } from './defs';
+import { styles } from './styles';
 
-export type DialogHeadingProps = {
-  children?: ReactNode;
-  className?: string;
-};
-
-export const DialogHeading = createComponent<DialogHeadingProps>(
-  ({ as = 'h2', className, children, ...props }) => {
+const _DialogHeading = _unstable_createComponent<DialogHeadingDef>(
+  Components.DialogHeading,
+  ({ as = 'h2', children, ...props }) => {
     const { headingProps } = useDialog();
-    const classes = cx('fuel_DialogHeading', className);
-    const nextProps = { ...headingProps, ...props, className: classes };
-    return useCreateStyledElement(
-      as,
-      styles.heading,
-      null,
-      nextProps,
-      children,
-    );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const classes = useStyles(styles, props as any, ['heading']);
+    const nextProps = {
+      ...headingProps,
+      ...props,
+      ...classes.heading,
+    } as DialogHeadingDef['props'];
+
+    return createElement(as, nextProps, children);
   },
 );
+
+export const DialogHeading =
+  createPolymorphicComponent<DialogHeadingDef>(_DialogHeading);

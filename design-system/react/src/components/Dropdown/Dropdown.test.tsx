@@ -1,4 +1,4 @@
-import { render, testA11y, screen, waitFor, act } from '@fuels/jest';
+import { render, testA11y, screen, fireEvent } from '@fuels/jest';
 
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -9,9 +9,7 @@ import type { DropdownProps } from './defs';
 const Content = (props: Partial<DropdownProps>) => {
   return (
     <Dropdown {...props}>
-      <Dropdown.Trigger asChild>
-        <Button>Click here</Button>
-      </Dropdown.Trigger>
+      <Dropdown.Trigger>Click here</Dropdown.Trigger>
       <Dropdown.Menu autoFocus disabledKeys={['edit']} aria-label="Actions">
         <Dropdown.MenuItem key="settings" textValue="Settings">
           <Icon icon="Settings" />
@@ -36,29 +34,29 @@ describe('Dropdown', () => {
   });
 
   it('should open dropdown menu when click on trigger', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
     expect(() => screen.getByText('Settings')).toThrow();
     const trigger = screen.getByText('Click here');
-    await act(() => user.click(trigger));
+    fireEvent.click(trigger);
 
-    expect(await screen.findByText('Settings')).toBeInTheDocument();
+    expect(screen.getByText('Settings')).toBeInTheDocument();
   });
 
   it('should close when click on menu item', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
     const trigger = screen.getByText('Click here');
-    await act(() => user.click(trigger));
+    fireEvent.click(trigger);
 
-    const menuItem = await screen.findByText('Settings');
-    await act(() => user.click(menuItem));
+    const menuItem = screen.getByText('Settings');
+    fireEvent.click(menuItem);
 
-    await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
+    expect(() => screen.getByText('Settings')).toThrow();
   });
 
   it('should close when click outside', async () => {
-    const { user } = render(
+    render(
       <>
         <Content />
         <Button>Foo</Button>
@@ -66,20 +64,20 @@ describe('Dropdown', () => {
     );
 
     const trigger = screen.getByText('Click here');
-    await act(() => user.click(trigger));
+    fireEvent.click(trigger);
 
-    const fooBtn = await screen.findByText('Foo');
-    await act(() => user.click(fooBtn));
+    const fooBtn = screen.getByText('Foo');
+    fireEvent.click(fooBtn);
 
-    await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
+    expect(() => screen.getByText('Settings')).toThrow();
   });
 
   it('should close when press esc', async () => {
     const { user } = render(<Content />);
 
     const trigger = screen.getByText('Click here');
-    await act(() => user.click(trigger));
-    await user.press('Esc');
-    await waitFor(() => expect(() => screen.getByText('Settings')).toThrow());
+    fireEvent.click(trigger);
+    await user.press('Escape');
+    expect(() => screen.getByText('Settings')).toThrow();
   });
 });

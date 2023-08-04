@@ -47,6 +47,15 @@ import type { CheckboxDef } from './components/Checkbox/defs';
 import type { ContentLoaderDef } from './components/ContentLoader/defs';
 import type { CopyableDef } from './components/Copyable/defs';
 import type {
+  DialogCloseDef,
+  DialogContentDef,
+  DialogDef,
+  DialogDescriptionDef,
+  DialogFooterDef,
+  DialogHeadingDef,
+  DialogTriggerDef,
+} from './components/Dialog/defs';
+import type {
   DropdownDef,
   DropdownMenuDef,
   DropdownMenuItemDef,
@@ -204,6 +213,13 @@ export type StoreDefs = {
   Checkbox: CheckboxDef;
   Copyable: CopyableDef;
   Container: ContainerDef;
+  Dialog: DialogDef;
+  DialogContent: DialogContentDef;
+  DialogTrigger: DialogTriggerDef;
+  DialogHeading: DialogHeadingDef;
+  DialogDescription: DialogDescriptionDef;
+  DialogFooter: DialogFooterDef;
+  DialogClose: DialogCloseDef;
   ContentLoader: ContentLoaderDef;
   Dropdown: DropdownDef;
   DropdownTrigger: DropdownTriggerDef;

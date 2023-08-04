@@ -11,7 +11,7 @@ export const AlertDialogCancel =
   _unstable_createComponent<t.AlertDialogCancelDef>(
     Components.AlertDialogCancel,
     (props) => {
-      const classes = useStyles(styles, {}, ['cancel']);
+      const classes = useStyles(styles, props, ['cancel']);
       const elementProps = useElementProps(props, classes.cancel);
       return createElement(RAlertDialog.AlertDialogCancel, elementProps);
     },

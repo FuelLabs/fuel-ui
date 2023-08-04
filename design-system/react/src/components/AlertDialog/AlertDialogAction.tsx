@@ -11,7 +11,7 @@ export const AlertDialogAction =
   _unstable_createComponent<t.AlertDialogActionDef>(
     Components.AlertDialogAction,
     (props) => {
-      const classes = useStyles(styles, {}, ['action']);
+      const classes = useStyles(styles, props, ['action']);
       const elementProps = useElementProps(props, classes.action);
       return createElement(RAlertDialog.AlertDialogAction, elementProps);
     },

@@ -13,7 +13,7 @@ export const AccordionTrigger =
   _unstable_createComponent<t.AccordionTriggerDef>(
     Components.AccordionTrigger,
     ({ children, ...props }) => {
-      const classes = useStyles(styles, {}, [
+      const classes = useStyles(styles, props, [
         'header',
         'root',
         'icon',

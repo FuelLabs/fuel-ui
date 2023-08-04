@@ -11,7 +11,7 @@ import { styles } from './styles';
 export const AccordionItem = _unstable_createComponent<t.AccordionItemDef>(
   Components.AccordionItem,
   (props) => {
-    const classes = useStyles(styles, {}, ['item']);
+    const classes = useStyles(styles, props, ['item']);
     const elementProps = useElementProps(props, classes.item);
     return createElement(AC.AccordionItem, elementProps);
   },
