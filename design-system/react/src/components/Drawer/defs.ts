@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { FocusableElement } from '@react-types/shared';
 import type { AnimationProps } from 'framer-motion';
-import type { DOMAttributes, MutableRefObject } from 'react';
+import type { DOMAttributes, ForwardedRef, MutableRefObject } from 'react';
 import type { AriaOverlayProps } from 'react-aria';
 import type { OverlayTriggerProps, OverlayTriggerState } from 'react-stately';
 import type { Components } from '~/defs';
-import type { CreateComponent } from '~/utils';
+import type { AsChildProps, CreateComponent } from '~/utils';
 
 import type { BoxProps } from '../Box';
 import type { ButtonProps } from '../Button';
@@ -23,7 +23,7 @@ type DrawerSize = 'sm' | 'md' | 'lg';
 // Context
 // ----------------------------------------------------------------------------
 export type DrawerContext = {
-  ref: React.MutableRefObject<HTMLDivElement | null>;
+  ref: ForwardedRef<HTMLDivElement>;
   state?: OverlayTriggerState;
   overlayProps: DOMAttributes<FocusableElement>;
   underlayProps: DOMAttributes<FocusableElement>;
@@ -38,10 +38,10 @@ export type DrawerContext = {
 
 export type DrawerProps = OverlayTriggerProps &
   Omit<AriaOverlayProps, 'shouldCloseOnInteractOutside' | 'type' | 'side'> & {
-    containerRef?: MutableRefObject<any>;
     side?: DrawerSide;
     size?: DrawerSize | string | number;
     shouldCloseOnClickAway?: boolean;
+    containerRef?: MutableRefObject<any>;
   };
 
 type OmitProps = 'as' | 'className' | 'css';
@@ -87,6 +87,7 @@ export type DrawerCloseDef = CreateComponent<{
   component: Components.DrawerClose;
   element: HTMLButtonElement;
   props: DrawerCloseProps;
+  omit: 'as';
 }>;
 
 // ----------------------------------------------------------------------------
@@ -106,19 +107,17 @@ export type DrawerContentDef = CreateComponent<{
   element: HTMLDivElement;
   props: DrawerContentProps;
   namespace: DrawerContentNS;
-  omit: 'as';
 }>;
 
 // ----------------------------------------------------------------------------
 // DrawerTrigger
 // ----------------------------------------------------------------------------
-export type DrawerTriggerProps = ButtonProps & {
-  asChild?: boolean;
-};
+export type DrawerTriggerProps = AsChildProps<ButtonProps>;
 
 export type DrawerTriggerDef = CreateComponent<{
   type: 'button';
   component: Components.DrawerTrigger;
   element: HTMLButtonElement;
   props: DrawerTriggerProps;
+  omit: 'as';
 }>;

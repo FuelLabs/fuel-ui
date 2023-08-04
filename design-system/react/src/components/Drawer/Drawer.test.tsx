@@ -1,4 +1,5 @@
 import { act, render, screen, waitFor } from '@fuels/jest';
+import type { ElementRef } from 'react';
 import { useRef } from 'react';
 
 import { Box } from '../Box';
@@ -20,7 +21,7 @@ const Content = (props: Partial<DrawerProps>) => (
 );
 
 const CustomRef = () => {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<ElementRef<'div'>>(null);
   return (
     <Box ref={ref}>
       <Content containerRef={ref} />

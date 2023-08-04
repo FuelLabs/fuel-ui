@@ -1,4 +1,5 @@
 import type { PopoverProps } from '@radix-ui/react-popover';
+import type { ReactNode } from 'react';
 import type { AriaButtonProps, AriaMenuOptions } from 'react-aria';
 import type {
   MenuTriggerState,
@@ -54,6 +55,7 @@ export type DropdownDef = CreateComponent<{
 // ----------------------------------------------------------------------------
 export type DropdownTriggerProps = ButtonProps & {
   asChild?: boolean;
+  children: ReactNode;
 };
 
 export type DropdownTriggerNS = {

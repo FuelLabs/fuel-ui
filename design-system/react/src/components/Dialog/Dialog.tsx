@@ -32,10 +32,10 @@ import { styles } from './styles';
 // Context
 // ----------------------------------------------------------------------------
 
-export const DialogCtx = createContext<DialogContext>({} as DialogContext);
+const ctx = createContext<DialogContext>({} as DialogContext);
 
 export function useDialog() {
-  return useContext(DialogCtx);
+  return useContext(ctx);
 }
 
 // ----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ export function useDialog() {
 const DialogInternal = _unstable_createComponent<DialogDef>(
   Components.Dialog,
   ({ as = 'div', children, isBlocked, isOpen, onOpenChange, ...props }) => {
-    const ref = useRef<HTMLButtonElement>(null);
+    const triggerRef = useRef<HTMLButtonElement>(null);
     const state = useOverlayTriggerState({
       isOpen: isBlocked || isOpen,
       onOpenChange,
@@ -58,16 +58,16 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
         isOpen: isBlocked ? true : state.isOpen,
         onClose: state.close,
       },
-      ref,
+      triggerRef,
     );
 
     usePreventScroll({ isDisabled: !state.isOpen });
     const { modalProps } = useModal();
-    const { dialogProps, titleProps } = useReactAriaDialog(props, ref);
+    const { dialogProps, titleProps } = useReactAriaDialog(props, triggerRef);
     const classes = useStyles(styles, props);
 
     const ctxProps = {
-      ref,
+      triggerRef,
       state,
       overlayProps,
       modalProps,
@@ -92,9 +92,7 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
 
     const renderDialogInternal = (
       <div {...underlayProps}>
-        <DialogCtx.Provider value={ctxProps}>
-          {customChildren}
-        </DialogCtx.Provider>
+        <ctx.Provider value={ctxProps}>{customChildren}</ctx.Provider>
       </div>
     );
 

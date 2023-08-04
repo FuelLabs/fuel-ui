@@ -22,10 +22,10 @@ import { DrawerTrigger } from './DrawerTrigger';
 import type { DrawerContext, DrawerDef } from './defs';
 import { styles } from './styles';
 
-export const DrawerCtx = createContext<DrawerContext>({} as DrawerContext);
+const ctx = createContext<DrawerContext>({} as DrawerContext);
 
 export function useDrawer() {
-  return useContext(DrawerCtx);
+  return useContext(ctx);
 }
 
 export const Drawer = _unstable_createComponent<DrawerDef>(
@@ -46,6 +46,7 @@ export const Drawer = _unstable_createComponent<DrawerDef>(
         if (!isOpen) opts.onClose?.();
       },
     });
+
     const { overlayProps, underlayProps } = useOverlay(
       {
         ...opts,
@@ -94,9 +95,7 @@ export const Drawer = _unstable_createComponent<DrawerDef>(
       }
     }, [containerRef?.current]);
 
-    return (
-      <DrawerCtx.Provider value={ctxProps}>{customChildren}</DrawerCtx.Provider>
-    );
+    return <ctx.Provider value={ctxProps}>{customChildren}</ctx.Provider>;
   },
 );
 

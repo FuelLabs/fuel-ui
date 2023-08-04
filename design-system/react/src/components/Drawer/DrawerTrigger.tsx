@@ -1,10 +1,7 @@
-import type { ReactElement } from 'react';
-import { Children, cloneElement, createElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { useAsChild } from '~/hooks/useAsChild';
 import { _unstable_createComponent } from '~/utils';
-
-import { Button } from '..';
 
 import { useDrawer } from './Drawer';
 import type { DrawerTriggerDef } from './defs';
@@ -12,27 +9,17 @@ import { styles } from './styles';
 
 export const DrawerTrigger = _unstable_createComponent<DrawerTriggerDef>(
   Components.DrawerTrigger,
-  ({ asChild = true, children, ...props }) => {
+  (props) => {
     const classes = useStyles(styles, props, ['trigger']);
     const { state } = useDrawer();
-
-    function handleToggle() {
-      state?.toggle();
-    }
-
-    if (asChild) {
-      return (
-        <>
-          {Children.toArray(Children.only(children)).map((child) => {
-            return cloneElement(child as ReactElement, {
-              onPress: handleToggle,
-              className: classes.trigger.className,
-            });
-          })}
-        </>
-      );
-    }
-
-    return createElement(Button, { ...props, onPress: handleToggle }, children);
+    return useAsChild({
+      ...props,
+      ...classes.trigger,
+      onPress: state?.toggle,
+    });
   },
 );
+
+DrawerTrigger.defaultProps = {
+  asChild: true,
+};

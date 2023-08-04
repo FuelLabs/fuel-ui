@@ -6,7 +6,7 @@ import { FocusScope, usePreventScroll, useDialog, useModal } from 'react-aria';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { useClickAway } from '~/hooks/useClickAway';
-import { _unstable_createComponent } from '~/utils';
+import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
 
 import { Box } from '..';
 
@@ -20,9 +20,15 @@ const SPRING: AnimationProps['transition'] = {
   duration: '0.1',
 };
 
-export const DrawerContent = _unstable_createComponent<DrawerContentDef>(
+const _DrawerContent = _unstable_createComponent<DrawerContentDef>(
   Components.DrawerContent,
-  ({ ref: innerRef, transition = SPRING, children, ...props }) => {
+  ({
+    as = 'section',
+    ref: innerRef,
+    transition = SPRING,
+    children,
+    ...props
+  }) => {
     const {
       ref,
       state,
@@ -36,7 +42,6 @@ export const DrawerContent = _unstable_createComponent<DrawerContentDef>(
     const { dialogProps } = useDialog({ role: 'dialog' }, ref);
     const { modalProps } = useModal();
     const finalProps = mergeProps(props, overlayProps, dialogProps, modalProps);
-
     const classes = useStyles(styles, { ...props, side }, [
       'content',
       'underlay',
@@ -50,10 +55,11 @@ export const DrawerContent = _unstable_createComponent<DrawerContentDef>(
     });
 
     return (
-      <Box {...(underlayProps as any)} className={classes.underlay.className}>
+      <Box {...{ ...underlayProps, ...classes.underlay }}>
         <FocusScope contain restoreFocus autoFocus>
           <MotionBox
             {...finalProps}
+            as={as}
             ref={mergeRefs(innerRef as any, ref)}
             className={classes.content.className}
             animate={{ x: 0 }}
@@ -69,5 +75,8 @@ export const DrawerContent = _unstable_createComponent<DrawerContentDef>(
     );
   },
 );
+
+export const DrawerContent =
+  createPolymorphicComponent<DrawerContentDef>(_DrawerContent);
 
 DrawerContent.id = 'DrawerContent';

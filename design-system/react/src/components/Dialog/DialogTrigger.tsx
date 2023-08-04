@@ -1,12 +1,9 @@
 import { cx } from '@fuel-ui/css';
-import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { Children, cloneElement } from 'react';
-import type { ReactElement } from 'react';
+import { mergeRefs } from '@react-aria/utils';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { useAsChild } from '~/hooks/useAsChild';
 import { _unstable_createComponent } from '~/utils';
-
-import { Button } from '../Button';
 
 import { useDialog } from './Dialog';
 import type { DialogTriggerDef } from './defs';
@@ -14,39 +11,20 @@ import { styles } from './styles';
 
 export const DialogTrigger = _unstable_createComponent<DialogTriggerDef>(
   Components.DialogTrigger,
-  ({ ref, className, asChild = true, children, ...props }) => {
+  (props) => {
     const classes = useStyles(styles, props, ['trigger']);
     const { state, triggerRef } = useDialog();
-
-    function handleToggle() {
-      state?.toggle();
-    }
-
-    if (asChild) {
-      return (
-        <>
-          {Children.toArray(Children.only(children)).map((child) => {
-            return cloneElement(
-              child as ReactElement,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              mergeProps((child as any).props, {
-                ...props,
-                ref: mergeRefs(ref, triggerRef as never),
-                onPress: handleToggle,
-                className: cx(className, classes.trigger.className),
-              }),
-            );
-          })}
-        </>
-      );
-    }
-
-    return (
-      <Button {...props} ref={triggerRef as never} onPress={handleToggle}>
-        {children}
-      </Button>
-    );
+    return useAsChild({
+      ...props,
+      onPress: state?.toggle,
+      ref: mergeRefs(props.ref, triggerRef),
+      className: cx(props.className, classes.trigger.className),
+    });
   },
 );
 
 DialogTrigger.id = 'DialogTrigger';
+
+DialogTrigger.defaultProps = {
+  asChild: true,
+};
