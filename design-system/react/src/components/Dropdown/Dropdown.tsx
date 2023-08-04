@@ -36,7 +36,11 @@ const _Dropdown = _unstable_createComponent<DropdownDef>(
   Components.Dropdown,
   ({ as = 'div', children, css, popoverProps, ...props }) => {
     const ref = useRef<HTMLButtonElement>(null);
-    const state = useMenuTriggerState(props);
+    const state = useMenuTriggerState({
+      ...props,
+      trigger: 'press',
+    });
+
     const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref);
     const classes = useStyles(styles, props);
 

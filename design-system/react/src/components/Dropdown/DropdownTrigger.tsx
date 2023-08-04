@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 import { Children, cloneElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
-import { _unstable_createComponent } from '~/utils';
+import { _unstable_createComponent, omit } from '~/utils';
 
 import { Icon, Button } from '..';
 
@@ -16,14 +16,17 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
   Components.DropdownTrigger,
   ({ ref, className, asChild, children, ...props }) => {
     const classes = useStyles(styles, props, ['trigger']);
-    const { state, triggerRef } = useDropdown();
+    const { state, triggerRef, menuTriggerProps } = useDropdown();
     const rightIcon = state?.isOpen
       ? Icon.is('ChevronUp')
       : Icon.is('ChevronDown');
 
-    function handleToggle() {
-      state?.toggle();
-    }
+    const itemProps = {
+      ...props,
+      ...omit(['onPressStart'], menuTriggerProps),
+      ref: mergeRefs(ref, triggerRef),
+      className: cx(classes.trigger.className, className),
+    };
 
     if (asChild) {
       return (
@@ -32,12 +35,7 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
             return cloneElement(
               child as ReactElement,
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              mergeProps((child as any).props, {
-                ...props,
-                ref: mergeRefs(ref, triggerRef as never),
-                onPress: handleToggle,
-                className: cx(classes.trigger.className, className),
-              }),
+              mergeProps((child as any).props ?? {}, itemProps),
             );
           })}
         </>
@@ -45,11 +43,7 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
     }
 
     return (
-      <Button
-        {...props}
-        ref={mergeRefs(ref, triggerRef as never)}
-        rightIcon={rightIcon}
-      >
+      <Button {...itemProps} rightIcon={rightIcon}>
         {children}
       </Button>
     );

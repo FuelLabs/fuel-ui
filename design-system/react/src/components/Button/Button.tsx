@@ -110,7 +110,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
 
     const customProps = {
       as,
-      ref: mergeRefs(ref, buttonRef),
+      ref: mergeRefs(buttonRef, ref),
       'aria-busy': isLoading,
       ...(!isLink && { 'aria-pressed': !disabled && isPressed }),
     };
