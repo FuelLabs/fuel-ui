@@ -1,12 +1,16 @@
 import type { Colors } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
-import { createElement, cloneElement } from 'react';
+import { cloneElement } from 'react';
 import { mergeProps } from 'react-aria';
 import { Components } from '~/defs';
 import { useOnPress } from '~/hooks/useOnPress';
-import { useElementProps, useStyles } from '~/hooks/useStore';
-import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
+import { useStyles } from '~/hooks/useStore';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '~/utils';
 
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
@@ -19,7 +23,7 @@ export function createIcon(
   iconAriaLabel?: string,
   iconSize?: number,
   color?: Colors,
-) {
+): ReactElement | null {
   if (typeof icon === 'string') {
     return (
       <Icon
@@ -30,14 +34,13 @@ export function createIcon(
       />
     );
   }
-  return (
-    icon &&
-    cloneElement(icon as ReactElement, {
-      label: iconAriaLabel,
-      size: iconSize,
-      ...(color && { color }),
-    })
-  );
+  return icon
+    ? cloneElement(icon as ReactElement, {
+        label: iconAriaLabel,
+        size: iconSize,
+        ...(color && { color }),
+      })
+    : null;
 }
 
 export function getIconSize(size: t.ButtonSizes, iconSize?: number) {
@@ -48,9 +51,12 @@ export function getIconSize(size: t.ButtonSizes, iconSize?: number) {
 }
 
 type GetChildrenParams = t.ButtonProps & {
-  iconLeft?: ReactNode;
-  iconRight?: ReactNode;
+  iconLeft?: ReactElement | null;
+  iconRight?: ReactElement | null;
+  iconLeftClass?: string;
+  iconRightClass?: string;
 };
+
 function getChildren({
   isLoading,
   loadingText,
@@ -58,6 +64,8 @@ function getChildren({
   children,
   iconLeft,
   iconRight,
+  iconLeftClass,
+  iconRightClass,
 }: GetChildrenParams) {
   if (isLoading) {
     return (
@@ -69,9 +77,9 @@ function getChildren({
   }
   return (
     <>
-      {iconLeft}
+      {iconLeft && cloneElement(iconLeft, { className: iconLeftClass })}
       {children}
-      {iconRight}
+      {iconRight && cloneElement(iconRight, { className: iconRightClass })}
     </>
   );
 }
@@ -120,11 +128,10 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const elementProps = useElementProps(allProps, classes.root);
 
-    return createElement(
+    return _unstable_createEl(
       as,
-      elementProps,
+      { ...allProps, ...classes.root },
       getChildren({
         size,
         isLoading,
@@ -132,6 +139,8 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
         children,
         iconLeft,
         iconRight,
+        iconLeftClass: classes.iconLeft.className,
+        iconRightClass: classes.iconRight.className,
       }),
     );
   },

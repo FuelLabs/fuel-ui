@@ -6,7 +6,11 @@ import { FocusScope, usePreventScroll, useDialog, useModal } from 'react-aria';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { useClickAway } from '~/hooks/useClickAway';
-import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '~/utils';
 
 import { Box } from '..';
 
@@ -39,7 +43,8 @@ const _DrawerContent = _unstable_createComponent<DrawerContentDef>(
       shouldCloseOnClickAway,
     } = useDrawer();
 
-    const { dialogProps } = useDialog({ role: 'dialog' }, ref);
+    const finalRef = mergeRefs(innerRef, ref) as any;
+    const { dialogProps } = useDialog({ role: 'dialog' }, finalRef);
     const { modalProps } = useModal();
     const finalProps = mergeProps(props, overlayProps, dialogProps, modalProps);
     const classes = useStyles(styles, { ...props, side }, [
@@ -48,30 +53,30 @@ const _DrawerContent = _unstable_createComponent<DrawerContentDef>(
     ]);
 
     usePreventScroll();
-    useClickAway(ref, () => {
+    useClickAway(finalRef, () => {
       if (shouldCloseOnClickAway) {
         state?.toggle();
       }
     });
 
-    return (
-      <Box {...{ ...underlayProps, ...classes.underlay }}>
-        <FocusScope contain restoreFocus autoFocus>
-          <MotionBox
-            {...finalProps}
-            as={as}
-            ref={mergeRefs(innerRef as any, ref)}
-            className={classes.content.className}
-            animate={{ x: 0 }}
-            initial={{ x: side === 'right' ? '100%' : '-100%' }}
-            exit={{ x: side === 'right' ? '100%' : '-100%' }}
-            transition={transition}
-            css={{ ...props.css, ...getSize(size) }}
-          >
-            {children}
-          </MotionBox>
-        </FocusScope>
-      </Box>
+    return _unstable_createEl(
+      as,
+      { ...underlayProps, ...classes.underlay },
+      <FocusScope contain restoreFocus autoFocus>
+        <MotionBox
+          {...finalProps}
+          as={as}
+          ref={mergeRefs(innerRef as any, ref)}
+          className={classes.content.className}
+          animate={{ x: 0 }}
+          initial={{ x: side === 'right' ? '100%' : '-100%' }}
+          exit={{ x: side === 'right' ? '100%' : '-100%' }}
+          transition={transition}
+          css={{ ...props.css, ...getSize(size) }}
+        >
+          {children}
+        </MotionBox>
+      </FocusScope>,
     );
   },
 );

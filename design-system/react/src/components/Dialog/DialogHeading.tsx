@@ -1,9 +1,9 @@
-import { createElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -13,17 +13,17 @@ import { styles } from './styles';
 
 const _DialogHeading = _unstable_createComponent<DialogHeadingDef>(
   Components.DialogHeading,
-  ({ as = 'h2', children, ...props }) => {
+  ({ as = 'h2', ...props }) => {
     const { headingProps } = useDialog();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const classes = useStyles(styles, props as any, ['heading']);
     const nextProps = {
-      ...headingProps,
       ...props,
+      ...headingProps,
       ...classes.heading,
-    } as DialogHeadingDef['props'];
+    };
 
-    return createElement(as, nextProps, children);
+    return _unstable_createEl(as, nextProps);
   },
 );
 

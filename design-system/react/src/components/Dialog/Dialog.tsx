@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Children,
-  createContext,
-  createElement,
-  useContext,
-  useRef,
-} from 'react';
+import { Children, createContext, useContext, useRef } from 'react';
 import {
   useOverlay,
   useModal,
@@ -17,7 +11,11 @@ import {
 import { useOverlayTriggerState } from 'react-stately';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
-import { _unstable_createComponent, createPolymorphicComponent } from '~/utils';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '~/utils';
 
 import { DialogClose } from './DialogClose';
 import { DialogContent } from './DialogContent';
@@ -81,7 +79,7 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
         return (
           <OverlayContainer
             key={child?.type.id}
-            {...(state.isOpen && { className: classes.overlay.className })}
+            {...(state.isOpen && classes.overlay)}
           >
             {state.isOpen && <>{child}</>}
           </OverlayContainer>
@@ -96,7 +94,7 @@ const DialogInternal = _unstable_createComponent<DialogDef>(
       </div>
     );
 
-    return createElement(as, props, renderDialogInternal);
+    return _unstable_createEl(as, classes.root, renderDialogInternal);
   },
 );
 

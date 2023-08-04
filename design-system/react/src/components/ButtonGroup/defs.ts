@@ -31,5 +31,5 @@ export type ButtonGroupDef = CreateComponent<{
   props: ButtonGroupProps;
   element: HTMLDivElement;
   styles: 'root';
-  omit: 'as' | 'className' | 'css';
+  omit: 'className' | 'css';
 }>;

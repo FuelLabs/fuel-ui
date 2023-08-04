@@ -1,11 +1,10 @@
 import type { ColorKeys, Colors } from '@fuel-ui/css';
 import { css, darkColors, keyframes, cx } from '@fuel-ui/css';
-import { createElement, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Components } from '~/defs';
-import { useElementProps } from '~/hooks';
 import { fClass } from '~/utils/css';
 
-import { _unstable_createComponent } from '../../utils';
+import { _unstable_createComponent, _unstable_createEl } from '../../utils';
 
 import type * as t from './defs';
 
@@ -15,13 +14,9 @@ export const Spinner = _unstable_createComponent<t.SpinnerDef>(
     const styles = useMemo(() => getStyles(size, color), [size]);
     const classes = cx(fClass(Components.Spinner), className, styles());
     const viewBox = `0 0 ${size} ${size}`;
-    const elementProps = useElementProps(props, {
-      viewBox,
-      className: classes,
-    });
-    return createElement(
+    return _unstable_createEl(
       'svg',
-      elementProps,
+      { ...props, className: classes, viewBox },
       <>
         <circle cx={size / 2} cy={size / 2} r={size * 0.4} className="bg" />
         <circle

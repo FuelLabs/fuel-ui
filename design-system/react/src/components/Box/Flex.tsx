@@ -1,9 +1,8 @@
-import { createElement } from 'react';
 import { Components } from '~/defs';
-import { useElementProps } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -16,8 +15,7 @@ const _Flex = _unstable_createComponent<t.FlexDef>(
   Components.Flex,
   ({ as = 'div', css, ...props }) => {
     const classes = useFlexProps(props, css);
-    const elementProps = useElementProps(props, classes.flex);
-    return createElement(as, elementProps);
+    return _unstable_createEl(as, { ...props, ...classes.flex });
   },
 );
 

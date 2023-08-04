@@ -1,9 +1,9 @@
-import { createElement } from 'react';
 import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
+import { createStyle, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -13,8 +13,7 @@ const _Image = _unstable_createComponent<t.ImageDef>(
   Components.Image,
   ({ as = 'img', ...props }) => {
     const classes = useStyles(styles, props);
-    const elementProps = useElementProps(props, classes.root);
-    return createElement(as, elementProps);
+    return _unstable_createEl(as, { ...props, ...classes.root });
   },
 );
 

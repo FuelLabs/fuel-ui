@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { utils } from '@fuel-ui/css';
-import { createElement } from 'react';
 import { Components } from '~/defs';
-import { createStyle, useElementProps, useStyles } from '~/hooks';
+import { createStyle, useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 import { createIcon } from '../Button';
 
-import type * as t from './defs';
+import type { TextDef } from './defs';
 
-const _Text = _unstable_createComponent<t.TextDef>(
+const _Text = _unstable_createComponent<TextDef>(
   Components.Text,
   ({
     as = 'p',
@@ -39,6 +39,7 @@ const _Text = _unstable_createComponent<t.TextDef>(
       iconSize,
       iconColor,
     );
+
     const withIcon = Boolean(leftIcon || rightIcon);
     const classes = useStyles(styles, {
       ...props,
@@ -47,16 +48,19 @@ const _Text = _unstable_createComponent<t.TextDef>(
         color: `$${color}`,
         ...css,
       },
-    } as any);
-    const elementProps = useElementProps(props, classes.root);
-    const customChildren = (
+    });
+
+    return _unstable_createEl(
+      as,
+      { ...props, ...classes.root },
       <>
         {iconLeft} {children} {iconRight}
-      </>
+      </>,
     );
-    return createElement(as, elementProps, customChildren);
   },
 );
+
+export const Text = createPolymorphicComponent<TextDef>(_Text);
 
 const styles = createStyle(Components.Text, {
   root: {
@@ -81,5 +85,3 @@ const styles = createStyle(Components.Text, {
     },
   },
 });
-
-export const Text = createPolymorphicComponent<t.TextDef>(_Text);

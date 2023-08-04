@@ -72,8 +72,6 @@ export type DialogContentProps = {
   overlayClassName?: string;
   closeClassName?: string;
   hideCloseButton?: boolean;
-  children: ReactNode;
-  className?: string;
   onClose?: () => void;
 };
 

@@ -1,21 +1,23 @@
 import type { LayerVariant } from '@fuel-ui/css';
-import { createElement } from 'react';
 import { mergeProps } from 'react-aria';
 import { Components } from '~/defs';
-import { useStyles, useElementProps, createStyle } from '~/hooks';
+import { useStyles, createStyle } from '~/hooks';
 
-import { _unstable_createComponent } from '../../utils';
+import {
+  _unstable_createComponent,
+  _unstable_createEl,
+  createPolymorphicComponent,
+} from '../../utils';
 import type { ButtonProps } from '../Button';
 import { Button } from '../Button';
 
 import type * as t from './defs';
 
-export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
+const _ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
   Components.ButtonLink,
   ({ isExternal, as = 'a', role = 'link', size, ...props }) => {
     const classes = useStyles(styles, props);
-    const elementProps = useElementProps(props, classes.root);
-    const allprops = mergeProps(elementProps, {
+    const allprops = mergeProps(props, classes.root, {
       ...(isExternal && {
         target: '_blank',
         rel: 'noopener noreferrer',
@@ -23,13 +25,15 @@ export const ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
       }),
       variant: 'link' as LayerVariant,
       isLink: true,
-      as,
       role,
       size,
     });
-    return createElement(Button, allprops);
+    return <Button as={as} {...allprops} />;
   },
 );
+
+export const ButtonLink =
+  createPolymorphicComponent<t.ButtonLinkDef>(_ButtonLink);
 
 const styles = createStyle(Components.ButtonLink, {
   root: {},

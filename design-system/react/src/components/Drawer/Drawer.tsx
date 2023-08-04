@@ -70,7 +70,6 @@ export const Drawer = _unstable_createComponent<DrawerDef>(
     };
 
     const classes = useStyles(styles, ctxProps);
-
     const customChildren = Children.toArray(children).map((child: any) => {
       if (child?.type.id === 'DrawerContent') {
         return (
@@ -78,7 +77,7 @@ export const Drawer = _unstable_createComponent<DrawerDef>(
             key={child?.type.id}
             {...(container && { portalContainer: container })}
             className={classes.overlay.className}
-            data-state={state.isOpen ? 'open' : ''}
+            data-state={state.isOpen ? 'open' : 'closed'}
           >
             <AnimatePresence key={child.type.id}>
               {state.isOpen && <>{child}</>}

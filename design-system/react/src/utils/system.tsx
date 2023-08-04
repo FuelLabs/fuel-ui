@@ -5,7 +5,8 @@ import type { ForwardedRef, ReactElement, ReactNode } from 'react';
 import { createElement, useMemo, forwardRef, cloneElement } from 'react';
 import type { StoreDefs } from '~/defs';
 
-import { useComponentProps, useElementProps } from '../hooks/useStore';
+import { useElementProps } from '../hooks/useElementProps';
+import { useComponentProps } from '../hooks/useStore';
 
 import type { BaseProps } from './types';
 
@@ -71,7 +72,7 @@ type GetProps<Def extends CreateComponent<any>> = Def['omit'] extends string
 
 type RenderFn<Def extends CreateComponent<any>> = (
   props: GetProps<Def> & { ref: ForwardedRef<Def['element']> },
-) => ReactElement | null;
+) => ReactElement<GetProps<Def>> | null;
 
 export function _unstable_createComponent<
   Def extends CreateComponent<any>,
@@ -82,21 +83,28 @@ export function _unstable_createComponent<
       component,
       initProps as GetProps<Def>,
     ) as GetProps<Def>;
-    const el = render({ ref, ...props }) as ReactElement;
+    const el = render({ ref, ...props });
     const className = useMemo(
       () => cx(el?.props?.className, props.className),
       [props.className],
     );
-    return cloneElement(el, { ...(el.props || {}), className });
+    return cloneElement(el as any, {
+      ...(el?.props || {}),
+      className,
+    }) as ReturnType<RenderFn<Def>>;
   });
   return Comp as Def['namespace'] extends Record<string, unknown>
     ? typeof Comp & Def['namespace']
     : typeof Comp;
 }
 
-export function _unstable_createEl(...args: Parameters<typeof createElement>) {
-  const props = useElementProps(args[1]);
-  return createElement(args[0], props, args[2]);
+export function _unstable_createEl<
+  E extends React.ElementType,
+  P extends Record<any, any>,
+>(el: E, props: P, children?: ReactNode) {
+  const elProps = useElementProps(props);
+  const child = children ?? elProps?.children;
+  return createElement(el, elProps, child);
 }
 
 type ExtendedProps<Props = {}, OverrideProps = {}> = OverrideProps &
@@ -139,9 +147,14 @@ export function createPolymorphicComponent<Def extends CreateComponent<any>>(
 
   type _PolymorphicComponent = <C = Def['type']>(
     props: ComponentProps<C>,
-  ) => React.ReactElement;
+  ) => React.ReactElement<Props>;
 
-  const Comp = component as _PolymorphicComponent & typeof component;
+  type ComponentProperties = Omit<React.FunctionComponent<Props>, never>;
+  type PolymorphicComponent = _PolymorphicComponent &
+    ComponentProperties &
+    typeof component;
+
+  const Comp = component as PolymorphicComponent;
   return Comp as Def['namespace'] extends Record<string, unknown>
     ? typeof Comp & Def['namespace']
     : typeof Comp;

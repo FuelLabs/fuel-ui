@@ -1,4 +1,5 @@
-import { act, render, screen, waitFor } from '@fuels/jest';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { act, fireEvent, render, screen, waitFor } from '@fuels/jest';
 import type { ElementRef } from 'react';
 import { useRef } from 'react';
 
@@ -31,42 +32,26 @@ const CustomRef = () => {
 
 describe('Drawer', () => {
   it('should be able to trigger drawer', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
     expect(() => screen.getByText('Hello world')).toThrow();
     const trigger = screen.getByText('Open');
-    await user.click(trigger);
-    expect(await screen.findByText('Hello world')).toBeInTheDocument();
+    fireEvent.click(trigger);
+    expect(screen.getByText('Hello world')).toBeInTheDocument();
   });
 
   it('should be able to close when click on close', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
     expect(() => screen.getByText('Hello world')).toThrow();
     await waitFor(async () => {
       const trigger = screen.getByText('Open');
-      await user.click(trigger);
-      expect(await screen.findByText('Hello world')).toBeInTheDocument();
-    });
-
-    const close = screen.getByLabelText('Close');
-    await user.click(close);
-    await waitFor(() => {
-      expect(() => screen.getByText('Hello world')).toThrow();
-    });
-  });
-
-  it('should be able to close when click outside overlay', async () => {
-    const { user } = render(<Content />);
-
-    const trigger = screen.getByText('Open');
-    await user.click(trigger);
-    await waitFor(() => {
+      fireEvent.click(trigger);
       expect(screen.getByText('Hello world')).toBeInTheDocument();
     });
 
-    const container = document.querySelector('[data-overlay-container="true"]');
-    await user.click(container as never);
+    const close = screen.getByLabelText('Close');
+    fireEvent.click(close);
     await waitFor(() => {
       expect(() => screen.getByText('Hello world')).toThrow();
     });

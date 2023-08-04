@@ -12,7 +12,7 @@ export type ButtonLinkProps = Omit<ButtonProps, PropsToOmit> &
 
 export type ButtonLinkDef = CreateComponent<{
   type: 'a';
-  element: HTMLButtonElement;
+  element: HTMLAnchorElement;
   component: Components.ButtonLink;
   props: ButtonLinkProps;
   styles: 'root';

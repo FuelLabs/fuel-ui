@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -14,13 +14,13 @@ import { styles } from './styles';
 const _CardHeader = _unstable_createComponent<CardHeaderDef>(
   Components.CardHeader,
   ({ as = 'header', children, space = 'normal', ...props }) => {
-    const classes = useStyles(styles, props as any, ['header']);
+    const classes = useStyles(styles, props, ['header']);
     const elementProps = {
       ...props,
-      className: classes.header.className,
+      ...classes.header,
       dataSpace: space,
     };
-    return createElement(as, elementProps, children);
+    return _unstable_createEl(as, elementProps, children);
   },
 );
 

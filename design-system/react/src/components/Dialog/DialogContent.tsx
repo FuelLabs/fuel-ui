@@ -1,10 +1,10 @@
-import { createElement } from 'react';
 import { FocusScope, mergeProps } from 'react-aria';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -17,19 +17,18 @@ const _DialogContent = _unstable_createComponent<DialogContentDef>(
   ({ as = 'div', children, ...props }) => {
     const dialogProps = useDialog();
     const classes = useStyles(styles, props, ['content']);
-
     const nextProps = {
       ...mergeProps(
         props,
         dialogProps.overlayProps!,
         dialogProps.dialogProps!,
         dialogProps.modalProps!,
+        classes.content,
       ),
       ref: dialogProps.triggerRef,
-      className: classes.content.className,
     };
 
-    return createElement(
+    return _unstable_createEl(
       as,
       nextProps,
       <FocusScope contain autoFocus>

@@ -1,11 +1,11 @@
-import { createElement } from 'react';
 import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useStyles } from '~/hooks';
 
 import type { HTMLProps } from '../../utils';
 import {
   createPolymorphicComponent,
   _unstable_createComponent,
+  _unstable_createEl,
 } from '../../utils';
 
 import type * as t from './defs';
@@ -18,10 +18,9 @@ export type ContainerProps = HTMLProps['div'] & {
 
 const _Container = _unstable_createComponent<t.ContainerDef>(
   Components.Container,
-  ({ as = 'div', ...props }) => {
+  ({ as = 'section', ...props }) => {
     const classes = useStyles(styles, props, ['container']);
-    const elementProps = useElementProps(props, classes.container);
-    return createElement(as, elementProps);
+    return _unstable_createEl(as, { ...props, ...classes.container });
   },
 );
 

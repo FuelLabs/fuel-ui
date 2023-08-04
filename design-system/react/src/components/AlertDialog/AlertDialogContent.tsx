@@ -1,10 +1,9 @@
 import { cx } from '@fuel-ui/css';
 import * as RAlertDialog from '@radix-ui/react-alert-dialog';
-import { createElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
-import { _unstable_createComponent } from '../../utils';
+import { _unstable_createComponent, _unstable_createEl } from '../../utils';
 
 import type { AlertDialogContentDef } from './defs';
 import { styles } from './styles';
@@ -14,7 +13,6 @@ export const AlertDialogContent =
     Components.AlertDialogContent,
     ({ children, className, overlayClassName, ...props }) => {
       const classes = useStyles(styles, props);
-
       const contentChildren = (
         <>
           <RAlertDialog.Overlay
@@ -29,6 +27,6 @@ export const AlertDialogContent =
         </>
       );
 
-      return createElement(RAlertDialog.Portal, props, contentChildren);
+      return _unstable_createEl(RAlertDialog.Portal, {}, contentChildren);
     },
   );

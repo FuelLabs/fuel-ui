@@ -1,9 +1,9 @@
-import { createElement } from 'react';
 import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 
@@ -12,13 +12,9 @@ import { styles } from './styles';
 
 const _DialogDescription = _unstable_createComponent<DialogDescriptionDef>(
   Components.DialogDescription,
-  ({ as = 'div', children, ...props }) => {
+  ({ as = 'div', ...props }) => {
     const classes = useStyles(styles, props, ['description']);
-    return createElement(
-      as,
-      { ...props, className: classes.description.className },
-      children,
-    );
+    return _unstable_createEl(as, { ...props, ...classes.description });
   },
 );
 

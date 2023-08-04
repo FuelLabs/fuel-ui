@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import { _unstable_createEl } from '~/utils';
 import { toCSSValue } from '~/utils/css';
 
 import type { ContentLoaderRectProps } from './defs';
@@ -20,7 +20,7 @@ export function Rect({
   if (stickY === 'bottom') {
     finalY = `calc(100% - ${yValue} - ${toCSSValue(props.height)})`;
   }
-  return createElement('rect', {
+  return _unstable_createEl('rect', {
     x: finalX,
     y: finalY,
     ...props,

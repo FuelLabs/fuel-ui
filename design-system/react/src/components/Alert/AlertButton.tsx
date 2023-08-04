@@ -1,5 +1,5 @@
 import { Components } from '~/defs';
-import { useElementProps, useStyles } from '~/hooks';
+import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
@@ -13,11 +13,9 @@ import { styles } from './styles';
 const _AlertButton = _unstable_createComponent<t.AlertButtonDef>(
   Components.AlertButton,
   ({ children, ...props }) => {
-    const classes = useStyles(styles);
-    const elementProps = useElementProps(props, classes.button);
-
+    const classes = useStyles(styles, props, ['button']);
     return (
-      <Button {...elementProps} variant="link">
+      <Button {...props} {...classes.button} variant="link">
         {children}
       </Button>
     );

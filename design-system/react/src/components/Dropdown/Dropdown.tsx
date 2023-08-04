@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Children,
-  createContext,
-  createElement,
-  useContext,
-  useRef,
-} from 'react';
+import { Children, createContext, useContext, useRef } from 'react';
 import { useMenuTrigger } from 'react-aria';
 import { useMenuTriggerState } from 'react-stately';
 import { Components } from '~/defs';
@@ -14,6 +8,7 @@ import { useStyles } from '~/hooks';
 import { useKeyPressEvent } from '../../hooks/useKeyPressEvent';
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 import { Popover } from '../Popover';
@@ -80,7 +75,7 @@ const _Dropdown = _unstable_createComponent<DropdownDef>(
       }
     });
 
-    return createElement(as, classes.root, customChildren);
+    return _unstable_createEl(as, classes.root, customChildren);
   },
 );
 

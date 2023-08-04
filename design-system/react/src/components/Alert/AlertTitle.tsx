@@ -1,9 +1,9 @@
-import { createElement } from 'react';
 import { Components } from '~/defs';
-import { useStyles, useElementProps } from '~/hooks';
+import { useStyles } from '~/hooks';
 
 import {
   _unstable_createComponent,
+  _unstable_createEl,
   createPolymorphicComponent,
 } from '../../utils';
 import { Heading } from '../Heading';
@@ -14,11 +14,10 @@ import { styles } from './styles';
 const _AlertTitle = _unstable_createComponent<t.AlertTitleDef>(
   Components.AlertTitle,
   ({ as = 'header', children, ...props }) => {
-    const classes = useStyles(styles);
-    const elementProps = useElementProps(props, classes.title);
-    return createElement(
+    const classes = useStyles(styles, props, ['title']);
+    return _unstable_createEl(
       as,
-      elementProps,
+      { ...props, ...classes.title },
       <Heading as="h2">{children}</Heading>,
     );
   },
