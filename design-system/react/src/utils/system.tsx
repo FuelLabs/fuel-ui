@@ -5,8 +5,8 @@ import type { ForwardedRef, ReactElement, ReactNode } from 'react';
 import { createElement, useMemo, forwardRef, cloneElement } from 'react';
 import type { StoreDefs } from '~/defs';
 
+import { useComponentProps } from '../hooks/useComponentProps';
 import { useElementProps } from '../hooks/useElementProps';
-import { useComponentProps } from '../hooks/useStore';
 
 import type { BaseProps } from './types';
 
@@ -84,10 +84,7 @@ export function _unstable_createComponent<
       initProps as GetProps<Def>,
     ) as GetProps<Def>;
     const el = render({ ref, ...props });
-    const className = useMemo(
-      () => cx(el?.props?.className, props.className),
-      [props.className],
-    );
+    const className = cx(el?.props?.className, props.className);
     return cloneElement(el as any, {
       ...(el?.props || {}),
       className,

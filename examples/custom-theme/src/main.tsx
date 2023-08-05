@@ -1,5 +1,10 @@
 import { lightColors } from '@fuel-ui/css';
-import { createTheme, darkTheme, ThemeProvider } from '@fuel-ui/react';
+import {
+  createTheme,
+  darkTheme,
+  setFuelThemes,
+  ThemeProvider,
+} from '@fuel-ui/react';
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -44,9 +49,14 @@ const customTheme = createTheme('custom-theme', {
   },
 });
 
+setFuelThemes({
+  custom: customTheme,
+  dark: darkTheme,
+});
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <ThemeProvider themes={{ custom: customTheme, dark: darkTheme }}>
+    <ThemeProvider>
       <App />
     </ThemeProvider>
   </StrictMode>,

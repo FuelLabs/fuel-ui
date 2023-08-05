@@ -93,9 +93,8 @@ export const SPINNER_SIZE = {
 
 const _Button = _unstable_createComponent<t.ButtonDef>(
   Components.Button,
-  ({ as = 'button', children, ref, ...props }) => {
+  ({ as = 'button', size = 'md', children, ref, ...props }) => {
     const {
-      size = 'md',
       isLoading,
       loadingText,
       isDisabled,
@@ -123,15 +122,16 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
       ...(!isLink && { 'aria-pressed': !disabled && isPressed }),
     };
 
-    const allProps = mergeProps(props, buttonProps, customProps);
+    const allProps = mergeProps(props, { size }, buttonProps, customProps);
     const classes = useStyles(styles, allProps);
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
+    const finalProps = { ...allProps, ...classes.root };
 
     return _unstable_createEl(
       as,
-      { ...allProps, ...classes.root },
+      finalProps,
       getChildren({
         size,
         isLoading,

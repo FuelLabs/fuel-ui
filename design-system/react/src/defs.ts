@@ -220,6 +220,7 @@ export type StoreDefs = {
   Checkbox: CheckboxDef;
   Copyable: CopyableDef;
   Container: ContainerDef;
+  ContentLoader: ContentLoaderDef;
   Drawer: DrawerDef;
   DrawerBody: DrawerBodyDef;
   DrawerClose: DrawerCloseDef;
@@ -232,7 +233,6 @@ export type StoreDefs = {
   DialogDescription: DialogDescriptionDef;
   DialogFooter: DialogFooterDef;
   DialogClose: DialogCloseDef;
-  ContentLoader: ContentLoaderDef;
   Dropdown: DropdownDef;
   DropdownTrigger: DropdownTriggerDef;
   DropdownMenu: DropdownMenuDef;

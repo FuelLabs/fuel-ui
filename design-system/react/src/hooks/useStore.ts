@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { css } from '@fuel-ui/css';
-import type { ThemeUtilsCSS, CSSFnParams } from '@fuel-ui/css';
+import { _createTheme, css } from '@fuel-ui/css';
+import type { CSSFnParams } from '@fuel-ui/css';
 import { useMemo } from 'react';
 import { create } from 'zustand';
+import { subscribeWithSelector } from 'zustand/middleware';
 import type { StoreDefs } from '~/defs';
 import { fClass } from '~/utils/css';
-import { mergeDeep } from '~/utils/helpers';
 
-import { useFuelTheme } from './useTheme';
+import { DEFAULT_THEMES, getInitialTheme, type ThemesObj } from './useTheme';
 
 type DefKeys = keyof StoreDefs;
 type CSSFnReturn = ReturnType<typeof css>;
@@ -34,46 +34,48 @@ type Store = {
   defs: StoreDefitions;
   styles: StoreStyles;
   addDef<K extends DefKeys>(name: K, def: ComponentDef<K>): void;
+  theme: string;
+  themes: ThemesObj;
+  setTheme: (theme: string) => void;
+  setThemes: (themes: ThemesObj) => void;
 };
 
-export const useStore = create<Store>((set) => ({
-  defs: {} as StoreDefitions,
-  styles: {} as StoreStyles,
-  addDef<K extends DefKeys>(name: K, def: ComponentDef<K>) {
-    set((state) => ({
-      defs: {
-        ...state.defs,
-        [name]: def,
-      },
-    }));
-
-    const styles = def.styles;
-    Object.entries(styles).forEach(([def, val]) => {
-      const fn = css.withConfig({ componentId: def, displayName: name });
+export const useStore = create(
+  subscribeWithSelector<Store>((set) => ({
+    theme: getInitialTheme(),
+    themes: DEFAULT_THEMES,
+    setTheme: (theme) => set({ theme }),
+    setThemes: (themes) => {
+      set({ themes });
+    },
+    defs: {} as StoreDefitions,
+    styles: {} as StoreStyles,
+    addDef<K extends DefKeys>(name: K, def: ComponentDef<K>) {
       set((state) => ({
-        styles: {
-          ...state.styles,
-          [name]: {
-            ...state.styles[name],
-            [def]: fn(val as any),
-          },
+        defs: {
+          ...state.defs,
+          [name]: def,
         },
       }));
-    });
-  },
-}));
+
+      const styles = def.styles;
+      Object.entries(styles).forEach(([def, val]) => {
+        const fn = css.withConfig({ componentId: def, displayName: name });
+        set((state) => ({
+          styles: {
+            ...state.styles,
+            [name]: {
+              ...state.styles[name],
+              [def]: fn(val as any),
+            },
+          },
+        }));
+      });
+    },
+  })),
+);
 
 type Style<K extends DefKeys> = ReturnType<typeof createStyle<K>>;
-type Props<K extends DefKeys> = StoreDefs[K]['props'] & {
-  css?: ThemeUtilsCSS;
-};
-
-export function useComponentProps<K extends DefKeys>(name: K, props: Props<K>) {
-  const theme = useFuelTheme();
-  const currTheme = theme.themes[theme.current];
-  const defaultProps = currTheme.components?.[name]?.defaultProps ?? {};
-  return mergeDeep<StoreDefs[K]['props']>(defaultProps, props);
-}
 
 export function createStyle<K extends DefKeys>(
   name: K,
