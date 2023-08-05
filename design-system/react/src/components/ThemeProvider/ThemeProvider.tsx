@@ -1,16 +1,10 @@
-import { useMachine } from '@xstate/react';
-import type { FC, ReactNode } from 'react';
-import {
-  themeContext,
-  DEFAULT_THEMES,
-  getInitialTheme,
-} from '~/hooks/useTheme';
+import { useEffect, type FC, type ReactNode } from 'react';
+import { useStore } from '~/hooks/useStore';
 import type { FuelTheme } from '~/hooks/useTheme';
+import { themeContext } from '~/hooks/useThemeContext';
 
 import { GlobalStyles } from '../../styles/GlobalStyles';
 import { ToastProvider } from '../Toast';
-
-import { themeProviderMachine } from './machine';
 
 export type ThemeProps = {
   withFonts?: boolean;
@@ -22,24 +16,27 @@ export type ThemeProps = {
 export const ThemeProvider: FC<ThemeProps> = ({
   children,
   withFonts = true,
-  themes = DEFAULT_THEMES,
-  initialTheme: current = getInitialTheme(),
+  themes,
+  initialTheme: current = useStore.getState().theme,
 }) => {
-  const curr = themes[current] ? current : Object.keys(themes)[0];
-  const [state, send] = useMachine(() =>
-    themeProviderMachine.withContext({
-      themes: themes as Record<string, FuelTheme>,
-      old: curr,
-      current: curr,
-    }),
-  );
+  const store = useStore();
 
-  function setTheme(value: string) {
-    send('SET_THEME', { value });
-  }
+  useEffect(() => {
+    store.setTheme(current);
+  }, [current]);
+
+  useEffect(() => {
+    themes && store.setThemes(themes);
+  }, [themes]);
 
   return (
-    <themeContext.Provider value={{ ...state.context, setTheme }}>
+    <themeContext.Provider
+      value={{
+        current: store.theme,
+        themes: store.themes,
+        setTheme: store.setTheme,
+      }}
+    >
       <ToastProvider />
       <GlobalStyles withFonts={withFonts} />
       {children}

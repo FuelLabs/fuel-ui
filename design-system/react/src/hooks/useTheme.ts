@@ -1,6 +1,5 @@
 import type { CSSFnParams } from '@fuel-ui/css';
 import { _createTheme, darkColors, lightColors } from '@fuel-ui/css';
-import { createContext, useContext } from 'react';
 
 import type { StoreDefs } from '../defs';
 
@@ -36,12 +35,6 @@ export type ThemeOverride = {
   }>;
 };
 
-export function createTheme(name: string, override: ThemeOverride) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const theme = _createTheme(name, override.tokens as any);
-  return { theme, components: override.components };
-}
-
 export const THEME_STORAGE_KEY = 'fuel-ui-theme';
 export function getInitialTheme() {
   if (typeof window === 'undefined') return 'dark';
@@ -50,6 +43,15 @@ export function getInitialTheme() {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   return prefersDark ? 'dark' : 'light';
 }
+
+export function createTheme(name: string, override: ThemeOverride) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const theme = _createTheme(name, override.tokens as any);
+  return { theme, components: override.components };
+}
+
+export type FuelTheme = ReturnType<typeof createTheme>;
+export type ThemesObj = Record<string, FuelTheme>;
 
 export const lightTheme = createTheme('fuel_light-theme', {
   tokens: {
@@ -67,22 +69,3 @@ export const DEFAULT_THEMES = {
   dark: darkTheme,
   light: lightTheme,
 };
-
-export type FuelTheme = ReturnType<typeof createTheme>;
-export type ThemesObj = Record<string, FuelTheme>;
-
-type Context = {
-  setTheme: (theme: string) => void;
-  themes: ThemesObj;
-  current: string;
-};
-
-export const themeContext = createContext<Context>({
-  setTheme: () => null,
-  themes: DEFAULT_THEMES,
-  current: getInitialTheme(),
-} as Context);
-
-export function useFuelTheme() {
-  return useContext(themeContext);
-}
