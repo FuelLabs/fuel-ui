@@ -1,5 +1,21 @@
 # @fuel-ui/react
 
+## 0.18.0
+
+### Minor Changes
+
+- ✨ Feat: now, by default the `asChild` prop on `Dropdown.Trigger` is set to `false`. So, if you are using this component target a child as trigger, you need to pass `asChild` to the `Dropdown.Trigger` in order to make it work, by [@tomiiide](https://github.com/tomiiide) (See [#276](https://github.com/FuelLabs/fuel-ui/pull/276))
+- Breaking change: remove `Card` variant prop, by [@pedronauck](https://github.com/pedronauck) (See [#294](https://github.com/FuelLabs/fuel-ui/pull/294))
+- ✨ Feat: add new package `@fuel-ui/icon` package to improve performance when loading icons. Using this new approach icons are loaded via svg sprite than import all inside the bundle, by [@pedronauck](https://github.com/pedronauck) (See [#289](https://github.com/FuelLabs/fuel-ui/pull/289))
+
+### Patch Changes
+
+- Chore: adjust light and dark theme colors and tokens, by [@pedronauck](https://github.com/pedronauck) (See [#294](https://github.com/FuelLabs/fuel-ui/pull/294))
+- Chore: change `Drawer` to use the new theme system, by [@tomiiide](https://github.com/tomiiide) (See [#273](https://github.com/FuelLabs/fuel-ui/pull/273))
+- Chore: adjust `Dialog` to use the new theme system, by [@tomiiide](https://github.com/tomiiide) (See [#269](https://github.com/FuelLabs/fuel-ui/pull/269))
+- 🐞 Fix: allow custom sizes for generated avatars, by [@matt-user](https://github.com/matt-user) (See [#293](https://github.com/FuelLabs/fuel-ui/pull/293))
+- Chore: change `ContentLoader` to use the new theme system, by [@tomiiide](https://github.com/tomiiide) (See [#266](https://github.com/FuelLabs/fuel-ui/pull/266))
+
 ## 0.17.0
 
 ### Minor Changes
