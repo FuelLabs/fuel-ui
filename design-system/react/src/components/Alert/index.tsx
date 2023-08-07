@@ -1,2 +1,2 @@
-export type { AlertProps } from './defs';
+export * from './defs';
 export * from './Alert';
