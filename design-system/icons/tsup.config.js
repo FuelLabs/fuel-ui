@@ -9,5 +9,5 @@ export default defineConfig((options) => ({
   treeshake: true,
   splitting: true,
   metafile: true,
-  clean: true,
+  clean: false,
 }));
