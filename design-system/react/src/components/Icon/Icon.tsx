@@ -13,9 +13,16 @@ import {
 } from '../../utils';
 
 import type { IconDef, Icons } from './defs';
+const ICON_URL = '/icons.svg';
 
 const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
   const store = useStore();
+  const iconUrl = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (__STORYBOOK_FUEL_UI__) return ICON_URL;
+    return store.iconUrl;
+  }, [store.iconUrl]);
   const {
     as = 'i',
     label: initialLabel,
@@ -72,7 +79,7 @@ const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
             width={size}
             height={size}
           >
-            <use xlinkHref={`${store.iconUrl}#${icon}`} />
+            <use xlinkHref={`${iconUrl}#${icon}`} />
           </svg>
           <VisuallyHidden.Root>{label || icon}</VisuallyHidden.Root>
         </>
