@@ -30,6 +30,7 @@ export const OMIT_FOR_DOM = [
   'minHS',
   'justIcon',
   'iconSize',
+  'onPressStart',
 ];
 
 export function useElementProps<P extends any[]>(...props: P): P[0] {
