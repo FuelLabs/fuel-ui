@@ -6,7 +6,7 @@
   "author": "Fuel Labs <contact@fuel-ui.sh> (https://fuel.network/)",
   "engines": {
     "node": ">=18",
-    "pnpm": ">=7"
+    "pnpm": ">=8"
   },
   "homepage": "https://github.com/FuelLabs/fuel-ui#readme",
   "repository": {
