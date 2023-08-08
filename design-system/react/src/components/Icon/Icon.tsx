@@ -15,14 +15,20 @@ import {
 import type { IconDef, Icons } from './defs';
 const ICON_URL = '/icons.svg';
 
-const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
-  const store = useStore();
-  const iconUrl = useMemo(() => {
+function getIconUrl() {
+  try {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (__STORYBOOK_FUEL_UI__) return ICON_URL;
-    return store.iconUrl;
-  }, [store.iconUrl]);
+    return useStore.getState().iconUrl;
+  } catch (e) {
+    return useStore.getState().iconUrl;
+  }
+}
+const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
+  const store = useStore();
+  const iconUrl = useMemo(() => getIconUrl(), [store.iconUrl]);
+
   const {
     as = 'i',
     label: initialLabel,
