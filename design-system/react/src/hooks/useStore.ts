@@ -31,6 +31,7 @@ type StoreStyles = {
 };
 
 type Store = {
+  iconUrl?: string;
   defs: StoreDefitions;
   styles: StoreStyles;
   addDef<K extends DefKeys>(name: K, def: ComponentDef<K>): void;

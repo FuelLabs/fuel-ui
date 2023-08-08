@@ -24,6 +24,10 @@ export function setFuelThemes<T extends ThemesObj>({
   saveThemeProps(init);
 }
 
+export function loadIcons(url: string) {
+  useStore.setState({ iconUrl: url });
+}
+
 useStore.subscribe(
   (state) => state.theme,
   (current, previous) => {

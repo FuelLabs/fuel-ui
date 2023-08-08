@@ -139,8 +139,6 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
         children,
         iconLeft,
         iconRight,
-        iconLeftClass: classes.iconLeft.className,
-        iconRightClass: classes.iconRight.className,
       }),
     );
   },
