@@ -16,6 +16,15 @@ export const styles = createStyle(Components.Card, {
       outline: '2px solid $intentsBase1',
       outlineOffset: 1,
     },
+
+    '&[data-variant="outlined"]': {
+      background: 'transparent',
+      border: '1px solid $border',
+
+      '&[data-is-clickable=true]:focus-visible': {
+        outline: '2px solid $intentsBase1',
+      },
+    },
   },
   body: {
     px: '$4',

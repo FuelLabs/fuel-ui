@@ -17,7 +17,7 @@ import { styles } from './styles';
 
 const _Card = _unstable_createComponent<CardDef>(
   Components.Card,
-  ({ as = 'article', ref, withDividers, children, ...props }) => {
+  ({ as = 'article', ref, variant, withDividers, children, ...props }) => {
     const classes = useStyles(styles, props);
     const { buttonProps, ref: cardRef } = useOnPress<
       CardDef['props'],
@@ -33,6 +33,7 @@ const _Card = _unstable_createComponent<CardDef>(
       className: classes.root.className,
       'data-is-clickable': isClickable,
       'data-dividers': withDividers,
+      'data-variant': variant,
       ...(isClickable && {
         tabIndex: 0,
         role: 'button',

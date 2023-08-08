@@ -20,6 +20,17 @@ export const Usage = (args: CardProps) => (
   </Box>
 );
 
+export const Variants = (args: CardProps) => (
+  <Box.Stack css={{ maxW: '400px' }} gap="$4">
+    <Card {...args} variant="ghost">
+      <Card.Body>Ghost</Card.Body>
+    </Card>
+    <Card {...args} variant="outlined">
+      <Card.Body>Outlined</Card.Body>
+    </Card>
+  </Box.Stack>
+);
+
 export const WithHeader = (args: CardProps) => (
   <Box css={{ maxW: '400px' }}>
     <Card {...args}>
