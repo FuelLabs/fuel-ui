@@ -14,14 +14,19 @@ import {
 
 import type { IconDef, Icons } from './defs';
 
-const ICON_URL =
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  __STORYBOOK_FUEL_UI__ === 'true'
-    ? '/icons.svg'
-    : 'https://design.fuel.network/icons/sprite.svg';
+function getIconUrl() {
+  const cdnPath = 'https://design.fuel.network/icons/sprite.svg';
+  try {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const isFuelUI = __STORYBOOK_FUEL_UI__;
+    return isFuelUI ? '/icons.svg' : cdnPath;
+  } catch (e) {
+    return cdnPath;
+  }
+}
 
-const sprite = new URL(ICON_URL, import.meta.url).href;
+const sprite = new URL(getIconUrl(), import.meta.url).href;
 
 const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
   const {
