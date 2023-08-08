@@ -4,11 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       folder:
-        description: "folder to copy to S3"
+        description: "Folder to copy to S3"
         required: true
+      bucket_name:
+        description: "Bucket Name"
+        required: false
 
 env:
   FOLDER: ${{ github.event.inputs.folder }}
+  S3_BUCKET: ${{ github.events.inputs.bucket_name || secrets.S3_CDN_BUCKET }}
 
 jobs:
   deploy-s3-assets:
@@ -37,10 +41,10 @@ jobs:
         run: |
           aws s3 cp $FOLDER/ s3://${S3_CDN_BUCKET}/design/ --recursive
         env:
-          S3_CDN_BUCKET: ${{ secrets.S3_CDN_BUCKET }}
+          S3_CDN_BUCKET: ${{ env.S3_BUCKET }}
 
       - name: Display Bucket URL
         run: |
           echo "Files are accessible at: https://s3.us-east-1.amazonaws.com/${S3_CDN_BUCKET}/design/"
         env:
-          S3_CDN_BUCKET: ${{ secrets.S3_CDN_BUCKET }}
+          S3_CDN_BUCKET: ${{ env.S3_BUCKET }}
