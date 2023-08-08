@@ -273,6 +273,9 @@ importers:
       '@babel/core':
         specifier: ^7.22.10
         version: 7.22.10
+      '@chialab/esbuild-plugin-meta-url':
+        specifier: 0.17.7
+        version: 0.17.7
       '@fuel-stitches/react':
         specifier: workspace:../../stitches/react
         version: link:../../stitches/react
@@ -1963,6 +1966,36 @@ packages:
       prettier: 2.8.8
     dev: true
 
+  /@chialab/esbuild-plugin-meta-url@0.17.7:
+    resolution: {integrity: sha512-f4Eg/+XSrcf9JlYUjI8IEupMOuGR7P3hMlfdbE8aMHM0+PJSIYeFV+udMZyNmSpCYfO3dpVtdulv5QDZfTvzWg==}
+    engines: {node: '>=13'}
+    dependencies:
+      '@chialab/esbuild-rna': 0.17.8
+      '@chialab/estransform': 0.17.4
+      '@chialab/node-resolve': 0.17.1
+      mime-types: 2.1.35
+    dev: true
+
+  /@chialab/esbuild-rna@0.17.8:
+    resolution: {integrity: sha512-hovU4W5zlyMnbJjexdczpQ9mcUfFsJuv9FWUhzpXiQwPprlp5lul+frTed9s8AyVDTDq2yq3Gx2Ac411QsXYGA==}
+    engines: {node: '>=13'}
+    dependencies:
+      '@chialab/estransform': 0.17.4
+      '@chialab/node-resolve': 0.17.1
+    dev: true
+
+  /@chialab/estransform@0.17.4:
+    resolution: {integrity: sha512-p4nf8ECdmanwbRK6A/X/VYtJfkBk5vgChPh0GiCyZAPt6/mKPbe0v3y9WjLHfFdkv1bzjJzP3pjTJ1SZ1E1U8Q==}
+    engines: {node: '>=13'}
+    dependencies:
+      '@parcel/source-map': 2.1.1
+    dev: true
+
+  /@chialab/node-resolve@0.17.1:
+    resolution: {integrity: sha512-YWaK0MKKeB0FILI6j7qiAlGoSC9MqJZDFXzlAgfOaMCbn8Feqh6njxv7mI3oVkdi7QwV6zPRaTN6hKig/NriMA==}
+    engines: {node: '>=13'}
+    dev: true
+
   /@colors/colors@1.5.0:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
@@ -3040,6 +3073,13 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+
+  /@parcel/source-map@2.1.1:
+    resolution: {integrity: sha512-Ejx1P/mj+kMjQb8/y5XxDUn4reGdr+WyKYloBljpppUy8gs42T+BNoEOuRYqDVdgPc6NxduzIDoJS9pOFfV5Ew==}
+    engines: {node: ^12.18.3 || >=14}
+    dependencies:
+      detect-libc: 1.0.3
+    dev: true
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -9070,6 +9110,12 @@ packages:
   /detect-indent@6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
     engines: {node: '>=8'}
+    dev: true
+
+  /detect-libc@1.0.3:
+    resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
+    engines: {node: '>=0.10'}
+    hasBin: true
     dev: true
 
   /detect-newline@3.1.0:

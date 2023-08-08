@@ -1,3 +1,4 @@
+import metaUrlPlugin from '@chialab/esbuild-plugin-meta-url';
 import baseConfig from '@fuels/tsup-config';
 import { defineConfig } from 'tsup';
 
@@ -9,4 +10,5 @@ export default defineConfig((options) => ({
   treeshake: true,
   splitting: true,
   metafile: true,
+  esbuildPlugins: [metaUrlPlugin()],
 }));

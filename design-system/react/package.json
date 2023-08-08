@@ -66,6 +66,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",
+    "@chialab/esbuild-plugin-meta-url": "0.17.7",
     "@fuel-stitches/react": "workspace:../../stitches/react",
     "@react-types/button": "^3.7.3",
     "@react-types/shared": "^3.18.1",

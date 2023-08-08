@@ -15,7 +15,6 @@ export const themeContext = createContext<Context>({
   setTheme: () => {},
   themes: DEFAULT_THEMES,
   current: 'dark',
-  sprite: null,
 } as Context);
 
 export function useFuelTheme() {

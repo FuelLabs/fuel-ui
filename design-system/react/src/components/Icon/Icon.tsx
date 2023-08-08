@@ -4,7 +4,6 @@ import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import type { ReactElement } from 'react';
 import { Fragment, cloneElement, useMemo } from 'react';
 import { createStyle, useStyles } from '~/hooks/useStore';
-import { useFuelTheme } from '~/hooks/useThemeContext';
 import { Components } from '~/utils/components-list';
 
 import {
@@ -15,8 +14,9 @@ import {
 
 import type { IconDef, Icons } from './defs';
 
+const sprite = new URL('@fuel-ui/icons/icons.svg', import.meta.url).href;
+
 const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
-  const { sprite } = useFuelTheme();
   const {
     as = 'span',
     label: initialLabel,
