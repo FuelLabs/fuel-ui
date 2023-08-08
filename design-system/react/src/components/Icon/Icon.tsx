@@ -14,8 +14,12 @@ import {
 
 import type { IconDef, Icons } from './defs';
 
-const sprite = new URL('../../../../icons/dist/sprite.svg', import.meta.url)
-  .href;
+const ICON_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://design.fuel.network/icons/sprite.svg'
+    : '/icons.svg';
+
+const sprite = new URL(ICON_URL, import.meta.url).href;
 
 const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
   const {

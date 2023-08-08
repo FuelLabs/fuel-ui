@@ -51,6 +51,7 @@ function pascalCase(inputString: string) {
   await fs.rm(resolveRoot(OUTPUT), { recursive: true, force: true });
   await fs.mkdir(resolveRoot(OUTPUT), { recursive: true });
   await fs.writeFile(resolveRoot(OUTPUT, 'sprite.svg'), formatted);
+  await fs.writeFile(resolveRoot('../../react/public', 'icons.svg'), formatted);
 
   const nodesPath = '../node_modules/@tabler/icons/tabler-nodes.json';
   const nodes = await fs.readFile(resolveRoot(nodesPath), 'utf-8');
