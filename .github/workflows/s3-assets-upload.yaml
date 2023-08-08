@@ -38,3 +38,9 @@ jobs:
           aws s3 cp $FOLDER/ s3://${S3_CDN_BUCKET}/design/ --recursive
         env:
           S3_CDN_BUCKET: ${{ secrets.S3_CDN_BUCKET }}
+
+      - name: Display Bucket URL
+        run: |
+          echo "Files are accessible at: https://s3.us-east-1.amazonaws.com/${S3_CDN_BUCKET}/design/"
+        env:
+          S3_CDN_BUCKET: ${{ secrets.S3_CDN_BUCKET }}
