@@ -30,7 +30,7 @@ const sprite = new URL(getIconUrl(), import.meta.url).href;
 
 const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
   const {
-    as = 'span',
+    as = 'i',
     label: initialLabel,
     inline,
     icon,
