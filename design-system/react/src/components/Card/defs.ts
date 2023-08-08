@@ -1,6 +1,6 @@
 import type { LayerVariant } from '@fuel-ui/css';
-import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps, PressProps } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { BoxProps, FlexProps } from '../Box';
 

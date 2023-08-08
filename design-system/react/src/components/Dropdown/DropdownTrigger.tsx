@@ -1,8 +1,8 @@
 import { mergeRefs } from '@react-aria/utils';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { useAsChild } from '~/hooks/useAsChild';
 import { _unstable_createComponent, omit } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import { Icon, Button } from '..';
 

@@ -1,5 +1,5 @@
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import type { HTMLProps } from '../../utils';
 import {

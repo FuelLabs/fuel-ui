@@ -1,9 +1,9 @@
 import { cx } from '@fuel-ui/css';
 import { mergeRefs } from '@react-aria/utils';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { useAsChild } from '~/hooks/useAsChild';
 import { _unstable_createComponent } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import { useDialog } from './Dialog';
 import type { DialogTriggerDef } from './defs';

@@ -1,14 +1,14 @@
 import { render } from '@fuels/jest';
 import { useState } from 'react';
 
+import { PasswordDictionary } from '../../utils/constants';
+import { passwordStrengthCalculator } from '../../utils/password-strength';
+import unsafePasswords from '../../utils/unsafe-passwords.json';
 import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { InputPassword } from '../InputPassword';
 
 import { PasswordStrength } from './PasswordStrength';
-import { PasswordDictionary } from './constants';
-import unsafePasswords from './constants/unsafe-passwords.json';
-import { passwordStrengthCalculator } from './utils';
 
 const strongPassword = '12345LF@ik&!';
 const averagePassword = 'L@w2';

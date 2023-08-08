@@ -9,13 +9,13 @@ import {
   OverlayProvider,
 } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import {
   _unstable_createComponent,
   _unstable_createEl,
   createPolymorphicComponent,
 } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import { DialogClose } from './DialogClose';
 import { DialogContent } from './DialogContent';

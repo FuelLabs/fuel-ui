@@ -2,6 +2,8 @@
 import { useEffect } from 'react';
 import { createComponent } from '~/utils';
 
+import { usePasswordStrength } from '../../hooks/usePasswordStrength';
+import type { PasswordDictionary } from '../../utils/constants';
 import { Flex } from '../Box/Flex';
 import { Stack } from '../Box/Stack';
 import { Heading } from '../Heading';
@@ -12,8 +14,6 @@ import { Spinner } from '../Spinner';
 import { Text } from '../Text';
 
 import { StrengthIndicator } from './StrengthIndicator';
-import type { PasswordDictionary } from './constants';
-import { usePasswordStrength } from './hooks';
 import { styles } from './styles';
 
 export type PasswordStrengthProps = {

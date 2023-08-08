@@ -3,7 +3,6 @@ import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
 import { mergeProps } from 'react-aria';
-import { Components } from '~/defs';
 import { useOnPress } from '~/hooks/useOnPress';
 import { useStyles } from '~/hooks/useStore';
 import {
@@ -11,6 +10,7 @@ import {
   _unstable_createEl,
   createPolymorphicComponent,
 } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';

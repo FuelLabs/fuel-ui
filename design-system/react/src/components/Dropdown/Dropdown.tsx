@@ -2,8 +2,8 @@
 import { Children, createContext, useContext, useRef } from 'react';
 import { useMenuTrigger } from 'react-aria';
 import { useMenuTriggerState } from 'react-stately';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import { useKeyPressEvent } from '../../hooks/useKeyPressEvent';
 import {

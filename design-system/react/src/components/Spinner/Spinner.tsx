@@ -1,7 +1,7 @@
 import type { ColorKeys, Colors } from '@fuel-ui/css';
 import { css, darkColors, keyframes, cx } from '@fuel-ui/css';
 import { useMemo } from 'react';
-import { Components } from '~/defs';
+import { Components } from '~/utils/components-list';
 import { fClass } from '~/utils/css';
 
 import { _unstable_createComponent, _unstable_createEl } from '../../utils';

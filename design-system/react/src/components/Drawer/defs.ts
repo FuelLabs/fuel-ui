@@ -4,8 +4,8 @@ import type { AnimationProps } from 'framer-motion';
 import type { DOMAttributes, ForwardedRef, MutableRefObject } from 'react';
 import type { AriaOverlayProps } from 'react-aria';
 import type { OverlayTriggerProps, OverlayTriggerState } from 'react-stately';
-import type { Components } from '~/defs';
 import type { AsChildProps, CreateComponent } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { BoxProps } from '../Box';
 import type { ButtonProps } from '../Button';

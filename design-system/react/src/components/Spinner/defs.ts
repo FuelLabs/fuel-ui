@@ -1,6 +1,6 @@
 import type { ColorKeys, Colors } from '@fuel-ui/css';
-import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 export type SpinnerProps = {
   size?: number;

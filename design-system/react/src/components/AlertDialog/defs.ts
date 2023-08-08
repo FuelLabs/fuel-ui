@@ -1,6 +1,6 @@
 import type * as RAL from '@radix-ui/react-alert-dialog';
-import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { AlertDialogAction } from './AlertDialogAction';
 import type { AlertDialogCancel } from './AlertDialogCancel';

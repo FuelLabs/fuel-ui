@@ -1,6 +1,6 @@
 import * as RAvatar from '@radix-ui/react-avatar';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import { _unstable_createComponent, _unstable_createEl } from '../../utils';
 import { Box } from '../Box';

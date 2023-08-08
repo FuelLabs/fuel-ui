@@ -1,6 +1,6 @@
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { _unstable_createComponent, _unstable_createEl } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import type { MenuProps } from '../Menu';
 import { Menu } from '../Menu';

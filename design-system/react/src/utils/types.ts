@@ -142,3 +142,5 @@ export type AsChildProps<P extends Record<any, any>> = P & {
   asChild?: boolean;
   children: ReactNode;
 };
+
+export type PasswordStrength = 'strong' | 'average' | 'weak';

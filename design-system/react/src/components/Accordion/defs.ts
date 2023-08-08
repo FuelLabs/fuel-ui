@@ -1,6 +1,6 @@
 import type * as AC from '@radix-ui/react-accordion';
-import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { AccordionContent } from './AccordionContent';
 import type { AccordionItem } from './AccordionItem';

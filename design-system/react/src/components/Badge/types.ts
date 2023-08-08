@@ -1,6 +1,6 @@
 import type { LayerIntent } from '@fuel-ui/css';
-import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 export type BadgeVariants = 'solid' | 'outlined' | 'ghost';
 export type BadgeProps = HTMLProps['span'] & {

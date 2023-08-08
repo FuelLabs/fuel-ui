@@ -1,6 +1,6 @@
 import { toCamelCase } from '@fuel-ui/css';
-import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 function createVariantStyle(key: string) {
   const color = `$${toCamelCase(`semantic-ghost-${key}-color`)}`;

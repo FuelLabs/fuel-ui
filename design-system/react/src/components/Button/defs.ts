@@ -1,7 +1,7 @@
 import type { LayerIntent, LayerVariant } from '@fuel-ui/css';
 import type { AriaButtonProps } from 'react-aria';
-import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { HTMLProps } from '../../utils/types';
 import type { IconProps } from '../Icon';

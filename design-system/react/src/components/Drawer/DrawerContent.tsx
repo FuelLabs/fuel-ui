@@ -3,7 +3,6 @@ import { mergeProps, mergeRefs } from '@react-aria/utils';
 import type { AnimationProps } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { FocusScope, usePreventScroll, useDialog, useModal } from 'react-aria';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { useClickAway } from '~/hooks/useClickAway';
 import {
@@ -11,6 +10,7 @@ import {
   _unstable_createEl,
   createPolymorphicComponent,
 } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import { Box } from '..';
 

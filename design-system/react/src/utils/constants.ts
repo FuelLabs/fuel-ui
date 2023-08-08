@@ -1,4 +1,4 @@
-import type { PasswordStrength } from '../types';
+import type { PasswordStrength } from './types';
 
 export const PasswordDictionary = {
   strong: 'Strong',

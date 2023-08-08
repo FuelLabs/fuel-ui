@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
+import { usePasswordStrength } from '../../hooks/usePasswordStrength';
 import { Stack } from '../Box/Stack';
 import { InputPassword } from '../InputPassword';
 
 import type { PasswordStrengthProps } from './PasswordStrength';
 import { PasswordStrength } from './PasswordStrength';
-import { usePasswordStrength } from './hooks';
 
 export default {
   component: PasswordStrength,

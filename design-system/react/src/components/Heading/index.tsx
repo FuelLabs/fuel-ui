@@ -1,2 +1,3 @@
-export * from './Heading';
-export * from './defs';
+export { Heading } from './Heading';
+
+export type { HeadingProps, HeadingDef } from './defs';

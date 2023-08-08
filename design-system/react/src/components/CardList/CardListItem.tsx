@@ -1,5 +1,5 @@
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import {
   _unstable_createComponent,
@@ -11,7 +11,7 @@ import { Card } from '../Card';
 import type { CardListItemDef } from './defs';
 import { styles } from './styles';
 
-export const _CardListItem = _unstable_createComponent<CardListItemDef>(
+const _CardListItem = _unstable_createComponent<CardListItemDef>(
   Components.CardListItem,
   ({ children, rightEl, isActive, ...props }) => {
     const classes = useStyles(styles, props, ['item']);

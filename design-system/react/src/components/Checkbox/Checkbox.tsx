@@ -1,6 +1,6 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import { _unstable_createComponent, _unstable_createEl } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';

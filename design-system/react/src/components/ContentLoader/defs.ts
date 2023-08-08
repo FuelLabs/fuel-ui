@@ -1,6 +1,6 @@
 import type { IContentLoaderProps } from 'react-content-loader';
-import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 export type ContentLoaderProps = IContentLoaderProps & {
   isFullWidth?: boolean;

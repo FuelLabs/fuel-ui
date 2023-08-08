@@ -4,8 +4,8 @@ import sprite from '@fuel-ui/icons/sprite.svg';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import type { ReactElement } from 'react';
 import { Fragment, cloneElement, useMemo } from 'react';
-import { Components } from '~/defs';
 import { createStyle, useStyles } from '~/hooks/useStore';
+import { Components } from '~/utils/components-list';
 
 import {
   _unstable_createComponent,

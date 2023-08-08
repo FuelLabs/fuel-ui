@@ -1,5 +1,6 @@
-import { Components } from '~/defs';
+import { Components } from '~/utils/components-list';
 
+import { useFlexProps } from '../../hooks/useFlexProps';
 import {
   _unstable_createComponent,
   _unstable_createEl,
@@ -7,7 +8,6 @@ import {
 } from '../../utils';
 
 import type * as t from './defs';
-import { useFlexProps } from './useFlexProps';
 
 export type FlexProps = t.FlexProps;
 
