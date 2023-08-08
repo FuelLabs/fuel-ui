@@ -1,4 +1,4 @@
-import { Components } from '~/defs';
+import { Components } from '~/utils/components-list';
 
 import { useFlexProps } from '../../hooks/useFlexProps';
 import {

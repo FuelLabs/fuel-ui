@@ -1,7 +1,7 @@
 import * as AD from '@radix-ui/react-alert-dialog';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { _unstable_createComponent, _unstable_createEl } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import { AlertDialogAction } from './AlertDialogAction';
 import { AlertDialogCancel } from './AlertDialogCancel';

@@ -1,6 +1,6 @@
 import * as AspectRatioPrimitive from '@radix-ui/react-aspect-ratio';
-import { Components } from '~/defs';
 import { createStyle, useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import { _unstable_createComponent, _unstable_createEl } from '../../utils';
 

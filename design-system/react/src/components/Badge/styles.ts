@@ -1,5 +1,5 @@
-import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import * as buttonVariants from '../Button/variants';
 

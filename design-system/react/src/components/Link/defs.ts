@@ -1,5 +1,5 @@
-import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 export type LinkProps = HTMLProps['a'] & {
   isExternal?: boolean;

@@ -1,6 +1,6 @@
 import type * as RAvatar from '@radix-ui/react-avatar';
-import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { AvatarGenerated } from './AvatarGenerated';
 

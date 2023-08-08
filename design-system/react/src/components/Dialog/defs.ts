@@ -2,8 +2,8 @@
 import type { ForwardedRef, ReactNode } from 'react';
 import type { AriaOverlayProps, AriaDialogProps, ModalAria } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
-import type { Components } from '~/defs';
 import type { AsChildProps, CreateComponent, HTMLProps } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { ButtonProps } from '../Button';
 import type { HeadingProps } from '../Heading';

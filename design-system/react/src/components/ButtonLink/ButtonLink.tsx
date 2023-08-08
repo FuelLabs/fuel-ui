@@ -1,7 +1,7 @@
 import type { LayerVariant } from '@fuel-ui/css';
 import { mergeProps } from 'react-aria';
-import { Components } from '~/defs';
 import { useStyles, createStyle } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import {
   _unstable_createComponent,

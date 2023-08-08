@@ -1,7 +1,7 @@
 import { mergeProps, mergeRefs } from '@react-aria/utils';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { useOnPress } from '~/hooks/useOnPress';
+import { Components } from '~/utils/components-list';
 
 import {
   _unstable_createComponent,

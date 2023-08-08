@@ -18,34 +18,6 @@ export type {
   AccordionTriggerDef,
 } from './Accordion';
 
-export {
-  useAlertProps,
-  Alert,
-  AlertActions,
-  AlertButton,
-  AlertDescription,
-  AlertTitle,
-} from './Alert';
-
-export type {
-  AlertStatus,
-  AlertProps,
-  AlertActionsProps,
-  AlertButtonProps,
-  AlertDescriptionProps,
-  AlertTitleProps,
-  AlertNS,
-  AlertDef,
-  AlertActionsDef,
-  AlertButtonDef,
-  AlertDescriptionDef,
-  AlertTitleDef,
-} from './Alert';
-
-export { Badge } from './Badge';
-
-export type { BadgeVariants, BadgeProps, BadgeDef } from './Badge';
-
 export { AspectRatio } from './AspectRatio';
 
 export type { AspectRatioProps, AspectRatioDef } from './AspectRatio';
@@ -81,16 +53,42 @@ export type {
   AlertDialogTriggerDef,
 } from './AlertDialog';
 
-export { createIcon, getIconSize, SPINNER_SIZE, Button } from './Button';
+export { Avatar, AvatarGenerated } from './Avatar';
 
 export type {
-  ButtonVariants,
-  ButtonSizes,
-  ButtonBaseProps,
-  ButtonProps,
-  ButtonNS,
-  ButtonDef,
-} from './Button';
+  AvatarProps,
+  AvatarDef,
+  AvatarGeneratedProps,
+  AvatarGeneratedDef,
+} from './Avatar';
+
+export { Badge } from './Badge';
+
+export type { BadgeVariants, BadgeProps, BadgeDef } from './Badge';
+
+export {
+  useAlertProps,
+  Alert,
+  AlertActions,
+  AlertButton,
+  AlertDescription,
+  AlertTitle,
+} from './Alert';
+
+export type {
+  AlertStatus,
+  AlertProps,
+  AlertActionsProps,
+  AlertButtonProps,
+  AlertDescriptionProps,
+  AlertTitleProps,
+  AlertNS,
+  AlertDef,
+  AlertActionsDef,
+  AlertButtonDef,
+  AlertDescriptionDef,
+  AlertTitleDef,
+} from './Alert';
 
 export { Box, BoxCentered, Container, Flex, Stack } from './Box';
 
@@ -108,14 +106,16 @@ export type {
   ContainerDef,
 } from './Box';
 
-export { Avatar, AvatarGenerated } from './Avatar';
+export { createIcon, getIconSize, SPINNER_SIZE, Button } from './Button';
 
 export type {
-  AvatarProps,
-  AvatarDef,
-  AvatarGeneratedProps,
-  AvatarGeneratedDef,
-} from './Avatar';
+  ButtonVariants,
+  ButtonSizes,
+  ButtonBaseProps,
+  ButtonProps,
+  ButtonNS,
+  ButtonDef,
+} from './Button';
 
 export { ButtonGroup } from './ButtonGroup';
 
@@ -370,16 +370,16 @@ export type {
   UsePaginationReturn,
 } from './Pagination';
 
+export { Popover } from './Popover';
+
+export type { PopoverProps } from './Popover';
+
 export { PasswordStrength, StrengthIndicator } from './PasswordStrength';
 
 export type {
   PasswordStrengthProps,
   StrengthIndicatorIndicatorProps,
 } from './PasswordStrength';
-
-export { Popover } from './Popover';
-
-export type { PopoverProps } from './Popover';
 
 export { RadioGroup, RadioGroupItem } from './RadioGroup';
 

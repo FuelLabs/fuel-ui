@@ -74,81 +74,11 @@ import type { LinkDef } from './components/Link';
 import type { SpinnerDef } from './components/Spinner';
 import type { TextDef } from './components/Text';
 
-export enum Components {
-  Accordion = 'Accordion',
-  AccordionContent = 'AccordionContent',
-  AccordionItem = 'AccordionItem',
-  AccordionTrigger = 'AccordionTrigger',
-  Alert = 'Alert',
-  AlertActions = 'AlertActions',
-  AlertButton = 'AlertButton',
-  AlertDescription = 'AlertDescription',
-  AlertTitle = 'AlertTitle',
-  Badge = 'Badge',
-  AspectRatio = 'AspectRatio',
-  AlertDialog = 'AlertDialog',
-  AlertDialogAction = 'AlertDialogAction',
-  AlertDialogCancel = 'AlertDialogCancel',
-  AlertDialogContent = 'AlertDialogContent',
-  AlertDialogDescription = 'AlertDialogDescription',
-  AlertDialogFooter = 'AlertDialogFooter',
-  AlertDialogHeading = 'AlertDialogHeading',
-  AlertDialogTrigger = 'AlertDialogTrigger',
-  Button = 'Button',
-  Box = 'Box',
-  Flex = 'Flex',
-  BoxCentered = 'BoxCentered',
-  Stack = 'Stack',
-  Container = 'Container',
-  Avatar = 'Avatar',
-  AvatarGenerated = 'AvatarGenerated',
-  ButtonGroup = 'ButtonGroup',
-  ButtonLink = 'ButtonLink',
-  Card = 'Card',
-  CardBody = 'CardBody',
-  CardFooter = 'CardFooter',
-  CardHeader = 'CardHeader',
-  CardList = 'CardList',
-  CardListItem = 'CardListItem',
-  Checkbox = 'Checkbox',
-  ContentLoader = 'ContentLoader',
-  Copyable = 'Copyable',
-  Dialog = 'Dialog',
-  DialogContent = 'DialogContent',
-  DialogTrigger = 'DialogTrigger',
-  DialogHeading = 'DialogHeading',
-  DialogDescription = 'DialogDescription',
-  DialogFooter = 'DialogFooter',
-  DialogClose = 'DialogClose',
-  Drawer = 'Drawer',
-  DrawerBody = 'DrawerBody',
-  DrawerClose = 'DrawerClose',
-  DrawerContent = 'DrawerContent',
-  DrawerTrigger = 'DrawerTrigger',
-  Dropdown = 'Dropdown',
-  DropdownTrigger = 'DropdownTrigger',
-  DropdownMenu = 'DropdownMenu',
-  DropdownMenuItem = 'DropdownMenuItem',
-  Heading = 'Heading',
-  HelperIcon = 'HelperIcon',
-  Icon = 'Icon',
-  Image = 'Image',
-  Link = 'Link',
-  Spinner = 'Spinner',
-  Text = 'Text',
-}
-
 export type StoreDefs = {
   Accordion: AccordionDef;
   AccordionContent: AccordionContentDef;
   AccordionItem: AccordionItemDef;
   AccordionTrigger: AccordionTriggerDef;
-  Alert: AlertDef;
-  AlertActions: AlertActionsDef;
-  AlertButton: AlertButtonDef;
-  AlertDescription: AlertDescriptionDef;
-  AlertTitle: AlertTitleDef;
-  Badge: BadgeDef;
   AspectRatio: AspectRatioDef;
   AlertDialog: AlertDialogDef;
   AlertDialogAction: AlertDialogActionDef;
@@ -158,14 +88,20 @@ export type StoreDefs = {
   AlertDialogFooter: AlertDialogFooterDef;
   AlertDialogHeading: AlertDialogHeadingDef;
   AlertDialogTrigger: AlertDialogTriggerDef;
-  Button: ButtonDef;
+  Avatar: AvatarDef;
+  AvatarGenerated: AvatarGeneratedDef;
+  Badge: BadgeDef;
+  Alert: AlertDef;
+  AlertActions: AlertActionsDef;
+  AlertButton: AlertButtonDef;
+  AlertDescription: AlertDescriptionDef;
+  AlertTitle: AlertTitleDef;
   Box: BoxDef;
   Flex: FlexDef;
   BoxCentered: BoxCenteredDef;
   Stack: StackDef;
   Container: ContainerDef;
-  Avatar: AvatarDef;
-  AvatarGenerated: AvatarGeneratedDef;
+  Button: ButtonDef;
   ButtonGroup: ButtonGroupDef;
   ButtonLink: ButtonLinkDef;
   Card: CardDef;

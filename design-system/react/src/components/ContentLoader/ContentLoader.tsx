@@ -1,7 +1,7 @@
 import RectContentLoader from 'react-content-loader';
-import { Components } from '~/defs';
 import { useFuelTheme } from '~/hooks';
 import { _unstable_createComponent, _unstable_createEl } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import { Rect } from './ContentLoaderRect';
 import type { ContentLoaderProps } from './defs';

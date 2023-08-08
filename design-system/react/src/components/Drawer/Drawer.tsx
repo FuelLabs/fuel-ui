@@ -10,8 +10,8 @@ import {
 } from 'react';
 import { OverlayContainer, useOverlay } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import { _unstable_createComponent } from '../../utils';
 

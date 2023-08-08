@@ -1,6 +1,6 @@
 import type { utils, Colors } from '@fuel-ui/css';
-import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { IconProps } from '../Icon';
 

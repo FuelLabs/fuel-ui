@@ -8,6 +8,7 @@ import * as url from 'url';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
+const COMPS_FILE = path.join(__dirname, '../src/utils/components-list.ts');
 const COMPONENT_DIR = path.join(__dirname, '../src/components');
 const DEFS_FILE = path.join(__dirname, '../src/defs.ts');
 const COMPONENTS_INDEX_FILE = path.join(
@@ -221,13 +222,15 @@ async function createDefs(components) {
   }
 
   list = list.join('\n\n');
+
   const names = defList.map((s) => {
     const name = s.replace('Def', '');
     return `${name} = '${name}',`;
   });
+  let comps = `export enum Components {\n${names.join('\n')}\n}`;
+  comps = await prettier.format(comps, { parser: 'typescript' });
+  await fs.writeFile(COMPS_FILE, comps);
 
-  list = `${list}\n\nexport enum Components {\n${names.join('\n')}\n}`;
-  list = await prettier.format(list, { parser: 'typescript' });
   const types = defList.map((s) => {
     const name = s.replace('Def', '');
     return `${name}: ${name}Def;`;

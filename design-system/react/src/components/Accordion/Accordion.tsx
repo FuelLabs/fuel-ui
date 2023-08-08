@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as AC from '@radix-ui/react-accordion';
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import { _unstable_createComponent, _unstable_createEl } from '../../utils';
 

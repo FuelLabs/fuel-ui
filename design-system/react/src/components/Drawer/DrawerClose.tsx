@@ -1,6 +1,6 @@
-import { Components } from '~/defs';
 import { useStyles } from '~/hooks';
 import { _unstable_createComponent } from '~/utils';
+import { Components } from '~/utils/components-list';
 
 import { Icon, IconButton } from '..';
 

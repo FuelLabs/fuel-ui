@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { mergeProps, useLink } from 'react-aria';
-import { Components } from '~/defs';
 import { createStyle, useStyles } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 import {
   _unstable_createComponent,

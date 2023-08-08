@@ -6,8 +6,8 @@ import type {
   MenuTriggerProps,
   ItemProps,
 } from 'react-stately';
-import type { Components } from '~/defs';
 import type { CreateComponent } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { ButtonProps } from '../Button';
 import type { MenuItemProps, MenuProps } from '../Menu';

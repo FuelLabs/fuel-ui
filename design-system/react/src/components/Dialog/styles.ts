@@ -1,6 +1,6 @@
 import { keyframes } from '@fuel-ui/css';
-import { Components } from '~/defs';
 import { createStyle } from '~/hooks';
+import { Components } from '~/utils/components-list';
 
 const overlayShow = keyframes({
   '0%': {

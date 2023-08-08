@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
-import type { Components } from '~/defs';
 import type { CreateComponent, HTMLProps } from '~/utils';
+import type { Components } from '~/utils/components-list';
 
 import type { StackProps } from '../Box';
 import type { CardProps } from '../Card/defs';
