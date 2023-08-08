@@ -9,7 +9,8 @@ import { optimize } from 'svgo';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
-const ICONS_OUTPUT = '../dist';
+const OUTPUT = '../public';
+const SRC_FOLDER = '../src';
 
 function resolveRoot(...args: string[]) {
   return path.resolve(__dirname, ...args);
@@ -47,9 +48,9 @@ function pascalCase(inputString: string) {
     ],
   }).data;
 
-  await fs.rm(resolveRoot(ICONS_OUTPUT), { recursive: true, force: true });
-  await fs.mkdir(resolveRoot(ICONS_OUTPUT), { recursive: true });
-  await fs.writeFile(resolveRoot(ICONS_OUTPUT, 'sprite.svg'), formatted);
+  await fs.rm(resolveRoot(OUTPUT), { recursive: true, force: true });
+  await fs.mkdir(resolveRoot(OUTPUT), { recursive: true });
+  await fs.writeFile(resolveRoot(OUTPUT, 'sprite.svg'), formatted);
 
   const nodesPath = '../node_modules/@tabler/icons/tabler-nodes.json';
   const nodes = await fs.readFile(resolveRoot(nodesPath), 'utf-8');
@@ -61,18 +62,9 @@ function pascalCase(inputString: string) {
   const typesFile = `
     export type IconName = '${allIcons.join("' | '")}';
   `;
-  const typesPath = resolveRoot(ICONS_OUTPUT, 'index.d.ts');
+  const typesPath = resolveRoot(SRC_FOLDER, 'icons.d.ts');
   await fs.writeFile(
     typesPath,
     await prettier.format(typesFile, { parser: 'typescript' }),
-  );
-
-  await fs.writeFile(
-    resolveRoot(ICONS_OUTPUT, 'index.js'),
-    `module.exports = {}`,
-  );
-  await fs.writeFile(
-    resolveRoot(ICONS_OUTPUT, 'index.mjs'),
-    `export default {}`,
   );
 })();

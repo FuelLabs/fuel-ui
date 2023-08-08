@@ -1,4 +1,4 @@
-import { useEffect, type FC, type ReactNode } from 'react';
+import { useEffect, type FC, type ReactNode, useState } from 'react';
 import { useStore } from '~/hooks/useStore';
 import type { FuelTheme } from '~/hooks/useTheme';
 import { themeContext } from '~/hooks/useThemeContext';
@@ -20,6 +20,7 @@ export const ThemeProvider: FC<ThemeProps> = ({
   initialTheme: current = useStore.getState().theme,
 }) => {
   const store = useStore();
+  const [sprite, setSprite] = useState<string | null>(null);
 
   useEffect(() => {
     store.setTheme(current);
@@ -29,9 +30,18 @@ export const ThemeProvider: FC<ThemeProps> = ({
     themes && store.setThemes(themes);
   }, [themes]);
 
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    import('@fuel-ui/icons/icons.svg').then((svg) => {
+      setSprite(svg.default);
+    });
+  });
+
   return (
     <themeContext.Provider
       value={{
+        sprite,
         current: store.theme,
         themes: store.themes,
         setTheme: store.setTheme,

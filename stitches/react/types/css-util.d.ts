@@ -1,5 +1,5 @@
-import type * as Native from './css.js';
 import type * as Config from './config.js';
+import type * as Native from './css.js';
 import type * as ThemeUtil from './theme.js';
 import type * as Util from './util.js';
 

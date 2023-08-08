@@ -2,18 +2,20 @@ import { createContext, useContext } from 'react';
 import { mergeDeep } from '~/utils';
 
 import { useStore } from './useStore';
-import { THEME_STORAGE_KEY, type ThemesObj } from './useTheme';
+import { DEFAULT_THEMES, THEME_STORAGE_KEY, type ThemesObj } from './useTheme';
 
 type Context = {
   setTheme: (theme: string) => void;
   themes: ThemesObj;
   current: string;
+  sprite?: string | null;
 };
 
 export const themeContext = createContext<Context>({
-  setTheme: useStore.getState().setTheme,
-  themes: useStore.getState().themes,
-  current: useStore.getState().theme,
+  setTheme: () => {},
+  themes: DEFAULT_THEMES,
+  current: 'dark',
+  sprite: null,
 } as Context);
 
 export function useFuelTheme() {

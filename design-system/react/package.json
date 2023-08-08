@@ -53,7 +53,7 @@
     "@testing-library/react": "14.0.0",
     "@xstate/react": "^3.2.2",
     "deepmerge-json": "^1.5.0",
-    "framer-motion": "^10.15.0",
+    "framer-motion": "^10.15.1",
     "react": "^18.2.0",
     "react-aria": "^3.26.0",
     "react-content-loader": "^6.2.1",
@@ -62,10 +62,10 @@
     "react-number-format": "^5.2.2",
     "react-stately": "^3.24.0",
     "xstate": "^4.38.2",
-    "zustand": "^4.4.0"
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.9",
+    "@babel/core": "^7.22.10",
     "@fuel-stitches/react": "workspace:../../stitches/react",
     "@react-types/button": "^3.7.3",
     "@react-types/shared": "^3.18.1",
@@ -89,7 +89,7 @@
     "@types/chrome": "^0.0.243",
     "@types/color": "^3.0.3",
     "@types/fs-extra": "^11.0.1",
-    "@types/react": "^18.2.18",
+    "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
     "@types/testing-library__jest-dom": "5.14.9",
     "@xstate/cli": "^0.5.2",
@@ -102,7 +102,7 @@
     "ts-jest": "^29.1.1",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "5.1.6",
-    "vite": "^4.4.8",
+    "vite": "^4.4.9",
     "vite-tsconfig-paths": "^4.2.0",
     "webpack": "5.88.2",
     "yargs": "^17.7.2"
