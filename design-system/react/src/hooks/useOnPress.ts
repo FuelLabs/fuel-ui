@@ -30,6 +30,7 @@ export function useOnPress<
 >(props: T, customAriaProps?: UseButtonOptions) {
   const innerRef = useRef<E>(null);
   const defaultProps = getDefProps(props);
+  console.log(defaultProps);
   const { buttonProps, isPressed } = useButton(
     { ...defaultProps, ...(customAriaProps || {}) },
     innerRef as any,
