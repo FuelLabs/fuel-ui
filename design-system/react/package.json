@@ -81,7 +81,6 @@
     "@storybook/core-events": "^7.2.1",
     "@storybook/react": "^7.2.1",
     "@storybook/react-vite": "^7.2.1",
-    "@storybook/react-webpack5": "^7.2.1",
     "@storybook/testing-library": "^0.2.0",
     "@storybook/theming": "^7.2.1",
     "@storybook/types": "^7.2.1",
