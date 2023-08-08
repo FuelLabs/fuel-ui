@@ -15,9 +15,9 @@ import {
 import type { IconDef, Icons } from './defs';
 
 const ICON_URL =
-  (import.meta as any).env.STORYBOOK === 'true'
-    ? 'https://design.fuel.network/icons/sprite.svg'
-    : '/icons.svg';
+  (import.meta as any).env.STORYBOOK_FUEL_UI === 'true'
+    ? '/icons.svg'
+    : 'https://design.fuel.network/icons/sprite.svg';
 
 const sprite = new URL(ICON_URL, import.meta.url).href;
 
