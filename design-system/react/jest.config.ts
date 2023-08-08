@@ -7,7 +7,7 @@ const config: Config = {
   ...baseConfig,
   rootDir: __dirname,
   displayName: pkg.name,
-  setupFilesAfterEnv: ['@fuels/jest/setup', './jest.setup.ts'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom', '@fuels/jest/setup'],
   transform: {
     '.*\\.(tsx?)$': [
       '@swc/jest',
@@ -16,6 +16,13 @@ const config: Config = {
           transform: {
             react: {
               runtime: 'automatic',
+            },
+            optimizer: {
+              globals: {
+                vars: {
+                  __STORYBOOK_FUEL_UI__: 'false',
+                },
+              },
             },
           },
         },

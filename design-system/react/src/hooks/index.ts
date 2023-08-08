@@ -4,3 +4,6 @@ export * from './useSafeLayoutEffect';
 export * from './useStore';
 export * from './useTheme';
 export * from './useThemeContext';
+export * from './usePasswordStrength';
+export * from './useFlexProps';
+export * from './useAsChild';

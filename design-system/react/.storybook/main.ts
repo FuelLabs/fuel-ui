@@ -21,6 +21,9 @@ const config: StorybookConfig = {
   async viteFinal(config: any) {
     return mergeConfig(config, {
       plugins: [tsconfigpath()],
+      define: {
+        __STORYBOOK_FUEL_UI__: '"true"',
+      },
     });
   },
 };

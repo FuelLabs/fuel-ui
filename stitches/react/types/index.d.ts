@@ -1,13 +1,12 @@
-import type Stitches from './stitches.js';
-
 import type * as Config from './config.js';
 import type * as CSSUtil from './css-util.js';
-import type * as StyledComponent from './styled-component.js';
-import {
+import type Stitches from './stitches.js';
+import type {
   ComposerVariants,
   CompoundVariants,
   DefaultVariants,
 } from './stitches.js';
+import type * as StyledComponent from './styled-component.js';
 
 export { $$PropertyValue, $$ScaleValue, $$ThemeValue } from './css-util.js';
 export type CreateStitches = Config.CreateStitches;

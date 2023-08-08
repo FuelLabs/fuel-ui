@@ -1,6 +1,8 @@
 {
   "extends": "@fuels/ts-config/base.json",
   "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "outDir": "./dist",
     "baseUrl": ".",
     "rootDir": ".",
@@ -8,5 +10,5 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "jest.config.js", "jest.config.js"]
+  "include": ["src", "scripts", "jest.config.js", "jest.config.js"]
 }

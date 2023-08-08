@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { cx } from '@fuel-ui/css';
-import sprite from '@fuel-ui/icons/sprite.svg';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import type { ReactElement } from 'react';
 import { Fragment, cloneElement, useMemo } from 'react';
@@ -14,6 +13,20 @@ import {
 } from '../../utils';
 
 import type { IconDef, Icons } from './defs';
+
+function getIconUrl() {
+  const cdnPath = 'https://design.fuel.network/icons/sprite.svg';
+  try {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const isFuelUI = __STORYBOOK_FUEL_UI__;
+    return isFuelUI ? '/icons.svg' : cdnPath;
+  } catch (e) {
+    return cdnPath;
+  }
+}
+
+const sprite = new URL(getIconUrl(), import.meta.url).href;
 
 const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
   const {
@@ -79,7 +92,7 @@ const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
       );
     }
     return cloneElement(icon as ReactElement, elementProps);
-  }, [icon]);
+  }, [sprite, icon]);
 
   return typeof icon === 'string'
     ? _unstable_createEl(as, elementProps, children)
