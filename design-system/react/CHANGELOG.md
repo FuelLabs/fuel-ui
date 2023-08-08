@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.18.1
+
+### Patch Changes
+
+- ✨ Feat: add variants back to the card component, by [@matt-user](https://github.com/matt-user) (See [#296](https://github.com/FuelLabs/fuel-ui/pull/296))
+
 ## 0.18.0
 
 ### Minor Changes
