@@ -1,9 +1,9 @@
 import { createComponent } from '~/utils';
 
+import type { PasswordStrength } from '../../utils/types';
 import { Box } from '../Box';
 
 import { styles } from './styles';
-import type { PasswordStrength } from './types';
 
 export type StrengthIndicatorIndicatorProps = {
   strength: PasswordStrength;

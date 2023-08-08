@@ -1,6 +1,7 @@
 import { mergeProps } from 'react-aria';
 import { Components } from '~/defs';
 
+import { useFlexProps } from '../../hooks/useFlexProps';
 import {
   _unstable_createComponent,
   _unstable_createEl,
@@ -8,7 +9,6 @@ import {
 } from '../../utils';
 
 import type * as t from './defs';
-import { useFlexProps } from './useFlexProps';
 
 const _BoxCentered = _unstable_createComponent<t.BoxCenteredDef>(
   Components.BoxCentered,

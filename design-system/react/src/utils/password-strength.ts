@@ -1,4 +1,4 @@
-import type { PasswordStrength } from '../types';
+import type { PasswordStrength } from './types';
 
 /** @description - This is where we make all the rules for the password checking */
 export const passwordChecker = (

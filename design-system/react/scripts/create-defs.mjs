@@ -1,0 +1,250 @@
+import { promises as fs } from 'fs';
+import { globby } from 'globby';
+import _ from 'lodash';
+import path from 'path';
+import prettier from 'prettier';
+import ts from 'typescript';
+import * as url from 'url';
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+
+const COMPONENT_DIR = path.join(__dirname, '../src/components');
+const DEFS_FILE = path.join(__dirname, '../src/defs.ts');
+const COMPONENTS_INDEX_FILE = path.join(
+  __dirname,
+  '../src/components/index.tsx',
+);
+
+function extractExports(sourceFile) {
+  const exports = {
+    valueExports: [],
+    typeExports: [],
+  };
+
+  function visit(node) {
+    if (ts.isExportAssignment(node)) {
+      exports.valueExports.push('default');
+    } else if (ts.isExportDeclaration(node)) {
+      if (node.exportClause && ts.isNamedExports(node.exportClause)) {
+        for (const element of node.exportClause.elements) {
+          if (node.isTypeOnly) {
+            exports.typeExports.push(element.name.getText(sourceFile));
+          } else {
+            exports.valueExports.push(element.name.getText(sourceFile));
+          }
+        }
+      }
+    } else if (
+      ts.isFunctionDeclaration(node) ||
+      ts.isClassDeclaration(node) ||
+      ts.isVariableStatement(node) ||
+      ts.isEnumDeclaration(node)
+    ) {
+      if (
+        node.modifiers &&
+        node.modifiers.some((m) => m.kind === ts.SyntaxKind.ExportKeyword)
+      ) {
+        if (ts.isVariableStatement(node)) {
+          for (const declaration of node.declarationList.declarations) {
+            exports.valueExports.push(declaration.name.getText(sourceFile));
+          }
+        } else {
+          exports.valueExports.push(node.name.text);
+        }
+      }
+    } else if (
+      ts.isTypeAliasDeclaration(node) ||
+      ts.isInterfaceDeclaration(node)
+    ) {
+      if (
+        node.modifiers &&
+        node.modifiers.some((m) => m.kind === ts.SyntaxKind.ExportKeyword)
+      ) {
+        exports.typeExports.push(node.name.text);
+      }
+    }
+    ts.forEachChild(node, visit);
+  }
+
+  visit(sourceFile);
+
+  exports.valueExports = _.uniq(exports.valueExports);
+  exports.typeExports = _.uniq(exports.typeExports);
+  return exports;
+}
+
+async function getAllComponents() {
+  const allComponents = await globby(
+    [
+      '**/*.tsx',
+      '**/defs.ts',
+      '**/use**.ts',
+      '!**/*.stories.tsx',
+      '!**/*.test.{tsx,ts}',
+      '!**/styles.tsx',
+      '!**/utils.tsx',
+      '!**/helpers.tsx',
+    ],
+    {
+      deep: 2,
+      cwd: COMPONENT_DIR,
+      absolute: true,
+      onlyFiles: true,
+    },
+  );
+
+  const components = await Promise.all(
+    allComponents
+      .map(async (comp) => {
+        const name = path.parse(comp).name;
+        const baseComponent = path.parse(path.dirname(comp)).name;
+        const component = name === baseComponent ? null : name;
+        const sourceFile = ts.createSourceFile(
+          comp,
+          await fs.readFile(comp, 'utf8'),
+        );
+
+        const { valueExports, typeExports } = extractExports(sourceFile);
+        return {
+          dir: path.dirname(comp),
+          component,
+          baseComponent,
+          exports: [...new Set(valueExports)],
+          types: [...new Set(typeExports)],
+        };
+      })
+      .filter(Boolean),
+  );
+
+  return components;
+}
+
+function createExportStr(from, exports, isType) {
+  const listStr = exports?.join(',');
+  return exports.length
+    ? `export ${isType ? 'type' : ''} { ${listStr} } from './${from}';`
+    : '';
+}
+
+function createNestedExportStr(main, nested, isType) {
+  if (!nested.length) return '';
+  const key = isType ? 'types' : 'exports';
+  let items = [];
+  for (const n of nested) {
+    let list = n[key]
+      .filter((i) => main.indexOf(i) === -1)
+      .filter((i) => items.every((item) => item.list.indexOf(i) === -1));
+    const from = n.component;
+    items = items.concat({ from, list });
+  }
+
+  return items
+    .map((n) => {
+      const res = createExportStr(n.from, n.list, isType);
+      return res.length ? res : null;
+    })
+    .filter(Boolean)
+    .join('\n');
+}
+
+async function createComponentIndex(components) {
+  const mainComponents = components.filter((s) => !s.component);
+  for (const item of mainComponents) {
+    const component = item.baseComponent;
+    const nested = components.filter(
+      (c) =>
+        c.baseComponent === component &&
+        c.component &&
+        !c.component?.startsWith('index'),
+    );
+
+    const mainExportsStr = createExportStr(component, item.exports);
+    const mainTypesStr = createExportStr(component, item.types, true);
+    const nestedExportStr = createNestedExportStr(item.exports, nested);
+    const nestedTypesStr = createNestedExportStr(item.types, nested, true);
+
+    const index = [
+      mainExportsStr,
+      mainTypesStr,
+      nestedExportStr,
+      nestedTypesStr,
+    ].join('\n\n');
+
+    const content = await prettier.format(index, { parser: 'typescript' });
+    await fs.writeFile(`${item.dir}/index.tsx`, content);
+  }
+}
+
+async function createMainComponentsIndex(components) {
+  const mainComponents = components.filter((s) => !s.component);
+  let list = [];
+
+  for (const item of mainComponents) {
+    const mainPath = `${item.dir}/index.tsx`;
+    const mainStr = await fs.readFile(mainPath, 'utf8');
+    const sourceFile = ts.createSourceFile(mainPath, mainStr);
+    const { valueExports, typeExports } = extractExports(sourceFile);
+    const uniqueExports = [...new Set(valueExports)];
+    const uniqueTypes = [...new Set(typeExports)];
+    const exportsStr = createExportStr(item.baseComponent, uniqueExports);
+    const typesStr = createExportStr(item.baseComponent, uniqueTypes, true);
+    if (exportsStr.length) list.push(exportsStr);
+    if (typesStr.length) list.push(typesStr);
+  }
+
+  list = list.join('\n\n');
+  const content = await prettier.format(list, { parser: 'typescript' });
+  await fs.writeFile(COMPONENTS_INDEX_FILE, content);
+}
+
+async function createDefs(components) {
+  const mainComponents = components.filter((s) => !s.component);
+  let list = [];
+  let defList = [];
+
+  for (const item of mainComponents) {
+    const mainPath = `${item.dir}/index.tsx`;
+    const mainStr = await fs.readFile(mainPath, 'utf8');
+    const sourceFile = ts.createSourceFile(mainPath, mainStr);
+    const { typeExports } = extractExports(sourceFile);
+    let defs = typeExports.filter((e) => e.endsWith('Def'));
+    const str = defs.length
+      ? `import type { ${defs.join(', ')} } from './components/${
+          item.baseComponent
+        }';`
+      : null;
+
+    if (str) list.push(str);
+    if (defs.length) {
+      defList = defList.concat(defs);
+    }
+  }
+
+  list = list.join('\n\n');
+  const names = defList.map((s) => {
+    const name = s.replace('Def', '');
+    return `${name} = '${name}',`;
+  });
+
+  list = `${list}\n\nexport enum Components {\n${names.join('\n')}\n}`;
+  list = await prettier.format(list, { parser: 'typescript' });
+  const types = defList.map((s) => {
+    const name = s.replace('Def', '');
+    return `${name}: ${name}Def;`;
+  });
+  list = `${list}\n\nexport type StoreDefs = {\n${types.join('\n')}\n}`;
+  await fs.writeFile(DEFS_FILE, list);
+}
+
+async function main() {
+  const components = await getAllComponents();
+  const allIndex = await globby(`${COMPONENT_DIR}/**/index.tsx`);
+  await Promise.all(allIndex.map((i) => fs.rm(i)));
+
+  await fs.rm(DEFS_FILE, { force: true });
+  await createComponentIndex(components);
+  await createMainComponentsIndex(components);
+  await createDefs(components);
+}
+
+main();

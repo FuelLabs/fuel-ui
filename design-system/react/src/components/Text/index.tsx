@@ -1,2 +1,3 @@
-export * from './Text';
-export * from './defs';
+export { Text } from './Text';
+
+export type { TextProps, TextDef } from './defs';

@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 
-import { PasswordDictionary } from '../constants';
-import { passwordChecker, passwordStrengthCalculator } from '../utils';
+import { PasswordDictionary } from '../utils/constants';
+import {
+  passwordChecker,
+  passwordStrengthCalculator,
+} from '../utils/password-strength';
 
 type PasswordStrengthOptions = {
   password: string;
@@ -26,7 +29,7 @@ export function usePasswordStrength({
   );
 
   useEffect(() => {
-    import('../constants/unsafe-passwords.json').then((res) => {
+    import('../utils/unsafe-passwords.json').then((res) => {
       setUnsafeList(res.default);
       setLoading(false);
     });
