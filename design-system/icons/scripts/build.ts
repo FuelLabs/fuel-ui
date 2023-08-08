@@ -9,7 +9,7 @@ import { optimize } from 'svgo';
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
-const OUTPUT = '../public';
+const OUTPUT = '../public/icons';
 const SRC_FOLDER = '../src';
 
 function resolveRoot(...args: string[]) {
