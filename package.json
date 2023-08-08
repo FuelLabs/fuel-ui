@@ -5,7 +5,7 @@
   "description": "Fuel Design System",
   "author": "Fuel Labs <contact@fuel-ui.sh> (https://fuel.network/)",
   "engines": {
-    "node": ">=18",
+    "node": ">=18.14.1",
     "pnpm": ">=8"
   },
   "homepage": "https://github.com/FuelLabs/fuel-ui#readme",
