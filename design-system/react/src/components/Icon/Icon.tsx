@@ -15,7 +15,7 @@ import {
 import type { IconDef, Icons } from './defs';
 
 const ICON_URL =
-  process.env.NODE_ENV === 'production'
+  (import.meta as any).env.STORYBOOK === 'true'
     ? 'https://design.fuel.network/icons/sprite.svg'
     : '/icons.svg';
 
