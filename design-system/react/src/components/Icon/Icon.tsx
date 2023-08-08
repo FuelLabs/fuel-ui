@@ -15,7 +15,9 @@ import {
 import type { IconDef, Icons } from './defs';
 
 const ICON_URL =
-  (import.meta as any).env.STORYBOOK_FUEL_UI === 'true'
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  __STORYBOOK_FUEL_UI__ === 'true'
     ? '/icons.svg'
     : 'https://design.fuel.network/icons/sprite.svg';
 
