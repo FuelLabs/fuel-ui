@@ -10,7 +10,6 @@ import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 import type { PopoverProps } from '../Popover';
 import { Popover } from '../Popover';
-import { Spinner } from '../Spinner';
 import { Text } from '../Text';
 
 import { StrengthIndicator } from './StrengthIndicator';
@@ -19,6 +18,7 @@ import { styles } from './styles';
 export type PasswordStrengthProps = {
   password: string;
   minLength?: number;
+  unsafeList: string[];
   onChangeStrength?: (strength: keyof typeof PasswordDictionary) => void;
 } & Omit<PopoverProps, 'content'>;
 
@@ -29,27 +29,35 @@ type ObjProps = {
 export const PasswordStrength = createComponent<
   PasswordStrengthProps,
   ObjProps
->(({ password, children, minLength = 6, onChangeStrength, ...props }) => {
-  const {
-    loading,
-    strength,
-    label,
-    checker: {
-      casingChecker,
-      lengthChecker,
-      symbolsAndDigitsChecker,
-      commonChecker,
-    },
-  } = usePasswordStrength({ password, minLength });
+>(
+  ({
+    password,
+    children,
+    minLength = 6,
+    unsafeList,
+    onChangeStrength,
+    ...props
+  }) => {
+    const {
+      strength,
+      label,
+      checker: {
+        casingChecker,
+        lengthChecker,
+        symbolsAndDigitsChecker,
+        commonChecker,
+      },
+    } = usePasswordStrength({
+      password,
+      minLength,
+      unsafeList,
+    });
 
-  useEffect(() => {
-    onChangeStrength?.(strength);
-  }, [strength, onChangeStrength]);
+    useEffect(() => {
+      onChangeStrength?.(strength);
+    }, [strength, onChangeStrength]);
 
-  const popoverContent = loading ? (
-    <Spinner />
-  ) : (
-    <>
+    const popoverContent = (
       <Flex css={styles.popoverContainer}>
         <Heading as="h5" css={styles.heading}>
           {label}
@@ -129,32 +137,32 @@ export const PasswordStrength = createComponent<
           </Text>
         </Stack>
       </Flex>
-    </>
-  );
+    );
 
-  return (
-    <Popover
-      content={popoverContent}
-      align="start"
-      arrowProps={{
-        offset: 0,
-        width: 15,
-        height: 5,
-      }}
-      css={styles.popover}
-      alignOffset={-32}
-      sideOffset={2}
-      contentProps={{
-        // this is needed to prevent the input from losing focus
-        onOpenAutoFocus: (e: any) => e.preventDefault(),
-        onCloseAutoFocus: (e: any) => e.preventDefault(),
-      }}
-      {...props}
-    >
-      {children}
-    </Popover>
-  );
-});
+    return (
+      <Popover
+        content={popoverContent}
+        align="start"
+        arrowProps={{
+          offset: 0,
+          width: 15,
+          height: 5,
+        }}
+        css={styles.popover}
+        alignOffset={-32}
+        sideOffset={2}
+        contentProps={{
+          // this is needed to prevent the input from losing focus
+          onOpenAutoFocus: (e: any) => e.preventDefault(),
+          onCloseAutoFocus: (e: any) => e.preventDefault(),
+        }}
+        {...props}
+      >
+        {children}
+      </Popover>
+    );
+  },
+);
 
 PasswordStrength.Indicator = StrengthIndicator;
 

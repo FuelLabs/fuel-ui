@@ -1,8 +1,9 @@
+import unsafePasswords from '../../public/unsafe-passwords.json';
+
 import {
   passwordStrengthCalculator,
   passwordChecker,
 } from './password-strength';
-import unsafePasswords from './unsafe-passwords.json';
 
 const strongPassword = '12345LF@ik&!';
 const strongPasswordStartingWithSymbol = '!12345LF@ik&';
