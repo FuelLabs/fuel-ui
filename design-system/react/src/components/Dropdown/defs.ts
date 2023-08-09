@@ -1,4 +1,3 @@
-import type { PopoverProps } from '@radix-ui/react-popover';
 import type { ReactNode } from 'react';
 import type { AriaButtonProps, AriaMenuOptions } from 'react-aria';
 import type {
@@ -11,6 +10,7 @@ import type { Components } from '~/utils/components-list';
 
 import type { ButtonProps } from '../Button';
 import type { MenuItemProps, MenuProps } from '../Menu';
+import type { PopoverProps } from '../Popover/Popover';
 
 import type { DropdownMenu } from './DropdownMenu';
 import type { DropdownMenuItem } from './DropdownMenuItem';
