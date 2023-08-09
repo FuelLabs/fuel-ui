@@ -37,6 +37,7 @@ useStore.subscribe(
 );
 
 function saveThemeProps(current: string) {
+  if (typeof window === 'undefined') return;
   const themes = useStore.getState().themes;
   const themeObj = themes?.[current];
   localStorage.setItem(THEME_STORAGE_KEY, current);

@@ -1,4 +1,4 @@
-import { type FC, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 import { GlobalStyles } from '../../styles/GlobalStyles';
 import { ToastProvider } from '../Toast';
@@ -8,10 +8,7 @@ export type ThemeProps = {
   children: ReactNode;
 };
 
-export const ThemeProvider: FC<ThemeProps> = ({
-  children,
-  withFonts = true,
-}) => {
+export function ThemeProvider({ children, withFonts = true }: ThemeProps) {
   return (
     <>
       <ToastProvider />
@@ -19,4 +16,4 @@ export const ThemeProvider: FC<ThemeProps> = ({
       {children}
     </>
   );
-};
+}
