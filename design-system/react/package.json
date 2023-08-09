@@ -12,6 +12,11 @@
       ".": {
         "require": "./dist/index.js",
         "default": "./dist/index.mjs"
+      },
+      "./unsafe-passwords": {
+        "require": "./dist/unsafe-passwords.json",
+        "default": "./dist/unsafe-passwords.json",
+        "import": "./dist/unsafe-passwords.json"
       }
     },
     "files": [
