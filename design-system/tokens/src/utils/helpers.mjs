@@ -112,9 +112,9 @@ export function createTypographValue({
   };
 }
 
-export function createBody(fonts) {
+export function createTextStyle(fonts, style) {
   return Object.entries(fonts)
-    .filter(([key]) => key === 'body')
+    .filter(([key]) => key === style)
     .reduce((obj, [key, font]) => {
       return {
         ...obj,

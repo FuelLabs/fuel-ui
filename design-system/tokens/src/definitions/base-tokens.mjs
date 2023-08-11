@@ -318,8 +318,8 @@ export const fonts = {
     },
   },
   display: {
-    fontFamily: 'Px Grotesk',
-    weights: ['Light', 'Regular', 'Bold'],
+    fontFamily: 'Inter',
+    weights: ['Light', 'Regular', 'Semi Bold', 'Bold'],
     sizes: {
       xs: {
         fontSize: 'xs',

@@ -1,5 +1,9 @@
 import * as tokens from '../definitions/base-tokens.mjs';
-import { createBody, createDef, createHeadings } from '../utils/helpers.mjs';
+import {
+  createDef,
+  createHeadings,
+  createTextStyle,
+} from '../utils/helpers.mjs';
 
 const fontSizes = createDef('fontSizes', tokens.fontSizes);
 const fontWeights = createDef('fontWeights', tokens.fontWeights);
@@ -22,13 +26,17 @@ const fontFamilies = createDef(
   (value) => value.fontFamily,
 );
 
-const body = createBody(tokens.fonts);
+const body = createTextStyle(tokens.fonts, 'body');
+const display = createTextStyle(tokens.fonts, 'display');
+const mono = createTextStyle(tokens.fonts, 'mono');
 const headings = createHeadings(tokens.fonts);
 const borders = createDef('border', tokens.borders);
 
 const typography = {
   ...body,
   headings,
+  display,
+  mono,
 };
 
 export const global = {
