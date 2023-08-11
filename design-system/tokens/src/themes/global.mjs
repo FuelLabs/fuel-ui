@@ -33,10 +33,10 @@ const headings = createHeadings(tokens.fonts);
 const borders = createDef('border', tokens.borders);
 
 const typography = {
-  ...body,
   headings,
-  display,
-  mono,
+  ...body,
+  ...display,
+  ...mono,
 };
 
 export const global = {
