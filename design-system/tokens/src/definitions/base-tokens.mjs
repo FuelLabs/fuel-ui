@@ -111,18 +111,18 @@ export const sizing = {
 };
 
 export const fontSizes = {
-  '2xs': '0.579rem',
-  xs: '0.694rem',
-  sm: '0.833rem',
-  md: '1rem',
-  lg: '1.2rem',
-  xl: '1.44rem',
-  '2xl': '1.728rem',
-  '3xl': '2.074rem',
-  '4xl': '2.488rem',
-  '5xl': '2.986rem',
-  '6xl': '3.583rem',
-  '7xl': '4.3rem',
+  '2xs': '0.579rem', // 9.26px
+  xs: '0.694rem', // 11.11px
+  sm: '0.833rem', // 13.33px
+  md: '1rem', // 16px
+  lg: '1.2rem', // 19.2px
+  xl: '1.44rem', // 23.04px
+  '2xl': '1.728rem', // 27.65px
+  '3xl': '2.074rem', // 33.19px
+  '4xl': '2.488rem', // 39.81px
+  '5xl': '2.986rem', // 47.78px
+  '6xl': '3.583rem', // 57.33px
+  '7xl': '4.3rem', // 68.8px
 
   h1: '{fontSizes.5xl}',
   h2: '{fontSizes.4xl}',
@@ -158,7 +158,7 @@ export const letterSpacings = {
 export const borderRadius = {
   none: '0px', // 0px,
   sm: '4px',
-  md: '6px',
+  md: '8px',
   lg: '16px',
   xl: '24px',
   '2xl': '32px',
@@ -193,7 +193,7 @@ export const fontWeights = {
 export const fonts = {
   body: {
     fontFamily: 'Inter',
-    weights: ['Light', 'Regular', 'Bold'],
+    weights: ['Light', 'Regular', 'Semi Bold', 'Bold'],
     sizes: {
       xs: {
         fontSize: 'xs',
