@@ -13,8 +13,9 @@
       "default": "./dist/index.mjs"
     },
     "./icons.svg": {
-      "require": "./dist/sprite.svg",
-      "default": "./dist/sprite.svg"
+      "import": "./dist/icons/sprite.svg",
+      "require": "./dist/icons/sprite.svg",
+      "default": "./dist/icons/sprite.svg"
     }
   },
   "files": [

@@ -20,8 +20,8 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
       : Icon.is('ChevronDown');
 
     const itemProps = {
-      ...props,
-      ...omit(['onPressStart'], menuTriggerProps),
+      ...omit(['onClick'], props),
+      ...menuTriggerProps,
       ...classes.trigger,
       ref: mergeRefs(ref, triggerRef),
     };

@@ -5,9 +5,6 @@ export const styles = createStyle(Components.Card, {
   root: {
     layer: 'layer-card',
 
-    display: 'flex',
-    flexDirection: 'column',
-
     '&:focus-visible': {
       outline: 'none',
     },

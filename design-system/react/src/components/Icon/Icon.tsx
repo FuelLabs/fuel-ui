@@ -3,7 +3,7 @@ import { cx } from '@fuel-ui/css';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import type { ReactElement } from 'react';
 import { Fragment, cloneElement, useMemo } from 'react';
-import { createStyle, useStyles } from '~/hooks/useStore';
+import { createStyle, useStore, useStyles } from '~/hooks/useStore';
 import { Components } from '~/utils/components-list';
 
 import {
@@ -13,24 +13,24 @@ import {
 } from '../../utils';
 
 import type { IconDef, Icons } from './defs';
+const ICON_URL = '/icons.svg';
 
 function getIconUrl() {
-  const cdnPath = 'https://design.fuel.network/icons/sprite.svg';
   try {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const isFuelUI = __STORYBOOK_FUEL_UI__;
-    return isFuelUI ? '/icons.svg' : cdnPath;
+    if (__STORYBOOK_FUEL_UI__) return ICON_URL;
+    return useStore.getState().iconUrl;
   } catch (e) {
-    return cdnPath;
+    return useStore.getState().iconUrl;
   }
 }
-
-const sprite = new URL(getIconUrl(), import.meta.url).href;
-
 const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
+  const store = useStore();
+  const iconUrl = useMemo(() => getIconUrl(), [store.iconUrl]);
+
   const {
-    as = 'span',
+    as = 'i',
     label: initialLabel,
     inline,
     icon,
@@ -85,14 +85,14 @@ const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
             width={size}
             height={size}
           >
-            <use href={`${sprite}#${icon}`} />
+            <use xlinkHref={`${iconUrl}#${icon}`} />
           </svg>
           <VisuallyHidden.Root>{label || icon}</VisuallyHidden.Root>
         </>
       );
     }
     return cloneElement(icon as ReactElement, elementProps);
-  }, [sprite, icon]);
+  }, [store.iconUrl, icon]);
 
   return typeof icon === 'string'
     ? _unstable_createEl(as, elementProps, children)

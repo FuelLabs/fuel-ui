@@ -1,5 +1,9 @@
 import { useState } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import unsafeList from '/public/unsafe-passwords.json';
+
 import { usePasswordStrength } from '../../hooks/usePasswordStrength';
 import { Stack } from '../Box/Stack';
 import { InputPassword } from '../InputPassword';
@@ -38,7 +42,11 @@ export const Usage = (args: PasswordStrengthProps) => {
 
 export const Indicator = () => {
   const [password, setPassword] = useState('');
-  const { strength } = usePasswordStrength({ password, minLength: 6 });
+  const { strength } = usePasswordStrength({
+    password,
+    minLength: 6,
+    unsafeList,
+  });
 
   return (
     <Stack css={{ maxW: '350px' }}>

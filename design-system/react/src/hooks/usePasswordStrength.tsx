@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 import { PasswordDictionary } from '../utils/constants';
 import {
@@ -9,15 +9,14 @@ import {
 type PasswordStrengthOptions = {
   password: string;
   minLength: number;
+  unsafeList: string[];
 };
 
 export function usePasswordStrength({
   minLength,
   password,
+  unsafeList,
 }: PasswordStrengthOptions) {
-  const [loading, setLoading] = useState(true);
-  const [unsafeList, setUnsafeList] = useState<string[]>([]);
-
   const checker = useMemo(
     () => passwordChecker(password, unsafeList, minLength),
     [password, unsafeList, minLength],
@@ -28,15 +27,7 @@ export function usePasswordStrength({
     [password, unsafeList, minLength],
   );
 
-  useEffect(() => {
-    import('../utils/unsafe-passwords.json').then((res) => {
-      setUnsafeList(res.default);
-      setLoading(false);
-    });
-  }, []);
-
   return {
-    loading,
     checker,
     strength,
     label: PasswordDictionary[strength],

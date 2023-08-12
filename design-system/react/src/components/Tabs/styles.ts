@@ -24,7 +24,7 @@ export const list = css({
         mb: '$4',
         gap: '$2',
         padding: '$2',
-        background: '$cardBg',
+        background: '$intentsBase3',
         borderRadius: '$default',
       },
     },

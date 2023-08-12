@@ -92,11 +92,14 @@ const categories = {
   },
   outlined(name, isLight) {
     const isBright = isIntentLight(name, isLight);
-    const { color, hoverColor, disabled } = getOutlinedColors(name, isLight);
+    const { color, border, hoverColor, disabled } = getOutlinedColors(
+      name,
+      isLight,
+    );
 
     return {
       bg: createColor('{transparent}'),
-      border: createColor(color),
+      border: createColor(border),
       focus: createColor(color),
       color: createColor(color),
       icon: createColor(color),

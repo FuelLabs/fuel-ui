@@ -1118,7 +1118,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.base.11}"
+          "value": "{intents.base.8}"
         },
         "focus": {
           "type": "color",
@@ -1180,7 +1180,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.primary.11}"
+          "value": "{intents.primary.8}"
         },
         "focus": {
           "type": "color",
@@ -1242,7 +1242,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.secondary.9}"
+          "value": "{intents.secondary.7}"
         },
         "focus": {
           "type": "color",
@@ -1304,7 +1304,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.info.9}"
+          "value": "{intents.info.7}"
         },
         "focus": {
           "type": "color",
@@ -1366,7 +1366,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.warning.11}"
+          "value": "{intents.warning.8}"
         },
         "focus": {
           "type": "color",
@@ -1428,7 +1428,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.success.11}"
+          "value": "{intents.success.8}"
         },
         "focus": {
           "type": "color",
@@ -1490,7 +1490,7 @@
         },
         "border": {
           "type": "color",
-          "value": "{intents.error.11}"
+          "value": "{intents.error.8}"
         },
         "focus": {
           "type": "color",
@@ -2589,7 +2589,7 @@
   },
   "whiteA": {
     "1": {
-      "value": "hsla(0, 0%, 100%, 0)",
+      "value": "hsla(0, 0%, 0%, 0)",
       "type": "color"
     },
     "2": {
@@ -2597,43 +2597,43 @@
       "type": "color"
     },
     "3": {
-      "value": "hsla(0, 0%, 100%, 0.034)",
+      "value": "hsla(0, 0%, 100%, 0.069)",
       "type": "color"
     },
     "4": {
-      "value": "hsla(0, 0%, 100%, 0.056)",
+      "value": "hsla(0, 0%, 100%, 0.104)",
       "type": "color"
     },
     "5": {
-      "value": "hsla(0, 0%, 100%, 0.086)",
+      "value": "hsla(0, 0%, 100%, 0.134)",
       "type": "color"
     },
     "6": {
-      "value": "hsla(0, 0%, 100%, 0.124)",
+      "value": "hsla(0, 0%, 100%, 0.169)",
       "type": "color"
     },
     "7": {
-      "value": "hsla(0, 0%, 100%, 0.176)",
+      "value": "hsla(0, 0%, 100%, 0.216)",
       "type": "color"
     },
     "8": {
-      "value": "hsla(0, 0%, 100%, 0.249)",
+      "value": "hsla(0, 0%, 100%, 0.312)",
       "type": "color"
     },
     "9": {
-      "value": "hsla(0, 0%, 100%, 0.386)",
+      "value": "hsla(0, 0%, 100%, 0.372)",
       "type": "color"
     },
     "10": {
-      "value": "hsla(0, 0%, 100%, 0.446)",
+      "value": "hsla(0, 0%, 100%, 0.455)",
       "type": "color"
     },
     "11": {
-      "value": "hsla(0, 0%, 100%, 0.592)",
+      "value": "hsla(0, 0%, 100%, 0.662)",
       "type": "color"
     },
     "12": {
-      "value": "hsla(0, 0%, 100%, 0.923)",
+      "value": "hsla(0, 0%, 100%, 0.926)",
       "type": "color"
     }
   },
@@ -2643,47 +2643,47 @@
       "type": "color"
     },
     "2": {
-      "value": "hsla(0, 0%, 0%, 0.027)",
+      "value": "hsla(0, 0%, 0%, 0.024)",
       "type": "color"
     },
     "3": {
-      "value": "hsla(0, 0%, 0%, 0.047)",
+      "value": "hsla(0, 0%, 0%, 0.055)",
       "type": "color"
     },
     "4": {
-      "value": "hsla(0, 0%, 0%, 0.071)",
+      "value": "hsla(0, 0%, 0%, 0.078)",
       "type": "color"
     },
     "5": {
-      "value": "hsla(0, 0%, 0%, 0.090)",
+      "value": "hsla(0, 0%, 0%, 0.106)",
       "type": "color"
     },
     "6": {
-      "value": "hsla(0, 0%, 0%, 0.114)",
+      "value": "hsla(0, 0%, 0%, 0.133)",
       "type": "color"
     },
     "7": {
-      "value": "hsla(0, 0%, 0%, 0.141)",
+      "value": "hsla(0, 0%, 0%, 0.169)",
       "type": "color"
     },
     "8": {
-      "value": "hsla(0, 0%, 0%, 0.220)",
+      "value": "hsla(0, 0%, 0%, 0.267)",
       "type": "color"
     },
     "9": {
-      "value": "hsla(0, 0%, 0%, 0.439)",
+      "value": "hsla(0, 0%, 0%, 0.447)",
       "type": "color"
     },
     "10": {
-      "value": "hsla(0, 0%, 0%, 0.478)",
+      "value": "hsla(0, 0%, 0%, 0.498)",
       "type": "color"
     },
     "11": {
-      "value": "hsla(0, 0%, 0%, 0.565)",
+      "value": "hsla(0, 0%, 0%, 0.608)",
       "type": "color"
     },
     "12": {
-      "value": "hsla(0, 0%, 0%, 0.910)",
+      "value": "hsla(0, 0%, 0%, 0.875)",
       "type": "color"
     }
   },

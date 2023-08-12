@@ -1,9 +1,9 @@
 import { render } from '@fuels/jest';
 import { useState } from 'react';
 
+import unsafeList from '../../../public/unsafe-passwords.json';
 import { PasswordDictionary } from '../../utils/constants';
 import { passwordStrengthCalculator } from '../../utils/password-strength';
-import unsafePasswords from '../../utils/unsafe-passwords.json';
 import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
 import { InputPassword } from '../InputPassword';
@@ -17,20 +17,18 @@ const weakPassword = '12345678';
 describe('PasswordStrength', () => {
   it('should render a weak password', async () => {
     const { findByText } = render(
-      <PasswordStrength password={weakPassword} open>
+      <PasswordStrength password={weakPassword} open unsafeList={unsafeList}>
         <Button></Button>
       </PasswordStrength>,
     );
 
     expect(
-      PasswordDictionary[
-        passwordStrengthCalculator(weakPassword, unsafePasswords)
-      ],
+      PasswordDictionary[passwordStrengthCalculator(weakPassword, unsafeList)],
     ).toBe('Weak');
     expect(
       await findByText(
         PasswordDictionary[
-          passwordStrengthCalculator(weakPassword, unsafePasswords)
+          passwordStrengthCalculator(weakPassword, unsafeList)
         ],
       ),
     ).toBeDefined();
@@ -38,20 +36,18 @@ describe('PasswordStrength', () => {
 
   it('should render a weak password if password minimum length is 8', async () => {
     const { findByText } = render(
-      <PasswordStrength password="123456" open>
+      <PasswordStrength password="123456" open unsafeList={unsafeList}>
         <Button></Button>
       </PasswordStrength>,
     );
 
     expect(
-      PasswordDictionary[
-        passwordStrengthCalculator(weakPassword, unsafePasswords)
-      ],
+      PasswordDictionary[passwordStrengthCalculator(weakPassword, unsafeList)],
     ).toBe('Weak');
     expect(
       await findByText(
         PasswordDictionary[
-          passwordStrengthCalculator(weakPassword, unsafePasswords)
+          passwordStrengthCalculator(weakPassword, unsafeList)
         ],
       ),
     ).toBeDefined();
@@ -59,20 +55,20 @@ describe('PasswordStrength', () => {
 
   it('should render a average password', async () => {
     const { findByText } = render(
-      <PasswordStrength password={averagePassword} open>
+      <PasswordStrength password={averagePassword} open unsafeList={unsafeList}>
         <Button></Button>
       </PasswordStrength>,
     );
 
     expect(
       PasswordDictionary[
-        passwordStrengthCalculator(averagePassword, unsafePasswords)
+        passwordStrengthCalculator(averagePassword, unsafeList)
       ],
     ).toBe('Average');
     expect(
       await findByText(
         PasswordDictionary[
-          passwordStrengthCalculator(averagePassword, unsafePasswords)
+          passwordStrengthCalculator(averagePassword, unsafeList)
         ],
       ),
     ).toBeDefined();
@@ -80,20 +76,20 @@ describe('PasswordStrength', () => {
 
   it('should render a strong password', async () => {
     const { findByText } = render(
-      <PasswordStrength password={strongPassword} open>
+      <PasswordStrength password={strongPassword} open unsafeList={unsafeList}>
         <Button></Button>
       </PasswordStrength>,
     );
 
     expect(
       PasswordDictionary[
-        passwordStrengthCalculator(strongPassword, unsafePasswords)
+        passwordStrengthCalculator(strongPassword, unsafeList)
       ],
     ).toBe('Strong');
     expect(
       await findByText(
         PasswordDictionary[
-          passwordStrengthCalculator(strongPassword, unsafePasswords)
+          passwordStrengthCalculator(strongPassword, unsafeList)
         ],
       ),
     ).toBeDefined();
@@ -110,6 +106,7 @@ describe('PasswordStrength', () => {
             onOpenChange={() => setOpen(true)}
             password={password}
             open={open}
+            unsafeList={unsafeList}
           >
             <InputPassword
               onChange={(e) => setPassword(e.target.value)}

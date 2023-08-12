@@ -9,6 +9,7 @@ import {
   _unstable_createComponent,
   _unstable_createEl,
   createPolymorphicComponent,
+  omit,
 } from '~/utils';
 import { Components } from '~/utils/components-list';
 
@@ -122,7 +123,12 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
       ...(!isLink && { 'aria-pressed': !disabled && isPressed }),
     };
 
-    const allProps = mergeProps(props, { size }, buttonProps, customProps);
+    const allProps = mergeProps(
+      omit(['onClick'], props),
+      { size },
+      buttonProps,
+      customProps,
+    );
     const classes = useStyles(styles, allProps);
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
@@ -139,8 +145,6 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
         children,
         iconLeft,
         iconRight,
-        iconLeftClass: classes.iconLeft.className,
-        iconRightClass: classes.iconRight.className,
       }),
     );
   },

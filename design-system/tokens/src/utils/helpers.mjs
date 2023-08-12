@@ -269,7 +269,8 @@ export function getGhostBg(name) {
 export function getOutlinedColors(name, isLight) {
   const isBright = isIntentLight(name, isLight) || name === 'base';
   const color = intentColor(name, isBright ? 11 : 9);
+  const border = intentColor(name, isBright ? 8 : 7);
   const hoverColor = intentColor(name, isBright ? 10 : 8);
   const disabled = intentColor(name, isBright ? 9 : 7);
-  return { color, hoverColor, disabled };
+  return { color, hoverColor, disabled, border };
 }
