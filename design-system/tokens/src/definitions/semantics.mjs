@@ -1,13 +1,7 @@
 import {
-  intentColor as intent,
+  intent as intent,
   createColor,
-  isIntentLight,
-  getSolidColors,
-  getSolidBg,
-  getLinkColor,
-  getGhostBg,
-  getGhostColors,
-  getOutlinedColors,
+  isIntentBright,
 } from '../utils/helpers.mjs';
 
 function inputColor(name) {
@@ -21,99 +15,99 @@ function inputColor(name) {
   };
 }
 
+const semanticScales = (name) => {
+  const isBright = isIntentBright(name);
+  const solid = {
+    contrast: isBright ? '{blackA.12}' : '{whiteA.12}',
+    surface: intent(name, 9),
+    surfaceHover: intent(name, 10),
+    subtle: isBright ? '{blackA.10}' : '{whiteA.10}',
+    focus: intent(name, 4),
+  };
+  const ghost = {
+    ...solid,
+    contrast: intent(name, 12),
+    surface: intent(name, 5),
+    surfaceHover: intent(name, 6),
+    subtle: intent(name, 11),
+  };
+  const outlined = {
+    ...solid,
+    surface: intent(name, 11),
+    surfaceHover: intent(name, 1),
+    contrast: intent(name, 11),
+    subtle: intent(name, 8),
+  };
+  const link = {
+    ...outlined,
+  };
+  return {
+    solid,
+    ghost,
+    link,
+    outlined,
+  };
+};
+
+const semantic = (name, category) => {
+  const refs = semanticScales(name);
+  const surface = refs[category].surface;
+  const surfaceHover = refs[category].surfaceHover;
+  const contrast = refs[category].contrast;
+  const focus = refs[category].focus;
+  const subtle = refs[category].subtle;
+
+  const solid = {
+    bg: createColor(surface),
+    border: createColor(surface),
+    focus: createColor(focus),
+    color: createColor(contrast),
+    icon: createColor(contrast),
+    'hover-bg': createColor(surfaceHover),
+    'hover-border': createColor(surfaceHover),
+    'hover-color': createColor(contrast),
+    'hover-icon': createColor(contrast),
+    'disabled-bg': createColor(surface),
+    'disabled-border': createColor(surface),
+    'disabled-color': createColor(subtle),
+    'disabled-icon': createColor(subtle),
+  };
+
+  if (category === 'outlined') {
+    return {
+      ...solid,
+      bg: createColor('{transparent}'),
+      'hover-bg': createColor('{transparent}'),
+      'disabled-bg': createColor('{transparent}'),
+      'disabled-border': createColor(subtle),
+    };
+  }
+  if (category === 'link') {
+    return {
+      ...solid,
+      bg: createColor('{transparent}'),
+      border: createColor('{transparent}'),
+      'hover-bg': createColor('{transparent}'),
+      'hover-border': createColor('{transparent}'),
+      'disabled-bg': createColor('{transparent}'),
+      'disabled-border': createColor('{transparent}'),
+    };
+  }
+  return solid;
+};
+
 const categories = {
-  solid(name, isLight) {
-    const isBright = isIntentLight(name, isLight);
-    const { color, hoverColor } = getSolidColors(name, isLight);
-    const bg = getSolidBg(name);
-
-    return {
-      bg: createColor(bg.base),
-      border: createColor('{transparent}'),
-      focus: createColor(bg.focus),
-      color: createColor(color),
-      icon: createColor(color),
-      placeholder: createColor(hoverColor),
-      'hover-bg': createColor(bg.hover),
-      'hover-border': createColor('{transparent}'),
-      'hover-color': createColor(hoverColor),
-      'hover-icon': createColor(hoverColor),
-      'hover-placeholder': createColor(hoverColor),
-      'disabled-bg': createColor(bg.disabled),
-      'disabled-border': createColor('{transparent}'),
-      'disabled-color': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
-      'disabled-icon': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
-    };
+  solid(name) {
+    return semantic(name, 'solid');
   },
-  link(name, isLight) {
-    const isBright = isIntentLight(name, isLight);
-    const { color, hoverColor } = getLinkColor(name, isLight);
-
-    return {
-      bg: createColor('{transparent}'),
-      border: createColor('{transparent}'),
-      focus: createColor(intent(name, 6)),
-      color: createColor(color),
-      icon: createColor(color),
-      placeholder: createColor(hoverColor),
-      'hover-bg': createColor('{transparent}'),
-      'hover-border': createColor('{transparent}'),
-      'hover-color': createColor(hoverColor),
-      'hover-icon': createColor(hoverColor),
-      'hover-placeholder': createColor(hoverColor),
-      'disabled-bg': createColor('{transparent}'),
-      'disabled-border': createColor('{transparent}'),
-      'disabled-color': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
-      'disabled-icon': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
-    };
+  link(name) {
+    return semantic(name, 'link');
   },
-  ghost(name, isLight) {
-    const isBright = isIntentLight(name, isLight);
-    const { color, hoverColor } = getGhostColors(name, isLight);
-    const bg = getGhostBg(name);
-
-    return {
-      bg: createColor(bg.base),
-      border: createColor('{transparent}'),
-      focus: createColor(bg.focus),
-      color: createColor(color),
-      icon: createColor(color),
-      placeholder: createColor(hoverColor),
-      'hover-bg': createColor(bg.hover),
-      'hover-border': createColor('{transparent}'),
-      'hover-color': createColor(hoverColor),
-      'hover-icon': createColor(hoverColor),
-      'hover-placeholder': createColor(hoverColor),
-      'disabled-bg': createColor(bg.disabled),
-      'disabled-border': createColor('{transparent}'),
-      'disabled-color': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
-      'disabled-icon': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
-    };
+  ghost(name) {
+    return semantic(name, 'ghost');
   },
-  outlined(name, isLight) {
-    const isBright = isIntentLight(name, isLight);
-    const { color, border, hoverColor, disabled } = getOutlinedColors(
-      name,
-      isLight,
-    );
-
-    return {
-      bg: createColor('{transparent}'),
-      border: createColor(border),
-      focus: createColor(color),
-      color: createColor(color),
-      icon: createColor(color),
-      placeholder: createColor(hoverColor),
-      'hover-bg': createColor('{transparent}'),
-      'hover-border': createColor(hoverColor),
-      'hover-color': createColor(hoverColor),
-      'hover-icon': createColor(hoverColor),
-      'hover-placeholder': createColor(hoverColor),
-      'disabled-bg': createColor('{transparent}'),
-      'disabled-border': createColor(disabled),
-      'disabled-color': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
-      'disabled-icon': createColor(isBright ? `{blackA.9}` : `{whiteA.9}`),
-    };
+  outlined(name) {
+    return semantic(name, 'outlined');
   },
 };
 
@@ -185,10 +179,10 @@ export function createSemantics(isLight) {
       error: inputColor('error'),
     },
     semantic: {
-      solid: semanticCategory('solid', isLight),
-      ghost: semanticCategory('ghost', isLight),
-      outlined: semanticCategory('outlined', isLight),
-      link: semanticCategory('link', isLight),
+      solid: semanticCategory('solid'),
+      ghost: semanticCategory('ghost'),
+      outlined: semanticCategory('outlined'),
+      link: semanticCategory('link'),
     },
   };
 }

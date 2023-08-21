@@ -1,6 +1,7 @@
-import { layerIntents } from '@fuel-ui/css';
+import { layerIntents, layerVariants } from '@fuel-ui/css';
 
 import { Box } from '../Box';
+import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 
 import { Button } from './Button';
@@ -78,6 +79,54 @@ export const intents = (args: ButtonProps) => (
       </Button>
     ))}
   </Box>
+);
+
+export const AllCombinations = (args: ButtonProps) => (
+  <>
+    <Box.Stack>
+      <Heading as="h3">Active</Heading>
+      <Box css={styles.gridList}>
+        {layerIntents.map((intent) => (
+          <Box.Stack key={intent}>
+            {layerVariants.map((variant) => (
+              <Button
+                key={variant}
+                {...args}
+                intent={intent}
+                variant={variant}
+                leftIcon="X"
+                rightIcon="Calendar"
+              >
+                Button
+              </Button>
+            ))}
+          </Box.Stack>
+        ))}
+      </Box>
+    </Box.Stack>
+    <Box.Stack css={{ mt: '$8' }}>
+      <Heading as="h3">Disabled</Heading>
+      <Box css={styles.gridList}>
+        {layerIntents.map((intent) => (
+          <Box.Stack key={intent}>
+            {layerVariants.map((variant) => (
+              <Button
+                key={variant}
+                {...args}
+                intent={intent}
+                variant={variant}
+                leftIcon="X"
+                rightIcon="Calendar"
+                isDisabled
+              >
+                Button
+              </Button>
+            ))}
+          </Box.Stack>
+        ))}
+      </Box>
+    </Box.Stack>
+  </>
 );
 
 export const WithIcon = (args: ButtonProps) => (
