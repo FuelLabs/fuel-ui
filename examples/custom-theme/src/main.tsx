@@ -50,8 +50,10 @@ const customTheme = createTheme('custom-theme', {
 });
 
 setFuelThemes({
-  custom: customTheme,
-  dark: darkTheme,
+  themes: {
+    custom: customTheme,
+    dark: darkTheme,
+  },
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
