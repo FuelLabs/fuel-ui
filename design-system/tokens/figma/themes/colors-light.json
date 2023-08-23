@@ -250,7 +250,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.base.4}"
+          "value": "{intents.base.6}"
         },
         "color": {
           "type": "color",
@@ -304,7 +304,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.primary.4}"
+          "value": "{intents.primary.6}"
         },
         "color": {
           "type": "color",
@@ -358,7 +358,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.secondary.4}"
+          "value": "{intents.secondary.6}"
         },
         "color": {
           "type": "color",
@@ -412,7 +412,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.info.4}"
+          "value": "{intents.info.6}"
         },
         "color": {
           "type": "color",
@@ -466,7 +466,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.warning.4}"
+          "value": "{intents.warning.6}"
         },
         "color": {
           "type": "color",
@@ -520,7 +520,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.success.4}"
+          "value": "{intents.success.6}"
         },
         "color": {
           "type": "color",
@@ -574,7 +574,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.error.4}"
+          "value": "{intents.error.6}"
         },
         "color": {
           "type": "color",
@@ -630,7 +630,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.base.4}"
+          "value": "{intents.base.6}"
         },
         "color": {
           "type": "color",
@@ -684,7 +684,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.primary.4}"
+          "value": "{intents.primary.6}"
         },
         "color": {
           "type": "color",
@@ -738,7 +738,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.secondary.4}"
+          "value": "{intents.secondary.6}"
         },
         "color": {
           "type": "color",
@@ -792,7 +792,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.info.4}"
+          "value": "{intents.info.6}"
         },
         "color": {
           "type": "color",
@@ -846,7 +846,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.warning.4}"
+          "value": "{intents.warning.6}"
         },
         "color": {
           "type": "color",
@@ -900,7 +900,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.success.4}"
+          "value": "{intents.success.6}"
         },
         "color": {
           "type": "color",
@@ -954,7 +954,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.error.4}"
+          "value": "{intents.error.6}"
         },
         "color": {
           "type": "color",
@@ -1010,7 +1010,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.base.4}"
+          "value": "{intents.base.6}"
         },
         "color": {
           "type": "color",
@@ -1064,7 +1064,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.primary.4}"
+          "value": "{intents.primary.6}"
         },
         "color": {
           "type": "color",
@@ -1118,7 +1118,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.secondary.4}"
+          "value": "{intents.secondary.6}"
         },
         "color": {
           "type": "color",
@@ -1172,7 +1172,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.info.4}"
+          "value": "{intents.info.6}"
         },
         "color": {
           "type": "color",
@@ -1226,7 +1226,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.warning.4}"
+          "value": "{intents.warning.6}"
         },
         "color": {
           "type": "color",
@@ -1280,7 +1280,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.success.4}"
+          "value": "{intents.success.6}"
         },
         "color": {
           "type": "color",
@@ -1334,7 +1334,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.error.4}"
+          "value": "{intents.error.6}"
         },
         "color": {
           "type": "color",
@@ -1390,7 +1390,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.base.4}"
+          "value": "{intents.base.6}"
         },
         "color": {
           "type": "color",
@@ -1444,7 +1444,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.primary.4}"
+          "value": "{intents.primary.6}"
         },
         "color": {
           "type": "color",
@@ -1498,7 +1498,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.secondary.4}"
+          "value": "{intents.secondary.6}"
         },
         "color": {
           "type": "color",
@@ -1552,7 +1552,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.info.4}"
+          "value": "{intents.info.6}"
         },
         "color": {
           "type": "color",
@@ -1606,7 +1606,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.warning.4}"
+          "value": "{intents.warning.6}"
         },
         "color": {
           "type": "color",
@@ -1660,7 +1660,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.success.4}"
+          "value": "{intents.success.6}"
         },
         "color": {
           "type": "color",
@@ -1714,7 +1714,7 @@
         },
         "focus": {
           "type": "color",
-          "value": "{intents.error.4}"
+          "value": "{intents.error.6}"
         },
         "color": {
           "type": "color",
