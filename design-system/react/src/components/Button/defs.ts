@@ -3,7 +3,7 @@ import type { AriaButtonProps } from 'react-aria';
 import type { CreateComponent } from '~/utils';
 import type { Components } from '~/utils/components-list';
 
-import type { HTMLProps } from '../../utils/types';
+import type { HTMLProps, PressProps } from '../../utils/types';
 import type { IconProps } from '../Icon';
 
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link';
@@ -25,14 +25,10 @@ export type ButtonBaseProps = {
 
 export type ButtonProps = Omit<HTMLProps['button'], 'onClick'> &
   AriaButtonProps<'button'> &
+  PressProps &
   ButtonBaseProps & {
     justIcon?: boolean;
     isLink?: boolean;
-    /**
-     * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
-     * You're able to use just one or another, don't use onClick and onPress together
-     */
-    onClick?: HTMLProps['button']['onClick'];
   };
 
 export type ButtonNS = {

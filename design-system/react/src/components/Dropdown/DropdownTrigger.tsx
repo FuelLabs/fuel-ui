@@ -1,7 +1,7 @@
 import { mergeRefs } from '@react-aria/utils';
 import { useStyles } from '~/hooks';
 import { useAsChild } from '~/hooks/useAsChild';
-import { _unstable_createComponent, omit } from '~/utils';
+import { _unstable_createComponent } from '~/utils';
 import { Components } from '~/utils/components-list';
 
 import { Icon, Button } from '..';
@@ -20,7 +20,7 @@ export const DropdownTrigger = _unstable_createComponent<DropdownTriggerDef>(
       : Icon.is('ChevronDown');
 
     const itemProps = {
-      ...omit(['onClick'], props),
+      ...props,
       ...menuTriggerProps,
       ...classes.trigger,
       ref: mergeRefs(ref, triggerRef),

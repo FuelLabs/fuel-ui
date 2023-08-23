@@ -90,7 +90,7 @@
     "@storybook/testing-library": "^0.2.0",
     "@storybook/theming": "^7.3.2",
     "@storybook/types": "^7.3.2",
-    "@testing-library/jest-dom": "6.0.1",
+    "@testing-library/jest-dom": "6.1.0",
     "@types/chrome": "^0.0.243",
     "@types/color": "^3.0.3",
     "@types/fs-extra": "^11.0.1",

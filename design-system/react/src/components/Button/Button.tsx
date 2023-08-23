@@ -99,6 +99,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     ref,
     onPress,
     onClick,
+    role,
     ...props
   }) => {
     const {
@@ -113,11 +114,14 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     } = props;
 
     const disabled = isLoading || isDisabled;
-    const handlers = { onPress, onClick };
-    const { buttonProps, isPressed } = useOnPress(handlers, ref, {
-      isDisabled: disabled,
-      ...(isLink && { elementType: 'a' }),
-    });
+    const { buttonProps, isPressed } = useOnPress(
+      { role, onClick, onPress },
+      ref,
+      {
+        isDisabled: disabled,
+        ...(isLink && { elementType: 'a' }),
+      },
+    );
 
     const customProps = {
       as,

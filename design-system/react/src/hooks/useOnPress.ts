@@ -25,10 +25,10 @@ export function useOnPress<
   );
 
   const role = props.role || buttonProps.role || 'button';
-  const finalProps = {
+  const itemProps = {
+    ...omit(TO_OMIT, buttonProps),
     role,
     ...(role !== 'link' && { 'aria-pressed': isPressed }),
-    ...omit(TO_OMIT, buttonProps),
     onClick(e: any) {
       if (typeof props.onClick !== 'undefined') {
         props.onClick?.(e);
@@ -39,7 +39,7 @@ export function useOnPress<
   };
 
   return {
-    buttonProps: finalProps,
+    buttonProps: itemProps,
     isPressed,
   };
 }
