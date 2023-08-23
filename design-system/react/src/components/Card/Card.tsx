@@ -1,4 +1,4 @@
-import { mergeProps, mergeRefs } from '@react-aria/utils';
+import { mergeProps } from '@react-aria/utils';
 import { useStyles } from '~/hooks';
 import { useOnPress } from '~/hooks/useOnPress';
 import { Components } from '~/utils/components-list';
@@ -19,17 +19,17 @@ const _Card = _unstable_createComponent<CardDef>(
   Components.Card,
   ({ as = 'article', ref, variant, withDividers, children, ...props }) => {
     const classes = useStyles(styles, props);
-    const { buttonProps, ref: cardRef } = useOnPress<
-      CardDef['props'],
-      CardDef['element']
-    >(props, {
-      elementType: as,
-    });
+    const { buttonProps } = useOnPress<CardDef['props'], CardDef['element']>(
+      props,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ref as any,
+      { elementType: as },
+    );
 
     const isClickable = Boolean(props.onPress);
     const elementProps = {
       ...props,
-      ref: mergeRefs(cardRef, ref),
+      ref,
       className: classes.root.className,
       'data-is-clickable': isClickable,
       'data-dividers': withDividers,

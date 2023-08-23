@@ -1,5 +1,4 @@
 import type { Colors } from '@fuel-ui/css';
-import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
 import { mergeProps } from 'react-aria';
@@ -9,7 +8,6 @@ import {
   _unstable_createComponent,
   _unstable_createEl,
   createPolymorphicComponent,
-  omit,
 } from '~/utils';
 import { Components } from '~/utils/components-list';
 
@@ -94,7 +92,15 @@ export const SPINNER_SIZE = {
 
 const _Button = _unstable_createComponent<t.ButtonDef>(
   Components.Button,
-  ({ as = 'button', size = 'md', children, ref, ...props }) => {
+  ({
+    as = 'button',
+    size = 'md',
+    children,
+    ref,
+    onPress,
+    onClick,
+    ...props
+  }) => {
     const {
       isLoading,
       loadingText,
@@ -107,28 +113,20 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     } = props;
 
     const disabled = isLoading || isDisabled;
-    const {
-      buttonProps,
-      isPressed,
-      ref: buttonRef,
-    } = useOnPress(props, {
+    const handlers = { onPress, onClick };
+    const { buttonProps, isPressed } = useOnPress(handlers, ref, {
       isDisabled: disabled,
       ...(isLink && { elementType: 'a' }),
     });
 
     const customProps = {
       as,
-      ref: mergeRefs(buttonRef, ref),
+      ref,
       'aria-busy': isLoading,
       ...(!isLink && { 'aria-pressed': !disabled && isPressed }),
     };
 
-    const allProps = mergeProps(
-      omit(['onClick'], props),
-      { size },
-      buttonProps,
-      customProps,
-    );
+    const allProps = mergeProps({ size }, props, buttonProps, customProps);
     const classes = useStyles(styles, allProps);
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);

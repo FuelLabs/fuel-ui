@@ -1,49 +1,45 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ElementRef } from 'react';
-import { useRef } from 'react';
-import { mergeProps, useButton } from 'react-aria';
+import { useButton } from 'react-aria';
 import { omit } from '~/utils';
 
 type UseButtonOptions = Parameters<typeof useButton>[0];
 
-function getDefProps(props: any) {
-  const toOmit = ['onClick'];
-
-  return {
-    ...omit(toOmit, props),
-    onPress(e: React.MouseEvent<HTMLButtonElement>) {
-      if (
-        typeof props.onClick !== 'undefined' &&
-        typeof props.onPress === 'undefined'
-      ) {
-        props.onClick(e);
-        return;
-      }
-      props.onPress?.(e as any);
-    },
-  };
-}
+const TO_OMIT = [
+  'onKeyDown',
+  'onKeyUp',
+  'onClick',
+  'onPointerDown',
+  'onMouseDown',
+  'onPointerUp',
+  'onDragStart',
+];
 
 export function useOnPress<
   T extends Record<any, any>,
   E = ElementRef<'button'>,
->(props: T, customAriaProps?: UseButtonOptions) {
-  const innerRef = useRef<E>(null);
-  const defaultProps = getDefProps(props);
+>(props: T, ref: E, customAriaProps?: UseButtonOptions) {
   const { buttonProps, isPressed } = useButton(
-    { ...defaultProps, ...(customAriaProps || {}) },
-    innerRef as any,
+    { ...props, ...(customAriaProps || {}) },
+    ref as any,
   );
 
   const role = props.role || buttonProps.role || 'button';
-  const finalProps = mergeProps(buttonProps, {
+  const finalProps = {
     role,
     ...(role !== 'link' && { 'aria-pressed': isPressed }),
-  });
+    ...omit(TO_OMIT, buttonProps),
+    onClick(e: any) {
+      if (typeof props.onClick !== 'undefined') {
+        props.onClick?.(e);
+        return;
+      }
+      props.onPress?.(e);
+    },
+  };
 
   return {
     buttonProps: finalProps,
     isPressed,
-    ref: innerRef,
   };
 }
