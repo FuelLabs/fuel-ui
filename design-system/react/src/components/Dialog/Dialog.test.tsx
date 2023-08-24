@@ -1,4 +1,4 @@
-import { act, render, screen, testA11y } from '@fuels/jest';
+import { press, act, render, screen, testA11y } from '@fuels/jest';
 
 import { Button } from '../Button';
 
@@ -42,7 +42,7 @@ describe('Dialog', () => {
     expect(await screen.findByText('Dialog Title')).toBeInTheDocument();
     expect(onOpen).toBeCalledTimes(1);
 
-    await user.press('Esc');
+    await press('Esc');
     expect(() => screen.getByText('Dialog Title')).toThrow();
   });
 

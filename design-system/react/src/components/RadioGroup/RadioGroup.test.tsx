@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuels/jest';
+import { press, render, screen, testA11y } from '@fuels/jest';
 
 import { RadioGroup } from './RadioGroup';
 
@@ -20,9 +20,9 @@ describe('RadioGroup', () => {
 
     await user.tab();
     expect(screen.getByLabelText('Default')).toHaveFocus();
-    await user.press('ArrowDown');
+    await press('ArrowDown');
     expect(screen.getByLabelText('Comfortable')).toHaveFocus();
-    await user.press('ArrowDown');
+    await press('ArrowDown');
     expect(screen.getByLabelText('Compact')).toHaveFocus();
   });
 });

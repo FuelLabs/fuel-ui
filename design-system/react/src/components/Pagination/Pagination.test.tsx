@@ -1,4 +1,4 @@
-import { render, screen, testA11y, waitFor } from '@fuels/jest';
+import { press, render, screen, testA11y, waitFor } from '@fuels/jest';
 
 import type { PaginationBaseProps } from './Pagination';
 import { Pagination } from './Pagination';
@@ -62,18 +62,18 @@ describe('Pagination', () => {
   });
 
   it('should have tabbing navigation correctly', async () => {
-    const { user } = render(<Content pagesCount={10} autoFocus />);
+    render(<Content pagesCount={10} autoFocus />);
     const page1 = await screen.findByLabelText('Page 1');
     expect(page1).toHaveFocus();
 
-    await user.press('ArrowRight');
-    await user.press('ArrowRight');
-    await user.press('ArrowRight');
+    await press('ArrowRight');
+    await press('ArrowRight');
+    await press('ArrowRight');
     const page4 = await screen.findByLabelText('Page 4');
     expect(page4).toHaveFocus();
 
-    await user.press('ArrowLeft');
-    await user.press('ArrowLeft');
+    await press('ArrowLeft');
+    await press('ArrowLeft');
     const page2 = await screen.findByLabelText('Page 2');
     expect(page2).toHaveFocus();
   });

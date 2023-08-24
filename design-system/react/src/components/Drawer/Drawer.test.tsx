@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { act, fireEvent, render, screen, waitFor } from '@fuels/jest';
+import { press, act, fireEvent, render, screen, waitFor } from '@fuels/jest';
 import type { ElementRef } from 'react';
 import { useRef } from 'react';
 
@@ -66,7 +66,7 @@ describe('Drawer', () => {
       expect(screen.getByText('Hello world')).toBeInTheDocument();
     });
 
-    await user.press('Esc');
+    await press('Esc');
     await waitFor(() => {
       expect(() => screen.getByText('Hello world')).toThrow();
     });

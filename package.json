@@ -59,7 +59,7 @@
     "@manypkg/get-packages": "^2.2.0",
     "@swc/jest": "^0.2.29",
     "@types/jest": "^29.5.4",
-    "@types/node": "^20.5.4",
+    "@types/node": "^20.5.5",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "cross-fetch": "^4.0.0",
@@ -107,10 +107,10 @@
     }
   },
   "dependencies": {
-    "@fuels/eslint-plugin": "^0.0.4",
-    "@fuels/jest": "^0.0.4",
-    "@fuels/prettier-config": "^0.0.4",
-    "@fuels/ts-config": "^0.0.4",
-    "@fuels/tsup-config": "^0.0.4"
+    "@fuels/eslint-plugin": "^0.0.6",
+    "@fuels/jest": "^0.0.6",
+    "@fuels/prettier-config": "^0.0.6",
+    "@fuels/ts-config": "^0.0.6",
+    "@fuels/tsup-config": "^0.0.6"
   }
 }
