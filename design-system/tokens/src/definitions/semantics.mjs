@@ -22,7 +22,7 @@ const semanticScales = (name) => {
     surface: intent(name, 9),
     surfaceHover: intent(name, 10),
     subtle: isBright ? '{blackA.10}' : '{whiteA.10}',
-    focus: intent(name, 6),
+    focus: intent(name, 4),
   };
   const ghost = {
     ...solid,

@@ -107,10 +107,10 @@
     }
   },
   "dependencies": {
-    "@fuels/eslint-plugin": "^0.0.3",
-    "@fuels/jest": "^0.0.3",
-    "@fuels/prettier-config": "^0.0.3",
-    "@fuels/ts-config": "^0.0.3",
-    "@fuels/tsup-config": "^0.0.3"
+    "@fuels/eslint-plugin": "^0.0.4",
+    "@fuels/jest": "^0.0.4",
+    "@fuels/prettier-config": "^0.0.4",
+    "@fuels/ts-config": "^0.0.4",
+    "@fuels/tsup-config": "^0.0.4"
   }
 }
