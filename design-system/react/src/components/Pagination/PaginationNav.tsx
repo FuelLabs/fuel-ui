@@ -35,7 +35,7 @@ export const PaginationNav = createComponent<
       color={pagination.color}
       css={styles.base}
       isDisabled={isDisabled}
-      onPress={() => pagination[direction]()}
+      onClick={() => pagination[direction]()}
     />
   );
 });

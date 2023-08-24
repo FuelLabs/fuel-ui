@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ThemeUtilsCSS } from '@fuel-ui/css';
-import type { FocusableProps, PressEvents } from '@react-types/shared';
-import type { ReactNode } from 'react';
+import type { FocusableProps } from '@react-types/shared';
+import type { MouseEventHandler, ReactNode } from 'react';
 
 type Children = ReactNode;
 
@@ -129,14 +129,9 @@ export type BaseProps<O> = {
   [index: `data-${string}`]: unknown;
 } & O;
 
-export type PressProps = PressEvents &
-  FocusableProps & {
-    /**
-     * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
-     * You're able to use just one or another, don't use onClick and onPress together
-     */
-    onClick?: HTMLProps['button']['onClick'];
-  };
+export type HandlerProps<T extends Element> = FocusableProps & {
+  onClick?: MouseEventHandler<T>;
+};
 
 export type AsChildProps<P extends Record<any, any>> = P & {
   asChild?: boolean;

@@ -32,7 +32,7 @@ export const PaginationItem = createComponent<
       color={pagination.color}
       css={styles.base}
       isDisabled={isDisabled}
-      onPress={() => pagination.goTo(page)}
+      onClick={() => pagination.goTo(page)}
       {...(isDisabled && { tabIndex: -1 })}
     >
       {page < 0 ? '...' : page}

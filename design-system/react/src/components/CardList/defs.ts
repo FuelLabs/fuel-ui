@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import type { CreateComponent, PressProps } from '~/utils';
+import type { CreateComponent } from '~/utils';
 import type { Components } from '~/utils/components-list';
 
 import type { StackProps } from '../Box';
@@ -28,11 +28,10 @@ export type ICardListContext = {
 
 export type CardListProps = StackProps & Omit<ICardListContext, 'isFocused'>;
 
-export type CardListItemProps = CardProps &
-  PressProps & {
-    isActive?: boolean;
-    rightEl?: React.ReactNode;
-  };
+export type CardListItemProps = CardProps & {
+  isActive?: boolean;
+  rightEl?: React.ReactNode;
+};
 
 export type CardListDef = CreateComponent<{
   type: 'div';

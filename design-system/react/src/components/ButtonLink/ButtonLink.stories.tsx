@@ -16,7 +16,7 @@ const meta: Meta<typeof ButtonLink> = {
     children: {
       control: false,
     },
-    onPress: {
+    onClick: {
       control: false,
     },
     size: {

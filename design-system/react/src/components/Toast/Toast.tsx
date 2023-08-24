@@ -31,7 +31,7 @@ export const ToastProvider = createComponent<ToastProps>(
                     intent="base"
                     variant="link"
                     className={styles.closeButton()}
-                    onPress={() => toast.dismiss(t.id)}
+                    onClick={() => toast.dismiss(t.id)}
                   />
                 )}
               </div>

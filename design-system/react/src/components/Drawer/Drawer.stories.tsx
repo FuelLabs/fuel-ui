@@ -128,7 +128,7 @@ export const StateControlled = (args: DrawerProps) => {
         justifyContent: 'center',
       }}
     >
-      <Button onPress={() => setOpen(true)}>Open</Button>
+      <Button onClick={() => setOpen(true)}>Open</Button>
       <Drawer
         {...args}
         side="right"

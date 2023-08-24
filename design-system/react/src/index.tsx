@@ -2,7 +2,7 @@ export type {
   HTMLProps,
   BaseProps,
   AsChildProps,
-  PressProps,
+  HandlerProps,
 } from './utils/types';
 
 export * from './components';

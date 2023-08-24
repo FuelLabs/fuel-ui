@@ -32,7 +32,7 @@ export const DialogClose = _unstable_createComponent<DialogCloseDef>(
               mergeProps((child as any).props, {
                 ...props,
                 ref: mergeRefs(ref, triggerRef as never),
-                onPress: handleToggle,
+                onClick: handleToggle,
                 className,
               }),
             );
@@ -49,7 +49,7 @@ export const DialogClose = _unstable_createComponent<DialogCloseDef>(
       icon: Icon.is('X'),
       iconSize: 20,
       'aria-label': props['aria-label'] || 'Close',
-      onPress: handleToggle,
+      onClick: handleToggle,
       css,
     };
 

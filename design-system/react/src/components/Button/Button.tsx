@@ -2,7 +2,7 @@ import type { Colors } from '@fuel-ui/css';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
 import { mergeProps } from 'react-aria';
-import { useOnPress } from '~/hooks/useOnPress';
+import { useOnClick } from '~/hooks/useOnClick';
 import { useStyles } from '~/hooks/useStore';
 import {
   _unstable_createComponent,
@@ -92,17 +92,9 @@ export const SPINNER_SIZE = {
 
 const _Button = _unstable_createComponent<t.ButtonDef>(
   Components.Button,
-  ({
-    as = 'button',
-    size = 'md',
-    children,
-    ref,
-    onPress,
-    onClick,
-    role,
-    ...props
-  }) => {
+  ({ as = 'button', children, ref, onClick, ...props }) => {
     const {
+      size = 'md',
       isLoading,
       loadingText,
       isDisabled,
@@ -114,23 +106,21 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     } = props;
 
     const disabled = isLoading || isDisabled;
-    const { buttonProps, isPressed } = useOnPress(
-      { role, onClick, onPress },
-      ref,
-      {
-        isDisabled: disabled,
-        ...(isLink && { elementType: 'a' }),
-      },
-    );
+    const { buttonProps, isPressed } = useOnClick(ref, {
+      onClick,
+      isDisabled: disabled,
+      elementType: isLink ? 'a' : as,
+    });
 
     const customProps = {
       as,
       ref,
       'aria-busy': isLoading,
-      ...(!isLink && { 'aria-pressed': !disabled && isPressed }),
+      ...(isLink && { role: props.role || 'link' }),
+      ...(!isLink && { 'aria-pressed': isPressed }),
     };
 
-    const allProps = mergeProps({ size }, props, buttonProps, customProps);
+    const allProps = mergeProps(props, buttonProps, customProps);
     const classes = useStyles(styles, allProps);
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);

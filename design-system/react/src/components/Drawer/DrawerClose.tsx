@@ -28,7 +28,7 @@ export const DrawerClose = _unstable_createComponent<DrawerCloseDef>(
         variant={props.variant || 'link'}
         color={props.color || 'gray'}
         className={classes.close.className}
-        onPress={handleClose}
+        onClick={handleClose}
       />
     );
   },
