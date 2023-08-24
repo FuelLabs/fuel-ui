@@ -1,5 +1,5 @@
 ---
-'@fuel-ui/react': patch
+'@fuel-ui/react': minor 
 ---
 
-Fix: adjust `useOnPress` hooks to work properly
+⚠️ Breaking Change: `onPress` was removed as prop in all components that had it and now it's always `onClick` instead 
