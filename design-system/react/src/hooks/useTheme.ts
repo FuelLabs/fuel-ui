@@ -36,10 +36,15 @@ export type ThemeOverride = {
 };
 
 export const THEME_STORAGE_KEY = 'fuel-ui-theme';
-export function getInitialTheme() {
+
+export function getInitialTheme(themes: string[] = []) {
   if (typeof window === 'undefined') return 'dark';
   const theme = localStorage.getItem(THEME_STORAGE_KEY);
-  if (theme) return theme;
+  if (theme && themes.indexOf(theme)) {
+    return theme;
+  } else {
+    localStorage.removeItem(THEME_STORAGE_KEY);
+  }
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   return prefersDark ? 'dark' : 'light';
 }
