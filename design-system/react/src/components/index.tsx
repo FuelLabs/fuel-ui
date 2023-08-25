@@ -18,9 +18,73 @@ export type {
   AccordionTriggerDef,
 } from './Accordion';
 
+export {
+  useAlertProps,
+  Alert,
+  AlertActions,
+  AlertButton,
+  AlertDescription,
+  AlertTitle,
+} from './Alert';
+
+export type {
+  AlertStatus,
+  AlertProps,
+  AlertActionsProps,
+  AlertButtonProps,
+  AlertDescriptionProps,
+  AlertTitleProps,
+  AlertNS,
+  AlertDef,
+  AlertActionsDef,
+  AlertButtonDef,
+  AlertDescriptionDef,
+  AlertTitleDef,
+} from './Alert';
+
+export { Badge } from './Badge';
+
+export type { BadgeVariants, BadgeProps, BadgeDef } from './Badge';
+
 export { AspectRatio } from './AspectRatio';
 
 export type { AspectRatioProps, AspectRatioDef } from './AspectRatio';
+
+export { Avatar, AvatarGenerated } from './Avatar';
+
+export type {
+  AvatarProps,
+  AvatarDef,
+  AvatarGeneratedProps,
+  AvatarGeneratedDef,
+} from './Avatar';
+
+export { Box, BoxCentered, Container, Flex, Stack } from './Box';
+
+export type {
+  ContainerSizes,
+  ContainerProps,
+  FlexProps,
+  StackProps,
+  BoxProps,
+  BoxDef,
+  FlexDef,
+  BoxCenteredProps,
+  BoxCenteredDef,
+  StackDef,
+  ContainerDef,
+} from './Box';
+
+export { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from './Breadcrumb';
+
+export type {
+  BreadcrumbProps,
+  BreadcrumbDef,
+  BreadcrumbItemProps,
+  BreadcrumbItemDef,
+  BreadcrumbLinkProps,
+  BreadcrumbLinkDef,
+} from './Breadcrumb';
 
 export {
   AlertDialog,
@@ -52,59 +116,6 @@ export type {
   AlertDialogHeadingDef,
   AlertDialogTriggerDef,
 } from './AlertDialog';
-
-export { Avatar, AvatarGenerated } from './Avatar';
-
-export type {
-  AvatarProps,
-  AvatarDef,
-  AvatarGeneratedProps,
-  AvatarGeneratedDef,
-} from './Avatar';
-
-export { Badge } from './Badge';
-
-export type { BadgeVariants, BadgeProps, BadgeDef } from './Badge';
-
-export {
-  useAlertProps,
-  Alert,
-  AlertActions,
-  AlertButton,
-  AlertDescription,
-  AlertTitle,
-} from './Alert';
-
-export type {
-  AlertStatus,
-  AlertProps,
-  AlertActionsProps,
-  AlertButtonProps,
-  AlertDescriptionProps,
-  AlertTitleProps,
-  AlertNS,
-  AlertDef,
-  AlertActionsDef,
-  AlertButtonDef,
-  AlertDescriptionDef,
-  AlertTitleDef,
-} from './Alert';
-
-export { Box, BoxCentered, Container, Flex, Stack } from './Box';
-
-export type {
-  ContainerSizes,
-  ContainerProps,
-  FlexProps,
-  StackProps,
-  BoxProps,
-  BoxDef,
-  FlexDef,
-  BoxCenteredProps,
-  BoxCenteredDef,
-  StackDef,
-  ContainerDef,
-} from './Box';
 
 export { createIcon, getIconSize, SPINNER_SIZE, Button } from './Button';
 
@@ -370,16 +381,16 @@ export type {
   UsePaginationReturn,
 } from './Pagination';
 
-export { Popover } from './Popover';
-
-export type { PopoverProps } from './Popover';
-
 export { PasswordStrength, StrengthIndicator } from './PasswordStrength';
 
 export type {
   PasswordStrengthProps,
   StrengthIndicatorIndicatorProps,
 } from './PasswordStrength';
+
+export { Popover } from './Popover';
+
+export type { PopoverProps } from './Popover';
 
 export { RadioGroup, RadioGroupItem } from './RadioGroup';
 

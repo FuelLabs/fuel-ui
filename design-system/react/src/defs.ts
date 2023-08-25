@@ -35,7 +35,7 @@ import type {
   BreadcrumbDef,
   BreadcrumbItemDef,
   BreadcrumbLinkDef,
-} from './components/Breadcrumb/defs';
+} from './components/Breadcrumb';
 import type { ButtonDef } from './components/Button';
 import type { ButtonGroupDef } from './components/ButtonGroup';
 import type { ButtonLinkDef } from './components/ButtonLink';
@@ -103,12 +103,12 @@ export type StoreDefs = {
   Badge: BadgeDef;
   Box: BoxDef;
   BoxCentered: BoxCenteredDef;
-  Button: ButtonDef;
-  ButtonGroup: ButtonGroupDef;
-  ButtonLink: ButtonLinkDef;
   Breadcrumb: BreadcrumbDef;
   BreadcrumbItem: BreadcrumbItemDef;
   BreadcrumbLink: BreadcrumbLinkDef;
+  Button: ButtonDef;
+  ButtonGroup: ButtonGroupDef;
+  ButtonLink: ButtonLinkDef;
   Card: CardDef;
   CardBody: CardBodyDef;
   CardFooter: CardFooterDef;
