@@ -1,5 +1,7 @@
 # @fuel-ui/css
 
+## 0.18.3
+
 ## 0.18.2
 
 ### Patch Changes
