@@ -1,5 +1,12 @@
 # @fuel-ui/react
 
+## 0.18.3
+
+### Patch Changes
+
+- 🐞 Fix focus on nested dialogs by adding focus trap on AlertDialog, by [@luizstacio](https://github.com/luizstacio) (See [#306](https://github.com/FuelLabs/fuel-ui/pull/306))
+- 🐞 Fix getInitialTheme to check if theme exists, by [@luizstacio](https://github.com/luizstacio) (See [#306](https://github.com/FuelLabs/fuel-ui/pull/306))
+
 ## 0.18.2
 
 ### Patch Changes

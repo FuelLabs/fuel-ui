@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/icons",
-  "version": "0.18.2",
+  "version": "0.18.3",
   "license": "Apache-2",
   "access": "public",
   "main": "./dist/index.js",
