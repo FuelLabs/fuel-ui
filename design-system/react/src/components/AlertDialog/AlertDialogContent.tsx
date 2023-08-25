@@ -1,5 +1,6 @@
 import { cx } from '@fuel-ui/css';
 import * as RAlertDialog from '@radix-ui/react-alert-dialog';
+import { FocusScope } from 'react-aria';
 import { useStyles } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
@@ -22,7 +23,9 @@ export const AlertDialogContent =
             {...props}
             className={cx(className, classes.content.className)}
           >
-            {children}
+            <FocusScope contain autoFocus>
+              {children}
+            </FocusScope>
           </RAlertDialog.Content>
         </>
       );

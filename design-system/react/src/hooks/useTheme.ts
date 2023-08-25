@@ -36,12 +36,23 @@ export type ThemeOverride = {
 };
 
 export const THEME_STORAGE_KEY = 'fuel-ui-theme';
-export function getInitialTheme() {
+
+export function getInitialTheme(themes: string[] = []) {
   if (typeof window === 'undefined') return 'dark';
-  const theme = localStorage.getItem(THEME_STORAGE_KEY);
-  if (theme) return theme;
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  return prefersDark ? 'dark' : 'light';
+  const systemTheme = prefersDark ? 'dark' : 'light';
+  const currenTheme = localStorage.getItem(THEME_STORAGE_KEY);
+
+  if (currenTheme && themes.includes(currenTheme)) {
+    return currenTheme;
+  }
+  localStorage.removeItem(THEME_STORAGE_KEY);
+
+  if (systemTheme && themes.includes(systemTheme)) {
+    return systemTheme;
+  }
+
+  return themes[0];
 }
 
 export function createTheme(name: string, override: ThemeOverride) {
