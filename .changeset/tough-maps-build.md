@@ -2,4 +2,4 @@
 '@fuel-ui/react': patch
 ---
 
-Fix dataSpace on card header
+Fix focus on nested dialogs by adding focus trap on AlertDialog
