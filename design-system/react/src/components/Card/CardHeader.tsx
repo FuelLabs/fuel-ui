@@ -18,7 +18,7 @@ const _CardHeader = _unstable_createComponent<CardHeaderDef>(
     const elementProps = {
       ...props,
       ...classes.header,
-      dataSpace: space,
+      'data-space': space,
     };
     return _unstable_createEl(as, elementProps, children);
   },

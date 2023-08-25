@@ -1,5 +1,14 @@
 # @fuel-ui/react
 
+## 0.18.2
+
+### Patch Changes
+
+- 🐞 Fix: adjust color scales on semantics according Radix, by [@pedronauck](https://github.com/pedronauck) (See [#304](https://github.com/FuelLabs/fuel-ui/pull/304))
+- 🐞 Fix: use loadIcons to set icons url instead of getting directly from `@fuel-ui/icons`, by [@pedronauck](https://github.com/pedronauck) (See [#302](https://github.com/FuelLabs/fuel-ui/pull/302))
+- 🐞 Fix: adjust way we load `@fuel-ui/icons` in our components, by [@pedronauck](https://github.com/pedronauck) (See [#300](https://github.com/FuelLabs/fuel-ui/pull/300))
+- 🐞 Fix dataSpace on card header, by [@luizstacio](https://github.com/luizstacio) (See [#303](https://github.com/FuelLabs/fuel-ui/pull/303))
+
 ## 0.18.1
 
 ### Patch Changes

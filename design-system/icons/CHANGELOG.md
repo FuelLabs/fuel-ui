@@ -1,5 +1,12 @@
 # @fuel-ui/icons
 
+## 0.18.2
+
+### Patch Changes
+
+- 🐞 Fix: use loadIcons to set icons url instead of getting directly from `@fuel-ui/icons`, by [@pedronauck](https://github.com/pedronauck) (See [#302](https://github.com/FuelLabs/fuel-ui/pull/302))
+- 🐞 Fix: adjust way we load `@fuel-ui/icons` in our components, by [@pedronauck](https://github.com/pedronauck) (See [#300](https://github.com/FuelLabs/fuel-ui/pull/300))
+
 ## 0.18.1
 
 ## 0.18.0

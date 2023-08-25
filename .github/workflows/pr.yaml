@@ -70,18 +70,12 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
-
       - uses: ./.github/actions/setup-node
-
-      - name: Get last commit
-        run: |
-          git fetch origin master
-          echo 'LAST_COMMIT_SHA='$(git rev-parse origin/master) >> $GITHUB_ENV
 
       - name: Run build & jest
         run: |
           pnpm build
-          pnpm test:ci --outputFile="../../${{ env.COVERAGE_FILE }}" --changedSince="${{ env.LAST_COMMIT_SHA }}"
+          pnpm test:ci --outputFile="../../${{ env.COVERAGE_FILE }}"
 
       - name: Publish coverage
         uses: artiomtr/jest-coverage-report-action@v2.0.5
