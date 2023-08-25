@@ -20,6 +20,10 @@ function addBaseCSS(key: string) {
       '& .fuel_Icon': {
         color: `$${key}DisabledIcon`,
       },
+
+      '&:hover': {
+        textDecoration: 'none',
+      },
     },
   };
 }
@@ -60,7 +64,7 @@ function addFocusStyle(key: string) {
           },
         }
       : {
-          '&:not([aria-disabled=true]):focus-visible': {
+          '&:not([aria-disabled=true]):has(:focus-visible)': {
             outline: `2px solid $${key}Focus`,
           },
         }),
@@ -86,8 +90,8 @@ export type InputVariant = 'base' | 'disabled' | 'error' | 'success';
 export type InputLayer = `input-${InputVariant}`;
 
 export const layerVariants = [
-  'ghost',
   'solid',
+  'ghost',
   'outlined',
   'link',
 ] as LayerVariant[];
