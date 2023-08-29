@@ -34,7 +34,7 @@ const semanticScales = (name) => {
   const outlined = {
     ...solid,
     surface: intent(name, 11),
-    surfaceHover: intent(name, 1),
+    surfaceHover: intent(name, 10),
     contrast: intent(name, 11),
     subtle: intent(name, 8),
   };
@@ -79,6 +79,8 @@ const semantic = (name, category) => {
       bg: createColor('{transparent}'),
       border: name === 'base' ? createColor('{border}') : solid.border,
       'hover-bg': createColor('{transparent}'),
+      'hover-border':
+        name === 'base' ? createColor('{borderHover}') : solid['hover-border'],
       'disabled-bg': createColor('{transparent}'),
       'disabled-border': createColor(subtle),
     };
@@ -137,8 +139,8 @@ export function createSemantics(isLight) {
     'overlay-text': createColor(intent('base', isLight ? 12 : 11)),
     'dialog-bg': createColor('{card-bg}'),
     'input-bg': createColor(isLight ? '{white}' : '{blackA.12}'),
-    border: createColor(isLight ? '{scales.gray.7}' : '{scales.gray.6}'),
-    borderHover: createColor('{scales.gray.9}'),
+    border: createColor(isLight ? '{intents.base.7}' : '{intents.base.6}'),
+    borderHover: createColor(isLight ? '{intents.base.8}' : '{intents.base.7}'),
     brand: createColor(isLight ? intent('primary', 10) : intent('primary', 9)),
     text: {
       color: createColor(intent('base', 11)),

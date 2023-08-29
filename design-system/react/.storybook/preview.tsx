@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { themes } from '@storybook/theming';
-import { darkTheme, lightTheme } from '../src';
+import { darkTheme, lightTheme, loadIcons, setFuelThemes } from '../src';
 
 import { ThemeProvider, useFuelTheme } from '../src';
 import theme from './theme';
@@ -37,6 +37,15 @@ export const parameters = {
     lightClass: lightTheme.theme.className,
   },
 };
+
+loadIcons('/public/icons/sprite.svg');
+setFuelThemes({
+  initial: 'docs',
+  themes: {
+    dark: darkTheme,
+    light: lightTheme,
+  },
+});
 
 function ThemeWrapper(props: any) {
   const isDark = useDarkMode();

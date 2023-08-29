@@ -45,11 +45,11 @@
   },
   "border": {
     "type": "color",
-    "value": "{scales.gray.6}"
+    "value": "{intents.base.6}"
   },
   "borderHover": {
     "type": "color",
-    "value": "{scales.gray.9}"
+    "value": "{intents.base.7}"
   },
   "brand": {
     "type": "color",
@@ -1026,7 +1026,7 @@
         },
         "hover-border": {
           "type": "color",
-          "value": "{intents.base.1}"
+          "value": "{borderHover}"
         },
         "hover-color": {
           "type": "color",
@@ -1080,7 +1080,7 @@
         },
         "hover-border": {
           "type": "color",
-          "value": "{intents.primary.1}"
+          "value": "{intents.primary.10}"
         },
         "hover-color": {
           "type": "color",
@@ -1134,7 +1134,7 @@
         },
         "hover-border": {
           "type": "color",
-          "value": "{intents.secondary.1}"
+          "value": "{intents.secondary.10}"
         },
         "hover-color": {
           "type": "color",
@@ -1188,7 +1188,7 @@
         },
         "hover-border": {
           "type": "color",
-          "value": "{intents.info.1}"
+          "value": "{intents.info.10}"
         },
         "hover-color": {
           "type": "color",
@@ -1242,7 +1242,7 @@
         },
         "hover-border": {
           "type": "color",
-          "value": "{intents.warning.1}"
+          "value": "{intents.warning.10}"
         },
         "hover-color": {
           "type": "color",
@@ -1296,7 +1296,7 @@
         },
         "hover-border": {
           "type": "color",
-          "value": "{intents.success.1}"
+          "value": "{intents.success.10}"
         },
         "hover-color": {
           "type": "color",
@@ -1350,7 +1350,7 @@
         },
         "hover-border": {
           "type": "color",
-          "value": "{intents.error.1}"
+          "value": "{intents.error.10}"
         },
         "hover-color": {
           "type": "color",
