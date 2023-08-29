@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.19.0
+
+### Minor Changes
+
+- ✨ Feat: add new `Breadcrumb` component. Check `Breadcrumb.stories.tsx` to see how to use it, by [@pedronauck](https://github.com/pedronauck) (See [#308](https://github.com/FuelLabs/fuel-ui/pull/308))
+
 ## 0.18.4
 
 ### Patch Changes
