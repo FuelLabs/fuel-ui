@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/css",
-  "version": "0.19.0",
+  "version": "0.19.1",
   "license": "Apache-2.0",
   "main": "./src/index.ts",
   "publishConfig": {
