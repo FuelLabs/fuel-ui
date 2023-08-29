@@ -31,6 +31,11 @@ import type {
   StackDef,
   ContainerDef,
 } from './components/Box';
+import type {
+  BreadcrumbDef,
+  BreadcrumbItemDef,
+  BreadcrumbLinkDef,
+} from './components/Breadcrumb';
 import type { ButtonDef } from './components/Button';
 import type { ButtonGroupDef } from './components/ButtonGroup';
 import type { ButtonLinkDef } from './components/ButtonLink';
@@ -79,7 +84,10 @@ export type StoreDefs = {
   AccordionContent: AccordionContentDef;
   AccordionItem: AccordionItemDef;
   AccordionTrigger: AccordionTriggerDef;
-  AspectRatio: AspectRatioDef;
+  Alert: AlertDef;
+  AlertActions: AlertActionsDef;
+  AlertButton: AlertButtonDef;
+  AlertDescription: AlertDescriptionDef;
   AlertDialog: AlertDialogDef;
   AlertDialogAction: AlertDialogActionDef;
   AlertDialogCancel: AlertDialogCancelDef;
@@ -88,19 +96,16 @@ export type StoreDefs = {
   AlertDialogFooter: AlertDialogFooterDef;
   AlertDialogHeading: AlertDialogHeadingDef;
   AlertDialogTrigger: AlertDialogTriggerDef;
+  AlertTitle: AlertTitleDef;
+  AspectRatio: AspectRatioDef;
   Avatar: AvatarDef;
   AvatarGenerated: AvatarGeneratedDef;
   Badge: BadgeDef;
-  Alert: AlertDef;
-  AlertActions: AlertActionsDef;
-  AlertButton: AlertButtonDef;
-  AlertDescription: AlertDescriptionDef;
-  AlertTitle: AlertTitleDef;
   Box: BoxDef;
-  Flex: FlexDef;
   BoxCentered: BoxCenteredDef;
-  Stack: StackDef;
-  Container: ContainerDef;
+  Breadcrumb: BreadcrumbDef;
+  BreadcrumbItem: BreadcrumbItemDef;
+  BreadcrumbLink: BreadcrumbLinkDef;
   Button: ButtonDef;
   ButtonGroup: ButtonGroupDef;
   ButtonLink: ButtonLinkDef;
@@ -111,29 +116,32 @@ export type StoreDefs = {
   CardList: CardListDef;
   CardListItem: CardListItemDef;
   Checkbox: CheckboxDef;
+  Container: ContainerDef;
   ContentLoader: ContentLoaderDef;
   Copyable: CopyableDef;
   Dialog: DialogDef;
+  DialogClose: DialogCloseDef;
   DialogContent: DialogContentDef;
-  DialogTrigger: DialogTriggerDef;
-  DialogHeading: DialogHeadingDef;
   DialogDescription: DialogDescriptionDef;
   DialogFooter: DialogFooterDef;
-  DialogClose: DialogCloseDef;
+  DialogHeading: DialogHeadingDef;
+  DialogTrigger: DialogTriggerDef;
   Drawer: DrawerDef;
   DrawerBody: DrawerBodyDef;
   DrawerClose: DrawerCloseDef;
   DrawerContent: DrawerContentDef;
   DrawerTrigger: DrawerTriggerDef;
   Dropdown: DropdownDef;
-  DropdownTrigger: DropdownTriggerDef;
   DropdownMenu: DropdownMenuDef;
   DropdownMenuItem: DropdownMenuItemDef;
+  DropdownTrigger: DropdownTriggerDef;
+  Flex: FlexDef;
   Heading: HeadingDef;
   HelperIcon: HelperIconDef;
   Icon: IconDef;
   Image: ImageDef;
   Link: LinkDef;
   Spinner: SpinnerDef;
+  Stack: StackDef;
   Text: TextDef;
 };
