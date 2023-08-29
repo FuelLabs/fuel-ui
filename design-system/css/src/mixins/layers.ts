@@ -64,7 +64,7 @@ function addFocusStyle(key: string) {
           },
         }
       : {
-          '&:not([aria-disabled=true]):has(:focus-visible)': {
+          '&:not([aria-disabled=true]):focus-visible': {
             outline: `2px solid $${key}Focus`,
           },
         }),
