@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.18.4
+
+### Patch Changes
+
+- 🐞 Fix accordion animation and trigger style, by [@luizstacio](https://github.com/luizstacio) (See [#309](https://github.com/FuelLabs/fuel-ui/pull/309))
+
 ## 0.18.3
 
 ### Patch Changes
