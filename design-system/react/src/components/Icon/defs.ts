@@ -7,7 +7,7 @@ import type { Components } from '~/utils/components-list';
 export type Icons = IconName;
 
 export type IconProps = {
-  icon: IconName | ReactNode;
+  icon: Icons | ReactNode;
   wrapperClassName?: string;
   color?: Colors;
   inline?: boolean;

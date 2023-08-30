@@ -1,6 +1,6 @@
-import type { AssetList } from './defs';
+import type { AssetList } from '../defs';
 
-export const assets: AssetList = {
+export const MOCK_ASSETS: AssetList = {
   eth: {
     symbol: 'ETH',
     name: 'Ethereum',

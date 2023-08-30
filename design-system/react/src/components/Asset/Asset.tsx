@@ -12,8 +12,7 @@ import { AssetAmount } from './AssetAmount';
 import { AssetIcon } from './AssetIcon';
 import { AssetName } from './AssetName';
 import { AssetSymbol } from './AssetSymbol';
-import { assets } from './asset-list';
-import type { AssetDef, AssetProps, Assets } from './defs';
+import type { AssetDef, AssetProps } from './defs';
 import { styles } from './styles';
 
 type ContextProps = AssetProps & {
@@ -75,7 +74,6 @@ export const Asset = _unstable_createComponent<AssetDef>(
   },
 );
 
-Asset.get = (name: Assets) => assets[name];
 Asset.Icon = AssetIcon;
 Asset.Name = AssetName;
 Asset.Symbol = AssetSymbol;

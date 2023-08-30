@@ -1,5 +1,5 @@
 import type { BNInput } from '@fuel-ts/math';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 import type { Components } from '~/utils/components-list';
 import type { CreateComponent } from '~/utils/system';
 import type { BaseProps, HTMLProps, Sizes } from '~/utils/types';
@@ -39,7 +39,6 @@ export type AssetDef = CreateComponent<{
   element: HTMLSpanElement;
   styles: 'root' | 'icon' | 'name' | 'symbol' | 'amount';
   namespace: {
-    get: (name: Assets) => AssetObj;
     Icon: typeof AssetIcon;
     Name: typeof AssetName;
     Symbol: typeof AssetSymbol;
@@ -47,14 +46,13 @@ export type AssetDef = CreateComponent<{
   };
 }>;
 
-type BaseImageProps = Omit<HTMLProps['img'], 'width' | 'height'>;
-export type AssetIconProps = BaseProps<BaseImageProps>;
+export type AssetIconProps = BaseProps<{ icon?: ReactNode }>;
 export type AssetIconDef = CreateComponent<{
   type: 'img';
   omit: 'children';
   component: Components.AssetIcon;
   props: AssetIconProps;
-  element: HTMLSpanElement;
+  element: HTMLImageElement;
   namespace: {
     id: string;
   };
