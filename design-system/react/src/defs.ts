@@ -22,6 +22,13 @@ import type {
   AlertDialogTriggerDef,
 } from './components/AlertDialog';
 import type { AspectRatioDef } from './components/AspectRatio';
+import type {
+  AssetAmountDef,
+  AssetDef,
+  AssetIconDef,
+  AssetNameDef,
+  AssetSymbolDef,
+} from './components/Asset/defs';
 import type { AvatarDef, AvatarGeneratedDef } from './components/Avatar';
 import type { BadgeDef } from './components/Badge';
 import type {
@@ -31,6 +38,7 @@ import type {
   StackDef,
   ContainerDef,
 } from './components/Box';
+import type { HStackDef, VStackDef } from './components/Box/defs';
 import type {
   BreadcrumbDef,
   BreadcrumbItemDef,
@@ -97,6 +105,11 @@ export type StoreDefs = {
   AlertDialogHeading: AlertDialogHeadingDef;
   AlertDialogTrigger: AlertDialogTriggerDef;
   AlertTitle: AlertTitleDef;
+  Asset: AssetDef;
+  AssetIcon: AssetIconDef;
+  AssetSymbol: AssetSymbolDef;
+  AssetName: AssetNameDef;
+  AssetAmount: AssetAmountDef;
   AspectRatio: AspectRatioDef;
   Avatar: AvatarDef;
   AvatarGenerated: AvatarGeneratedDef;
@@ -143,5 +156,7 @@ export type StoreDefs = {
   Link: LinkDef;
   Spinner: SpinnerDef;
   Stack: StackDef;
+  HStack: HStackDef;
+  VStack: VStackDef;
   Text: TextDef;
 };

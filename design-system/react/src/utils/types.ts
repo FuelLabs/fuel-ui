@@ -144,3 +144,5 @@ export type AsChildProps<P extends Record<any, any>> = P & {
 };
 
 export type PasswordStrength = 'strong' | 'average' | 'weak';
+export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type SizesMap = Record<Sizes, number>;

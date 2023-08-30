@@ -9,19 +9,19 @@ import {
 
 import type * as t from './defs';
 
-export type StackProps = t.StackProps;
+export type HStackProps = t.HStackProps;
 
-const _Stack = _unstable_createComponent<t.StackDef>(
-  Components.Stack,
+const _HStack = _unstable_createComponent<t.HStackDef>(
+  Components.HStack,
   ({ as = 'div', css, ...props }) => {
     const classes = useFlexProps(props, css);
-    return _unstable_createEl(as, { ...props, ...classes.stack });
+    return _unstable_createEl(as, { ...props, ...classes.hstack });
   },
 );
 
-export const Stack = createPolymorphicComponent<t.StackDef>(_Stack);
+export const HStack = createPolymorphicComponent<t.HStackDef>(_HStack);
 
-Stack.defaultProps = {
+HStack.id = Components.HStack;
+HStack.defaultProps = {
   gap: '$2',
-  direction: 'column',
 };
