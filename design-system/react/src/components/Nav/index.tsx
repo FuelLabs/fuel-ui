@@ -4,6 +4,7 @@ export { NavLogo } from './NavLogo';
 export { NavMenu } from './NavMenu';
 export { NavMenuItem } from './NavMenuItem';
 export { NavSpacer } from './NavSpacer';
+export { NavThemeToggle } from './NavThemeToggle';
 
 export type {
   ConnectionObj,
@@ -17,7 +18,7 @@ export type {
   NavProps,
   NavSize,
   NavSpacerDef,
-  NavThemeToggle,
   NavThemeToggleDef,
+  NavThemeToggleProps,
   NetworkObj,
 } from './defs';

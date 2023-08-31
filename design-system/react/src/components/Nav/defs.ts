@@ -102,12 +102,15 @@ export type NavSpacerDef = CreateComponent<{
   };
 }>;
 
-export type NavThemeToggle = Omit<ComponentProps<typeof Box.Flex>, 'onClick'>;
+export type NavThemeToggleProps = Omit<
+  ComponentProps<typeof Box.Flex>,
+  'onClick'
+>;
 export type NavThemeToggleDef = CreateComponent<{
   type: 'div';
   omit: 'children';
   component: Components.NavThemeToggle;
-  props: NavThemeToggle;
+  props: NavThemeToggleProps;
   element: HTMLDivElement;
   namespace: {
     id: string;

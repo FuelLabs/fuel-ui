@@ -22,6 +22,13 @@ import type {
   AlertDialogTriggerDef,
 } from './components/AlertDialog';
 import type { AspectRatioDef } from './components/AspectRatio';
+import type {
+  AssetAmountDef,
+  AssetDef,
+  AssetIconDef,
+  AssetNameDef,
+  AssetSymbolDef,
+} from './components/Asset';
 import type { AvatarDef, AvatarGeneratedDef } from './components/Avatar';
 import type { BadgeDef } from './components/Badge';
 import type {
@@ -29,7 +36,9 @@ import type {
   BoxDef,
   ContainerDef,
   FlexDef,
+  HStackDef,
   StackDef,
+  VStackDef,
 } from './components/Box';
 import type {
   BreadcrumbDef,
@@ -97,8 +106,6 @@ export type StoreDefs = {
   Alert: AlertDef;
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
-  Badge: BadgeDef;
-  AspectRatio: AspectRatioDef;
   AlertDialogAction: AlertDialogActionDef;
   AlertDialogCancel: AlertDialogCancelDef;
   AlertDialogContent: AlertDialogContentDef;
@@ -107,16 +114,25 @@ export type StoreDefs = {
   AlertDialogFooter: AlertDialogFooterDef;
   AlertDialogHeading: AlertDialogHeadingDef;
   AlertDialogTrigger: AlertDialogTriggerDef;
+  AssetAmount: AssetAmountDef;
+  Asset: AssetDef;
+  AssetIcon: AssetIconDef;
+  AssetName: AssetNameDef;
+  AssetSymbol: AssetSymbolDef;
+  AspectRatio: AspectRatioDef;
+  Badge: BadgeDef;
   BoxCentered: BoxCenteredDef;
   Box: BoxDef;
   Container: ContainerDef;
   Flex: FlexDef;
+  HStack: HStackDef;
   Stack: StackDef;
+  VStack: VStackDef;
+  Avatar: AvatarDef;
+  AvatarGenerated: AvatarGeneratedDef;
   Breadcrumb: BreadcrumbDef;
   BreadcrumbItem: BreadcrumbItemDef;
   BreadcrumbLink: BreadcrumbLinkDef;
-  Avatar: AvatarDef;
-  AvatarGenerated: AvatarGeneratedDef;
   Button: ButtonDef;
   ButtonGroup: ButtonGroupDef;
   ButtonLink: ButtonLinkDef;

@@ -1,5 +1,15 @@
 import { createStyle } from '~/hooks';
 import { Components } from '~/utils/components-list';
+import type { SizesMap } from '~/utils/types';
+
+export const SIZES_MAP: SizesMap = {
+  xs: 20,
+  sm: 24,
+  md: 32,
+  lg: 40,
+  xl: 48,
+  '2xl': 64,
+};
 
 export const styles = createStyle(Components.Avatar, {
   root: {

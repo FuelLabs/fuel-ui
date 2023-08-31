@@ -34,14 +34,10 @@ export const styles = createStyle(Components.Box, {
   root: {
     fontFamily: '$sans',
   },
-  flex: {
-    display: 'flex',
-  },
-  stack: {
-    display: 'flex',
-    gap: '$2',
-    flexDirection: 'column',
-  },
+  flex: {},
+  stack: {},
+  hstack: {},
+  vstack: {},
   centered: {
     is: ['centered'],
 
