@@ -8,6 +8,7 @@ export const styles = createStyle(Components.Nav, {
     alignItems: 'center',
     height: '$16',
     ...containerStyle,
+    borderBottom: '1px solid $border',
   },
   logo: {},
   menu: {},
