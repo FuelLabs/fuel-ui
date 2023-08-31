@@ -318,6 +318,12 @@ importers:
       '@storybook/core-events':
         specifier: ^7.4.0
         version: 7.4.0
+      '@storybook/manager-api':
+        specifier: 7.4.0
+        version: 7.4.0(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/preview-api':
+        specifier: 7.4.0
+        version: 7.4.0
       '@storybook/react':
         specifier: ^7.4.0
         version: 7.4.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)

@@ -1,6 +1,35 @@
 import { createStyle } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
+export const containerStyle = {
+  margin: '0 auto',
+
+  variants: {
+    size: {
+      sm: {
+        px: '$10',
+        maxW: '$xl',
+      },
+      md: {
+        px: '$14',
+        maxW: '$2xl',
+      },
+      lg: {
+        px: '$14',
+        maxW: '$4xl',
+      },
+      xl: {
+        px: '$14',
+        maxW: '$6xl',
+      },
+    },
+  },
+
+  defaultVariants: {
+    size: 'lg',
+  },
+};
+
 export const styles = createStyle(Components.Box, {
   root: {
     fontFamily: '$sans',
@@ -23,32 +52,5 @@ export const styles = createStyle(Components.Box, {
       minH: '$screenH',
     },
   },
-  container: {
-    margin: '0 auto',
-
-    variants: {
-      size: {
-        sm: {
-          px: '$10',
-          w: '$xl',
-        },
-        md: {
-          px: '$14',
-          w: '$2xl',
-        },
-        lg: {
-          px: '$14',
-          w: '$4xl',
-        },
-        xl: {
-          px: '$14',
-          w: '$6xl',
-        },
-      },
-    },
-
-    defaultVariants: {
-      size: 'lg',
-    },
-  },
+  container: containerStyle,
 });

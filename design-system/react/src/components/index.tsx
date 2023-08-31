@@ -42,18 +42,13 @@ export type {
   AlertTitleProps,
 } from './Alert';
 
+export { Badge } from './Badge';
+
+export type { BadgeDef, BadgeProps, BadgeVariants } from './Badge';
+
 export { AspectRatio } from './AspectRatio';
 
 export type { AspectRatioDef, AspectRatioProps } from './AspectRatio';
-
-export { Avatar, AvatarGenerated } from './Avatar';
-
-export type {
-  AvatarDef,
-  AvatarGeneratedDef,
-  AvatarGeneratedProps,
-  AvatarProps,
-} from './Avatar';
 
 export {
   AlertDialog,
@@ -86,17 +81,6 @@ export type {
   AlertDialogTriggerProps,
 } from './AlertDialog';
 
-export { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from './Breadcrumb';
-
-export type {
-  BreadcrumbDef,
-  BreadcrumbItemDef,
-  BreadcrumbItemProps,
-  BreadcrumbLinkDef,
-  BreadcrumbLinkProps,
-  BreadcrumbProps,
-} from './Breadcrumb';
-
 export { Box, BoxCentered, Container, Flex, Stack } from './Box';
 
 export type {
@@ -113,9 +97,25 @@ export type {
   StackProps,
 } from './Box';
 
-export { Badge } from './Badge';
+export { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from './Breadcrumb';
 
-export type { BadgeDef, BadgeProps, BadgeVariants } from './Badge';
+export type {
+  BreadcrumbDef,
+  BreadcrumbItemDef,
+  BreadcrumbItemProps,
+  BreadcrumbLinkDef,
+  BreadcrumbLinkProps,
+  BreadcrumbProps,
+} from './Breadcrumb';
+
+export { Avatar, AvatarGenerated } from './Avatar';
+
+export type {
+  AvatarDef,
+  AvatarGeneratedDef,
+  AvatarGeneratedProps,
+  AvatarProps,
+} from './Avatar';
 
 export { Button, SPINNER_SIZE, createIcon, getIconSize } from './Button';
 
@@ -359,7 +359,7 @@ export { Menu, MenuItem } from './Menu';
 
 export type { MenuItemProps, MenuProps } from './Menu';
 
-export { Nav } from './Nav';
+export { Nav, NavLogo, NavMenu, NavMenuItem, NavSpacer } from './Nav';
 
 export type {
   ConnectionObj,
@@ -371,8 +371,10 @@ export type {
   NavMenuItemProps,
   NavMenuProps,
   NavProps,
+  NavSize,
   NavSpacerDef,
-  NavSpacerProps,
+  NavThemeToggle,
+  NavThemeToggleDef,
   NetworkObj,
 } from './Nav';
 
@@ -398,16 +400,16 @@ export type {
   UsePaginationReturn,
 } from './Pagination';
 
-export { Popover } from './Popover';
-
-export type { PopoverProps } from './Popover';
-
 export { PasswordStrength, StrengthIndicator } from './PasswordStrength';
 
 export type {
   PasswordStrengthProps,
   StrengthIndicatorIndicatorProps,
 } from './PasswordStrength';
+
+export { Popover } from './Popover';
+
+export type { PopoverProps } from './Popover';
 
 export { RadioGroup, RadioGroupItem } from './RadioGroup';
 

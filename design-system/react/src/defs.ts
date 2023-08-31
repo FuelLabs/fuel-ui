@@ -76,7 +76,14 @@ import type { HelperIconDef } from './components/HelperIcon';
 import type { IconDef } from './components/Icon';
 import type { ImageDef } from './components/Image';
 import type { LinkDef } from './components/Link';
-import type { NavDef } from './components/Nav';
+import type {
+  NavDef,
+  NavLogoDef,
+  NavMenuDef,
+  NavMenuItemDef,
+  NavSpacerDef,
+  NavThemeToggleDef,
+} from './components/Nav';
 import type { SpinnerDef } from './components/Spinner';
 import type { TextDef } from './components/Text';
 
@@ -90,9 +97,8 @@ export type StoreDefs = {
   Alert: AlertDef;
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
+  Badge: BadgeDef;
   AspectRatio: AspectRatioDef;
-  Avatar: AvatarDef;
-  AvatarGenerated: AvatarGeneratedDef;
   AlertDialogAction: AlertDialogActionDef;
   AlertDialogCancel: AlertDialogCancelDef;
   AlertDialogContent: AlertDialogContentDef;
@@ -101,7 +107,6 @@ export type StoreDefs = {
   AlertDialogFooter: AlertDialogFooterDef;
   AlertDialogHeading: AlertDialogHeadingDef;
   AlertDialogTrigger: AlertDialogTriggerDef;
-  Badge: BadgeDef;
   BoxCentered: BoxCenteredDef;
   Box: BoxDef;
   Container: ContainerDef;
@@ -110,6 +115,8 @@ export type StoreDefs = {
   Breadcrumb: BreadcrumbDef;
   BreadcrumbItem: BreadcrumbItemDef;
   BreadcrumbLink: BreadcrumbLinkDef;
+  Avatar: AvatarDef;
+  AvatarGenerated: AvatarGeneratedDef;
   Button: ButtonDef;
   ButtonGroup: ButtonGroupDef;
   ButtonLink: ButtonLinkDef;
@@ -144,6 +151,11 @@ export type StoreDefs = {
   Image: ImageDef;
   Link: LinkDef;
   Nav: NavDef;
+  NavLogo: NavLogoDef;
+  NavMenu: NavMenuDef;
+  NavMenuItem: NavMenuItemDef;
+  NavSpacer: NavSpacerDef;
+  NavThemeToggle: NavThemeToggleDef;
   Spinner: SpinnerDef;
   Text: TextDef;
 };
