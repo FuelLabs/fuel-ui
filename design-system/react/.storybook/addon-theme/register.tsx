@@ -2,7 +2,6 @@ import React from 'react';
 import { addons, types } from '@storybook/addons';
 import { IconButton, Icons } from '@storybook/components';
 import { useAddonState } from '@storybook/manager-api';
-import { FORCE_RE_RENDER } from '@storybook/core-events';
 
 const ADDON_ID = 'theme-addon';
 const TOOL_ID = `${ADDON_ID}/tool`;
@@ -41,7 +40,7 @@ const dark = {
   barBg: '#151515',
 };
 
-addons.register(ADDON_ID, () => {
+addons.register(ADDON_ID, (api) => {
   addons.add(TOOL_ID, {
     title: 'Toggle theme',
     type: types.TOOL,
@@ -53,8 +52,7 @@ addons.register(ADDON_ID, () => {
 
       React.useEffect(() => {
         localStorage.setItem(THEME_KEY, state as any);
-        addons.setConfig({ theme: isDark ? dark : light });
-        addons.getChannel().emit(FORCE_RE_RENDER);
+        api.setOptions({ theme: isDark ? dark : light });
       }, [state]);
 
       React.useEffect(() => {
