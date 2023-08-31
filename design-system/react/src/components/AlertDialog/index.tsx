@@ -8,22 +8,22 @@ export { AlertDialogFooter } from './AlertDialogFooter';
 export { AlertDialogHeading } from './AlertDialogHeading';
 export { AlertDialogTrigger } from './AlertDialogTrigger';
 
-export type { AlertDialogDescriptionProps } from './AlertDialogDescription';
-export type { AlertDialogHeadingProps } from './AlertDialogHeading';
 export type {
-  AlertDialogNS,
-  AlertDialogProps,
-  AlertDialogActionProps,
-  AlertDialogCancelProps,
-  AlertDialogContentProps,
-  AlertDialogFooterProps,
-  AlertDialogTriggerProps,
-  AlertDialogDef,
   AlertDialogActionDef,
+  AlertDialogActionProps,
   AlertDialogCancelDef,
+  AlertDialogCancelProps,
   AlertDialogContentDef,
+  AlertDialogContentProps,
+  AlertDialogDef,
   AlertDialogDescriptionDef,
   AlertDialogFooterDef,
+  AlertDialogFooterProps,
   AlertDialogHeadingDef,
+  AlertDialogNS,
+  AlertDialogProps,
   AlertDialogTriggerDef,
+  AlertDialogTriggerProps,
 } from './defs';
+export type { AlertDialogDescriptionProps } from './AlertDialogDescription';
+export type { AlertDialogHeadingProps } from './AlertDialogHeading';

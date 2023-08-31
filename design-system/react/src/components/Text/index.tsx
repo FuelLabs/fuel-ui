@@ -1,3 +1,3 @@
 export { Text } from './Text';
 
-export type { TextProps, TextDef } from './defs';
+export type { TextDef, TextProps } from './defs';

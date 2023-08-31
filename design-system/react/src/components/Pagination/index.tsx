@@ -1,4 +1,4 @@
-export { usePaginationContext, Pagination } from './Pagination';
+export { Pagination, usePaginationContext } from './Pagination';
 
 export type { PaginationBaseProps, PaginationProps } from './Pagination';
 
@@ -9,7 +9,7 @@ export { PaginationNext } from './PaginationNext';
 export { PaginationPrev } from './PaginationPrev';
 export { usePagination } from './usePagination';
 
+export type { OmitProps, PaginationNavProps } from './PaginationNav';
 export type { PaginationItemProps } from './PaginationItem';
 export type { PaginationItemsProps } from './PaginationItems';
-export type { OmitProps, PaginationNavProps } from './PaginationNav';
 export type { UsePaginationOpts, UsePaginationReturn } from './usePagination';

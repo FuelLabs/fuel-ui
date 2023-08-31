@@ -1,6 +1,6 @@
 export { Form } from './Form';
 
-export { useFormControlProps, FormControl } from './FormControl';
+export { FormControl, useFormControlProps } from './FormControl';
 export { FormErrorMessage } from './FormErrorMessage';
 export { FormHelperText } from './FormHelperText';
 export { FormLabel } from './FormLabel';

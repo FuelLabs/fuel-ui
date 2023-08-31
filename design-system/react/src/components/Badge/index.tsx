@@ -1,3 +1,3 @@
 export { Badge } from './Badge';
 
-export type { BadgeVariants, BadgeProps, BadgeDef } from './defs';
+export type { BadgeDef, BadgeProps, BadgeVariants } from './defs';

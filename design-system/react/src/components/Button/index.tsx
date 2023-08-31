@@ -1,10 +1,10 @@
-export { createIcon, getIconSize, SPINNER_SIZE, Button } from './Button';
+export { Button, SPINNER_SIZE, createIcon, getIconSize } from './Button';
 
 export type {
-  ButtonVariants,
-  ButtonSizes,
   ButtonBaseProps,
-  ButtonProps,
-  ButtonNS,
   ButtonDef,
+  ButtonNS,
+  ButtonProps,
+  ButtonSizes,
+  ButtonVariants,
 } from './defs';

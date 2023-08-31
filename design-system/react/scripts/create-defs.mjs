@@ -16,6 +16,21 @@ const COMPONENTS_INDEX_FILE = path.join(
   '../src/components/index.tsx',
 );
 
+const PRETTIER_CONFIG = {
+  printWidth: 80,
+  semi: true,
+  tabWidth: 2,
+  useTabs: false,
+  singleQuote: true,
+  bracketSpacing: true,
+  arrowParens: 'always',
+  quoteProps: 'as-needed',
+};
+
+function prettierFormat(str) {
+  return prettier.format(str, { parser: 'typescript', ...PRETTIER_CONFIG });
+}
+
 function extractExports(sourceFile) {
   const exports = {
     valueExports: [],
@@ -121,7 +136,7 @@ async function getAllComponents() {
 }
 
 function createExportStr(from, exports, isType) {
-  const listStr = exports?.join(',');
+  const listStr = exports?.sort().join(',');
   return exports.length
     ? `export ${isType ? 'type' : ''} { ${listStr} } from './${from}';`
     : '';
@@ -145,6 +160,7 @@ function createNestedExportStr(main, nested, isType) {
       return res.length ? res : null;
     })
     .filter(Boolean)
+    .sort()
     .join('\n');
 }
 
@@ -171,7 +187,7 @@ async function createComponentIndex(components) {
       nestedTypesStr,
     ].join('\n\n');
 
-    const content = await prettier.format(index, { parser: 'typescript' });
+    const content = await prettierFormat(index);
     await fs.writeFile(`${item.dir}/index.tsx`, content);
   }
 }
@@ -194,7 +210,7 @@ async function createMainComponentsIndex(components) {
   }
 
   list = list.join('\n\n');
-  const content = await prettier.format(list, { parser: 'typescript' });
+  const content = await prettierFormat(list);
   await fs.writeFile(COMPONENTS_INDEX_FILE, content);
 }
 
@@ -228,7 +244,7 @@ async function createDefs(components) {
     return `${name} = '${name}',`;
   });
   let comps = `export enum Components {\n${names.join('\n')}\n}`;
-  comps = await prettier.format(comps, { parser: 'typescript' });
+  comps = await prettierFormat(comps);
   await fs.writeFile(COMPS_FILE, comps);
 
   const types = defList.map((s) => {
@@ -236,6 +252,7 @@ async function createDefs(components) {
     return `${name}: ${name}Def;`;
   });
   list = `${list}\n\nexport type StoreDefs = {\n${types.join('\n')}\n}`;
+  list = await prettierFormat(list);
   await fs.writeFile(DEFS_FILE, list);
 }
 

@@ -1,4 +1,4 @@
-export { DropdownCtx, useDropdown, Dropdown } from './Dropdown';
+export { Dropdown, DropdownCtx, useDropdown } from './Dropdown';
 
 export { DropdownMenu } from './DropdownMenu';
 export { DropdownMenuItem } from './DropdownMenuItem';
@@ -6,15 +6,15 @@ export { DropdownTrigger } from './DropdownTrigger';
 
 export type {
   DropdownContext,
-  DropdownProps,
-  DropdownNS,
   DropdownDef,
-  DropdownTriggerProps,
-  DropdownTriggerNS,
-  DropdownTriggerDef,
-  DropdownMenuProps,
-  DropdownMenuNS,
   DropdownMenuDef,
-  DropdownMenuItemProps,
   DropdownMenuItemDef,
+  DropdownMenuItemProps,
+  DropdownMenuNS,
+  DropdownMenuProps,
+  DropdownNS,
+  DropdownProps,
+  DropdownTriggerDef,
+  DropdownTriggerNS,
+  DropdownTriggerProps,
 } from './defs';

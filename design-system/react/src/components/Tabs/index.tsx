@@ -1,6 +1,6 @@
-export { useTabsProps, Tabs } from './Tabs';
+export { Tabs, useTabsProps } from './Tabs';
 
-export type { TabsVariant, TabsProps } from './Tabs';
+export type { TabsProps, TabsVariant } from './Tabs';
 
 export { TabsContent } from './TabsContent';
 export { TabsList } from './TabsList';

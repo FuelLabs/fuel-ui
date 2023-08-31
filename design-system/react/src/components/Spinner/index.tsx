@@ -1,3 +1,3 @@
 export { Spinner } from './Spinner';
 
-export type { SpinnerProps, SpinnerDef } from './defs';
+export type { SpinnerDef, SpinnerProps } from './defs';
