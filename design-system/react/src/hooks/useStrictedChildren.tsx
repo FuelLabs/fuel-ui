@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Children } from 'react';
+import { Children, useEffect, useMemo } from 'react';
 
 export function useStrictedChildren(
   name: string,
@@ -8,8 +8,8 @@ export function useStrictedChildren(
 ) {
   const count = Children.count(children);
   const items = Children.toArray(children);
-  const head = [...list].slice(0, list.length - 1);
-  const last = list[list.length - 1];
+  const head = useMemo(() => [...list].slice(0, list.length - 1), list);
+  const last = useMemo(() => list[list.length - 1], list);
 
   if (count === 0) {
     throw new Error(
@@ -18,14 +18,18 @@ export function useStrictedChildren(
       )} or ${last}`,
     );
   }
-  return items.filter((child) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const id = (child as any)?.type?.id;
-    if (!list.includes(id)) {
-      throw new Error(
-        `${name} only accepts ${head.join(', ')} or ${last} as children`,
-      );
-    }
-    return child;
-  });
+
+  useEffect(() => {
+    items.forEach((child) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const id = (child as any)?.type?.id;
+      if (!list.includes(id)) {
+        throw new Error(
+          `${name} only accepts ${head.join(', ')} or ${last} as children`,
+        );
+      }
+    });
+  }, [count]);
+
+  return children;
 }

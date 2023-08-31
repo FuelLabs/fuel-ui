@@ -3,6 +3,7 @@ import { composeStory } from '@storybook/react';
 
 import { SIZES_MAP } from '../Avatar/styles';
 
+import { Asset } from './Asset';
 import Meta, * as Stories from './Asset.stories';
 import { MOCK_ASSETS } from './__mocks__/assets';
 
@@ -72,5 +73,16 @@ describe('Asset', () => {
     render(<NoIcon />);
     expect(screen.getByText('ET')).toBeInTheDocument();
     expect(screen.getByLabelText('Ethereum initials')).toBeInTheDocument();
+  });
+
+  it('should not be able to render without allowed children', () => {
+    jest.spyOn(console, 'error').mockImplementation(() => null);
+    expect(() =>
+      render(
+        <Asset asset={MOCK_ASSETS.eth}>
+          <div>hi</div>
+        </Asset>,
+      ),
+    ).toThrow();
   });
 });
