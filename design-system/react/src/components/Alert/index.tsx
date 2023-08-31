@@ -1,4 +1,4 @@
-export { useAlertProps, Alert } from './Alert';
+export { Alert, useAlertProps } from './Alert';
 
 export { AlertActions } from './AlertActions';
 export { AlertButton } from './AlertButton';
@@ -6,16 +6,16 @@ export { AlertDescription } from './AlertDescription';
 export { AlertTitle } from './AlertTitle';
 
 export type {
-  AlertStatus,
-  AlertProps,
-  AlertActionsProps,
-  AlertButtonProps,
-  AlertDescriptionProps,
-  AlertTitleProps,
-  AlertNS,
-  AlertDef,
   AlertActionsDef,
+  AlertActionsProps,
   AlertButtonDef,
+  AlertButtonProps,
+  AlertDef,
   AlertDescriptionDef,
+  AlertDescriptionProps,
+  AlertNS,
+  AlertProps,
+  AlertStatus,
   AlertTitleDef,
+  AlertTitleProps,
 } from './defs';

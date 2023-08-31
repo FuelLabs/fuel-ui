@@ -4,10 +4,10 @@ export { BreadcrumbItem } from './BreadcrumbItem';
 export { BreadcrumbLink } from './BreadcrumbLink';
 
 export type {
-  BreadcrumbProps,
   BreadcrumbDef,
-  BreadcrumbItemProps,
   BreadcrumbItemDef,
-  BreadcrumbLinkProps,
+  BreadcrumbItemProps,
   BreadcrumbLinkDef,
+  BreadcrumbLinkProps,
+  BreadcrumbProps,
 } from './defs';

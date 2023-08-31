@@ -1,4 +1,4 @@
-export { useListContext, List } from './List';
+export { List, useListContext } from './List';
 
 export type { ListContext, ListProps } from './List';
 
