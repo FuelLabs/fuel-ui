@@ -8,6 +8,7 @@ import {
 } from '../../utils';
 import { AvatarGenerated } from '../Avatar/AvatarGenerated';
 import { Box } from '../Box';
+import { Button } from '../Button';
 import { Tag } from '../Tag';
 
 import { useNavProps } from './Nav';
@@ -26,7 +27,20 @@ export const _NavConnection = _unstable_createComponent<NavConnectionDef>(
       setTheme(next);
     };
 
-    if (!navProps.network && !navProps.account) return null;
+    if (!navProps.network && !navProps.account) {
+      return (
+        <Button
+          size="sm"
+          variant="solid"
+          intent="primary"
+          leftIcon="Wallet"
+          onPress={navProps.onConnect}
+        >
+          Connect
+        </Button>
+      );
+    }
+
     return (
       <Box.Stack {...props} {...classes.connection}>
         {navProps.network && (

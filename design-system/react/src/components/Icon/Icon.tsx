@@ -70,6 +70,7 @@ const _Icon = _unstable_createComponent<IconDef>(Components.Icon, (props) => {
 
   const elementProps = {
     ...rest,
+    role: 'img',
     'aria-label': label,
     className: cx(wrapperClassName, classes.root.className),
   } as any;

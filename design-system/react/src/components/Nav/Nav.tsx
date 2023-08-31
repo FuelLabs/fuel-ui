@@ -37,6 +37,7 @@ const _Nav = _unstable_createComponent<NavDef>(
     size,
     network,
     account,
+    onConnect,
     ...props
   }) => {
     const { stack } = useFlexProps(props, {
@@ -47,7 +48,7 @@ const _Nav = _unstable_createComponent<NavDef>(
 
     const classes = useStyles(styles, props, ['root']);
     return (
-      <ctx.Provider value={{ size, network, account }}>
+      <ctx.Provider value={{ size, network, account, onConnect }}>
         <Root
           {...props}
           className={cx(stack.className, classes.root.className)}

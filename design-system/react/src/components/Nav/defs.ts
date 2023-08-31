@@ -24,6 +24,7 @@ export type NavProps = Omit<ComponentProps<typeof Box.Stack>, 'direction'> & {
   network?: NetworkObj;
   account?: string;
   size?: NavSize;
+  onConnect?: () => void;
 };
 
 export type NavDef = CreateComponent<{
