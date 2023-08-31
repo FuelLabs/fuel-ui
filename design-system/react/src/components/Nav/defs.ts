@@ -6,10 +6,10 @@ import type { Box } from '../Box';
 import type { FuelLogo } from '../FuelLogo';
 import type { Link } from '../Link';
 
+import type { NavConnection } from './NavConnection';
 import type { NavLogo } from './NavLogo';
 import type { NavMenu } from './NavMenu';
 import type { NavMenuItem } from './NavMenuItem';
-import type { NavNetwork } from './NavNetwork';
 import type { NavSpacer } from './NavSpacer';
 import type { NavThemeToggle } from './NavThemeToggle';
 
@@ -47,7 +47,7 @@ export type NavDef = CreateComponent<{
     MenuItem: typeof NavMenuItem;
     Spacer: typeof NavSpacer;
     ThemeToggle: typeof NavThemeToggle;
-    Network: typeof NavNetwork;
+    Connection: typeof NavConnection;
   };
 }>;
 
@@ -111,12 +111,12 @@ export type NavThemeToggleDef = CreateComponent<{
   };
 }>;
 
-export type NavNetworkDef = CreateComponent<{
+export type NavConnectionProps = ComponentProps<typeof Box.Stack>;
+export type NavConnectionDef = CreateComponent<{
   type: 'div';
-  omit: 'as' | 'children';
-  component: Components.NavNetwork;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  props: {};
+  omit: 'children';
+  component: Components.NavConnection;
+  props: NavConnectionProps;
   element: HTMLDivElement;
   namespace: {
     id: string;

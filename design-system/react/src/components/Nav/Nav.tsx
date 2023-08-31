@@ -10,10 +10,10 @@ import {
   createPolymorphicComponent,
 } from '../../utils';
 
+import { NavConnection } from './NavConnection';
 import { NavLogo } from './NavLogo';
 import { NavMenu } from './NavMenu';
 import { NavMenuItem } from './NavMenuItem';
-import { NavNetwork } from './NavNetwork';
 import { NavSpacer } from './NavSpacer';
 import { NavThemeToggle } from './NavThemeToggle';
 import type { NavDef, NavProps } from './defs';
@@ -70,4 +70,4 @@ Nav.Menu = NavMenu;
 Nav.MenuItem = NavMenuItem;
 Nav.Spacer = NavSpacer;
 Nav.ThemeToggle = NavThemeToggle;
-Nav.Network = NavNetwork;
+Nav.Connection = NavConnection;

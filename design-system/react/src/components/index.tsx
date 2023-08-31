@@ -46,6 +46,15 @@ export { AspectRatio } from './AspectRatio';
 
 export type { AspectRatioDef, AspectRatioProps } from './AspectRatio';
 
+export { Avatar, AvatarGenerated } from './Avatar';
+
+export type {
+  AvatarDef,
+  AvatarGeneratedDef,
+  AvatarGeneratedProps,
+  AvatarProps,
+} from './Avatar';
+
 export {
   Asset,
   AssetAmount,
@@ -71,37 +80,6 @@ export type {
   AssetSymbolProps,
   Assets,
 } from './Asset';
-
-export {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeading,
-  AlertDialogTrigger,
-} from './AlertDialog';
-
-export type {
-  AlertDialogActionDef,
-  AlertDialogActionProps,
-  AlertDialogCancelDef,
-  AlertDialogCancelProps,
-  AlertDialogContentDef,
-  AlertDialogContentProps,
-  AlertDialogDef,
-  AlertDialogDescriptionDef,
-  AlertDialogDescriptionProps,
-  AlertDialogFooterDef,
-  AlertDialogFooterProps,
-  AlertDialogHeadingDef,
-  AlertDialogHeadingProps,
-  AlertDialogNS,
-  AlertDialogProps,
-  AlertDialogTriggerDef,
-  AlertDialogTriggerProps,
-} from './AlertDialog';
 
 export { Badge } from './Badge';
 
@@ -135,14 +113,36 @@ export type {
   VStackProps,
 } from './Box';
 
-export { Avatar, AvatarGenerated } from './Avatar';
+export {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeading,
+  AlertDialogTrigger,
+} from './AlertDialog';
 
 export type {
-  AvatarDef,
-  AvatarGeneratedDef,
-  AvatarGeneratedProps,
-  AvatarProps,
-} from './Avatar';
+  AlertDialogActionDef,
+  AlertDialogActionProps,
+  AlertDialogCancelDef,
+  AlertDialogCancelProps,
+  AlertDialogContentDef,
+  AlertDialogContentProps,
+  AlertDialogDef,
+  AlertDialogDescriptionDef,
+  AlertDialogDescriptionProps,
+  AlertDialogFooterDef,
+  AlertDialogFooterProps,
+  AlertDialogHeadingDef,
+  AlertDialogHeadingProps,
+  AlertDialogNS,
+  AlertDialogProps,
+  AlertDialogTriggerDef,
+  AlertDialogTriggerProps,
+} from './AlertDialog';
 
 export { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from './Breadcrumb';
 
@@ -399,16 +399,19 @@ export type { MenuItemProps, MenuProps } from './Menu';
 
 export {
   Nav,
+  NavConnection,
   NavLogo,
   NavMenu,
   NavMenuItem,
-  NavNetwork,
   NavSpacer,
   NavThemeToggle,
+  _NavConnection,
+  useNavProps,
 } from './Nav';
 
 export type {
-  ConnectionObj,
+  NavConnectionDef,
+  NavConnectionProps,
   NavDef,
   NavLogoDef,
   NavLogoProps,
@@ -416,12 +419,10 @@ export type {
   NavMenuItemDef,
   NavMenuItemProps,
   NavMenuProps,
-  NavNetworkDef,
   NavProps,
   NavSize,
   NavSpacerDef,
   NavThemeToggleDef,
-  NavThemeToggleProps,
   NetworkObj,
 } from './Nav';
 

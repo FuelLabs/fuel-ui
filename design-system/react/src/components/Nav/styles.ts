@@ -29,7 +29,9 @@ export const styles = createStyle(Components.Nav, {
   spacer: {
     border: '$none',
   },
-  connection: {},
+  connection: {
+    alignItems: 'center',
+  },
   network: {
     height: '$8 !important',
   },

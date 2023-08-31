@@ -1,14 +1,15 @@
-export { Nav } from './Nav';
+export { Nav, useNavProps } from './Nav';
 
+export { NavConnection, _NavConnection } from './NavConnection';
 export { NavLogo } from './NavLogo';
 export { NavMenu } from './NavMenu';
 export { NavMenuItem } from './NavMenuItem';
-export { NavNetwork } from './NavNetwork';
 export { NavSpacer } from './NavSpacer';
 export { NavThemeToggle } from './NavThemeToggle';
 
 export type {
-  ConnectionObj,
+  NavConnectionDef,
+  NavConnectionProps,
   NavDef,
   NavLogoDef,
   NavLogoProps,
@@ -16,11 +17,9 @@ export type {
   NavMenuItemDef,
   NavMenuItemProps,
   NavMenuProps,
-  NavNetworkDef,
   NavProps,
   NavSize,
   NavSpacerDef,
   NavThemeToggleDef,
-  NavThemeToggleProps,
   NetworkObj,
 } from './defs';

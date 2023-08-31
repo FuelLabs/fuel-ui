@@ -86,11 +86,11 @@ import type { IconDef } from './components/Icon';
 import type { ImageDef } from './components/Image';
 import type { LinkDef } from './components/Link';
 import type {
+  NavConnectionDef,
   NavDef,
   NavLogoDef,
   NavMenuDef,
   NavMenuItemDef,
-  NavNetworkDef,
   NavSpacerDef,
   NavThemeToggleDef,
 } from './components/Nav';
@@ -108,19 +108,13 @@ export type StoreDefs = {
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
   AspectRatio: AspectRatioDef;
+  Avatar: AvatarDef;
+  AvatarGenerated: AvatarGeneratedDef;
   AssetAmount: AssetAmountDef;
   Asset: AssetDef;
   AssetIcon: AssetIconDef;
   AssetName: AssetNameDef;
   AssetSymbol: AssetSymbolDef;
-  AlertDialogAction: AlertDialogActionDef;
-  AlertDialogCancel: AlertDialogCancelDef;
-  AlertDialogContent: AlertDialogContentDef;
-  AlertDialog: AlertDialogDef;
-  AlertDialogDescription: AlertDialogDescriptionDef;
-  AlertDialogFooter: AlertDialogFooterDef;
-  AlertDialogHeading: AlertDialogHeadingDef;
-  AlertDialogTrigger: AlertDialogTriggerDef;
   Badge: BadgeDef;
   BoxCentered: BoxCenteredDef;
   Box: BoxDef;
@@ -129,8 +123,14 @@ export type StoreDefs = {
   HStack: HStackDef;
   Stack: StackDef;
   VStack: VStackDef;
-  Avatar: AvatarDef;
-  AvatarGenerated: AvatarGeneratedDef;
+  AlertDialogAction: AlertDialogActionDef;
+  AlertDialogCancel: AlertDialogCancelDef;
+  AlertDialogContent: AlertDialogContentDef;
+  AlertDialog: AlertDialogDef;
+  AlertDialogDescription: AlertDialogDescriptionDef;
+  AlertDialogFooter: AlertDialogFooterDef;
+  AlertDialogHeading: AlertDialogHeadingDef;
+  AlertDialogTrigger: AlertDialogTriggerDef;
   Breadcrumb: BreadcrumbDef;
   BreadcrumbItem: BreadcrumbItemDef;
   BreadcrumbLink: BreadcrumbLinkDef;
@@ -167,11 +167,11 @@ export type StoreDefs = {
   Icon: IconDef;
   Image: ImageDef;
   Link: LinkDef;
+  NavConnection: NavConnectionDef;
   Nav: NavDef;
   NavLogo: NavLogoDef;
   NavMenu: NavMenuDef;
   NavMenuItem: NavMenuItemDef;
-  NavNetwork: NavNetworkDef;
   NavSpacer: NavSpacerDef;
   NavThemeToggle: NavThemeToggleDef;
   Spinner: SpinnerDef;

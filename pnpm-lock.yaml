@@ -178,8 +178,8 @@ importers:
   design-system/react:
     dependencies:
       '@fuel-ts/math':
-        specifier: ^0.54.0
-        version: 0.54.0
+        specifier: ^0.54.1
+        version: 0.54.1
       '@fuel-ui/css':
         specifier: workspace:*
         version: link:../css
@@ -2621,8 +2621,8 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@fuel-ts/math@0.54.0:
-    resolution: {integrity: sha512-3qWR0e0G/uYr20p/AWBpBQ2TWz1RNks4mPESNTsoOA4sPqg9Ly+dZDd2vTZruIhyF7EACjkPDPCzTj4RU922lA==}
+  /@fuel-ts/math@0.54.1:
+    resolution: {integrity: sha512-balx5RmqFOPAA5e8T5HS89dXOwt//oji10Asr2znN8aAxC0O05Hr7BFiiMFun6ql2rNaw/PdY1b/zuvrzysdBQ==}
     dependencies:
       '@types/bn.js': 5.1.1
       bn.js: 5.2.1
