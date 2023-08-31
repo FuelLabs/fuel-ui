@@ -1,3 +1,3 @@
 export { Checkbox } from './Checkbox';
 
-export type { CheckboxProps, CheckboxDef } from './defs';
+export type { CheckboxDef, CheckboxProps } from './defs';

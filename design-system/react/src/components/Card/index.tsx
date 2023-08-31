@@ -5,12 +5,12 @@ export { CardFooter } from './CardFooter';
 export { CardHeader } from './CardHeader';
 
 export type {
-  CardProps,
-  CardBodyProps,
-  CardFooterProps,
-  CardHeaderProps,
-  CardDef,
   CardBodyDef,
+  CardBodyProps,
+  CardDef,
   CardFooterDef,
+  CardFooterProps,
   CardHeaderDef,
+  CardHeaderProps,
+  CardProps,
 } from './defs';

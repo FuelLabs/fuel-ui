@@ -15,6 +15,7 @@ overrides:
   json5: '>=2.2.2'
   semver@<7.5.2: '>=7.5.2'
   word-wrap: npm:@aashutoshrathi/word-wrap
+  '@adobe/css-tools@<4.3.1': '>=4.3.1'
 
 importers:
 
@@ -174,8 +175,8 @@ importers:
   design-system/react:
     dependencies:
       '@fuel-ts/math':
-        specifier: ^0.49.1
-        version: 0.49.1
+        specifier: ^0.53.0
+        version: 0.53.0
       '@fuel-ui/css':
         specifier: workspace:*
         version: link:../css
@@ -457,8 +458,8 @@ packages:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
 
-  /@adobe/css-tools@4.3.0:
-    resolution: {integrity: sha512-+RNNcQvw2V1bmnBTPAtOLfW/9mhH2vC67+rUSi5T8EtEWt6lEnGNY2GuhZ1/YwbgikT1TkhvidCDmN5Q5YCo/w==}
+  /@adobe/css-tools@4.3.1:
+    resolution: {integrity: sha512-/62yikz7NLScCGAAST5SHdnjaDJQBDq0M2muyRTpf2VQhw6StBg2ALiu73zSJQ4fMVLA+0uBhBHAle7Wg+2kSg==}
 
   /@ampproject/remapping@2.2.1:
     resolution: {integrity: sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg==}
@@ -2534,8 +2535,8 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@fuel-ts/math@0.49.1:
-    resolution: {integrity: sha512-h+ozE982eKkvqulX1V6X0JdsH2RkkCtYwYr9v1vwT5L/J73RySuxhoVEFSYkURjPOKSPjxK9q4RANXZZi433bA==}
+  /@fuel-ts/math@0.53.0:
+    resolution: {integrity: sha512-J9s1k+fiz2VoAPzFSJ5GTHSxH5oVhqJSCl6/JrjSRPa7y63hEvb2JHw7u5cZ/c14rCZrUE8k8v+DzuEV5p/giA==}
     dependencies:
       '@types/bn.js': 5.1.1
       bn.js: 5.2.1
@@ -6814,7 +6815,7 @@ packages:
     resolution: {integrity: sha512-ynmNeT7asXyH3aSVv4vvX4Rb+0qjOhdNHnO/3vuZNqPmhDpV/+rCSGwQ7bLcmU2cJ4dvoheIO85LQj0IbJHEtg==}
     engines: {node: '>=8', npm: '>=6', yarn: '>=1'}
     dependencies:
-      '@adobe/css-tools': 4.3.0
+      '@adobe/css-tools': 4.3.1
       '@babel/runtime': 7.22.10
       '@types/testing-library__jest-dom': 5.14.9
       aria-query: 5.3.0

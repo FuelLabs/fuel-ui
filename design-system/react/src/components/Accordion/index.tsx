@@ -6,13 +6,13 @@ export { AccordionTrigger } from './AccordionTrigger';
 
 export type {
   AccordionBaseProps,
-  AccordionProps,
-  AccordionNS,
-  AccordionContentProps,
-  AccordionItemProps,
-  AccordionTriggerProps,
-  AccordionDef,
   AccordionContentDef,
+  AccordionContentProps,
+  AccordionDef,
   AccordionItemDef,
+  AccordionItemProps,
+  AccordionNS,
+  AccordionProps,
   AccordionTriggerDef,
+  AccordionTriggerProps,
 } from './defs';

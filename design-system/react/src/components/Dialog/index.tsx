@@ -1,4 +1,4 @@
-export { useDialog, Dialog } from './Dialog';
+export { Dialog, useDialog } from './Dialog';
 
 export { DialogClose } from './DialogClose';
 export { DialogContent } from './DialogContent';
@@ -8,23 +8,23 @@ export { DialogHeading } from './DialogHeading';
 export { DialogTrigger } from './DialogTrigger';
 
 export type {
-  DialogContext,
-  DialogProps,
-  DialogNameSpace,
-  DialogDef,
-  DialogContentProps,
-  DialogContentNS,
-  DialogContentDef,
-  DialogTriggerProps,
-  DialogTriggerNS,
-  DialogTriggerDef,
-  DialogHeadingProps,
-  DialogHeadingDef,
-  DialogDescriptionProps,
-  DialogDescriptionDef,
-  DialogFooterProps,
-  DialogFooterDef,
-  DialogCloseProps,
-  DialogCloseNS,
   DialogCloseDef,
+  DialogCloseNS,
+  DialogCloseProps,
+  DialogContentDef,
+  DialogContentNS,
+  DialogContentProps,
+  DialogContext,
+  DialogDef,
+  DialogDescriptionDef,
+  DialogDescriptionProps,
+  DialogFooterDef,
+  DialogFooterProps,
+  DialogHeadingDef,
+  DialogHeadingProps,
+  DialogNameSpace,
+  DialogProps,
+  DialogTriggerDef,
+  DialogTriggerNS,
+  DialogTriggerProps,
 } from './defs';

@@ -1,3 +1,3 @@
 export { Link } from './Link';
 
-export type { LinkProps, LinkDef } from './defs';
+export type { LinkDef, LinkProps } from './defs';

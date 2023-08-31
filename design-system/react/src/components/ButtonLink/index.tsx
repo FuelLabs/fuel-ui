@@ -1,3 +1,3 @@
 export { ButtonLink } from './ButtonLink';
 
-export type { ButtonLinkProps, ButtonLinkDef } from './defs';
+export type { ButtonLinkDef, ButtonLinkProps } from './defs';

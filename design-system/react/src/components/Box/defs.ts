@@ -5,7 +5,9 @@ import type { Components } from '~/utils/components-list';
 import type { BoxCentered } from './BoxCentered';
 import type { Container } from './Container';
 import type { Flex } from './Flex';
+import type { HStack } from './HStack';
 import type { Stack } from './Stack';
+import type { VStack } from './VStack';
 
 export type BoxProps = HTMLProps['div'];
 
@@ -14,11 +16,20 @@ export type BoxDef = CreateComponent<{
   type: 'div';
   props: BoxProps;
   element: HTMLDivElement;
-  styles: 'root' | 'flex' | 'centered' | 'stack' | 'container';
+  styles:
+    | 'root'
+    | 'flex'
+    | 'centered'
+    | 'stack'
+    | 'hstack'
+    | 'vstack'
+    | 'container';
   namespace: {
     Centered: typeof BoxCentered;
     Flex: typeof Flex;
     Stack: typeof Stack;
+    HStack: typeof HStack;
+    VStack: typeof VStack;
     Container: typeof Container;
   };
 }>;
@@ -93,13 +104,36 @@ export type BoxCenteredDef = CreateComponent<{
 }>;
 
 export type StackProps = FlexProps;
-
 export type StackDef = CreateComponent<{
   type: 'div';
   props: StackProps;
   element: HTMLDivElement;
   component: Components.Stack;
   styles: 'root';
+}>;
+
+export type HStackProps = Omit<FlexProps, 'direction'>;
+export type HStackDef = CreateComponent<{
+  type: 'div';
+  props: HStackProps;
+  element: HTMLDivElement;
+  component: Components.HStack;
+  styles: 'root';
+  namespace: {
+    id: string;
+  };
+}>;
+
+export type VStackProps = Omit<FlexProps, 'direction'>;
+export type VStackDef = CreateComponent<{
+  type: 'div';
+  props: VStackProps;
+  element: HTMLDivElement;
+  component: Components.VStack;
+  styles: 'root';
+  namespace: {
+    id: string;
+  };
 }>;
 
 export type ContainerSizes = 'sm' | 'md' | 'lg' | 'xl';

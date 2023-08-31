@@ -1,3 +1,3 @@
 export { Image } from './Image';
 
-export type { ImageProps, ImageDef } from './defs';
+export type { ImageDef, ImageProps } from './defs';
