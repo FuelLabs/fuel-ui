@@ -1,4 +1,4 @@
-import { act, render, screen, testA11y } from '@fuels/jest';
+import { press, click, act, render, screen, testA11y } from '@fuels/jest';
 
 import { Button } from '../Button';
 
@@ -33,16 +33,16 @@ describe('Dialog', () => {
 
   it('should open and close dialog correctly', async () => {
     const onOpen = jest.fn();
-    const { user } = render(<Content onOpenChange={onOpen} />);
+    render(<Content onOpenChange={onOpen} />);
 
     const trigger = screen.getByText('Open');
     expect(() => screen.getByText('Dialog Title')).toThrow();
 
-    await act(() => user.click(trigger));
+    await act(() => click(trigger));
     expect(await screen.findByText('Dialog Title')).toBeInTheDocument();
     expect(onOpen).toBeCalledTimes(1);
 
-    await user.press('Esc');
+    await press('Esc');
     expect(() => screen.getByText('Dialog Title')).toThrow();
   });
 

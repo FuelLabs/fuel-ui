@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { act, fireEvent, render, screen, waitFor } from '@fuels/jest';
+import {
+  click,
+  press,
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@fuels/jest';
 import type { ElementRef } from 'react';
 import { useRef } from 'react';
 
@@ -58,25 +66,25 @@ describe('Drawer', () => {
   });
 
   it('should be able to close when click on esc', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
     const trigger = screen.getByText('Open');
-    await act(() => user.click(trigger));
+    await act(() => click(trigger));
     await waitFor(() => {
       expect(screen.getByText('Hello world')).toBeInTheDocument();
     });
 
-    await user.press('Esc');
+    await press('Esc');
     await waitFor(() => {
       expect(() => screen.getByText('Hello world')).toThrow();
     });
   });
 
   it('should be able to render inside a custom container', async () => {
-    const { container, getByText, findByText, user } = render(<CustomRef />);
+    const { container, getByText, findByText } = render(<CustomRef />);
     expect(() => getByText('Hello world')).toThrow();
     const trigger = getByText('Open');
-    await user.click(trigger);
+    await click(trigger);
     expect(await findByText('Hello world')).toBeInTheDocument();
 
     const overlay = container.querySelector('[data-overlay-container="true"]');

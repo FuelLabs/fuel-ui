@@ -8,5 +8,5 @@
       "~/*": ["src/*"]
     }
   },
-  "include": [".storybook", "src", "jest.setup.js", "jest.config.js"]
+  "include": [".storybook", "src", "jest.setup.ts", "jest.config.ts"]
 }

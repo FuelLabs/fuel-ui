@@ -86,9 +86,16 @@ export type {
   AlertDialogTriggerProps,
 } from './AlertDialog';
 
-export { Badge } from './Badge';
+export { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from './Breadcrumb';
 
-export type { BadgeDef, BadgeProps, BadgeVariants } from './Badge';
+export type {
+  BreadcrumbDef,
+  BreadcrumbItemDef,
+  BreadcrumbItemProps,
+  BreadcrumbLinkDef,
+  BreadcrumbLinkProps,
+  BreadcrumbProps,
+} from './Breadcrumb';
 
 export { Box, BoxCentered, Container, Flex, Stack } from './Box';
 
@@ -106,16 +113,9 @@ export type {
   StackProps,
 } from './Box';
 
-export { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from './Breadcrumb';
+export { Badge } from './Badge';
 
-export type {
-  BreadcrumbDef,
-  BreadcrumbItemDef,
-  BreadcrumbItemProps,
-  BreadcrumbLinkDef,
-  BreadcrumbLinkProps,
-  BreadcrumbProps,
-} from './Breadcrumb';
+export type { BadgeDef, BadgeProps, BadgeVariants } from './Badge';
 
 export { Button, SPINNER_SIZE, createIcon, getIconSize } from './Button';
 
@@ -347,19 +347,34 @@ export { InputPassword } from './InputPassword';
 
 export type { InputPasswordProps } from './InputPassword';
 
-export { List, ListItem, useListContext } from './List';
-
-export type { ListContext, ListProps } from './List';
-
 export { Link } from './Link';
 
 export type { LinkDef, LinkProps } from './Link';
+
+export { List, ListItem, useListContext } from './List';
+
+export type { ListContext, ListProps } from './List';
 
 export { Menu, MenuItem } from './Menu';
 
 export type { MenuItemProps, MenuProps } from './Menu';
 
-export type { NavDef, NavProps, NetworkObj } from './Nav';
+export { Nav } from './Nav';
+
+export type {
+  ConnectionObj,
+  NavDef,
+  NavLogoDef,
+  NavLogoProps,
+  NavMenuDef,
+  NavMenuItemDef,
+  NavMenuItemProps,
+  NavMenuProps,
+  NavProps,
+  NavSpacerDef,
+  NavSpacerProps,
+  NetworkObj,
+} from './Nav';
 
 export {
   Pagination,
@@ -383,16 +398,16 @@ export type {
   UsePaginationReturn,
 } from './Pagination';
 
+export { Popover } from './Popover';
+
+export type { PopoverProps } from './Popover';
+
 export { PasswordStrength, StrengthIndicator } from './PasswordStrength';
 
 export type {
   PasswordStrengthProps,
   StrengthIndicatorIndicatorProps,
 } from './PasswordStrength';
-
-export { Popover } from './Popover';
-
-export type { PopoverProps } from './Popover';
 
 export { RadioGroup, RadioGroupItem } from './RadioGroup';
 
@@ -401,6 +416,10 @@ export type { RadioGroupItemProps, RadioGroupProps } from './RadioGroup';
 export { Spinner } from './Spinner';
 
 export type { SpinnerDef, SpinnerProps } from './Spinner';
+
+export { Switch } from './Switch';
+
+export type { SwitchProps } from './Switch';
 
 export { Tabs, TabsContent, TabsList, TabsTrigger, useTabsProps } from './Tabs';
 
@@ -411,10 +430,6 @@ export type {
   TabsTriggerProps,
   TabsVariant,
 } from './Tabs';
-
-export { Switch } from './Switch';
-
-export type { SwitchProps } from './Switch';
 
 export { Tag, TagCloseButton } from './Tag';
 

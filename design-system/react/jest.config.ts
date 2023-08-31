@@ -7,7 +7,7 @@ const config: Config = {
   ...baseConfig,
   rootDir: __dirname,
   displayName: pkg.name,
-  setupFilesAfterEnv: ['@testing-library/jest-dom', '@fuels/jest/setup'],
+  setupFilesAfterEnv: ['./jest.setup.ts', '@fuels/jest/setup'],
   transform: {
     '.*\\.(tsx?)$': [
       '@swc/jest',

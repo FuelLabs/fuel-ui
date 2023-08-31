@@ -1,4 +1,4 @@
-import { render, screen, testA11y } from '@fuels/jest';
+import { press, render, screen, testA11y } from '@fuels/jest';
 
 import { Stack } from '../Box/Stack';
 import { Button } from '../Button';
@@ -19,7 +19,7 @@ describe('Focus', () => {
   });
 
   it('should have focus navigation usings arrows', async () => {
-    const { user } = render(
+    render(
       <Focus.ArrowNavigator autoFocus>
         <Stack gap="$3" direction="row">
           <Button>First</Button>
@@ -30,13 +30,13 @@ describe('Focus', () => {
     );
 
     expect(await screen.findByText('First')).toHaveFocus();
-    await user.press('ArrowRight');
+    await press('ArrowRight');
     expect(await screen.findByText('Second')).toHaveFocus();
-    await user.press('ArrowRight');
+    await press('ArrowRight');
     expect(await screen.findByText('Third')).toHaveFocus();
-    await user.press('ArrowLeft');
+    await press('ArrowLeft');
     expect(await screen.findByText('Second')).toHaveFocus();
-    await user.press('ArrowLeft');
+    await press('ArrowLeft');
     expect(await screen.findByText('First')).toHaveFocus();
   });
 });

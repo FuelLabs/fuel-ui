@@ -1,4 +1,4 @@
-import { render, testA11y, screen } from '@fuels/jest';
+import { render, testA11y, screen, press } from '@fuels/jest';
 import React from 'react';
 
 import type { MenuProps } from './Menu';
@@ -35,7 +35,7 @@ describe('Menu', () => {
 
   it('should dispatch onAction using keyboard command', async () => {
     let item: React.Key = '';
-    const { user } = render(
+    render(
       <TestMenu
         onAction={(key: React.Key) => {
           item = key;
@@ -43,13 +43,13 @@ describe('Menu', () => {
       />,
     );
 
-    await user.press('Enter');
+    await press('Enter');
     expect(item).toBe('settings');
   });
 
   it('should navigate using arrows keys', async () => {
     let item: React.Key = '';
-    const { user } = render(
+    render(
       <TestMenu
         onAction={(key: React.Key) => {
           item = key;
@@ -57,14 +57,14 @@ describe('Menu', () => {
       />,
     );
 
-    await user.press('ArrowDown');
-    await user.press('Enter');
+    await press('ArrowDown');
+    await press('Enter');
     expect(item).toBe('trash');
   });
 
   it('should not be able to trigger action on disabled keys', async () => {
     let item: React.Key = '';
-    const { user } = render(
+    render(
       <TestMenu
         onAction={(key: React.Key) => {
           item = key;
@@ -72,9 +72,9 @@ describe('Menu', () => {
       />,
     );
 
-    await user.press('ArrowDown');
-    await user.press('ArrowDown');
-    await user.press('Enter');
+    await press('ArrowDown');
+    await press('ArrowDown');
+    await press('Enter');
     expect(item).toBe('settings');
   });
 });
