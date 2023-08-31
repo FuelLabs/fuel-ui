@@ -32,7 +32,9 @@ export const Usage: Story = {
           Developers
         </Nav.MenuItem>
         <Nav.MenuItem href="#">Community</Nav.MenuItem>
-        <Nav.MenuItem href="#">Labs</Nav.MenuItem>
+        <Nav.MenuItem href="#" isExternal>
+          Labs
+        </Nav.MenuItem>
       </Nav.Menu>
       <Nav.Spacer />
       <Nav.Menu>

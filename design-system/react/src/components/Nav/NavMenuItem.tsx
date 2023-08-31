@@ -19,7 +19,7 @@ const _NavMenuItem = _unstable_createComponent<NavMenuItemDef>(
       <Link
         {...props}
         {...classes.menuItem}
-        css={{ ...props.css, color: isActive ? '$brand' : '$textColor' }}
+        color={isActive ? '$brand' : '$textColor'}
         data-active={isActive}
       />
     );
@@ -28,5 +28,9 @@ const _NavMenuItem = _unstable_createComponent<NavMenuItemDef>(
 
 export const NavMenuItem =
   createPolymorphicComponent<NavMenuItemDef>(_NavMenuItem);
+
+NavMenuItem.defaultProps = {
+  externalIcon: 'ExternalLink',
+};
 
 NavMenuItem.id = 'NavMenuItem';

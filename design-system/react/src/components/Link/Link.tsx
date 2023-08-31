@@ -14,28 +14,35 @@ import type * as t from './defs';
 
 const _Link = _unstable_createComponent<t.LinkDef>(
   Components.Link,
-  ({ as = 'a', isExternal, children, css, ...props }) => {
+  ({
+    as: Root = 'a',
+    isExternal,
+    externalIcon = 'Link',
+    children,
+    color,
+    css,
+    ...props
+  }) => {
     const { linkProps } = useLink(props as any, props.ref as any);
     const classes = useStyles(styles, {
       ...props,
       css: {
         ...css,
-        color: css?.color || '$accent8',
+        color: color || css?.color || '$accent8',
       },
     });
 
     const customProps = {
-      ...(as !== 'a' ? { role: 'link' } : {}),
+      ...(Root !== 'a' ? { role: 'link' } : {}),
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
     };
 
     const itemProps = mergeProps(props, classes.root, customProps, linkProps);
-    return _unstable_createEl(
-      as,
-      itemProps,
-      <>
-        {children} {isExternal && <Icon icon="Link" color="textIcon" />}
-      </>,
+    return (
+      <Root {...itemProps}>
+        {children}{' '}
+        {isExternal && <Icon icon={externalIcon} color="textIcon" size={16} />}
+      </Root>
     );
   },
 );
@@ -46,7 +53,7 @@ const styles = createStyle(Components.Link, {
   root: {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: '$1',
+    gap: '$2',
     textDecoration: 'none',
     fontWeight: '$normal',
 
