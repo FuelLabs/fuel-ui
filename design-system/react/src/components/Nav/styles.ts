@@ -30,7 +30,9 @@ export const styles = createStyle(Components.Nav, {
     border: '$none',
   },
   connection: {},
-  network: {},
+  network: {
+    height: '$8 !important',
+  },
   themeToggle: {
     position: 'relative',
     cursor: 'pointer',

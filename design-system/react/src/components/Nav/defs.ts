@@ -9,6 +9,7 @@ import type { Link } from '../Link';
 import type { NavLogo } from './NavLogo';
 import type { NavMenu } from './NavMenu';
 import type { NavMenuItem } from './NavMenuItem';
+import type { NavNetwork } from './NavNetwork';
 import type { NavSpacer } from './NavSpacer';
 import type { NavThemeToggle } from './NavThemeToggle';
 
@@ -16,17 +17,12 @@ export type NetworkObj = {
   id?: string;
   name: string;
   url: string;
-  isSelected?: boolean;
-};
-
-export type ConnectionObj = {
-  network: NetworkObj;
-  account: string;
 };
 
 export type NavSize = 'sm' | 'md' | 'lg' | 'xl';
 export type NavProps = Omit<ComponentProps<typeof Box.Stack>, 'direction'> & {
-  connection?: ConnectionObj;
+  network?: NetworkObj;
+  account?: string;
   size?: NavSize;
 };
 
@@ -51,6 +47,7 @@ export type NavDef = CreateComponent<{
     MenuItem: typeof NavMenuItem;
     Spacer: typeof NavSpacer;
     ThemeToggle: typeof NavThemeToggle;
+    Network: typeof NavNetwork;
   };
 }>;
 
@@ -102,15 +99,24 @@ export type NavSpacerDef = CreateComponent<{
   };
 }>;
 
-export type NavThemeToggleProps = Omit<
-  ComponentProps<typeof Box.Flex>,
-  'onClick'
->;
 export type NavThemeToggleDef = CreateComponent<{
   type: 'div';
-  omit: 'children';
+  omit: 'as' | 'children';
   component: Components.NavThemeToggle;
-  props: NavThemeToggleProps;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  props: {};
+  element: HTMLDivElement;
+  namespace: {
+    id: string;
+  };
+}>;
+
+export type NavNetworkDef = CreateComponent<{
+  type: 'div';
+  omit: 'as' | 'children';
+  component: Components.NavNetwork;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  props: {};
   element: HTMLDivElement;
   namespace: {
     id: string;

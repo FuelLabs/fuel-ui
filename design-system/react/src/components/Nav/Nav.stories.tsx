@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { Box } from '../Box';
+
 import { Nav } from './Nav';
 
 const meta: Meta<typeof Nav> = {
@@ -13,9 +15,15 @@ const meta: Meta<typeof Nav> = {
 export default meta;
 type Story = StoryObj<typeof Nav>;
 
+const NETWORK = {
+  id: '1',
+  name: 'Mainnet',
+  url: 'https://mainnet.fuel.sh',
+};
+
 export const Usage: Story = {
   render: () => (
-    <Nav>
+    <Nav network={NETWORK}>
       <Nav.Logo />
       <Nav.Menu>
         <Nav.MenuItem href="#" isActive>
@@ -30,9 +38,11 @@ export const Usage: Story = {
         <Nav.MenuItem href="#">Explorer</Nav.MenuItem>
         <Nav.MenuItem href="#">Ecosystem</Nav.MenuItem>
       </Nav.Menu>
-      <Nav.ThemeToggle />
-      {/* <Nav.Network /> */}
-      {/* <Nav.Avatar /> */}
+      <Box.HStack gap="$4">
+        <Nav.ThemeToggle />
+        <Nav.Network />
+        {/* <Nav.Avatar /> */}
+      </Box.HStack>
     </Nav>
   ),
 };

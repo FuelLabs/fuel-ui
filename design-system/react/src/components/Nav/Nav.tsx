@@ -1,4 +1,5 @@
 import { cx } from '@fuel-ui/css';
+import { createContext, useContext } from 'react';
 import { useStyles } from '~/hooks/useStore';
 import { Components } from '~/utils/components-list';
 
@@ -12,14 +13,32 @@ import {
 import { NavLogo } from './NavLogo';
 import { NavMenu } from './NavMenu';
 import { NavMenuItem } from './NavMenuItem';
+import { NavNetwork } from './NavNetwork';
 import { NavSpacer } from './NavSpacer';
 import { NavThemeToggle } from './NavThemeToggle';
-import type { NavDef } from './defs';
+import type { NavDef, NavProps } from './defs';
 import { styles } from './styles';
+
+type ContextProps = NavProps;
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const ctx = createContext<ContextProps>({} as any);
+export function useNavProps() {
+  return useContext(ctx);
+}
 
 const _Nav = _unstable_createComponent<NavDef>(
   Components.Nav,
-  ({ as: Root = 'nav', children, css, gap = '$10', ...props }) => {
+  ({
+    as: Root = 'nav',
+    children,
+    css,
+    gap = '$10',
+    size,
+    network,
+    account,
+    ...props
+  }) => {
     const { stack } = useFlexProps(props, {
       ...css,
       gap,
@@ -28,9 +47,14 @@ const _Nav = _unstable_createComponent<NavDef>(
 
     const classes = useStyles(styles, props, ['root']);
     return (
-      <Root {...props} className={cx(stack.className, classes.root.className)}>
-        {children}
-      </Root>
+      <ctx.Provider value={{ size, network, account }}>
+        <Root
+          {...props}
+          className={cx(stack.className, classes.root.className)}
+        >
+          {children}
+        </Root>
+      </ctx.Provider>
     );
   },
 );
@@ -46,3 +70,4 @@ Nav.Menu = NavMenu;
 Nav.MenuItem = NavMenuItem;
 Nav.Spacer = NavSpacer;
 Nav.ThemeToggle = NavThemeToggle;
+Nav.Network = NavNetwork;

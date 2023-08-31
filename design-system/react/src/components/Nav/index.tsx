@@ -3,6 +3,7 @@ export { Nav } from './Nav';
 export { NavLogo } from './NavLogo';
 export { NavMenu } from './NavMenu';
 export { NavMenuItem } from './NavMenuItem';
+export { NavNetwork } from './NavNetwork';
 export { NavSpacer } from './NavSpacer';
 export { NavThemeToggle } from './NavThemeToggle';
 
@@ -15,6 +16,7 @@ export type {
   NavMenuItemDef,
   NavMenuItemProps,
   NavMenuProps,
+  NavNetworkDef,
   NavProps,
   NavSize,
   NavSpacerDef,

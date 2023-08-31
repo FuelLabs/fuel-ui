@@ -90,6 +90,7 @@ import type {
   NavLogoDef,
   NavMenuDef,
   NavMenuItemDef,
+  NavNetworkDef,
   NavSpacerDef,
   NavThemeToggleDef,
 } from './components/Nav';
@@ -106,6 +107,12 @@ export type StoreDefs = {
   Alert: AlertDef;
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
+  AspectRatio: AspectRatioDef;
+  AssetAmount: AssetAmountDef;
+  Asset: AssetDef;
+  AssetIcon: AssetIconDef;
+  AssetName: AssetNameDef;
+  AssetSymbol: AssetSymbolDef;
   AlertDialogAction: AlertDialogActionDef;
   AlertDialogCancel: AlertDialogCancelDef;
   AlertDialogContent: AlertDialogContentDef;
@@ -114,12 +121,6 @@ export type StoreDefs = {
   AlertDialogFooter: AlertDialogFooterDef;
   AlertDialogHeading: AlertDialogHeadingDef;
   AlertDialogTrigger: AlertDialogTriggerDef;
-  AssetAmount: AssetAmountDef;
-  Asset: AssetDef;
-  AssetIcon: AssetIconDef;
-  AssetName: AssetNameDef;
-  AssetSymbol: AssetSymbolDef;
-  AspectRatio: AspectRatioDef;
   Badge: BadgeDef;
   BoxCentered: BoxCenteredDef;
   Box: BoxDef;
@@ -170,6 +171,7 @@ export type StoreDefs = {
   NavLogo: NavLogoDef;
   NavMenu: NavMenuDef;
   NavMenuItem: NavMenuItemDef;
+  NavNetwork: NavNetworkDef;
   NavSpacer: NavSpacerDef;
   NavThemeToggle: NavThemeToggleDef;
   Spinner: SpinnerDef;
