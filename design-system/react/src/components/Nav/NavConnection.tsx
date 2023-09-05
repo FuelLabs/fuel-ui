@@ -19,7 +19,7 @@ import { styles } from './styles';
 
 const MotionStack = motion(Box.Stack);
 
-export const _NavConnection = _unstable_createComponent<NavConnectionDef>(
+const _NavConnection = _unstable_createComponent<NavConnectionDef>(
   Components.NavConnection,
   ({ whenOpened = 'show', ...props }) => {
     const navProps = useNavProps();

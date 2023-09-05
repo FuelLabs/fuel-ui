@@ -1,6 +1,6 @@
 export { Nav, useNavProps } from './Nav';
 
-export { NavConnection, _NavConnection } from './NavConnection';
+export { NavConnection } from './NavConnection';
 export { NavDesktop } from './NavDesktop';
 export { NavLogo } from './NavLogo';
 export { NavMenu } from './NavMenu';
