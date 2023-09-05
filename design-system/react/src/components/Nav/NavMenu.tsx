@@ -35,8 +35,22 @@ const _NavMenu = _unstable_createComponent<NavMenuDef>(
             animate="open"
             exit="collapsed"
             variants={{
-              open: { opacity: 1, height: 'auto' },
-              collapsed: { opacity: 0, height: 0 },
+              open: {
+                height: 'auto',
+                opacity: 1,
+                transition: {
+                  height: { duration: 0.2, easings: ['easeOut'] },
+                  opacity: { delay: 0.2, duration: 0.2, easings: ['easeOut'] },
+                },
+              },
+              collapsed: {
+                height: 0,
+                opacity: 0,
+                transition: {
+                  height: { duration: 0.2, delay: 0.1, easings: ['easeOut'] },
+                  opacity: { duration: 0.2, easings: ['easeOut'] },
+                },
+              },
             }}
           >
             {content}
