@@ -5,7 +5,7 @@ export { NavDesktop } from './NavDesktop';
 export { NavLogo } from './NavLogo';
 export { NavMenu } from './NavMenu';
 export { NavMenuItem } from './NavMenuItem';
-export { NavMobile } from './NavMobile';
+export { NavMobile, useNavMobileProps } from './NavMobile';
 export { NavMobileContent } from './NavMobileContent';
 export { NavSpacer } from './NavSpacer';
 export { NavThemeToggle } from './NavThemeToggle';
@@ -29,5 +29,6 @@ export type {
   NavProps,
   NavSpacerDef,
   NavThemeToggleDef,
+  NavThemeToggleProps,
   NetworkObj,
 } from './defs';
