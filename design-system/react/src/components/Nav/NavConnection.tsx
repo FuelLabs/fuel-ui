@@ -85,7 +85,6 @@ export const _NavConnection = _unstable_createComponent<NavConnectionDef>(
       <MotionStack
         {...classes.connection}
         direction="row"
-        key="actions"
         initial="collapsed"
         animate="open"
         exit="collapsed"

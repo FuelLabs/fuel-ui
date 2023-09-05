@@ -29,6 +29,7 @@ export const NavThemeToggle = _unstable_createComponent<NavThemeToggleDef>(
         role="button"
         data-theme={current}
         onClick={handleChange}
+        aria-label="Toggle Theme"
       >
         <Icon icon="Sun" size={18} />
         <Icon icon="MoonStars" size={18} />
@@ -41,7 +42,6 @@ export const NavThemeToggle = _unstable_createComponent<NavThemeToggleDef>(
 
     const animContent = (
       <motion.div
-        key="actions"
         initial="collapsed"
         animate="open"
         exit="collapsed"
