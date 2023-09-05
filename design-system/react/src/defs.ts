@@ -110,7 +110,6 @@ export type StoreDefs = {
   Alert: AlertDef;
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
-  AspectRatio: AspectRatioDef;
   AlertDialogAction: AlertDialogActionDef;
   AlertDialogCancel: AlertDialogCancelDef;
   AlertDialogContent: AlertDialogContentDef;
@@ -121,12 +120,13 @@ export type StoreDefs = {
   AlertDialogTrigger: AlertDialogTriggerDef;
   Avatar: AvatarDef;
   AvatarGenerated: AvatarGeneratedDef;
-  Badge: BadgeDef;
+  AspectRatio: AspectRatioDef;
   AssetAmount: AssetAmountDef;
   Asset: AssetDef;
   AssetIcon: AssetIconDef;
   AssetName: AssetNameDef;
   AssetSymbol: AssetSymbolDef;
+  Badge: BadgeDef;
   BoxCentered: BoxCenteredDef;
   Box: BoxDef;
   Container: ContainerDef;

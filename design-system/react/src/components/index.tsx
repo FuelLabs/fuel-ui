@@ -42,10 +42,6 @@ export type {
   AlertTitleProps,
 } from './Alert';
 
-export { AspectRatio } from './AspectRatio';
-
-export type { AspectRatioDef, AspectRatioProps } from './AspectRatio';
-
 export {
   AlertDialog,
   AlertDialogAction,
@@ -86,9 +82,9 @@ export type {
   AvatarProps,
 } from './Avatar';
 
-export { Badge } from './Badge';
+export { AspectRatio } from './AspectRatio';
 
-export type { BadgeDef, BadgeProps, BadgeVariants } from './Badge';
+export type { AspectRatioDef, AspectRatioProps } from './AspectRatio';
 
 export {
   Asset,
@@ -115,6 +111,10 @@ export type {
   AssetSymbolProps,
   Assets,
 } from './Asset';
+
+export { Badge } from './Badge';
+
+export type { BadgeDef, BadgeProps, BadgeVariants } from './Badge';
 
 export {
   Box,
