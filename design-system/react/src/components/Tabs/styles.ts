@@ -73,7 +73,10 @@ export const trigger = css({
             background: HIGHLIGHT_COLOR,
           },
         },
-        '&:focus-visible': {
+        '&.focused': {
+          borderRadius: '$default',
+          outline: '2px solid $intentsBase3',
+          outlineOffset: '1px',
           borderColor: OUTLINE_COLOR,
         },
       },
@@ -95,8 +98,8 @@ export const trigger = css({
           color: '$textInverse',
           cursor: 'pointer',
         },
-        '&:focus-visible': {
-          outline: '2px solid $intentsBase3',
+        '&.focused': {
+          outline: '2px solid $intentsBase5',
         },
       },
     },

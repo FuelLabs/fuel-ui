@@ -12,7 +12,11 @@ export type SwitchProps = SwitchPrimitive.SwitchProps & {
 
 export const Switch = createComponent<SwitchProps>(
   ({ size = 'md', className, ...props }) => {
-    const { isFocusVisible, focusProps } = useFocusRing({ isTextInput: false });
+    const { isFocusVisible, focusProps } = useFocusRing({
+      isTextInput: false,
+      autoFocus: props.autoFocus,
+    });
+
     const classes = cx('fuel_Switch', className, {
       focused: isFocusVisible,
     });

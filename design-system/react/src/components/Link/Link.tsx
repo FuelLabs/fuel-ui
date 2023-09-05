@@ -41,6 +41,7 @@ const _Link = _unstable_createComponent<t.LinkDef>(
     const { isFocusVisible, focusProps } = useFocusRing({
       isTextInput: false,
       within: true,
+      autoFocus: props.autoFocus,
     });
 
     const className = cx(classes.root.className, { focused: isFocusVisible });

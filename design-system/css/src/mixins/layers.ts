@@ -57,7 +57,13 @@ function addFocusStyle(key: string) {
     },
     ...(isInput
       ? {
-          '&:not([aria-disabled=true]):has(input:focus-visible)': {
+          '&:not([aria-disabled=true]).focused': {
+            borderColor: `$inputActiveBorder`,
+            outline: `2px solid $${key}Focus`,
+            outlineOffset: '1px',
+          },
+
+          '&:not([aria-disabled=true]):focus-within': {
             borderColor: `$inputActiveBorder`,
           },
         }

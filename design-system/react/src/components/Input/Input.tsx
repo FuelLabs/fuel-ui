@@ -1,5 +1,6 @@
 import { cx } from '@fuel-ui/css';
 import { createContext, useContext } from 'react';
+import { mergeProps, useFocusRing } from 'react-aria';
 
 import { createComponent, useCreateStyledElement } from '../../utils';
 import { useFormControlProps } from '../Form/FormControl';
@@ -19,6 +20,7 @@ export type InputProps = {
   isReadOnly?: boolean;
   isFullWidth?: boolean;
   describedBy?: string;
+  autoFocus?: boolean;
 };
 
 type ObjProps = {
@@ -56,8 +58,6 @@ export const Input = createComponent<InputProps, ObjProps>(
       formControlProps.isDisabled ||
       formControlProps.isReadOnly;
 
-    const classes = cx('fuel_Input', className);
-
     const providerProps = {
       size,
       isRequired,
@@ -68,10 +68,15 @@ export const Input = createComponent<InputProps, ObjProps>(
       ...formControlProps,
     };
 
-    const inputProps = {
-      ...props,
-      className: classes,
-    };
+    const { isFocusVisible, focusProps } = useFocusRing({
+      isTextInput: true,
+      within: true,
+      autoFocus: props.autoFocus,
+    });
+
+    const classes = cx('fuel_Input', className, {
+      focused: isFocusVisible,
+    });
 
     const styleProps = {
       size,
@@ -80,6 +85,8 @@ export const Input = createComponent<InputProps, ObjProps>(
       invalid: isInvalid || formControlProps.isInvalid,
       full: isFullWidth,
     };
+
+    const inputProps = mergeProps(props, focusProps, { className: classes });
 
     return (
       <ctx.Provider value={providerProps}>

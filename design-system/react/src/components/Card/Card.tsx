@@ -32,6 +32,7 @@ const _Card = _unstable_createComponent<CardDef>(
     const { isFocusVisible, focusProps } = useFocusRing({
       isTextInput: false,
       within: true,
+      autoFocus: props.autoFocus,
     });
 
     const elementProps = {

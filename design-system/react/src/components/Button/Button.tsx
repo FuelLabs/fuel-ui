@@ -126,6 +126,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
     const { isFocusVisible, focusProps } = useFocusRing({
       isTextInput: false,
       within: true,
+      autoFocus: props.autoFocus,
     });
 
     const allProps = mergeProps(
