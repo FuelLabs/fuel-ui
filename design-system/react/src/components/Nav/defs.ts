@@ -7,12 +7,14 @@ import type { FuelLogo } from '../FuelLogo';
 import type { Link } from '../Link';
 
 import type { NavConnection } from './NavConnection';
+import type { NavDesktop } from './NavDesktop';
 import type { NavLogo } from './NavLogo';
 import type { NavMenu } from './NavMenu';
 import type { NavMenuItem } from './NavMenuItem';
+import type { NavMobile } from './NavMobile';
+import type { NavMobileContent } from './NavMobileContent';
 import type { NavSpacer } from './NavSpacer';
 import type { NavThemeToggle } from './NavThemeToggle';
-import type { NavView } from './NavView';
 
 export type NetworkObj = {
   id?: string;
@@ -41,15 +43,20 @@ export type NavDef = CreateComponent<{
     | 'network'
     | 'themeToggle'
     | 'avatar'
-    | 'view';
+    | 'desktop'
+    | 'mobile'
+    | 'wrapper'
+    | 'mobileContent';
   namespace: {
+    Connection: typeof NavConnection;
+    Desktop: typeof NavDesktop;
     Logo: typeof NavLogo;
     Menu: typeof NavMenu;
     MenuItem: typeof NavMenuItem;
+    Mobile: typeof NavMobile;
+    MobileContent: typeof NavMobileContent;
     Spacer: typeof NavSpacer;
     ThemeToggle: typeof NavThemeToggle;
-    Connection: typeof NavConnection;
-    View: typeof NavView;
   };
 }>;
 
@@ -65,7 +72,7 @@ export type NavLogoDef = CreateComponent<{
   };
 }>;
 
-export type NavMenuProps = ComponentProps<typeof Box.Stack>;
+export type NavMenuProps = Omit<ComponentProps<typeof Box>, 'direction'>;
 export type NavMenuDef = CreateComponent<{
   type: 'div';
   component: Components.NavMenu;
@@ -101,22 +108,26 @@ export type NavSpacerDef = CreateComponent<{
   };
 }>;
 
+export type NavThemeToggleProps = ComponentProps<typeof Box> & {
+  whenOpened?: 'hide' | 'show' | 'no-effect';
+};
 export type NavThemeToggleDef = CreateComponent<{
   type: 'div';
   omit: 'as' | 'children';
   component: Components.NavThemeToggle;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  props: {};
+  props: NavThemeToggleProps;
   element: HTMLDivElement;
   namespace: {
     id: string;
   };
 }>;
 
-export type NavConnectionProps = ComponentProps<typeof Box.Stack>;
+export type NavConnectionProps = {
+  whenOpened?: 'hide' | 'show' | 'no-effect';
+};
 export type NavConnectionDef = CreateComponent<{
   type: 'div';
-  omit: 'children';
+  omit: 'children' | 'as';
   component: Components.NavConnection;
   props: NavConnectionProps;
   element: HTMLDivElement;
@@ -125,16 +136,36 @@ export type NavConnectionDef = CreateComponent<{
   };
 }>;
 
-export type NavViewProps = Omit<
-  ComponentProps<typeof Box.Stack>,
-  'direction'
-> & {
-  type: 'desktop' | 'mobile';
-};
-export type NavViewDef = CreateComponent<{
+export type NavMobileContentProps = ComponentProps<typeof Box>;
+export type NavMobileContentDef = CreateComponent<{
+  type: 'div';
+  component: Components.NavMobileContent;
+  props: NavMobileContentProps;
+  element: HTMLDivElement;
+  namespace: {
+    id: string;
+  };
+}>;
+
+export type NavDesktopProps = ComponentProps<typeof Box>;
+export type NavDesktopDef = CreateComponent<{
   type: 'nav';
-  component: Components.NavView;
-  props: NavViewProps;
+  component: Components.NavDesktop;
+  props: NavDesktopProps;
+  element: HTMLDivElement;
+  namespace: {
+    id: string;
+  };
+}>;
+
+export type NavMobileProps = ComponentProps<typeof Box> & {
+  isOpen?: boolean;
+  onOpenChange?: (isOpen: boolean) => void;
+};
+export type NavMobileDef = CreateComponent<{
+  type: 'nav';
+  component: Components.NavMobile;
+  props: NavMobileProps;
   element: HTMLDivElement;
   namespace: {
     id: string;

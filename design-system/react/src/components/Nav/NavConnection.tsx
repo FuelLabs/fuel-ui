@@ -1,4 +1,5 @@
-import { useFuelTheme, useStyles } from '~/hooks';
+import { motion } from 'framer-motion';
+import { useStyles } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
 import {
@@ -12,45 +13,38 @@ import { Button } from '../Button';
 import { Tag } from '../Tag';
 
 import { useNavProps } from './Nav';
+import { useNavMobileProps } from './NavMobile';
 import type { NavConnectionDef } from './defs';
 import { styles } from './styles';
 
+const MotionStack = motion(Box.Stack);
+
 export const _NavConnection = _unstable_createComponent<NavConnectionDef>(
   Components.NavConnection,
-  (props) => {
+  ({ whenOpened = 'show', ...props }) => {
     const navProps = useNavProps();
-    const { current, setTheme } = useFuelTheme();
+    const mobileProps = useNavMobileProps();
     const classes = useStyles(styles, props);
-
-    const handleChange = async () => {
-      const next = current === 'dark' ? 'light' : 'dark';
-      setTheme(next);
-    };
-
-    if (!navProps.network && !navProps.account) {
-      return (
-        <Button
-          size="sm"
-          variant="solid"
-          intent="primary"
-          leftIcon="Wallet"
-          onPress={navProps.onConnect}
-        >
-          Connect
-        </Button>
-      );
-    }
-
-    return (
-      <Box.Stack {...props} {...classes.connection}>
+    const hasProps = navProps.network || navProps.account;
+    const connectButton = (
+      <Button
+        size="sm"
+        variant="solid"
+        intent="primary"
+        leftIcon="Wallet"
+        onPress={navProps.onConnect}
+      >
+        Connect
+      </Button>
+    );
+    const content = (
+      <>
         {navProps.network && (
           <Tag
             {...classes.network}
             size="md"
             variant="outlined"
             intent="base"
-            data-theme={current}
-            onClick={handleChange}
             leftIcon={
               <Box
                 css={{
@@ -73,16 +67,48 @@ export const _NavConnection = _unstable_createComponent<NavConnectionDef>(
             size="sm"
           />
         )}
-      </Box.Stack>
+      </>
+    );
+
+    if (!mobileProps?.onOpenChange && !hasProps) {
+      return connectButton;
+    }
+    if (!mobileProps?.onOpenChange || whenOpened === 'no-effect') {
+      return (
+        <Box.Stack gap="$4" direction="row">
+          {content}
+        </Box.Stack>
+      );
+    }
+
+    const animContent = (
+      <MotionStack
+        {...classes.connection}
+        direction="row"
+        key="actions"
+        initial="collapsed"
+        animate="open"
+        exit="collapsed"
+        transition={{ duration: 0.2, ease: [0.04, 0.62, 0.23, 0.98] }}
+        variants={{
+          open: { opacity: 1, x: '0' },
+          collapsed: { opacity: 0, x: 100 },
+        }}
+      >
+        {content}
+      </MotionStack>
+    );
+
+    return (
+      <>
+        {!mobileProps.isOpen && whenOpened === 'hide' && animContent}
+        {mobileProps.isOpen && whenOpened === 'show' && animContent}
+      </>
     );
   },
 );
 
 export const NavConnection =
   createPolymorphicComponent<NavConnectionDef>(_NavConnection);
-
-NavConnection.defaultProps = {
-  direction: 'row',
-};
 
 NavConnection.id = 'NavConnection';

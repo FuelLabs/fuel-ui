@@ -2,25 +2,51 @@ import { createStyle } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
 export const styles = createStyle(Components.Nav, {
-  logo: {},
-  menu: {},
-  menuItem: {
-    position: 'relative',
-    height: '$16',
+  logo: {
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+  menu: {
+    gap: '$1',
+    flexDirection: 'column',
+    py: '$3',
+    px: '$4',
 
-    '&[data-active=true]::before': {
-      position: 'absolute',
-      display: 'block',
-      content: '""',
-      top: 0,
-      left: 0,
-      width: '$full',
-      height: '2px',
-      bg: '$brand',
+    '& ~ &': {
+      borderTop: '1px solid $border',
+    },
+
+    '@lg': {
+      px: '$0',
+      gap: '$4',
+      flexDirection: 'row',
+
+      '& ~ &': {
+        borderTop: 'none',
+      },
+    },
+  },
+  menuItem: {
+    '@lg': {
+      position: 'relative',
+      height: 'auto',
+
+      '&[data-active=true]::before': {
+        position: 'absolute',
+        display: 'block',
+        content: '""',
+        top: -20,
+        left: 0,
+        width: '$full',
+        height: '2px',
+        bg: '$brand',
+      },
     },
   },
   spacer: {
-    border: '$none',
+    '@lg': {
+      border: 'none',
+    },
   },
   connection: {
     alignItems: 'center',
@@ -68,29 +94,46 @@ export const styles = createStyle(Components.Nav, {
     },
   },
   avatar: {},
-  view: {
-    display: 'flex',
+  desktop: {
+    display: 'none',
+    gap: '$8',
+    maxW: '$2xl',
+    margin: '0 auto',
+    flexDirection: 'row',
     alignItems: 'center',
     height: '$16',
 
-    variants: {
-      type: {
-        desktop: {
-          gap: '$8',
-          px: '$14',
-          maxW: '$2xl',
-          margin: '0 auto',
-          borderBottom: '1px solid $border',
-          flexDirection: 'row',
-        },
-        mobile: {
-          flexDirection: 'column',
-        },
-      },
+    '@lg': {
+      px: '$14',
+      display: 'flex',
+    },
+  },
+  mobile: {
+    flexDirection: 'column',
+    borderBottom: '1px solid $border',
+
+    '@lg': {
+      display: 'none',
     },
 
-    defaultVariants: {
-      type: 'desktop',
+    '& .fuel_Nav-logo': {
+      flex: 1,
+    },
+  },
+  wrapper: {
+    borderBottom: '1px solid $border',
+  },
+  mobileContent: {
+    display: 'flex',
+    alignItems: 'center',
+    py: '$2',
+    px: '$4',
+    minH: '60px',
+    borderBottom: '1px solid transparent',
+    transition: 'border 0.2s ease',
+
+    '&[data-open=true]': {
+      borderColor: '$border',
     },
   },
 });

@@ -26,7 +26,7 @@ const NETWORK = {
 export const Usage: Story = {
   render: () => (
     <Nav network={NETWORK} account={ACCOUNT}>
-      <Nav.View type="desktop">
+      <Nav.Desktop>
         <Nav.Logo />
         <Nav.Menu>
           <Nav.MenuItem href="#" isActive>
@@ -45,7 +45,7 @@ export const Usage: Story = {
         </Nav.Menu>
         <Nav.ThemeToggle />
         <Nav.Connection />
-      </Nav.View>
+      </Nav.Desktop>
     </Nav>
   ),
 };
@@ -53,28 +53,74 @@ export const Usage: Story = {
 export const NoConnection: Story = {
   render: () => (
     <Nav onConnect={action('onConnect')}>
-      <Nav.Logo />
-      <Nav.Menu>
-        <Nav.MenuItem href="#" isActive>
-          Developers
-        </Nav.MenuItem>
-        <Nav.MenuItem href="#">Community</Nav.MenuItem>
-        <Nav.MenuItem href="#">Labs</Nav.MenuItem>
-      </Nav.Menu>
-      <Nav.Spacer />
-      <Nav.Menu>
-        <Nav.MenuItem href="#">Bridge</Nav.MenuItem>
-        <Nav.MenuItem href="#">Explorer</Nav.MenuItem>
-        <Nav.MenuItem href="#">Ecosystem</Nav.MenuItem>
-      </Nav.Menu>
-      <Nav.ThemeToggle />
-      <Nav.Connection />
+      <Nav.Desktop>
+        <Nav.Logo />
+        <Nav.Menu>
+          <Nav.MenuItem href="#" isActive>
+            Developers
+          </Nav.MenuItem>
+          <Nav.MenuItem href="#">Community</Nav.MenuItem>
+          <Nav.MenuItem href="#" isExternal>
+            Labs
+          </Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.Spacer />
+        <Nav.Menu>
+          <Nav.MenuItem href="#">Bridge</Nav.MenuItem>
+          <Nav.MenuItem href="#">Explorer</Nav.MenuItem>
+          <Nav.MenuItem href="#">Ecosystem</Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.ThemeToggle />
+        <Nav.Connection />
+      </Nav.Desktop>
     </Nav>
   ),
 };
 
 export const Mobile: Story = {
-  render: () => <div>hi</div>,
+  render: () => (
+    <Nav network={NETWORK} account={ACCOUNT}>
+      <Nav.Desktop>
+        <Nav.Logo />
+        <Nav.Menu>
+          <Nav.MenuItem href="#" isActive>
+            Developers
+          </Nav.MenuItem>
+          <Nav.MenuItem href="#">Community</Nav.MenuItem>
+          <Nav.MenuItem href="#" isExternal>
+            Labs
+          </Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.Spacer />
+        <Nav.Menu>
+          <Nav.MenuItem href="#">Bridge</Nav.MenuItem>
+          <Nav.MenuItem href="#">Explorer</Nav.MenuItem>
+          <Nav.MenuItem href="#">Ecosystem</Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.ThemeToggle />
+        <Nav.Connection />
+      </Nav.Desktop>
+      <Nav.Mobile>
+        <Nav.MobileContent>
+          <Nav.Logo />
+          <Nav.ThemeToggle />
+          <Nav.Connection />
+        </Nav.MobileContent>
+        <Nav.Menu>
+          <Nav.MenuItem href="#" isActive>
+            Developers
+          </Nav.MenuItem>
+          <Nav.MenuItem href="#">Community</Nav.MenuItem>
+          <Nav.MenuItem href="#" isExternal>
+            Labs
+          </Nav.MenuItem>
+          <Nav.MenuItem href="#">Bridge</Nav.MenuItem>
+          <Nav.MenuItem href="#">Explorer</Nav.MenuItem>
+          <Nav.MenuItem href="#">Ecosystem</Nav.MenuItem>
+        </Nav.Menu>
+      </Nav.Mobile>
+    </Nav>
+  ),
   parameters: {
     viewport: {
       defaultViewport: 'iphonex',
