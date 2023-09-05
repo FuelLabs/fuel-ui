@@ -1,15 +1,7 @@
 import { createStyle } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
-import { containerStyle } from '../Box/styles';
-
 export const styles = createStyle(Components.Nav, {
-  root: {
-    alignItems: 'center',
-    height: '$16',
-    ...containerStyle,
-    borderBottom: '1px solid $border',
-  },
   logo: {},
   menu: {},
   menuItem: {
@@ -76,4 +68,29 @@ export const styles = createStyle(Components.Nav, {
     },
   },
   avatar: {},
+  view: {
+    display: 'flex',
+    alignItems: 'center',
+    height: '$16',
+
+    variants: {
+      type: {
+        desktop: {
+          gap: '$8',
+          px: '$14',
+          maxW: '$2xl',
+          margin: '0 auto',
+          borderBottom: '1px solid $border',
+          flexDirection: 'row',
+        },
+        mobile: {
+          flexDirection: 'column',
+        },
+      },
+    },
+
+    defaultVariants: {
+      type: 'desktop',
+    },
+  },
 });

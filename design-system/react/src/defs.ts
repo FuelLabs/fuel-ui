@@ -93,6 +93,7 @@ import type {
   NavMenuItemDef,
   NavSpacerDef,
   NavThemeToggleDef,
+  NavViewDef,
 } from './components/Nav';
 import type { SpinnerDef } from './components/Spinner';
 import type { TextDef } from './components/Text';
@@ -107,22 +108,6 @@ export type StoreDefs = {
   Alert: AlertDef;
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
-  AspectRatio: AspectRatioDef;
-  Avatar: AvatarDef;
-  AvatarGenerated: AvatarGeneratedDef;
-  AssetAmount: AssetAmountDef;
-  Asset: AssetDef;
-  AssetIcon: AssetIconDef;
-  AssetName: AssetNameDef;
-  AssetSymbol: AssetSymbolDef;
-  Badge: BadgeDef;
-  BoxCentered: BoxCenteredDef;
-  Box: BoxDef;
-  Container: ContainerDef;
-  Flex: FlexDef;
-  HStack: HStackDef;
-  Stack: StackDef;
-  VStack: VStackDef;
   AlertDialogAction: AlertDialogActionDef;
   AlertDialogCancel: AlertDialogCancelDef;
   AlertDialogContent: AlertDialogContentDef;
@@ -131,6 +116,22 @@ export type StoreDefs = {
   AlertDialogFooter: AlertDialogFooterDef;
   AlertDialogHeading: AlertDialogHeadingDef;
   AlertDialogTrigger: AlertDialogTriggerDef;
+  AspectRatio: AspectRatioDef;
+  AssetAmount: AssetAmountDef;
+  Asset: AssetDef;
+  AssetIcon: AssetIconDef;
+  AssetName: AssetNameDef;
+  AssetSymbol: AssetSymbolDef;
+  Avatar: AvatarDef;
+  AvatarGenerated: AvatarGeneratedDef;
+  Badge: BadgeDef;
+  BoxCentered: BoxCenteredDef;
+  Box: BoxDef;
+  Container: ContainerDef;
+  Flex: FlexDef;
+  HStack: HStackDef;
+  Stack: StackDef;
+  VStack: VStackDef;
   Breadcrumb: BreadcrumbDef;
   BreadcrumbItem: BreadcrumbItemDef;
   BreadcrumbLink: BreadcrumbLinkDef;
@@ -174,6 +175,7 @@ export type StoreDefs = {
   NavMenuItem: NavMenuItemDef;
   NavSpacer: NavSpacerDef;
   NavThemeToggle: NavThemeToggleDef;
+  NavView: NavViewDef;
   Spinner: SpinnerDef;
   Text: TextDef;
 };

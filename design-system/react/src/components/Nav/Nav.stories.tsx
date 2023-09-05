@@ -26,24 +26,26 @@ const NETWORK = {
 export const Usage: Story = {
   render: () => (
     <Nav network={NETWORK} account={ACCOUNT}>
-      <Nav.Logo />
-      <Nav.Menu>
-        <Nav.MenuItem href="#" isActive>
-          Developers
-        </Nav.MenuItem>
-        <Nav.MenuItem href="#">Community</Nav.MenuItem>
-        <Nav.MenuItem href="#" isExternal>
-          Labs
-        </Nav.MenuItem>
-      </Nav.Menu>
-      <Nav.Spacer />
-      <Nav.Menu>
-        <Nav.MenuItem href="#">Bridge</Nav.MenuItem>
-        <Nav.MenuItem href="#">Explorer</Nav.MenuItem>
-        <Nav.MenuItem href="#">Ecosystem</Nav.MenuItem>
-      </Nav.Menu>
-      <Nav.ThemeToggle />
-      <Nav.Connection />
+      <Nav.View type="desktop">
+        <Nav.Logo />
+        <Nav.Menu>
+          <Nav.MenuItem href="#" isActive>
+            Developers
+          </Nav.MenuItem>
+          <Nav.MenuItem href="#">Community</Nav.MenuItem>
+          <Nav.MenuItem href="#" isExternal>
+            Labs
+          </Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.Spacer />
+        <Nav.Menu>
+          <Nav.MenuItem href="#">Bridge</Nav.MenuItem>
+          <Nav.MenuItem href="#">Explorer</Nav.MenuItem>
+          <Nav.MenuItem href="#">Ecosystem</Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.ThemeToggle />
+        <Nav.Connection />
+      </Nav.View>
     </Nav>
   ),
 };
@@ -69,4 +71,13 @@ export const NoConnection: Story = {
       <Nav.Connection />
     </Nav>
   ),
+};
+
+export const Mobile: Story = {
+  render: () => <div>hi</div>,
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
+  },
 };

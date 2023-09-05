@@ -12,6 +12,7 @@ import type { NavMenu } from './NavMenu';
 import type { NavMenuItem } from './NavMenuItem';
 import type { NavSpacer } from './NavSpacer';
 import type { NavThemeToggle } from './NavThemeToggle';
+import type { NavView } from './NavView';
 
 export type NetworkObj = {
   id?: string;
@@ -19,21 +20,19 @@ export type NetworkObj = {
   url: string;
 };
 
-export type NavSize = 'sm' | 'md' | 'lg' | 'xl';
-export type NavProps = Omit<ComponentProps<typeof Box.Stack>, 'direction'> & {
+export type NavProps = {
   network?: NetworkObj;
   account?: string;
-  size?: NavSize;
   onConnect?: () => void;
 };
 
 export type NavDef = CreateComponent<{
   type: 'nav';
   component: Components.Nav;
+  omit: 'as' | 'css';
   props: NavProps;
-  element: HTMLDivElement;
+  element: HTMLElement;
   styles:
-    | 'root'
     | 'logo'
     | 'menu'
     | 'menuItem'
@@ -41,7 +40,8 @@ export type NavDef = CreateComponent<{
     | 'connection'
     | 'network'
     | 'themeToggle'
-    | 'avatar';
+    | 'avatar'
+    | 'view';
   namespace: {
     Logo: typeof NavLogo;
     Menu: typeof NavMenu;
@@ -49,6 +49,7 @@ export type NavDef = CreateComponent<{
     Spacer: typeof NavSpacer;
     ThemeToggle: typeof NavThemeToggle;
     Connection: typeof NavConnection;
+    View: typeof NavView;
   };
 }>;
 
@@ -118,6 +119,22 @@ export type NavConnectionDef = CreateComponent<{
   omit: 'children';
   component: Components.NavConnection;
   props: NavConnectionProps;
+  element: HTMLDivElement;
+  namespace: {
+    id: string;
+  };
+}>;
+
+export type NavViewProps = Omit<
+  ComponentProps<typeof Box.Stack>,
+  'direction'
+> & {
+  type: 'desktop' | 'mobile';
+};
+export type NavViewDef = CreateComponent<{
+  type: 'nav';
+  component: Components.NavView;
+  props: NavViewProps;
   element: HTMLDivElement;
   namespace: {
     id: string;

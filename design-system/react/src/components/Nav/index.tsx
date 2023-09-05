@@ -21,5 +21,7 @@ export type {
   NavSize,
   NavSpacerDef,
   NavThemeToggleDef,
+  NavViewDef,
+  NavViewProps,
   NetworkObj,
 } from './defs';

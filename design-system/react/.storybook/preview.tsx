@@ -1,5 +1,7 @@
 import { darkTheme, lightTheme, loadIcons, setFuelThemes } from '../src';
 import { Preview } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+
 import { withThemeDecorator } from './addon-theme/decorator';
 
 const preview: Preview = {
@@ -18,6 +20,9 @@ const preview: Preview = {
       storySort: {
         order: ['Base', 'Form', 'Overlay', 'UI'],
       },
+    },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
     },
   },
 };
