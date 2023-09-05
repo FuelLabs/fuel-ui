@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { mergeProps, useLink } from 'react-aria';
+import { cx } from '@fuel-ui/css';
+import { mergeProps, useFocusRing, useLink } from 'react-aria';
 import { createStyle, useStyles } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
@@ -37,7 +38,16 @@ const _Link = _unstable_createComponent<t.LinkDef>(
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
     };
 
-    const itemProps = mergeProps(props, classes.root, customProps, linkProps);
+    const { isFocusVisible, focusProps } = useFocusRing({
+      isTextInput: false,
+      within: true,
+    });
+
+    const className = cx(classes.root.className, { focused: isFocusVisible });
+    const itemProps = mergeProps(props, customProps, linkProps, focusProps, {
+      className,
+    });
+
     return (
       <Root {...itemProps}>
         {children}{' '}
@@ -61,7 +71,7 @@ const styles = createStyle(Components.Link, {
       textDecoration: 'underline',
     },
 
-    '&:focus-visible': {
+    '&.focused': {
       outline: '2px solid $brand',
       outlineOffset: '1px',
       borderRadius: '$default',
