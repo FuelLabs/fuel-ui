@@ -1,4 +1,4 @@
-import { createStyle } from '~/hooks';
+import { createStyle, darkTheme, lightTheme } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
 export const styles = createStyle(Components.Nav, {
@@ -112,6 +112,13 @@ export const styles = createStyle(Components.Nav, {
     flexDirection: 'column',
     borderBottom: '1px solid $border',
 
+    [`.${darkTheme.theme} &`]: {
+      backgroundColor: '$intentsBase1',
+    },
+    [`.${lightTheme.theme} &`]: {
+      backgroundColor: '$white',
+    },
+
     '@lg': {
       display: 'none',
     },
@@ -122,6 +129,13 @@ export const styles = createStyle(Components.Nav, {
   },
   wrapper: {
     borderBottom: '1px solid $border',
+
+    [`.${darkTheme.theme} &`]: {
+      backgroundColor: '$intentsBase1',
+    },
+    [`.${lightTheme.theme} &`]: {
+      backgroundColor: '$white',
+    },
   },
   mobileContent: {
     display: 'flex',
