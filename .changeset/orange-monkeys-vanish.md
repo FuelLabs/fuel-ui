@@ -2,4 +2,4 @@
 '@fuel-ui/react': patch
 ---
 
-Improve amount input UI
+Chore: improve amount input UI
