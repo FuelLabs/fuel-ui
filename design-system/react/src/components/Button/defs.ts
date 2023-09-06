@@ -30,7 +30,6 @@ export type ButtonBaseProps = HTMLProps['button'] &
 export type ButtonProps = ButtonBaseProps &
   ButtonCustomProps & {
     justIcon?: boolean;
-    isLink?: boolean;
   };
 
 export type ButtonNS = {

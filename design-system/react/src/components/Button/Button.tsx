@@ -98,13 +98,13 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
       isLoading,
       loadingText,
       isDisabled,
-      isLink,
       leftIcon,
       leftIconAriaLabel,
       rightIcon,
       rightIconAriaLabel,
     } = props;
 
+    const isLink = as === 'a' || props.href;
     const disabled = isLoading || isDisabled;
     const { buttonProps, isPressed } = useOnClick(ref, {
       onClick,
