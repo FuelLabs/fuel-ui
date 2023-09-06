@@ -7,3 +7,4 @@ export * from './useThemeContext';
 export * from './usePasswordStrength';
 export * from './useFlexProps';
 export * from './useAsChild';
+export * from './useWindowSize';

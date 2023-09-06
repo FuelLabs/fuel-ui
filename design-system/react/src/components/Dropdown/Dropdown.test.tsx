@@ -1,4 +1,4 @@
-import { render, testA11y, screen, fireEvent } from '@fuels/jest';
+import { render, testA11y, screen, fireEvent, press } from '@fuels/jest';
 
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -73,11 +73,11 @@ describe('Dropdown', () => {
   });
 
   it('should close when press esc', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
     const trigger = screen.getByText('Click here');
     fireEvent.click(trigger);
-    await user.press('Escape');
+    await press('Escape');
     expect(() => screen.getByText('Settings')).toThrow();
   });
 });

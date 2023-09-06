@@ -49,9 +49,7 @@ function addFocusStyle(key: string) {
   const isInput = key.includes('input');
 
   return {
-    outline: `2px solid transparent`,
-    outlineOffset: `1px`,
-    transitionProperty: 'background, border, outline',
+    transitionProperty: 'background, border',
     transitionDuration: '0.2s',
 
     '&:active, &[aria-pressed=true]': {
@@ -59,13 +57,20 @@ function addFocusStyle(key: string) {
     },
     ...(isInput
       ? {
-          '&:not([aria-disabled=true]):has(input:focus-visible)': {
+          '&:not([aria-disabled=true]).focused': {
+            borderColor: `$inputActiveBorder`,
+            outline: `2px solid $${key}Focus`,
+            outlineOffset: '1px',
+          },
+
+          '&:not([aria-disabled=true]):focus-within': {
             borderColor: `$inputActiveBorder`,
           },
         }
       : {
-          '&:not([aria-disabled=true]):focus-visible': {
+          '&:not([aria-disabled=true]).focused': {
             outline: `2px solid $${key}Focus`,
+            outlineOffset: '1px',
           },
         }),
   };

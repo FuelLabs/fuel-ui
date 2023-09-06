@@ -85,6 +85,18 @@ import type { HelperIconDef } from './components/HelperIcon';
 import type { IconDef } from './components/Icon';
 import type { ImageDef } from './components/Image';
 import type { LinkDef } from './components/Link';
+import type {
+  NavConnectionDef,
+  NavDef,
+  NavDesktopDef,
+  NavLogoDef,
+  NavMenuDef,
+  NavMenuItemDef,
+  NavMobileContentDef,
+  NavMobileDef,
+  NavSpacerDef,
+  NavThemeToggleDef,
+} from './components/Nav';
 import type { SpinnerDef } from './components/Spinner';
 import type { TextDef } from './components/Text';
 
@@ -98,13 +110,6 @@ export type StoreDefs = {
   Alert: AlertDef;
   AlertDescription: AlertDescriptionDef;
   AlertTitle: AlertTitleDef;
-  AspectRatio: AspectRatioDef;
-  AssetAmount: AssetAmountDef;
-  Asset: AssetDef;
-  AssetIcon: AssetIconDef;
-  AssetName: AssetNameDef;
-  AssetSymbol: AssetSymbolDef;
-  Badge: BadgeDef;
   AlertDialogAction: AlertDialogActionDef;
   AlertDialogCancel: AlertDialogCancelDef;
   AlertDialogContent: AlertDialogContentDef;
@@ -115,6 +120,13 @@ export type StoreDefs = {
   AlertDialogTrigger: AlertDialogTriggerDef;
   Avatar: AvatarDef;
   AvatarGenerated: AvatarGeneratedDef;
+  AspectRatio: AspectRatioDef;
+  AssetAmount: AssetAmountDef;
+  Asset: AssetDef;
+  AssetIcon: AssetIconDef;
+  AssetName: AssetNameDef;
+  AssetSymbol: AssetSymbolDef;
+  Badge: BadgeDef;
   BoxCentered: BoxCenteredDef;
   Box: BoxDef;
   Container: ContainerDef;
@@ -158,6 +170,16 @@ export type StoreDefs = {
   Icon: IconDef;
   Image: ImageDef;
   Link: LinkDef;
+  NavConnection: NavConnectionDef;
+  Nav: NavDef;
+  NavDesktop: NavDesktopDef;
+  NavLogo: NavLogoDef;
+  NavMenu: NavMenuDef;
+  NavMenuItem: NavMenuItemDef;
+  NavMobileContent: NavMobileContentDef;
+  NavMobile: NavMobileDef;
+  NavSpacer: NavSpacerDef;
+  NavThemeToggle: NavThemeToggleDef;
   Spinner: SpinnerDef;
   Text: TextDef;
 };

@@ -9,7 +9,7 @@ export const root = css({
   borderRadius: '$full',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
 
-  '&:focus-visible': {
+  '.focused': {
     outline: '2px solid $intentsBase4',
   },
 

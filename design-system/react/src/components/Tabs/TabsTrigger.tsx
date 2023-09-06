@@ -1,5 +1,6 @@
 import { cx } from '@fuel-ui/css';
 import * as TabsPrimitive from '@radix-ui/react-tabs';
+import { mergeProps, useFocusRing } from 'react-aria';
 
 import { createComponent, useCreateStyledElement } from '../../utils';
 
@@ -10,13 +11,22 @@ export type TabsTriggerProps = TabsPrimitive.TabsTriggerProps;
 
 export const TabsTrigger = createComponent<TabsTriggerProps>(
   ({ children, className, ...props }) => {
-    const classes = cx('fuel_TabsTrigger', className);
     const { variant = 'link' } = useTabsProps();
+    const { isFocusVisible, focusProps } = useFocusRing({
+      isTextInput: false,
+      within: true,
+      autoFocus: props.autoFocus,
+    });
+
+    const classes = cx('fuel_TabsTrigger', className, {
+      focused: isFocusVisible,
+    });
+
     return useCreateStyledElement(
       TabsPrimitive.Trigger,
       styles.trigger,
       { variant },
-      { ...props, className: classes },
+      mergeProps(props, focusProps, { className: classes }),
       children,
     );
   },

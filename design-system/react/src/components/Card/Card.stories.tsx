@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
@@ -14,7 +16,7 @@ export default {
 
 export const Usage = (args: CardProps) => (
   <Box css={{ maxW: '400px' }}>
-    <Card {...args}>
+    <Card {...args} onPress={action('onPress')}>
       <Card.Body>Hello world</Card.Body>
     </Card>
   </Box>

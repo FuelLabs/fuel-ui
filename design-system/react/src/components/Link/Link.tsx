@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { mergeProps, useLink } from 'react-aria';
+import { cx } from '@fuel-ui/css';
+import { mergeProps, useFocusRing, useLink } from 'react-aria';
 import { createStyle, useStyles } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
@@ -14,28 +15,45 @@ import type * as t from './defs';
 
 const _Link = _unstable_createComponent<t.LinkDef>(
   Components.Link,
-  ({ as = 'a', isExternal, children, css, ...props }) => {
+  ({
+    as: Root = 'a',
+    isExternal,
+    externalIcon = 'Link',
+    children,
+    color,
+    css,
+    ...props
+  }) => {
     const { linkProps } = useLink(props as any, props.ref as any);
     const classes = useStyles(styles, {
       ...props,
       css: {
         ...css,
-        color: css?.color || '$accent8',
+        color: color || css?.color || '$accent8',
       },
     });
 
     const customProps = {
-      ...(as !== 'a' ? { role: 'link' } : {}),
+      ...(Root !== 'a' ? { role: 'link' } : {}),
       ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' }),
     };
 
-    const itemProps = mergeProps(props, classes.root, customProps, linkProps);
-    return _unstable_createEl(
-      as,
-      itemProps,
-      <>
-        {children} {isExternal && <Icon icon="Link" color="textIcon" />}
-      </>,
+    const { isFocusVisible, focusProps } = useFocusRing({
+      isTextInput: false,
+      within: true,
+      autoFocus: props.autoFocus,
+    });
+
+    const className = cx(classes.root.className, { focused: isFocusVisible });
+    const itemProps = mergeProps(props, customProps, linkProps, focusProps, {
+      className,
+    });
+
+    return (
+      <Root {...itemProps}>
+        {children}{' '}
+        {isExternal && <Icon icon={externalIcon} color="textIcon" size={16} />}
+      </Root>
     );
   },
 );
@@ -46,7 +64,7 @@ const styles = createStyle(Components.Link, {
   root: {
     display: 'inline-flex',
     alignItems: 'center',
-    gap: '$1',
+    gap: '$2',
     textDecoration: 'none',
     fontWeight: '$normal',
 
@@ -54,7 +72,7 @@ const styles = createStyle(Components.Link, {
       textDecoration: 'underline',
     },
 
-    '&:focus-visible': {
+    '&.focused': {
       outline: '2px solid $brand',
       outlineOffset: '1px',
       borderRadius: '$default',
