@@ -43,7 +43,7 @@ type Store = {
 
 export const useStore = create(
   subscribeWithSelector<Store>((set) => ({
-    theme: getInitialTheme(),
+    theme: getInitialTheme(Object.keys(DEFAULT_THEMES)),
     themes: DEFAULT_THEMES,
     setTheme: (theme) => set({ theme }),
     setThemes: (themes) => {

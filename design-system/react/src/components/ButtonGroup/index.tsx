@@ -1,7 +1,7 @@
 export { ButtonGroup } from './ButtonGroup';
 
 export type {
-  GroupChildrenProps,
-  ButtonGroupProps,
   ButtonGroupDef,
+  ButtonGroupProps,
+  GroupChildrenProps,
 } from './defs';

@@ -1,7 +1,7 @@
-import type { Colors } from '@fuel-ui/css';
+import { cx, type Colors } from '@fuel-ui/css';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
-import { mergeProps } from 'react-aria';
+import { mergeProps, useFocusRing } from 'react-aria';
 import { useOnClick } from '~/hooks/useOnClick';
 import { useStyles } from '~/hooks/useStore';
 import {
@@ -120,12 +120,19 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
       ...(!isLink && { 'aria-pressed': isPressed }),
     };
 
-    const allProps = mergeProps(props, buttonProps, customProps);
+    const { isFocusVisible, focusProps } = useFocusRing({
+      isTextInput: false,
+      within: true,
+      autoFocus: props.autoFocus,
+    });
+
+    const allProps = mergeProps(props, buttonProps, customProps, focusProps);
     const classes = useStyles(styles, allProps);
+    const className = cx(classes.root.className, { focused: isFocusVisible });
     const iconSize = getIconSize(size, props.iconSize);
     const iconLeft = createIcon(leftIcon, leftIconAriaLabel, iconSize);
     const iconRight = createIcon(rightIcon, rightIconAriaLabel, iconSize);
-    const finalProps = { ...allProps, ...classes.root };
+    const finalProps = { ...allProps, className };
 
     return _unstable_createEl(
       as,

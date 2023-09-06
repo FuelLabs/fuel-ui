@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/design-tokens",
-  "version": "0.18.2",
+  "version": "0.20.0",
   "description": "Scripts used to generate our design tokens",
   "license": "Apache-2",
   "main": "./lib/index.ts",

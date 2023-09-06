@@ -1,6 +1,6 @@
 export { Tag } from './Tag';
 
-export type { TagSizes, TagProps } from './Tag';
+export type { TagProps, TagSizes } from './Tag';
 
 export { TagCloseButton } from './TagCloseButton';
 

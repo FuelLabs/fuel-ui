@@ -1,4 +1,4 @@
-import { press, render, testA11y, screen, fireEvent } from '@fuels/jest';
+import { render, testA11y, screen, fireEvent, press } from '@fuels/jest';
 
 import { Icon } from '../Icon';
 

@@ -85,10 +85,12 @@ export function _unstable_createComponent<
     ) as GetProps<Def>;
     const el = render({ ref, ...props });
     const className = cx(el?.props?.className, props.className);
-    return cloneElement(el as any, {
-      ...(el?.props || {}),
-      className,
-    }) as ReturnType<RenderFn<Def>>;
+    return el
+      ? (cloneElement(el as any, {
+          ...(el?.props || {}),
+          className,
+        }) as ReturnType<RenderFn<Def>>)
+      : null;
   });
   return Comp as Def['namespace'] extends Record<string, unknown>
     ? typeof Comp & Def['namespace']

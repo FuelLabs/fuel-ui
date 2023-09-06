@@ -1,4 +1,4 @@
-import { press, render, screen, testA11y, waitFor } from '@fuels/jest';
+import { click, press, render, screen, testA11y, waitFor } from '@fuels/jest';
 
 import type { PaginationBaseProps } from './Pagination';
 import { Pagination } from './Pagination';
@@ -29,12 +29,12 @@ describe('Pagination', () => {
   });
 
   it('should navigate to next page', async () => {
-    const { user } = render(<Content pagesCount={10} />);
+    render(<Content pagesCount={10} />);
     let selected = screen.getByLabelText('Page 1');
     expect(selected.getAttribute('data-selected')).toEqual('true');
 
     const btn = screen.getByLabelText('Next page');
-    await user.click(btn);
+    await click(btn);
 
     await waitFor(async () => {
       selected = await screen.findByLabelText('Page 2');
@@ -43,21 +43,21 @@ describe('Pagination', () => {
   });
 
   it('should navigate to prev page', async () => {
-    const { user } = render(<Content pagesCount={10} />);
+    render(<Content pagesCount={10} />);
     const nextBtn = screen.getByLabelText('Next page');
     const prevBtn = screen.getByLabelText('Previous page');
-    await user.click(nextBtn);
-    await user.click(nextBtn);
-    await user.click(prevBtn);
+    await click(nextBtn);
+    await click(nextBtn);
+    await click(prevBtn);
 
     const selected = screen.getByLabelText('Page 2');
     expect(selected.getAttribute('data-selected')).toEqual('true');
   });
 
   it('should navigate by clicking on page', async () => {
-    const { user } = render(<Content pagesCount={10} />);
+    render(<Content pagesCount={10} />);
     const page10 = screen.getByLabelText('Page 10');
-    await user.click(page10);
+    await click(page10);
     expect(page10.getAttribute('data-selected')).toEqual('true');
   });
 

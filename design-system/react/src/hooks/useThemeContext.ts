@@ -19,7 +19,7 @@ export function setFuelThemes<T extends ThemesObj>({
   themes: T;
   initial?: string;
 }) {
-  const init = initial ?? getInitialTheme();
+  const init = initial ?? getInitialTheme(Object.keys(themes));
   useStore.setState({ themes, theme: init });
   saveThemeProps(init);
 }

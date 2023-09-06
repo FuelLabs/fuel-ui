@@ -3,13 +3,13 @@ import { createStyle, darkTheme, lightTheme } from '~/hooks';
 import { Components } from '~/utils/components-list';
 
 const slideDown = keyframes({
-  from: { height: 0 },
+  from: { height: 0, paddingTop: 0, paddingBottom: 0, borderTopWidth: 0 },
   to: { height: 'var(--radix-accordion-content-height)' },
 });
 
 const slideUp = keyframes({
   from: { height: 'var(--radix-accordion-content-height)' },
-  to: { height: 0 },
+  to: { height: 0, paddingTop: 0, paddingBottom: 0, borderTopWidth: 0 },
 });
 
 export const styles = createStyle(Components.Accordion, {
@@ -31,7 +31,6 @@ export const styles = createStyle(Components.Accordion, {
   },
   item: {
     overflow: 'hidden',
-    borderTop: '1px solid $bodyColor',
 
     '& ~ &': {
       mt: '$2',
@@ -66,6 +65,14 @@ export const styles = createStyle(Components.Accordion, {
     [`.${lightTheme.theme} &:has(.fuel_Accordion-trigger:focus-visible)`]: {
       outline: `2px solid ${lightColors.gray7}`,
     },
+
+    '& .fuel_Accordion-trigger': {
+      border: 'none',
+    },
+
+    '& .fuel_Accordion-content': {
+      borderTop: '1px solid $border',
+    },
   },
   trigger: {
     all: 'unset',
@@ -99,7 +106,7 @@ export const styles = createStyle(Components.Accordion, {
     transition: 'transform 300ms cubic-bezier(0.87, 0, 0.13, 1)',
 
     '[data-state="open"] &': {
-      transform: 'rotate(180deg)',
+      transform: 'rotate(90deg)',
     },
   },
 });

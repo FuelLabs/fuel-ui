@@ -1,4 +1,4 @@
-import { press, render, testA11y, screen } from '@fuels/jest';
+import { render, testA11y, screen, press } from '@fuels/jest';
 import React from 'react';
 
 import type { MenuProps } from './Menu';

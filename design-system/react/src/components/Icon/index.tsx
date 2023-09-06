@@ -1,3 +1,3 @@
 export { Icon } from './Icon';
 
-export type { Icons, IconProps, IconDef } from './defs';
+export type { IconDef, IconProps, Icons } from './defs';

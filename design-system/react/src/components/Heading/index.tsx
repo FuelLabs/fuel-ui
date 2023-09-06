@@ -1,3 +1,3 @@
 export { Heading } from './Heading';
 
-export type { HeadingProps, HeadingDef } from './defs';
+export type { HeadingDef, HeadingProps } from './defs';

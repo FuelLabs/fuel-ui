@@ -6,6 +6,7 @@ import type { FC } from 'react';
 
 import { Box } from '../Box';
 import { Flex } from '../Box/Flex';
+import type { ButtonProps } from '../Button';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { Image } from '../Image';
@@ -20,18 +21,19 @@ import { DECIMAL_UNITS, createAmount } from './utils';
 
 export type InputAmountProps = Omit<InputProps, 'size'> & {
   name?: string;
+  label?: string;
   balance?: BN;
-  balancePrecision?: number;
-  value?: BN | null;
   units?: number;
-  onChange?: (val: BN | null) => void;
-  hiddenMaxButton?: boolean;
-  hiddenBalance?: boolean;
-  inputProps?: InputNumberProps;
-  isDisabled?: boolean;
+  balancePrecision?: number;
   asset?: { name?: string; imageUrl?: string };
   assetTooltip?: string;
-  onClickAsset?: () => void;
+  hiddenMaxButton?: boolean;
+  hiddenBalance?: boolean;
+  value?: BN | null;
+  onChange?: (val: BN | null) => void;
+  onClickAsset?: ButtonProps['onClick'];
+  /* Input props */
+  inputProps?: InputNumberProps;
 };
 
 type InputAmountComponent = FC<InputAmountProps> & {
@@ -40,6 +42,7 @@ type InputAmountComponent = FC<InputAmountProps> & {
 
 export const InputAmount: InputAmountComponent = ({
   name,
+  label,
   balance: initialBalance,
   balancePrecision = 3,
   value,
@@ -88,7 +91,9 @@ export const InputAmount: InputAmountComponent = ({
 
   return (
     <Input size="lg" css={styles.input} {...props}>
-      <Text css={styles.heading}>Amount</Text>
+      <Text fontSize="sm" color="textSubtext">
+        {label}
+      </Text>
       <Flex css={styles.secondRow}>
         <Input.Number
           autoComplete="off"
@@ -106,70 +111,61 @@ export const InputAmount: InputAmountComponent = ({
           decimalScale={units}
           {...inputProps}
         />
-
         {initialBalance && (
           <Input.ElementRight css={styles.elementRight}>
-            <Box css={styles.balanceActions}>
+            <Box.Flex align={'center'} gap={'$2'}>
               {!hiddenMaxButton && (
-                <Flex align="center">
-                  <Button
-                    aria-label="Max"
-                    variant="solid"
-                    intent="primary"
-                    onClick={handleSetBalance}
-                    css={styles.maxButton}
-                  >
-                    MAX
-                  </Button>
-                </Flex>
+                <Button
+                  aria-label="Max"
+                  variant="link"
+                  intent="primary"
+                  onClick={handleSetBalance}
+                  css={styles.maxButton}
+                >
+                  MAX
+                </Button>
               )}
               {asset && (
                 <Tooltip content={assetTooltip}>
                   <Button
                     size="sm"
                     aria-label="Coin Selector"
-                    variant="outlined"
+                    variant="ghost"
                     intent="base"
                     onClick={onClickAsset}
                     isDisabled={!onClickAsset}
                     css={styles.assetButton}
-                  >
-                    <Image
-                      alt={asset.name}
-                      src={asset.imageUrl}
-                      css={styles.image}
-                    />
-                    <Text css={styles.assetText}>{asset.name}</Text>
-                    {!!onClickAsset && (
-                      <Icon
-                        icon="CaretDown"
-                        size={10}
-                        css={styles.assetCaret}
+                    leftIcon={
+                      <Image
+                        alt={asset.name}
+                        src={asset.imageUrl}
+                        css={styles.image}
                       />
-                    )}
+                    }
+                    data-dropdown={!!onClickAsset}
+                    rightIcon={onClickAsset && <Icon icon="ChevronDown" />}
+                  >
+                    <Text>{asset.name}</Text>
                   </Button>
                 </Tooltip>
               )}
-            </Box>
+            </Box.Flex>
           </Input.ElementRight>
         )}
       </Flex>
-      {!hiddenBalance && (
-        <Flex
-          as="div"
-          css={styles.balanceContainer}
-          aria-label={`Balance: ${formattedBalance}`}
-        >
-          <Box as="span" css={styles.balanceLabel}>
-            Balance:{' '}
-          </Box>
+      <Box.Flex gap={'$2'}>
+        {!hiddenBalance && (
           <Tooltip content={format(balance, formatOpts)} sideOffset={-5}>
-            <Box as="span" css={styles.balanceValue}>
-              {formattedBalance}
-            </Box>
+            <Text
+              fontSize="sm"
+              aria-label={`Balance: ${formattedBalance}`}
+              color="textSubtext"
+            >
+              Balance: {formattedBalance}
+            </Text>
           </Tooltip>
-        </Flex>
-      )}
+        )}
+      </Box.Flex>
     </Input>
   );
 };
@@ -183,7 +179,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: 'auto',
-    gap: '$2',
+    gap: '$0',
 
     input: {
       is: ['display'],
@@ -228,17 +224,13 @@ const styles = {
     fontFamily: '$mono',
   }),
   assetButton: cssObj({
-    height: '$6',
-    width: '$18',
-    marginLeft: '$2',
-    borderRadius: '$default',
-  }),
-  assetText: cssObj({
-    fontSize: '$sm',
-    color: '$intentsBase12',
-  }),
-  assetCaret: cssObj({
-    color: '$intentsBase12 !important',
+    padding: '$1 $2',
+    height: 'auto',
+    gap: '$1',
+
+    '[data-dropdown="true"]': {
+      padding: '$1 $1 $1 $2',
+    },
   }),
   balanceContainer: cssObj({
     gap: '$1',
@@ -256,8 +248,8 @@ const styles = {
     color: '$intentsBase9',
   }),
   image: cssObj({
-    borderRadius: '50%',
-    width: 14,
-    height: 14,
+    borderRadius: '$full',
+    width: '$5',
+    height: '$5',
   }),
 };

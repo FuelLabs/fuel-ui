@@ -1,4 +1,6 @@
+import { cx } from '@fuel-ui/css';
 import { mergeProps } from '@react-aria/utils';
+import { useFocusRing } from 'react-aria';
 import { useStyles } from '~/hooks';
 import { useOnClick } from '~/hooks/useOnClick';
 import { Components } from '~/utils/components-list';
@@ -28,11 +30,19 @@ const _Card = _unstable_createComponent<CardDef>(
   }) => {
     const classes = useStyles(styles, props);
     const { buttonProps } = useOnClick(ref, { onClick, elementType: as });
+    const { isFocusVisible, focusProps } = useFocusRing({
+      isTextInput: false,
+      within: true,
+      autoFocus: props.autoFocus,
+    });
+
     const isClickable = Boolean(onClick);
     const elementProps = {
       ...props,
       ref,
-      className: classes.root.className,
+      className: cx(classes.root.className, {
+        focused: isFocusVisible,
+      }),
       'data-is-clickable': isClickable,
       'data-dividers': withDividers,
       'data-variant': variant,
@@ -42,7 +52,10 @@ const _Card = _unstable_createComponent<CardDef>(
       }),
     };
 
-    const finalProps = mergeProps(elementProps, isClickable ? buttonProps : {});
+    const finalProps = mergeProps(
+      elementProps,
+      ...(isClickable ? [focusProps, buttonProps] : []),
+    );
     return _unstable_createEl(as, finalProps, children);
   },
 );

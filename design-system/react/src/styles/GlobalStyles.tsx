@@ -13,6 +13,9 @@ const customStyles = {
     color: '$textColor',
     background: '$bodyColor',
   },
+  '*:focus': {
+    outline: 'none',
+  },
 };
 
 const fontStyles = {

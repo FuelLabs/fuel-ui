@@ -3,8 +3,8 @@ export { Avatar } from './Avatar';
 export { AvatarGenerated } from './AvatarGenerated';
 
 export type {
-  AvatarProps,
   AvatarDef,
-  AvatarGeneratedProps,
   AvatarGeneratedDef,
+  AvatarGeneratedProps,
+  AvatarProps,
 } from './defs';

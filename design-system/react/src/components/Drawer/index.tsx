@@ -1,4 +1,4 @@
-export { useDrawer, Drawer } from './Drawer';
+export { Drawer, useDrawer } from './Drawer';
 
 export { DrawerBody } from './DrawerBody';
 export { DrawerClose } from './DrawerClose';
@@ -6,16 +6,16 @@ export { DrawerContent } from './DrawerContent';
 export { DrawerTrigger } from './DrawerTrigger';
 
 export type {
-  DrawerContext,
-  DrawerProps,
-  DrawerDef,
-  DrawerBodyProps,
   DrawerBodyDef,
-  DrawerCloseProps,
+  DrawerBodyProps,
   DrawerCloseDef,
-  DrawerContentProps,
-  DrawerContentNS,
+  DrawerCloseProps,
   DrawerContentDef,
-  DrawerTriggerProps,
+  DrawerContentNS,
+  DrawerContentProps,
+  DrawerContext,
+  DrawerDef,
+  DrawerProps,
   DrawerTriggerDef,
+  DrawerTriggerProps,
 } from './defs';

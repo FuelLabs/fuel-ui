@@ -64,28 +64,33 @@ const Template: StoryFn<typeof InputAmount> = (args) => {
 
 export const Usage = Template.bind({});
 Usage.args = {
+  label: 'Amount',
   balance: BALANCE,
 };
 
 export const EthUnits = Template.bind({});
 EthUnits.args = {
+  label: 'Amount',
   balance: bn.parseUnits('1.570000044', 18),
   units: 18,
 };
 
 export const NoBalance = Template.bind({});
 NoBalance.args = {
+  label: 'Amount',
   balance: undefined,
 };
 
 export const NoAction = Template.bind({});
 NoAction.args = {
+  label: 'Amount',
   hiddenBalance: true,
   hiddenMaxButton: true,
 };
 
 export const WithAsset = Template.bind({});
 WithAsset.args = {
+  label: 'Amount',
   balance: BALANCE,
   asset: {
     name: 'ETH',
@@ -96,6 +101,7 @@ WithAsset.args = {
 
 export const WithAssetTooltip = Template.bind({});
 WithAssetTooltip.args = {
+  label: 'Amount',
   balance: BALANCE,
   asset: {
     name: 'ETH',
@@ -107,6 +113,7 @@ WithAssetTooltip.args = {
 
 export const WithAssetOnClick = Template.bind({});
 WithAssetOnClick.args = {
+  label: 'Amount',
   balance: BALANCE,
   asset: {
     name: 'ETH',

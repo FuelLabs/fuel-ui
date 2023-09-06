@@ -1,5 +1,19 @@
 # @fuel-ui/css
 
+## 0.20.0
+
+## 0.19.1
+
+### Patch Changes
+
+- 🐞 Fix: adjust semantic colors related to focus, by [@pedronauck](https://github.com/pedronauck) (See [#312](https://github.com/FuelLabs/fuel-ui/pull/312))
+
+## 0.19.0
+
+## 0.18.4
+
+## 0.18.3
+
 ## 0.18.2
 
 ### Patch Changes

@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-storysource',
-    'storybook-dark-mode',
+    './addon-theme/register.tsx',
   ],
   staticDirs: ['../public'],
   core: {},

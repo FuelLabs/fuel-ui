@@ -5,11 +5,11 @@ export const styles = createStyle(Components.Card, {
   root: {
     layer: 'layer-card',
 
-    '&:focus-visible': {
+    '&.focused': {
       outline: 'none',
     },
 
-    '&[data-is-clickable=true]:focus-visible': {
+    '&[data-is-clickable=true].focused': {
       outline: '2px solid $intentsBase1',
       outlineOffset: 1,
     },
@@ -18,7 +18,7 @@ export const styles = createStyle(Components.Card, {
       background: 'transparent',
       border: '1px solid $border',
 
-      '&[data-is-clickable=true]:focus-visible': {
+      '&[data-is-clickable=true].focused': {
         outline: '2px solid $intentsBase1',
       },
     },

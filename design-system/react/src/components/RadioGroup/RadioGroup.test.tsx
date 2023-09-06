@@ -16,9 +16,9 @@ describe('RadioGroup', () => {
   });
 
   it('should focus correctly', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
-    await user.tab();
+    await press('Tab');
     expect(screen.getByLabelText('Default')).toHaveFocus();
     await press('ArrowDown');
     expect(screen.getByLabelText('Comfortable')).toHaveFocus();

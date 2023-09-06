@@ -13,8 +13,8 @@ export type StackProps = t.StackProps;
 
 const _Stack = _unstable_createComponent<t.StackDef>(
   Components.Stack,
-  ({ as = 'div', ...props }) => {
-    const classes = useFlexProps(props, props.css);
+  ({ as = 'div', css, ...props }) => {
+    const classes = useFlexProps(props, css);
     return _unstable_createEl(as, { ...props, ...classes.stack });
   },
 );

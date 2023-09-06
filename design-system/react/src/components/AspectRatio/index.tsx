@@ -1,3 +1,3 @@
 export { AspectRatio } from './AspectRatio';
 
-export type { AspectRatioProps, AspectRatioDef } from './defs';
+export type { AspectRatioDef, AspectRatioProps } from './defs';
