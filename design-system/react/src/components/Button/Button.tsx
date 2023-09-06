@@ -122,7 +122,7 @@ const _Button = _unstable_createComponent<t.ButtonDef>(
 
     const { isFocusVisible, focusProps } = useFocusRing({
       isTextInput: false,
-      within: true,
+      within: false,
       autoFocus: props.autoFocus,
     });
 
