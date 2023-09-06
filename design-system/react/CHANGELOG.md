@@ -1,5 +1,16 @@
 # @fuel-ui/react
 
+## 0.20.0
+
+### Minor Changes
+
+- ✨ Feat: add new `Nav` component. Check it's story to see how to use it, by [@pedronauck](https://github.com/pedronauck) (See [#316](https://github.com/FuelLabs/fuel-ui/pull/316))
+- ✨ Feat: add `Asset` component. Check it's story to know how to use it, by [@pedronauck](https://github.com/pedronauck) (See [#314](https://github.com/FuelLabs/fuel-ui/pull/314))
+
+### Patch Changes
+
+- Chore: improve amount input UI, by [@luizstacio](https://github.com/luizstacio) (See [#317](https://github.com/FuelLabs/fuel-ui/pull/317))
+
 ## 0.19.1
 
 ## 0.19.0
