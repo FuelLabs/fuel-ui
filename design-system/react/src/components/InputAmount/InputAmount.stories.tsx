@@ -88,8 +88,8 @@ NoAction.args = {
   hiddenMaxButton: true,
 };
 
-export const WithAsset = Template.bind({});
-WithAsset.args = {
+export const Asset = Template.bind({});
+Asset.args = {
   label: 'Amount',
   balance: BALANCE,
   asset: {
@@ -99,8 +99,8 @@ WithAsset.args = {
   onClickAsset: undefined,
 };
 
-export const WithAssetTooltip = Template.bind({});
-WithAssetTooltip.args = {
+export const AssetTooltip = Template.bind({});
+AssetTooltip.args = {
   label: 'Amount',
   balance: BALANCE,
   asset: {
@@ -111,8 +111,8 @@ WithAssetTooltip.args = {
   onClickAsset: undefined,
 };
 
-export const WithAssetOnClick = Template.bind({});
-WithAssetOnClick.args = {
+export const AssetOnClick = Template.bind({});
+AssetOnClick.args = {
   label: 'Amount',
   balance: BALANCE,
   asset: {
@@ -122,6 +122,17 @@ WithAssetOnClick.args = {
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClickAsset: () => {},
+};
+
+export const AssetNoImage = Template.bind({});
+AssetNoImage.args = {
+  label: 'Amount',
+  balance: BALANCE,
+  asset: {
+    name: 'ETH',
+    address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+  },
+  onClickAsset: undefined,
 };
 
 export const Loader = () => (
