@@ -182,7 +182,7 @@ describe('InputAmount', () => {
   });
 
   it('should show asset generated image when asset address is passed with no imageUrl', async () => {
-    render(<InputAmount asset={MOCK_ASSET} />);
+    render(<InputAmount asset={MOCK_ASSET} balance={MOCK_BALANCE.amount} />);
     expect(
       screen.getByAltText(`${MOCK_ASSET.name} generated image`),
     ).toBeInTheDocument();
