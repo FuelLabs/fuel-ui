@@ -56,10 +56,17 @@ export const Generated = (args: AvatarProps) => (
   </Box>
 );
 
-export const GeneratedCustomSize = (args: AvatarProps) => (
+export const GeneratedSizes = (args: AvatarProps) => (
   <Box css={{ display: 'flex', alignItems: 'center', gap: '$3' }}>
-    {EXAMPLE_HASHES.map((hash) => {
-      return <Avatar.Generated size={20} key={hash} {...args} hash={hash} />;
+    {AVATAR_SIZES.map((size, i) => {
+      return (
+        <Avatar.Generated
+          size={size}
+          key={EXAMPLE_HASHES[i]}
+          {...args}
+          hash={EXAMPLE_HASHES[i]}
+        />
+      );
     })}
   </Box>
 );

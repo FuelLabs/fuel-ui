@@ -9,9 +9,13 @@ import { DECIMAL_UNITS } from './utils';
 
 const AMOUNT_TEXT = `14.563`;
 const FIELD_NAME = 'Input Amount';
-export const MOCK_ASSET = {
+const MOCK_BALANCE = {
   assetId: '0x0000000000000000000000000000000000000000000000000000000000000000',
   amount: bn.parseUnits(AMOUNT_TEXT),
+};
+const MOCK_ASSET = {
+  name: 'USD',
+  address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
 };
 
 function Content({ onChange, ...props }: Partial<InputAmountProps>) {
@@ -25,7 +29,7 @@ function Content({ onChange, ...props }: Partial<InputAmountProps>) {
   return (
     <InputAmount
       name={FIELD_NAME}
-      balance={MOCK_ASSET.amount}
+      balance={MOCK_BALANCE.amount}
       onChange={handleChange}
       value={bn(val)}
       {...props}
@@ -143,7 +147,7 @@ describe('InputAmount', () => {
   );
 
   it('should display balance in input when click on max button', async () => {
-    const { user } = render(<InputAmount balance={MOCK_ASSET.amount} />);
+    const { user } = render(<InputAmount balance={MOCK_BALANCE.amount} />);
     const maxBtn = screen.getByLabelText('Max');
     expect(maxBtn).toBeInTheDocument();
     await user.click(maxBtn);
@@ -154,12 +158,14 @@ describe('InputAmount', () => {
   });
 
   it('should hidden Balance when prop hiddenBalance is true', async () => {
-    render(<InputAmount hiddenBalance={true} balance={MOCK_ASSET.amount} />);
+    render(<InputAmount hiddenBalance={true} balance={MOCK_BALANCE.amount} />);
     expect(() => screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`)).toThrow();
   });
 
   it('should hidden Max Button when prop hiddenMaxButton is true', async () => {
-    render(<InputAmount hiddenMaxButton={true} balance={MOCK_ASSET.amount} />);
+    render(
+      <InputAmount hiddenMaxButton={true} balance={MOCK_BALANCE.amount} />,
+    );
     expect(() => screen.getByLabelText('Max')).toThrow();
   });
 
@@ -173,5 +179,12 @@ describe('InputAmount', () => {
     render(<InputAmount balance={bn(0)} />);
     expect(screen.getByLabelText('Balance: 0.0')).toBeInTheDocument();
     expect(screen.getByLabelText('Max')).toBeInTheDocument();
+  });
+
+  it('should show asset generated image when asset address is passed with no imageUrl', async () => {
+    render(<InputAmount asset={MOCK_ASSET} balance={MOCK_BALANCE.amount} />);
+    expect(
+      screen.getByLabelText(`${MOCK_ASSET.name} generated image`),
+    ).toBeInTheDocument();
   });
 });
