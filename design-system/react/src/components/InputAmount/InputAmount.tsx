@@ -105,7 +105,7 @@ export const InputAmount: InputAmountComponent = ({
       <Avatar.Generated
         hash={asset?.address || asset?.name || ''}
         css={styles.image}
-        alt={`${asset?.name} generated image`}
+        aria-label={`${asset?.name} generated image`}
       />
     );
   };
