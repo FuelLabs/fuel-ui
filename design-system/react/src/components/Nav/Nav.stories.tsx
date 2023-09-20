@@ -50,6 +50,33 @@ export const Usage: Story = {
   ),
 };
 
+export const LogoLink: Story = {
+  render: () => (
+    <Nav network={NETWORK} account={ACCOUNT}>
+      <Nav.Desktop>
+        <Nav.Logo as="a" href="http://fuel.network" />
+        <Nav.Menu>
+          <Nav.MenuItem href="#" isActive>
+            Developers
+          </Nav.MenuItem>
+          <Nav.MenuItem href="#">Community</Nav.MenuItem>
+          <Nav.MenuItem href="#" isExternal>
+            Labs
+          </Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.Spacer />
+        <Nav.Menu>
+          <Nav.MenuItem href="#">Bridge</Nav.MenuItem>
+          <Nav.MenuItem href="#">Explorer</Nav.MenuItem>
+          <Nav.MenuItem href="#">Ecosystem</Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.ThemeToggle />
+        <Nav.Connection />
+      </Nav.Desktop>
+    </Nav>
+  ),
+};
+
 export const NoConnection: Story = {
   render: () => (
     <Nav onConnect={action('onConnect')}>
