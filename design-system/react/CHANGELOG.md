@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.20.1
+
+### Patch Changes
+
+- InputAmount: when asset has no image, show AvatarGenerated using address as hash for it, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#318](https://github.com/FuelLabs/fuel-ui/pull/318))
+
 ## 0.20.0
 
 ### Minor Changes
