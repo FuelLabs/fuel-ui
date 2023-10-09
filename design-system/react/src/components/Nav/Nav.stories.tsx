@@ -27,7 +27,7 @@ export const Usage: Story = {
   render: () => (
     <Nav network={NETWORK} account={ACCOUNT}>
       <Nav.Desktop>
-        <Nav.Logo />
+        <Nav.Logo onClick={action('clickLogo')} />
         <Nav.Menu>
           <Nav.MenuItem href="#" isActive>
             Developers
@@ -54,7 +54,7 @@ export const NoConnection: Story = {
   render: () => (
     <Nav onConnect={action('onConnect')}>
       <Nav.Desktop>
-        <Nav.Logo />
+        <Nav.Logo onClick={action('clickLogo')} />
         <Nav.Menu>
           <Nav.MenuItem href="#" isActive>
             Developers
@@ -81,7 +81,7 @@ export const Mobile: Story = {
   render: () => (
     <Nav network={NETWORK} account={ACCOUNT}>
       <Nav.Desktop>
-        <Nav.Logo />
+        <Nav.Logo onClick={action('clickLogo')} />
         <Nav.Menu>
           <Nav.MenuItem href="#" isActive>
             Developers
