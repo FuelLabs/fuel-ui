@@ -13,7 +13,7 @@ export const NavLogo = _unstable_createComponent<NavLogoDef>(
   ({ size = 32, ...props }) => {
     const classes = useStyles(styles, props, ['logo']);
     return (
-      <Box.Flex {...classes.logo} {...props}>
+      <Box.Flex {...classes.logo} {...props} data-clickable={!!props?.onClick}>
         <FuelLogo size={size} />
       </Box.Flex>
     );

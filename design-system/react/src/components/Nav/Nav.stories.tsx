@@ -27,7 +27,7 @@ export const Usage: Story = {
   render: () => (
     <Nav network={NETWORK} account={ACCOUNT}>
       <Nav.Desktop>
-        <Nav.Logo onClick={action('clickLogo')} />
+        <Nav.Logo />
         <Nav.Menu>
           <Nav.MenuItem href="#" isActive>
             Developers
@@ -54,7 +54,7 @@ export const NoConnection: Story = {
   render: () => (
     <Nav onConnect={action('onConnect')}>
       <Nav.Desktop>
-        <Nav.Logo onClick={action('clickLogo')} />
+        <Nav.Logo />
         <Nav.Menu>
           <Nav.MenuItem href="#" isActive>
             Developers
@@ -77,11 +77,38 @@ export const NoConnection: Story = {
   ),
 };
 
+export const WithOnClick: Story = {
+  render: () => (
+    <Nav onConnect={action('onConnect')}>
+      <Nav.Desktop>
+        <Nav.Logo onClick={action('onLogoClick')} />
+        <Nav.Menu>
+          <Nav.MenuItem onClick={action('onLogoClick')} isActive>
+            Developers
+          </Nav.MenuItem>
+          <Nav.MenuItem onClick={action('onLogoClick')}>Community</Nav.MenuItem>
+          <Nav.MenuItem onClick={action('onLogoClick')} isExternal>
+            Labs
+          </Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.Spacer />
+        <Nav.Menu>
+          <Nav.MenuItem onClick={action('onLogoClick')}>Bridge</Nav.MenuItem>
+          <Nav.MenuItem onClick={action('onLogoClick')}>Explorer</Nav.MenuItem>
+          <Nav.MenuItem onClick={action('onLogoClick')}>Ecosystem</Nav.MenuItem>
+        </Nav.Menu>
+        <Nav.ThemeToggle />
+        <Nav.Connection />
+      </Nav.Desktop>
+    </Nav>
+  ),
+};
+
 export const Mobile: Story = {
   render: () => (
     <Nav network={NETWORK} account={ACCOUNT}>
       <Nav.Desktop>
-        <Nav.Logo onClick={action('clickLogo')} />
+        <Nav.Logo />
         <Nav.Menu>
           <Nav.MenuItem href="#" isActive>
             Developers
