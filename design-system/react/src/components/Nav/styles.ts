@@ -136,6 +136,9 @@ export const styles = createStyle(Components.Nav, {
     [`.${lightTheme.theme} &`]: {
       backgroundColor: '$white',
     },
+    '[data-clickable="true"]': {
+      cursor: 'pointer',
+    },
   },
   mobileContent: {
     display: 'flex',

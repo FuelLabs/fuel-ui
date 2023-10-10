@@ -3,7 +3,7 @@ import type { CreateComponent } from '~/utils';
 import type { Components } from '~/utils/components-list';
 
 import type { Box } from '../Box';
-import type { FuelLogo } from '../FuelLogo';
+import type { FuelLogoProps } from '../FuelLogo';
 import type { Link } from '../Link';
 
 import type { NavConnection } from './NavConnection';
@@ -60,13 +60,13 @@ export type NavDef = CreateComponent<{
   };
 }>;
 
-export type NavLogoProps = ComponentProps<typeof FuelLogo>;
+export type NavLogoProps = ComponentProps<typeof Box> & FuelLogoProps;
 export type NavLogoDef = CreateComponent<{
-  type: 'svg';
+  type: 'div';
   omit: 'as' | 'children';
   component: Components.NavLogo;
   props: NavLogoProps;
-  element: SVGSVGElement;
+  element: HTMLDivElement;
   namespace: {
     id: string;
   };

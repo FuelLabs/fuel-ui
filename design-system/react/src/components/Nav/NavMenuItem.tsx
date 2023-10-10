@@ -21,6 +21,7 @@ const _NavMenuItem = _unstable_createComponent<NavMenuItemDef>(
         {...classes.menuItem}
         color={isActive ? '$brand' : '$textColor'}
         data-active={isActive}
+        data-clickable={!!props?.onClick}
       />
     );
   },
