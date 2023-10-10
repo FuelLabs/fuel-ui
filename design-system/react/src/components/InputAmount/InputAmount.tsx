@@ -151,7 +151,7 @@ export const InputAmount: InputAmountComponent = ({
                   <Button
                     size="sm"
                     aria-label="Coin Selector"
-                    variant="ghost"
+                    variant="outlined"
                     intent="base"
                     onPress={onClickAsset}
                     isDisabled={!onClickAsset}
