@@ -1,5 +1,12 @@
 # @fuel-ui/react
 
+## 0.21.1
+
+### Patch Changes
+
+- ✨ feat: change navbar logo component to behave as box component, by [@luizstacio](https://github.com/luizstacio) (See [#324](https://github.com/FuelLabs/fuel-ui/pull/324))
+- chore: use outlined variant for InputAmount select asset button, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#325](https://github.com/FuelLabs/fuel-ui/pull/325))
+
 ## 0.21.0
 
 ### Minor Changes
