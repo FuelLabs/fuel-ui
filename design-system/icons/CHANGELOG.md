@@ -1,5 +1,15 @@
 # @fuel-ui/icons
 
+## 0.21.1
+
+## 0.21.0
+
+### Minor Changes
+
+- chore: update packages version, by [@luizstacio](https://github.com/luizstacio) (See [#321](https://github.com/FuelLabs/fuel-ui/pull/321))
+
+## 0.20.1
+
 ## 0.20.0
 
 ## 0.19.1

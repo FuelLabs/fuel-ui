@@ -4,6 +4,7 @@ import { cssObj } from '@fuel-ui/css';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
+import { Avatar } from '../Avatar';
 import { Box } from '../Box';
 import { Flex } from '../Box/Flex';
 import type { ButtonProps } from '../Button';
@@ -25,7 +26,7 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   balance?: BN;
   units?: number;
   balancePrecision?: number;
-  asset?: { name?: string; imageUrl?: string };
+  asset?: { name?: string; imageUrl?: string; address?: string };
   assetTooltip?: string;
   hiddenMaxButton?: boolean;
   hiddenBalance?: boolean;
@@ -89,6 +90,26 @@ export const InputAmount: InputAmountComponent = ({
     }
   };
 
+  const getAssetImage = () => {
+    if (asset?.imageUrl) {
+      return (
+        <Image
+          css={styles.image}
+          src={asset.imageUrl}
+          alt={`${asset.name} image`}
+        />
+      );
+    }
+
+    return (
+      <Avatar.Generated
+        hash={asset?.address || asset?.name || ''}
+        css={styles.image}
+        aria-label={`${asset?.name} generated image`}
+      />
+    );
+  };
+
   return (
     <Input size="lg" css={styles.input} {...props}>
       <Text fontSize="sm" color="textSubtext">
@@ -130,18 +151,13 @@ export const InputAmount: InputAmountComponent = ({
                   <Button
                     size="sm"
                     aria-label="Coin Selector"
-                    variant="ghost"
+                    variant="outlined"
                     intent="base"
                     onClick={onClickAsset}
                     isDisabled={!onClickAsset}
                     css={styles.assetButton}
-                    leftIcon={
-                      <Image
-                        alt={asset.name}
-                        src={asset.imageUrl}
-                        css={styles.image}
-                      />
-                    }
+                    iconSize={20}
+                    leftIcon={getAssetImage()}
                     data-dropdown={!!onClickAsset}
                     rightIcon={onClickAsset && <Icon icon="ChevronDown" />}
                   >
