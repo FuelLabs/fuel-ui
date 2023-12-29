@@ -14,7 +14,6 @@ env:
 jobs:
   validate-title:
     name: Validate PR Title
-    if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v4
@@ -23,7 +22,6 @@ jobs:
 
   validate-changeset:
     name: Validate PR Changeset
-    if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,7 +37,6 @@ jobs:
 
   audit:
     name: Audit
-    if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -50,7 +47,6 @@ jobs:
 
   lint-and-test:
     name: Lint
-    if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -63,7 +59,6 @@ jobs:
 
   test:
     name: Tests with coverage
-    if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
