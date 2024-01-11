@@ -16,7 +16,7 @@ export default {
 
 export const Usage = (args: CardProps) => (
   <Box css={{ maxW: '400px' }}>
-    <Card {...args} onPress={action('onPress')}>
+    <Card {...args} onClick={action('onPress')}>
       <Card.Body>Hello world</Card.Body>
     </Card>
   </Box>

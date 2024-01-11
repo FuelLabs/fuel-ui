@@ -16,15 +16,15 @@ export default {
 
 export const Usage = () => (
   <Stack gap="$4" direction="row">
-    <Button onPress={() => toast('Just an information')} intent="base">
+    <Button onClick={() => toast('Just an information')} intent="base">
       Show info
     </Button>
-    <Button onPress={() => toast.success('Congrats!')}>Show success</Button>
-    <Button onPress={() => toast.error('Ooops, some error')} intent="error">
+    <Button onClick={() => toast.success('Congrats!')}>Show success</Button>
+    <Button onClick={() => toast.error('Ooops, some error')} intent="error">
       Show error
     </Button>
     <Button
-      onPress={() => toast('Just an information', { icon: '⚠️' })}
+      onClick={() => toast('Just an information', { icon: '⚠️' })}
       intent="base"
     >
       Custom Icon
@@ -53,7 +53,7 @@ export const Positions = () => (
       <Button
         key={pos.value}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onPress={() => toast('Hello world', { position: pos.value as any })}
+        onClick={() => toast('Hello world', { position: pos.value as any })}
         intent="base"
       >
         {pos.label}
@@ -63,7 +63,7 @@ export const Positions = () => (
       <Button
         key={pos.value}
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onPress={() => toast('Hello world', { position: pos.value as any })}
+        onClick={() => toast('Hello world', { position: pos.value as any })}
         intent="base"
       >
         {pos.label}
@@ -80,7 +80,7 @@ export const Custom = () => (
   <Stack gap="$4" direction="row">
     <Button
       intent="base"
-      onPress={() =>
+      onClick={() =>
         toast.custom(() => <Box className={styles.custom()}>Hello world</Box>)
       }
     >

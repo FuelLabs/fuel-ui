@@ -1,5 +1,5 @@
 import type { LayerVariant } from '@fuel-ui/css';
-import type { CreateComponent, HTMLProps, PressProps } from '~/utils';
+import type { CreateComponent, HTMLProps } from '~/utils';
 import type { Components } from '~/utils/components-list';
 
 import type { BoxProps, FlexProps } from '../Box';
@@ -8,11 +8,10 @@ import type { CardBody } from './CardBody';
 import type { CardFooter } from './CardFooter';
 import type { CardHeader } from './CardHeader';
 
-export type CardProps = HTMLProps['article'] &
-  PressProps & {
-    withDividers?: boolean;
-    variant?: Exclude<Exclude<LayerVariant, 'link'>, 'solid'>;
-  };
+export type CardProps = HTMLProps['article'] & {
+  withDividers?: boolean;
+  variant?: Exclude<Exclude<LayerVariant, 'link'>, 'solid'>;
+};
 
 type CardNS = {
   id: string;

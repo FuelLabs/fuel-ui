@@ -32,7 +32,7 @@ const _NavConnection = _unstable_createComponent<NavConnectionDef>(
         variant="solid"
         intent="primary"
         leftIcon="Wallet"
-        onPress={navProps.onConnect}
+        onClick={navProps.onConnect}
       >
         Connect
       </Button>

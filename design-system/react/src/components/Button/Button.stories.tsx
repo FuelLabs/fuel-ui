@@ -32,6 +32,9 @@ export default {
       options: Icon.iconList,
       control: 'select',
     },
+    onClick: {
+      action: 'onClick',
+    },
   },
 };
 
@@ -203,6 +206,14 @@ export const Disabled = (args: ButtonProps) => (
       Button
     </Button>
     <Button {...args} variant="link" isDisabled>
+      Button
+    </Button>
+  </Box>
+);
+
+export const Polymorphic = (args: ButtonProps) => (
+  <Box css={styles.wrapper}>
+    <Button {...args} as="a" href="https://google.com">
       Button
     </Button>
   </Box>

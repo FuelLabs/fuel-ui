@@ -46,13 +46,15 @@ const _Dropdown = _unstable_createComponent<DropdownDef>(
       triggerRef: ref,
     };
 
-    const trigger = Children.toArray(children).find(
-      (child: any) => child?.type.id === 'DropdownTrigger',
-    );
+    const trigger = Children.toArray(children).find((child: any) => {
+      return child?.type?.id === 'DropdownTrigger';
+    });
+    if (!trigger) throw new Error('Dropdown must have a DropdownTrigger child');
 
-    const menu = Children.toArray(children).find(
-      (child: any) => child?.type.id === 'DropdownMenu',
-    );
+    const menu = Children.toArray(children).find((child: any) => {
+      return child?.type?.id === 'DropdownMenu';
+    });
+    if (!menu) throw new Error('Dropdown must have a DropdownMenu child');
 
     const customChildren = (
       <DropdownCtx.Provider value={ctxProps}>

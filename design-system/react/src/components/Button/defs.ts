@@ -1,4 +1,5 @@
 import type { LayerIntent, LayerVariant } from '@fuel-ui/css';
+import type { PressEvents } from '@react-types/shared';
 import type { AriaButtonProps } from 'react-aria';
 import type { CreateComponent } from '~/utils';
 import type { Components } from '~/utils/components-list';
@@ -9,7 +10,7 @@ import type { IconProps } from '../Icon';
 export type ButtonVariants = 'solid' | 'outlined' | 'ghost' | 'link';
 export type ButtonSizes = 'xs' | 'sm' | 'md' | 'lg';
 
-export type ButtonBaseProps = {
+export type ButtonCustomProps = {
   size?: ButtonSizes;
   intent?: LayerIntent;
   variant?: LayerVariant;
@@ -23,16 +24,12 @@ export type ButtonBaseProps = {
   isDisabled?: boolean;
 };
 
-export type ButtonProps = Omit<HTMLProps['button'], 'onClick'> &
-  AriaButtonProps<'button'> &
-  ButtonBaseProps & {
+export type ButtonBaseProps = HTMLProps['button'] &
+  Omit<AriaButtonProps<'button'>, keyof PressEvents | 'onClick'>;
+
+export type ButtonProps = ButtonBaseProps &
+  ButtonCustomProps & {
     justIcon?: boolean;
-    isLink?: boolean;
-    /**
-     * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
-     * You're able to use just one or another, don't use onClick and onPress together
-     */
-    onClick?: HTMLProps['button']['onClick'];
   };
 
 export type ButtonNS = {

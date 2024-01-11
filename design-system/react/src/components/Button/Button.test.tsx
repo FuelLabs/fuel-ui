@@ -17,7 +17,7 @@ describe('Button', () => {
   // TODO: should fix this them in a permanent way because of useButton() hook
   // it('should click when space', async () => {
   //   const handler = jest.fn();
-  //   const { user } = render(<Button onPress={handler}>Click</Button>);
+  //   const { user } = render(<Button onClick={handler}>Click</Button>);
   //   await user.tab();
   //   expect(screen.getByText('Click')).toHaveFocus();
   //   await press.Space();

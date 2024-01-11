@@ -31,7 +31,7 @@ export const NavMobileContent = _unstable_createComponent<NavMobileContentDef>(
           aria-label="Toggle Menu"
           icon={isOpen ? 'X' : 'Menu2'}
           iconSize={24}
-          onPress={() => onOpenChange((s) => !s)}
+          onClick={() => onOpenChange((s) => !s)}
           css={{ ml: '$4' }}
         />
       </Box>

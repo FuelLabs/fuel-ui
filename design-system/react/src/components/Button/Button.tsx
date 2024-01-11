@@ -1,15 +1,13 @@
 import { cx, type Colors } from '@fuel-ui/css';
-import { mergeRefs } from '@react-aria/utils';
 import type { ReactElement, ReactNode } from 'react';
 import { cloneElement } from 'react';
 import { mergeProps, useFocusRing } from 'react-aria';
-import { useOnPress } from '~/hooks/useOnPress';
+import { useOnClick } from '~/hooks/useOnClick';
 import { useStyles } from '~/hooks/useStore';
 import {
   _unstable_createComponent,
   _unstable_createEl,
   createPolymorphicComponent,
-  omit,
 } from '~/utils';
 import { Components } from '~/utils/components-list';
 
@@ -94,48 +92,41 @@ export const SPINNER_SIZE = {
 
 const _Button = _unstable_createComponent<t.ButtonDef>(
   Components.Button,
-  ({ as = 'button', size = 'md', children, ref, ...props }) => {
+  ({ as = 'button', children, ref, onClick, ...props }) => {
     const {
+      size = 'md',
       isLoading,
       loadingText,
       isDisabled,
-      isLink,
       leftIcon,
       leftIconAriaLabel,
       rightIcon,
       rightIconAriaLabel,
     } = props;
 
+    const isLink = as === 'a' || props.href;
     const disabled = isLoading || isDisabled;
-    const {
-      buttonProps,
-      isPressed,
-      ref: buttonRef,
-    } = useOnPress(props, {
+    const { buttonProps, isPressed } = useOnClick(ref, {
+      onClick,
       isDisabled: disabled,
-      ...(isLink && { elementType: 'a' }),
+      elementType: isLink ? 'a' : as,
     });
 
     const customProps = {
       as,
-      ref: mergeRefs(buttonRef, ref),
+      ref,
       'aria-busy': isLoading,
-      ...(!isLink && { 'aria-pressed': !disabled && isPressed }),
+      ...(isLink && { role: props.role || 'link' }),
+      ...(!isLink && { 'aria-pressed': isPressed }),
     };
 
     const { isFocusVisible, focusProps } = useFocusRing({
       isTextInput: false,
-      within: true,
+      within: false,
       autoFocus: props.autoFocus,
     });
 
-    const allProps = mergeProps(
-      omit(['onClick'], props),
-      { size },
-      buttonProps,
-      customProps,
-      focusProps,
-    );
+    const allProps = mergeProps(props, buttonProps, customProps, focusProps);
     const classes = useStyles(styles, allProps);
     const className = cx(classes.root.className, { focused: isFocusVisible });
     const iconSize = getIconSize(size, props.iconSize);

@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import type { CreateComponent, HTMLProps } from '~/utils';
+import type { CreateComponent } from '~/utils';
 import type { Components } from '~/utils/components-list';
 
 import type { StackProps } from '../Box';
@@ -31,11 +31,6 @@ export type CardListProps = StackProps & Omit<ICardListContext, 'isFocused'>;
 export type CardListItemProps = CardProps & {
   isActive?: boolean;
   rightEl?: React.ReactNode;
-  /**
-   * @deprecated Use onPress instead. onPress support Enter and Space keyboard.
-   * You're able to use just one or another, don't use onClick and onPress together
-   */
-  onClick?: HTMLProps['button']['onClick'];
 };
 
 export type CardListDef = CreateComponent<{
