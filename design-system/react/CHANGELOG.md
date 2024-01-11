@@ -1,5 +1,12 @@
 # @fuel-ui/react
 
+## 0.22.0
+
+### Minor Changes
+
+- ⚠️ Breaking Change: `onPress` was removed as prop in all components that had it and now it's always `onClick` instead, by [@pedronauck](https://github.com/pedronauck) (See [#305](https://github.com/FuelLabs/fuel-ui/pull/305))
+- Update fuel-ts pacakge to latest version, by [@luizstacio](https://github.com/luizstacio) (See [#331](https://github.com/FuelLabs/fuel-ui/pull/331))
+
 ## 0.21.1
 
 ### Patch Changes
