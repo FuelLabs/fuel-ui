@@ -180,8 +180,8 @@ importers:
   design-system/react:
     dependencies:
       '@fuel-ts/math':
-        specifier: ^0.54.1
-        version: 0.54.1
+        specifier: ^0.71.0
+        version: 0.71.1
       '@fuel-ui/css':
         specifier: workspace:*
         version: link:../css
@@ -2660,11 +2660,30 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@fuel-ts/math@0.54.1:
-    resolution: {integrity: sha512-balx5RmqFOPAA5e8T5HS89dXOwt//oji10Asr2znN8aAxC0O05Hr7BFiiMFun6ql2rNaw/PdY1b/zuvrzysdBQ==}
+  /@fuel-ts/errors@0.71.1:
+    resolution: {integrity: sha512-DYo30/iICuFeOqxN+qYOkvrTOPFxbFV3DPanfUsUwPKTNlwv8kjv97JaFYQjAJG0QZ7AAGlyGNqp5RDajpWg6Q==}
+    engines: {node: ^18.17.1}
     dependencies:
+      '@fuel-ts/versions': 0.71.1
+    dev: false
+
+  /@fuel-ts/math@0.71.1:
+    resolution: {integrity: sha512-DiQFY3ec8OYAoDRmcVjA/5QaIo5MyXziLqbg9w0KHA0bmSTe64TddPDQi6jCffPZYdlPbj6b3yXD7KlRclSNjQ==}
+    engines: {node: ^18.17.1}
+    dependencies:
+      '@fuel-ts/errors': 0.71.1
       '@types/bn.js': 5.1.1
       bn.js: 5.2.1
+    dev: false
+
+  /@fuel-ts/versions@0.71.1:
+    resolution: {integrity: sha512-13Bqqkmrq0mNLBixuw0rzxdPzGFTWgDdK1CZMzWGANzZJBbk10sO+yLRtmmdM481DDObMOfsnd1HXw+trDxIHg==}
+    engines: {node: ^18.17.1}
+    hasBin: true
+    dependencies:
+      chalk: 4.1.2
+      cli-table: 0.3.11
+      semver: 7.5.4
     dev: false
 
   /@fuels/eslint-plugin@0.0.6(eslint@8.48.0)(typescript@5.2.2):
@@ -8975,6 +8994,13 @@ packages:
       '@colors/colors': 1.5.0
     dev: true
 
+  /cli-table@0.3.11:
+    resolution: {integrity: sha512-IqLQi4lO0nIB4tcdTpN4LCB9FI3uqrJZK7RC515EnhZ6qBaglkIgICb1wjeAqpdoOabm1+SuQtkXIPdYC93jhQ==}
+    engines: {node: '>= 0.2.0'}
+    dependencies:
+      colors: 1.0.3
+    dev: false
+
   /cli-truncate@3.1.0:
     resolution: {integrity: sha512-wfOBkjXteqSnI59oPcJkcPl/ZmwvMMOj340qUIY1SKZCv0B9Cf4D4fAucRkIKQmsIuYK3x1rrgU7MeGRruiuiA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -9053,6 +9079,11 @@ packages:
   /colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
     dev: true
+
+  /colors@1.0.3:
+    resolution: {integrity: sha512-pFGrxThWcWQ2MsAz6RtgeWe4NK2kUE1WfsrvvlctdII745EW9I0yflqhe7++M5LEc7bV2c/9/5zc8sFcpL0Drw==}
+    engines: {node: '>=0.1.90'}
+    dev: false
 
   /combined-stream@1.0.8:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
