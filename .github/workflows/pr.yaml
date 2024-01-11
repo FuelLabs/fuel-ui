@@ -22,6 +22,7 @@ jobs:
 
   validate-changeset:
     name: Validate PR Changeset
+    if: ${{ github.head_ref != 'changeset-release/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
