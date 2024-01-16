@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.23.0
+
+### Minor Changes
+
+- Rever onclick changes, by [@luizstacio](https://github.com/luizstacio) (See [#332](https://github.com/FuelLabs/fuel-ui/pull/332))
+
 ## 0.22.0
 
 ### Minor Changes
