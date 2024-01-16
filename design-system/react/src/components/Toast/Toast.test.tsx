@@ -9,7 +9,7 @@ describe('Toast', () => {
   it('should be visible after call toast() function', async () => {
     render(
       <ThemeProvider>
-        <Button onClick={() => toast('Hello world')}>Show toast</Button>
+        <Button onPress={() => toast('Hello world')}>Show toast</Button>
       </ThemeProvider>,
     );
 

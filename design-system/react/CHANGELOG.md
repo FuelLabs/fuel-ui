@@ -487,7 +487,7 @@
   ```jsx
   import { Button, toast } from '@fuel-ui/react';
   function App() {
-    return <Button onClick={() => toast('Hello world!')}>Show toast</Button>;
+    return <Button onPress={() => toast('Hello world!')}>Show toast</Button>;
   }
   ```
 

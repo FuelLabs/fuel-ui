@@ -2,10 +2,10 @@ import type { ReactNode } from 'react';
 import type { CreateComponent } from '~/utils';
 import type { Components } from '~/utils/components-list';
 
-import type { ButtonCustomProps, ButtonProps } from '../Button/defs';
+import type { ButtonBaseProps, ButtonProps } from '../Button/defs';
 
 export type GroupChildrenProps = {
-  childrenProps: ButtonCustomProps;
+  childrenProps: ButtonBaseProps;
   children: ReactNode;
 };
 
@@ -22,8 +22,7 @@ type PropsToOmit =
   | 'isDisabled'
   | 'justIcon'
   | 'isLink'
-  | 'onClick';
-
+  | 'onPress';
 export type ButtonGroupProps = Omit<ButtonProps, PropsToOmit>;
 
 export type ButtonGroupDef = CreateComponent<{

@@ -1,5 +1,6 @@
 import { render, testA11y, screen, fireEvent, press } from '@fuels/jest';
 
+import { Button } from '../Button';
 import { Icon } from '../Icon';
 
 import { Dropdown } from './Dropdown';
@@ -27,47 +28,56 @@ const Content = (props: Partial<DropdownProps>) => {
   );
 };
 
-function getButton() {
-  return screen.getByRole('button', { name: /click here/i });
-}
-function getSettings() {
-  return screen.getByRole('menuitem', { name: /settings/i });
-}
-
 describe('Dropdown', () => {
   it('a11y', async () => {
     await testA11y(<Content />);
   });
 
   it('should open dropdown menu when click on trigger', async () => {
-    const { user } = render(<Content />);
+    render(<Content />);
 
-    expect(() => getSettings()).toThrow();
-    const trigger = getButton();
-    await user.click(trigger);
+    expect(() => screen.getByText('Settings')).toThrow();
+    const trigger = screen.getByText('Click here');
+    fireEvent.click(trigger);
 
-    expect(getSettings()).toBeInTheDocument();
+    expect(screen.getByText('Settings')).toBeInTheDocument();
   });
 
   it('should close when click on menu item', async () => {
     render(<Content />);
 
-    const trigger = getButton();
+    const trigger = screen.getByText('Click here');
     fireEvent.click(trigger);
 
-    const menuItem = getSettings();
+    const menuItem = screen.getByText('Settings');
     fireEvent.click(menuItem);
 
-    expect(() => getSettings()).toThrow();
+    expect(() => screen.getByText('Settings')).toThrow();
+  });
+
+  it('should close when click outside', async () => {
+    render(
+      <>
+        <Content />
+        <Button>Foo</Button>
+      </>,
+    );
+
+    const trigger = screen.getByText('Click here');
+    fireEvent.click(trigger);
+
+    const fooBtn = screen.getByText('Foo');
+    fireEvent.click(fooBtn);
+
+    expect(() => screen.getByText('Settings')).toThrow();
   });
 
   it('should close when press esc', async () => {
     render(<Content />);
 
-    const trigger = getButton();
+    const trigger = screen.getByText('Click here');
     fireEvent.click(trigger);
-
-    await press('Esc');
-    expect(() => getSettings()).toThrow();
+    await press('Escape');
+    expect(() => screen.getByText('Settings')).toThrow();
   });
 });

@@ -15,7 +15,7 @@ export const DrawerTrigger = _unstable_createComponent<DrawerTriggerDef>(
     return useAsChild({
       ...props,
       ...classes.trigger,
-      onClick: state?.toggle,
+      onPress: state?.toggle,
     });
   },
 );

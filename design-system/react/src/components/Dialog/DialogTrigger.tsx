@@ -16,7 +16,7 @@ export const DialogTrigger = _unstable_createComponent<DialogTriggerDef>(
     const { state, triggerRef } = useDialog();
     return useAsChild({
       ...props,
-      onClick: state?.toggle,
+      onPress: state?.toggle,
       ref: mergeRefs(props.ref, triggerRef),
       className: cx(props.className, classes.trigger.className),
     });
