@@ -1,21 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 
+import { Stack } from '../Box/Stack';
+import { Button } from '../Button';
 import { Icon } from '../Icon';
 
 import { Dropdown } from './Dropdown';
 import type { DropdownProps } from './defs';
 
-const meta: Meta<typeof Dropdown> = {
+export default {
   component: Dropdown,
   title: 'Overlay/Dropdown',
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
 };
-
-export default meta;
-type Story = StoryObj<typeof Dropdown>;
 
 const Content = (props: Partial<DropdownProps> & { children: ReactNode }) => {
   return (
@@ -39,10 +38,42 @@ const Content = (props: Partial<DropdownProps> & { children: ReactNode }) => {
   );
 };
 
-export const Usage: Story = {
-  render: (args) => (
-    <Content {...args}>
-      <Dropdown.Trigger>Click here</Dropdown.Trigger>
-    </Content>
-  ),
+export const Usage = (args: DropdownProps) => (
+  <Content {...args}>
+    <Dropdown.Trigger>Click here</Dropdown.Trigger>
+  </Content>
+);
+
+Usage.parameters = {
+  layout: 'centered',
+};
+
+export const AsChild = (args: DropdownProps) => (
+  <Content {...args}>
+    <Dropdown.Trigger asChild>
+      <Button>Click here</Button>
+    </Dropdown.Trigger>
+  </Content>
+);
+
+AsChild.parameters = {
+  layout: 'centered',
+};
+
+export const Controlled = (args: DropdownProps) => {
+  const [opened, setOpened] = useState(false);
+  return (
+    <Stack gap="$2" direction="row">
+      <Button onPress={() => setOpened(true)} variant="ghost">
+        Open
+      </Button>
+      <Content {...args} isOpen={opened} onOpenChange={setOpened}>
+        <Dropdown.Trigger asChild={false}>Click here</Dropdown.Trigger>
+      </Content>
+    </Stack>
+  );
+};
+
+Controlled.parameters = {
+  layout: 'centered',
 };

@@ -230,9 +230,6 @@ importers:
       '@react-aria/focus':
         specifier: ^3.14.0
         version: 3.14.0(react@18.2.0)
-      '@react-aria/interactions':
-        specifier: 3.17.0
-        version: 3.17.0(react@18.2.0)
       '@react-aria/overlays':
         specifier: ^3.16.0
         version: 3.16.0(react-dom@18.2.0)(react@18.2.0)

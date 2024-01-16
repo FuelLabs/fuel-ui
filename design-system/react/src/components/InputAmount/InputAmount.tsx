@@ -1,13 +1,13 @@
 import type { BN } from '@fuel-ts/math';
 import { bn, format } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
+import type { PressEvent } from '@react-types/shared';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
 import { Flex } from '../Box/Flex';
-import type { ButtonProps } from '../Button';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { Image } from '../Image';
@@ -32,7 +32,7 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   hiddenBalance?: boolean;
   value?: BN | null;
   onChange?: (val: BN | null) => void;
-  onClickAsset?: ButtonProps['onClick'];
+  onClickAsset?: (e: PressEvent) => void;
   /* Input props */
   inputProps?: InputNumberProps;
 };
@@ -140,7 +140,7 @@ export const InputAmount: InputAmountComponent = ({
                   aria-label="Max"
                   variant="link"
                   intent="primary"
-                  onClick={handleSetBalance}
+                  onPress={handleSetBalance}
                   css={styles.maxButton}
                 >
                   MAX
@@ -153,7 +153,7 @@ export const InputAmount: InputAmountComponent = ({
                     aria-label="Coin Selector"
                     variant="outlined"
                     intent="base"
-                    onClick={onClickAsset}
+                    onPress={onClickAsset}
                     isDisabled={!onClickAsset}
                     css={styles.assetButton}
                     iconSize={20}

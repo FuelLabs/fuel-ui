@@ -58,7 +58,7 @@ export const Controlled = (args: PopoverProps) => {
   const [opened, setOpened] = useState(false);
   return (
     <Stack gap="$2" direction="row">
-      <Button onClick={() => setOpened(true)}>Open</Button>
+      <Button onPress={() => setOpened(true)}>Open</Button>
       <Popover
         {...args}
         content={popoverContent}

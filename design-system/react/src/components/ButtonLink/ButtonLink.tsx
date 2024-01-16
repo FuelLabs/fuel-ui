@@ -24,6 +24,7 @@ const _ButtonLink = _unstable_createComponent<t.ButtonLinkDef>(
         rightIcon: 'Link' as ButtonProps['rightIcon'],
       }),
       variant: 'link' as LayerVariant,
+      isLink: true,
       role,
       size,
     });

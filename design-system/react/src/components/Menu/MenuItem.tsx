@@ -4,9 +4,8 @@ import { mergeRefs } from '@react-aria/utils';
 import type { Node } from '@react-types/shared';
 import type { Key, ReactNode } from 'react';
 import { useRef } from 'react';
-import { mergeProps, useMenuItem } from 'react-aria';
+import { mergeProps, useButton, useMenuItem } from 'react-aria';
 import type { TreeState } from 'react-stately';
-import { useOnClick } from '~/hooks/useOnClick';
 
 import type { HTMLProps } from '../../utils';
 import { createComponent, useCreateStyledElement } from '../../utils';
@@ -18,7 +17,7 @@ export type MenuItemProps = HTMLProps['li'] & {
   item: Node<ReactNode>;
   state: TreeState<ReactNode>;
   onAction?: (key: Key) => void;
-  onClick?: ButtonProps['onClick'];
+  onPress?: ButtonProps['onPress'];
   css?: ThemeUtilsCSS;
   className?: string;
   autoFocus?: boolean;
@@ -30,11 +29,10 @@ export const MenuItem = createComponent<MenuItemProps>(
     const isDisabled = state.disabledKeys.has(item.key);
     const isFocused = state.selectionManager.focusedKey === item.key;
 
-    const { buttonProps } = useOnClick(ref, {
-      isDisabled,
-      onClick: item.props.onClick,
-      autoFocus,
-    });
+    const { buttonProps } = useButton(
+      { isDisabled, onPress: item.props.onPress, autoFocus },
+      ref,
+    );
 
     const { menuItemProps } = useMenuItem(
       { isDisabled, onAction, key: item.key, closeOnSelect: true },

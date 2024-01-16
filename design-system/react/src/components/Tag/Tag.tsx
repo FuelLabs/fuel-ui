@@ -6,8 +6,8 @@ import { Children } from 'react';
 import { createComponent } from '../../utils';
 import type { HTMLProps } from '../../utils';
 import { Box } from '../Box';
+import type { ButtonBaseProps } from '../Button';
 import { SPINNER_SIZE, createIcon } from '../Button';
-import type { ButtonCustomProps } from '../Button/defs';
 import { Spinner } from '../Spinner';
 
 import { TagCloseButton } from './TagCloseButton';
@@ -55,7 +55,7 @@ function getChildren({
 export type TagSizes = 'xs' | 'sm' | 'md';
 
 export type TagProps = HTMLProps['div'] &
-  Omit<ButtonCustomProps, 'iconAriaLabel'> & {
+  Omit<ButtonBaseProps, 'iconAriaLabel'> & {
     size?: TagSizes;
     variant?: LayerVariant;
   };

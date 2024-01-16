@@ -31,7 +31,9 @@ const _DialogContent = _unstable_createComponent<DialogContentDef>(
     return _unstable_createEl(
       as,
       nextProps,
-      <FocusScope autoFocus>{children}</FocusScope>,
+      <FocusScope contain autoFocus>
+        {children}
+      </FocusScope>,
     );
   },
 );

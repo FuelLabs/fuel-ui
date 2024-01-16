@@ -38,7 +38,7 @@ export const Copyable = _unstable_createComponent<t.CopyableDef>(
         <IconButton
           intent="base"
           tooltip={tooltipMessage}
-          onClick={handleCopy}
+          onPress={handleCopy}
           variant="link"
           icon={<Icon icon="Copy" size={16} />}
           aria-label="Copy to clipboard"

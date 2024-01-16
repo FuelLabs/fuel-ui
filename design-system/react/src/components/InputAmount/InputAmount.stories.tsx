@@ -50,13 +50,13 @@ const Template: StoryFn<typeof InputAmount> = (args) => {
         <Text fontSize="lg" css={{ marginTop: '$2' }}>
           Amount: {amount?.format({ precision: units, units })}
         </Text>
-        <Button onClick={() => setAmount(valueOne)}>
+        <Button onPress={() => setAmount(valueOne)}>
           Set ({valueOne.format({ precision: units, units })})
         </Button>
-        <Button onClick={() => setAmount(valueTwo)}>
+        <Button onPress={() => setAmount(valueTwo)}>
           Set ({valueTwo.format({ precision: units, units })})
         </Button>
-        <Button onClick={() => setAmount(null)}>Clear</Button>
+        <Button onPress={() => setAmount(null)}>Clear</Button>
       </Stack>
     </Box>
   );
