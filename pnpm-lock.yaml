@@ -180,8 +180,8 @@ importers:
   design-system/react:
     dependencies:
       '@fuel-ts/math':
-        specifier: ^0.71.0
-        version: 0.71.1
+        specifier: 0.73.0
+        version: 0.73.0
       '@fuel-ui/css':
         specifier: workspace:*
         version: link:../css
@@ -2657,30 +2657,29 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@fuel-ts/errors@0.71.1:
-    resolution: {integrity: sha512-DYo30/iICuFeOqxN+qYOkvrTOPFxbFV3DPanfUsUwPKTNlwv8kjv97JaFYQjAJG0QZ7AAGlyGNqp5RDajpWg6Q==}
-    engines: {node: ^18.17.1}
+  /@fuel-ts/errors@0.73.0:
+    resolution: {integrity: sha512-Uqe+hFVut4TZgrUsS+KzeXgDl3dADqqTS4eVoKUbG9ML9CTMaG9P2V/qYOTjJOOx+QX3xx72E7AR/oSwUEBWLA==}
+    engines: {node: ^18.18.2 || ^20.0.0}
     dependencies:
-      '@fuel-ts/versions': 0.71.1
+      '@fuel-ts/versions': 0.73.0
     dev: false
 
-  /@fuel-ts/math@0.71.1:
-    resolution: {integrity: sha512-DiQFY3ec8OYAoDRmcVjA/5QaIo5MyXziLqbg9w0KHA0bmSTe64TddPDQi6jCffPZYdlPbj6b3yXD7KlRclSNjQ==}
-    engines: {node: ^18.17.1}
+  /@fuel-ts/math@0.73.0:
+    resolution: {integrity: sha512-eyXOSa0zxy7J1ArfAelOVPsuiziAqqzyLogwW/1TuQO4Q5WYyJfhFPsYf7CnpzrOd4fSQggeGBMdzheu5j/Bhw==}
+    engines: {node: ^18.18.2 || ^20.0.0}
     dependencies:
-      '@fuel-ts/errors': 0.71.1
+      '@fuel-ts/errors': 0.73.0
       '@types/bn.js': 5.1.1
       bn.js: 5.2.1
     dev: false
 
-  /@fuel-ts/versions@0.71.1:
-    resolution: {integrity: sha512-13Bqqkmrq0mNLBixuw0rzxdPzGFTWgDdK1CZMzWGANzZJBbk10sO+yLRtmmdM481DDObMOfsnd1HXw+trDxIHg==}
-    engines: {node: ^18.17.1}
+  /@fuel-ts/versions@0.73.0:
+    resolution: {integrity: sha512-llc1gwmSOk+ymEx+PnaTinTDa1nhTUQg0p8vqatPCre4uTCmRoMz5aNI2aYt4RzjWgiCvXpewu0n/PDpxQ1OWg==}
+    engines: {node: ^18.18.2 || ^20.0.0}
     hasBin: true
     dependencies:
       chalk: 4.1.2
       cli-table: 0.3.11
-      semver: 7.5.4
     dev: false
 
   /@fuels/eslint-plugin@0.0.6(eslint@8.48.0)(typescript@5.2.2):
@@ -2716,11 +2715,6 @@ packages:
     resolution: {integrity: sha512-3tFCas6ayS0UiU+lLF7L6p6d9Eq8z599YxiJmBZXa837Q68BSrIjAXpQAyZnjCb3S+pgc04XwTwsPQ4+We3m8g==}
     peerDependencies:
       jest: ^29.6.4
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
     dependencies:
       '@ariakit/test': 0.2.2(@testing-library/dom@9.3.1)(@testing-library/react@14.0.0)(react@18.2.0)
       '@chakra-ui/utils': 2.0.15
@@ -8234,9 +8228,6 @@ packages:
 
   /ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependenciesMeta:
-      ajv:
-        optional: true
     dependencies:
       ajv: 8.12.0
     dev: true

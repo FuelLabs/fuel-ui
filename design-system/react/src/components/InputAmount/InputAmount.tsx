@@ -1,8 +1,8 @@
 import type { BN } from '@fuel-ts/math';
-import { bn, format } from '@fuel-ts/math';
+import { bn } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
 import type { PressEvent } from '@react-types/shared';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { FC } from 'react';
 
 import { Avatar } from '../Avatar';
@@ -19,6 +19,32 @@ import { Tooltip } from '../Tooltip';
 
 import { InputAmountLoader } from './InputAmountLoader';
 import { DECIMAL_UNITS, createAmount } from './utils';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function safeBn(value: any) {
+  if (!value) return bn(0);
+  try {
+    return bn(value);
+  } catch (error) {
+    console.log('bn error', error);
+    return bn('0');
+  }
+}
+
+function safeFormat(formatOpts: { units: number; precision: number }) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (value: any, opts?: { units: number; precision: number }) => {
+    if (!value) return '';
+    try {
+      return safeBn(value)
+        .format(opts ?? formatOpts)
+        .toString();
+    } catch (error) {
+      console.log('format error', error);
+      return '';
+    }
+  };
+}
 
 export type InputAmountProps = Omit<InputProps, 'size'> & {
   name?: string;
@@ -44,7 +70,7 @@ type InputAmountComponent = FC<InputAmountProps> & {
 export const InputAmount: InputAmountComponent = ({
   name,
   label,
-  balance: initialBalance,
+  balance: initialBalance = bn(0),
   balancePrecision = 3,
   value,
   units = DECIMAL_UNITS,
@@ -58,18 +84,30 @@ export const InputAmount: InputAmountComponent = ({
   ...props
 }) => {
   const formatOpts = { units, precision: units };
-  const [assetAmount, setAssetAmount] = useState<string>(
-    !value || value.eq(0) ? '' : value.format(formatOpts),
-  );
+  const format = safeFormat(formatOpts);
+  const [assetAmount, setAssetAmount] = useState<string>(() => format(value));
 
-  const balance = initialBalance ?? bn(initialBalance);
-  const formattedBalance = balance.format({
-    ...formatOpts,
-    precision: balance.eq(0) ? 1 : balancePrecision,
-  });
+  const balance = useMemo(() => {
+    try {
+      return safeBn(initialBalance ?? 0);
+    } catch (error) {
+      return bn(0);
+    }
+  }, [initialBalance]);
+  const formattedBalance = useMemo(() => {
+    try {
+      return format(balance, {
+        ...formatOpts,
+        precision: balance.eq(0) ? 1 : balancePrecision,
+      });
+    } catch (error) {
+      return '';
+    }
+  }, [balance, formatOpts]);
 
   useEffect(() => {
-    handleAmountChange(value ? value.format(formatOpts) : '');
+    if (!value) return;
+    handleAmountChange(format(value));
   }, [value?.toString()]);
 
   const handleAmountChange = (text: string) => {
@@ -86,7 +124,7 @@ export const InputAmount: InputAmountComponent = ({
 
   const handleSetBalance = () => {
     if (balance) {
-      handleAmountChange(balance.format(formatOpts));
+      handleAmountChange(format(balance));
     }
   };
 
@@ -171,7 +209,7 @@ export const InputAmount: InputAmountComponent = ({
       </Flex>
       <Box.Flex gap={'$2'}>
         {!hiddenBalance && (
-          <Tooltip content={format(balance, formatOpts)} sideOffset={-5}>
+          <Tooltip content={<span>{format(balance)}</span>} sideOffset={-5}>
             <Text
               fontSize="sm"
               aria-label={`Balance: ${formattedBalance}`}
