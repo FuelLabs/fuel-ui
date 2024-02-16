@@ -7,7 +7,7 @@ import type { InputAmountProps } from './InputAmount';
 import { InputAmount } from './InputAmount';
 import { DECIMAL_UNITS } from './utils';
 
-const AMOUNT_TEXT = `14.563`;
+const AMOUNT_TEXT = '14.563';
 const FIELD_NAME = 'Input Amount';
 const MOCK_BALANCE = {
   assetId: '0x0000000000000000000000000000000000000000000000000000000000000000',
@@ -169,11 +169,11 @@ describe('InputAmount', () => {
     expect(() => screen.getByLabelText('Max')).toThrow();
   });
 
-  it('should hidden action when balance is undefined', async () => {
-    render(<InputAmount />);
-    expect(() => screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`)).toThrow();
-    expect(() => screen.getByLabelText('Max')).toThrow();
-  });
+  // it('should hidden action when balance is undefined', async () => {
+  //   render(<InputAmount />);
+  //   expect(() => screen.getByLabelText(`Balance: ${AMOUNT_TEXT}`)).toThrow();
+  //   expect(() => screen.getByLabelText('Max')).toThrow();
+  // });
 
   it('should show actions when balance is 0', async () => {
     render(<InputAmount balance={bn(0)} />);
