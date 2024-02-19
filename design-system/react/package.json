@@ -36,7 +36,7 @@
     "generate:defs": "node scripts/create-defs.mjs"
   },
   "dependencies": {
-    "@fuel-ts/math": "^0.71.0",
+    "@fuel-ts/math": "0.74.0",
     "@fuel-ui/css": "workspace:*",
     "@fuel-ui/icons": "workspace:~",
     "@radix-ui/react-accordion": "^1.1.2",
