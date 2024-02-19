@@ -180,8 +180,8 @@ importers:
   design-system/react:
     dependencies:
       '@fuel-ts/math':
-        specifier: 0.0.0-next-20240216190157
-        version: 0.0.0-next-20240216190157
+        specifier: 0.74.0
+        version: 0.74.0
       '@fuel-ui/css':
         specifier: workspace:*
         version: link:../css
@@ -2657,24 +2657,24 @@ packages:
       tslib: 2.6.1
     dev: false
 
-  /@fuel-ts/errors@0.0.0-next-20240216190157:
-    resolution: {integrity: sha512-6I7RFUJ3CP7xttRtNghpt4DkzHuEGUOE7xb/FlmKrTamgy1iA5t3AYAcSLMB/aOUSq531TAipIImTY7X1Bzq4g==}
+  /@fuel-ts/errors@0.74.0:
+    resolution: {integrity: sha512-XPvp5kIz396QPLqQBQaa41lRzKMwEVe8wWYxO/KPqwqnVeWJf6rphxCmHrrx0QRLcNoN8YbAYsBBlNOWW4Iu8Q==}
     engines: {node: ^18.18.2 || ^20.0.0}
     dependencies:
-      '@fuel-ts/versions': 0.0.0-next-20240216190157
+      '@fuel-ts/versions': 0.74.0
     dev: false
 
-  /@fuel-ts/math@0.0.0-next-20240216190157:
-    resolution: {integrity: sha512-2ElzG6yxMlzgyeplzA1EXU7r3FwQtKf1LOhpFhkxMI3R1woefPiyFSKGDUFhYhGmLgVdWMDLuDWraFiHg3CoCA==}
+  /@fuel-ts/math@0.74.0:
+    resolution: {integrity: sha512-4Qw/VbYA/qq03UzeWofGLYj0W/M+0yO1hGmUyuM+2g/iNMFON21qXNQGBD4/g1QMqTA9n5F4cmfMIKPwnd0EKw==}
     engines: {node: ^18.18.2 || ^20.0.0}
     dependencies:
-      '@fuel-ts/errors': 0.0.0-next-20240216190157
+      '@fuel-ts/errors': 0.74.0
       '@types/bn.js': 5.1.1
       bn.js: 5.2.1
     dev: false
 
-  /@fuel-ts/versions@0.0.0-next-20240216190157:
-    resolution: {integrity: sha512-B2/5VLATKc/uo6YpjF0FhUeCNe4HZOn4tJ96V489BRMBfnJOJSR7+9dgX9B5fbw+pzLGOAsqu5qL0JHUrOSmqg==}
+  /@fuel-ts/versions@0.74.0:
+    resolution: {integrity: sha512-muzShy4h/L2d1OJUFTyQnElchCFk1FvUfJnXan5Ig+DgLgFybWz9jP4TAVl81/hbY7xcNAjcnIGZyv7VtPUr0Q==}
     engines: {node: ^18.18.2 || ^20.0.0}
     hasBin: true
     dependencies:
