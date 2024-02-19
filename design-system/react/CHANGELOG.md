@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.23.1
+
+### Patch Changes
+
+- 🐞 fix bn bug by updating the fuels sdk to 0.74.0, by [@luizstacio](https://github.com/luizstacio) (See [#336](https://github.com/FuelLabs/fuel-ui/pull/336))
+
 ## 0.23.0
 
 ### Minor Changes

@@ -1,5 +1,7 @@
 # @fuel-ui/css
 
+## 0.23.1
+
 ## 0.23.0
 
 ### Minor Changes
