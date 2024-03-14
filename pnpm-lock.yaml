@@ -144,16 +144,16 @@ importers:
       classnames:
         specifier: ^2.3.2
         version: 2.3.2
+    devDependencies:
+      '@fuel-stitches/react':
+        specifier: workspace:../../stitches/react
+        version: link:../../stitches/react
       react:
         specifier: ^18.2.0
         version: 18.2.0
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
-    devDependencies:
-      '@fuel-stitches/react':
-        specifier: workspace:../../stitches/react
-        version: link:../../stitches/react
 
   design-system/icons:
     dependencies:
@@ -248,18 +248,12 @@ importers:
       framer-motion:
         specifier: ^10.16.2
         version: 10.16.2(react-dom@18.2.0)(react@18.2.0)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
       react-aria:
         specifier: ^3.27.0
         version: 3.27.0(react-dom@18.2.0)(react@18.2.0)
       react-content-loader:
         specifier: ^6.2.1
         version: 6.2.1(react@18.2.0)
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
       react-hot-toast:
         specifier: ^2.4.1
         version: 2.4.1(react-dom@18.2.0)(react@18.2.0)
@@ -378,6 +372,12 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
       storybook:
         specifier: ^7.4.0
         version: 7.4.0
@@ -2715,11 +2715,6 @@ packages:
     resolution: {integrity: sha512-3tFCas6ayS0UiU+lLF7L6p6d9Eq8z599YxiJmBZXa837Q68BSrIjAXpQAyZnjCb3S+pgc04XwTwsPQ4+We3m8g==}
     peerDependencies:
       jest: ^29.6.4
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
     dependencies:
       '@ariakit/test': 0.2.2(@testing-library/dom@9.3.1)(@testing-library/react@14.0.0)(react@18.2.0)
       '@chakra-ui/utils': 2.0.15
@@ -8233,9 +8228,6 @@ packages:
 
   /ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependenciesMeta:
-      ajv:
-        optional: true
     dependencies:
       ajv: 8.12.0
     dev: true
