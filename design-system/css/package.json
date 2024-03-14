@@ -28,13 +28,13 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@radix-ui/colors": "^2.1.0",
+    "@radix-ui/colors": "2.1.0",
     "@fuel-ui/design-tokens": "workspace:*",
-    "classnames": "^2.3.2"
+    "classnames": "2.3.2"
   },
   "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "@fuel-stitches/react": "workspace:../../stitches/react"
   }
 }
