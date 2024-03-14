@@ -1,8 +1,8 @@
 /// <reference types="@storybook/types" />
-import type { BN } from '@fuel-ts/math';
-import { bn } from '@fuel-ts/math';
 import { action } from '@storybook/addon-actions';
 import type { StoryFn } from '@storybook/react';
+import type { BN } from 'fuels';
+import { bn } from 'fuels';
 import { useEffect, useState } from 'react';
 
 import { Box } from '../Box';

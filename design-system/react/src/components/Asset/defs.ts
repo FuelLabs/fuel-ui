@@ -1,4 +1,4 @@
-import type { BNInput } from '@fuel-ts/math';
+import type { BNInput } from 'fuels';
 import type { ComponentProps, ReactNode } from 'react';
 import type { Components } from '~/utils/components-list';
 import type { CreateComponent } from '~/utils/system';

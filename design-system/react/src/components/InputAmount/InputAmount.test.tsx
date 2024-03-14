@@ -1,6 +1,6 @@
-import type { BN } from '@fuel-ts/math';
-import { bn } from '@fuel-ts/math';
 import { fireEvent, render, screen, testA11y } from '@fuels/jest';
+import type { BN } from 'fuels';
+import { bn } from 'fuels';
 import { useState } from 'react';
 
 import type { InputAmountProps } from './InputAmount';
