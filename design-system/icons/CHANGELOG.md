@@ -1,5 +1,11 @@
 # @fuel-ui/icons
 
+## 0.23.2
+
+### Patch Changes
+
+- 🐞 fix: use exact versions and remove react instances from dependencies (keeping only as devDependency), by [@helciofranco](https://github.com/helciofranco) (See [#338](https://github.com/FuelLabs/fuel-ui/pull/338))
+
 ## 0.23.1
 
 ## 0.23.0
