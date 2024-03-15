@@ -1,7 +1,7 @@
-import type { BN } from '@fuel-ts/math';
-import { bn, format } from '@fuel-ts/math';
 import { cssObj } from '@fuel-ui/css';
 import type { PressEvent } from '@react-types/shared';
+import type { BN } from 'fuels';
+import { bn, format } from 'fuels';
 import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 

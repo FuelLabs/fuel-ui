@@ -1,4 +1,4 @@
-import { bn } from '@fuel-ts/math';
+import { bn } from 'fuels';
 
 export const DECIMAL_UNITS = 9;
 

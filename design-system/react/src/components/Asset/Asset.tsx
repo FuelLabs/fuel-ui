@@ -1,4 +1,4 @@
-import { bn } from '@fuel-ts/math';
+import { bn } from 'fuels';
 import { createContext, useContext } from 'react';
 import { useStyles } from '~/hooks';
 import { useStrictedChildren } from '~/hooks/useStrictedChildren';
