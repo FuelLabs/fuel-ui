@@ -72,7 +72,13 @@ export const Menu = createComponent<MenuProps, ObjProps>(
       <Box
         as="ul"
         {...mergeProps(menuProps, customProps)}
-        css={{ border: 'none', ...props.css }}
+        css={{
+          border: '$gray300',
+          borderWidth: 'thin',
+          borderStyle: 'solid',
+          borderRadius: '$md',
+          ...props.css,
+        }}
       >
         {children}
       </Box>
