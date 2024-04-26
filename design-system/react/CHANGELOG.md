@@ -1,5 +1,11 @@
 # @fuel-ui/react
 
+## 0.23.3
+
+### Patch Changes
+
+- Add `onClickMax` callback to ÌnputAmount component, by [@LuizAsFight](https://github.com/LuizAsFight) (See [#340](https://github.com/FuelLabs/fuel-ui/pull/340))
+
 ## 0.23.2
 
 ### Patch Changes
