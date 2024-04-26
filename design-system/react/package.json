@@ -1,6 +1,6 @@
 {
   "name": "@fuel-ui/react",
-  "version": "0.23.2",
+  "version": "0.23.3",
   "main": "./src/index.tsx",
   "publishConfig": {
     "access": "public",
@@ -36,8 +36,8 @@
     "generate:defs": "node scripts/create-defs.mjs"
   },
   "peerDependencies": {
-    "@fuel-ui/css": ">=0.23.2",
-    "@fuel-ui/icons": ">=0.23.2",
+    "@fuel-ui/css": ">=0.23.3",
+    "@fuel-ui/icons": ">=0.23.3",
     "fuels": ">=0.74.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
