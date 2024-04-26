@@ -33,6 +33,7 @@ export type InputAmountProps = Omit<InputProps, 'size'> & {
   value?: BN | null;
   onChange?: (val: BN | null) => void;
   onClickAsset?: (e: PressEvent) => void;
+  onClickMax?: () => void;
   /* Input props */
   inputProps?: InputNumberProps;
 };
@@ -55,6 +56,7 @@ export const InputAmount: InputAmountComponent = ({
   asset,
   assetTooltip,
   onClickAsset,
+  onClickMax,
   ...props
 }) => {
   const formatOpts = { units, precision: units };
@@ -85,6 +87,7 @@ export const InputAmount: InputAmountComponent = ({
   };
 
   const handleSetBalance = () => {
+    onClickMax?.();
     if (balance) {
       handleAmountChange(balance.format(formatOpts));
     }
