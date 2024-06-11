@@ -61,7 +61,7 @@ some global tools installed:
 | -------------------------------------------------------- | ------------------------------------ |
 | **[PNPM](https://pnpm.io/)**                             | Package Manager                      |
 | **[Turborepo](https://turborepo.org/)**                  | Monorepo management                  |
-| **[TSUP](https://tsup.egoist.dev/)**                      | Build Typescript libs using ESbuild  |
+| **[TSUP](https://tsup.egoist.dev/)**                     | Build Typescript libs using ESbuild  |
 | **[ESLint](https://eslint.org/)**                        | Lint Javascript and Typescript files |
 | **[Jest](https://jestjs.io/)**                           | Test runner                          |
 | **[Testing Library](https://testing-library.com/)**      | Testing library                      |
