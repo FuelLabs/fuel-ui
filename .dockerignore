@@ -1,0 +1,15 @@
+node_modules
+**/node_modules
+dist
+**/dist
+build
+**/build
+storybook-static
+**/storybook-static
+coverage
+**/coverage
+.turbo
+**/.turbo
+.git
+.vercel
+.env*
